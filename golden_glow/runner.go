@@ -77,8 +77,7 @@ func (b *Base) SetTemplateCore(f template.Core) error {
 func New(logger log.Logger, db storage.Repository) Engine {
 	//Default Config
 	var (
-		variableParser = variable.ToRawText
-		//TODO KVLite
+		variableParser  = variable.ToRawText
 		nRegulator      = node.NewRegulator(storage.NewKVLite(db))
 		nodeFactory     = node.NewFactory(variableParser, nRegulator)
 		fetcher, err    = container.NewFetcher(db, nodeFactory)
