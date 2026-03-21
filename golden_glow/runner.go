@@ -184,12 +184,8 @@ func (b *Base) Run(input node.Item) error {
 	return <-done
 }
 
-// TODO err
 func (b *Base) genKnots(n node.Item) ([]Knot, error) {
-	nSet, err := b.templateCore.Get(n)
-	if err != nil {
-		return nil, err
-	}
+	nSet, _ := b.templateCore.Get(n)
 	knots := make([]Knot, len(nSet))
 	for _, n := range nSet {
 		k, err := NewKnot(n, m.Hash{})
