@@ -255,7 +255,6 @@ func RegisterConfig(
 	return nil
 }
 
-// Register TODO handle error here and pass logger through context
 func (p *Base) Register(c Context) error {
 	return RegisterConfig(
 		c,
