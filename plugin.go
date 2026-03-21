@@ -1,5 +1,6 @@
 package main
 
+//TODO handler errs
 import (
 	"goldenglow/plugins"
 	betterspeak "goldenglow/plugins/betterSpeak"
@@ -30,10 +31,10 @@ func PluginRegister() {
 	// better speaker plugin
 	myPlugins.Register(func(ctx *plugins.Context) {
 		var (
-			newSpeaker = betterspeak.NewEngine(nil)
+			newSpeaker, err = betterspeak.NewEngine(nil)
 		)
 		scheduler.Collector(newSpeaker)
-		err := betterspeak.New(newSpeaker).Register(ctx)
+		err = betterspeak.New(newSpeaker).Register(ctx)
 		if err != nil {
 			return
 		}
