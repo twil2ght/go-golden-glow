@@ -52,16 +52,22 @@ func (j *JSONRepository) Init() {
 }
 
 func (j *JSONRepository) Save() error {
-	_ = os.MkdirAll(j.HDataPath, 0755)
-
-	data, err := json.MarshalIndent(j.HData, "", "  ")
+	if err := Save(j.HDataPath, j.HData); err != nil {
+		return err
+	}
+	if err := Save(j.DataPath, j.Data); err != nil {
+		return err
+	}
+	return nil
+}
+func Save(path string, Data any) error {
+	_ = os.MkdirAll(path, 0755)
+	data, err := json.MarshalIndent(Data, "", "  ")
 	if err != nil {
 		return err
 	}
-
-	return os.WriteFile(j.HDataPath, data, 0644)
+	return os.WriteFile(path, data, 0644)
 }
-
 func NewJSONRepo(HDataPath, DataPath string) HashRepository {
 	if HDataPath == "" {
 		HDataPath = DefaultJSONHDataPath
