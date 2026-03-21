@@ -2,6 +2,7 @@ package goldenglow
 
 //TODO docs
 import (
+	"errors"
 	"fmt"
 	"goldenglow/container"
 	"goldenglow/m"
@@ -221,12 +222,12 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 	nextKnots := make([]Knot, 0, len(knots))
 
 	for _, Item := range knots {
-		cHashMap, err := b.doTrigger(Item.Trigger())
+		cHashMap, err := b.processTrigger(Item.Trigger())
 		if err != nil {
 
 		}
 		for hashValue := range cHashMap {
-			knots, err := b.doContainer(hashValue, Item)
+			knots, err := b.processContainer(hashValue, Item)
 			if err != nil {
 			}
 			nextKnots = append(nextKnots, knots...)
@@ -236,21 +237,21 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 	return nextKnots, nil
 }
 
-// TODO  node.Execute
-func (b *Base) doTrigger(n node.Item) (m.Hash, error) {
+func (b *Base) processTrigger(n node.Item) (m.Hash, error) {
+	var errGroup []error
 	n.SetState(true)
 	err := n.Execute()
 	if err != nil {
-
+		errGroup = append(errGroup, err)
 	}
 	cHashMap, err := b.containerFactory.Positioner().ContainerOf(n)
 	if err != nil {
-
+		errGroup = append(errGroup, err)
 	}
-	return cHashMap, nil
+	return cHashMap, errors.Join(errGroup...)
 }
 
-func (b *Base) doContainer(hashValue string, T Knot) ([]Knot, error) {
+func (b *Base) processContainer(hashValue string, T Knot) ([]Knot, error) {
 	c, err := b.containerFactory.New(hashValue)
 	if err != nil {
 		return nil, err
@@ -260,14 +261,14 @@ func (b *Base) doContainer(hashValue string, T Knot) ([]Knot, error) {
 		return nil, err
 	}
 	triggers := c.RNode()
-	var knots = make([]Knot, len(triggers))
+	var knots = make([]Knot, 0, len(triggers))
 
 	for _, t := range triggers {
 		visited := make(map[string]struct{}, len(T.Trace()))
 		maps.Copy(visited, T.Trace())
 		k, err := NewKnot(t, m.Hash{})
-		//TODO err
 		if err != nil {
+			continue
 		}
 		knots = append(knots, k)
 	}
