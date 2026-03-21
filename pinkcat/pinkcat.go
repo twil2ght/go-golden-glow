@@ -13,16 +13,12 @@ type Decorator func(string) string
 type Runner interface {
 	Run(node node.Item) error
 }
-type Source interface {
-	Read() string
-}
 type Opt func(*Engine)
 type Engine struct {
 	userID      int
 	runner      Runner
 	IsRunning   bool
 	RunningMu   *sync.Mutex
-	source      Source
 	Decorator   Decorator
 	Validator   Decorator
 	nodeFactory node.Factory
@@ -62,8 +58,7 @@ func (e *Engine) GetValidator() Decorator {
 func (e *Engine) GetUserID() int {
 	return e.userID
 }
-func (e *Engine) Run() error {
-	input := e.source.Read()
+func (e *Engine) Run(input string) error {
 	input = e.ValidateInput(input)
 	input = e.DecorateInput(input)
 	initialNode, err := e.nodeFactory.New(input)
