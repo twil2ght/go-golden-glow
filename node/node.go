@@ -40,11 +40,10 @@ func (b *Base) Parse() (m.H, error) {
 	return nil, nil
 }
 
-// TODO err
 func (b *Base) ToText() (string, error) {
 	e, err := b.parser(b.val, b.variables, true)
 	if err != nil {
-
+		return "", fmt.Errorf("%s parser error: %v", b.val, err)
 	}
 	return b.regulator.Do(e), nil
 }
