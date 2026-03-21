@@ -210,11 +210,11 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			continue
 		}
 		Item.Trace()[b.containerFactory.Encoder().Do(Item.Trigger().Value())] = struct{}{}
-		templKnots, err := b.genKnots(Item.Trigger())
+		templateKnots, err := b.genKnots(Item.Trigger())
 		if err != nil {
 
 		}
-		nextKnots = append(nextKnots, templKnots...)
+		nextKnots = append(nextKnots, templateKnots...)
 
 	}
 
