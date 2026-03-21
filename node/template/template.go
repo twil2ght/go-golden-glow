@@ -1,6 +1,7 @@
 package template
 
 import (
+	"fmt"
 	"goldenglow/node"
 	"goldenglow/variable"
 	"regexp"
@@ -24,11 +25,17 @@ type core struct {
 	varReg *regexp.Regexp
 }
 
-func New(source Source, varReg *regexp.Regexp) Core {
+func New(source Source, varReg *regexp.Regexp) (Core, error) {
+	if source == nil {
+		return nil, fmt.Errorf("template core init: source is nil")
+	}
+	if varReg == nil {
+		return nil, fmt.Errorf("template core init: varReg is nil")
+	}
 	return &core{
 		source: source,
 		varReg: varReg,
-	}
+	}, nil
 }
 
 func (c *core) Get(tar node.Item) (node.Set, error) {
