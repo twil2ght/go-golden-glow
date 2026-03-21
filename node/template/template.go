@@ -116,10 +116,9 @@ func (c *core) toSpecific(target node.Item, templates node.Set) node.Set {
 
 	for key, n := range templates {
 		if ok, vars := c.matchTemplate(target.Value(), n.Value()); ok {
-			// TODO err
 			err := n.SetVariable(vars)
 			if err != nil {
-				return nil
+				continue
 			}
 			matches[key] = n
 		}
