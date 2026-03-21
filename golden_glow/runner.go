@@ -220,21 +220,25 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 }
 func (b *Base) consume(knots []Knot) ([]Knot, error) {
 	nextKnots := make([]Knot, 0, len(knots))
+	var errs []error
 
 	for _, Item := range knots {
 		cHashMap, err := b.processTrigger(Item.Trigger())
 		if err != nil {
-
+			errs = append(errs, err)
+			continue
 		}
 		for hashValue := range cHashMap {
 			knots, err := b.processContainer(hashValue, Item)
 			if err != nil {
+				errs = append(errs, err)
+				continue
 			}
 			nextKnots = append(nextKnots, knots...)
 		}
 	}
 
-	return nextKnots, nil
+	return nextKnots, errors.Join(errs...)
 }
 
 func (b *Base) processTrigger(n node.Item) (m.Hash, error) {
