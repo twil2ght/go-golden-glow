@@ -67,10 +67,13 @@ func (r *regulator) Do(str string) string {
 	}
 	return strings.Join(res, " ")
 }
-func NewRegulator(db storage.KVLite) Regulator {
+func NewRegulator(db storage.KVLite) (Regulator, error) {
+	if db == nil {
+		return nil, fmt.Errorf("regulator init: db is nil")
+	}
 	return &regulator{
 		db: db,
-	}
+	}, nil
 }
 
 type Registry interface {
@@ -91,13 +94,19 @@ type factory struct {
 	registries map[string]Creator
 }
 
-func NewFactory(p variable.Parser, r Regulator) Factory {
+func NewFactory(p variable.Parser, r Regulator) (Factory, error) {
+	if r == nil {
+		return nil, fmt.Errorf("factory init: Regulator is nil")
+	}
+	if p == nil {
+		return nil, fmt.Errorf("factory init: parser is nil")
+	}
 	return &factory{
 		parser:     p,
 		regulator:  r,
 		pool:       make(Set),
 		registries: make(map[string]Creator),
-	}
+	}, nil
 }
 func (f *factory) New(val string) (Item, error) {
 	if val == "" {
