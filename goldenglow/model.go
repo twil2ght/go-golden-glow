@@ -1,5 +1,6 @@
 package goldenglow
 
+//TODO need migration;types Only!!!
 import (
 	"goldenglow/node"
 	"goldenglow/pkg/log"
