@@ -20,6 +20,10 @@ type JSONRepository struct {
 	Data      map[string]string
 }
 
+func (j *JSONRepository) Shutdown() error {
+	return j.Save()
+}
+
 func (j *JSONRepository) Get(key string) (string, error) {
 	if value, ok := j.Data[key]; ok {
 		return value, nil

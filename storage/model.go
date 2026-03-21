@@ -10,6 +10,7 @@ type KVLite interface {
 type Repository interface {
 	HashRepository
 	LightRepository
+	Shutdown() error
 }
 type HashRepository interface {
 	HGet(tag string) (m.Hash, error)
