@@ -1,6 +1,5 @@
 package main
 
-//TODO handler errs
 import (
 	"goldenglow/plugins"
 	betterspeak "goldenglow/plugins/betterSpeak"
@@ -19,7 +18,7 @@ func PluginRegister() {
 		)
 		err := checker.NewChecker(CHECKS).Register(ctx)
 		if err != nil {
-			return
+			panic(err)
 		}
 
 		CHECKS.Register(
@@ -36,7 +35,7 @@ func PluginRegister() {
 		scheduler.Collector(newSpeaker)
 		err = betterspeak.New(newSpeaker).Register(ctx)
 		if err != nil {
-			return
+			panic(err)
 		}
 
 	})
@@ -45,7 +44,7 @@ func PluginRegister() {
 	myPlugins.Register(func(ctx *plugins.Context) {
 		err := dictionary.New(dictionary.NewEngine(dictionary.FilePath)).Register(ctx)
 		if err != nil {
-			return
+			panic(err)
 		}
 	})
 	myPlugins.RegisterHook(dictionary.ShutDown)
@@ -54,7 +53,7 @@ func PluginRegister() {
 	myPlugins.Register(func(ctx *plugins.Context) {
 		err := pack.New(pack.NewEngine(nil)).Register(ctx)
 		if err != nil {
-			return
+			panic(err)
 		}
 	})
 
@@ -62,7 +61,7 @@ func PluginRegister() {
 	myPlugins.Register(func(ctx *plugins.Context) {
 		err := timer.New(timer.NewEngine()).Register(ctx)
 		if err != nil {
-			return
+			panic(err)
 		}
 	})
 
@@ -70,7 +69,7 @@ func PluginRegister() {
 	myPlugins.Register(func(ctx *plugins.Context) {
 		err := kv.New(&kv.Engine{}).Register(ctx)
 		if err != nil {
-			return
+			panic(err)
 		}
 	})
 }
