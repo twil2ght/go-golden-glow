@@ -1,0 +1,6 @@
+*.log
+*.pb
+*.idea
+scripts/
+*.json
+/.idea/
