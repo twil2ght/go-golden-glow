@@ -1,4 +1,4 @@
-package goldenglow
+package runner
 
 //TODO docs
 import (
@@ -42,7 +42,7 @@ func NewKnot(t node.Item, trace m.Hash) (Knot, error) {
 	}, nil
 }
 
-type Engine interface {
+type Instance interface {
 	Run(node node.Item) error
 }
 
@@ -75,7 +75,7 @@ func (b *Base) SetTemplateCore(f template.Core) error {
 	return fmt.Errorf("Base.SetTemplateCore")
 }
 
-func New(logger log.Logger, db storage.Repository) Engine {
+func New(logger log.Logger, db storage.Repository) Instance {
 	// Default Config
 	var (
 		variableParser = variable.ToRawText
