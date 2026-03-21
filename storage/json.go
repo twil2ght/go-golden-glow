@@ -3,6 +3,7 @@ package storage
 import (
 	"encoding/json"
 	"goldenglow/m"
+	"goldenglow/pkg/log"
 	"os"
 )
 
@@ -20,13 +21,15 @@ type JSONRepository struct {
 }
 
 func (j *JSONRepository) Get(key string) (string, error) {
-	//TODO implement me
-	panic("implement me")
+	if value, ok := j.Data[key]; ok {
+		return value, nil
+	}
+	return "", log.NotFound(key)
 }
 
 func (j *JSONRepository) Set(key, value string) error {
-	//TODO implement me
-	panic("implement me")
+	j.Data[key] = value
+	return nil
 }
 
 func (j *JSONRepository) HSet(tag string, value m.Hash) error {
