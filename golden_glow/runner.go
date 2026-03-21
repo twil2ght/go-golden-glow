@@ -197,21 +197,22 @@ func (b *Base) genKnots(n node.Item) ([]Knot, error) {
 	return knots, nil
 }
 
-// TODO err
 func (b *Base) produce(knots []Knot) ([]Knot, error) {
 	nextKnots := make([]Knot, 0, len(knots))
 
 	for _, Item := range knots {
-		if _, ok := Item.Trace()[b.containerFactory.Encoder().Do(Item.Trigger().Value())]; ok {
+		var (
+			encoder   = b.containerFactory.Encoder()
+			nodeValue = Item.Trigger().Value()
+			encoded   = encoder.Do(nodeValue)
+		)
+		if _, ok := Item.Trace()[encoded]; ok {
 			continue
 		}
-		Item.Trace()[b.containerFactory.Encoder().Do(Item.Trigger().Value())] = struct{}{}
-		templateKnots, err := b.genKnots(Item.Trigger())
-		if err != nil {
+		Item.Trace()[encoded] = struct{}{}
+		templateKnots, _ := b.genKnots(Item.Trigger())
 
-		}
 		nextKnots = append(nextKnots, templateKnots...)
-
 	}
 
 	return nextKnots, nil
