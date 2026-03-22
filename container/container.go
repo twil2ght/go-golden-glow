@@ -6,7 +6,6 @@ import (
 	"goldenglow/node"
 	"goldenglow/pkg/log"
 	"goldenglow/variable"
-	"strings"
 )
 
 type Item interface {
@@ -99,31 +98,44 @@ func (b *Base) ParseTrigger(T node.Item) error {
 	}
 	T.SetState(true)
 	var (
-		varbs     = make(variable.Set, len(T.Variables()))
-		parts     = strings.Fields(T.Value())
-		partsDist = strings.Fields(dist.Value())
+		varbs = make(variable.Set, len(T.Variables()))
+		//TODO need DI reg
+		// 正则提取 T.Value() 里的所有 ${变量}
+		tMatches = variable.VarReg.FindAllStringSubmatch(T.Value(), -1)
+		// 正则提取 dist.Value() 里的所有 ${变量}
+		dMatches = variable.VarReg.FindAllStringSubmatch(dist.Value(), -1)
 	)
 
-	if len(parts) != len(partsDist) {
-		return fmt.Errorf("parseTrigger:len(%d)!=len(%d)", len(parts), len(partsDist))
+	// 数量必须一一对应
+	if len(tMatches) != len(dMatches) {
+		return fmt.Errorf("parseTrigger: variable count mismatch: %d != %d", len(tMatches), len(dMatches))
 	}
 
-	for i, token := range partsDist {
-		if variable.Is(token) {
-			varKey := parts[i]
-			prevVar := T.Variables()[varKey]
-
-			if !variable.Is(varKey) {
-				return fmt.Errorf("parseTrigger: %s Not Variable", varKey)
-			}
-
-			if prevVar == nil {
-				return log.NotFound("parseTrigger: variable:" + varKey)
-			}
-
-			newVar := variable.New(token, prevVar.Value())
-			varbs[token] = newVar
+	// 遍历所有匹配到的变量
+	for i, dMatch := range dMatches {
+		if len(dMatch) < 2 {
+			continue
 		}
+		// 提取变量名：dMatch[0] = ${var}, dMatch[1] = var
+		token := dMatch[1]
+		if !variable.Is(token) {
+			continue
+		}
+
+		// 取出对应位置的 key
+		if i >= len(tMatches) || len(tMatches[i]) < 2 {
+			return fmt.Errorf("parseTrigger: invalid variable at index %d", i)
+		}
+		varKey := tMatches[i][1]
+
+		// 你原来的逻辑完全不变
+		prevVar := T.Variables()[varKey]
+		if prevVar == nil {
+			return log.NotFound("parseTrigger: variable:" + varKey)
+		}
+
+		newVar := variable.New(token, prevVar.Value())
+		varbs[token] = newVar
 	}
 	err = b.setVariable(varbs)
 	if err != nil {
