@@ -3,9 +3,8 @@ package storage
 import "goldenglow/m"
 
 type KVLite interface {
-	Get(key string) (string, error)
+	LightRepository
 	Keyof(value string) (string, error)
-	Set(key, value string) error
 }
 type Repository interface {
 	HashRepository
