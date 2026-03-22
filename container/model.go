@@ -21,7 +21,7 @@ const (
 	TypeR     = "R"
 )
 
-type Database interface {
+type Repository interface {
 	HGet(tag string) (m.Hash, error)
 	HSet(tag string, value m.Hash) error
 }
@@ -38,7 +38,7 @@ type Store interface {
 	Do(tv, rv m.Hash) error
 }
 type store struct {
-	db      Database
+	db      Repository
 	encoder node.Encoder
 }
 
@@ -129,7 +129,7 @@ func sortedKeys(m map[string]struct{}) string {
 	return strings.Join(keys, ",")
 }
 
-func NewStore(db Database, encoder node.Encoder) Store {
+func NewStore(db Repository, encoder node.Encoder) Store {
 	return &store{
 		db:      db,
 		encoder: encoder,

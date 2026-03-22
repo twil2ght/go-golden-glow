@@ -8,7 +8,7 @@ import (
 )
 
 type positioner struct {
-	db      Database
+	db      Repository
 	encoder node.Encoder
 }
 
@@ -22,7 +22,7 @@ func (p *positioner) ContainerOf(node node.Item) (m.Hash, error) {
 	}
 	return hashValue, nil
 }
-func NewPositioner(db Database, encoder node.Encoder) (Positioner, error) {
+func NewPositioner(db Repository, encoder node.Encoder) (Positioner, error) {
 	head := "positioner init"
 	if encoder == nil {
 		return nil, fmt.Errorf("%s: encoder is nil", head)

@@ -6,7 +6,7 @@ import (
 )
 
 type fetcher struct {
-	db       Database
+	db       Repository
 	nFactory node.Factory
 }
 
@@ -42,7 +42,7 @@ func (f *fetcher) toNode(tag string) (node.Set, error) {
 
 	return nodes, nil
 }
-func NewFetcher(db Database, f node.Factory) (Fetcher, error) {
+func NewFetcher(db Repository, f node.Factory) (Fetcher, error) {
 	head := "Fetcher init"
 	if f == nil {
 		return nil, fmt.Errorf("%s: node factory is nil", head)
