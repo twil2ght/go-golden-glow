@@ -4,26 +4,11 @@ package plugins
 import (
 	"goldenglow/m"
 	"goldenglow/node"
-	"goldenglow/pinkcat"
 	"goldenglow/plugin"
-	"sync"
 )
 
-type Runner interface {
-	Run() error
-	RunningState() bool
-	GetLock() *sync.Mutex
-	GetUserID() int
-	SetDecorator(pinkcat.Decorator)
-	SetValidator(pinkcat.Decorator)
-	SetRunningState(bool)
-	GetDecorator() pinkcat.Decorator
-	GetValidator() pinkcat.Decorator
-}
 type Context struct {
-	Runner Runner
-	UserID int
-	data   m.H
+	data m.H
 }
 
 func (c *Context) Get() m.H {
@@ -50,17 +35,12 @@ type registry struct {
 }
 
 func DefaultCTX() *Context {
-	return &Context{
-		UserID: 0,
-	}
+	return &Context{}
 }
 func (c *registry) Init(options ...Opt) {
 	ctx := DefaultCTX()
 	for _, opt := range options {
 		opt(ctx)
-	}
-	if ctx.Runner == nil {
-		panic("invalid runner")
 	}
 	for _, caller := range c.Registries {
 		if caller != nil {
@@ -86,16 +66,6 @@ func (c *registry) RegisterHook(hook Hook) {
 		return
 	}
 	c.ShutdownHooks = append(c.ShutdownHooks, hook)
-}
-func WithRunner(r Runner) Opt {
-	return func(ctx *Context) {
-		ctx.Runner = r
-	}
-}
-func WithUserID(userID int) Opt {
-	return func(ctx *Context) {
-		ctx.UserID = userID
-	}
 }
 func WithLangRegistry(core plugin.LangRegistry) Opt {
 	return func(ctx *Context) {
