@@ -11,6 +11,8 @@ type LangItem interface {
 }
 
 type LangGroup []LangItem
+type LangGenerator interface {
+}
 type Parameters map[string]string
 type ExecuteHandler func(params Parameters) error
 
