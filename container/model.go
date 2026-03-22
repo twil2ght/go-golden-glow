@@ -28,34 +28,6 @@ type Database interface {
 type Positioner interface {
 	ContainerOf(external node.Item) (m.Hash, error)
 }
-type positioner struct {
-	db      Database
-	encoder node.Encoder
-}
-
-func (p *positioner) ContainerOf(node node.Item) (m.Hash, error) {
-	var (
-		tag = prefixT2C + p.encoder.Do(node.Value())
-	)
-	hashValue, err := p.db.HGet(tag)
-	if err != nil {
-		return nil, fmt.Errorf("positioner: %w", log.NotFound(tag))
-	}
-	return hashValue, nil
-}
-func NewPositioner(db Database, encoder node.Encoder) (Positioner, error) {
-	head := "positioner init"
-	if encoder == nil {
-		return nil, fmt.Errorf("%s: encoder is nil", head)
-	}
-	if db == nil {
-		return nil, fmt.Errorf("%s: db is nil", head)
-	}
-	return &positioner{
-		db:      db,
-		encoder: encoder,
-	}, nil
-}
 
 type Fetcher interface {
 	TNode(hashValue string) (node.Set, error)
