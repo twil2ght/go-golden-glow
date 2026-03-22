@@ -1,5 +1,6 @@
 package plugins
 
+//TODO del the trash:Runner;use real parameters instead of map[string]any
 import (
 	"goldenglow/m"
 	"goldenglow/node"
