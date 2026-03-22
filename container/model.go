@@ -35,14 +35,14 @@ type Fetcher interface {
 }
 
 type Store interface {
-	Do(tv, rv m.Hash) error
+	Save(tv, rv m.Hash) error
 }
 type store struct {
 	db      Repository
 	encoder node.Encoder
 }
 
-func (s *store) Do(tv, rv m.Hash) error {
+func (s *store) Save(tv, rv m.Hash) error {
 	head := "store"
 
 	hashKey := s.generateHash(tv, rv)

@@ -79,7 +79,7 @@ func (lc *baseLangRegistry) Init() error {
 	head := "lang registry"
 	for _, group := range lc.LangAPI {
 		for _, rule := range group {
-			err := lc.store.Do(m.ToHash(rule.TV), m.ToHash(rule.RV))
+			err := lc.store.Save(m.ToHash(rule.TV), m.ToHash(rule.RV))
 			if err != nil {
 				return fmt.Errorf("%s: %s", head, err)
 			}

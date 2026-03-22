@@ -54,7 +54,7 @@ func (p *Engine) closePack() {
 	condit := p.pack[len(p.pack)-1]
 	res := p.pack[:len(p.pack)-1]
 
-	p.store.Do(m.ToHash([]string{condit}), m.ToHash(res))
+	p.store.Save(m.ToHash([]string{condit}), m.ToHash(res))
 	p.pack = nil
 }
 
@@ -66,7 +66,7 @@ func (p *Engine) closeBackpack() {
 	res := p.backpack[len(p.backpack)-1]
 	condit := p.backpack[:len(p.backpack)-1]
 
-	p.store.Do(m.ToHash(condit), m.ToHash([]string{res}))
+	p.store.Save(m.ToHash(condit), m.ToHash([]string{res}))
 	p.backpack = nil
 }
 
