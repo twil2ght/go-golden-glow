@@ -13,39 +13,39 @@ const (
 	DefaultJSONDataPath  = DefaultJSONPathRoot + "/Data.json"
 )
 
-type JSONRepository struct {
+type jsonRepository struct {
 	DataPath  string
 	HDataPath string
 	HData     map[string]m.Hash
 	Data      map[string]string
 }
 
-func (j *JSONRepository) Shutdown() error {
+func (j *jsonRepository) Shutdown() error {
 	return j.Save()
 }
 
-func (j *JSONRepository) Get(key string) (string, error) {
+func (j *jsonRepository) Get(key string) (string, error) {
 	if value, ok := j.Data[key]; ok {
 		return value, nil
 	}
 	return "", log.NotFound(key)
 }
 
-func (j *JSONRepository) Set(key, value string) error {
+func (j *jsonRepository) Set(key, value string) error {
 	j.Data[key] = value
 	return nil
 }
 
-func (j *JSONRepository) HSet(tag string, value m.Hash) error {
+func (j *jsonRepository) HSet(tag string, value m.Hash) error {
 	j.HData[tag] = value
 	return nil
 }
 
-func (j *JSONRepository) HGet(tag string) (m.Hash, error) {
+func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 	return j.HData[tag], nil
 }
 
-func (j *JSONRepository) Init() {
+func (j *jsonRepository) Init() {
 	j.HData = make(map[string]m.Hash)
 	// 如果文件不存在，直接返回（后续Save会创建）
 	if _, err := os.Stat(j.HDataPath); os.IsNotExist(err) {
@@ -55,7 +55,7 @@ func (j *JSONRepository) Init() {
 	_ = json.Unmarshal(file, &j.HData)
 }
 
-func (j *JSONRepository) Save() error {
+func (j *jsonRepository) Save() error {
 	if err := Save(j.HDataPath, j.HData); err != nil {
 		return err
 	}
@@ -79,7 +79,7 @@ func NewJSONRepo(HDataPath, DataPath string) HashRepository {
 	if DataPath == "" {
 		DataPath = DefaultJSONDataPath
 	}
-	repo := &JSONRepository{
+	repo := &jsonRepository{
 		HDataPath: HDataPath,
 		DataPath:  DataPath,
 	}
