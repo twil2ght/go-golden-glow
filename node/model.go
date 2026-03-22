@@ -12,6 +12,9 @@ type Checkable interface {
 type Extractable interface {
 	Extract() (variable.Item, error)
 }
+type VarReplacer interface {
+	ReplaceAllStringFunc(src string, repl func(string) string) string
+}
 type Encoder interface {
 	Do(nodeValue string) string
 	Match(nv1, nv2 string) bool

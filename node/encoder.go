@@ -5,10 +5,22 @@ import (
 	"goldenglow/variable"
 )
 
-type templateEncoder struct{}
+type templateEncoder struct {
+	varReplacer VarReplacer
+}
 
 func DefaultEncoder() Encoder {
-	return &templateEncoder{}
+	return &templateEncoder{
+		varReplacer: variable.VarReg,
+	}
+}
+func NewEncoder(varReplacer VarReplacer) (Encoder, error) {
+	if varReplacer == nil {
+		return nil, fmt.Errorf("encoder init:varReplacer is nil")
+	}
+	return &templateEncoder{
+		varReplacer: varReplacer,
+	}, nil
 }
 func (e *templateEncoder) Match(a, b string) bool {
 	return e.Do(a) == e.Do(b)
@@ -21,7 +33,7 @@ func (e *templateEncoder) Do(tpl string) string {
 		suffix = "]"
 	)
 
-	return variable.VarReg.ReplaceAllStringFunc(tpl, func(rawVar string) string {
+	return e.varReplacer.ReplaceAllStringFunc(tpl, func(rawVar string) string {
 		// 命中缓存：同一个变量，返回同一个标记
 		if alias, ok := seen[rawVar]; ok {
 			return alias
