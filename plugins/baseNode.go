@@ -13,7 +13,7 @@ type baseNode struct {
 
 const (
 	KeyNamespace = "namespace"
-	KeyDefault   = "node"
+	KeyDefault   = "[node]"
 )
 
 func (d *baseNode) Execute() error {
