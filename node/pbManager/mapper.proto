@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-option go_package = "./;pbmanager";
-//
-message DynamicMapper {
-  map<string,string> data=1;
-}
-
