@@ -10,7 +10,6 @@ type LangItem interface {
 	Get() (tv, rv m.Hash)
 }
 
-// LangGroup TODO
 type LangGroup []LangItem
 type Parameters map[string]string
 type ExecuteHandler func(params Parameters) error
