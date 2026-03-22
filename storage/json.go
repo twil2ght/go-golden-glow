@@ -72,7 +72,7 @@ func Save(path string, Data any) error {
 	}
 	return os.WriteFile(path, data, 0644)
 }
-func NewJSONRepo(HDataPath, DataPath string) HashRepository {
+func NewJSONRepo(HDataPath, DataPath string) Repository {
 	if HDataPath == "" {
 		HDataPath = DefaultJSONHDataPath
 	}
