@@ -2,18 +2,17 @@ package node
 
 import (
 	"fmt"
-	"goldenglow/storage"
 	"strings"
 )
 
 type regulator struct {
-	db storage.KVLite
+	repo LightRepository
 }
 
 func (r *regulator) Do(str string) string {
 	res := make([]string, 0)
 	for t := range strings.FieldsSeq(str) {
-		if key, err := r.db.Get(t); err == nil {
+		if key, err := r.repo.Get(t); err == nil {
 			res = append(res, key)
 		} else {
 			res = append(res, t)
@@ -21,11 +20,11 @@ func (r *regulator) Do(str string) string {
 	}
 	return strings.Join(res, " ")
 }
-func NewRegulator(db storage.KVLite) (Regulator, error) {
-	if db == nil {
-		return nil, fmt.Errorf("regulator init: db is nil")
+func NewRegulator(repo LightRepository) (Regulator, error) {
+	if repo == nil {
+		return nil, fmt.Errorf("regulator init: repo is nil")
 	}
 	return &regulator{
-		db: db,
+		repo: repo,
 	}, nil
 }

@@ -16,7 +16,9 @@ type Encoder interface {
 	Do(nodeValue string) string
 	Match(nv1, nv2 string) bool
 }
-
+type LightRepository interface {
+	Get(key string) (string, error)
+}
 type Regulator interface {
 	Do(nodeValue string) string
 }
