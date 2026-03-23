@@ -2,6 +2,7 @@ package plugins
 
 import (
 	"fmt"
+	"goldenglow/dataGen"
 	"goldenglow/plugin"
 )
 
@@ -9,6 +10,7 @@ type registry struct {
 	plugins []Item
 	exeReg  ExecuteRegistry
 	langReg plugin.LangRegistry
+	dataGen dataGen.DataGen
 }
 
 func (r *registry) Register(plugin Item) error {
