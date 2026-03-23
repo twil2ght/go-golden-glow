@@ -6,10 +6,6 @@ import (
 	"goldenglow/node"
 )
 
-type LangItem interface {
-	Get() (tv, rv m.Hash)
-}
-type LangGroup []LangItem
 type Parameters map[string]string
 type ExecuteHandler func(params Parameters) error
 
@@ -21,7 +17,7 @@ type LangRepo interface {
 	Save(tv, rv m.Hash) error
 }
 type LangRegistry interface {
-	Register(name string, item LangGroup) error
+	Register(pluginName string) error //传pluginName去找data路径
 	RunAll() error
 }
 type Item interface {
