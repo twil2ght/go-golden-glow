@@ -1,17 +1,23 @@
 package plugins
 
-type basePlugin struct {
+import (
+	"goldenglow/lang"
+)
+
+type base struct {
 	name string
 }
 
-func (b *basePlugin) Cleanup() {}
-
-func (b *basePlugin) Setup() {}
-
-func (b *basePlugin) Name() string {
-	return b.name
+func (b *base) OnRegisterLang(langRegistry lang.Registry) error {
+	return langRegistry.Register(b.name)
 }
 
-func (b *basePlugin) ExecuteHandler() ExecuteHandler {
-	panic(b.name + ":ExecuteHandler not implemented")
+func (b *base) Setup() error {
+	return nil
+}
+
+func (b *base) Cleanup() {}
+
+func (b *base) Name() string {
+	return b.name
 }
