@@ -1,5 +1,6 @@
 package plugins
 
+//TODO Node的注册器需要更改
 import (
 	"fmt"
 	"goldenglow/dataGen"
