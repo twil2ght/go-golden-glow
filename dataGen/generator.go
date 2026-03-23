@@ -21,7 +21,7 @@ func NewGenerator(pluginName string) Generator {
 	}
 }
 
-func (l *genBase) Register(langName string, langItem Item) {
+func (l *genBase) Add(langName string, langItem Item) {
 	if langItem == nil {
 		return
 	}
