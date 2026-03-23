@@ -1,15 +1,11 @@
 package plugins
 
 import (
-	"goldenglow/node"
 	"goldenglow/plugin"
 )
 
 type basePlugin struct {
-	name        string
-	langAPI     plugin.TRGroup
-	defaultNode node.Item
-	paramLen    int
+	name string
 }
 
 func (b *basePlugin) Shutdown() {}
