@@ -5,9 +5,9 @@ import (
 )
 
 type language struct {
+	tv, rv m.Hash
 }
 
 func (l *language) Get() (tv, rv m.Hash) {
-	//TODO implement me
-	panic("implement me")
+	return l.tv, l.rv
 }
