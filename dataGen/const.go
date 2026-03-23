@@ -1,10 +1,10 @@
 package dataGen
 
 const (
-	langTypeDefault LangType = "default"
-	langTypeCheck   LangType = "check"
-	langTypeExtract LangType = "extract"
-	RootDir                  = "../../data/"
+	LangTypeDefault LangType = "default"
+	LangTypeCheck   LangType = "check"
+	LangTypeExtract LangType = "extract"
+	rootDir                  = "../../data/"
 	jsonExt                  = ".json"
-	KeyDefault               = "[node]"
+	keyDefault               = "[node]"
 )
