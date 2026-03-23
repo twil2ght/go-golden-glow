@@ -3,16 +3,22 @@ package container
 import (
 	"errors"
 	"goldenglow/node"
+	"regexp"
 )
 
 type factory struct {
 	encoder    node.Encoder
 	fetcher    Fetcher
 	positioner Positioner
+	varReg     *regexp.Regexp
+}
+
+func (f *factory) WithVarReg(variableReg *regexp.Regexp) {
+	f.varReg = variableReg
 }
 
 func (f *factory) New(hashValue string) (Item, error) {
-	return New(hashValue, f.fetcher, f.encoder)
+	return New(hashValue, f.fetcher, f.encoder, f.varReg)
 }
 func NewFactory(fetcher Fetcher, encoder node.Encoder, p Positioner) (Factory, error) {
 	if fetcher == nil {

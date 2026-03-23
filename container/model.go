@@ -3,6 +3,7 @@ package container
 import (
 	"goldenglow/m"
 	"goldenglow/node"
+	"regexp"
 )
 
 const (
@@ -35,4 +36,5 @@ type Factory interface {
 	New(hashValue string) (Item, error)
 	Encoder() node.Encoder
 	Positioner() Positioner
+	WithVarReg(variableReg *regexp.Regexp)
 }

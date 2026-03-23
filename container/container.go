@@ -213,7 +213,7 @@ func (b *Base) findT(target node.Item, set node.Set) (node.Item, error) {
 	}
 	return nil, log.NotFound("external node")
 }
-func New(hashValue string, fetcher Fetcher, encoder node.Encoder) (Item, error) {
+func New(hashValue string, fetcher Fetcher, encoder node.Encoder, variableReg *regexp.Regexp) (Item, error) {
 	head := "new container: "
 	if hashValue == "" {
 		return nil, fmt.Errorf("%s: %w", head, log.NotFound("hashValue"))
@@ -224,9 +224,13 @@ func New(hashValue string, fetcher Fetcher, encoder node.Encoder) (Item, error) 
 	if fetcher == nil {
 		return nil, fmt.Errorf("%s: %w", head, log.NotFound("fetcher"))
 	}
+	if variableReg == nil {
+		return nil, fmt.Errorf("%s: %w", head, log.NotFound("variableReg"))
+	}
 	return &Base{
 		hashValue: hashValue,
 		fetcher:   fetcher,
 		encoder:   encoder,
+		varReg:    variableReg,
 	}, nil
 }

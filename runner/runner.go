@@ -12,6 +12,7 @@ import (
 	"goldenglow/storage"
 	"goldenglow/variable"
 	"maps"
+	"regexp"
 )
 
 type Knot interface {
@@ -75,7 +76,7 @@ func (b *Base) SetTemplateCore(f template.Core) error {
 	return fmt.Errorf("Base.SetTemplateCore")
 }
 
-func New(logger log.Logger, db storage.Repository) Instance {
+func New(logger log.Logger, db storage.Repository, variableReg *regexp.Regexp) Instance {
 	// Default Config
 	var (
 		variableParser = variable.ToRawText
@@ -125,7 +126,10 @@ func New(logger log.Logger, db storage.Repository) Instance {
 		logger.Error("failed to create container factory", err)
 		panic(err)
 	}
-
+	if variableReg == nil {
+		panic(errors.New("variableReg is nil"))
+	}
+	containerFactory.WithVarReg(variableReg)
 	return &Base{
 		Logger:           logger,
 		containerFactory: containerFactory,
