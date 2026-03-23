@@ -13,6 +13,5 @@ func (b *basePlugin) Name() string {
 }
 
 func (b *basePlugin) ExecuteHandler() ExecuteHandler {
-	//TODO implement me
 	panic(b.name + ":ExecuteHandler not implemented")
 }
