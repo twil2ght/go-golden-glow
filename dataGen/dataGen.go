@@ -33,7 +33,7 @@ func (d *dataGen) RunAll() error {
 	return nil
 }
 
-func NewDataGen() DataGen {
+func NewDataGen() Registry {
 	return &dataGen{
 		genRegistries: make(map[string]Generator),
 	}

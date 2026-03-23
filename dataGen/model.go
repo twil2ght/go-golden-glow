@@ -9,7 +9,7 @@ type Generator interface {
 	Add(name string, langItem Item)
 	Run() error
 }
-type DataGen interface {
+type Registry interface {
 	RunAll() error
 	AddGenerator(pluginName string, generator Generator) error
 }
