@@ -19,6 +19,7 @@ type Base struct {
 	value string
 }
 
+// VarReg TODO variable -> $1,$2,stop using "&"
 var (
 	VarReg = regexp.MustCompile(`\[0x[a-zA-Z0-9-*]+?]`)
 )
