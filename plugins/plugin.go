@@ -4,20 +4,20 @@ import (
 	"goldenglow/lang"
 )
 
-type base struct {
+type Base struct {
 	name string
 }
 
-func (b *base) OnRegisterLang(langRegistry lang.Registry) error {
+func (b *Base) OnRegisterLang(langRegistry lang.Registry) error {
 	return langRegistry.Register(b.name)
 }
 
-func (b *base) Setup() error {
+func (b *Base) Setup() error {
 	return nil
 }
 
-func (b *base) Cleanup() {}
+func (b *Base) Cleanup() {}
 
-func (b *base) Name() string {
+func (b *Base) Name() string {
 	return b.name
 }
