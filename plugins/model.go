@@ -22,7 +22,7 @@ type LangRepo interface {
 }
 type LangRegistry interface {
 	Register(name string, item LangGroup) error
-	Init() error
+	RunAll() error
 }
 type Item interface {
 	Name() string

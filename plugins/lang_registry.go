@@ -21,7 +21,7 @@ func (l *langRegistry) Register(name string, item LangGroup) error {
 	return nil
 }
 
-func (l *langRegistry) Init() error {
+func (l *langRegistry) RunAll() error {
 	for name, group := range l.langData {
 		for _, item := range group {
 			var (
