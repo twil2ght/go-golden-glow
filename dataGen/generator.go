@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+// genBase
+// pluginName:for make path
 type genBase struct {
 	pluginName string
 	langItems  map[string]Item
@@ -47,7 +49,7 @@ func (l *genBase) Run() error {
 }
 func (l *genBase) rvGen(params Parameters) string {
 	var (
-		res = KeyDefault
+		res = keyDefault
 	)
 	for k, v := range params {
 		res = fmt.Sprintf("%s [%s:%s]", res, k, v)
@@ -101,7 +103,7 @@ func (l *genBase) makePath(langType LangType, pluginName, filename string) (stri
 	}
 
 	fullPath := filepath.Join(
-		RootDir,
+		rootDir,
 		pluginName,
 		string(langType),
 		filename,
