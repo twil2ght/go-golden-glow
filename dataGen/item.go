@@ -17,9 +17,10 @@ func (l *langData) LangType() LangType {
 func (l *langData) Params() Parameters {
 	return l.params
 }
-func New(triggers []string, params Parameters) Item {
+func New(triggers []string, params Parameters, langType LangType) Item {
 	return &langData{
-		tv:     triggers,
-		params: params,
+		tv:       triggers,
+		params:   params,
+		langType: langType,
 	}
 }
