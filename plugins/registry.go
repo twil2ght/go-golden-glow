@@ -3,14 +3,13 @@ package plugins
 import (
 	"fmt"
 	"goldenglow/dataGen"
-	"goldenglow/plugin"
 )
 
 type registry struct {
 	plugins []Item
 	exeReg  ExecuteRegistry
-	langReg plugin.LangRegistry
-	dataGen dataGen.DataGen
+	langReg LangRegistry
+	dataGen dataGen.Registry
 }
 
 func (r *registry) Register(plugin Item) error {
@@ -34,11 +33,16 @@ func (r *registry) Init() {
 // TODO lang 要从json读取
 func (r *registry) parsePlugin(plugin Item) {
 	var (
-		pluginName      = plugin.Name()
-		executorHandler = plugin.ExecuteHandler()
+		pluginName = plugin.Name()
 	)
-	if err := r.exeReg.Register(pluginName, executorHandler); err != nil {
-		panic(pluginName + " " + err.Error())
+	if err := plugin.OnRegisterDataGen(r.dataGen); err != nil {
+		panic(fmt.Sprintf("%s.OnRegisterDataGen err:%v", pluginName, err))
+	}
+	if err := plugin.OnRegisterLang(r.langReg); err != nil {
+		panic(fmt.Sprintf("%s.OnRegisterLang err:%v", pluginName, err))
+	}
+	if err := plugin.OnRegisterExecutor(r.exeReg); err != nil {
+		panic(fmt.Sprintf("%s.OnRegisterExecutor err:%v", pluginName, err))
 	}
 }
 func (r *registry) ShutDown() {
@@ -46,7 +50,7 @@ func (r *registry) ShutDown() {
 		p.Cleanup()
 	}
 }
-func NewRegistry(exeReg ExecuteRegistry, langReg plugin.LangRegistry) Registry {
+func NewRegistry(exeReg ExecuteRegistry, langReg LangRegistry) Registry {
 	return &registry{
 		exeReg:  exeReg,
 		langReg: langReg,
