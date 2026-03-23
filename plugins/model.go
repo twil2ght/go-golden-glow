@@ -9,10 +9,7 @@ import (
 type LangItem interface {
 	Get() (tv, rv m.Hash)
 }
-
 type LangGroup []LangItem
-type LangGenerator interface {
-}
 type Parameters map[string]string
 type ExecuteHandler func(params Parameters) error
 
