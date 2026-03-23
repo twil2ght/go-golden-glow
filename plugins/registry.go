@@ -1,6 +1,5 @@
 package plugins
 
-//TODO Node的注册器需要更改
 import (
 	"fmt"
 	"goldenglow/dataGen"
@@ -53,7 +52,6 @@ func (r *registry) Run() error {
 	return nil
 }
 
-// TODO lang 要从json读取
 func (r *registry) parsePlugin(plugin Item) {
 	var (
 		pluginName = plugin.Name()
