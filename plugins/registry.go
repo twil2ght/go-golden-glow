@@ -22,25 +22,26 @@ func (r *registry) Register(plugin Item) error {
 func (r *registry) Init() {
 	for _, p := range r.plugins {
 		r.parsePlugin(p)
-		p.Init()
+		err := p.Setup()
+		if err != nil {
+			panic(err)
+		}
 	}
 }
+
+// TODO lang 要从json读取
 func (r *registry) parsePlugin(plugin Item) {
 	var (
 		pluginName      = plugin.Name()
 		executorHandler = plugin.ExecuteHandler()
-		lang            = plugin.Lang()
 	)
 	if err := r.exeReg.Register(pluginName, executorHandler); err != nil {
-		panic(pluginName + " " + err.Error())
-	}
-	if err := r.langReg.Register(pluginName, lang); err != nil {
 		panic(pluginName + " " + err.Error())
 	}
 }
 func (r *registry) ShutDown() {
 	for _, p := range r.plugins {
-		p.Shutdown()
+		p.Cleanup()
 	}
 }
 func NewRegistry(exeReg ExecuteRegistry, langReg plugin.LangRegistry) Registry {
