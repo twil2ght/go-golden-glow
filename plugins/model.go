@@ -3,7 +3,6 @@ package plugins
 import (
 	"goldenglow/m"
 	"goldenglow/node"
-	"goldenglow/plugin"
 )
 
 type LangItem interface {
@@ -26,10 +25,9 @@ type LangRegistry interface {
 }
 type Item interface {
 	Name() string
-	Lang() plugin.TRGroup
 	ExecuteHandler() ExecuteHandler
-	Init()
-	Shutdown()
+	Setup() error
+	Cleanup()
 }
 type Registry interface {
 	Register(plugin Item) error
