@@ -8,6 +8,14 @@ import (
 	"goldenglow/lang"
 )
 
+var (
+	globalRegistry = NewRegistry(nil, nil, nil)
+)
+
+func Subscribe(plugin Item) error {
+	return globalRegistry.Register(plugin)
+}
+
 type registry struct {
 	plugins []Item
 	exeReg  executor.Registry
@@ -53,9 +61,10 @@ func (r *registry) ShutDown() {
 		p.Cleanup()
 	}
 }
-func NewRegistry(exeReg executor.Registry, langReg lang.Registry) Registry {
+func NewRegistry(exeReg executor.Registry, langReg lang.Registry, dataGen dataGen.Registry) Registry {
 	return &registry{
 		exeReg:  exeReg,
 		langReg: langReg,
+		dataGen: dataGen,
 	}
 }
