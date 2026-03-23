@@ -6,6 +6,7 @@ import (
 	"sync"
 )
 
+// TODO 所有功能统一由主的插件注册器来调度，因此不需要全局的dataGen了，让dataGen作为插件注册器的字段
 var (
 	globalRegistry DataGen
 	once           sync.Once
