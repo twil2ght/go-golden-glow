@@ -6,6 +6,7 @@ import (
 	"goldenglow/node"
 	"goldenglow/pkg/log"
 	"goldenglow/variable"
+	"regexp"
 )
 
 type Item interface {
@@ -22,6 +23,7 @@ type Base struct {
 	variables variable.Set
 	fetcher   Fetcher
 	encoder   node.Encoder
+	varReg    *regexp.Regexp
 }
 
 func (b *Base) ID() string {
@@ -98,12 +100,10 @@ func (b *Base) ParseTrigger(T node.Item) error {
 	}
 	T.SetState(true)
 	var (
-		varbs = make(variable.Set, len(T.Variables()))
-		//TODO need DI reg
-		// 正则提取 T.Value() 里的所有 ${变量}
-		tMatches = variable.VarReg.FindAllStringSubmatch(T.Value(), -1)
+		varbs    = make(variable.Set, len(T.Variables()))
+		tMatches = b.varReg.FindAllStringSubmatch(T.Value(), -1)
 		// 正则提取 dist.Value() 里的所有 ${变量}
-		dMatches = variable.VarReg.FindAllStringSubmatch(dist.Value(), -1)
+		dMatches = b.varReg.FindAllStringSubmatch(dist.Value(), -1)
 	)
 
 	// 数量必须一一对应
