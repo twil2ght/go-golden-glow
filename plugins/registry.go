@@ -40,6 +40,18 @@ func (r *registry) Init() {
 		}
 	}
 }
+func (r *registry) Run() error {
+	if err := r.exeReg.RunAll(); err != nil {
+		return err
+	}
+	if err := r.dataGen.RunAll(); err != nil {
+		return err
+	}
+	if err := r.langReg.RunAll(); err != nil {
+		return err
+	}
+	return nil
+}
 
 // TODO lang 要从json读取
 func (r *registry) parsePlugin(plugin Item) {
