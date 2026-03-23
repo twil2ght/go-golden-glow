@@ -6,20 +6,15 @@ type Item interface {
 	Params() Parameters
 }
 type Generator interface {
-	Register(name string, langItem Item)
+	Add(name string, langItem Item)
 	Run() error
+}
+type DataGen interface {
+	RunAll() error
+	AddGenerator(pluginName string, generator Generator) error
 }
 type LangType string
 type Parameters map[string]string
-
-const (
-	langTypeDefault LangType = "default"
-	langTypeCheck   LangType = "check"
-	langTypeExtract LangType = "extract"
-	RootDir                  = "../../data/"
-	jsonExt                  = ".json"
-	KeyDefault               = "[node]"
-)
 
 type JsonLangData struct {
 	Triggers []string `json:"triggers"`
