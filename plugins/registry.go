@@ -3,12 +3,14 @@ package plugins
 import (
 	"fmt"
 	"goldenglow/dataGen"
+	"goldenglow/executor"
+	"goldenglow/lang"
 )
 
 type registry struct {
 	plugins []Item
-	exeReg  ExecuteRegistry
-	langReg LangRegistry
+	exeReg  executor.Registry
+	langReg lang.Registry
 	dataGen dataGen.Registry
 }
 
@@ -50,7 +52,7 @@ func (r *registry) ShutDown() {
 		p.Cleanup()
 	}
 }
-func NewRegistry(exeReg ExecuteRegistry, langReg LangRegistry) Registry {
+func NewRegistry(exeReg executor.Registry, langReg lang.Registry) Registry {
 	return &registry{
 		exeReg:  exeReg,
 		langReg: langReg,
