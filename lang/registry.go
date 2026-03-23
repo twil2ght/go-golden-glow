@@ -1,12 +1,10 @@
-package plugins
+package lang
 
-import (
-	"errors"
-)
+import "errors"
 
 type langRegistry struct {
 	pluginNameSet []string
-	repo          LangRepo
+	repo          Repo
 }
 
 func (l *langRegistry) Register(name string) error {
@@ -20,7 +18,7 @@ func (l *langRegistry) Register(name string) error {
 func (l *langRegistry) RunAll() error {
 	return nil
 }
-func NewLangRegistry(repo LangRepo) LangRegistry {
+func NewLangRegistry(repo Repo) Registry {
 	return &langRegistry{
 		repo: repo,
 	}

@@ -1,4 +1,4 @@
-package plugins
+package executor
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 
 type baseNode struct {
 	node.Base
-	handlers map[string]ExecuteHandler
+	handlers map[string]Handler
 }
 
 const (

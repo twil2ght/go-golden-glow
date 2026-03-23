@@ -1,4 +1,4 @@
-package plugins
+package executor
 
 import (
 	"errors"
@@ -6,10 +6,10 @@ import (
 )
 
 type executeRegistry struct {
-	handlers map[string]ExecuteHandler
+	handlers map[string]Handler
 }
 
-func (reg *executeRegistry) Register(name string, method ExecuteHandler) error {
+func (reg *executeRegistry) Register(name string, method Handler) error {
 	if name == "" {
 		return errors.New("empty name")
 	}
@@ -17,15 +17,15 @@ func (reg *executeRegistry) Register(name string, method ExecuteHandler) error {
 		return errors.New("nil method")
 	}
 	if reg.handlers == nil {
-		reg.handlers = make(map[string]ExecuteHandler)
+		reg.handlers = make(map[string]Handler)
 	}
 	reg.handlers[name] = method
 	return nil
 }
 
-func (reg *executeRegistry) Init() (string, node.Creator) {
+func (reg *executeRegistry) RunAll() (string, node.Creator) {
 	if reg.handlers == nil {
-		reg.handlers = make(map[string]ExecuteHandler)
+		reg.handlers = make(map[string]Handler)
 	}
 	defaultCreator := func(b node.Base) node.Item {
 		return &baseNode{
@@ -34,8 +34,8 @@ func (reg *executeRegistry) Init() (string, node.Creator) {
 	}
 	return KeyDefault, defaultCreator
 }
-func NewExecuteRegistry() ExecuteRegistry {
+func NewExecuteRegistry() Registry {
 	return &executeRegistry{
-		handlers: make(map[string]ExecuteHandler),
+		handlers: make(map[string]Handler),
 	}
 }

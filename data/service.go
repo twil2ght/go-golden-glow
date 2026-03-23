@@ -12,9 +12,9 @@ package data
 // )
 
 // // TODO init
-// func Init() {
+// func RunAll() {
 // 	if InitDone {
-// 		fmt.Printf("[Data] Init was done Before!\n")
+// 		fmt.Printf("[Data] RunAll was done Before!\n")
 // 		return
 // 	}
 // 	dataBase.Db.ResetDB()
