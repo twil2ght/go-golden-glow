@@ -21,7 +21,6 @@ func (l *langRegistry) Register(name string, item LangGroup) error {
 	return nil
 }
 
-// Init TODO 既然lang都是.json了，那么langItem也就不需要了，直接按照路径扫描所有lang.json
 func (l *langRegistry) Init() error {
 	for name, group := range l.langData {
 		for _, item := range group {
