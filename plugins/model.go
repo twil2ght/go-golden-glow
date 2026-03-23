@@ -1,6 +1,7 @@
 package plugins
 
 import (
+	"goldenglow/dataGen"
 	"goldenglow/m"
 	"goldenglow/node"
 )
@@ -25,7 +26,9 @@ type LangRegistry interface {
 }
 type Item interface {
 	Name() string
-	ExecuteHandler() ExecuteHandler
+	OnRegisterExecutor(executorRegistry ExecuteRegistry) error
+	OnRegisterDataGen(dataGenRegistry dataGen.Registry) error
+	OnRegisterLang(langRegistry LangRegistry) error
 	Setup() error
 	Cleanup()
 }
