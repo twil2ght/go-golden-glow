@@ -15,6 +15,7 @@ func (l *langRegistry) Register(name string) error {
 	return nil
 }
 
+// RunAll TODO impl
 func (l *langRegistry) RunAll() error {
 	return nil
 }
