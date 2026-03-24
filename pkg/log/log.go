@@ -123,3 +123,11 @@ func simplifySource(_ []string, a slog.Attr) slog.Attr {
 	}
 	return a
 }
+
+var (
+	loggerInstance = &Base{}
+)
+
+func Default() Logger {
+	return loggerInstance
+}
