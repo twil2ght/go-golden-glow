@@ -9,8 +9,8 @@ import (
 
 const (
 	DefaultJSONPathRoot  = "./archive/HData/json"
-	DefaultJSONHDataPath = DefaultJSONPathRoot + "/HData.json"
-	DefaultJSONDataPath  = DefaultJSONPathRoot + "/Data.json"
+	defaultJSONHDataPath = DefaultJSONPathRoot + "/HData.json"
+	defaultJSONDataPath  = DefaultJSONPathRoot + "/Data.json"
 )
 
 type jsonRepository struct {
@@ -74,10 +74,10 @@ func Save(path string, Data any) error {
 }
 func NewJSONRepo(HDataPath, DataPath string) Repository {
 	if HDataPath == "" {
-		HDataPath = DefaultJSONHDataPath
+		HDataPath = defaultJSONHDataPath
 	}
 	if DataPath == "" {
-		DataPath = DefaultJSONDataPath
+		DataPath = defaultJSONDataPath
 	}
 	repo := &jsonRepository{
 		HDataPath: HDataPath,
@@ -88,8 +88,8 @@ func NewJSONRepo(HDataPath, DataPath string) Repository {
 }
 func DefaultJSONRepo() Repository {
 	repo := &jsonRepository{
-		HDataPath: DefaultJSONHDataPath,
-		DataPath:  DefaultJSONDataPath,
+		HDataPath: defaultJSONHDataPath,
+		DataPath:  defaultJSONDataPath,
 	}
 	repo.Init()
 	return repo
