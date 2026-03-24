@@ -4,5 +4,5 @@ type Source interface {
 	C() <-chan string
 }
 type Registry interface {
-	Register(tag string, source Source) error
+	Register(pluginName, tag string, source Source) error
 }

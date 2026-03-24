@@ -39,10 +39,10 @@ func (m *speaker) preprocess(message string) string {
 	return ""
 }
 func (m *speaker) OnRegisterInputSource(reg source.Registry) error {
-	return reg.Register(tag, m)
+	return reg.Register(pluginName, tag, m)
 }
 func (m *speaker) OnRegisterPreprocessor(reg preprocessor.Registry) error {
-	return reg.Register(tag, m.preprocess)
+	return reg.Register(pluginName, tag, m.preprocess)
 }
 func (m *speaker) OnRegisterExecutor(reg executor.Registry) error {
 	return reg.Register(m.Name(), func(params executor.Parameters) error {
