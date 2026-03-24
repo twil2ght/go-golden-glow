@@ -6,10 +6,15 @@ import (
 	"fmt"
 	"goldenglow/dataGen"
 	"goldenglow/m"
+	"goldenglow/pkg/log"
 	"goldenglow/utils"
 	"os"
 	"path/filepath"
 	"strings"
+)
+
+var (
+	logger = log.Default()
 )
 
 type langRegistry struct {
@@ -28,7 +33,9 @@ func (l *langRegistry) Register(name string) error {
 // RunAll 从每个插件目录下读取所有json文件并解析保存
 func (l *langRegistry) RunAll() error {
 	root := utils.RootDir
-
+	logger.Info("starting to parse langFiles",
+		"total_plugins", len(l.pluginNameSet),
+	)
 	for _, name := range l.pluginNameSet {
 		path := filepath.Join(root, name)
 
@@ -36,7 +43,11 @@ func (l *langRegistry) RunAll() error {
 		if err != nil {
 			return fmt.Errorf("find json files in plugin %s: %v", name, err)
 		}
-
+		logger.Info("found json files in plugin",
+			"plugin", name,
+			"path", path,
+			"total_files", len(jsonFiles),
+		)
 		for _, jsonFile := range jsonFiles {
 			content, err := os.ReadFile(jsonFile)
 			if err != nil {
@@ -52,6 +63,12 @@ func (l *langRegistry) RunAll() error {
 			if err != nil {
 				return fmt.Errorf("save plugin %s: %v", name, err)
 			}
+			logger.Info("parse plugin",
+				"plugin", name,
+				"file", jsonFile,
+				"triggers", data.Triggers,
+				"results", data.Results,
+			)
 		}
 	}
 
