@@ -41,7 +41,7 @@ func (l *genBase) Run() error {
 	for name, e := range l.langItems {
 		var (
 			result   = l.rvGen(e.Params())
-			path, _  = l.makePath(e.LangType(), l.pluginName, name+".json")
+			path, _  = l.makePath(l.pluginName, name+".json")
 			jsonData = &JsonLangData{
 				Triggers: e.Triggers(),
 				Results:  []string{result},
@@ -97,12 +97,9 @@ func (l *genBase) save(dataItem *JsonLangData, path string) error {
 	return nil
 }
 
-func (l *genBase) makePath(langType LangType, pluginName, filename string) (string, error) {
+func (l *genBase) makePath(pluginName, filename string) (string, error) {
 	if strings.TrimSpace(pluginName) == "" {
 		return "", errors.New("plugin name is required and cannot be empty")
-	}
-	if strings.TrimSpace(string(langType)) == "" {
-		return "", errors.New("lang type is required and cannot be empty")
 	}
 	if strings.TrimSpace(filename) == "" {
 		return "", errors.New("filename is required and cannot be empty")
@@ -116,7 +113,6 @@ func (l *genBase) makePath(langType LangType, pluginName, filename string) (stri
 	fullPath := filepath.Join(
 		RootDir,
 		pluginName,
-		string(langType),
 		filename,
 	)
 	fullPath = filepath.Clean(fullPath)
