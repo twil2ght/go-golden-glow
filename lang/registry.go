@@ -1,6 +1,15 @@
 package lang
 
-import "errors"
+import (
+	"encoding/json"
+	"errors"
+	"fmt"
+	"goldenglow/dataGen"
+	"goldenglow/m"
+	"os"
+	"path/filepath"
+	"strings"
+)
 
 type langRegistry struct {
 	pluginNameSet []string
@@ -15,12 +24,64 @@ func (l *langRegistry) Register(name string) error {
 	return nil
 }
 
-// RunAll TODO impl
+// RunAll 从每个插件目录下读取所有json文件并解析保存
 func (l *langRegistry) RunAll() error {
+	root := dataGen.RootDir
+
+	for _, name := range l.pluginNameSet {
+		path := filepath.Join(root, name)
+
+		jsonFiles, err := findAllJsonFiles(path)
+		if err != nil {
+			return fmt.Errorf("find json files in plugin %s: %v", name, err)
+		}
+
+		for _, jsonFile := range jsonFiles {
+			content, err := os.ReadFile(jsonFile)
+			if err != nil {
+				return fmt.Errorf("read file %s: %v", jsonFile, err)
+			}
+
+			var data dataGen.JsonLangData
+			if err := json.Unmarshal(content, &data); err != nil {
+				return fmt.Errorf("unmarshal json file %s: %v", jsonFile, err)
+			}
+
+			_ = l.repo.Save(m.ToHash(data.Triggers), m.ToHash(data.Results))
+		}
+	}
+
 	return nil
 }
 func NewLangRegistry(repo Repo) Registry {
 	return &langRegistry{
 		repo: repo,
 	}
+}
+
+// findAllJsonFiles 遍历目录，获取所有 .json 文件
+func findAllJsonFiles(dir string) ([]string, error) {
+	var jsonFiles []string
+
+	// 读取目录所有文件
+	files, err := os.ReadDir(dir)
+	if err != nil {
+		return nil, err
+	}
+
+	// 筛选 .json 后缀文件
+	for _, file := range files {
+		// 跳过子目录
+		if file.IsDir() {
+			continue
+		}
+
+		// 只处理 .json 文件
+		if strings.ToLower(filepath.Ext(file.Name())) == ".json" {
+			fullPath := filepath.Join(dir, file.Name())
+			jsonFiles = append(jsonFiles, fullPath)
+		}
+	}
+
+	return jsonFiles, nil
 }
