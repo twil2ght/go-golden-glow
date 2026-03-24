@@ -10,6 +10,7 @@ type Repository interface {
 	HashRepository
 	LightRepository
 	Shutdown() error
+	Init() error
 }
 type HashRepository interface {
 	HGet(tag string) (m.Hash, error)

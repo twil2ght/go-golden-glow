@@ -45,14 +45,14 @@ func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 	return j.HData[tag], nil
 }
 
-func (j *jsonRepository) Init() {
+func (j *jsonRepository) Init() error {
 	j.HData = make(map[string]m.Hash)
 	// 如果文件不存在，直接返回（后续Save会创建）
 	if _, err := os.Stat(j.HDataPath); os.IsNotExist(err) {
-		return
+		return err
 	}
 	file, _ := os.ReadFile(j.HDataPath)
-	_ = json.Unmarshal(file, &j.HData)
+	return json.Unmarshal(file, &j.HData)
 }
 
 func (j *jsonRepository) Save() error {
@@ -83,14 +83,5 @@ func NewJSONRepo(HDataPath, DataPath string) Repository {
 		HDataPath: HDataPath,
 		DataPath:  DataPath,
 	}
-	repo.Init()
-	return repo
-}
-func DefaultJSONRepo() Repository {
-	repo := &jsonRepository{
-		HDataPath: defaultJSONHDataPath,
-		DataPath:  defaultJSONDataPath,
-	}
-	repo.Init()
 	return repo
 }
