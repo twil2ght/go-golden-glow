@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	DefaultJSONPathRoot  = "./archive/HData/json"
-	defaultJSONHDataPath = DefaultJSONPathRoot + "/HData.json"
-	defaultJSONDataPath  = DefaultJSONPathRoot + "/Data.json"
+	DefaultJSONPathRoot  = "./archive/Data/json"
+	defaultJSONHDataPath = DefaultJSONPathRoot + "/hash_data.json"
+	defaultJSONDataPath  = DefaultJSONPathRoot + "/data.json"
 )
 
 type jsonRepository struct {
@@ -47,15 +47,33 @@ func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 
 func (j *jsonRepository) Init() error {
 	j.HData = make(map[string]m.Hash)
-	// 如果文件不存在，直接返回（后续Save会创建）
-	if _, err := os.Stat(j.HDataPath); os.IsNotExist(err) {
+
+	err := os.MkdirAll(DefaultJSONPathRoot, 0755)
+	if err != nil {
 		return err
 	}
-	file, _ := os.ReadFile(j.HDataPath)
+
+	_, err = os.Stat(j.HDataPath)
+	if os.IsNotExist(err) {
+		return nil
+	}
+	if err != nil {
+		return err
+	}
+
+	file, err := os.ReadFile(j.HDataPath)
+	if err != nil {
+		return err
+	}
+
 	return json.Unmarshal(file, &j.HData)
 }
 
 func (j *jsonRepository) Save() error {
+	err := os.MkdirAll(DefaultJSONPathRoot, 0755)
+	if err != nil {
+		return err
+	}
 	if err := Save(j.HDataPath, j.HData); err != nil {
 		return err
 	}
@@ -65,7 +83,6 @@ func (j *jsonRepository) Save() error {
 	return nil
 }
 func Save(path string, Data any) error {
-	_ = os.MkdirAll(path, 0755)
 	data, err := json.MarshalIndent(Data, "", "  ")
 	if err != nil {
 		return err
@@ -82,6 +99,8 @@ func NewJSONRepo(HDataPath, DataPath string) Repository {
 	repo := &jsonRepository{
 		HDataPath: HDataPath,
 		DataPath:  DataPath,
+		Data:      make(map[string]string),
+		HData:     make(map[string]m.Hash),
 	}
 	return repo
 }
