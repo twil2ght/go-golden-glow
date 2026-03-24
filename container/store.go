@@ -21,8 +21,9 @@ func (s *store) Save(tv, rv m.Hash) error {
 
 	hashKey := s.generateHash(tv, rv)
 
-	if _, err := s.db.HGet(hashKey); err == nil {
-		return fmt.Errorf("%s: %s already exists", head, hashKey)
+	if e, _ := s.db.HGet(hashKey); e != nil {
+		//return fmt.Errorf("%s: %s already exists", head, hashKey)
+		return nil
 	}
 
 	TTag := prefixC2T + hashKey
