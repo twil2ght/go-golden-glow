@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"goldenglow/m"
 	"goldenglow/node"
-	"goldenglow/pinkcat"
 	"goldenglow/plugin"
 	"goldenglow/plugins"
 	"goldenglow/storage"

@@ -1,9 +1,7 @@
 package source
 
-import "goldenglow/components"
-
 type Source interface {
-	C() <-chan components.Message
+	C() <-chan string
 }
 type Registry interface {
 	Register(tag string, source Source) error
