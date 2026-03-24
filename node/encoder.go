@@ -2,18 +2,12 @@ package node
 
 import (
 	"fmt"
-	"goldenglow/variable"
 )
 
 type templateEncoder struct {
 	varReplacer VarReplacer
 }
 
-func DefaultEncoder() Encoder {
-	return &templateEncoder{
-		varReplacer: variable.VarReg,
-	}
-}
 func NewEncoder(varReplacer VarReplacer) (Encoder, error) {
 	if varReplacer == nil {
 		return nil, fmt.Errorf("encoder init:varReplacer is nil")
