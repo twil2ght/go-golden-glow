@@ -38,7 +38,7 @@ func (reg *executeRegistry) OnRegisterNodeRegistry(nReg node.Registry) error {
 	}
 	return nReg.Register(KeyDefault, defaultCreator)
 }
-func NewExecuteRegistry(nodeReg node.Registry) Registry {
+func NewRegistry(nodeReg node.Registry) Registry {
 	return &executeRegistry{
 		handlers: make(map[string]Handler),
 		nodeReg:  nodeReg,
