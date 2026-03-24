@@ -53,7 +53,7 @@ func (l *langRegistry) RunAll() error {
 
 	return nil
 }
-func NewLangRegistry(repo Repo) Registry {
+func NewRegistry(repo Repo) Registry {
 	return &langRegistry{
 		repo: repo,
 	}

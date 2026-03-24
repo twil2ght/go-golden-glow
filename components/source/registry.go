@@ -28,3 +28,8 @@ func (r *registry) Register(pluginName, tag string, source Source) error {
 	r.sources[key] = source
 	return nil
 }
+func NewRegistry() Registry {
+	return &registry{
+		sources: make(map[string]Source),
+	}
+}
