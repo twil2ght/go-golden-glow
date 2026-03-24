@@ -113,19 +113,25 @@ func WithTraceID(ctx context.Context, traceID string) context.Context {
 	return context.WithValue(ctx, ctxKey{}, traceID)
 }
 
-// ------------------------------
-// 工具：简化日志里的文件路径
-// ------------------------------
 func simplifySource(_ []string, a slog.Attr) slog.Attr {
-	if a.Key == slog.SourceKey {
-		source := a.Value.Any().(*runtime.Frame)
-		a.Value = slog.StringValue(filepath.Base(source.File))
+	// 只处理 source 字段
+	if a.Key != slog.SourceKey {
+		return a
 	}
-	return a
+
+	// 安全类型断言（避免 panic）
+	source, ok := a.Value.Any().(*runtime.Frame)
+	if !ok {
+		return a
+	}
+
+	// 返回新的 Attr：只保留文件名 + 行号
+	file := filepath.Base(source.File)
+	return slog.String(slog.SourceKey, file)
 }
 
 var (
-	loggerInstance = &Base{}
+	loggerInstance = New(true)
 )
 
 func Default() Logger {
