@@ -34,6 +34,10 @@ func (l *genBase) Add(langName string, langItem Item) {
 }
 
 func (l *genBase) Run() error {
+	logger.Info("starting data generation",
+		"plugin", l.pluginName,
+		"total_lang_items", len(l.langItems),
+	)
 	for name, e := range l.langItems {
 		var (
 			result   = l.rvGen(e.Params())
@@ -43,7 +47,14 @@ func (l *genBase) Run() error {
 				Results:  []string{result},
 			}
 		)
-		_ = l.save(jsonData, path)
+		err := l.save(jsonData, path)
+		logger.Info("save json result",
+			"triggers", e.Triggers(),
+			"result", result,
+		)
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }

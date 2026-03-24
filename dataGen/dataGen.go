@@ -3,6 +3,13 @@ package dataGen
 import (
 	"errors"
 	"fmt"
+	"goldenglow/pkg/log"
+	"goldenglow/utils"
+)
+
+var (
+	logger  = log.Default()
+	RootDir = utils.RootDir
 )
 
 type dataGen struct {
@@ -20,6 +27,7 @@ func (d *dataGen) AddGenerator(pluginName string, generator Generator) error {
 		return errors.New("generator is nil")
 	}
 	d.genRegistries[pluginName] = generator
+	logger.Info("Add generator successfully")
 	return nil
 }
 

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"goldenglow/dataGen"
 	"goldenglow/m"
+	"goldenglow/utils"
 	"os"
 	"path/filepath"
 	"strings"
@@ -26,7 +27,7 @@ func (l *langRegistry) Register(name string) error {
 
 // RunAll 从每个插件目录下读取所有json文件并解析保存
 func (l *langRegistry) RunAll() error {
-	root := dataGen.RootDir
+	root := utils.RootDir
 
 	for _, name := range l.pluginNameSet {
 		path := filepath.Join(root, name)
@@ -47,7 +48,10 @@ func (l *langRegistry) RunAll() error {
 				return fmt.Errorf("unmarshal json file %s: %v", jsonFile, err)
 			}
 
-			_ = l.repo.Save(m.ToHash(data.Triggers), m.ToHash(data.Results))
+			err = l.repo.Save(m.ToHash(data.Triggers), m.ToHash(data.Results))
+			if err != nil {
+				return fmt.Errorf("save plugin %s: %v", name, err)
+			}
 		}
 	}
 
