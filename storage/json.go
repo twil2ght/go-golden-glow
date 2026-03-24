@@ -86,3 +86,11 @@ func NewJSONRepo(HDataPath, DataPath string) Repository {
 	repo.Init()
 	return repo
 }
+func DefaultJSONRepo() Repository {
+	repo := &jsonRepository{
+		HDataPath: DefaultJSONHDataPath,
+		DataPath:  DefaultJSONDataPath,
+	}
+	repo.Init()
+	return repo
+}
