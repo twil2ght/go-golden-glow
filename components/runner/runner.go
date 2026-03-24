@@ -9,10 +9,7 @@ import (
 	"goldenglow/node"
 	"goldenglow/node/template"
 	"goldenglow/pkg/log"
-	"goldenglow/storage"
-	"goldenglow/variable"
 	"maps"
-	"regexp"
 )
 
 type Knot interface {
@@ -76,64 +73,11 @@ func (b *Base) SetTemplateCore(f template.Core) error {
 	return fmt.Errorf("Base.SetTemplateCore")
 }
 
-func New(logger log.Logger, db storage.Repository, variableReg *regexp.Regexp) Instance {
-	// Default Config
-	var (
-		variableParser = variable.ToRawText
-		nEncoder       = node.DefaultEncoder()
-
-		nRegulator       node.Regulator
-		nodeFactory      node.Factory
-		fetcher          container.Fetcher
-		positioner       container.Positioner
-		templateCore     template.Core
-		containerFactory container.Factory
-		err              error
-	)
-
-	nRegulator, err = node.NewRegulator(storage.NewKVLite(db))
-	if err != nil {
-		logger.Error("failed to create node regulator", err)
-		panic(err)
-	}
-
-	nodeFactory, err = node.NewFactory(variableParser, nRegulator)
-	if err != nil {
-		logger.Error("failed to create node factory", err)
-		panic(err)
-	}
-
-	fetcher, err = container.NewFetcher(db, nodeFactory)
-	if err != nil {
-		logger.Error("failed to create fetcher", err)
-		panic(err)
-	}
-
-	positioner, err = container.NewPositioner(db, nEncoder)
-	if err != nil {
-		logger.Error("failed to create positioner", err)
-		panic(err)
-	}
-
-	templateCore, err = template.New(nil, variable.VarReg)
-	if err != nil {
-		logger.Error("failed to create template core", err)
-		panic(err)
-	}
-
-	containerFactory, err = container.NewFactory(fetcher, nEncoder, positioner)
-	if err != nil {
-		logger.Error("failed to create container factory", err)
-		panic(err)
-	}
-	if variableReg == nil {
-		panic(errors.New("variableReg is nil"))
-	}
-	containerFactory.WithVarReg(variableReg)
+func New(logger log.Logger, cf container.Factory, tc template.Core) Instance {
 	return &Base{
 		Logger:           logger,
-		containerFactory: containerFactory,
-		templateCore:     templateCore,
+		containerFactory: cf,
+		templateCore:     tc,
 	}
 }
 func (b *Base) Run(input node.Item) error {
