@@ -1,5 +1,6 @@
 package plugins
 
+//TODO 注册于执行需要解耦
 import (
 	"goldenglow/components/preprocessor"
 	"goldenglow/components/source"
