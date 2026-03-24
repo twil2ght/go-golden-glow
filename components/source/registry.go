@@ -1,9 +1,17 @@
 package source
 
-import "errors"
+import (
+	"errors"
+	"goldenglow/components"
+)
 
 type registry struct {
 	sources map[string]Source
+}
+
+func (r *registry) C() <-chan components.Message {
+	//TODO implement me
+	panic("implement me")
 }
 
 func (r *registry) Register(pluginName, tag string, source Source) error {
