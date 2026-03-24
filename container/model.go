@@ -21,6 +21,7 @@ type Repository interface {
 }
 type Positioner interface {
 	ContainerOf(external node.Item) (m.Hash, error)
+	Encoder() node.Encoder
 }
 
 type Fetcher interface {
