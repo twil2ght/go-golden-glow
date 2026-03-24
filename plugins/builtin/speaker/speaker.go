@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"goldenglow/components/preprocessor"
 	"goldenglow/components/source"
+	"goldenglow/config"
 	"goldenglow/dataGen"
 	"goldenglow/executor"
 	"goldenglow/lang"
@@ -35,8 +36,7 @@ func (m *speaker) C() <-chan string {
 	return m.responseChan
 }
 func (m *speaker) preprocess(message string) string {
-	//TODO implement me
-	return ""
+	return fmt.Sprintf("%s says %s to %s", config.GG, message, config.User)
 }
 func (m *speaker) OnRegisterInputSource(reg source.Registry) error {
 	return reg.Register(pluginName, tag, m)
@@ -61,10 +61,10 @@ func (m *speaker) OnRegisterDataGen(reg dataGen.Registry) error {
 	var (
 		generator = dataGen.NewGenerator(m.Name())
 	)
-	generator.Add("Hello", dataGen.New(
-		[]string{"Hello $1"},
+	generator.Add("speak", dataGen.New(
+		[]string{fmt.Sprintf("%s should say $1", config.GG)},
 		dataGen.Parameters{
-			"response": "World",
+			"response": "$1",
 		},
 		dataGen.LangTypeDefault,
 	))
