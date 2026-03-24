@@ -4,7 +4,7 @@ const (
 	LangTypeDefault LangType = "default"
 	LangTypeCheck   LangType = "check"
 	LangTypeExtract LangType = "extract"
-	rootDir                  = "../../data/"
+	RootDir                  = "../../data/"
 	jsonExt                  = ".json"
 	keyDefault               = "[node]"
 )

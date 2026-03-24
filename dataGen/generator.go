@@ -103,7 +103,7 @@ func (l *genBase) makePath(langType LangType, pluginName, filename string) (stri
 	}
 
 	fullPath := filepath.Join(
-		rootDir,
+		RootDir,
 		pluginName,
 		string(langType),
 		filename,
