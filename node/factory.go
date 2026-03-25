@@ -2,6 +2,7 @@ package node
 
 import (
 	"fmt"
+	"goldenglow/utils"
 	"goldenglow/variable"
 	"strings"
 )
@@ -14,11 +15,8 @@ type factory struct {
 }
 
 func NewFactory(p variable.Parser, r Regulator) (Factory, error) {
-	if r == nil {
-		return nil, fmt.Errorf("factory init: Regulator is nil")
-	}
-	if p == nil {
-		return nil, fmt.Errorf("factory init: parser is nil")
+	if err := utils.NotNull("parser", p, "regulator", r); err != nil {
+		return nil, fmt.Errorf("node factory init:%w", err)
 	}
 	return &factory{
 		parser:     p,
@@ -57,11 +55,8 @@ func (f *factory) New(val string) (Item, error) {
 }
 func (f *factory) Register(event string, creator Creator) error {
 	head := "node registry"
-	if event == "" {
-		return fmt.Errorf("%s: event can't be empty", head)
-	}
-	if creator == nil {
-		return fmt.Errorf("%s: creator can't be nil", head)
+	if err := utils.NotNull("creator", creator, "event", event); err != nil {
+		return fmt.Errorf("%s: %w", head, err)
 	}
 	f.registries[event] = creator
 	return nil
