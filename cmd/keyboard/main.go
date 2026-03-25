@@ -17,7 +17,6 @@ import (
 )
 
 // registries
-// TODO add logger to all registries
 var (
 	exeReg        = executor.DefaultRegistry()
 	exeCheckerReg = checker.DefaultRegistry()
