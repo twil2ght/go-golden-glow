@@ -50,17 +50,19 @@ func (s *store) Save(tv, rv m.Hash) error {
 		}
 	}
 
-	nodeSet, err := s.db.HGet(KeyNodeSet)
-	if err != nil {
-		return fmt.Errorf("%s: %w", head, log.NotFound(KeyNodeSet))
+	nodeSet, _ := s.db.HGet(KeyNodeSet)
+	if nodeSet == nil {
+		nodeSet = make(map[string]struct{})
 	}
+
 	for nv := range tv {
 		nodeSet[nv] = struct{}{}
 	}
 	for nv := range rv {
 		nodeSet[nv] = struct{}{}
 	}
-	return nil
+
+	return s.db.HSet(KeyNodeSet, nodeSet)
 }
 
 func (s *store) nodeRegister(value, kind string, hashValue string) error {
