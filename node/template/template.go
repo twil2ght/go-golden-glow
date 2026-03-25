@@ -40,7 +40,10 @@ func (c *core) Get(tar node.Item) (node.Set, error) {
 	if err != nil {
 		return nil, err
 	}
-	set := c.toSpecific(tar, templates)
+	set, err := c.toSpecific(tar, templates)
+	if err != nil {
+		return nil, err
+	}
 	return set, nil
 }
 
@@ -64,7 +67,7 @@ func (c *core) segment(tpl string) []string {
 }
 
 func (c *core) matchTemplate(target, template string) (bool, variable.Set) {
-	if template == "" || len(strings.Fields(target)) < len(strings.Fields(template)) {
+	if template == "" || len(target) < len(template) {
 		return false, nil
 	}
 
@@ -95,7 +98,6 @@ func (c *core) matchTemplate(target, template string) (bool, variable.Set) {
 	if len(match) != len(keys)+1 {
 		return false, nil
 	}
-	//TODO var需要传value而不是head
 	phs := make(variable.Set)
 	for i, key := range keys {
 		val := match[i+1]
@@ -108,21 +110,25 @@ func (c *core) matchTemplate(target, template string) (bool, variable.Set) {
 	return true, phs
 }
 
-func (c *core) toSpecific(target node.Item, templates node.Set) node.Set {
+func (c *core) toSpecific(target node.Item, templates node.Set) (node.Set, error) {
 	matches := make(node.Set)
 
 	for key, n := range templates {
 		if ok, vars := c.matchTemplate(target.Value(), n.Value()); ok {
-			err := n.SetVariable(vars)
+			err := clean(n.Variables(), vars)
 			if err != nil {
-				continue
+				return nil, err
+			}
+			err = n.SetVariable(vars)
+			if err != nil {
+				return nil, err
 			}
 			matches[key] = n
 		}
 	}
 
 	if len(matches) == 0 {
-		return nil
+		return nil, fmt.Errorf("template core to: no template variables found")
 	}
 
 	result := make(node.Set)
@@ -155,9 +161,23 @@ func (c *core) toSpecific(target node.Item, templates node.Set) node.Set {
 		}
 	}
 
-	return result
+	return result, nil
 }
 func (c *core) Match(a, b string) bool {
 	ok, _ := c.matchTemplate(a, b)
 	return ok
+}
+func clean(varFrom, varTo variable.Set) error {
+	for key, e := range varTo {
+		val, err := variable.ToRawText(e.Name(), varFrom, true)
+		if err != nil {
+			return err
+		}
+		err = e.Set(val)
+		if err != nil {
+			return err
+		}
+		varTo[key] = e
+	}
+	return nil
 }
