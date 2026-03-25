@@ -9,6 +9,7 @@ import (
 	"goldenglow/dataGen"
 	"goldenglow/executor"
 	"goldenglow/executor/checker"
+	"goldenglow/executor/extractor"
 	"goldenglow/lang"
 	"goldenglow/plugins"
 	_ "goldenglow/plugins/builtin/builder"
@@ -18,12 +19,13 @@ import (
 
 // registries
 var (
-	exeReg        = executor.DefaultRegistry()
-	exeCheckerReg = checker.DefaultRegistry()
-	langReg       = lang.DefaultRegistry()
-	dataGenReg    = dataGen.NewDataGen()
-	sourceReg     = source.NewRegistry()
-	preprocessReg = preprocessor.NewRegistry()
+	exeReg          = executor.DefaultRegistry()
+	exeCheckerReg   = checker.DefaultRegistry()
+	exeExtractorReg = extractor.DefaultRegistry()
+	langReg         = lang.DefaultRegistry()
+	dataGenReg      = dataGen.NewDataGen()
+	sourceReg       = source.NewRegistry()
+	preprocessReg   = preprocessor.NewRegistry()
 )
 
 // components
@@ -72,6 +74,11 @@ func parsePlugin(plugin plugins.Item) {
 	if checkerPlugin, ok := plugin.(checker.RegisterItem); ok {
 		if err := checkerPlugin.OnRegisterChecker(exeCheckerReg); err != nil {
 			panic(fmt.Sprintf("[%s] OnRegisterChecker failed: %v", pluginName, err))
+		}
+	}
+	if extractorPlugin, ok := plugin.(extractor.RegisterItem); ok {
+		if err := extractorPlugin.OnRegisterExtractor(exeExtractorReg); err != nil {
+			panic(fmt.Sprintf("[%s] OnRegisterExtractor failed: %v", pluginName, err))
 		}
 	}
 }
