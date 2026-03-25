@@ -49,8 +49,6 @@ func findProjectRoot(start string) string {
 	return start
 }
 
-//TODO 对所有含有大量检查的做简化
-
 // NotNull 参数必须成对传入：key1, val1, key2, val2...
 // 只校验 val 是否为 nil / 空字符串
 func NotNull(args ...any) error {
