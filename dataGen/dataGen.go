@@ -27,7 +27,7 @@ func (d *dataGen) AddGenerator(pluginName string, generator Generator) error {
 		return errors.New("generator is nil")
 	}
 	d.genRegistries[pluginName] = generator
-	logger.Info("add generator successfully")
+	logger.Info("add generator successfully", "pluginName", pluginName)
 	return nil
 }
 

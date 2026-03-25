@@ -10,6 +10,7 @@ import (
 	"goldenglow/executor"
 	"goldenglow/lang"
 	"goldenglow/plugins"
+	_ "goldenglow/plugins/builtin/builder"
 	_ "goldenglow/plugins/builtin/speaker"
 	"goldenglow/storage"
 )

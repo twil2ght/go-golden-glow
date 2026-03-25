@@ -65,7 +65,6 @@ func (l *langRegistry) RunAll() error {
 			}
 			logger.Info("parse plugin",
 				"plugin", name,
-				"file", jsonFile,
 				"triggers", data.Triggers,
 				"results", data.Results,
 			)
