@@ -92,18 +92,18 @@ func (b *Base) setVariable(varbs variable.Set) error {
 	return fmt.Errorf("setVariable: nil variables")
 }
 
-// TODO don't forget other triggers' variables
 func (b *Base) ParseTrigger(T node.Item) error {
 	dist, err := b.findT(T, b.tNodes)
 	if err != nil {
 		return fmt.Errorf("parseTrigger:%s", err.Error())
 	}
+
 	T.SetState(true)
+
 	var (
-		varbs    = make(variable.Set, len(T.Variables()))
-		tMatches = b.varReg.FindAllStringSubmatch(T.Value(), -1)
-		// 正则提取 dist.Value() 里的所有 ${变量}
-		dMatches = b.varReg.FindAllStringSubmatch(dist.Value(), -1)
+		variables = make(variable.Set, len(T.Variables()))
+		tMatches  = b.varReg.FindAllStringSubmatch(T.Value(), -1)
+		dMatches  = b.varReg.FindAllStringSubmatch(dist.Value(), -1)
 	)
 
 	// 数量必须一一对应
@@ -128,16 +128,27 @@ func (b *Base) ParseTrigger(T node.Item) error {
 		}
 		varKey := tMatches[i][1]
 
-		// 你原来的逻辑完全不变
 		prevVar := T.Variables()[varKey]
 		if prevVar == nil {
 			return log.NotFound("parseTrigger: variable:" + varKey)
 		}
 
 		newVar := variable.New(token, prevVar.Value())
-		varbs[token] = newVar
+		variables[token] = newVar
 	}
-	err = b.setVariable(varbs)
+
+	err = b.setVariable(variables)
+
+	for _, t := range b.tNodes {
+		if t.Value() != dist.Value() {
+			for name, variableItem := range t.Variables() {
+				if _, ok := b.variables[name]; !ok {
+					b.variables[name] = variableItem
+				}
+			}
+		}
+	}
+
 	if err != nil {
 		return fmt.Errorf("parseTrigger:%s", err.Error())
 	}
