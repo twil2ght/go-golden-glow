@@ -11,12 +11,12 @@ var (
 	logger = log.Default()
 )
 
-type executeRegistry struct {
+type registry struct {
 	handlers map[string]Handler
 	nodeReg  node.Registry
 }
 
-func (reg *executeRegistry) Register(pluginName string, method Handler) error {
+func (reg *registry) Register(pluginName string, method Handler) error {
 	if err := utils.NotNull(
 		"pluginName", pluginName,
 		"method", method,
@@ -31,13 +31,13 @@ func (reg *executeRegistry) Register(pluginName string, method Handler) error {
 	return nil
 }
 
-func (reg *executeRegistry) RunAll() error {
+func (reg *registry) RunAll() error {
 	if reg.handlers == nil {
 		return errors.New("empty handler")
 	}
 	return reg.OnRegisterNodeRegistry(reg.nodeReg)
 }
-func (reg *executeRegistry) OnRegisterNodeRegistry(nReg node.Registry) error {
+func (reg *registry) OnRegisterNodeRegistry(nReg node.Registry) error {
 	defaultCreator := func(b node.Base) node.Item {
 		return &BaseNode{
 			handlers: reg.handlers,
@@ -47,7 +47,7 @@ func (reg *executeRegistry) OnRegisterNodeRegistry(nReg node.Registry) error {
 	return nReg.Register(KeyDefault, defaultCreator)
 }
 func NewRegistry(nodeReg node.Registry) Registry {
-	return &executeRegistry{
+	return &registry{
 		handlers: make(map[string]Handler),
 		nodeReg:  nodeReg,
 	}
