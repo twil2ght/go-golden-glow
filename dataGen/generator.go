@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"goldenglow/executor"
 	"os"
 	"path/filepath"
 	"strings"
@@ -60,7 +61,7 @@ func (l *genBase) Run() error {
 }
 func (l *genBase) rvGen(params Parameters) string {
 	var (
-		res = keyDefault
+		res = fmt.Sprintf("%s [%s:%s]", executor.KeyDefault, executor.KeyNamespace, l.pluginName)
 	)
 	for k, v := range params {
 		res = fmt.Sprintf("%s [%s:%s]", res, k, v)

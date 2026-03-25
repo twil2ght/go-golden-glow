@@ -5,5 +5,4 @@ const (
 	LangTypeCheck   LangType = "check"
 	LangTypeExtract LangType = "extract"
 	jsonExt                  = ".json"
-	keyDefault               = "[node]"
 )
