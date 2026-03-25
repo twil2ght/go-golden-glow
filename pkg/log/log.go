@@ -8,35 +8,24 @@ import (
 	"runtime"
 )
 
-const (
-	LoggerKey = "Logger"
-)
-
-// 1. 核心 Logger 接口（你项目所有插件只依赖这个）
 type Logger interface {
-	// 基础日志
 	Debug(msg string, args ...any)
 	Info(msg string, args ...any)
 	Warn(msg string, args ...any)
 	Error(msg string, args ...any)
 
-	// 结构化日志（带字段，插件必备）
 	WithField(key string, value any) Logger
 	WithFields(fields map[string]any) Logger
 
-	// 上下文日志（trace_id / user_id）
 	WithContext(ctx context.Context) Logger
 }
 
-// 2. 实现类（基于官方 slog）
 type Base struct {
 	logger *slog.Logger
 }
 
-// 确保实现 Logger 接口
 var _ Logger = (*Base)(nil)
 
-// 3. 构造函数（你原来的 New()）
 func New(devMode bool) Logger {
 	var handler slog.Handler
 
@@ -58,9 +47,6 @@ func New(devMode bool) Logger {
 	return &Base{logger: slog.New(handler)}
 }
 
-// ------------------------------
-// 日志方法实现
-// ------------------------------
 func (b *Base) Debug(msg string, args ...any) {
 	b.logger.Debug(msg, args...)
 }
@@ -77,9 +63,6 @@ func (b *Base) Error(msg string, args ...any) {
 	b.logger.Error(msg, args...)
 }
 
-// ------------------------------
-// 结构化字段
-// ------------------------------
 func (b *Base) WithField(key string, value any) Logger {
 	return &Base{
 		logger: b.logger.With(slog.Any(key, value)),
@@ -96,9 +79,6 @@ func (b *Base) WithFields(fields map[string]any) Logger {
 	}
 }
 
-// ------------------------------
-// 上下文支持
-// ------------------------------
 type ctxKey struct{}
 
 func (b *Base) WithContext(ctx context.Context) Logger {
