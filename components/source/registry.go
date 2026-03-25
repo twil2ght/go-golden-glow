@@ -1,8 +1,13 @@
 package source
 
 import (
-	"errors"
 	"goldenglow/components"
+	"goldenglow/pkg/log"
+	"goldenglow/utils"
+)
+
+var (
+	logger = log.Default()
 )
 
 type registry struct {
@@ -11,7 +16,7 @@ type registry struct {
 
 func (r *registry) C() <-chan components.Message {
 	mainstream := make(chan components.Message, 10)
-
+	logger.Info("InputSource:start mainstream", "source_amount", len(r.sources))
 	for tag, ch := range r.sources {
 		go func(source Source, tag string) {
 			for msg := range source.C() {
@@ -24,17 +29,16 @@ func (r *registry) C() <-chan components.Message {
 }
 
 func (r *registry) Register(pluginName, tag string, source Source) error {
-	if pluginName == "" {
-		return errors.New("plugin name is empty")
-	}
-	if tag == "" {
-		return errors.New("plugin tag is empty")
-	}
-	if source == nil {
-		return errors.New("source is nil")
+	if err := utils.NotNull(
+		"plugin name", pluginName,
+		"tag", tag,
+		"source", source,
+	); err != nil {
+		return err
 	}
 	key := pluginName + ":" + tag
 	r.sources[key] = source
+	logger.Info("InputSource:register source", "pluginName", pluginName, "tag", tag)
 	return nil
 }
 func NewRegistry() Registry {
