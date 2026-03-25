@@ -16,6 +16,10 @@ type store struct {
 	encoder node.Encoder
 }
 
+const (
+	KeyNodeSet = "nodeSet"
+)
+
 func (s *store) Save(tv, rv m.Hash) error {
 	head := "store"
 
@@ -25,7 +29,6 @@ func (s *store) Save(tv, rv m.Hash) error {
 		//return fmt.Errorf("%s: %s already exists", head, hashKey)
 		return nil
 	}
-
 	TTag := prefixC2T + hashKey
 	RTag := prefixC2R + hashKey
 
@@ -47,6 +50,16 @@ func (s *store) Save(tv, rv m.Hash) error {
 		}
 	}
 
+	nodeSet, err := s.db.HGet(KeyNodeSet)
+	if err != nil {
+		return fmt.Errorf("%s: %w", head, log.NotFound(KeyNodeSet))
+	}
+	for nv := range tv {
+		nodeSet[nv] = struct{}{}
+	}
+	for nv := range rv {
+		nodeSet[nv] = struct{}{}
+	}
 	return nil
 }
 

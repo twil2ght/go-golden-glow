@@ -14,9 +14,7 @@ type Core interface {
 }
 
 type Source interface {
-	Get() (node.Set, error)
-	Set(key, value string) error
-	Common() node.Set
+	GetTemplates() (node.Set, error)
 }
 
 type core struct {
@@ -38,7 +36,7 @@ func New(source Source, varReg *regexp.Regexp) (Core, error) {
 }
 
 func (c *core) Get(tar node.Item) (node.Set, error) {
-	templates, err := c.source.Get()
+	templates, err := c.source.GetTemplates()
 	if err != nil {
 		return nil, err
 	}
