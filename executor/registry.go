@@ -3,6 +3,12 @@ package executor
 import (
 	"errors"
 	"goldenglow/node"
+	"goldenglow/pkg/log"
+	"goldenglow/utils"
+)
+
+var (
+	logger = log.Default()
 )
 
 type executeRegistry struct {
@@ -10,17 +16,18 @@ type executeRegistry struct {
 	nodeReg  node.Registry
 }
 
-func (reg *executeRegistry) Register(name string, method Handler) error {
-	if name == "" {
-		return errors.New("empty name")
-	}
-	if method == nil {
-		return errors.New("nil method")
+func (reg *executeRegistry) Register(pluginName string, method Handler) error {
+	if err := utils.NotNull(
+		"pluginName", pluginName,
+		"method", method,
+	); err != nil {
+		return err
 	}
 	if reg.handlers == nil {
 		reg.handlers = make(map[string]Handler)
 	}
-	reg.handlers[name] = method
+	reg.handlers[pluginName] = method
+	logger.Info("executor:register successfully", "plugin", pluginName)
 	return nil
 }
 
@@ -36,6 +43,7 @@ func (reg *executeRegistry) OnRegisterNodeRegistry(nReg node.Registry) error {
 			handlers: reg.handlers,
 		}
 	}
+	logger.Info("executor:register to node registry", "handler_amount", len(reg.handlers))
 	return nReg.Register(KeyDefault, defaultCreator)
 }
 func NewRegistry(nodeReg node.Registry) Registry {
