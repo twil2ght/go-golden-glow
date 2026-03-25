@@ -10,8 +10,17 @@ type registry struct {
 }
 
 func (r *registry) C() <-chan components.Message {
-	//TODO implement me
-	panic("implement me")
+	mainstream := make(chan components.Message, 10)
+
+	for tag, ch := range r.sources {
+		go func(source Source, tag string) {
+			for msg := range source.C() {
+				mainstream <- components.NewMsg(msg, tag)
+			}
+		}(ch, tag)
+	}
+
+	return mainstream
 }
 
 func (r *registry) Register(pluginName, tag string, source Source) error {
