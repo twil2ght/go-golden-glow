@@ -13,7 +13,6 @@ type Core interface {
 	Match(input, target string) bool
 }
 
-// Source TODO wl,bl,common
 type Source interface {
 	Get() (node.Set, error)
 	Set(key, value string) error
