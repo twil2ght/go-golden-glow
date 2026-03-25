@@ -31,6 +31,7 @@ var (
 )
 
 func main() {
+	defer Shutdown()
 	Init()
 }
 
@@ -78,4 +79,10 @@ func Run() error {
 		return err
 	}
 	return nil
+}
+func Shutdown() {
+	err := storage.DefaultJSONRepo().Shutdown()
+	if err != nil {
+		panic(err)
+	}
 }
