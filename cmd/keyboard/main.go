@@ -8,6 +8,7 @@ import (
 	"goldenglow/components/source"
 	"goldenglow/dataGen"
 	"goldenglow/executor"
+	"goldenglow/executor/checker"
 	"goldenglow/lang"
 	"goldenglow/plugins"
 	_ "goldenglow/plugins/builtin/builder"
@@ -19,6 +20,7 @@ import (
 // TODO add logger to all registries
 var (
 	exeReg        = executor.DefaultRegistry()
+	exeCheckerReg = checker.DefaultRegistry()
 	langReg       = lang.DefaultRegistry()
 	dataGenReg    = dataGen.NewDataGen()
 	sourceReg     = source.NewRegistry()
@@ -50,23 +52,28 @@ func Init() {
 	}
 }
 func parsePlugin(plugin plugins.Item) {
-	var (
-		pluginName = plugin.Name()
-	)
-	if err := plugin.OnRegisterDataGen(dataGenReg); err != nil {
-		panic(fmt.Sprintf("%s.OnRegisterDataGen err:%v", pluginName, err))
+	pluginName := plugin.Name()
+
+	mustRegs := []struct {
+		name string
+		fn   func() error
+	}{
+		{"OnRegisterDataGen", func() error { return plugin.OnRegisterDataGen(dataGenReg) }},
+		{"OnRegisterLang", func() error { return plugin.OnRegisterLang(langReg) }},
+		{"OnRegisterExecutor", func() error { return plugin.OnRegisterExecutor(exeReg) }},
+		{"OnRegisterPreprocessor", func() error { return plugin.OnRegisterPreprocessor(preprocessReg) }},
+		{"OnRegisterInputSource", func() error { return plugin.OnRegisterInputSource(sourceReg) }},
 	}
-	if err := plugin.OnRegisterLang(langReg); err != nil {
-		panic(fmt.Sprintf("%s.OnRegisterLang err:%v", pluginName, err))
+
+	for _, reg := range mustRegs {
+		if err := reg.fn(); err != nil {
+			panic(fmt.Sprintf("[%s] %s failed: %v", pluginName, reg.name, err))
+		}
 	}
-	if err := plugin.OnRegisterExecutor(exeReg); err != nil {
-		panic(fmt.Sprintf("%s.OnRegisterExecutor err:%v", pluginName, err))
-	}
-	if err := plugin.OnRegisterPreprocessor(preprocessReg); err != nil {
-		panic(fmt.Sprintf("%s.OnRegisterPreprocessor err:%v", pluginName, err))
-	}
-	if err := plugin.OnRegisterInputSource(sourceReg); err != nil {
-		panic(fmt.Sprintf("%s.OnRegisterInputSource err:%v", pluginName, err))
+	if checkerPlugin, ok := plugin.(checker.RegisterItem); ok {
+		if err := checkerPlugin.OnRegisterChecker(exeCheckerReg); err != nil {
+			panic(fmt.Sprintf("[%s] OnRegisterChecker failed: %v", pluginName, err))
+		}
 	}
 }
 func Run() error {
