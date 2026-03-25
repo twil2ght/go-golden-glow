@@ -49,7 +49,7 @@ var (
 		Head:        head,
 		ParamLength: 3,
 	}
-	eventAdd  = "[Add]"
+	eventAdd  = "[add]"
 	eventDel  = "[Del]"
 	eventGet  = "[HGet]"
 	eventPush = "[Push]"
@@ -79,7 +79,7 @@ var (
 	langAPi = plugin.TRGroup{
 		"add": {
 			TV: plugin.NV{"[KV] [0x01] -> [0x02]"},
-			RV: plugin.NV{"[KV] [0x01] & [0x02] & [Add]"},
+			RV: plugin.NV{"[KV] [0x01] & [0x02] & [add]"},
 		},
 		"del": {
 			TV: plugin.NV{"[KV] [0x01] !-> [0x02]"},
