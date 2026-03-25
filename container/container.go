@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"goldenglow/node"
 	"goldenglow/pkg/log"
+	"goldenglow/utils"
 	"goldenglow/variable"
 	"regexp"
 )
@@ -217,17 +218,13 @@ func (b *Base) findT(target node.Item, set node.Set) (node.Item, error) {
 }
 func New(hashValue string, fetcher Fetcher, encoder node.Encoder, variableReg *regexp.Regexp) (Item, error) {
 	head := "new container: "
-	if hashValue == "" {
-		return nil, fmt.Errorf("%s: %w", head, log.NotFound("hashValue"))
-	}
-	if encoder == nil {
-		return nil, fmt.Errorf("%s: %w", head, log.NotFound("encoder"))
-	}
-	if fetcher == nil {
-		return nil, fmt.Errorf("%s: %w", head, log.NotFound("fetcher"))
-	}
-	if variableReg == nil {
-		return nil, fmt.Errorf("%s: %w", head, log.NotFound("variableReg"))
+	if err := utils.NotNull(
+		"hashValue", hashValue,
+		"fetcher", fetcher,
+		"encoder", encoder,
+		"variableReg", variableReg,
+	); err != nil {
+		return nil, fmt.Errorf("%s: %w", head, err)
 	}
 	return &Base{
 		hashValue: hashValue,

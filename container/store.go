@@ -7,6 +7,7 @@ import (
 	"goldenglow/m"
 	"goldenglow/node"
 	"goldenglow/pkg/log"
+	"goldenglow/utils"
 	"sort"
 	"strings"
 )
@@ -119,9 +120,12 @@ func sortedKeys(m map[string]struct{}) string {
 	return strings.Join(keys, ",")
 }
 
-func NewStore(db Repository, encoder node.Encoder) Store {
+func NewStore(db Repository, encoder node.Encoder) (Store, error) {
+	if err := utils.NotNull("repo", db, "encoder", encoder); err != nil {
+		return nil, fmt.Errorf("%s: %w", "store", err)
+	}
 	return &store{
 		db:      db,
 		encoder: encoder,
-	}
+	}, nil
 }

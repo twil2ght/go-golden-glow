@@ -5,6 +5,7 @@ import (
 	"goldenglow/m"
 	"goldenglow/node"
 	"goldenglow/pkg/log"
+	"goldenglow/utils"
 )
 
 type positioner struct {
@@ -28,11 +29,8 @@ func (p *positioner) ContainerOf(node node.Item) (m.Hash, error) {
 }
 func NewPositioner(db Repository, encoder node.Encoder) (Positioner, error) {
 	head := "positioner init"
-	if encoder == nil {
-		return nil, fmt.Errorf("%s: encoder is nil", head)
-	}
-	if db == nil {
-		return nil, fmt.Errorf("%s: db is nil", head)
+	if err := utils.NotNull("repo", db, "encoder", encoder); err != nil {
+		return nil, fmt.Errorf("%s: %w", head, err)
 	}
 	return &positioner{
 		db:      db,

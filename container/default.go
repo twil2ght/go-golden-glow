@@ -11,7 +11,7 @@ var (
 	fetcherInstance, _    = NewFetcher(db, node.DefaultFactory())
 	positionerInstance, _ = NewPositioner(db, encoder)
 	factoryInstance, _    = NewFactory(fetcherInstance, positionerInstance)
-	storeInstance         = NewStore(db, encoder)
+	storeInstance, _      = NewStore(db, encoder)
 )
 
 func DefaultFactory() Factory {

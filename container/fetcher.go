@@ -3,6 +3,7 @@ package container
 import (
 	"fmt"
 	"goldenglow/node"
+	"goldenglow/utils"
 )
 
 type fetcher struct {
@@ -44,11 +45,8 @@ func (f *fetcher) toNode(tag string) (node.Set, error) {
 }
 func NewFetcher(db Repository, f node.Factory) (Fetcher, error) {
 	head := "Fetcher init"
-	if f == nil {
-		return nil, fmt.Errorf("%s: node factory is nil", head)
-	}
-	if db == nil {
-		return nil, fmt.Errorf("%s: db is nil", head)
+	if err := utils.NotNull("repo", db, "node_factory", f); err != nil {
+		return nil, fmt.Errorf("%s: %w", head, err)
 	}
 	return &fetcher{
 		db:       db,

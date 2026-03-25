@@ -1,8 +1,8 @@
 package container
 
 import (
-	"errors"
 	"goldenglow/node"
+	"goldenglow/utils"
 	"regexp"
 )
 
@@ -20,11 +20,8 @@ func (f *factory) New(hashValue string) (Item, error) {
 	return New(hashValue, f.fetcher, f.Encoder(), f.varReg)
 }
 func NewFactory(fetcher Fetcher, p Positioner) (Factory, error) {
-	if fetcher == nil {
-		return nil, errors.New("fetcher is nil")
-	}
-	if p == nil {
-		return nil, errors.New("positioner is nil")
+	if err := utils.NotNull("fetcher", fetcher, "positioner", p); err != nil {
+		return nil, err
 	}
 	return &factory{
 		fetcher:    fetcher,
