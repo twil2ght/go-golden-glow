@@ -88,69 +88,60 @@ func (b *Base) setVariable(varbs variable.Set) error {
 		b.variables = varbs
 		return nil
 	}
-
 	return fmt.Errorf("setVariable: nil variables")
 }
 
 func (b *Base) ParseTrigger(T node.Item) error {
-	dist, err := b.findT(T, b.tNodes)
+	distNode, err := b.findT(T, b.tNodes)
 	if err != nil {
 		return fmt.Errorf("parseTrigger:%s", err.Error())
 	}
 
-	T.SetState(true)
+	distNode.SetState(true)
 
-	var (
-		variables = make(variable.Set, len(T.Variables()))
-		tMatches  = b.varReg.FindAllStringSubmatch(T.Value(), -1)
-		dMatches  = b.varReg.FindAllStringSubmatch(dist.Value(), -1)
-	)
+	triggerVars, err := b.variableGen(T, distNode)
+	if err != nil {
+		return fmt.Errorf("parseTrigger:%s", err.Error())
+	}
 
-	// 数量必须一一对应
+	if err := b.setVariable(triggerVars); err != nil {
+		return fmt.Errorf("parseTrigger:%s", err.Error())
+	}
+
+	if err := b.mergeVariables(distNode); err != nil {
+		return fmt.Errorf("parseTrigger:%s", err.Error())
+	}
+
+	return nil
+}
+
+func (b *Base) variableGen(T, dist node.Item) (variable.Set, error) {
+	tMatches := b.varReg.FindAllStringSubmatch(T.Value(), -1)
+	dMatches := b.varReg.FindAllStringSubmatch(dist.Value(), -1)
+
 	if len(tMatches) != len(dMatches) {
-		return fmt.Errorf("parseTrigger: variable count mismatch: %d != %d", len(tMatches), len(dMatches))
+		return nil, fmt.Errorf("variable count mismatch: %d != %d", len(tMatches), len(dMatches))
 	}
 
-	// 遍历所有匹配到的变量
+	variables := make(variable.Set, len(T.Variables()))
 	for i, dMatch := range dMatches {
-		if len(dMatch) < 2 {
-			continue
+		if err := variableGen(i, dMatch, tMatches, T, variables); err != nil {
+			return nil, err
 		}
-		// 提取变量名：dMatch[0] = ${var}, dMatch[1] = var
-		token := dMatch[1]
-		if !variable.Is(token) {
-			continue
-		}
-
-		// 取出对应位置的 key
-		if i >= len(tMatches) || len(tMatches[i]) < 2 {
-			return fmt.Errorf("parseTrigger: invalid variable at index %d", i)
-		}
-		varKey := tMatches[i][1]
-
-		prevVar := T.Variables()[varKey]
-		if prevVar == nil {
-			return log.NotFound("parseTrigger: variable:" + varKey)
-		}
-
-		newVar := variable.New(token, prevVar.Value())
-		variables[token] = newVar
 	}
+	return variables, nil
+}
 
-	err = b.setVariable(variables)
-
+func (b *Base) mergeVariables(excludeNode node.Item) error {
 	for _, t := range b.tNodes {
-		if t.Value() != dist.Value() {
-			for name, variableItem := range t.Variables() {
-				if _, ok := b.variables[name]; !ok {
-					b.variables[name] = variableItem
-				}
+		if t.Value() == excludeNode.Value() {
+			continue
+		}
+		for name, varItem := range t.Variables() {
+			if _, exists := b.variables[name]; !exists {
+				b.variables[name] = varItem
 			}
 		}
-	}
-
-	if err != nil {
-		return fmt.Errorf("parseTrigger:%s", err.Error())
 	}
 	return nil
 }
