@@ -5,5 +5,5 @@ type Handler func(params Parameters) error
 
 type Registry interface {
 	RunAll() error
-	Register(name string, method Handler) error
+	Register(pluginName string, method Handler) error
 }

@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-type baseNode struct {
+type BaseNode struct {
 	node.Base
 	handlers map[string]Handler
 }
@@ -17,7 +17,7 @@ const (
 	KeyDefault   = "[node]"
 )
 
-func (d *baseNode) Execute() error {
+func (d *BaseNode) Execute() error {
 	params := d.GetParams()
 	pluginID := params[KeyNamespace]
 
@@ -36,7 +36,7 @@ func (d *baseNode) Execute() error {
 var kvRegex = regexp.MustCompile(`\[([^:\]]+):([^]]+)]`)
 
 // GetParams 正则解析 [key:value] 参数
-func (d *baseNode) GetParams() map[string]string {
+func (d *BaseNode) GetParams() map[string]string {
 	params := make(map[string]string)
 
 	nodeValue, _ := d.ToText()

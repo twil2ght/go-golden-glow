@@ -1,16 +1,16 @@
-package executor
+package checker
 
 import (
 	"errors"
 	"goldenglow/node"
 )
 
-type executeRegistry struct {
+type registry struct {
 	handlers map[string]Handler
 	nodeReg  node.Registry
 }
 
-func (reg *executeRegistry) Register(name string, method Handler) error {
+func (reg *registry) Register(name string, method Handler) error {
 	if name == "" {
 		return errors.New("empty name")
 	}
@@ -24,22 +24,22 @@ func (reg *executeRegistry) Register(name string, method Handler) error {
 	return nil
 }
 
-func (reg *executeRegistry) RunAll() error {
+func (reg *registry) RunAll() error {
 	if reg.handlers == nil {
 		return errors.New("empty handler")
 	}
 	return reg.OnRegisterNodeRegistry(reg.nodeReg)
 }
-func (reg *executeRegistry) OnRegisterNodeRegistry(nReg node.Registry) error {
+func (reg *registry) OnRegisterNodeRegistry(nReg node.Registry) error {
 	defaultCreator := func(b node.Base) node.Item {
-		return &BaseNode{
+		return &baseChecker{
 			handlers: reg.handlers,
 		}
 	}
-	return nReg.Register(KeyDefault, defaultCreator)
+	return nReg.Register(KeyChecker, defaultCreator)
 }
 func NewRegistry(nodeReg node.Registry) Registry {
-	return &executeRegistry{
+	return &registry{
 		handlers: make(map[string]Handler),
 		nodeReg:  nodeReg,
 	}
