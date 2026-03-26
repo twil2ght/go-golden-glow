@@ -81,18 +81,22 @@ func New(logger log.Logger, cf container.Factory, tc template.Core) Instance {
 	}
 }
 func (b *Base) Run(input node.Item) error {
-
 	initKnots, err := b.genKnots(input)
 	if err != nil {
 		return fmt.Errorf("run init step: %w", err)
 	}
 
-	taskCh := make(chan []Knot)
-	resultCh := make(chan []Knot)
+	// 带缓冲通道，避免无缓冲导致的立即阻塞
+	taskCh := make(chan []Knot, 1)
+	resultCh := make(chan []Knot, 1)
 	done := make(chan error, 1)
 
 	go func() {
-		defer close(taskCh)
+		defer func() {
+			close(taskCh)
+		}()
+
+		// 初始化数据推入通道
 		resultCh <- initKnots
 
 		for knots := range resultCh {
@@ -112,10 +116,12 @@ func (b *Base) Run(input node.Item) error {
 	}()
 
 	go func() {
-		defer close(resultCh)
+		defer func() {
+			close(resultCh)
+		}()
 
 		for knots := range taskCh {
-			if len(knots) == 0 || knots == nil {
+			if knots == nil || len(knots) == 0 {
 				done <- nil
 				return
 			}
