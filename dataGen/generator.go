@@ -47,9 +47,9 @@ func (l *genBase) Run() error {
 			path, _   = l.makePath(l.pluginName, name+".json")
 		)
 		switch e.LangType() {
-		case LangTypeDefault:
-			trigger = append(trigger, pluginApi)
 		case LangTypeCheckLike:
+			trigger = append(trigger, pluginApi)
+		case LangTypeDefault:
 			results = append(results, pluginApi)
 		}
 		var jsonData = &JsonLangData{
