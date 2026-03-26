@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"goldenglow/dataGen"
 	"goldenglow/executor"
-	"goldenglow/executor/checker"
 	"goldenglow/executor/extractor"
 	"goldenglow/lang"
 	"goldenglow/plugins"
@@ -104,12 +103,6 @@ func (t *timer) OnRegisterExtractor(reg extractor.Registry) error {
 
 func (t *timer) Name() string {
 	return pluginName
-}
-
-func (t *timer) OnRegisterChecker(reg checker.Registry) error {
-	return reg.Register(pluginName, func(parameters executor.Parameters) bool {
-		return false
-	})
 }
 
 func (t *timer) OnRegisterExecutor(_ executor.Registry) error {
