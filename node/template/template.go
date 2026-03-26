@@ -115,7 +115,7 @@ func (c *core) toSpecific(target node.Item, templates node.Set) (node.Set, error
 
 	for key, n := range templates {
 		if ok, vars := c.matchTemplate(target.Value(), n.Value()); ok {
-			err := clean(n.Variables(), vars)
+			err := clean(target.Variables(), vars)
 			if err != nil {
 				return nil, err
 			}
