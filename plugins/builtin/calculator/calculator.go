@@ -179,24 +179,17 @@ func (c *calculator) parseNumber(expr string) (float64, error) {
 
 func (c *calculator) OnRegisterDataGen(reg dataGen.Registry) error {
 	generator := dataGen.NewGenerator(c.Name())
-	generator.Add("calc", dataGen.New(
-		[]string{
-			"calculate $1",
-			"what is $1",
-			"compute $1",
-			"$1 equals",
-		},
-		dataGen.Parameters{
-			keyExpression: "$1",
-		},
-		dataGen.LangTypeDefault,
-	))
-	generator.Add("compare_lt", dataGen.New(
-		[]string{
-			"is $1 less than $2",
-			"is $1 smaller than $2",
-			"$1 < $2",
-		},
+	//generator.Add("calc", dataGen.SNew(
+	//	"compute $1",
+	//	"",
+	//	dataGen.Parameters{
+	//		keyExpression: "$1",
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
+	generator.Add("compare_lt", dataGen.SNew(
+		"check if $1 is less than $2",
+		"$1 is less than $2",
 		dataGen.Parameters{
 			keyLeft:     "$1",
 			keyRight:    "$2",
@@ -204,12 +197,9 @@ func (c *calculator) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeCheckLike,
 	))
-	generator.Add("compare_gt", dataGen.New(
-		[]string{
-			"is $1 greater than $2",
-			"is $1 larger than $2",
-			"$1 > $2",
-		},
+	generator.Add("compare_gt", dataGen.SNew(
+		"check if $1 is greater than $2",
+		"$1 is greater than $2",
 		dataGen.Parameters{
 			keyLeft:     "$1",
 			keyRight:    "$2",
@@ -217,13 +207,9 @@ func (c *calculator) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeCheckLike,
 	))
-	generator.Add("compare_eq", dataGen.New(
-		[]string{
-			"is $1 equal to $2",
-			"does $1 equal $2",
-			"$1 = $2",
-			"$1 == $2",
-		},
+	generator.Add("compare_eq", dataGen.SNew(
+		"check if $1 is equal to $2",
+		"$1 is equal to $2",
 		dataGen.Parameters{
 			keyLeft:     "$1",
 			keyRight:    "$2",
