@@ -35,7 +35,7 @@ type Base struct {
 }
 
 func (b *Base) ToText() (string, error) {
-	e, err := b.parser(b.val, b.variables, true)
+	e, err := b.parser(b.val, b.variables, false)
 	if err != nil {
 		return "", fmt.Errorf("%s parser error: %v", b.val, err)
 	}
