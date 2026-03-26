@@ -22,7 +22,7 @@ const (
 	pluginName = "timer"
 
 	//key
-	keyMode = "now"
+	keyMode = "mode"
 	keyType = "type"
 	KeyDist = "dist"
 
@@ -111,9 +111,9 @@ func (t *timer) OnRegisterDataGen(reg dataGen.Registry) error {
 		"check what is the time now",
 		"the time is $1 now",
 		dataGen.Parameters{
-			"mode": "fetch",
-			"type": "time",
-			"dist": "$1",
+			keyMode: "fetch",
+			keyType: "time",
+			KeyDist: "$1",
 		},
 		dataGen.LangTypeCheckLike,
 	))
