@@ -1,9 +1,13 @@
 package template
 
-import "goldenglow/variable"
+import (
+	"goldenglow/node"
+	"goldenglow/storage"
+	"goldenglow/variable"
+)
 
 var (
-	sourceInstance          = &source{}
+	sourceInstance          = &source{repo: storage.DefaultJSONRepo(), factory: node.DefaultFactory()}
 	templateCoreInstance, _ = New(sourceInstance, variable.VarReg)
 )
 
