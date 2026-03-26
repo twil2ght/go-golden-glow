@@ -2,6 +2,7 @@ package dataGen
 
 type Item interface {
 	Triggers() []string
+	Results() []string
 	LangType() LangType
 	Params() Parameters
 }

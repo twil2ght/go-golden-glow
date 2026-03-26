@@ -41,17 +41,25 @@ func (l *genBase) Run() error {
 	)
 	for name, e := range l.langItems {
 		var (
-			result   = l.rvGen(e.Params())
-			path, _  = l.makePath(l.pluginName, name+".json")
-			jsonData = &JsonLangData{
-				Triggers: e.Triggers(),
-				Results:  []string{result},
-			}
+			pluginApi = l.rvGen(e.Params())
+			trigger   = e.Triggers()
+			results   = e.Results()
+			path, _   = l.makePath(l.pluginName, name+".json")
 		)
+		switch e.LangType() {
+		case LangTypeDefault:
+			trigger = append(trigger, pluginApi)
+		case LangTypeCheckLike:
+			results = append(results, pluginApi)
+		}
+		var jsonData = &JsonLangData{
+			Triggers: trigger,
+			Results:  results,
+		}
 		err := l.save(jsonData, path)
-		logger.Info("save json result",
-			"triggers", e.Triggers(),
-			"result", result,
+		logger.Debug("save json pluginApi",
+			"triggers", trigger,
+			"results", results,
 		)
 		if err != nil {
 			return err

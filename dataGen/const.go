@@ -1,8 +1,7 @@
 package dataGen
 
 const (
-	LangTypeDefault LangType = "default"
-	LangTypeCheck   LangType = "check"
-	LangTypeExtract LangType = "extract"
-	jsonExt                  = ".json"
+	LangTypeDefault   LangType = "default"
+	LangTypeCheckLike LangType = "check_like"
+	jsonExt                    = ".json"
 )
