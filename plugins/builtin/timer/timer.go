@@ -118,8 +118,9 @@ func (t *timer) OnRegisterExecutor(_ executor.Registry) error {
 
 func (t *timer) OnRegisterDataGen(reg dataGen.Registry) error {
 	var generator = dataGen.NewGenerator(pluginName)
-	generator.Add("", dataGen.New(
-		[]string{"check what is the time now"},
+	generator.Add("", dataGen.SNew(
+		"check what is the time now",
+		"the time is $1 now",
 		dataGen.Parameters{
 			"mode": "fetch",
 			"type": "time",
