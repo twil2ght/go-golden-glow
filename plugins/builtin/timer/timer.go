@@ -59,31 +59,27 @@ func (t *timer) process(mode, arg string) (string, error) {
 	}
 }
 func (t *timer) fetch(arg string) (string, error) {
+	now := time.Now()
 	switch arg {
 	case typeTime:
-		return t.fetchTime(), nil
+		return fmt.Sprintf("%02d:%02d:%02d", now.Hour(), now.Minute(), now.Second()), nil
 	case typeDate:
-		return t.fetchDate(), nil
+		return fmt.Sprintf("%02d:%02d", now.Month(), now.Day()), nil
+	case typeHour:
+		return fmt.Sprintf("%02d", now.Hour()), nil
+	case typeMinute:
+		return fmt.Sprintf("%02d", now.Minute()), nil
+	case typeSecond:
+		return fmt.Sprintf("%02d", now.Second()), nil
+	case typeYear:
+		return fmt.Sprintf("%02d", now.Year()), nil
+	case typeMonth:
+		return fmt.Sprintf("%02d", now.Month()), nil
+	case typeDay:
+		return fmt.Sprintf("%02d", now.Day()), nil
 	default:
 		return "", fmt.Errorf("unknown timer type: %s", arg)
 	}
-}
-func (t *timer) fetchTime() string {
-	var (
-		now    = time.Now()
-		hour   = now.Hour()
-		minute = now.Minute()
-		second = now.Second()
-	)
-	return fmt.Sprintf("%02d:%02d:%02d", hour, minute, second)
-}
-func (t *timer) fetchDate() string {
-	var (
-		now   = time.Now()
-		month = now.Month()
-		day   = now.Day()
-	)
-	return fmt.Sprintf("%02d:%02d", month, day)
 }
 
 func (t *timer) OnRegisterExtractor(reg extractor.Registry) error {
