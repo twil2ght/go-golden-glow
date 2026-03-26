@@ -30,6 +30,6 @@ func (b *baseExtractor) Extract() (variable.Item, error) {
 
 	return handler(params)
 }
-func (b *baseExtractor) SetState() bool {
-	return true
+func (b *baseExtractor) SetState(_ bool) {
+	b.Base.SetState(true)
 }
