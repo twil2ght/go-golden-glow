@@ -2,7 +2,6 @@ package node
 
 import (
 	"fmt"
-	"goldenglow/m"
 	"goldenglow/variable"
 )
 
@@ -26,7 +25,6 @@ type Item interface {
 	Executor
 	AttrReader
 	AttrWriter
-	Parse() (m.H, error)
 }
 type Base struct {
 	val       string
@@ -34,10 +32,6 @@ type Base struct {
 	variables variable.Set
 	parser    variable.Parser
 	regulator Regulator
-}
-
-func (b *Base) Parse() (m.H, error) {
-	return nil, nil
 }
 
 func (b *Base) ToText() (string, error) {
