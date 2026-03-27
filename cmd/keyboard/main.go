@@ -13,6 +13,8 @@ import (
 	"goldenglow/node"
 	"goldenglow/setup"
 	"os"
+	"os/signal"
+	"syscall"
 )
 
 // components
@@ -21,10 +23,20 @@ var (
 	Runner = runner.DefaultRunner()
 )
 
+// TODO 特殊退出程序的输入
 func main() {
 	setup.Init()
-	defer setup.Shutdown()
-	RunLiteScheduler()
+
+	exitChan := make(chan os.Signal, 1)
+	signal.Notify(exitChan, syscall.SIGINT, syscall.SIGTERM)
+
+	go RunLiteScheduler()
+
+	<-exitChan
+	println("\n💤 收到退出信号，开始保存数据...")
+
+	setup.Shutdown()
+	println("✅ 数据已保存，程序安全退出")
 }
 
 func DefaultSource(sourceReg source.Registry) error {
@@ -87,7 +99,7 @@ func RunLiteScheduler() {
 	}
 
 	receiverReg := receiver.NewRegistry(mainStream, sourceReg.Tags())
-
+	defer receiverReg.Shutdown()
 	schLite := scheduler.NewLiteScheduler(
 		processor,
 		Queue,
