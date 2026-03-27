@@ -77,7 +77,7 @@ func (b *Base) Run(input node.Item) error {
 	if err != nil {
 		return fmt.Errorf("run init step: %w", err)
 	}
-
+	logger.Debug("start to run", "initial_knots_amount", len(initKnots))
 	// 带缓冲通道，避免无缓冲导致的立即阻塞
 	taskCh := make(chan []Knot, 1)
 	resultCh := make(chan []Knot, 1)
