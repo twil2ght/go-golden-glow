@@ -87,6 +87,7 @@ func (r *registry) Start() {
 				logger.Debug("receiver registry shutting down")
 				return
 			case msg, ok := <-r.mainstream.C():
+				logger.Debug("receiving message", "tag", msg.Tag(), "message", msg.Value())
 				if !ok {
 					logger.Debug("mainstream closed, receiver registry exiting")
 					return
@@ -119,7 +120,7 @@ func (r *registry) Start() {
 					case ch <- msg:
 						logger.Debug("sent message to receiver", "tag", receiverTag, "message", msg.Value())
 					default:
-						// 通道已满，丢弃消息（可替换为日志）
+						logger.Debug("receiver channel full, message discarded", "tag", receiverTag, "message", msg.Value())
 					}
 
 					// 重新加锁，继续遍历
