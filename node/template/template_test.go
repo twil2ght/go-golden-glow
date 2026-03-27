@@ -299,6 +299,7 @@ func TestCore_matchTemplate(t *testing.T) {
 		template   string
 		wantMatch  bool
 		wantVarLen int
+		wantVars   map[string]string // expected variable key -> value
 	}{
 		{
 			name:       "exact match no vars",
@@ -306,6 +307,7 @@ func TestCore_matchTemplate(t *testing.T) {
 			template:   "hello world",
 			wantMatch:  true,
 			wantVarLen: 0,
+			wantVars:   map[string]string{},
 		},
 		{
 			name:       "single variable",
@@ -313,6 +315,7 @@ func TestCore_matchTemplate(t *testing.T) {
 			template:   "hello $1",
 			wantMatch:  true,
 			wantVarLen: 1,
+			wantVars:   map[string]string{"$1": "world"},
 		},
 		{
 			name:       "multiple variables",
@@ -320,6 +323,31 @@ func TestCore_matchTemplate(t *testing.T) {
 			template:   "$1 says hello to $2",
 			wantMatch:  true,
 			wantVarLen: 2,
+			wantVars:   map[string]string{"$1": "john", "$2": "mary"},
+		},
+		{
+			name:       "variable at start",
+			target:     "john says hello",
+			template:   "$1 says hello",
+			wantMatch:  true,
+			wantVarLen: 1,
+			wantVars:   map[string]string{"$1": "john"},
+		},
+		{
+			name:       "variable at end",
+			target:     "say hello to mary",
+			template:   "say hello to $1",
+			wantMatch:  true,
+			wantVarLen: 1,
+			wantVars:   map[string]string{"$1": "mary"},
+		},
+		{
+			name:       "variable in middle",
+			target:     "hello world there",
+			template:   "hello $1 there",
+			wantMatch:  true,
+			wantVarLen: 1,
+			wantVars:   map[string]string{"$1": "world"},
 		},
 		{
 			name:       "no match different text",
@@ -327,6 +355,7 @@ func TestCore_matchTemplate(t *testing.T) {
 			template:   "goodbye world",
 			wantMatch:  false,
 			wantVarLen: 0,
+			wantVars:   nil,
 		},
 		{
 			name:       "empty template",
@@ -334,6 +363,7 @@ func TestCore_matchTemplate(t *testing.T) {
 			template:   "",
 			wantMatch:  false,
 			wantVarLen: 0,
+			wantVars:   nil,
 		},
 		{
 			name:       "target shorter than template",
@@ -341,6 +371,7 @@ func TestCore_matchTemplate(t *testing.T) {
 			template:   "hello world",
 			wantMatch:  false,
 			wantVarLen: 0,
+			wantVars:   nil,
 		},
 	}
 
@@ -352,6 +383,22 @@ func TestCore_matchTemplate(t *testing.T) {
 			}
 			if len(vars) != tt.wantVarLen {
 				t.Errorf("matchTemplate() vars len = %d, want %d", len(vars), tt.wantVarLen)
+			}
+			// Check variable values
+			if tt.wantVars != nil {
+				for key, wantVal := range tt.wantVars {
+					if v, ok := vars[key]; !ok {
+						t.Errorf("matchTemplate() missing variable %s", key)
+					} else if v.Value() != wantVal {
+						t.Errorf("matchTemplate() variable %s = %q, want %q", key, v.Value(), wantVal)
+					}
+				}
+				// Check no extra variables
+				for key := range vars {
+					if _, ok := tt.wantVars[key]; !ok {
+						t.Errorf("matchTemplate() unexpected variable %s = %q", key, vars[key].Value())
+					}
+				}
 			}
 		})
 	}
