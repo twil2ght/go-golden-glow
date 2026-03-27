@@ -47,10 +47,7 @@ func (b *Base) Copy() Item {
 
 func New(k, v string) Item {
 	if k == "" {
-		return nil
-	}
-	if v == "" {
-		return nil
+		k = "you get an empty key"
 	}
 	return &Base{
 		name:  k,
