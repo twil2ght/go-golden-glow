@@ -215,7 +215,7 @@ func (b *Base) processContainer(hashValue string, T Knot) ([]Knot, error) {
 	}
 	triggers := c.RNode()
 	var knots = make([]Knot, 0, len(triggers))
-
+	logger.Debug("container triggers", "hash_value", hashValue, "triggers_amount", len(triggers))
 	for _, t := range triggers {
 		visited := make(map[string]struct{}, len(T.Trace()))
 		maps.Copy(visited, T.Trace())
