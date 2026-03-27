@@ -168,14 +168,20 @@ func (c *core) Match(a, b string) bool {
 	return ok
 }
 func clean(varFrom, varTo variable.Set) error {
+	if varTo == nil {
+		return fmt.Errorf("clean variables: varTo is nil")
+	}
+	if varFrom == nil {
+		return fmt.Errorf("clean variables: varFrom is nil")
+	}
 	for key, e := range varTo {
-		val, err := variable.ToRawText(e.Name(), varFrom, true)
+		val, err := variable.ToRawText(e.Value(), varFrom, true)
 		if err != nil {
-			return err
+			return fmt.Errorf("clean variables: %w", err)
 		}
 		err = e.Set(val)
 		if err != nil {
-			return err
+			return fmt.Errorf("clean variables: %w", err)
 		}
 		varTo[key] = e
 	}
