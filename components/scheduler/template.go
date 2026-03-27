@@ -84,7 +84,6 @@ func (s *scheduler) Start() error {
 	}()
 
 	logger.Info("Scheduler started")
-	<-s.ctx.Done()
 	return nil
 }
 func NewScheduler(

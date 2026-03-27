@@ -51,6 +51,7 @@ func (s *schedulerLite) Start() error {
 			case <-s.ctx.Done():
 				return
 			case message, ok := <-s.rcv:
+				loggerLite.Debug("Received message", "message", message)
 				if !ok {
 					return
 				}
@@ -91,7 +92,6 @@ func (s *schedulerLite) Start() error {
 	}()
 
 	loggerLite.Info("Scheduler started")
-	<-s.ctx.Done()
 	return nil
 }
 func NewLiteScheduler(
