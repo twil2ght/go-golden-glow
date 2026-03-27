@@ -10,6 +10,8 @@ import (
 	"regexp"
 )
 
+var logger = log.Default()
+
 type Item interface {
 	ID() string
 	TNode() node.Set
@@ -97,6 +99,8 @@ func (b *Base) ParseTrigger(T node.Item) error {
 	if err != nil {
 		return fmt.Errorf("parseTrigger:%s", err.Error())
 	}
+	logger.Debug("parseTrigger trigger node", "node", T.Value())
+	logger.Debug("parseTrigger dist node", "node", distNode.Value())
 
 	distNode.SetState(true)
 
@@ -119,16 +123,18 @@ func (b *Base) ParseTrigger(T node.Item) error {
 func (b *Base) variableGen(T, dist node.Item) (variable.Set, error) {
 	tMatches := b.varReg.FindAllStringSubmatch(T.Value(), -1)
 	dMatches := b.varReg.FindAllStringSubmatch(dist.Value(), -1)
-
 	if len(tMatches) != len(dMatches) {
 		return nil, fmt.Errorf("variable count mismatch: %d != %d", len(tMatches), len(dMatches))
 	}
 
-	variables := make(variable.Set, len(T.Variables()))
+	variables := make(variable.Set)
 	for i, dMatch := range dMatches {
 		if err := variableGen(i, dMatch, tMatches, T, variables); err != nil {
-			return nil, err
+			return nil, fmt.Errorf("variableGen:%s", err)
 		}
+	}
+	if len(dMatches) != len(variables) {
+		return nil, fmt.Errorf("variableGen: variable count mismatch: %d != %d", len(dMatches), len(variables))
 	}
 	return variables, nil
 }
