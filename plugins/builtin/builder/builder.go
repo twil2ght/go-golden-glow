@@ -8,6 +8,7 @@ import (
 	"goldenglow/executor"
 	"goldenglow/lang"
 	"goldenglow/m"
+	"goldenglow/pkg/log"
 	"goldenglow/plugins"
 )
 
@@ -25,6 +26,7 @@ const (
 	keyType  = "type"
 )
 
+var logger = log.Default()
 var (
 	// modes
 	modeMultiCondition = "multi_condition"
@@ -53,7 +55,7 @@ func (b *builder) add(value, valueType, mode string) error {
 	case modeMultiResult:
 		b.pocketC2Rs = append(b.pocketC2Rs, value)
 	}
-
+	logger.Debug("Builder:add value", "value", value, "valueType", valueType, "mode", mode)
 	if valueType == typeOutput {
 		return b.build(mode)
 	}
