@@ -32,7 +32,7 @@ func (l *langRegistry) Register(name string) error {
 
 // RunAll 从每个插件目录下读取所有json文件并解析保存
 func (l *langRegistry) RunAll() error {
-	root := utils.RootDir
+	root := filepath.Join(utils.RootDir, "data")
 	logger.Info("starting to parse langFiles",
 		"total_plugins", len(l.pluginNameSet),
 	)

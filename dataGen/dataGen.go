@@ -5,11 +5,12 @@ import (
 	"fmt"
 	"goldenglow/pkg/log"
 	"goldenglow/utils"
+	"path/filepath"
 )
 
 var (
 	logger  = log.Default()
-	RootDir = utils.RootDir
+	RootDir = filepath.Join(utils.RootDir, "data")
 )
 
 type dataGen struct {

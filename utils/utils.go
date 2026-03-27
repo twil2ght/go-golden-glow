@@ -27,8 +27,7 @@ func init() {
 	}
 
 	// 向上查找找到 go.mod 所在目录 = 项目根
-	root := findProjectRoot(wd)
-	RootDir = filepath.Join(root, "data")
+	RootDir = findProjectRoot(wd)
 }
 
 // 自动找项目根（有 go.mod 就是根）
