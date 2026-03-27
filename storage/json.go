@@ -2,16 +2,21 @@ package storage
 
 import (
 	"encoding/json"
+	"fmt"
 	"goldenglow/m"
 	"goldenglow/pkg/log"
+	"goldenglow/utils"
 	"os"
+	"path/filepath"
 )
 
-const (
-	DefaultJSONPathRoot  = "./archive/Data/json"
+var (
+	DefaultJSONPathRoot  = filepath.Join(utils.RootDir, "archive/Data/json")
 	defaultJSONHDataPath = DefaultJSONPathRoot + "/hash_data.json"
 	defaultJSONDataPath  = DefaultJSONPathRoot + "/data.json"
 )
+
+var logger = log.Default()
 
 type jsonRepository struct {
 	DataPath  string
@@ -55,7 +60,8 @@ func (j *jsonRepository) Init() error {
 
 	_, err = os.Stat(j.HDataPath)
 	if os.IsNotExist(err) {
-		return nil
+		abs, _ := filepath.Abs(j.HDataPath)
+		return fmt.Errorf("%s not exists", abs)
 	}
 	if err != nil {
 		return err
@@ -66,7 +72,12 @@ func (j *jsonRepository) Init() error {
 		return err
 	}
 
-	return json.Unmarshal(file, &j.HData)
+	err = json.Unmarshal(file, &j.HData)
+	if err != nil {
+		logger.Error("Failed to unmarshal JSON file", "error", err)
+	}
+	logger.Info("Initialized JSON data store", "data_length", len(j.HData))
+	return nil
 }
 
 func (j *jsonRepository) Save() error {
