@@ -3,6 +3,7 @@ package container
 import (
 	"goldenglow/node"
 	"goldenglow/storage"
+	"goldenglow/variable"
 )
 
 var (
@@ -15,6 +16,7 @@ var (
 )
 
 func DefaultFactory() Factory {
+	factoryInstance.WithVarReg(variable.VarReg)
 	return factoryInstance
 }
 func DefaultStore() Store { return storeInstance }
