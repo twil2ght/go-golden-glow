@@ -60,10 +60,15 @@ func (j *jsonRepository) Init() error {
 
 	_, err = os.Stat(j.HDataPath)
 	if os.IsNotExist(err) {
-		abs, _ := filepath.Abs(j.HDataPath)
-		return fmt.Errorf("%s not exists", abs)
-	}
-	if err != nil {
+		//文件不存在 → 创建空 JSON 文件
+		emptyData := make(map[string]m.Hash)
+		data, _ := json.MarshalIndent(emptyData, "", "  ")
+		err = os.WriteFile(j.HDataPath, data, 0644)
+		if err != nil {
+			return fmt.Errorf("create empty json file failed: %w", err)
+		}
+		logger.Info("Created new empty JSON data file", "path", j.HDataPath)
+	} else if err != nil {
 		return err
 	}
 
@@ -75,6 +80,7 @@ func (j *jsonRepository) Init() error {
 	err = json.Unmarshal(file, &j.HData)
 	if err != nil {
 		logger.Error("Failed to unmarshal JSON file", "error", err)
+		return err
 	}
 	logger.Info("Initialized JSON data store", "data_length", len(j.HData))
 	return nil
