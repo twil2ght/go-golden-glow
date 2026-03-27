@@ -44,31 +44,7 @@ var (
 func main() {
 	defer Shutdown()
 	Init()
-	err := DefaultPreprocessor()
-	if err != nil {
-		panic(err)
-	}
-	err = DefaultSource()
-	if err != nil {
-		panic(err)
-	}
 
-	sched := scheduler.NewScheduler(
-		sourceReg.(source.MainStream),
-		preprocessReg.(preprocessor.Instance),
-		Queue,
-		Runner,
-		node.DefaultFactory())
-	defer func(sched scheduler.Scheduler) {
-		err := sched.Stop()
-		if err != nil {
-			panic(err)
-		}
-	}(sched)
-	err = sched.Start()
-	if err != nil {
-		panic(err)
-	}
 }
 
 func Init() {
@@ -167,5 +143,32 @@ func (k *keyboardInput) readLoop() {
 			break
 		}
 		k.ch <- line
+	}
+}
+func RunScheduler() {
+	err := DefaultPreprocessor()
+	if err != nil {
+		panic(err)
+	}
+	err = DefaultSource()
+	if err != nil {
+		panic(err)
+	}
+
+	sched := scheduler.NewScheduler(
+		sourceReg.(source.MainStream),
+		preprocessReg.(preprocessor.Instance),
+		Queue,
+		Runner,
+		node.DefaultFactory())
+	defer func(sched scheduler.Scheduler) {
+		err := sched.Stop()
+		if err != nil {
+			panic(err)
+		}
+	}(sched)
+	err = sched.Start()
+	if err != nil {
+		panic(err)
 	}
 }
