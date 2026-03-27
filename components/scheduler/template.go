@@ -100,5 +100,6 @@ func NewScheduler(
 		queue:       queue,
 		runner:      runner,
 		nodeFactory: nodeFactory,
+		wg:          sync.WaitGroup{},
 	}
 }
