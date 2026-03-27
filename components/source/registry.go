@@ -12,7 +12,8 @@ var (
 )
 
 type registry struct {
-	sources map[string]Source
+	sources    map[string]Source
+	mainstream chan components.Message
 }
 
 func (r *registry) Tags() m.Hash {
@@ -24,17 +25,18 @@ func (r *registry) Tags() m.Hash {
 }
 
 func (r *registry) C() <-chan components.Message {
-	mainstream := make(chan components.Message, 10)
 	logger.Info("InputSource:start mainstream", "source_amount", len(r.sources))
 	for tag, ch := range r.sources {
 		go func(source Source, tag string) {
 			for msg := range source.C() {
-				mainstream <- components.NewMsg(msg, tag)
+				logger.Info("InputSource:receive msg", "tag", tag, "msg", msg)
+				r.mainstream <- components.NewMsg(msg, tag)
+				logger.Info("InputSource:send msg Done", "tag", tag, "msg", msg)
 			}
 		}(ch, tag)
 	}
 
-	return mainstream
+	return r.mainstream
 }
 
 func (r *registry) Register(pluginName, tag string, source Source) error {
@@ -52,6 +54,7 @@ func (r *registry) Register(pluginName, tag string, source Source) error {
 }
 func NewRegistry() Registry {
 	return &registry{
-		sources: make(map[string]Source),
+		sources:    make(map[string]Source),
+		mainstream: make(chan components.Message),
 	}
 }
