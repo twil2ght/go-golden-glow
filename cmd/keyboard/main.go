@@ -5,22 +5,14 @@ import (
 	"fmt"
 	"goldenglow/components/preprocessor"
 	"goldenglow/components/queue"
+	"goldenglow/components/receiver"
 	"goldenglow/components/runner"
 	"goldenglow/components/scheduler"
 	"goldenglow/components/source"
 	"goldenglow/config"
 	"goldenglow/node"
-	_ "goldenglow/plugins/builtin/builder"
-	_ "goldenglow/plugins/builtin/calculator"
-	_ "goldenglow/plugins/builtin/speaker"
-	_ "goldenglow/plugins/builtin/timer"
+	"goldenglow/setup"
 	"os"
-)
-
-// registries
-var (
-	sourceReg     = source.NewRegistry()
-	preprocessReg = preprocessor.NewRegistry()
 )
 
 // components
@@ -30,17 +22,19 @@ var (
 )
 
 func main() {
-
+	setup.Init()
+	defer setup.Shutdown()
+	RunLiteScheduler()
 }
 
-func DefaultSource() error {
+func DefaultSource(sourceReg source.Registry) error {
 	keyboardSource := &keyboardInput{
-		ch: make(chan string),
+		ch: make(chan string, 10),
 	}
 	go keyboardSource.readLoop()
 	return sourceReg.Register("default", "keyboard", keyboardSource)
 }
-func DefaultPreprocessor() error {
+func DefaultPreprocessor(preprocessReg preprocessor.Registry) error {
 	return preprocessReg.Register("default", "keyboard", func(msg string) string {
 		return fmt.Sprintf("%s says %s to %s", config.User, msg, config.GG)
 	})
@@ -69,29 +63,56 @@ func (k *keyboardInput) readLoop() {
 		k.ch <- line
 	}
 }
-func RunScheduler() {
-	err := DefaultPreprocessor()
+
+func RunLiteScheduler() {
+	sourceReg := setup.SourceReg
+	preprocessReg := setup.PreprocessReg
+
+	err := DefaultPreprocessor(preprocessReg)
 	if err != nil {
 		panic(err)
 	}
-	err = DefaultSource()
+	err = DefaultSource(sourceReg)
 	if err != nil {
 		panic(err)
 	}
 
-	sched := scheduler.NewScheduler(
-		sourceReg.(source.MainStream),
-		preprocessReg.(preprocessor.Instance),
+	mainStream, ok := sourceReg.(source.MainStream)
+	if !ok {
+		panic("sourceReg does not implement source.MainStream")
+	}
+	processor, ok := preprocessReg.(preprocessor.Instance)
+	if !ok {
+		panic("preprocessReg does not implement preprocessor.Instance")
+	}
+
+	receiverReg := receiver.NewRegistry(mainStream, sourceReg.Tags())
+
+	schLite := scheduler.NewLiteScheduler(
+		processor,
 		Queue,
 		Runner,
 		node.DefaultFactory())
-	defer func(sched scheduler.Scheduler) {
-		err := sched.Stop()
+
+	rcv, ok := schLite.(receiver.RegisterItem)
+	if !ok {
+		panic("schLite is not a receiver.RegisterItem")
+	}
+	err = rcv.OnRegisterReceiver(receiverReg)
+	if err != nil {
+		panic(err)
+	}
+
+	// Start the receiver registry to begin message routing
+	receiverReg.Start()
+
+	defer func() {
+		err := schLite.Stop()
 		if err != nil {
 			panic(err)
 		}
-	}(sched)
-	err = sched.Start()
+	}()
+	err = schLite.Start()
 	if err != nil {
 		panic(err)
 	}
