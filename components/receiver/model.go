@@ -11,6 +11,7 @@ type Registry interface {
 	Register(tag string, subscribeTo m.Hash, r Receiver) error
 	Subscriptions() m.Hash
 	Start()
+	Shutdown()
 }
 type RegisterItem interface {
 	OnRegisterReceiver(reg Registry) error

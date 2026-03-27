@@ -18,6 +18,8 @@ type registry struct {
 	route      map[string]m.Hash                    // 订阅标签(tag) -> 接收者tag集合（路由表）
 	mainstream source.MainStream                    // 全局消息源
 	mu         sync.RWMutex
+	stopCh     chan struct{}  // 停止信号通道
+	wg         sync.WaitGroup // 等待goroutine结束
 }
 
 func (r *registry) Subscriptions() m.Hash {
@@ -37,6 +39,7 @@ func NewRegistry(ms source.MainStream, subs m.Hash) Registry {
 		chs:        make(map[string]chan<- components.Message),
 		mainstream: ms,
 		route:      routes,
+		stopCh:     make(chan struct{}),
 	}
 }
 
@@ -74,44 +77,63 @@ func (r *registry) Register(tag string, subscribeTo m.Hash, rcv Receiver) error 
 
 // Start 启动消息监听协程：从全局消息流消费消息，按路由推送给订阅者
 func (r *registry) Start() {
+	r.wg.Add(1)
 	go func() {
+		defer r.wg.Done()
 		// 持续消费全局消息流
-		for msg := range r.mainstream.C() {
-			msgTag := msg.Tag() // 消息自带的标签
-			logger.Debug("consuming message", "tag", msgTag, "message", msg.Value())
-			// 加读锁：并发安全读取路由表
-			r.mu.RLock()
-			// 根据消息标签，找到所有订阅该标签的接收者tag
-			receivers, exists := r.route[msgTag]
-			if !exists {
-				r.mu.RUnlock()
-				logger.Debug("no subscribers for message tag", "tag", msgTag)
-				continue
-			}
-			logger.Debug("subscribers for message tag", "tag", msgTag, "subscribers_amount", len(receivers))
-			// 遍历所有订阅者，推送消息
-			for receiverTag := range receivers {
-				ch, ok := r.chs[receiverTag]
+		for {
+			select {
+			case <-r.stopCh:
+				logger.Debug("receiver registry shutting down")
+				return
+			case msg, ok := <-r.mainstream.C():
 				if !ok {
-					logger.Debug("receiver channel not found", "tag", receiverTag)
+					logger.Debug("mainstream closed, receiver registry exiting")
+					return
+				}
+				msgTag := msg.Tag() // 消息自带的标签
+				logger.Debug("consuming message", "tag", msgTag, "message", msg.Value())
+				// 加读锁：并发安全读取路由表
+				r.mu.RLock()
+				// 根据消息标签，找到所有订阅该标签的接收者tag
+				receivers, exists := r.route[msgTag]
+				if !exists {
+					r.mu.RUnlock()
+					logger.Debug("no subscribers for message tag", "tag", msgTag)
 					continue
 				}
+				logger.Debug("subscribers for message tag", "tag", msgTag, "subscribers_amount", len(receivers))
+				// 遍历所有订阅者，推送消息
+				for receiverTag := range receivers {
+					ch, ok := r.chs[receiverTag]
+					if !ok {
+						logger.Debug("receiver channel not found", "tag", receiverTag)
+						continue
+					}
 
-				// 解锁：发送消息是阻塞操作，必须提前释放锁
-				r.mu.RUnlock()
+					// 解锁：发送消息是阻塞操作，必须提前释放锁
+					r.mu.RUnlock()
 
-				// 非阻塞发送（避免通道满导致协程卡住）
-				select {
-				case ch <- msg:
-					logger.Debug("sent message to receiver", "tag", receiverTag, "message", msg.Value())
-				default:
-					// 通道已满，丢弃消息（可替换为日志）
+					// 非阻塞发送（避免通道满导致协程卡住）
+					select {
+					case ch <- msg:
+						logger.Debug("sent message to receiver", "tag", receiverTag, "message", msg.Value())
+					default:
+						// 通道已满，丢弃消息（可替换为日志）
+					}
+
+					// 重新加锁，继续遍历
+					r.mu.RLock()
 				}
-
-				// 重新加锁，继续遍历
-				r.mu.RLock()
+				r.mu.RUnlock()
 			}
-			r.mu.RUnlock()
 		}
 	}()
+}
+
+// Shutdown 安全关闭接收器注册表
+func (r *registry) Shutdown() {
+	close(r.stopCh)
+	r.wg.Wait()
+	logger.Debug("receiver registry shutdown complete")
 }
