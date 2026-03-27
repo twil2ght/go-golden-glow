@@ -12,6 +12,8 @@ import (
 	"maps"
 )
 
+var logger = log.Default()
+
 type Knot interface {
 	Trigger() node.Item
 	Trace() m.Hash
@@ -45,19 +47,10 @@ type Instance interface {
 }
 
 type Base struct {
-	Logger           log.Logger
 	templateCore     template.Core
 	containerFactory container.Factory
 }
 
-// SetLogger 替换日志器
-func (b *Base) SetLogger(l log.Logger) error {
-	if l != nil {
-		b.Logger = l
-		return nil
-	}
-	return fmt.Errorf("Base.SetLogger")
-}
 func (b *Base) SetContainerFactory(f container.Factory) error {
 	if f != nil {
 		b.containerFactory = f
@@ -73,9 +66,8 @@ func (b *Base) SetTemplateCore(f template.Core) error {
 	return fmt.Errorf("Base.SetTemplateCore")
 }
 
-func New(logger log.Logger, cf container.Factory, tc template.Core) Instance {
+func New(cf container.Factory, tc template.Core) Instance {
 	return &Base{
-		Logger:           logger,
 		containerFactory: cf,
 		templateCore:     tc,
 	}

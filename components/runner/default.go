@@ -3,11 +3,10 @@ package runner
 import (
 	"goldenglow/container"
 	"goldenglow/node/template"
-	"goldenglow/pkg/log"
 )
 
 var (
-	runnerInstance = New(&log.Base{}, container.DefaultFactory(), template.DefaultCore())
+	runnerInstance = New(container.DefaultFactory(), template.DefaultCore())
 )
 
 func DefaultRunner() Instance {

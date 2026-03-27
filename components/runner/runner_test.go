@@ -6,6 +6,7 @@ import (
 
 	"goldenglow/m"
 	"goldenglow/node"
+	"goldenglow/setup"
 )
 
 // createTestNode creates a test node using the real node factory
@@ -28,10 +29,6 @@ func TestDefaultRunner(t *testing.T) {
 		t.Fatal("DefaultRunner() did not return *Base")
 	}
 
-	// Verify dependencies are set
-	if base.Logger == nil {
-		t.Error("Base.Logger is nil")
-	}
 	if base.containerFactory == nil {
 		t.Error("Base.containerFactory is nil")
 	}
@@ -104,16 +101,6 @@ func TestKnot_Trace(t *testing.T) {
 		t.Error("Knot.Trace() returned nil")
 	}
 }
-
-func TestBase_SetLogger(t *testing.T) {
-	base := DefaultRunner().(*Base)
-
-	// The default logger should already be set
-	if base.Logger == nil {
-		t.Error("DefaultRunner() Logger is nil")
-	}
-}
-
 func TestBase_SetContainerFactory(t *testing.T) {
 	base := DefaultRunner().(*Base)
 
@@ -136,6 +123,7 @@ func TestBase_Run(t *testing.T) {
 	if err := storage.DefaultJSONRepo().Init(); err != nil {
 		panic(err)
 	}
+	setup.Init()
 	runner := DefaultRunner()
 
 	// Test with a simple node
@@ -149,6 +137,7 @@ func TestBase_Run_WithEmptyNode(t *testing.T) {
 	if err := storage.DefaultJSONRepo().Init(); err != nil {
 		panic(err)
 	}
+	setup.Init()
 	runner := DefaultRunner()
 
 	// Test with empty node value
@@ -161,10 +150,11 @@ func TestBase_Run_WithComplexNode(t *testing.T) {
 	if err := storage.DefaultJSONRepo().Init(); err != nil {
 		panic(err)
 	}
+	setup.Init()
 	runner := DefaultRunner()
 
 	// Test with a more complex node value
-	input := createTestNode("calculate 2 + 3")
+	input := createTestNode("compute 2 + 3")
 	err := runner.Run(input)
 	_ = err
 }
