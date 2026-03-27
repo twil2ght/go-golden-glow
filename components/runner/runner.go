@@ -77,7 +77,7 @@ func (b *Base) Run(input node.Item) error {
 	if err != nil {
 		return fmt.Errorf("run init step: %w", err)
 	}
-	logger.Debug("start to run", "initial_knots_amount", len(initKnots), "input", input)
+	logger.Debug("start to run", "initial_knots_amount", len(initKnots), "input", input.Value())
 	for _, k := range initKnots {
 		logger.Debug("initial knot list", "knot_id", k.Trigger().Value())
 	}
