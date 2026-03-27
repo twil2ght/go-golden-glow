@@ -23,7 +23,6 @@ var (
 	Runner = runner.DefaultRunner()
 )
 
-// TODO 特殊退出程序的输入
 func main() {
 	setup.Init()
 
@@ -128,4 +127,8 @@ func RunLiteScheduler() {
 	if err != nil {
 		panic(err)
 	}
+
+	// Block forever to keep the scheduler running
+	// The defer statements will run when the program exits
+	select {}
 }
