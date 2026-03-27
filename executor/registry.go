@@ -40,6 +40,7 @@ func (reg *registry) RunAll() error {
 func (reg *registry) OnRegisterNodeRegistry(nReg node.Registry) error {
 	defaultCreator := func(b node.Base) node.Item {
 		return &BaseNode{
+			Base:     b,
 			handlers: reg.handlers,
 		}
 	}

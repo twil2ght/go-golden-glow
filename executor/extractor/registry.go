@@ -2,6 +2,7 @@ package extractor
 
 import (
 	"errors"
+	"goldenglow/executor"
 	"goldenglow/node"
 	"goldenglow/pkg/log"
 	"goldenglow/utils"
@@ -40,6 +41,7 @@ func (reg *registry) RunAll() error {
 func (reg *registry) OnRegisterNodeRegistry(nReg node.Registry) error {
 	defaultCreator := func(b node.Base) node.Item {
 		return &baseExtractor{
+			BaseNode: executor.BaseNode{Base: b},
 			handlers: reg.handlers,
 		}
 	}
