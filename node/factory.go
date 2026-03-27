@@ -36,22 +36,15 @@ func (f *factory) New(val string) (Item, error) {
 		regulator: f.regulator,
 	}
 	var (
-		node    Item = &base
-		warning string
+		node Item = &base
 	)
 	event := head(val)
 	if creator, ok := f.registries[event]; ok {
 		node = creator(base)
-	} else {
-		warning = fmt.Sprintf("node %s :s unknown event '%s' (use default node)", val, event)
 	}
 
 	f.Add(node)
-
-	if warning == "" {
-		return node, nil
-	}
-	return node, fmt.Errorf("%s", warning)
+	return node, nil
 }
 func (f *factory) Register(event string, creator Creator) error {
 	head := "node registry"
