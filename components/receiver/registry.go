@@ -5,9 +5,12 @@ import (
 	"goldenglow/components"
 	"goldenglow/components/source"
 	"goldenglow/m"
+	"goldenglow/pkg/log"
 	"goldenglow/utils"
 	"sync"
 )
+
+var logger = log.Default()
 
 // registry 消息订阅路由注册表
 type registry struct {
@@ -25,11 +28,15 @@ func (r *registry) Subscriptions() m.Hash {
 	return subs
 }
 
-func NewRegistry(ms source.MainStream) Registry {
+func NewRegistry(ms source.MainStream, subs m.Hash) Registry {
+	var routes = make(map[string]m.Hash)
+	for sub := range subs {
+		routes[sub] = make(m.Hash)
+	}
 	return &registry{
 		chs:        make(map[string]chan<- components.Message),
-		route:      make(map[string]m.Hash),
 		mainstream: ms,
+		route:      routes,
 	}
 }
 
@@ -71,20 +78,22 @@ func (r *registry) Start() {
 		// 持续消费全局消息流
 		for msg := range r.mainstream.C() {
 			msgTag := msg.Tag() // 消息自带的标签
-
+			logger.Debug("consuming message", "tag", msgTag, "message", msg.Value())
 			// 加读锁：并发安全读取路由表
 			r.mu.RLock()
 			// 根据消息标签，找到所有订阅该标签的接收者tag
 			receivers, exists := r.route[msgTag]
 			if !exists {
 				r.mu.RUnlock()
+				logger.Debug("no subscribers for message tag", "tag", msgTag)
 				continue
 			}
-
+			logger.Debug("subscribers for message tag", "tag", msgTag, "subscribers_amount", len(receivers))
 			// 遍历所有订阅者，推送消息
 			for receiverTag := range receivers {
 				ch, ok := r.chs[receiverTag]
 				if !ok {
+					logger.Debug("receiver channel not found", "tag", receiverTag)
 					continue
 				}
 
@@ -94,6 +103,7 @@ func (r *registry) Start() {
 				// 非阻塞发送（避免通道满导致协程卡住）
 				select {
 				case ch <- msg:
+					logger.Debug("sent message to receiver", "tag", receiverTag, "message", msg.Value())
 				default:
 					// 通道已满，丢弃消息（可替换为日志）
 				}
