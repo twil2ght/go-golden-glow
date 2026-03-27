@@ -23,8 +23,8 @@ var (
 	exeExtractorReg = extractor.DefaultRegistry()
 	langReg         = lang.DefaultRegistry()
 	dataGenReg      = dataGen.NewDataGen()
-	sourceReg       = source.NewRegistry()
-	preprocessReg   = preprocessor.NewRegistry()
+	SourceReg       = source.NewRegistry()
+	PreprocessReg   = preprocessor.NewRegistry()
 )
 
 func Init() {
@@ -50,8 +50,8 @@ func parsePlugin(plugin plugins.Item) {
 		{"OnRegisterDataGen", func() error { return plugin.OnRegisterDataGen(dataGenReg) }},
 		{"OnRegisterLang", func() error { return plugin.OnRegisterLang(langReg) }},
 		{"OnRegisterExecutor", func() error { return plugin.OnRegisterExecutor(exeReg) }},
-		{"OnRegisterPreprocessor", func() error { return plugin.OnRegisterPreprocessor(preprocessReg) }},
-		{"OnRegisterInputSource", func() error { return plugin.OnRegisterInputSource(sourceReg) }},
+		{"OnRegisterPreprocessor", func() error { return plugin.OnRegisterPreprocessor(PreprocessReg) }},
+		{"OnRegisterInputSource", func() error { return plugin.OnRegisterInputSource(SourceReg) }},
 	}
 
 	for _, reg := range mustRegs {
