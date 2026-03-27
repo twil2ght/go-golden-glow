@@ -378,7 +378,7 @@ func TestClean(t *testing.T) {
 			varTo: variable.Set{
 				"$1": variable.New("$1", ""),
 			},
-			wantErr: false,
+			wantErr: true,
 		},
 	}
 
