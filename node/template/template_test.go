@@ -1,6 +1,7 @@
 package template
 
 import (
+	"goldenglow/storage"
 	"regexp"
 	"testing"
 
@@ -443,5 +444,26 @@ func TestDefaultCore(t *testing.T) {
 	core := DefaultCore()
 	if core == nil {
 		t.Error("DefaultCore() returned nil")
+	}
+}
+func TestDefaultSource(t *testing.T) {
+	err := storage.DefaultJSONRepo().Init()
+	if err != nil {
+		t.Fatalf("DefaultSource() error = %v", err)
+	}
+	s := sourceInstance
+	if s == nil {
+		t.Fatal("DefaultSource() returned nil")
+	}
+	nodeSet, err := s.GetTemplates()
+	if err != nil {
+		t.Fatalf("DefaultSource() error = %v", err)
+	}
+	if len(nodeSet) == 0 {
+		t.Fatal("DefaultSource() returned empty node set")
+	}
+	mustExisted := "Susie should say $1"
+	if nodeSet[mustExisted] == nil {
+		t.Fatal("DefaultSource() missing template")
 	}
 }
