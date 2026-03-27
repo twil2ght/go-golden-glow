@@ -3,6 +3,7 @@ package node
 import (
 	"fmt"
 	"goldenglow/variable"
+	"strings"
 )
 
 type Set map[string]Item
@@ -48,7 +49,10 @@ func (b *Base) OK() bool {
 	return b.state
 }
 func (b *Base) Execute() error {
-	return fmt.Errorf("default Execute Method")
+	if strings.HasPrefix(b.val, "[node") {
+		return fmt.Errorf("node: %s not implemented", b.val)
+	}
+	return nil
 }
 func (b *Base) Value() string {
 	return b.val
