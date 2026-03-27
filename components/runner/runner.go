@@ -78,6 +78,9 @@ func (b *Base) Run(input node.Item) error {
 		return fmt.Errorf("run init step: %w", err)
 	}
 	logger.Debug("start to run", "initial_knots_amount", len(initKnots))
+	for _, k := range initKnots {
+		logger.Debug("initial knot list", "knot_id", k.Trigger().Value())
+	}
 	// 带缓冲通道，避免无缓冲导致的立即阻塞
 	taskCh := make(chan []Knot, 1)
 	resultCh := make(chan []Knot, 1)
@@ -133,7 +136,7 @@ func (b *Base) Run(input node.Item) error {
 
 func (b *Base) genKnots(n node.Item) ([]Knot, error) {
 	nSet, _ := b.templateCore.Get(n)
-	knots := make([]Knot, len(nSet))
+	knots := make([]Knot, 0, len(nSet))
 	for _, n := range nSet {
 		k, err := NewKnot(n, m.Hash{})
 		if err != nil {
