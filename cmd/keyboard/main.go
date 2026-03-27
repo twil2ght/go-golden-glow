@@ -33,10 +33,10 @@ func main() {
 	go RunLiteScheduler()
 
 	<-exitChan
-	println("\n💤 收到退出信号，开始保存数据...")
+	println("\n💤 saving data...")
 
 	setup.Shutdown()
-	println("✅ 数据已保存，程序安全退出")
+	println("✅ shutdown complete")
 }
 
 func DefaultSource(sourceReg source.Registry) error {
