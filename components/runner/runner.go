@@ -149,7 +149,7 @@ func (b *Base) genKnots(n node.Item) ([]Knot, error) {
 
 func (b *Base) produce(knots []Knot) ([]Knot, error) {
 	nextKnots := make([]Knot, 0, len(knots))
-
+	logger.Debug("produce knots start", "knots_amount", len(knots))
 	for _, Item := range knots {
 		var (
 			encoder   = b.containerFactory.Encoder()
@@ -161,7 +161,7 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 		}
 		Item.Trace()[encoded] = struct{}{}
 		templateKnots, _ := b.genKnots(Item.Trigger())
-
+		logger.Debug("produce knots generated", "knots_amount", len(templateKnots), "trigger", nodeValue)
 		nextKnots = append(nextKnots, templateKnots...)
 	}
 
@@ -215,12 +215,16 @@ func (b *Base) processContainer(hashValue string, T Knot) ([]Knot, error) {
 	}
 	triggers := c.RNode()
 	var knots = make([]Knot, 0, len(triggers))
-	logger.Debug("container triggers", "hash_value", hashValue, "triggers_amount", len(triggers))
+	logger.Debug("container triggers", "hash_value", hashValue, "triggers_amount", len(triggers), "prev_trigger", T.Trigger().Value())
+	for _, trigger := range triggers {
+		logger.Debug("container trigger", "hash_value", hashValue, "trigger", trigger.Value())
+	}
 	for _, t := range triggers {
 		visited := make(map[string]struct{}, len(T.Trace()))
 		maps.Copy(visited, T.Trace())
 		k, err := NewKnot(t, m.Hash{})
 		if err != nil {
+			logger.Debug("NewKnot failed", "hash_value", hashValue, "trigger", t.Value(), "error", err)
 			continue
 		}
 		knots = append(knots, k)
