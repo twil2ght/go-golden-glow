@@ -7,6 +7,7 @@ import (
 	"goldenglow/executor"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 )
 
@@ -68,12 +69,19 @@ func (l *genBase) Run() error {
 	return nil
 }
 func (l *genBase) rvGen(params Parameters) string {
-	var (
-		res = fmt.Sprintf("%s [%s:%s]", executor.KeyDefault, executor.KeyNamespace, l.pluginName)
-	)
-	for k, v := range params {
-		res = fmt.Sprintf("%s [%s:%s]", res, k, v)
+	res := fmt.Sprintf("%s [%s:%s]", executor.KeyDefault, executor.KeyNamespace, l.pluginName)
+
+	var keys []string
+	for k := range params {
+		keys = append(keys, k)
 	}
+
+	sort.Strings(keys)
+
+	for _, k := range keys {
+		res = fmt.Sprintf("%s [%s:%s]", res, k, params[k])
+	}
+
 	return res
 }
 func (l *genBase) save(dataItem *JsonLangData, path string) error {
