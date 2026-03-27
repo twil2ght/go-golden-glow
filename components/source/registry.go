@@ -2,6 +2,7 @@ package source
 
 import (
 	"goldenglow/components"
+	"goldenglow/m"
 	"goldenglow/pkg/log"
 	"goldenglow/utils"
 )
@@ -12,6 +13,14 @@ var (
 
 type registry struct {
 	sources map[string]Source
+}
+
+func (r *registry) Tags() m.Hash {
+	tags := make(m.Hash)
+	for tag := range r.sources {
+		tags[tag] = struct{}{}
+	}
+	return tags
 }
 
 func (r *registry) C() <-chan components.Message {

@@ -1,6 +1,9 @@
 package source
 
-import "goldenglow/components"
+import (
+	"goldenglow/components"
+	"goldenglow/m"
+)
 
 type Source interface {
 	C() <-chan string
@@ -10,4 +13,5 @@ type MainStream interface {
 }
 type Registry interface {
 	Register(pluginName, tag string, source Source) error
+	Tags() m.Hash
 }
