@@ -53,6 +53,7 @@ func (b *builder) Name() string {
 }
 
 func (b *builder) add(value, valueType, mode string) error {
+	value = b.mapToPlaceholder(value)
 	switch mode {
 	case modeMultiCondition:
 		b.pocketCs2R = append(b.pocketCs2R, value)
