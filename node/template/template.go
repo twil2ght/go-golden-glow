@@ -40,7 +40,8 @@ func (c *core) Get(tar node.Item) (node.Set, error) {
 	if err != nil {
 		return nil, err
 	}
-	set, err := c.toSpecific(tar, templates)
+	//set, err := c.toSpecific(tar, templates)
+	set, err := c.AllTemplates(tar, templates)
 	if err != nil {
 		return nil, err
 	}
@@ -186,4 +187,22 @@ func clean(varFrom, varTo variable.Set) error {
 		varTo[key] = e
 	}
 	return nil
+}
+func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, error) {
+	matches := make(node.Set)
+
+	for key, n := range templates {
+		if ok, vars := c.matchTemplate(target.Value(), n.Value()); ok {
+			err := clean(target.Variables(), vars)
+			if err != nil {
+				return nil, err
+			}
+			err = n.SetVariable(vars)
+			if err != nil {
+				return nil, err
+			}
+			matches[key] = n
+		}
+	}
+	return matches, nil
 }
