@@ -8,6 +8,7 @@ import (
 	"goldenglow/dataGen"
 	"goldenglow/executor"
 	"goldenglow/lang"
+	"goldenglow/pkg/log"
 	"goldenglow/plugins"
 )
 
@@ -17,6 +18,8 @@ func init() {
 		panic(err)
 	}
 }
+
+var logger = log.Default()
 
 const (
 	tag        = "self"
@@ -53,6 +56,7 @@ func (m *speaker) OnRegisterExecutor(reg executor.Registry) error {
 			return fmt.Errorf("not found response")
 		}
 		m.responseChan <- response
+		logger.Debug("speaker executed", "response", response)
 		return nil
 	})
 }
