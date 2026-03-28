@@ -5,6 +5,8 @@ import (
 	"errors"
 	"fmt"
 	"goldenglow/executor"
+	"goldenglow/executor/checker"
+	"goldenglow/executor/extractor"
 	"os"
 	"path/filepath"
 	"sort"
@@ -42,13 +44,15 @@ func (l *genBase) Run() error {
 	)
 	for name, e := range l.langItems {
 		var (
-			pluginApi = l.rvGen(e.Params())
+			pluginApi = l.rvGen(e.Params(), e.LangType())
 			trigger   = e.Triggers()
 			results   = e.Results()
 			path, _   = l.makePath(l.pluginName, name+".json")
 		)
 		switch e.LangType() {
-		case LangTypeCheckLike:
+		case LangTypeChecker:
+			trigger = append(trigger, pluginApi)
+		case LangTypeExtractor:
 			trigger = append(trigger, pluginApi)
 		case LangTypeDefault:
 			results = append(results, pluginApi)
@@ -68,8 +72,17 @@ func (l *genBase) Run() error {
 	}
 	return nil
 }
-func (l *genBase) rvGen(params Parameters) string {
-	res := fmt.Sprintf("%s [%s:%s]", executor.KeyDefault, executor.KeyNamespace, l.pluginName)
+func (l *genBase) rvGen(params Parameters, langType LangType) string {
+	var T string
+	switch langType {
+	case LangTypeChecker:
+		T = checker.KeyChecker
+	case LangTypeDefault:
+		T = executor.KeyDefault
+	case LangTypeExtractor:
+		T = extractor.KeyExtractor
+	}
+	res := fmt.Sprintf("%s [%s:%s]", T, executor.KeyNamespace, l.pluginName)
 
 	var keys []string
 	for k := range params {
