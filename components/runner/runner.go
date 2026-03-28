@@ -123,8 +123,9 @@ func (b *Base) Run(input node.Item) error {
 
 			nextKnots, err := b.consume(knots)
 			if err != nil {
-				done <- err
-				return
+				//done <- err
+				//return
+				logger.Debug("consume: some knots failed", "error", err)
 			}
 
 			resultCh <- nextKnots
@@ -217,17 +218,25 @@ func (b *Base) processContainer(hashValue string, T Knot) ([]Knot, error) {
 	if err != nil {
 		return nil, err
 	}
-	err = c.Do(T.Trigger())
+	ok, err := c.Do(T.Trigger())
 	if err != nil {
 		return nil, err
 	}
-	triggers := c.RNode()
-	var knots = make([]Knot, 0, len(triggers))
-	logger.Debug("container triggers", "hash_value", hashValue, "triggers_amount", len(triggers), "prev_trigger", T.Trigger().Value())
+
+	results := c.RNode()
+	triggers := c.TNode()
+	var knots = make([]Knot, 0, len(results))
+	logger.Debug("container triggers", "hash_value", hashValue, "trigger_amount", len(triggers), "results_amount", len(results), "prev_trigger", T.Trigger().Value())
 	for _, trigger := range triggers {
-		logger.Debug("container trigger", "hash_value", hashValue, "trigger", trigger.Value())
+		logger.Debug("container trigger", "trigger", trigger.Value(), "state", trigger.OK(), "type", fmt.Sprintf("%T", trigger))
 	}
-	for _, t := range triggers {
+	for _, result := range results {
+		logger.Debug("container result", "result", result.Value(), "state", result.OK(), "type", fmt.Sprintf("%T", result))
+	}
+	if !ok {
+		return nil, nil
+	}
+	for _, t := range results {
 		visited := make(map[string]struct{}, len(T.Trace()))
 		maps.Copy(visited, T.Trace())
 		k, err := NewKnot(t, m.Hash{})
