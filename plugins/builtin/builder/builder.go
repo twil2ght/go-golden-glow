@@ -13,6 +13,7 @@ import (
 	"goldenglow/plugins"
 	"goldenglow/utils"
 	"os"
+	"strings"
 )
 
 func init() {
@@ -181,10 +182,13 @@ func NewBuilderPlugin(saver container.Store) plugins.Item {
 var mappingPath = utils.RootDir + "/plugins/builtin/builder/mapping.json"
 
 func (b *builder) mapToPlaceholder(value string) string {
-	if placeholder, exists := b.mapping[value]; exists {
-		return placeholder
+	var parts = strings.Fields(value)
+	for i, part := range parts {
+		if placeholder, exists := b.mapping[part]; exists {
+			parts[i] = placeholder
+		}
 	}
-	return value
+	return strings.Join(parts, " ")
 }
 func (b *builder) Setup() error {
 	mappingData, err := os.ReadFile(mappingPath)
@@ -195,5 +199,6 @@ func (b *builder) Setup() error {
 	if err != nil {
 		return fmt.Errorf("unmarshal mapping file: %v", err)
 	}
+	logger.Info("Builder:Setup Done", "mapping", b.mapping)
 	return nil
 }
