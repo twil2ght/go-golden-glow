@@ -33,3 +33,6 @@ func (b *baseExtractor) Extract() (variable.Item, error) {
 func (b *baseExtractor) SetState(_ bool) {
 	b.Base.SetState(true)
 }
+func (b *baseExtractor) OK() bool {
+	return true
+}
