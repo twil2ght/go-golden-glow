@@ -17,7 +17,7 @@ type Item interface {
 	TNode() node.Set
 	RNode() node.Set
 	Variables() variable.Set
-	Do(external node.Item) error
+	Do(external node.Item) (bool, error)
 }
 type Base struct {
 	hashValue string
@@ -41,36 +41,36 @@ func (b *Base) RNode() node.Set {
 func (b *Base) Variables() variable.Set {
 	return b.variables
 }
-func (b *Base) Do(T node.Item) error {
+func (b *Base) Do(T node.Item) (bool, error) {
 	err := b.setNode()
 	if err != nil {
-		return err
+		return false, err
 	}
 
 	err = b.ParseTrigger(T)
 	if err != nil {
-		return err
+		return false, err
 	}
 
 	err = b.CheckAndExtract()
 	if err != nil {
-		return err
+		return false, err
 	}
 
 	ok, err := b.OK()
 	if !ok {
 		if err != nil {
-			return err
+			return false, err
 		}
-		return nil
+		return false, nil
 	}
 
 	err = b.Next()
 	if err != nil {
-		return err
+		return false, err
 	}
 
-	return nil
+	return true, nil
 }
 func (b *Base) setNode() error {
 	head := "[setNode]"
