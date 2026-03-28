@@ -74,6 +74,12 @@ func run() error {
 	if err := exeReg.RunAll(); err != nil {
 		return err
 	}
+	if err := exeCheckerReg.RunAll(); err != nil {
+		return err
+	}
+	if err := exeExtractorReg.RunAll(); err != nil {
+		return err
+	}
 	if err := dataGenReg.RunAll(); err != nil {
 		return err
 	}
