@@ -134,6 +134,15 @@ func TestCore_Get(t *testing.T) {
 			wantErr:   true,
 			wantCount: 0,
 		},
+		{
+			name: "single matching template v2",
+			templates: node.Set{
+				"Zero says [input_Cs] $1 to Susie": createTestNode("Zero says [input_Cs] $1 to Susie"),
+			},
+			target:    createTestNode("Zero says [input_Cs] zero says if Zero says $1 to Susie to Susie to Susie"),
+			wantErr:   false,
+			wantCount: 1,
+		},
 	}
 
 	for _, tt := range tests {
@@ -373,6 +382,14 @@ func TestCore_matchTemplate(t *testing.T) {
 			wantMatch:  false,
 			wantVarLen: 0,
 			wantVars:   nil,
+		},
+		{
+			name:       "single variable v2",
+			target:     "Zero says [input_Cs] zero says if Zero says $1 to Susie to Susie to Susie",
+			template:   "Zero says [input_Cs] $1 to Susie",
+			wantMatch:  true,
+			wantVarLen: 1,
+			wantVars:   map[string]string{"$1": "zero says if Zero says $1 to Susie to Susie"},
 		},
 	}
 
