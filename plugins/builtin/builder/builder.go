@@ -1,6 +1,7 @@
 package builder
 
 import (
+	"encoding/json"
 	"fmt"
 	"goldenglow/config"
 	"goldenglow/container"
@@ -10,6 +11,8 @@ import (
 	"goldenglow/m"
 	"goldenglow/pkg/log"
 	"goldenglow/plugins"
+	"goldenglow/utils"
+	"os"
 )
 
 func init() {
@@ -42,6 +45,7 @@ type builder struct {
 	saver      container.Store
 	pocketCs2R []string
 	pocketC2Rs []string
+	mapping    map[string]string
 }
 
 func (b *builder) Name() string {
@@ -168,6 +172,27 @@ func (b *builder) OnRegisterLang(reg lang.Registry) error {
 
 func NewBuilderPlugin(saver container.Store) plugins.Item {
 	return &builder{
-		saver: saver,
+		saver:   saver,
+		mapping: make(map[string]string),
 	}
+}
+
+var mappingPath = utils.RootDir + "/plugins/builtin/builder/mapping.json"
+
+func (b *builder) mapToPlaceholder(value string) string {
+	if placeholder, exists := b.mapping[value]; exists {
+		return placeholder
+	}
+	return value
+}
+func (b *builder) Setup() error {
+	mappingData, err := os.ReadFile(mappingPath)
+	if err != nil {
+		return fmt.Errorf("read mapping file: %v", err)
+	}
+	err = json.Unmarshal(mappingData, &b.mapping)
+	if err != nil {
+		return fmt.Errorf("unmarshal mapping file: %v", err)
+	}
+	return nil
 }
