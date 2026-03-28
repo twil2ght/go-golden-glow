@@ -32,7 +32,6 @@ type Base struct {
 	state     bool
 	variables variable.Set
 	parser    variable.Parser
-	regulator Regulator
 }
 
 func (b *Base) ToText() (string, error) {
@@ -40,7 +39,7 @@ func (b *Base) ToText() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("%s parser error: %v", b.val, err)
 	}
-	return b.regulator.Do(e), nil
+	return e, nil
 }
 func (b *Base) SetState(state bool) {
 	b.state = state

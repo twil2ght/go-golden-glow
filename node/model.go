@@ -22,10 +22,6 @@ type Encoder interface {
 type LightRepository interface {
 	Get(key string) (string, error)
 }
-type Regulator interface {
-	Do(nodeValue string) string
-}
-
 type Registry interface {
 	Register(name string, method Creator) error
 }

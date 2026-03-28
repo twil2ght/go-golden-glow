@@ -1,14 +1,12 @@
 package node
 
 import (
-	"goldenglow/storage"
 	"goldenglow/variable"
 )
 
 var (
-	encoderInstance, _   = NewEncoder(variable.VarReg)
-	regulatorInstance, _ = NewRegulator(storage.DefaultJSONRepo())
-	factoryInstance, _   = NewFactory(variable.ToRawText, regulatorInstance)
+	encoderInstance, _ = NewEncoder(variable.VarReg)
+	factoryInstance, _ = NewFactory(variable.ToRawText)
 )
 
 func DefaultEncoder() Encoder {

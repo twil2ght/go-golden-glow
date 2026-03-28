@@ -9,18 +9,16 @@ import (
 
 type factory struct {
 	parser     variable.Parser
-	regulator  Regulator
 	pool       Set
 	registries map[string]Creator
 }
 
-func NewFactory(p variable.Parser, r Regulator) (Factory, error) {
-	if err := utils.NotNull("parser", p, "regulator", r); err != nil {
+func NewFactory(p variable.Parser) (Factory, error) {
+	if err := utils.NotNull("parser", p); err != nil {
 		return nil, fmt.Errorf("node factory init:%w", err)
 	}
 	return &factory{
 		parser:     p,
-		regulator:  r,
 		pool:       make(Set),
 		registries: make(map[string]Creator),
 	}, nil
@@ -33,7 +31,6 @@ func (f *factory) New(val string) (Item, error) {
 		val:       val,
 		variables: make(variable.Set),
 		parser:    f.parser,
-		regulator: f.regulator,
 	}
 	var (
 		node Item = &base
