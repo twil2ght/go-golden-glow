@@ -135,7 +135,11 @@ func (b *Base) Run(input node.Item) error {
 }
 
 func (b *Base) genKnots(n node.Item) ([]Knot, error) {
-	nSet, _ := b.templateCore.Get(n)
+	nSet, err := b.templateCore.Get(n)
+	if err != nil {
+		return nil, err
+	}
+	logger.Debug("get templates", "templates_amount", len(nSet), "from", n.Value())
 	knots := make([]Knot, 0, len(nSet))
 	for _, n := range nSet {
 		k, err := NewKnot(n, m.Hash{})
@@ -160,7 +164,11 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			continue
 		}
 		Item.Trace()[encoded] = struct{}{}
-		templateKnots, _ := b.genKnots(Item.Trigger())
+		templateKnots, err := b.genKnots(Item.Trigger())
+		if err != nil {
+			logger.Debug("genKnots failed", "trigger", nodeValue, "error", err)
+			return nil, err
+		}
 		logger.Debug("produce knots generated", "knots_amount", len(templateKnots), "trigger", nodeValue)
 		nextKnots = append(nextKnots, templateKnots...)
 	}
