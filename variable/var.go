@@ -62,6 +62,48 @@ func Copy(target Set) Set {
 	return dist
 }
 
+// HasCycle checks if the variable set contains any circular references
+// Returns true if a cycle exists (e.g., $1 -> $2 -> $1)
+func (s Set) HasCycle() bool {
+	// Track visited nodes and nodes in current recursion stack
+	visited := make(map[string]bool)
+	recStack := make(map[string]bool)
+
+	var dfs func(varName string) bool
+	dfs = func(varName string) bool {
+		visited[varName] = true
+		recStack[varName] = true
+
+		if item, ok := s[varName]; ok {
+			// Find all variables referenced in this variable's value
+			refs := VarReg.FindAllString(item.Value(), -1)
+			for _, ref := range refs {
+				if !visited[ref] {
+					if dfs(ref) {
+						return true
+					}
+				} else if recStack[ref] {
+					// Found a back edge - cycle detected
+					return true
+				}
+			}
+		}
+
+		recStack[varName] = false
+		return false
+	}
+
+	// Check all variables in the set
+	for varName := range s {
+		if !visited[varName] {
+			if dfs(varName) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
 func ToRawText(target string, variables Set, strict bool) (string, error) {
 	var (
 		changed  = true
@@ -70,10 +112,13 @@ func ToRawText(target string, variables Set, strict bool) (string, error) {
 		shutdown = false
 		source   = ""
 	)
+	if variables.HasCycle() {
+		return target, log.NewErr("variable has cycle")
+	}
 	for changed {
 		changed = false
 		prev = res
-		res = VarReg.ReplaceAllStringFunc(target, func(s string) string {
+		res = VarReg.ReplaceAllStringFunc(res, func(s string) string {
 			if varb, ok := variables[s]; ok {
 				return varb.Value()
 			}
