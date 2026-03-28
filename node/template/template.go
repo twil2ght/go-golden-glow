@@ -112,20 +112,9 @@ func (c *core) matchTemplate(target, template string) (bool, variable.Set) {
 }
 
 func (c *core) toSpecific(target node.Item, templates node.Set) (node.Set, error) {
-	matches := make(node.Set)
-
-	for key, n := range templates {
-		if ok, vars := c.matchTemplate(target.Value(), n.Value()); ok {
-			err := clean(target.Variables(), vars)
-			if err != nil {
-				return nil, err
-			}
-			err = n.SetVariable(vars)
-			if err != nil {
-				return nil, err
-			}
-			matches[key] = n
-		}
+	matches, err := c.AllTemplates(target, templates)
+	if err != nil {
+		return nil, err
 	}
 
 	if len(matches) == 0 {
