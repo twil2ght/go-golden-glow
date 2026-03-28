@@ -84,7 +84,12 @@ func (b *builder) buildMultiCondition() error {
 	conditions := data[:len(data)-1]
 	result := []string{data[len(data)-1]}
 
-	return b.saver.Save(m.ToHash(conditions), m.ToHash(result))
+	err := b.saver.Save(m.ToHash(conditions), m.ToHash(result))
+	if err != nil {
+		return fmt.Errorf("%s save: %v", pluginName, err)
+	}
+	logger.Debug("Builder:buildMultiCondition", "conditions", conditions, "result", result)
+	return nil
 }
 
 func (b *builder) buildMultiResult() error {
@@ -98,7 +103,12 @@ func (b *builder) buildMultiResult() error {
 	condition := []string{data[len(data)-1]}
 	results := data[:len(data)-1]
 
-	return b.saver.Save(m.ToHash(condition), m.ToHash(results))
+	err := b.saver.Save(m.ToHash(condition), m.ToHash(results))
+	if err != nil {
+		return fmt.Errorf("%s save: %v", pluginName, err)
+	}
+	logger.Debug("Builder:buildMultiResult", "condition", condition, "results", results)
+	return nil
 }
 
 func (b *builder) OnRegisterExecutor(reg executor.Registry) error {
