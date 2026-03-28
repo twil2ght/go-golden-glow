@@ -195,7 +195,7 @@ func (c *calculator) OnRegisterDataGen(reg dataGen.Registry) error {
 			keyRight:    "$2",
 			keyOperator: "<",
 		},
-		dataGen.LangTypeCheckLike,
+		dataGen.LangTypeChecker,
 	))
 	generator.Add("compare_gt", dataGen.SNew(
 		"check if $1 is greater than $2",
@@ -205,7 +205,7 @@ func (c *calculator) OnRegisterDataGen(reg dataGen.Registry) error {
 			keyRight:    "$2",
 			keyOperator: ">",
 		},
-		dataGen.LangTypeCheckLike,
+		dataGen.LangTypeChecker,
 	))
 	generator.Add("compare_eq", dataGen.SNew(
 		"check if $1 is equal to $2",
@@ -215,7 +215,7 @@ func (c *calculator) OnRegisterDataGen(reg dataGen.Registry) error {
 			keyRight:    "$2",
 			keyOperator: "=",
 		},
-		dataGen.LangTypeCheckLike,
+		dataGen.LangTypeChecker,
 	))
 	return reg.AddGenerator(c.Name(), generator)
 }

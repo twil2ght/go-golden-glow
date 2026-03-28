@@ -115,7 +115,7 @@ func (t *timer) OnRegisterDataGen(reg dataGen.Registry) error {
 			keyType: typeTime,
 			KeyDist: "$1",
 		},
-		dataGen.LangTypeCheckLike,
+		dataGen.LangTypeExtractor,
 	))
 	return reg.AddGenerator(pluginName, generator)
 }
