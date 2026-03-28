@@ -165,7 +165,7 @@ func clean(varFrom, varTo variable.Set) error {
 		return fmt.Errorf("clean variables: varFrom is nil")
 	}
 	for key, e := range varTo {
-		val, err := variable.ToRawText(e.Value(), varFrom, true)
+		val, err := variable.ToRawText(e.Value(), varFrom, false)
 		if err != nil {
 			return fmt.Errorf("clean variables: %w", err)
 		}
