@@ -34,7 +34,7 @@ func (f *fetcher) toNode(tag string) (node.Set, error) {
 
 	nodes := make(node.Set, len(nvMap))
 	for t := range nvMap {
-		n, err := f.nFactory.New(t)
+		n, err := f.nFactory.NewFromPool(t)
 		if err != nil {
 			return nil, fmt.Errorf("%s: %w", t, err)
 		}

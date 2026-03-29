@@ -23,6 +23,12 @@ func NewFactory(p variable.Parser) (Factory, error) {
 		registries: make(map[string]Creator),
 	}, nil
 }
+func (f *factory) NewFromPool(val string) (Item, error) {
+	if item, ok := f.pool[val]; ok {
+		return item, nil
+	}
+	return f.New(val)
+}
 func (f *factory) New(val string) (Item, error) {
 	if val == "" {
 		return nil, fmt.Errorf("node val can't be empty")
