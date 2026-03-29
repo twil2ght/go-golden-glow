@@ -91,15 +91,15 @@ func (j *jsonRepository) Save() error {
 	if err != nil {
 		return err
 	}
-	if err := Save(j.HDataPath, j.HData); err != nil {
+	if err := SaveAsJson(j.HDataPath, j.HData); err != nil {
 		return err
 	}
-	if err := Save(j.DataPath, j.Data); err != nil {
+	if err := SaveAsJson(j.DataPath, j.Data); err != nil {
 		return err
 	}
 	return nil
 }
-func Save(path string, Data any) error {
+func SaveAsJson(path string, Data any) error {
 	data, err := json.MarshalIndent(Data, "", "  ")
 	if err != nil {
 		return err
