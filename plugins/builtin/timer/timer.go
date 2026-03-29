@@ -6,6 +6,7 @@ import (
 	"goldenglow/executor"
 	"goldenglow/executor/extractor"
 	"goldenglow/lang"
+	"goldenglow/pkg/log"
 	"goldenglow/plugins"
 	"goldenglow/storage"
 	"goldenglow/variable"
@@ -17,6 +18,8 @@ func init() {
 		panic(err)
 	}
 }
+
+var logger = log.Default()
 
 const (
 	pluginName = "timer"
@@ -90,9 +93,10 @@ func (t *timer) OnRegisterExtractor(reg extractor.Registry) error {
 
 		value, err := t.process(params[keyMode], params[keyType])
 		if err != nil {
+			logger.Error("error processing timer", "error", err)
 			return nil, err
 		}
-
+		logger.Debug("timer processing value", "value", value)
 		return variable.New(params[KeyDist], value), err
 	})
 }
