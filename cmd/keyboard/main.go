@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"goldenglow/components/collector"
 	"goldenglow/components/preprocessor"
 	"goldenglow/components/queue"
 	"goldenglow/components/receiver"
@@ -22,6 +23,7 @@ var (
 	Queue  = queue.NewQueue()
 	Runner = runner.DefaultRunner()
 )
+var clt = collector.New()
 
 func main() {
 	setup.Init()
@@ -30,8 +32,13 @@ func main() {
 	signal.Notify(exitChan, syscall.SIGINT, syscall.SIGTERM)
 
 	go RunLiteScheduler()
-
+	clt.SetSource("default:keyboard", "speaker:self")
+	go clt.Run()
 	<-exitChan
+	err := clt.Save()
+	if err != nil {
+		panic(err)
+	}
 	println("\n💤 saving data...")
 
 	setup.Shutdown()
@@ -110,6 +117,15 @@ func RunLiteScheduler() {
 		panic("schLite is not a receiver.RegisterItem")
 	}
 	err = rcv.OnRegisterReceiver(receiverReg)
+	if err != nil {
+		panic(err)
+	}
+
+	collectRcv, ok := clt.(receiver.RegisterItem)
+	if !ok {
+		panic("collector is not a receiver.RegisterItem")
+	}
+	err = collectRcv.OnRegisterReceiver(receiverReg)
 	if err != nil {
 		panic(err)
 	}
