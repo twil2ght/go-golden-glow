@@ -47,6 +47,8 @@ type builder struct {
 	pocketCs2R []string
 	pocketC2Rs []string
 	mapping    map[string]string
+	input      []string
+	buildDone  bool
 }
 
 func (b *builder) Name() string {
@@ -67,7 +69,31 @@ func (b *builder) add(value, valueType, mode string) error {
 	}
 	return nil
 }
-
+func (b *builder) addV2(value, valueType, _ string) error {
+	value = b.mapToPlaceholder(value)
+	if valueType == typeOutput {
+		b.buildDone = true
+		return b.buildV2(value)
+	}
+	if b.buildDone {
+		b.input = nil
+		b.buildDone = false
+	}
+	b.input = append(b.input, value)
+	logger.Debug("Builder:add input", "input", value)
+	return nil
+}
+func (b *builder) buildV2(output string) error {
+	if len(b.input) == 0 {
+		return fmt.Errorf("no input")
+	}
+	err := b.saver.Save(m.ToHash(b.input), m.ToHash([]string{output}))
+	if err != nil {
+		return fmt.Errorf("%s save: %v", pluginName, err)
+	}
+	logger.Debug("Builder:start build", "inputs", b.input, "output", output)
+	return nil
+}
 func (b *builder) build(mode string) error {
 	switch mode {
 	case modeMultiCondition:
@@ -122,7 +148,8 @@ func (b *builder) OnRegisterExecutor(reg executor.Registry) error {
 		if err := executor.Validate(params, keyValue, keyType, keyMode); err != nil {
 			return err
 		}
-		return b.add(params[keyValue], params[keyType], params[keyMode])
+		//return b.add(params[keyValue], params[keyType], params[keyMode])
+		return b.addV2(params[keyValue], params[keyType], params[keyMode])
 	})
 }
 
