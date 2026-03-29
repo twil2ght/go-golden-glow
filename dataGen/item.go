@@ -8,13 +8,21 @@ type langData struct {
 }
 
 func (l *langData) Results() []string {
-	return l.rv
+	return l.removeNull(l.rv)
 }
 
 func (l *langData) Triggers() []string {
-	return l.tv
+	return l.removeNull(l.tv)
 }
-
+func (l *langData) removeNull(nv []string) []string {
+	var result []string
+	for _, v := range nv {
+		if v != "" {
+			result = append(result, v)
+		}
+	}
+	return result
+}
 func (l *langData) LangType() LangType {
 	return l.langType
 }
