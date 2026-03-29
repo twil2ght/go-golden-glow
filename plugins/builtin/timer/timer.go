@@ -121,6 +121,16 @@ func (t *timer) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeExtractor,
 	))
+	generator.Add("fetch_hour", dataGen.SNew(
+		"check what is the time now",
+		"the time is $1 o'clock now",
+		dataGen.Parameters{
+			keyMode: modeFetch,
+			keyType: typeHour,
+			KeyDist: "$1",
+		},
+		dataGen.LangTypeExtractor,
+	))
 	return reg.AddGenerator(pluginName, generator)
 }
 
