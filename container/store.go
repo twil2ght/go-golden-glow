@@ -30,6 +30,13 @@ func (s *store) Save(tv, rv m.Hash) error {
 		//return fmt.Errorf("%s: %s already exists", head, hashKey)
 		return nil
 	}
+
+	// Check for cycles before saving
+	detector := NewCycleDetector(s.db, s.encoder)
+	if err := detector.DetectCycle(tv, rv); err != nil {
+		return fmt.Errorf("%s: cycle detection failed: %w", head, err)
+	}
+
 	TTag := prefixC2T + hashKey
 	RTag := prefixC2R + hashKey
 
