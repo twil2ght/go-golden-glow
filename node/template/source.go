@@ -20,7 +20,7 @@ func (s *source) GetTemplates() (node.Set, error) {
 	nodeHash = s.filter(nodeHash)
 	nodes := make(node.Set)
 	for nodeValue := range nodeHash {
-		n, err := s.factory.New(nodeValue)
+		n, err := s.factory.NewFromPool(nodeValue)
 		if err != nil {
 			return nil, err
 		}
