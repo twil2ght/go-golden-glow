@@ -44,21 +44,25 @@ func (b *Base) Variables() variable.Set {
 func (b *Base) Do(T node.Item) (bool, error) {
 	err := b.setNode()
 	if err != nil {
+		logger.Debug("setNode failed", "id", b.ID(), "error", err)
 		return false, err
 	}
 
 	err = b.ParseTrigger(T)
 	if err != nil {
+		logger.Debug("parseTrigger failed", "id", b.ID(), "error", err)
 		return false, err
 	}
 
 	err = b.CheckAndExtract()
 	if err != nil {
+		logger.Debug("checkAndExtract failed", "id", b.ID(), "error", err)
 		return false, err
 	}
 
 	ok, err := b.OK()
 	if !ok {
+		logger.Debug("container is not ok", "id", b.ID())
 		if err != nil {
 			return false, err
 		}
@@ -67,6 +71,7 @@ func (b *Base) Do(T node.Item) (bool, error) {
 
 	err = b.Next()
 	if err != nil {
+		logger.Debug("next failed", "id", b.ID(), "error", err)
 		return false, err
 	}
 	logger.Debug("container is ok", "id", b.ID())
