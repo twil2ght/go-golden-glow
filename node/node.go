@@ -2,6 +2,7 @@ package node
 
 import (
 	"fmt"
+	"goldenglow/m"
 	"goldenglow/variable"
 	"strings"
 )
@@ -10,7 +11,6 @@ type Set map[string]Item
 
 type AttrReader interface {
 	Value() string
-	State() bool
 	Variables() variable.Set
 	VariableKeys() []string
 }
@@ -26,12 +26,14 @@ type Item interface {
 	Executor
 	AttrReader
 	AttrWriter
+	VariableStateMap() map[string]m.Hash
 }
 type Base struct {
-	val       string
-	state     bool
-	variables variable.Set
-	parser    variable.Parser
+	val              string
+	state            bool
+	variables        variable.Set
+	variableStateMap map[string]m.Hash
+	parser           variable.Parser
 }
 
 func (b *Base) ToText() (string, error) {
@@ -56,18 +58,23 @@ func (b *Base) Execute() error {
 func (b *Base) Value() string {
 	return b.val
 }
-func (b *Base) State() bool {
-	return b.state
-}
 func (b *Base) Variables() variable.Set {
 	return variable.Copy(b.variables)
 }
-
+func (b *Base) VariableStateMap() map[string]m.Hash {
+	return b.variableStateMap
+}
 func (b *Base) SetVariable(variables variable.Set) error {
 	if variables == nil {
 		return fmt.Errorf("SetVariable:nil")
 	}
 	b.variables = variables
+	for _, key := range b.VariableKeys() {
+		variableItem, ok := variables[key]
+		if ok {
+			b.variableStateMap[key][variableItem.Value()] = struct{}{}
+		}
+	}
 	return nil
 }
 func (b *Base) VariableKeys() []string {

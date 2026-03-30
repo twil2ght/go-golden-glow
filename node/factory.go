@@ -2,6 +2,7 @@ package node
 
 import (
 	"fmt"
+	"goldenglow/m"
 	"goldenglow/utils"
 	"goldenglow/variable"
 	"strings"
@@ -34,9 +35,10 @@ func (f *factory) New(val string) (Item, error) {
 		return nil, fmt.Errorf("node val can't be empty")
 	}
 	base := Base{
-		val:       val,
-		variables: make(variable.Set),
-		parser:    f.parser,
+		val:              val,
+		variables:        make(variable.Set),
+		parser:           f.parser,
+		variableStateMap: make(map[string]m.Hash),
 	}
 	var (
 		node Item = &base
