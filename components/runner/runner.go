@@ -230,12 +230,14 @@ func (b *Base) processContainer(hashValue string, T Knot) ([]Knot, error) {
 	for _, trigger := range triggers {
 		logger.Debug("container trigger", "trigger", trigger.Value(), "state", trigger.OK(), "type", fmt.Sprintf("%T", trigger))
 	}
+	if !ok {
+		logger.Debug("container do failed", "hash_value", hashValue, "trigger", T.Trigger().Value())
+		return nil, nil
+	}
 	for _, result := range results {
 		logger.Debug("container result", "result", result.Value(), "state", result.OK(), "type", fmt.Sprintf("%T", result))
 	}
-	if !ok {
-		return nil, nil
-	}
+
 	for _, t := range results {
 		visited := make(map[string]struct{}, len(T.Trace()))
 		maps.Copy(visited, T.Trace())

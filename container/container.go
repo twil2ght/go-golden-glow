@@ -69,7 +69,7 @@ func (b *Base) Do(T node.Item) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-
+	logger.Debug("container is ok", "id", b.ID())
 	return true, nil
 }
 func (b *Base) setNode() error {
@@ -156,13 +156,13 @@ func (b *Base) CheckAndExtract() error {
 	var errs []error
 
 	for _, t := range b.tNodes {
-		err := t.SetVariable(b.variables)
-		if err != nil {
-			errs = append(errs, fmt.Errorf("set variable failed: %w", err))
-			continue
-		}
 
 		if checker, ok := t.(node.Checkable); ok {
+			err := t.SetVariable(b.variables)
+			if err != nil {
+				errs = append(errs, fmt.Errorf("set variable failed: %w", err))
+				continue
+			}
 			if err = checker.Check(); err != nil {
 				errs = append(errs, fmt.Errorf("check failed: %w", err))
 			}
@@ -170,6 +170,11 @@ func (b *Base) CheckAndExtract() error {
 		}
 
 		if extractor, ok := t.(node.Extractable); ok {
+			err := t.SetVariable(b.variables)
+			if err != nil {
+				errs = append(errs, fmt.Errorf("set variable failed: %w", err))
+				continue
+			}
 			varb, err := extractor.Extract()
 			if err != nil {
 				errs = append(errs, fmt.Errorf("extract failed: %w", err))
@@ -186,6 +191,10 @@ func (b *Base) OK() (bool, error) {
 		if !t.OK() {
 			return false, nil
 		}
+		// Check if current variable values exist in this trigger's variableStateMap
+		if !b.checkVariableStateMap(t) {
+			return false, nil
+		}
 	}
 	for _, varb := range b.variables {
 		if !varb.OK() {
@@ -193,6 +202,22 @@ func (b *Base) OK() (bool, error) {
 		}
 	}
 	return true, nil
+}
+
+// checkVariableStateMap verifies that the current variable values exist in the trigger's variableStateMap
+func (b *Base) checkVariableStateMap(t node.Item) bool {
+	stateMap := t.VariableStateMap()
+	logger.Debug("checkVariableStateMap", "node", t.Value(), "variableStateMap", stateMap)
+	for key, varItem := range b.variables {
+		if hash, ok := stateMap[key]; ok {
+			if _, exists := hash[varItem.Value()]; !exists {
+				logger.Debug("checkVariableStateMap variable value not exists", "variable", key, "value", varItem.Value())
+				return false
+			}
+			logger.Debug("checkVariableStateMap variable value exists", "variable", key, "value", varItem.Value())
+		}
+	}
+	return true
 }
 func (b *Base) Next() error {
 	var err []error

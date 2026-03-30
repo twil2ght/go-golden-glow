@@ -72,7 +72,12 @@ func (b *Base) SetVariable(variables variable.Set) error {
 	for _, key := range b.VariableKeys() {
 		variableItem, ok := variables[key]
 		if ok {
-			b.variableStateMap[key][variableItem.Value()] = struct{}{}
+			hash := b.variableStateMap[key]
+			if hash == nil {
+				hash = make(m.Hash)
+			}
+			hash[variableItem.Value()] = struct{}{}
+			b.variableStateMap[key] = hash
 		}
 	}
 	return nil
