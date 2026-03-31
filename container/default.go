@@ -9,9 +9,10 @@ import (
 var (
 	db                    = storage.DefaultJSONRepo()
 	encoder               = node.DefaultEncoder()
-	fetcherInstance, _    = NewFetcher(db, node.DefaultFactory())
+	nFactory              = node.DefaultFactory()
+	fetcherInstance, _    = NewFetcher(db, nFactory)
 	positionerInstance, _ = NewPositioner(db, encoder)
-	factoryInstance, _    = NewFactory(fetcherInstance, positionerInstance)
+	factoryInstance, _    = NewFactory(fetcherInstance, positionerInstance, nFactory)
 	storeInstance, _      = NewStore(db, encoder)
 )
 

@@ -30,6 +30,7 @@ type Item interface {
 	VariableSetFromHub(state string) variable.Set
 	MarkDone(state, cHash string)
 	ToText() (string, error)
+	Reset()
 }
 type Base struct {
 	val            string
@@ -88,6 +89,11 @@ func (b *Base) VariableSetFromHub(state string) variable.Set {
 }
 func (b *Base) MarkDone(state, cHash string) {
 	b.variableState[state][cHash] = true
+}
+
+func (b *Base) Reset() {
+	b.variableState = make(map[string]map[string]bool)
+	b.variableSetHub = make(map[string]variable.Set)
 }
 
 func GenVariableState(vSet variable.Set) string {

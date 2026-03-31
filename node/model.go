@@ -31,6 +31,7 @@ type Pool interface {
 type Factory interface {
 	New(nodeValue string) (Item, error)
 	NewFromPool(val string) (Item, error)
+	ResetPool()
 	Registry
 	Pool
 }

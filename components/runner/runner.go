@@ -213,11 +213,16 @@ func (b *Base) Run(input node.Item) error {
 
 	err = <-done
 	if err != nil {
+		b.containerFactory.ResetNodePool()
 		return err
 	}
 
 	// Print the tree after execution is complete
 	b.treeBuilder.Print()
+
+	// Reset all nodes' variableState and variableSetHub after each run
+	b.containerFactory.ResetNodePool()
+
 	return nil
 }
 

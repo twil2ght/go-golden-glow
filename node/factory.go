@@ -65,6 +65,12 @@ func (f *factory) Add(n Item) {
 	}
 }
 
+func (f *factory) ResetPool() {
+	for _, item := range f.pool {
+		item.Reset()
+	}
+}
+
 func head(str string) string {
 	fields := strings.Fields(str)
 	if len(fields) == 0 {

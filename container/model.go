@@ -38,4 +38,5 @@ type Factory interface {
 	Encoder() node.Encoder
 	Positioner() Positioner
 	WithVarReg(variableReg *regexp.Regexp)
+	ResetNodePool()
 }
