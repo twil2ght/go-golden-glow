@@ -38,7 +38,7 @@ func createTestNodeWithVars(value string, vars map[string]string) node.Item {
 		for k, v := range vars {
 			varSet[k] = variable.New(k, v)
 		}
-		n.SetVariable(varSet)
+		_ = n.SetVariable(varSet)
 	}
 	return n
 }
