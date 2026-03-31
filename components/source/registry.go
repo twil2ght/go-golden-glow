@@ -25,11 +25,11 @@ func (r *registry) Tags() m.Hash {
 }
 
 func (r *registry) C() <-chan components.Message {
-	logger.Info("InputSource:start mainstream", "source_amount", len(r.sources))
+	//logger.Info("InputSource:start mainstream", "source_amount", len(r.sources))
 	for tag, ch := range r.sources {
 		go func(source Source, tag string) {
 			for msg := range source.C() {
-				logger.Info("InputSource:receive msg", "tag", tag, "msg", msg)
+				//logger.Info("InputSource:receive msg", "tag", tag, "msg", msg)
 				r.mainstream <- components.NewMsg(msg, tag)
 				logger.Info("InputSource:send msg Done", "tag", tag, "msg", msg)
 			}
