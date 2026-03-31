@@ -37,35 +37,35 @@ func NewTreeBuilder() *TreeBuilder {
 }
 
 func (tb *TreeBuilder) AddNode(name string, depth int, parent *TreeNode) *TreeNode {
-	node := &TreeNode{
+	n := &TreeNode{
 		Name:   name,
 		Depth:  depth,
 		Parent: parent,
 	}
 	if parent != nil {
-		parent.Children = append(parent.Children, node)
+		parent.Children = append(parent.Children, n)
 	}
-	tb.nodes = append(tb.nodes, node)
-	return node
+	tb.nodes = append(tb.nodes, n)
+	return n
 }
 
 func (tb *TreeBuilder) Print() {
 	fmt.Println("═══ EXECUTION TREE ═══")
-	for _, node := range tb.nodes {
-		if node.Parent == nil {
+	for _, treeNode := range tb.nodes {
+		if treeNode.Parent == nil {
 			// Root level nodes
-			tb.printNode(node, true)
+			tb.printNode(treeNode)
 		}
 	}
 	fmt.Println("═══ EXECUTION END ═══")
 }
 
-func (tb *TreeBuilder) printNode(node *TreeNode, isRoot bool) {
+func (tb *TreeBuilder) printNode(node *TreeNode) {
 	prefix := tb.buildPrefix(node.Depth, node.IsLast)
 	fmt.Printf("%s%s\n", prefix, node.Name)
 	for i, child := range node.Children {
 		child.IsLast = i == len(node.Children)-1
-		tb.printNode(child, false)
+		tb.printNode(child)
 	}
 }
 
@@ -156,10 +156,6 @@ func New(cf container.Factory, tc template.Core) Instance {
 		templateCore:     tc,
 	}
 }
-
-var (
-	maxDepth = 13
-)
 
 func (b *Base) Run(input node.Item) error {
 	b.treeBuilder = NewTreeBuilder()
