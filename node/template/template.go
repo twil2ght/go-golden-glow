@@ -214,5 +214,8 @@ func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, err
 			matches[key] = n
 		}
 	}
+	if len(matches) == 0 {
+		return nil, fmt.Errorf("no matches found")
+	}
 	return matches, nil
 }
