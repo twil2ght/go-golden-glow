@@ -29,6 +29,20 @@ func createTestNode(value string) node.Item {
 	return n
 }
 
+// createTestNodeWithVars creates a test node with given variables
+func createTestNodeWithVars(value string, vars map[string]string) node.Item {
+	factory := node.DefaultFactory()
+	n, _ := factory.New(value)
+	if vars != nil && len(vars) > 0 {
+		varSet := make(variable.Set)
+		for k, v := range vars {
+			varSet[k] = variable.New(k, v)
+		}
+		n.SetVariable(varSet)
+	}
+	return n
+}
+
 // testError is a simple error type for testing
 type testError struct {
 	msg string
@@ -83,21 +97,22 @@ func TestCore_Get(t *testing.T) {
 	testErr := &testError{msg: "test error"}
 
 	tests := []struct {
-		name      string
-		templates node.Set
-		target    node.Item
-		sourceErr error
-		wantErr   bool
-		wantCount int
+		name        string
+		templates   node.Set
+		targetValue string
+		sourceErr   error
+		wantErr     bool
+		wantCount   int
+		givenVars   map[string]string
 	}{
 		{
 			name: "single matching template",
 			templates: node.Set{
 				"hello $1": createTestNode("hello $1"),
 			},
-			target:    createTestNode("hello world"),
-			wantErr:   false,
-			wantCount: 1,
+			targetValue: "hello world",
+			wantErr:     false,
+			wantCount:   1,
 		},
 		{
 			name: "multiple matching templates",
@@ -106,60 +121,79 @@ func TestCore_Get(t *testing.T) {
 				"hello $1 $2":    createTestNode("hello $1 $2"),
 				"$1 hello world": createTestNode("$1 hello world"),
 			},
-			target:    createTestNode("hello world"),
-			wantErr:   false,
-			wantCount: 1, // Most specific match should be kept
+			targetValue: "hello world",
+			wantErr:     false,
+			wantCount:   1, // AllTemplates returns all matching templates (from general to specific)
 		},
 		{
-			name:      "no matching templates",
-			templates: node.Set{},
-			target:    createTestNode("hello world"),
-			wantErr:   true,
-			wantCount: 0,
+			name:        "no matching templates",
+			templates:   node.Set{},
+			targetValue: "hello world",
+			wantErr:     true,
+			wantCount:   0,
 		},
 		{
 			name: "no matching pattern",
 			templates: node.Set{
 				"goodbye $1": createTestNode("goodbye $1"),
 			},
-			target:    createTestNode("hello world"),
-			wantErr:   true,
-			wantCount: 0,
+			targetValue: "hello world",
+			wantErr:     true,
+			wantCount:   0,
 		},
 		{
-			name:      "source error",
-			templates: nil,
-			target:    createTestNode("hello world"),
-			sourceErr: testErr,
-			wantErr:   true,
-			wantCount: 0,
+			name:        "source error",
+			templates:   nil,
+			targetValue: "hello world",
+			sourceErr:   testErr,
+			wantErr:     true,
+			wantCount:   0,
 		},
 		{
 			name: "single matching template v2",
 			templates: node.Set{
 				"Zero says [input_Cs] $1 to Susie": createTestNode("Zero says [input_Cs] $1 to Susie"),
 			},
-			target:    createTestNode("Zero says [input_Cs] zero says if Zero says $1 to Susie to Susie to Susie"),
-			wantErr:   false,
-			wantCount: 1,
+			targetValue: "Zero says [input_Cs] zero says if Zero says $1 to Susie to Susie to Susie",
+			wantErr:     false,
+			wantCount:   1,
 		},
 		{
 			name: "single matching template v3",
 			templates: node.Set{
 				"Zero says [input_Cs] $1 to Susie": createTestNode("Zero says [input_Cs] $1 to Susie"),
 			},
-			target:    createTestNode("Zero says [input_Cs] $1 to Susie"),
-			wantErr:   false,
-			wantCount: 1,
+			targetValue: "Zero says [input_Cs] $1 to Susie",
+			wantErr:     false,
+			wantCount:   1,
 		},
 		{
 			name: "real data test",
 			templates: node.Set{
 				"Zero says if Zero says $1 to Susie to Susie": createTestNode("Zero says if Zero says $1 to Susie to Susie"),
 			},
-			target:    createTestNode("Zero says if Zero says good morning to Susie to Susie"),
-			wantErr:   false,
-			wantCount: 1,
+			targetValue: "Zero says if Zero says good morning to Susie to Susie",
+			wantErr:     false,
+			wantCount:   1,
+		},
+		{
+			name: "real data test v2",
+			templates: node.Set{
+				"$1 is greater than 18": createTestNode("$1 is greater than 18"),
+			},
+			targetValue: "$1 is greater than $2",
+			wantErr:     false,
+			wantCount:   1,
+			givenVars:   map[string]string{"$1": "20", "$2": "18"},
+		},
+		{
+			name: "real data test v2",
+			templates: node.Set{
+				"check if $1 is greater than $2": createTestNode("check if $1 is greater than $2"),
+			},
+			targetValue: "check if $1 is greater than 5",
+			wantErr:     false,
+			wantCount:   1,
 		},
 	}
 
@@ -174,13 +208,21 @@ func TestCore_Get(t *testing.T) {
 				t.Fatalf("New() failed: %v", err)
 			}
 
-			result, err := core.Get(tt.target)
+			target := createTestNodeWithVars(tt.targetValue, tt.givenVars)
+			result, err := core.Get(target)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Get() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !tt.wantErr && len(result) != tt.wantCount {
 				t.Errorf("Get() returned %d matches, want %d", len(result), tt.wantCount)
+			}
+			// Print all matched templates
+			if !tt.wantErr && len(result) > 0 {
+				t.Logf("Matched templates for target %q:", tt.targetValue)
+				for key, n := range result {
+					t.Logf("  - %q -> value: %q", key, n.Value())
+				}
 			}
 		})
 	}

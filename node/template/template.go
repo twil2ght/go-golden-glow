@@ -68,7 +68,7 @@ func (c *core) segment(tpl string) []string {
 }
 
 func (c *core) matchTemplate(target, template string) (bool, variable.Set) {
-	if template == "" || len(target) < len(template) {
+	if template == "" {
 		return false, nil
 	}
 
@@ -82,7 +82,7 @@ func (c *core) matchTemplate(target, template string) (bool, variable.Set) {
 
 	for _, seg := range segments {
 		if c.varReg.MatchString(seg) {
-			parts = append(parts, `(.+)`)
+			parts = append(parts, `(.+?)`)
 			keys = append(keys, seg)
 		} else {
 			parts = append(parts, regexp.QuoteMeta(seg))
