@@ -197,21 +197,33 @@ func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, err
 	if !ok {
 		return matches, nil
 	}
-	var rawText, _ = item.ToText()
+
+	var raw []string
+	for _, hub := range target.VariableSetHub() {
+		err := target.SetVariable(hub)
+		if err != nil {
+			continue
+		}
+		rawItem, _ := item.ToText()
+		raw = append(raw, rawItem)
+	}
+
 	for key, n := range templates {
-		if ok, vars := c.matchTemplate(rawText, n.Value()); ok {
-			if ok, _ := c.matchTemplate(n.Value(), target.Value()); !ok {
-				continue
+		for _, rawText := range raw {
+			if ok, vars := c.matchTemplate(rawText, n.Value()); ok {
+				if ok, _ := c.matchTemplate(n.Value(), target.Value()); !ok {
+					continue
+				}
+				err := clean(target.Variables(), vars)
+				if err != nil {
+					return nil, err
+				}
+				err = n.SetVariable(vars)
+				if err != nil {
+					return nil, err
+				}
+				matches[key] = n
 			}
-			err := clean(target.Variables(), vars)
-			if err != nil {
-				return nil, err
-			}
-			err = n.SetVariable(vars)
-			if err != nil {
-				return nil, err
-			}
-			matches[key] = n
 		}
 	}
 	if len(matches) == 0 {

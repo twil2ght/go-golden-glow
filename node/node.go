@@ -28,6 +28,7 @@ type Item interface {
 	AttrWriter
 	VariableStateMap() map[string]map[string]bool
 	VariableSetFromHub(state string) variable.Set
+	VariableSetHub() map[string]variable.Set
 	MarkDone(state, cHash string)
 	ToText() (string, error)
 	Reset()
@@ -86,6 +87,9 @@ func (b *Base) VariableKeys() []string {
 }
 func (b *Base) VariableSetFromHub(state string) variable.Set {
 	return b.variableSetHub[state]
+}
+func (b *Base) VariableSetHub() map[string]variable.Set {
+	return b.variableSetHub
 }
 func (b *Base) MarkDone(state, cHash string) {
 	b.variableState[state][cHash] = true
