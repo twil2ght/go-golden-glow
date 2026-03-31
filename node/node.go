@@ -2,8 +2,8 @@ package node
 
 import (
 	"fmt"
-	"goldenglow/m"
 	"goldenglow/variable"
+	"sort"
 	"strings"
 )
 
@@ -26,14 +26,18 @@ type Item interface {
 	Executor
 	AttrReader
 	AttrWriter
-	VariableStateMap() map[string]m.Hash
+	VariableStateMap() map[string]map[string]bool
+	VariableSetFromHub(state string) variable.Set
+	MarkDone(state, cHash string)
+	ToText() (string, error)
 }
 type Base struct {
-	val              string
-	state            bool
-	variables        variable.Set
-	variableStateMap map[string]m.Hash
-	parser           variable.Parser
+	val            string
+	state          bool
+	variables      variable.Set
+	parser         variable.Parser
+	variableState  map[string]map[string]bool
+	variableSetHub map[string]variable.Set
 }
 
 func (b *Base) ToText() (string, error) {
@@ -61,27 +65,49 @@ func (b *Base) Value() string {
 func (b *Base) Variables() variable.Set {
 	return variable.Copy(b.variables)
 }
-func (b *Base) VariableStateMap() map[string]m.Hash {
-	return b.variableStateMap
+func (b *Base) VariableStateMap() map[string]map[string]bool {
+	return b.variableState
 }
 func (b *Base) SetVariable(variables variable.Set) error {
 	if variables == nil {
 		return fmt.Errorf("SetVariable:nil")
 	}
 	b.variables = variables
-	for _, key := range b.VariableKeys() {
-		variableItem, ok := variables[key]
-		if ok {
-			hash := b.variableStateMap[key]
-			if hash == nil {
-				hash = make(m.Hash)
-			}
-			hash[variableItem.Value()] = struct{}{}
-			b.variableStateMap[key] = hash
-		}
+	var variableState = GenVariableState(variables)
+	if _, exists := b.variableState[variableState]; !exists {
+		b.variableState[variableState] = map[string]bool{}
+		b.variableSetHub[variableState] = variable.Copy(variables)
 	}
 	return nil
 }
 func (b *Base) VariableKeys() []string {
 	return variable.VarReg.FindAllString(b.val, -1)
+}
+func (b *Base) VariableSetFromHub(state string) variable.Set {
+	return b.variableSetHub[state]
+}
+func (b *Base) MarkDone(state, cHash string) {
+	b.variableState[state][cHash] = true
+}
+
+func GenVariableState(vSet variable.Set) string {
+	// Extract keys from the variable set
+	keys := make([]string, 0, len(vSet))
+	for key := range vSet {
+		keys = append(keys, key)
+	}
+
+	// Sort keys to ensure consistent ordering
+	sort.Strings(keys)
+
+	// Combine each key with its value into a single string
+	var parts []string
+	for _, key := range keys {
+		if item, ok := vSet[key]; ok {
+			parts = append(parts, key+item.Value())
+		}
+	}
+
+	// Join all parts together
+	return strings.Join(parts, "")
 }
