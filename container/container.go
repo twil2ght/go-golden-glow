@@ -197,6 +197,12 @@ func (b *Base) OK() (bool, error) {
 			return false, nil
 		}
 		// Check if current variable values exist in this trigger's variableStateMap
+		if _, ok := t.(node.Checkable); ok {
+			continue
+		}
+		if _, ok := t.(node.Extractable); ok {
+			continue
+		}
 		if !b.checkVariableStateMap(t) {
 			return false, nil
 		}
@@ -213,14 +219,17 @@ func (b *Base) OK() (bool, error) {
 func (b *Base) checkVariableStateMap(t node.Item) bool {
 	stateMap := t.VariableStateMap()
 	logger.Debug("checkVariableStateMap", "node", t.Value(), "variableStateMap", stateMap)
-	for key, varItem := range b.variables {
-		if hash, ok := stateMap[key]; ok {
-			if _, exists := hash[varItem.Value()]; !exists {
-				logger.Debug("checkVariableStateMap variable value not exists", "variable", key, "value", varItem.Value())
-				return false
-			}
-			logger.Debug("checkVariableStateMap variable value exists", "variable", key, "value", varItem.Value())
+	var variableSet = make(variable.Set)
+	for _, key := range t.VariableKeys() {
+		if item, ok := b.variables[key]; ok {
+			variableSet[key] = item
+		} else {
+			return false
 		}
+	}
+	var state = node.GenVariableState(variableSet)
+	if _, ok := t.VariableStateMap()[state]; !ok {
+		return false
 	}
 	return true
 }
