@@ -35,6 +35,7 @@ var (
 	// modes
 	modeMultiCondition = "multi_condition"
 	modeMultiResult    = "multi_result"
+	modeSingleInput    = "single_input"
 
 	// types
 	typeInput  = "input"
@@ -43,12 +44,13 @@ var (
 
 type builder struct {
 	plugins.Base
-	saver      container.Store
-	pocketCs2R []string
-	pocketC2Rs []string
-	mapping    map[string]string
-	input      []string
-	buildDone  bool
+	saver       container.Store
+	pocketCs2R  []string
+	pocketC2Rs  []string
+	mapping     map[string]string
+	input       []string
+	inputSingle []string
+	buildDone   bool
 }
 
 func (b *builder) Name() string {
@@ -69,18 +71,39 @@ func (b *builder) add(value, valueType, mode string) error {
 	}
 	return nil
 }
-func (b *builder) addV2(value, valueType, _ string) error {
+func (b *builder) addV2(value, valueType, mode string) error {
 	value = b.mapToPlaceholder(value)
+	switch mode {
+	case modeSingleInput:
+		b.inputSingle = append(b.inputSingle, value)
+	}
 	if valueType == typeOutput {
 		b.buildDone = true
-		return b.buildV2(value)
+		err := b.buildV2(value)
+		if err != nil {
+			return err
+		}
+		return b.buildSingle(value)
 	}
 	if b.buildDone {
 		b.input = nil
+		b.inputSingle = nil
 		b.buildDone = false
 	}
 	b.input = append(b.input, value)
 	logger.Debug("Builder:add input", "input", value)
+	return nil
+}
+func (b *builder) buildSingle(output string) error {
+	if len(b.input) == 1 && len(b.inputSingle) > 0 {
+		for _, input := range b.inputSingle {
+			err := b.saver.Save(m.ToHash([]string{input}), m.ToHash([]string{output}))
+			if err != nil {
+				return fmt.Errorf("%s save: %v", pluginName, err)
+			}
+			logger.Debug("Builder:start build single", "input", input, "output", output)
+		}
+	}
 	return nil
 }
 func (b *builder) buildV2(output string) error {
