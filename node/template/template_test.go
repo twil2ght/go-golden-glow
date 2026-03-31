@@ -195,6 +195,17 @@ func TestCore_Get(t *testing.T) {
 			wantErr:     false,
 			wantCount:   1,
 		},
+		{
+			name: "real data test v2",
+			templates: node.Set{
+				"$1 is less than 19": createTestNode("$1 is less than 19"),
+				"$1 is less than 23": createTestNode("$1 is less than 23"),
+			},
+			targetValue: "$1 is less than $2",
+			wantErr:     false,
+			wantCount:   1,
+			givenVars:   map[string]string{"$1": "18", "$2": "19"},
+		},
 	}
 
 	for _, tt := range tests {
