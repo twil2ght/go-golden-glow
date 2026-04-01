@@ -11,6 +11,7 @@ type Checkable interface {
 }
 type Extractable interface {
 	Extract() (variable.Item, error)
+	ExtractTarget() string // Returns the variable name that will be extracted (e.g., "$2")
 }
 type VarReplacer interface {
 	ReplaceAllStringFunc(src string, repl func(string) string) string
