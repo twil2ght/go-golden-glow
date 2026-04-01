@@ -48,7 +48,7 @@ type Base struct {
 func (b *Base) ToText() (string, error) {
 	e, err := b.parser(b.val, b.variables, false)
 	if err != nil {
-		return "", fmt.Errorf("%s parser error: %v", b.val, err)
+		return b.val, fmt.Errorf("%s parser error: %v", b.val, err)
 	}
 	return e, nil
 }
@@ -106,6 +106,7 @@ func (b *Base) VariableStateExecute() map[string]bool {
 func (b *Base) Reset() {
 	b.variableState = make(map[string]map[string]bool)
 	b.variableSetHub = make(map[string]variable.Set)
+	b.variableStateExecute = make(map[string]bool)
 }
 
 func GenVariableState(vSet variable.Set) string {
