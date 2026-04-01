@@ -111,7 +111,7 @@ func simplifySource(_ []string, a slog.Attr) slog.Attr {
 }
 
 var (
-	loggerInstance = New(true)
+	loggerInstance = New(false)
 )
 
 func Default() Logger {
