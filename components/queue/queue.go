@@ -21,6 +21,6 @@ func (q *queue) Out() <-chan string {
 }
 func NewQueue() Queue {
 	return &queue{
-		ch: make(chan string),
+		ch: make(chan string, 1000),
 	}
 }
