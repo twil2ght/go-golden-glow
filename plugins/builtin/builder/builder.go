@@ -178,42 +178,42 @@ func (b *builder) OnRegisterExecutor(reg executor.Registry) error {
 
 func (b *builder) OnRegisterDataGen(reg dataGen.Registry) error {
 	generator := dataGen.NewGenerator(b.Name())
-	generator.Add("input_Cs", dataGen.New(
-		[]string{fmt.Sprintf("%s says [input_Cs] $1 to %s", config.User, config.GG)},
-		dataGen.Parameters{
-			keyValue: "$1",
-			keyMode:  modeMultiCondition,
-			keyType:  typeInput,
-		},
-		dataGen.LangTypeDefault,
-	))
-	generator.Add("output_Cs", dataGen.New(
-		[]string{fmt.Sprintf("%s says [output_Cs] $1 to %s", config.User, config.GG)},
-		dataGen.Parameters{
-			keyValue: "$1",
-			keyMode:  modeMultiCondition,
-			keyType:  typeOutput,
-		},
-		dataGen.LangTypeDefault,
-	))
-	generator.Add("input_Rs", dataGen.New(
-		[]string{fmt.Sprintf("%s says [input_Rs] $1 to %s", config.User, config.GG)},
-		dataGen.Parameters{
-			keyValue: "$1",
-			keyMode:  modeMultiResult,
-			keyType:  typeInput,
-		},
-		dataGen.LangTypeDefault,
-	))
-	generator.Add("output_Rs", dataGen.New(
-		[]string{fmt.Sprintf("%s says [output_Rs] $1 to %s", config.User, config.GG)},
-		dataGen.Parameters{
-			keyValue: "$1",
-			keyMode:  modeMultiResult,
-			keyType:  typeOutput,
-		},
-		dataGen.LangTypeDefault,
-	))
+	//generator.Add("input_Cs", dataGen.New(
+	//	[]string{fmt.Sprintf("%s says [input_Cs] $1 to %s", config.User, config.GG)},
+	//	dataGen.Parameters{
+	//		keyValue: "$1",
+	//		keyMode:  modeMultiCondition,
+	//		keyType:  typeInput,
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
+	//generator.Add("output_Cs", dataGen.New(
+	//	[]string{fmt.Sprintf("%s says [output_Cs] $1 to %s", config.User, config.GG)},
+	//	dataGen.Parameters{
+	//		keyValue: "$1",
+	//		keyMode:  modeMultiCondition,
+	//		keyType:  typeOutput,
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
+	//generator.Add("input_Rs", dataGen.New(
+	//	[]string{fmt.Sprintf("%s says [input_Rs] $1 to %s", config.User, config.GG)},
+	//	dataGen.Parameters{
+	//		keyValue: "$1",
+	//		keyMode:  modeMultiResult,
+	//		keyType:  typeInput,
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
+	//generator.Add("output_Rs", dataGen.New(
+	//	[]string{fmt.Sprintf("%s says [output_Rs] $1 to %s", config.User, config.GG)},
+	//	dataGen.Parameters{
+	//		keyValue: "$1",
+	//		keyMode:  modeMultiResult,
+	//		keyType:  typeOutput,
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
 	generator.Add("input_V2", dataGen.SNew(
 		fmt.Sprintf("%s says [input] $1 to %s", config.User, config.GG),
 		"",
