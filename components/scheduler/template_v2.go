@@ -51,15 +51,17 @@ func (s *schedulerLite) Start() error {
 			case <-s.ctx.Done():
 				return
 			case message, ok := <-s.rcv:
-				loggerLite.Debug("Received message", "message", message)
+				loggerLite.Info("Scheduler received message", "tag", message.Tag(), "value", message.Value())
 				if !ok {
 					return
 				}
 				input := s.processor.Preprocess(message)
+				loggerLite.Info("Scheduler preprocessed", "input", input)
 				if err := s.queue.In(input); err != nil {
 					loggerLite.Warn("Failed to queue message", "error", err)
 					continue
 				}
+				loggerLite.Info("Scheduler queued message", "input", input)
 			}
 		}
 	}()
@@ -75,6 +77,7 @@ func (s *schedulerLite) Start() error {
 				if !ok {
 					return
 				}
+				loggerLite.Info("Runner dequeued", "output", output)
 				item, err := s.nodeFactory.New(output)
 				if err != nil {
 					loggerLite.Error("Failed to create item", "error", err)
@@ -84,9 +87,11 @@ func (s *schedulerLite) Start() error {
 					loggerLite.Error("Created nil item")
 					continue
 				}
+				loggerLite.Info("Runner starting", "item", item.Value())
 				if err := s.runner.Run(item); err != nil {
 					loggerLite.Error("Failed to run item", "error", err)
 				}
+				loggerLite.Info("Runner completed", "item", item.Value())
 			}
 		}
 	}()
@@ -105,7 +110,7 @@ func NewLiteScheduler(
 		queue:       queue,
 		runner:      runner,
 		nodeFactory: nodeFactory,
-		rcv:         make(chan components.Message),
+		rcv:         make(chan components.Message, 1000),
 		wg:          sync.WaitGroup{},
 	}
 }
