@@ -8,6 +8,7 @@ import (
 
 const (
 	KeyExtractor = "[node:extractor]"
+	KeyDist      = "dist"
 )
 
 type baseExtractor struct {
@@ -35,4 +36,10 @@ func (b *baseExtractor) SetState(_ bool) {
 }
 func (b *baseExtractor) OK() bool {
 	return true
+}
+
+// ExtractTarget returns the variable name that will receive the extracted value
+func (b *baseExtractor) ExtractTarget() string {
+	params := b.GetParams()
+	return params[KeyDist]
 }
