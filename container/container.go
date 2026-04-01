@@ -163,9 +163,27 @@ func (b *Base) CheckAndExtract() error {
 	for _, t := range b.tNodes {
 
 		if checker, ok := t.(node.Checkable); ok {
-			err := t.SetVariable(b.variables)
+			var (
+				keys      = t.VariableKeys()
+				finalVars = make(variable.Set, len(keys))
+			)
+			for _, key := range keys {
+				varb := b.variables[key]
+				if varb == nil {
+					errs = append(errs, fmt.Errorf("next: variable:%s not found", key))
+					for k := range b.variables {
+						logger.Error("next: variable", "name", k, "value", b.variables[k].Value())
+					}
+					continue
+				}
+				finalVars[key] = b.variables[key].Copy()
+			}
+			err := t.SetVariable(finalVars)
 			if err != nil {
 				errs = append(errs, fmt.Errorf("set variable failed: %w", err))
+				for k := range b.variables {
+					logger.Error("next: variable", "name", k, "value", b.variables[k].Value())
+				}
 				continue
 			}
 			if err = checker.Check(); err != nil {
@@ -175,7 +193,33 @@ func (b *Base) CheckAndExtract() error {
 		}
 
 		if extractor, ok := t.(node.Extractable); ok {
-			err := t.SetVariable(b.variables)
+			var (
+				keys      = t.VariableKeys()
+				finalVars = make(variable.Set, len(keys))
+			)
+			// Get the extraction target variable - this should NOT be overridden
+			extractTarget := extractor.ExtractTarget()
+			for _, key := range keys {
+				// Skip the extract target variable - it should remain unset for extraction
+				if key == extractTarget {
+					continue
+				}
+				varb := b.variables[key]
+				if varb == nil {
+					var msg string
+					for k := range b.variables {
+						msg += fmt.Sprintf("next: variable %s=%s\n", k, b.variables[k].Value())
+					}
+					for t := range b.tNodes {
+						msg += fmt.Sprintf("next: trigger node %s\n", b.tNodes[t].Value())
+					}
+					errs = append(errs, fmt.Errorf("next: variable:%s not found:%s", key, msg))
+
+					continue
+				}
+				finalVars[key] = b.variables[key].Copy()
+			}
+			err := t.SetVariable(finalVars)
 			if err != nil {
 				errs = append(errs, fmt.Errorf("set variable failed: %w", err))
 				continue
