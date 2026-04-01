@@ -123,7 +123,7 @@ func (t *timer) OnRegisterDataGen(reg dataGen.Registry) error {
 	))
 	generator.Add("fetch_hour", dataGen.SNew(
 		"check what is the time now",
-		"the time is $1 o'clock now",
+		"the hour is $1 o'clock now",
 		dataGen.Parameters{
 			keyMode: modeFetch,
 			keyType: typeHour,
