@@ -234,6 +234,16 @@ func (b *builder) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeDefault,
 	))
+	generator.Add("input_single", dataGen.SNew(
+		fmt.Sprintf("%s says [input_single] $1 to %s", config.User, config.GG),
+		"",
+		dataGen.Parameters{
+			keyValue: "$1",
+			keyMode:  modeMultiCondition,
+			keyType:  typeInput,
+		},
+		dataGen.LangTypeDefault,
+	))
 	return reg.AddGenerator(b.Name(), generator)
 }
 
