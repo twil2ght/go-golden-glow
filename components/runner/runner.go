@@ -167,8 +167,8 @@ func (b *Base) Run(input node.Item) error {
 	}
 
 	// 带缓冲通道，避免无缓冲导致的立即阻塞
-	taskCh := make(chan []Knot, 1)
-	resultCh := make(chan []Knot, 1)
+	taskCh := make(chan []Knot, 1000)
+	resultCh := make(chan []Knot, 1000)
 	done := make(chan error, 1)
 
 	go func() {
@@ -334,8 +334,15 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 func (b *Base) processTrigger(n node.Item) (m.Hash, error) {
 	var errGroup []error
 	n.SetState(true)
-	if err := n.Execute(); err != nil {
-		errGroup = append(errGroup, err)
+	for state := range n.VariableStateMap() {
+		if n.VariableStateExecute()[state] {
+			continue
+		}
+		_ = n.SetVariable(n.VariableSetFromHub(state))
+		n.MarkExecuteState(state)
+		if err := n.Execute(); err != nil {
+			errGroup = append(errGroup, err)
+		}
 	}
 	cHashMap, err := b.containerFactory.Positioner().ContainerOf(n)
 	if err != nil {

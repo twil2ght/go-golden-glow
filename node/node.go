@@ -28,18 +28,21 @@ type Item interface {
 	AttrWriter
 	VariableStateMap() map[string]map[string]bool
 	VariableSetFromHub(state string) variable.Set
+	VariableStateExecute() map[string]bool
+	MarkExecuteState(state string)
 	VariableSetHub() map[string]variable.Set
 	MarkDone(state, cHash string)
 	ToText() (string, error)
 	Reset()
 }
 type Base struct {
-	val            string
-	state          bool
-	variables      variable.Set
-	parser         variable.Parser
-	variableState  map[string]map[string]bool
-	variableSetHub map[string]variable.Set
+	val                  string
+	state                bool
+	variables            variable.Set
+	parser               variable.Parser
+	variableState        map[string]map[string]bool
+	variableStateExecute map[string]bool
+	variableSetHub       map[string]variable.Set
 }
 
 func (b *Base) ToText() (string, error) {
@@ -94,7 +97,12 @@ func (b *Base) VariableSetHub() map[string]variable.Set {
 func (b *Base) MarkDone(state, cHash string) {
 	b.variableState[state][cHash] = true
 }
-
+func (b *Base) MarkExecuteState(state string) {
+	b.variableStateExecute[state] = true
+}
+func (b *Base) VariableStateExecute() map[string]bool {
+	return b.variableStateExecute
+}
 func (b *Base) Reset() {
 	b.variableState = make(map[string]map[string]bool)
 	b.variableSetHub = make(map[string]variable.Set)
