@@ -52,12 +52,14 @@ func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 
 func (j *jsonRepository) Init() error {
 	j.HData = make(map[string]m.Hash)
+	j.Data = make(map[string]string)
 
 	err := os.MkdirAll(DefaultJSONPathRoot, 0755)
 	if err != nil {
 		return err
 	}
 
+	// Initialize HData file
 	_, err = os.Stat(j.HDataPath)
 	if os.IsNotExist(err) {
 		//文件不存在 → 创建空 JSON 文件
@@ -82,7 +84,33 @@ func (j *jsonRepository) Init() error {
 		logger.Error("Failed to unmarshal JSON file", "error", err)
 		return err
 	}
-	logger.Info("Initialized JSON data store", "data_length", len(j.HData))
+
+	// Initialize Data file
+	_, err = os.Stat(j.DataPath)
+	if os.IsNotExist(err) {
+		emptyData := make(map[string]string)
+		data, _ := json.MarshalIndent(emptyData, "", "  ")
+		err = os.WriteFile(j.DataPath, data, 0644)
+		if err != nil {
+			return fmt.Errorf("create empty json data file failed: %w", err)
+		}
+		logger.Info("Created new empty JSON data file", "path", j.DataPath)
+	} else if err != nil {
+		return err
+	}
+
+	dataFile, err := os.ReadFile(j.DataPath)
+	if err != nil {
+		return err
+	}
+
+	err = json.Unmarshal(dataFile, &j.Data)
+	if err != nil {
+		logger.Error("Failed to unmarshal JSON data file", "error", err)
+		return err
+	}
+
+	logger.Info("Initialized JSON data store", "hdata_length", len(j.HData), "data_length", len(j.Data))
 	return nil
 }
 
