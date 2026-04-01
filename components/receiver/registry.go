@@ -87,23 +87,22 @@ func (r *registry) Start() {
 				logger.Debug("receiver registry shutting down")
 				return
 			case msg, ok := <-r.mainstream.C():
-				logger.Debug("receiving message", "tag", msg.Tag(), "message", msg.Value())
 				if !ok {
-					logger.Debug("mainstream closed, receiver registry exiting")
+					logger.Info("Receiver: mainstream closed, exiting")
 					return
 				}
-				msgTag := msg.Tag() // 消息自带的标签
-				logger.Debug("consuming message", "tag", msgTag, "message", msg.Value())
+				msgTag := msg.Tag()
+				logger.Info("Receiver: received from mainstream", "tag", msgTag, "message", msg.Value())
 				// 加读锁：并发安全读取路由表
 				r.mu.RLock()
 				// 根据消息标签，找到所有订阅该标签的接收者tag
 				receivers, exists := r.route[msgTag]
 				if !exists {
 					r.mu.RUnlock()
-					logger.Debug("no subscribers for message tag", "tag", msgTag)
+					logger.Info("Receiver: no subscribers for tag", "tag", msgTag)
 					continue
 				}
-				logger.Debug("subscribers for message tag", "tag", msgTag, "subscribers_amount", len(receivers))
+				logger.Info("Receiver: routing to subscribers", "tag", msgTag, "subscriberCount", len(receivers))
 				// 遍历所有订阅者，推送消息
 				for receiverTag := range receivers {
 					ch, ok := r.chs[receiverTag]
@@ -115,13 +114,10 @@ func (r *registry) Start() {
 					// 解锁：发送消息是阻塞操作，必须提前释放锁
 					r.mu.RUnlock()
 
-					// 非阻塞发送（避免通道满导致协程卡住）
-					select {
-					case ch <- msg:
-						logger.Debug("sent message to receiver", "tag", receiverTag, "message", msg.Value())
-					default:
-						logger.Debug("receiver channel full, message discarded", "tag", receiverTag, "message", msg.Value())
-					}
+					// 阻塞发送 - 确保消息不丢失
+					logger.Info("Receiver: sending to subscriber", "receiverTag", receiverTag, "message", msg.Value())
+					ch <- msg
+					logger.Info("Receiver: sent to subscriber", "receiverTag", receiverTag)
 
 					// 重新加锁，继续遍历
 					r.mu.RLock()
