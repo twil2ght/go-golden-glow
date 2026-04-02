@@ -275,7 +275,7 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 				tk.SetTreeNode(parentTreeNode)
 			} else {
 				// This is a new template-generated node - create tree node
-				tk.SetTreeNode(b.treeBuilder.AddNode("🌿 "+tk.Trigger().Value()+fmt.Sprintf("%+v", tk.Trigger().VariableStateMap()), parentTreeNode.Depth+1, parentTreeNode))
+				tk.SetTreeNode(b.treeBuilder.AddNode("🌿 "+tk.Trigger().Value(), parentTreeNode.Depth+1, parentTreeNode))
 			}
 			nextKnots = append(nextKnots, tk)
 		}
@@ -305,9 +305,7 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 			continue
 		}
 
-		containerIdx := 0
 		for hashValue := range cHashMap {
-			containerIdx++
 			for state, doneMap := range triggerNode.VariableStateMap() {
 				var done = doneMap[hashValue]
 				if done {
