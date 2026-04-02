@@ -178,6 +178,20 @@ func clean(varFrom, varTo variable.Set) error {
 	return nil
 }
 func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, error) {
+	matches, err := c.allUpperTemplates(target, templates)
+	if err != nil {
+		return nil, err
+	}
+	matches, err = c.allLowerTemplates(target, templates, matches)
+	if err != nil {
+		return nil, err
+	}
+	if len(matches) == 0 {
+		return nil, fmt.Errorf("no matches found")
+	}
+	return matches, nil
+}
+func (c *core) allUpperTemplates(target node.Item, templates node.Set) (node.Set, error) {
 	matches := make(node.Set)
 
 	for key, n := range templates {
@@ -193,21 +207,18 @@ func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, err
 			matches[key] = n
 		}
 	}
-	var item, ok = target.(*node.Base)
-	if !ok {
-		return matches, nil
-	}
-
+	return matches, nil
+}
+func (c *core) allLowerTemplates(target node.Item, templates node.Set, matches node.Set) (node.Set, error) {
 	var raw []string
 	for _, hub := range target.VariableSetHub() {
 		err := target.SetVariable(hub)
 		if err != nil {
 			continue
 		}
-		rawItem, _ := item.ToText()
+		rawItem, _ := target.ToText()
 		raw = append(raw, rawItem)
 	}
-
 	for key, n := range templates {
 		for _, rawText := range raw {
 			if ok, vars := c.matchTemplate(rawText, n.Value()); ok {
@@ -225,9 +236,6 @@ func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, err
 				matches[key] = n
 			}
 		}
-	}
-	if len(matches) == 0 {
-		return nil, fmt.Errorf("no matches found")
 	}
 	return matches, nil
 }
