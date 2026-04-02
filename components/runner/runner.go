@@ -2,6 +2,7 @@ package runner
 
 //TODO docs
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"goldenglow/container"
@@ -9,7 +10,9 @@ import (
 	"goldenglow/node"
 	"goldenglow/node/template"
 	"goldenglow/pkg/log"
+	"goldenglow/utils"
 	"maps"
+	"os"
 	"strings"
 )
 
@@ -17,11 +20,11 @@ var logger = log.Default()
 
 // TreeNode represents a node in the execution tree
 type TreeNode struct {
-	Name     string
-	Depth    int
-	IsLast   bool
-	Parent   *TreeNode
-	Children []*TreeNode
+	Name     string      `json:"name"`
+	Depth    int         `json:"depth"`
+	IsLast   bool        `json:"isLast"`
+	Parent   *TreeNode   `json:"-"`
+	Children []*TreeNode `json:"children"`
 }
 
 // TreeBuilder collects all nodes during execution and prints at the end
@@ -58,6 +61,32 @@ func (tb *TreeBuilder) Print() {
 		}
 	}
 	fmt.Println("═══ EXECUTION END ═══")
+}
+
+// ToJSON exports the tree structure as JSON for HTML visualization
+func (tb *TreeBuilder) ToJSON() ([]byte, error) {
+	rootNodes := make([]*TreeNode, 0)
+	for _, treeNode := range tb.nodes {
+		if treeNode.Parent == nil {
+			rootNodes = append(rootNodes, treeNode)
+		}
+	}
+	if len(rootNodes) == 0 {
+		return []byte("[]"), nil
+	}
+	return json.Marshal(rootNodes)
+}
+
+// SaveToFile saves the tree JSON to a file for HTML visualization
+func (tb *TreeBuilder) SaveToFile(filepath string) error {
+	jsonData, err := tb.ToJSON()
+	if err != nil {
+		return fmt.Errorf("SaveToFile: marshal: %w", err)
+	}
+	if err := os.WriteFile(filepath, jsonData, 0644); err != nil {
+		return fmt.Errorf("SaveToFile: write: %w", err)
+	}
+	return nil
 }
 
 func (tb *TreeBuilder) printNode(node *TreeNode) {
@@ -219,6 +248,14 @@ func (b *Base) Run(input node.Item) error {
 
 	// Print the tree after execution is complete
 	b.treeBuilder.Print()
+
+	// Save tree to JSON file for HTML visualization
+	treeFile := utils.RootDir + "/tree_output/tree.json"
+	if err := b.treeBuilder.SaveToFile(treeFile); err != nil {
+		logger.Debug("Failed to save tree file", "error", err)
+	} else {
+		logger.Info("Tree saved", "file", treeFile)
+	}
 
 	// Reset all nodes' variableState and variableSetHub after each run
 	b.containerFactory.ResetNodePool()

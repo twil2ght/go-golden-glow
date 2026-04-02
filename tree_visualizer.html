@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenGlow Execution Tree Visualizer</title>
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #252540;
+            --accent-gold: #ffd700;
+            --accent-gold-dim: rgba(255, 215, 0, 0.15);
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --border-color: rgba(255, 215, 0, 0.25);
+            --shadow-glow: 0 0 40px rgba(255, 215, 0, 0.1);
+            --font-size-base: 18px;
+            --font-size-lg: 22px;
+            --font-size-xl: 28px;
+            --font-size-sm: 16px;
+            --font-size-xs: 14px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(ellipse at top, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(100, 100, 255, 0.02) 0%, transparent 50%);
+            min-height: 100vh;
+            padding: 30px 40px;
+            color: var(--text-primary);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .control-panel h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .button-row:last-child {
+            margin-bottom: 0;
+        }
+
+        button {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #e6b800);
+            color: #1a1a2e;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .manual-input-section {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .manual-input-section.visible {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 180px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: var(--font-size-sm);
+            resize: vertical;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .error-message {
+            background: rgba(255, 80, 80, 0.15);
+            border: 1px solid rgba(255, 80, 80, 0.4);
+            border-radius: 10px;
+            padding: 16px 20px;
+            color: #ff6b6b;
+            margin-top: 15px;
+            font-size: var(--font-size-sm);
+        }
+
+        /* Tree Container */
+        .tree-container {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .tree-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tree-header h3 {
+            color: var(--accent-gold);
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+        }
+
+        .tree-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: var(--font-size-lg);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 14px 20px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: var(--font-size-base);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Tree Nodes */
+        .tree-content {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+        }
+
+        .tree-node {
+            position: relative;
+            margin: 4px 0;
+        }
+
+        .node-content {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            background: transparent;
+            border: 1px solid transparent;
+        }
+
+        .node-content:hover {
+            background: var(--accent-gold-dim);
+            border-color: var(--border-color);
+        }
+
+        .toggle-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--accent-gold);
+            font-size: 14px;
+            transition: transform 0.25s ease;
+            background: var(--bg-primary);
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .toggle-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .toggle-icon.leaf {
+            visibility: hidden;
+        }
+
+        .node-icon {
+            margin-right: 12px;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .node-text {
+            color: var(--text-primary);
+            font-size: var(--font-size-base);
+            word-break: break-word;
+        }
+
+        /* Node Type Colors */
+        .node-input { color: #64b5f6; }
+        .node-template { color: #81c784; }
+        .node-container { color: #ffb74d; }
+        .node-trigger { color: #ce93d8; }
+        .node-result { color: var(--accent-gold); font-weight: 600; }
+
+        .children {
+            margin-left: 35px;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .children.collapsed {
+            display: none;
+        }
+
+        .highlight {
+            background: rgba(255, 215, 0, 0.35);
+            border-radius: 3px;
+            padding: 1px 4px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 30px;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .empty-state p {
+            font-size: var(--font-size-base);
+            margin: 8px 0;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .legend-icon {
+            font-size: 20px;
+        }
+
+        /* Animations */
+        @keyframes nodeAppear {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .tree-node {
+            animation: nodeAppear 0.2s ease forwards;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .tree-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GoldenGlow Execution Tree</h1>
+            <p class="subtitle">Interactive visualization with fold/unfold support</p>
+        </div>
+
+        <div class="control-panel">
+            <h3>Control Panel</h3>
+            <div class="button-row">
+                <button class="btn-primary" onclick="loadFromFile()">Load from tree.json</button>
+                <button class="btn-secondary" onclick="loadExample()">Load Example</button>
+                <button class="btn-secondary" onclick="expandAll()">Expand All</button>
+                <button class="btn-secondary" onclick="collapseAll()">Collapse All</button>
+                <button class="btn-secondary" onclick="clearAll()">Clear</button>
+            </div>
+            <div class="button-row">
+                <button class="btn-secondary" onclick="toggleManualInput()">Toggle Manual JSON Input</button>
+            </div>
+            <div id="manualInputSection" class="manual-input-section">
+                <textarea id="jsonInput" placeholder="Paste your tree JSON here..."></textarea>
+                <div class="button-row" style="margin-top: 15px;">
+                    <button class="btn-primary" onclick="renderFromInput()">Render Tree</button>
+                </div>
+            </div>
+            <div id="errorContainer"></div>
+        </div>
+
+        <div class="tree-container">
+            <div class="tree-header">
+                <h3>Execution Tree</h3>
+                <div class="tree-stats">
+                    <div class="stat-item">
+                        <span>Nodes:</span>
+                        <span class="stat-value" id="nodeCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Max Depth:</span>
+                        <span class="stat-value" id="treeDepth">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search nodes..." oninput="searchNodes()">
+                <button class="btn-secondary" onclick="clearSearch()">Clear</button>
+            </div>
+            <div class="tree-content" id="treeContent">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🌳</div>
+                    <p>No tree data loaded yet.</p>
+                    <p>Run your program to generate tree.json, then click "Load from tree.json"</p>
+                </div>
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="legend-icon">📥</span>
+                    <span>Input Node</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🌿</span>
+                    <span>Template Node</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">📦</span>
+                    <span>Container</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🔗</span>
+                    <span>Trigger</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🎯</span>
+                    <span>Result</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTreeData = null;
+        let allNodes = [];
+
+        window.onload = function() {
+            loadFromFile();
+        };
+
+        function loadFromFile() {
+            fetch('tree_output/tree.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('tree.json not found. Run your program first.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    currentTreeData = data;
+                    allNodes = [];
+                    const html = buildTreeHTML(data);
+                    document.getElementById('treeContent').innerHTML = html;
+                    updateStats();
+                    clearError();
+                })
+                .catch(err => {
+                    showError(err.message + ' Click "Load Example" for a demo.');
+                });
+        }
+
+        function toggleManualInput() {
+            const section = document.getElementById('manualInputSection');
+            section.classList.toggle('visible');
+        }
+
+        function renderFromInput() {
+            const input = document.getElementById('jsonInput').value.trim();
+            if (!input) {
+                showError('Please enter JSON data');
+                return;
+            }
+            try {
+                const data = JSON.parse(input);
+                currentTreeData = data;
+                allNodes = [];
+                const html = buildTreeHTML(data);
+                document.getElementById('treeContent').innerHTML = html;
+                updateStats();
+                clearError();
+            } catch (e) {
+                showError('Invalid JSON: ' + e.message);
+            }
+        }
+
+        function clearError() {
+            document.getElementById('errorContainer').innerHTML = '';
+        }
+
+        function buildTreeHTML(nodes) {
+            if (!Array.isArray(nodes) || nodes.length === 0) {
+                return '<div class="empty-state"><div class="empty-state-icon">🌳</div><p>No nodes to display</p></div>';
+            }
+
+            let html = '';
+            nodes.forEach((node, index) => {
+                html += buildNodeHTML(node, index === nodes.length - 1);
+            });
+            return html;
+        }
+
+        function buildNodeHTML(node, isLast) {
+            allNodes.push(node);
+            const hasChildren = node.children && node.children.length > 0;
+            const nodeClass = getNodeClass(node.name);
+
+            let html = '<div class="tree-node">';
+            html += '<div class="node-content" onclick="toggleNode(this)">';
+            html += '<span class="toggle-icon ' + (hasChildren ? '' : 'leaf') + '">▼</span>';
+            html += '<span class="node-icon">' + getNodeIcon(node.name) + '</span>';
+            html += '<span class="node-text ' + nodeClass + '" data-name="' + escapeHtml(node.name) + '">' + escapeHtml(node.name) + '</span>';
+            html += '</div>';
+
+            if (hasChildren) {
+                html += '<div class="children">';
+                node.children.forEach((child, index) => {
+                    html += buildNodeHTML(child, index === node.children.length - 1);
+                });
+                html += '</div>';
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function getNodeClass(name) {
+            if (name.startsWith('📥')) return 'node-input';
+            if (name.startsWith('🌿')) return 'node-template';
+            if (name.startsWith('📦')) return 'node-container';
+            if (name.startsWith('🔗')) return 'node-trigger';
+            if (name.startsWith('🎯')) return 'node-result';
+            return '';
+        }
+
+        function getNodeIcon(name) {
+            return name.charAt(0);
+        }
+
+        function toggleNode(element) {
+            const toggleIcon = element.querySelector('.toggle-icon');
+            const children = element.nextElementSibling;
+
+            if (!children || !children.classList.contains('children')) return;
+
+            children.classList.toggle('collapsed');
+            toggleIcon.classList.toggle('collapsed');
+            toggleIcon.textContent = children.classList.contains('collapsed') ? '▶' : '▼';
+        }
+
+        function expandAll() {
+            document.querySelectorAll('.children').forEach(el => {
+                el.classList.remove('collapsed');
+            });
+            document.querySelectorAll('.toggle-icon').forEach(el => {
+                el.classList.remove('collapsed');
+                if (!el.classList.contains('leaf')) {
+                    el.textContent = '▼';
+                }
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.children').forEach(el => {
+                el.classList.add('collapsed');
+            });
+            document.querySelectorAll('.toggle-icon').forEach(el => {
+                if (!el.classList.contains('leaf')) {
+                    el.classList.add('collapsed');
+                    el.textContent = '▶';
+                }
+            });
+        }
+
+        function searchNodes() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const nodes = document.querySelectorAll('.node-text');
+
+            nodes.forEach(node => {
+                const text = node.getAttribute('data-name').toLowerCase();
+                const parent = node.closest('.tree-node');
+
+                if (query === '') {
+                    node.innerHTML = escapeHtml(node.getAttribute('data-name'));
+                    parent.style.opacity = '1';
+                } else if (text.includes(query)) {
+                    const highlighted = highlightText(node.getAttribute('data-name'), query);
+                    node.innerHTML = highlighted;
+                    parent.style.opacity = '1';
+                    expandParents(parent);
+                } else {
+                    parent.style.opacity = '0.25';
+                }
+            });
+        }
+
+        function highlightText(text, query) {
+            const regex = new RegExp('(' + escapeRegex(query) + ')', 'gi');
+            return escapeHtml(text).replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function escapeRegex(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function expandParents(node) {
+            let parent = node.parentElement;
+            while (parent) {
+                if (parent.classList.contains('children')) {
+                    parent.classList.remove('collapsed');
+                    const toggle = parent.previousElementSibling.querySelector('.toggle-icon');
+                    if (toggle) {
+                        toggle.classList.remove('collapsed');
+                        toggle.textContent = '▼';
+                    }
+                }
+                parent = parent.parentElement;
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            searchNodes();
+        }
+
+        function updateStats() {
+            document.getElementById('nodeCount').textContent = allNodes.length;
+            let maxDepth = 0;
+            allNodes.forEach(node => {
+                if (node.depth > maxDepth) maxDepth = node.depth;
+            });
+            document.getElementById('treeDepth').textContent = maxDepth;
+        }
+
+        function showError(message) {
+            document.getElementById('errorContainer').innerHTML =
+                '<div class="error-message">⚠ ' + escapeHtml(message) + '</div>';
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function loadExample() {
+            const example = [
+                {
+                    "name": "📥 INPUT: greeting",
+                    "depth": 0,
+                    "isLast": true,
+                    "children": [
+                        {
+                            "name": "🌿 greeting_template",
+                            "depth": 1,
+                            "isLast": false,
+                            "children": [
+                                {
+                                    "name": "📦 CONTAINER [ID: abc123]",
+                                    "depth": 2,
+                                    "isLast": true,
+                                    "children": [
+                                        {
+                                            "name": "🔗 TRIGGER: say_hello(raw)",
+                                            "depth": 3,
+                                            "isLast": false,
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "🎯 RESULT: hello_world(completed)",
+                                            "depth": 3,
+                                            "isLast": true,
+                                            "children": [
+                                                {
+                                                    "name": "🌿 output_template",
+                                                    "depth": 4,
+                                                    "isLast": true,
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "🌿 farewell_template",
+                            "depth": 1,
+                            "isLast": true,
+                            "children": [
+                                {
+                                    "name": "📦 CONTAINER [ID: def456]",
+                                    "depth": 2,
+                                    "isLast": true,
+                                    "children": [
+                                        {
+                                            "name": "🔗 TRIGGER: say_goodbye(raw)",
+                                            "depth": 3,
+                                            "isLast": false,
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "🎯 RESULT: goodbye_world(completed)",
+                                            "depth": 3,
+                                            "isLast": true,
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+            document.getElementById('jsonInput').value = JSON.stringify(example, null, 2);
+            currentTreeData = example;
+            allNodes = [];
+            const html = buildTreeHTML(example);
+            document.getElementById('treeContent').innerHTML = html;
+            updateStats();
+            clearError();
+        }
+
+        function clearAll() {
+            document.getElementById('jsonInput').value = '';
+            document.getElementById('treeContent').innerHTML =
+                '<div class="empty-state"><div class="empty-state-icon">🌳</div><p>No tree data loaded yet.</p><p>Run your program to generate tree.json, then click "Load from tree.json"</p></div>';
+            document.getElementById('errorContainer').innerHTML = '';
+            document.getElementById('nodeCount').textContent = '0';
+            document.getElementById('treeDepth').textContent = '0';
+            currentTreeData = null;
+            allNodes = [];
+        }
+
+        document.getElementById('jsonInput').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                renderFromInput();
+            }
+        });
+    </script>
+</body>
+</html>
