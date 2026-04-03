@@ -13,7 +13,7 @@ import (
 )
 
 func init() {
-	if err := plugins.Subscribe(NewSimpleKV(storage.DefaultJSONRepo())); err != nil {
+	if err := plugins.Subscribe(NewSimpleKV(storage.DefaultRedisRepo())); err != nil {
 		panic(err)
 	}
 }
@@ -22,14 +22,15 @@ const (
 	PluginName = "simple_kv"
 
 	// parameter keys
-	keyKey   = "key"
-	keyValue = "value"
-	keyDist  = "dist"
+	keyKey        = "key"
+	keyValue      = "value"
+	keyExpiration = "expiration"
+	keyDist       = "dist"
 )
 
 type simpleKV struct {
 	plugins.Base
-	repo storage.LightRepository
+	repo storage.RedisRepository
 }
 
 func (s *simpleKV) OnRegisterExtractor(reg extractor.Registry) error {
@@ -70,7 +71,7 @@ func (s *simpleKV) OnRegisterExecutor(reg executor.Registry) error {
 		if err := executor.Validate(params, keyKey, keyValue); err != nil {
 			return err
 		}
-		return s.repo.Set(params[keyKey], params[keyValue])
+		return s.repo.Set(params[keyKey], params[keyValue], params[keyExpiration])
 	})
 }
 
@@ -98,6 +99,20 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeDefault,
 	))
+	// Set operation - executor pattern
+	generator.Add("set_value_with_expiration", dataGen.NewLangData(
+		[]string{
+			"$1 is $2",
+			"the timeliness of $1 is $3",
+		},
+		[]string{""},
+		dataGen.Parameters{
+			keyKey:        "$1",
+			keyValue:      "$2",
+			keyExpiration: "$3",
+		},
+		dataGen.LangTypeDefault,
+	))
 
 	// Check if key exists - checker pattern
 	generator.Add("check_key_exists", dataGen.SNew(
@@ -117,7 +132,7 @@ func (s *simpleKV) OnRegisterLang(reg lang.Registry) error {
 	return reg.Register(s.Name())
 }
 
-func NewSimpleKV(repo storage.LightRepository) plugins.Item {
+func NewSimpleKV(repo storage.RedisRepository) plugins.Item {
 	return &simpleKV{
 		repo: repo,
 	}

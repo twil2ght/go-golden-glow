@@ -32,6 +32,9 @@ func Init() {
 	if err := storage.DefaultJSONRepo().Init(); err != nil {
 		panic(err)
 	}
+	if err := storage.DefaultRedisRepo().Init(); err != nil {
+		panic(err)
+	}
 	plugins.Init()
 	pluginInstances := plugins.GetAll()
 	for _, pluginInstance := range pluginInstances {
@@ -91,6 +94,10 @@ func run() error {
 }
 func Shutdown() {
 	err := storage.DefaultJSONRepo().Shutdown()
+	if err != nil {
+		panic(err)
+	}
+	err = storage.DefaultRedisRepo().Shutdown()
 	if err != nil {
 		panic(err)
 	}
