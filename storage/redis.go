@@ -14,24 +14,13 @@ import (
 var (
 	DefaultRedisPathRoot  = filepath.Join(utils.RootDir, "archive/Data/redis")
 	defaultRedisHDataPath = DefaultRedisPathRoot + "/hash_data.json"
-	defaultRedisDataPath  = DefaultRedisPathRoot + "/data.json"
 )
 
-type expirableEntry struct {
-	Value      string    `json:"value"`
-	Expiration time.Time `json:"expiration"`
-}
-
-type expirableHash struct {
-	Value      m.Hash    `json:"value"`
-	Expiration time.Time `json:"expiration"`
-}
+type expirableHash map[string]time.Time
 
 type redisRepository struct {
-	DataPath  string
 	HDataPath string
-	HData     map[string]*expirableHash
-	Data      map[string]*expirableEntry
+	HData     map[string]expirableHash
 }
 
 func parseExpiration(expiration string) (time.Time, error) {
@@ -118,37 +107,15 @@ func (r *redisRepository) Set(key, value, expiration string) error {
 		return err
 	}
 
-	r.Data[key] = &expirableEntry{
-		Value:      value,
-		Expiration: exp,
+	if r.HData[key] == nil {
+		r.HData[key] = make(expirableHash)
 	}
-	return nil
-}
-
-func (r *redisRepository) HSet(tag string, value m.Hash, expiration string) error {
-	exp, err := parseExpiration(expiration)
-	if err != nil {
-		return err
-	}
-
-	r.HData[tag] = &expirableHash{
-		Value:      value,
-		Expiration: exp,
-	}
+	r.HData[key][value] = exp
 	return nil
 }
 
 func (r *redisRepository) Get(key string) (string, error) {
-	ent, ok := r.Data[key]
-	if !ok {
-		return "", log.NotFound(key)
-	}
-
-	if !ent.Expiration.IsZero() && time.Now().After(ent.Expiration) {
-		return "", log.NotFound(key)
-	}
-
-	return ent.Value, nil
+	return "", nil
 }
 
 func (r *redisRepository) HGet(tag string) (m.Hash, error) {
@@ -156,17 +123,20 @@ func (r *redisRepository) HGet(tag string) (m.Hash, error) {
 	if !ok {
 		return nil, log.NotFound(tag)
 	}
-
-	if !he.Expiration.IsZero() && time.Now().After(he.Expiration) {
-		return nil, log.NotFound(tag)
+	var res = make(m.Hash)
+	for k, v := range he {
+		// Check expiration from inside the value hash
+		if !v.IsZero() && time.Now().After(v) {
+			continue
+		}
+		res[k] = struct{}{}
 	}
 
-	return he.Value, nil
+	return res, nil
 }
 
 func (r *redisRepository) Init() error {
-	r.HData = make(map[string]*expirableHash)
-	r.Data = make(map[string]*expirableEntry)
+	r.HData = make(map[string]expirableHash)
 
 	err := os.MkdirAll(DefaultRedisPathRoot, 0755)
 	if err != nil {
@@ -176,7 +146,7 @@ func (r *redisRepository) Init() error {
 	// Initialize HData file
 	_, err = os.Stat(r.HDataPath)
 	if os.IsNotExist(err) {
-		emptyData := make(map[string]*expirableHash)
+		emptyData := make(map[string]expirableHash)
 		data, _ := json.MarshalIndent(emptyData, "", "  ")
 		err = os.WriteFile(r.HDataPath, data, 0644)
 		if err != nil {
@@ -198,32 +168,7 @@ func (r *redisRepository) Init() error {
 		return err
 	}
 
-	// Initialize Data file
-	_, err = os.Stat(r.DataPath)
-	if os.IsNotExist(err) {
-		emptyData := make(map[string]*expirableEntry)
-		data, _ := json.MarshalIndent(emptyData, "", "  ")
-		err = os.WriteFile(r.DataPath, data, 0644)
-		if err != nil {
-			return fmt.Errorf("create empty redis data file failed: %w", err)
-		}
-		logger.Info("Created new empty Redis data file", "path", r.DataPath)
-	} else if err != nil {
-		return err
-	}
-
-	dataFile, err := os.ReadFile(r.DataPath)
-	if err != nil {
-		return err
-	}
-
-	err = json.Unmarshal(dataFile, &r.Data)
-	if err != nil {
-		logger.Error("Failed to unmarshal Redis data file", "error", err)
-		return err
-	}
-
-	logger.Info("Initialized Redis data store", "hdata_length", len(r.HData), "data_length", len(r.Data))
+	logger.Info("Initialized Redis data store", "hdata_length", len(r.HData))
 	return nil
 }
 
@@ -235,26 +180,18 @@ func (r *redisRepository) Save() error {
 	if err := SaveAsJson(r.HDataPath, r.HData); err != nil {
 		return err
 	}
-	if err := SaveAsJson(r.DataPath, r.Data); err != nil {
-		return err
-	}
 	return nil
 }
 func (r *redisRepository) Shutdown() error {
 	return r.Save()
 }
-func NewRedisRepository(HDataPath, DataPath string) RedisRepository {
+func NewRedisRepository(HDataPath string) RedisRepository {
 	if HDataPath == "" {
 		HDataPath = defaultRedisHDataPath
 	}
-	if DataPath == "" {
-		DataPath = defaultRedisDataPath
-	}
 	repo := &redisRepository{
 		HDataPath: HDataPath,
-		DataPath:  DataPath,
-		Data:      make(map[string]*expirableEntry),
-		HData:     make(map[string]*expirableHash),
+		HData:     make(map[string]expirableHash),
 	}
 	return repo
 }

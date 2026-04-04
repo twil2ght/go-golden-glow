@@ -22,7 +22,6 @@ type LightRepository interface {
 }
 type RedisRepository interface {
 	Set(key, value, expiration string) error
-	HSet(tag string, value m.Hash, expiration string) error
 	Get(key string) (string, error)
 	HGet(tag string) (m.Hash, error)
 	Shutdown() error

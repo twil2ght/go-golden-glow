@@ -34,6 +34,7 @@ type simpleKV struct {
 }
 
 func (s *simpleKV) OnRegisterExtractor(reg extractor.Registry) error {
+	//TODO return state
 	return reg.Register(PluginName, func(params executor.Parameters) (variable.Item, error) {
 		if err := executor.Validate(params, keyKey, keyDist); err != nil {
 			return nil, err
@@ -53,12 +54,14 @@ func (s *simpleKV) OnRegisterChecker(reg checker.Registry) error {
 			return false
 		}
 
-		actualValue, _ := s.repo.Get(params[keyKey])
-		if actualValue == "" {
+		res, _ := s.repo.HGet(params[keyKey])
+		if res == nil {
 			return false
 		}
-
-		return actualValue == params[keyValue]
+		if _, ok := res[params[keyValue]]; !ok {
+			return false
+		}
+		return true
 	})
 }
 

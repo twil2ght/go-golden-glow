@@ -2,7 +2,7 @@ package storage
 
 var (
 	jsonRepoInstance  = NewJSONRepo(defaultJSONHDataPath, defaultJSONDataPath)
-	redisRepoInstance = NewRedisRepository(defaultRedisHDataPath, defaultRedisDataPath)
+	redisRepoInstance = NewRedisRepository(defaultRedisHDataPath)
 )
 
 func DefaultJSONRepo() Repository {
