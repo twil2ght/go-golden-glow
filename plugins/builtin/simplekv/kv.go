@@ -34,17 +34,21 @@ type simpleKV struct {
 }
 
 func (s *simpleKV) OnRegisterExtractor(reg extractor.Registry) error {
-	//TODO return state
 	return reg.Register(PluginName, func(params executor.Parameters) (variable.Item, error) {
 		if err := executor.Validate(params, keyKey, keyDist); err != nil {
 			return nil, err
 		}
 		dist := params[keyDist]
-		value, err := s.repo.Get(params[keyKey])
+		hash, err := s.repo.HGet(params[keyKey])
 		if err != nil {
-			return nil, fmt.Errorf("failed to get value: %w", err)
+			return nil, fmt.Errorf("failed to get hash: %w", err)
 		}
-		return variable.New(dist, value), nil
+		var value string
+		for v := range hash {
+			value = v
+			break
+		}
+		return variable.NewValueMap(dist, value, hash), nil
 	})
 }
 

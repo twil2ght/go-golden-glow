@@ -114,7 +114,7 @@ func (r *redisRepository) Set(key, value, expiration string) error {
 	return nil
 }
 
-func (r *redisRepository) Get(key string) (string, error) {
+func (r *redisRepository) Get(_ string) (string, error) {
 	return "", nil
 }
 

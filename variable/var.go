@@ -1,6 +1,7 @@
 package variable
 
 import (
+	"goldenglow/m"
 	"goldenglow/pkg/log"
 	"regexp"
 )
@@ -11,6 +12,14 @@ type Item interface {
 	Set(value string) error
 	OK() bool
 	Copy() Item
+}
+
+// ValueMap is an interface for items that carry a VariableSetHub
+// This allows extractors to return multiple variable sets that can be
+// inherited by result nodes
+type ValueMap interface {
+	Item
+	ValueMap() m.Hash
 }
 type Parser func(strWithVariables string, variables Set, strict bool) (string, error)
 type Set map[string]Item
@@ -52,6 +61,31 @@ func New(k, v string) Item {
 	return &Base{
 		name:  k,
 		value: v,
+	}
+}
+
+// valueMapItem is a variable item that carries a state hub (map[string]Set)
+// This allows extractors to return multiple variable sets for result nodes to inherit
+type valueMapItem struct {
+	Base
+	hash m.Hash
+}
+
+func (s *valueMapItem) ValueMap() m.Hash {
+	return s.hash
+}
+
+// NewValueMap creates a new variable item with a state hub
+func NewValueMap(k, v string, values m.Hash) ValueMap {
+	if k == "" {
+		k = "you get an empty key"
+	}
+	return &valueMapItem{
+		Base: Base{
+			name:  k,
+			value: v,
+		},
+		hash: values,
 	}
 }
 func Copy(target Set) Set {

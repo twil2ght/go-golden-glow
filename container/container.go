@@ -3,6 +3,7 @@ package container
 import (
 	"errors"
 	"fmt"
+	"goldenglow/m"
 	"goldenglow/node"
 	"goldenglow/pkg/log"
 	"goldenglow/utils"
@@ -20,13 +21,15 @@ type Item interface {
 	Do(external node.Item) (bool, error)
 }
 type Base struct {
-	hashValue string
-	tNodes    node.Set
-	rNodes    node.Set
-	variables variable.Set
-	fetcher   Fetcher
-	encoder   node.Encoder
-	varReg    *regexp.Regexp
+	hashValue    string
+	tNodes       node.Set
+	rNodes       node.Set
+	variables    variable.Set
+	fetcher      Fetcher
+	encoder      node.Encoder
+	varReg       *regexp.Regexp
+	valueHash    m.Hash
+	valueHashKey string
 }
 
 func (b *Base) ID() string {
@@ -230,6 +233,11 @@ func (b *Base) CheckAndExtract() error {
 				continue
 			}
 			b.variables[varb.Name()] = varb
+			if valueMap, ok := varb.(variable.ValueMap); ok {
+				b.valueHash = valueMap.ValueMap()
+				b.valueHashKey = varb.Name()
+				logger.Debug("extractor returned stateHub", "size", len(b.valueHash))
+			}
 		}
 	}
 
@@ -293,6 +301,15 @@ func (b *Base) Next() error {
 			finalVars[key] = b.variables[key].Copy()
 		}
 		err = append(err, rn.SetVariable(finalVars))
+
+		// If we have valueHash from extractor, create variable sets for each value
+		if b.valueHash != nil {
+			for value := range b.valueHash {
+				finalVars[b.valueHashKey] = variable.New(b.valueHashKey, value)
+				err = append(err, rn.SetVariable(finalVars))
+			}
+			logger.Debug("merged valueHash into result node", "node", rn.Value(), "states", len(b.valueHash))
+		}
 	}
 	return errors.Join(err...)
 }
