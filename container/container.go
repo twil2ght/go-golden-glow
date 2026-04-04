@@ -69,7 +69,7 @@ func (b *Base) Do(T node.Item) (bool, error) {
 		if err != nil {
 			return false, err
 		}
-		return false, nil
+		return false, fmt.Errorf("OK() failed")
 	}
 
 	err = b.Next()
@@ -148,17 +148,147 @@ func (b *Base) variableGen(T, dist node.Item) (variable.Set, error) {
 }
 
 func (b *Base) mergeVariables(excludeNode node.Item) error {
+	// Collect all trigger nodes except the excluded one
+	var otherNodes []node.Item
 	for _, t := range b.tNodes {
 		if t.Value() == excludeNode.Value() {
 			continue
 		}
-		for name, varItem := range t.Variables() {
-			if _, exists := b.variables[name]; !exists {
-				b.variables[name] = varItem
-			}
+		otherNodes = append(otherNodes, t)
+	}
+
+	// Try to find a unified variable set that is compatible with current container variables
+	// and satisfies all other trigger nodes
+	unifiedVars := b.findCompatibleVariableSet(otherNodes)
+
+	// Merge the unified variables into the container's variables
+	for name, varItem := range unifiedVars {
+		if _, exists := b.variables[name]; !exists {
+			b.variables[name] = varItem
 		}
 	}
 	return nil
+}
+
+// findCompatibleVariableSet finds a set of variables that is compatible with the current
+// container variables and can satisfy all other trigger nodes
+func (b *Base) findCompatibleVariableSet(nodes []node.Item) variable.Set {
+	if len(nodes) == 0 {
+		return nil
+	}
+
+	// Start with current container variables as the base
+	baseVars := variable.Copy(b.variables)
+
+	// Start with the first node's states that are compatible with baseVars
+	candidates := b.getCompatibleVariableSets(nodes[0], baseVars)
+
+	// Iteratively refine candidates with each subsequent node
+	for i := 1; i < len(nodes); i++ {
+		nodeStates := b.getCompatibleVariableSets(nodes[i], baseVars)
+		candidates = b.mergeCompatibleStates(candidates, nodeStates)
+		if len(candidates) == 0 {
+			break
+		}
+	}
+
+	// Return the first valid unified set, or fallback to simple merge
+	if len(candidates) > 0 {
+		return candidates[0]
+	}
+
+	// Fallback: return merged variables from current node states
+	return b.fallbackMerge(nodes)
+}
+
+// getCompatibleVariableSets returns variable sets from a node that are compatible with baseVars
+// (i.e., they have the same values for any shared variables)
+func (b *Base) getCompatibleVariableSets(n node.Item, baseVars variable.Set) []variable.Set {
+	hub := n.VariableSetHub()
+	if len(hub) == 0 {
+		// Fallback to current variables if hub is empty
+		vars := n.Variables()
+		if len(vars) > 0 && b.isCompatibleWithBase(vars, baseVars) {
+			return []variable.Set{vars}
+		}
+		return nil
+	}
+
+	var compatibleSets []variable.Set
+	for _, vSet := range hub {
+		if b.isCompatibleWithBase(vSet, baseVars) {
+			compatibleSets = append(compatibleSets, vSet)
+		}
+	}
+	return compatibleSets
+}
+
+// isCompatibleWithBase checks if a variable set is compatible with baseVars
+// (they have the same values for any shared variables)
+func (b *Base) isCompatibleWithBase(vSet, baseVars variable.Set) bool {
+	for key, baseItem := range baseVars {
+		if item, ok := vSet[key]; ok {
+			if item.Value() != baseItem.Value() {
+				return false // Different values for shared variable
+			}
+		}
+	}
+	return true
+}
+
+// mergeCompatibleStates combines two lists of variable sets, keeping only compatible combinations
+// Two states are compatible if they have the same values for shared variables
+func (b *Base) mergeCompatibleStates(setA, setB []variable.Set) []variable.Set {
+	var result []variable.Set
+
+	for _, a := range setA {
+		for _, b_ := range setB {
+			if merged, ok := b.mergeTwoStates(a, b_); ok {
+				result = append(result, merged)
+			}
+		}
+	}
+
+	return result
+}
+
+// mergeTwoStates attempts to merge two variable sets
+// Returns (mergedSet, true) if compatible, (nil, false) otherwise
+func (b *Base) mergeTwoStates(setA, setB variable.Set) (variable.Set, bool) {
+	merged := make(variable.Set)
+
+	// Copy all from setA
+	for k, v := range setA {
+		merged[k] = v.Copy()
+	}
+
+	// Merge from setB, checking compatibility
+	for k, v := range setB {
+		if existing, exists := merged[k]; exists {
+			// Check if values match for shared variables
+			if existing.Value() != v.Value() {
+				return nil, false // Incompatible
+			}
+			// Same value, skip
+			continue
+		}
+		merged[k] = v.Copy()
+	}
+
+	return merged, true
+}
+
+// fallbackMerge performs a simple merge of current variables from all nodes
+func (b *Base) fallbackMerge(nodes []node.Item) variable.Set {
+	merged := make(variable.Set)
+	for _, n := range nodes {
+		for name, varItem := range n.Variables() {
+			if _, exists := merged[name]; !exists {
+				merged[name] = varItem.Copy()
+			}
+		}
+	}
+	return merged
 }
 func (b *Base) CheckAndExtract() error {
 	var errs []error
@@ -246,7 +376,7 @@ func (b *Base) CheckAndExtract() error {
 func (b *Base) OK() (bool, error) {
 	for _, t := range b.tNodes {
 		if !t.OK() {
-			return false, nil
+			return false, fmt.Errorf("trigger:%s is not activated", t.Value())
 		}
 		// Check if current variable values exist in this trigger's variableStateMap
 		if _, ok := t.(node.Checkable); ok {
@@ -255,8 +385,8 @@ func (b *Base) OK() (bool, error) {
 		if _, ok := t.(node.Extractable); ok {
 			continue
 		}
-		if !b.checkVariableStateMap(t) {
-			return false, nil
+		if ok, err := b.checkVariableStateMap(t); !ok {
+			return false, err
 		}
 	}
 	for _, varb := range b.variables {
@@ -268,7 +398,7 @@ func (b *Base) OK() (bool, error) {
 }
 
 // checkVariableStateMap verifies that the current variable values exist in the trigger's variableStateMap
-func (b *Base) checkVariableStateMap(t node.Item) bool {
+func (b *Base) checkVariableStateMap(t node.Item) (bool, error) {
 	stateMap := t.VariableStateMap()
 	logger.Debug("checkVariableStateMap", "node", t.Value(), "variableStateMap", stateMap)
 	var variableSet = make(variable.Set)
@@ -276,14 +406,14 @@ func (b *Base) checkVariableStateMap(t node.Item) bool {
 		if item, ok := b.variables[key]; ok {
 			variableSet[key] = item
 		} else {
-			return false
+			return false, fmt.Errorf("variable:%s not found", key)
 		}
 	}
 	var state = node.GenVariableState(variableSet)
 	if _, ok := t.VariableStateMap()[state]; !ok {
-		return false
+		return false, fmt.Errorf("variable state:%s not found", state)
 	}
-	return true
+	return true, nil
 }
 func (b *Base) Next() error {
 	var err []error
