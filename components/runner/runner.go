@@ -392,9 +392,6 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 		return nil, err
 	}
 	ok, err := c.Do(T.Trigger())
-	if err != nil {
-		return nil, err
-	}
 	results := c.RNode()
 	triggers := c.TNode()
 
@@ -405,9 +402,16 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 		if err != nil {
 			raw = "?"
 		}
+		if t.Value() == T.Trigger().Value() {
+			_ = b.treeBuilder.AddNode("🚀 TRIGGER: "+t.Value()+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
+			continue
+		}
 		_ = b.treeBuilder.AddNode("🔗 TRIGGER: "+t.Value()+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
 	}
 	if !ok {
+		if err != nil {
+			b.treeBuilder.AddNode("❌️ REASON: "+err.Error(), parentTreeNode.Depth+1, parentTreeNode)
+		}
 		return nil, nil
 	}
 
