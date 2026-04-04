@@ -110,6 +110,11 @@ func (r *redisRepository) Set(key, value, expiration string) error {
 	if r.HData[key] == nil {
 		r.HData[key] = make(expirableHash)
 	}
+	if _, ok := r.HData[key][value]; ok {
+		if exp.IsZero() {
+			return nil
+		}
+	}
 	r.HData[key][value] = exp
 	return nil
 }
