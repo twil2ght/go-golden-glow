@@ -10,6 +10,8 @@ import (
 	"goldenglow/plugins"
 	"goldenglow/storage"
 	"goldenglow/variable"
+	"strconv"
+	"strings"
 )
 
 func init() {
@@ -26,6 +28,7 @@ const (
 	keyValue      = "value"
 	keyExpiration = "expiration"
 	keyDist       = "dist"
+	keyLen        = "len"
 )
 
 type simpleKV struct {
@@ -57,7 +60,15 @@ func (s *simpleKV) OnRegisterChecker(reg checker.Registry) error {
 		if err := executor.Validate(params, keyKey, keyValue); err != nil {
 			return false
 		}
-
+		if err := executor.Validate(params, keyLen); err == nil {
+			var target = params[keyKey]
+			var lengthStr = params[keyValue]
+			length, _ := strconv.Atoi(lengthStr)
+			if length != len(strings.Fields(target)) {
+				return false
+			}
+			return true
+		}
 		res, _ := s.repo.HGet(params[keyKey])
 		if res == nil {
 			return false
@@ -96,13 +107,51 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 		dataGen.LangTypeExtractor,
 	))
 
-	// Set operation - executor pattern
-	generator.Add("set_value", dataGen.SNew(
-		"$1 is $2",
-		"",
+	//// Set operation - executor pattern
+	//generator.Add("set_value", dataGen.SNew(
+	//	"$1 is $2",
+	//	"",
+	//	dataGen.Parameters{
+	//		keyKey:   "$1",
+	//		keyValue: "$2",
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
+	//// Set operation - executor pattern
+	//generator.Add("set_value_with_expiration", dataGen.NewLangData(
+	//	[]string{
+	//		"$1 is $2",
+	//		"the timeliness of $1 is $3",
+	//	},
+	//	[]string{""},
+	//	dataGen.Parameters{
+	//		keyKey:        "$1",
+	//		keyValue:      "$2",
+	//		keyExpiration: "$3",
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
+	generator.Add("set_value", dataGen.NewLangData(
+		[]string{
+			"$1 is $2",
+			"$1 is a noun expression",
+		},
+		[]string{""},
 		dataGen.Parameters{
 			keyKey:   "$1",
 			keyValue: "$2",
+		},
+		dataGen.LangTypeDefault,
+	))
+	generator.Add("set_value_length_limited_to_1", dataGen.NewLangData(
+		[]string{
+			"$1 is a $2",
+			"[node:checker] [namespace:simple_kv] [key:$1] [value:1]" + " [len:enable]",
+		},
+		[]string{""},
+		dataGen.Parameters{
+			keyKey:   "$1",
+			keyValue: "a $2",
 		},
 		dataGen.LangTypeDefault,
 	))
@@ -110,6 +159,7 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 	generator.Add("set_value_with_expiration", dataGen.NewLangData(
 		[]string{
 			"$1 is $2",
+			"$1 is a noun expression",
 			"the timeliness of $1 is $3",
 		},
 		[]string{""},
@@ -120,7 +170,6 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeDefault,
 	))
-
 	// Check if key exists - checker pattern
 	generator.Add("check_key_exists", dataGen.SNew(
 		"check if $1 is $2",
