@@ -394,6 +394,17 @@ func (b *Base) OK() (bool, error) {
 			return false, fmt.Errorf("variable:%s is empty", varb.Name())
 		}
 	}
+	var rawSet = make(map[string]struct{})
+	for _, t := range b.tNodes {
+		var val, err = variable.ToRawText(t.Value(), b.variables, false)
+		if err != nil {
+			return false, fmt.Errorf("to raw text: %w", err)
+		}
+		if _, exists := rawSet[val]; exists {
+			return false, fmt.Errorf("trigger:%s value:%s is not unique", t.Value(), val)
+		}
+		rawSet[val] = struct{}{}
+	}
 	return true, nil
 }
 
