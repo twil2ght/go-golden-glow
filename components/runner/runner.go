@@ -205,8 +205,8 @@ func (b *Base) Run(input node.Item) error {
 			close(taskCh)
 		}()
 
-		// 初始化数据推入通道
-		resultCh <- initKnots
+		//// 初始化数据推入通道
+		//resultCh <- initKnots
 
 		for knots := range resultCh {
 			nextKnots, err := b.produce(knots)
@@ -226,7 +226,8 @@ func (b *Base) Run(input node.Item) error {
 		defer func() {
 			close(resultCh)
 		}()
-
+		// 初始化数据推入通道
+		taskCh <- initKnots
 		for knots := range taskCh {
 			if knots == nil || len(knots) == 0 {
 				done <- nil
@@ -427,7 +428,7 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 
 		visited := make(map[string]struct{}, len(T.Trace()))
 		maps.Copy(visited, T.Trace())
-		k, err := NewKnot(t, m.Hash{})
+		k, err := NewKnot(t, visited)
 		if err != nil {
 			continue
 		}
