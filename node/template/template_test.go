@@ -300,6 +300,12 @@ func TestCore_Match(t *testing.T) {
 			target: "say hello to $1",
 			want:   true,
 		},
+		{
+			name:   "variable at end",
+			input:  "food is a noun",
+			target: "$1 is a noun expression",
+			want:   false,
+		},
 	}
 
 	for _, tt := range tests {

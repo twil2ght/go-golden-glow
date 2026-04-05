@@ -122,31 +122,13 @@ type Knot interface {
 	Trace() m.Hash
 	TreeNode() *TreeNode
 	SetTreeNode(node *TreeNode)
-	State() string
-	SetState(s string)
-	DisplayText() string
-	SetDisplayText(text string)
 }
 type knot struct {
-	trigger     node.Item
-	trace       m.Hash
-	treeNode    *TreeNode
-	state       string
-	displayText string // captured text representation when knot is created
+	trigger  node.Item
+	trace    m.Hash
+	treeNode *TreeNode
 }
 
-func (d *knot) State() string {
-	return d.state
-}
-func (d *knot) SetState(s string) {
-	d.state = s
-}
-func (d *knot) DisplayText() string {
-	return d.displayText
-}
-func (d *knot) SetDisplayText(text string) {
-	d.displayText = text
-}
 func (d *knot) Trigger() node.Item {
 	return d.trigger
 }
@@ -159,22 +141,25 @@ func (d *knot) TreeNode() *TreeNode {
 func (d *knot) SetTreeNode(node *TreeNode) {
 	d.treeNode = node
 }
-func NewKnot(t node.Item, trace m.Hash) (Knot, error) {
+func NewKnot(t, src node.Item, trace m.Hash, encoder node.Encoder) (Knot, error) {
 	if t == nil {
 		return nil, fmt.Errorf("NewKnot: trigger==nil")
 	}
 	if trace == nil {
 		trace = m.Hash{}
 	}
-	// Capture the display text at creation time
-	raw, _ := t.ToText()
-	k := &knot{
-		trigger:     t,
-		trace:       trace,
-		displayText: raw,
+	var (
+		nodeValue = t.Value()
+		encoded   = encoder.Do(nodeValue)
+	)
+	if _, ok := trace[encoded]; ok && src == nil {
+		return nil, errors.New("duplicate node")
 	}
-	k.SetState(node.GenVariableState(t.Variables()))
-	return k, nil
+	trace[encoded] = struct{}{}
+	return &knot{
+		trigger: t,
+		trace:   trace,
+	}, nil
 }
 
 type Instance interface {
@@ -227,9 +212,6 @@ func (b *Base) Run(input node.Item) error {
 		defer func() {
 			close(taskCh)
 		}()
-
-		//// 初始化数据推入通道
-		//resultCh <- initKnots
 
 		for knots := range resultCh {
 			nextKnots, err := b.produce(knots)
@@ -287,15 +269,15 @@ func (b *Base) Run(input node.Item) error {
 	return nil
 }
 
-func (b *Base) genKnots(n node.Item, trace m.Hash) ([]Knot, error) {
-	nSet, err := b.templateCore.Get(n)
+func (b *Base) genKnots(src node.Item, trace m.Hash) ([]Knot, error) {
+	nSet, err := b.templateCore.Get(src)
 	if err != nil {
 		return nil, err
 	}
-	logger.Debug("get templates", "templates_amount", len(nSet), "from", n.Value())
+	logger.Debug("get templates", "templates_amount", len(nSet), "from", src.Value())
 	knots := make([]Knot, 0, len(nSet))
 	for _, n := range nSet {
-		k, err := NewKnot(n, trace)
+		k, err := NewKnot(n, src, trace, b.containerFactory.Encoder())
 		if err != nil {
 			return nil, err
 		}
@@ -307,15 +289,16 @@ func (b *Base) genKnots(n node.Item, trace m.Hash) ([]Knot, error) {
 func (b *Base) produce(knots []Knot) ([]Knot, error) {
 	nextKnots := make([]Knot, 0, len(knots))
 	for _, Item := range knots {
-		var (
-			encoder   = b.containerFactory.Encoder()
-			nodeValue = Item.Trigger().Value()
-			encoded   = encoder.Do(nodeValue)
-		)
-		if _, ok := Item.Trace()[encoded]; ok {
-			continue
-		}
-		Item.Trace()[encoded] = struct{}{}
+		//var (
+		//	encoder   = b.containerFactory.Encoder()
+		//	nodeValue = Item.Trigger().Value()
+		//	encoded   = encoder.Do(nodeValue)
+		//)
+		//if _, ok := Item.Trace()[encoded]; ok {
+		//	b.treeBuilder.AddNode("🌿 "+"duplicated and skip", Item.TreeNode().Depth+1, Item.TreeNode())
+		//	continue
+		//}
+		//Item.Trace()[encoded] = struct{}{}
 
 		// Get parent tree node - if nil, this is an initial knot from input
 		parentTreeNode := Item.TreeNode()
@@ -330,17 +313,13 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			return nil, err
 		}
 		parentValue := Item.Trigger().Value()
-		var raw, e = Item.Trigger().ToText()
-		if err != nil {
-			return nil, e
-		}
 		for _, tk := range templateKnots {
 			if tk.Trigger().Value() == parentValue {
 				// This is the parent node itself - reuse existing tree node
 				tk.SetTreeNode(parentTreeNode)
 			} else {
 				// This is a new template-generated node - create tree node
-				tk.SetTreeNode(b.treeBuilder.AddNode("🌿 "+tk.Trigger().Value()+fmt.Sprintf("(%s)", raw), parentTreeNode.Depth+1, parentTreeNode))
+				tk.SetTreeNode(b.treeBuilder.AddNode("🌿 "+tk.Trigger().Value(), parentTreeNode.Depth+1, parentTreeNode))
 			}
 			nextKnots = append(nextKnots, tk)
 		}
@@ -364,66 +343,49 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 			Item.SetTreeNode(treeNode)
 		}
 
-		cHashMap, err := b.processTrigger(triggerNode, Item.State())
+		cHashMap, err := b.processTrigger(triggerNode)
 		if err != nil {
 			errs = append(errs, err)
 			continue
 		}
 
 		for hashValue := range cHashMap {
-			err := triggerNode.SetVariable(triggerNode.VariableSetFromHub(Item.State()))
-			if err != nil {
-				errs = append(errs, err)
-				continue
+			for state, doneMap := range triggerNode.VariableStateMap() {
+				var done = doneMap[hashValue]
+				if done {
+					continue
+				}
+				err := triggerNode.SetVariable(triggerNode.VariableSetFromHub(state))
+				triggerNode.MarkDone(state, hashValue)
+				if err != nil {
+					errs = append(errs, err)
+					continue
+				}
+				newKnots, err := b.processContainer(hashValue, Item, treeNode)
+				if err != nil {
+					errs = append(errs, err)
+					continue
+				}
+				nextKnots = append(nextKnots, newKnots...)
 			}
-			newKnots, err := b.processContainer(hashValue, Item, treeNode)
-			if err != nil {
-				errs = append(errs, err)
-				continue
-			}
-			nextKnots = append(nextKnots, newKnots...)
-			//for state, doneMap := range triggerNode.VariableStateMap() {
-			//	var done = doneMap[hashValue]
-			//	if done {
-			//		continue
-			//	}
-			//	err := triggerNode.SetVariable(triggerNode.VariableSetFromHub(state))
-			//	triggerNode.MarkDone(state, hashValue)
-			//	if err != nil {
-			//		errs = append(errs, err)
-			//		continue
-			//	}
-			//	newKnots, err := b.processContainer(hashValue, Item, treeNode)
-			//	if err != nil {
-			//		errs = append(errs, err)
-			//		continue
-			//	}
-			//	nextKnots = append(nextKnots, newKnots...)
-			//}
 		}
 	}
 	return nextKnots, errors.Join(errs...)
 }
 
-func (b *Base) processTrigger(n node.Item, state string) (m.Hash, error) {
+func (b *Base) processTrigger(n node.Item) (m.Hash, error) {
 	var errGroup []error
 	n.SetState(true)
-	_ = n.SetVariable(n.VariableSetFromHub(state))
-	n.MarkExecuteState(state)
-	if err := n.Execute(); err != nil {
-		errGroup = append(errGroup, err)
+	for state := range n.VariableStateMap() {
+		if n.VariableStateExecute()[state] {
+			continue
+		}
+		_ = n.SetVariable(n.VariableSetFromHub(state))
+		n.MarkExecuteState(state)
+		if err := n.Execute(); err != nil {
+			errGroup = append(errGroup, err)
+		}
 	}
-
-	//for state := range n.VariableStateMap() {
-	//	if n.VariableStateExecute()[state] {
-	//		continue
-	//	}
-	//	_ = n.SetVariable(n.VariableSetFromHub(state))
-	//	n.MarkExecuteState(state)
-	//	if err := n.Execute(); err != nil {
-	//		errGroup = append(errGroup, err)
-	//	}
-	//}
 	cHashMap, err := b.containerFactory.Positioner().ContainerOf(n)
 	if err != nil {
 		errGroup = append(errGroup, err)
@@ -437,11 +399,6 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 		return nil, err
 	}
 	ok, err := c.Do(T.Trigger())
-	if log.SimpleVersion {
-		if !ok {
-			return nil, nil
-		}
-	}
 	results := c.RNode()
 	triggers := c.TNode()
 
@@ -477,7 +434,7 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 
 		visited := make(map[string]struct{}, len(T.Trace()))
 		maps.Copy(visited, T.Trace())
-		k, err := NewKnot(t, visited)
+		k, err := NewKnot(t, nil, visited, b.containerFactory.Encoder())
 		if err != nil {
 			continue
 		}

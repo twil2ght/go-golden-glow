@@ -67,9 +67,10 @@ func (f *factory) Add(n Item) {
 }
 
 func (f *factory) ResetPool() {
-	for _, item := range f.pool {
-		item.Reset()
-	}
+	f.pool = make(Set)
+	//for _, item := range f.pool {
+	//	item.Reset()
+	//}
 }
 
 func head(str string) string {

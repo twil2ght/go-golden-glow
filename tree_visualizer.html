@@ -381,8 +381,10 @@
             font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
             font-size: var(--font-size-sm);
             line-height: 1.5;
-            transform-origin: top left;
+        // FIX: 优化缩放原点，修复布局错位
+        transform-origin: top left;
             transition: transform 0.15s ease;
+            min-height: 100%;
         }
 
         /* Tree Nodes */
@@ -790,6 +792,8 @@
             <button class="btn-secondary" onclick="expandAll()">Expand</button>
             <button class="btn-secondary" onclick="collapseAll()">Collapse</button>
             <button class="btn-secondary" onclick="resetView()">Reset</button>
+            // FIX: 新增示例数据按钮，提升易用性
+            <button class="btn-secondary" onclick="loadExample()">Load Example</button>
             <button class="btn-secondary" onclick="showShortcuts()">Help (?)</button>
         </div>
 
@@ -860,7 +864,7 @@
                         <div class="empty-state">
                             <div class="empty-state-icon">🌳</div>
                             <p>No tree data loaded yet.</p>
-                            <p>Run your program to generate tree.json, then click "Load from tree.json"</p>
+                            <p>Click "Load Example" to preview or run your program to generate tree.json</p>
                         </div>
                     </div>
                 </div>
@@ -1000,7 +1004,9 @@
     function setupAutoReload() {
         setInterval(() => {
             if (currentTreeData) {
-                fetch('tree_output/tree.json')
+                // FIX: 兼容双路径，自动重试加载
+                fetch('tree.json')
+                    .then(res => res.ok ? res : fetch('tree_output/tree.json'))
                     .then(response => response.json())
                     .then(data => {
                         const newHash = JSON.stringify(data);
@@ -1090,11 +1096,15 @@
 
     function loadFromFile() {
         debugLog('Loading tree.json...');
-        fetch('tree_output/tree.json')
+        // FIX: 兼容双路径加载，提升兼容性
+        fetch('tree.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Root tree.json not found');
+                return res.json();
+            })
+            .catch(() => fetch('tree_output/tree.json'))
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('tree.json not found. Run your program first.');
-                }
+                if (!response.ok) throw new Error('tree.json not found. Run your program first.');
                 return response.json();
             })
             .then(data => {
@@ -1131,8 +1141,8 @@
         document.getElementById('errorContainer').innerHTML = '';
     }
 
-    function buildTreeHTML(nodes, parentPath = '') {
-        // Handle case where nodes is a single object
+    function buildTreeHTML(nodes, parentPath = '', depth = 0) {
+        // FIX: 递归传递深度值，为节点赋值depth属性
         if (nodes && typeof nodes === 'object' && !Array.isArray(nodes)) {
             nodes = [nodes];
         }
@@ -1144,12 +1154,14 @@
         let html = '';
         nodes.forEach((node, index) => {
             const currentPath = parentPath ? `${parentPath}.${index}` : `${index}`;
-            html += buildNodeHTML(node, index === nodes.length - 1, currentPath);
+            html += buildNodeHTML(node, index === nodes.length - 1, currentPath, depth);
         });
         return html;
     }
 
-    function buildNodeHTML(node, isLast, path) {
+    function buildNodeHTML(node, isLast, path, depth = 0) {
+        // FIX: 核心修复：自动赋值节点深度，解决统计崩溃问题
+        node.depth = depth;
         allNodes.push(node);
         flatNodes.push({ node, path });
         node._path = path;
@@ -1159,7 +1171,6 @@
         const nodeType = getNodeType(node.name);
         const nodeClass = getNodeClass(node.name);
 
-        // Debug info for node
         const debugInfo = `data-debug="${escapeHtml(node.name.substring(0, 30))}"`;
 
         let html = `<div class="tree-node" data-path="${path}" data-type="${nodeType}" ${debugInfo}>`;
@@ -1174,7 +1185,8 @@
             node.children.forEach((child, index) => {
                 if (child) {
                     const childPath = `${path}.${index}`;
-                    html += buildNodeHTML(child, index === node.children.length - 1, childPath);
+                    // FIX：子节点深度+1
+                    html += buildNodeHTML(child, index === node.children.length - 1, childPath, depth + 1);
                 }
             });
             html += '</div>';
@@ -1200,6 +1212,8 @@
     }
 
     function getNodeIcon(name) {
+        // FIX: 修复错误节点图标显示异常
+        if (name.startsWith('❌')) return '❌';
         return name.charAt(0);
     }
 
@@ -1219,6 +1233,7 @@
     }
 
     function toggleNodeFromElement(element) {
+        // FIX: 修复双击节点无法折叠/展开的问题
         const toggleIcon = element.querySelector('.toggle-icon');
         if (toggleIcon && !toggleIcon.classList.contains('leaf')) {
             toggleNode(null, toggleIcon);
@@ -1292,18 +1307,15 @@
             event.stopPropagation();
         }
 
-        // Remove previous selection
         document.querySelectorAll('.node-content.selected').forEach(el => {
             el.classList.remove('selected');
         });
 
-        // Add selection to clicked node
         const nodeEl = document.querySelector(`.tree-node[data-path="${path}"] .node-content`);
         if (nodeEl) {
             nodeEl.classList.add('selected');
         }
 
-        // Find node data
         const nodeData = flatNodes.find(n => n.path === path);
         if (nodeData) {
             selectedNode = nodeData.node;
@@ -1345,13 +1357,6 @@
             html += `</div>`;
         }
 
-        if (node.isLast !== undefined) {
-            html += `<div class="detail-section">`;
-            html += `<div class="detail-label">Position</div>`;
-            html += `<div class="detail-value">${node.isLast ? 'Last sibling' : 'Has siblings after'}</div>`;
-            html += `</div>`;
-        }
-
         html += `<div class="detail-section">`;
         html += `<div class="detail-label">Path</div>`;
         html += `<div class="detail-value">${path}</div>`;
@@ -1367,7 +1372,6 @@
             }
         }
 
-        // Show all other properties for debugging
         const otherProps = Object.keys(node).filter(k => !['name', 'depth', 'isLast', 'children', '_path', '_index'].includes(k));
         if (otherProps.length > 0) {
             html += `<div class="detail-section">`;
@@ -1443,7 +1447,7 @@
             let isMatch = false;
             if (useRegex && regex) {
                 isMatch = regex.test(text);
-                regex.lastIndex = 0; // Reset regex
+                regex.lastIndex = 0;
             } else {
                 isMatch = text.toLowerCase().includes(query.toLowerCase());
             }
@@ -1490,7 +1494,6 @@
             match.classList.add('highlighted');
             match.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Expand parents
             let parent = match.closest('.tree-node').parentElement;
             while (parent) {
                 if (parent.classList.contains('children')) {
@@ -1550,12 +1553,10 @@
             return;
         }
 
-        // Clear previous path highlighting
         document.querySelectorAll('.node-content.in-path').forEach(el => {
             el.classList.remove('in-path');
         });
 
-        // Highlight from selected node to root
         const path = selectedNode._path;
         const parts = path.split('.');
 
@@ -1587,7 +1588,10 @@
     }
 
     function applyZoom() {
-        document.getElementById('treeContent').style.transform = `scale(${zoom})`;
+        // FIX：缩放样式优化，防止布局错位
+        const treeContent = document.getElementById('treeContent');
+        treeContent.style.transform = `scale(${zoom})`;
+        treeContent.style.width = `${100 / zoom}%`;
         document.getElementById('zoomLevel').textContent = Math.round(zoom * 100) + '%';
     }
 
@@ -1612,15 +1616,15 @@
     }
 
     function updateStats() {
+        // FIX：安全访问depth，防止空数据报错
         document.getElementById('nodeCount').textContent = allNodes.length;
 
         let maxDepth = 0;
         allNodes.forEach(node => {
-            if (node.depth > maxDepth) maxDepth = node.depth;
+            if (node.depth !== undefined && node.depth > maxDepth) maxDepth = node.depth;
         });
         document.getElementById('treeDepth').textContent = maxDepth;
 
-        // Count visible nodes
         const visibleNodes = document.querySelectorAll('.tree-node:not([style*="display: none"])');
         document.getElementById('visibleCount').textContent = visibleNodes.length;
     }
@@ -1660,33 +1664,27 @@
         const example = [
             {
                 "name": "📥 INPUT: greeting",
-                "depth": 0,
                 "isLast": true,
                 "children": [
                     {
                         "name": "🌿 greeting_template",
-                        "depth": 1,
                         "isLast": false,
                         "children": [
                             {
                                 "name": "📦 CONTAINER [ID: abc123]",
-                                "depth": 2,
                                 "isLast": true,
                                 "children": [
                                     {
                                         "name": "🚀 TRIGGER: say_hello(raw)",
-                                        "depth": 3,
                                         "isLast": false,
                                         "children": []
                                     },
                                     {
                                         "name": "🎯 RESULT: hello_world(completed)",
-                                        "depth": 3,
                                         "isLast": true,
                                         "children": [
                                             {
                                                 "name": "🌿 output_template",
-                                                "depth": 4,
                                                 "isLast": true,
                                                 "children": []
                                             }
@@ -1698,23 +1696,19 @@
                     },
                     {
                         "name": "🌿 farewell_template",
-                        "depth": 1,
                         "isLast": true,
                         "children": [
                             {
                                 "name": "📦 CONTAINER [ID: def456]",
-                                "depth": 2,
                                 "isLast": true,
                                 "children": [
                                     {
                                         "name": "🔗 TRIGGER: say_goodbye(raw)",
-                                        "depth": 3,
                                         "isLast": false,
                                         "children": []
                                     },
                                     {
-                                        "name": "❌️ REASON: trigger not activated",
-                                        "depth": 3,
+                                        "name": "❌ REASON: trigger not activated",
                                         "isLast": true,
                                         "children": []
                                     }
@@ -1738,7 +1732,7 @@
 
     function clearAll() {
         document.getElementById('treeContent').innerHTML =
-            '<div class="empty-state"><div class="empty-state-icon">🌳</div><p>No tree data loaded yet.</p><p>Run your program to generate tree.json</p></div>';
+            '<div class="empty-state"><div class="empty-state-icon">🌳</div><p>No tree data loaded yet.</p><p>Click "Load Example" to preview</p></div>';
         document.getElementById('errorContainer').innerHTML = '';
         document.getElementById('nodeCount').textContent = '0';
         document.getElementById('treeDepth').textContent = '0';
