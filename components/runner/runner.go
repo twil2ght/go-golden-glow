@@ -190,7 +190,7 @@ func (b *Base) Run(input node.Item) error {
 	b.treeBuilder = NewTreeBuilder()
 	b.treeBuilder.AddNode("📥 INPUT: "+input.Value(), 0, nil)
 
-	initKnots, err := b.genKnots(input)
+	initKnots, err := b.genKnots(input, m.Hash{})
 	if err != nil {
 		return fmt.Errorf("run init step: %w", err)
 	}
@@ -263,7 +263,7 @@ func (b *Base) Run(input node.Item) error {
 	return nil
 }
 
-func (b *Base) genKnots(n node.Item) ([]Knot, error) {
+func (b *Base) genKnots(n node.Item, trace m.Hash) ([]Knot, error) {
 	nSet, err := b.templateCore.Get(n)
 	if err != nil {
 		return nil, err
@@ -271,7 +271,7 @@ func (b *Base) genKnots(n node.Item) ([]Knot, error) {
 	logger.Debug("get templates", "templates_amount", len(nSet), "from", n.Value())
 	knots := make([]Knot, 0, len(nSet))
 	for _, n := range nSet {
-		k, err := NewKnot(n, m.Hash{})
+		k, err := NewKnot(n, trace)
 		if err != nil {
 			return nil, err
 		}
@@ -301,7 +301,7 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			Item.SetTreeNode(parentTreeNode)
 		}
 
-		templateKnots, err := b.genKnots(Item.Trigger())
+		templateKnots, err := b.genKnots(Item.Trigger(), Item.Trace())
 		if err != nil {
 			return nil, err
 		}
