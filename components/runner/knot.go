@@ -15,26 +15,15 @@ type Knot interface {
 	TreeNode() *TreeNode
 	SetTreeNode(node *TreeNode)
 	State() string
-	PrintTrace()
-	Visit(node string)
 	SetState(str string)
 }
 type knot struct {
 	trigger  node.Item
 	trace    m.Hash
-	visited  []string
 	treeNode *TreeNode
 	state    string
 }
 
-func (d *knot) Visit(node string) {
-	d.visited = append(d.visited, node)
-}
-func (d *knot) PrintTrace() {
-	for _, node := range d.visited {
-		fmt.Println(node)
-	}
-}
 func (d *knot) State() string {
 	return d.state
 }
@@ -75,6 +64,5 @@ func NewKnot(t, src node.Item, trace m.Hash, set variable.Set) (Knot, error) {
 		trace:   trace,
 		state:   node.GenVariableState(set),
 	}
-	k.Visit(nodeValue)
 	return k, nil
 }
