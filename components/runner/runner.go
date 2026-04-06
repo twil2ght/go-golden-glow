@@ -214,7 +214,6 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 }
 
 func (b *Base) processTrigger(n node.Item) (m.Hash, error) {
-
 	var errGroup []error
 	n.SetState(true)
 	var prevVariables = n.Variables()
@@ -251,10 +250,7 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 	b.treeBuilder.AddNode("⚙️ State ["+T.State()+"]", parentTreeNode.Depth+1, parentTreeNode)
 	containerNode := b.treeBuilder.AddNode("📦 CONTAINER [ID: "+hashValue+"]", parentTreeNode.Depth+1, parentTreeNode)
 	for _, t := range triggers {
-		raw, err := t.ToText()
-		if err != nil {
-			raw = "?"
-		}
+		raw, _ := t.ToText()
 		if t.Value() == T.Trigger().Value() {
 			_ = b.treeBuilder.AddNode("🚀 TRIGGER: "+t.Value()+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
 			continue
@@ -272,10 +268,7 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 	for _, t := range results {
 		resultValue := t.Value()
 		variableSet := t.Variables()
-		raw, err := t.ToText()
-		if err != nil {
-			raw = "?"
-		}
+		raw, _ := t.ToText()
 		// Add result node to tree
 		resultNode := b.treeBuilder.AddNode("🎯 RESULT: "+resultValue+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
 
