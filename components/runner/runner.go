@@ -156,12 +156,12 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 
 		parentValue := Item.Trigger().Value()
 		for _, tk := range templateKnots {
+			tk.Trigger().SetVariable(tk.Trigger().VariableSetFromHub(raw))
+			tk.SetState(node.GenVariableState(tk.Trigger().Variables()))
 			if tk.Trigger().Value() == parentValue {
 				// This is the parent node itself - reuse existing tree node
 				tk.SetTreeNode(parentTreeNode)
 			} else {
-				tk.Trigger().SetVariable(tk.Trigger().VariableSetFromHub(raw))
-				tk.SetState(node.GenVariableState(tk.Trigger().Variables()))
 				var raw, _ = tk.Trigger().ToText()
 				// This is a new template-generated node - create tree node
 				tk.SetTreeNode(b.treeBuilder.AddNode("🌿 "+tk.Trigger().Value()+"("+raw+")", parentTreeNode.Depth+1, parentTreeNode))
