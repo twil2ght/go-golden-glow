@@ -9,7 +9,8 @@ import (
 )
 
 type Core interface {
-	Get(tar node.Item) (node.Set, error)
+	Get(tar node.Item, specific bool) (node.Set, error)
+	RemoveTar(tar node.Item, nodeSet node.Set) node.Set
 	Match(input, target string) bool
 }
 
@@ -20,6 +21,15 @@ type Source interface {
 type core struct {
 	source Source
 	varReg *regexp.Regexp
+}
+
+func (c *core) RemoveTar(tar node.Item, nodeSet node.Set) node.Set {
+	delete(nodeSet, tar.Value())
+	res, err := c.ToSpec(nodeSet)
+	if err != nil {
+		return nil
+	}
+	return res
 }
 
 func New(source Source, varReg *regexp.Regexp) (Core, error) {
@@ -35,17 +45,15 @@ func New(source Source, varReg *regexp.Regexp) (Core, error) {
 	}, nil
 }
 
-func (c *core) Get(tar node.Item) (node.Set, error) {
+func (c *core) Get(tar node.Item, specific bool) (node.Set, error) {
 	templates, err := c.source.GetTemplates()
 	if err != nil {
 		return nil, err
 	}
-	//set, err := c.toSpecific(tar, templates)
-	set, err := c.AllTemplates(tar, templates)
-	if err != nil {
-		return nil, err
+	if specific {
+		return c.toSpecific(tar, templates)
 	}
-	return set, nil
+	return c.AllTemplates(tar, templates)
 }
 
 func (c *core) segment(tpl string) []string {
@@ -121,6 +129,9 @@ func (c *core) toSpecific(target node.Item, templates node.Set) (node.Set, error
 		return nil, fmt.Errorf("template core to: no template variables found")
 	}
 
+	return c.ToSpec(matches)
+}
+func (c *core) ToSpec(matches node.Set) (node.Set, error) {
 	result := make(node.Set)
 
 	for currKey, currNode := range matches {

@@ -36,7 +36,7 @@ func (b *Base) Run(input node.Item) error {
 	b.treeBuilder = NewTreeBuilder()
 	b.treeBuilder.AddNode("📥 INPUT: "+input.Value(), 0, nil)
 
-	initKnots, err := b.genKnots(input, m.Hash{})
+	initKnots, err := b.genKnots(input, m.Hash{}, true)
 	if err != nil {
 		return fmt.Errorf("run init step: %w", err)
 	}
@@ -107,8 +107,8 @@ func (b *Base) Run(input node.Item) error {
 	return nil
 }
 
-func (b *Base) genKnots(src node.Item, trace m.Hash) ([]Knot, error) {
-	nSet, err := b.templateCore.Get(src)
+func (b *Base) genKnots(src node.Item, trace m.Hash, specific bool) ([]Knot, error) {
+	nSet, err := b.templateCore.Get(src, specific)
 	if err != nil {
 		return nil, err
 	}
@@ -131,7 +131,35 @@ func (b *Base) genKnots(src node.Item, trace m.Hash) ([]Knot, error) {
 	}
 	return knots, nil
 }
-
+func (b *Base) TempKnot(src node.Item, trace m.Hash) (Knot, error) {
+	nSet, err := b.templateCore.Get(src, false)
+	if err != nil {
+		return nil, err
+	}
+	nMap := b.templateCore.RemoveTar(src, nSet)
+	if len(nMap) == 0 {
+		return nil, errors.New("no knots found")
+	}
+	var n node.Item
+	for _, e := range nMap {
+		n = e
+		break
+	}
+	var raw, _ = src.ToText()
+	var s node.Item
+	if n.Value() == src.Value() {
+		s = src
+	} else {
+		s = nil
+	}
+	visited := make(map[string]struct{}, len(trace))
+	maps.Copy(visited, trace)
+	k, err := NewKnot(n, s, visited, n.VariableSetFromHub(raw))
+	if err != nil {
+		return nil, err
+	}
+	return k, nil
+}
 func (b *Base) produce(knots []Knot) ([]Knot, error) {
 	nextKnots := make([]Knot, 0, len(knots))
 	for _, Item := range knots {
@@ -142,7 +170,7 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			parentTreeNode = b.treeBuilder.AddNode("🌿 "+Item.Trigger().Value(), 1, nil)
 			Item.SetTreeNode(parentTreeNode)
 		}
-		templateKnots, err := b.genKnots(Item.Trigger(), Item.Trace())
+		templateKnots, err := b.genKnots(Item.Trigger(), Item.Trace(), false)
 		Item.Trigger().SetVariable(Item.Trigger().VariableSetFromHub(Item.State()))
 		var raw, _ = Item.Trigger().ToText()
 		b.treeBuilder.AddNode("⭐ "+Item.Trigger().Value()+"("+raw+")", parentTreeNode.Depth+1, parentTreeNode)
@@ -155,6 +183,15 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 		}
 
 		parentValue := Item.Trigger().Value()
+		if len(templateKnots) <= 1 {
+			ch, _ := b.processTrigger(templateKnots[0].Trigger())
+			if len(ch) == 0 {
+				tempKnot, err := b.TempKnot(templateKnots[0].Trigger(), Item.Trace())
+				if err == nil {
+					templateKnots = []Knot{tempKnot}
+				}
+			}
+		}
 		for _, tk := range templateKnots {
 			tk.Trigger().SetVariable(tk.Trigger().VariableSetFromHub(raw))
 			tk.SetState(node.GenVariableState(tk.Trigger().Variables()))
