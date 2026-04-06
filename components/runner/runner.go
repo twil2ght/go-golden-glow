@@ -114,9 +114,15 @@ func (b *Base) genKnots(src node.Item, trace m.Hash) ([]Knot, error) {
 	}
 	knots := make([]Knot, 0, len(nSet))
 	for _, n := range nSet {
-		k, err := NewKnot(n, src, trace, b.containerFactory.Encoder())
+		var s node.Item
+		if n.Value() == src.Value() {
+			s = src
+		} else {
+			s = nil
+		}
+		k, err := NewKnot(n, s, trace, b.containerFactory.Encoder())
 		if err != nil {
-			return nil, err
+			continue
 		}
 		knots = append(knots, k)
 	}

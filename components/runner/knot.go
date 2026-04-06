@@ -17,8 +17,12 @@ type knot struct {
 	trigger  node.Item
 	trace    m.Hash
 	treeNode *TreeNode
+	state    string
 }
 
+func (d *knot) State() string {
+	return d.state
+}
 func (d *knot) Trigger() node.Item {
 	return d.trigger
 }
@@ -40,14 +44,14 @@ func NewKnot(t, src node.Item, trace m.Hash, encoder node.Encoder) (Knot, error)
 	}
 	var (
 		nodeValue = t.Value()
-		encoded   = encoder.Do(nodeValue)
 	)
-	if _, ok := trace[encoded]; ok && src == nil {
-		return nil, errors.New("duplicate node")
+	if _, ok := trace[nodeValue]; ok && src == nil {
+		return nil, errors.New("duplicate node" + nodeValue)
 	}
-	trace[encoded] = struct{}{}
+	trace[nodeValue] = struct{}{}
 	return &knot{
 		trigger: t,
 		trace:   trace,
+		state:   node.GenVariableState(t.Variables()),
 	}, nil
 }
