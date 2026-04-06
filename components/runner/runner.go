@@ -172,21 +172,6 @@ type Base struct {
 	treeBuilder      *TreeBuilder
 }
 
-func (b *Base) SetContainerFactory(f container.Factory) error {
-	if f != nil {
-		b.containerFactory = f
-		return nil
-	}
-	return fmt.Errorf("Base.SetContainerFactory")
-}
-func (b *Base) SetTemplateCore(f template.Core) error {
-	if f != nil {
-		b.templateCore = f
-		return nil
-	}
-	return fmt.Errorf("Base.SetTemplateCore")
-}
-
 func New(cf container.Factory, tc template.Core) Instance {
 	return &Base{
 		containerFactory: cf,
