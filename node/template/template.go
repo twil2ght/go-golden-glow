@@ -193,7 +193,7 @@ func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, err
 }
 func (c *core) allUpperTemplates(target node.Item, templates node.Set) (node.Set, error) {
 	matches := make(node.Set)
-
+	var raw, _ = target.ToText()
 	for key, n := range templates {
 		if ok, vars := c.matchTemplate(target.Value(), n.Value()); ok {
 			err := clean(target.Variables(), vars)
@@ -201,6 +201,7 @@ func (c *core) allUpperTemplates(target node.Item, templates node.Set) (node.Set
 				return nil, err
 			}
 			err = n.SetVariable(vars)
+			err = n.SetByHub(raw, vars)
 			if err != nil {
 				return nil, err
 			}
@@ -230,6 +231,7 @@ func (c *core) allLowerTemplates(target node.Item, templates node.Set, matches n
 					return nil, err
 				}
 				err = n.SetVariable(vars)
+				err = n.SetByHub(rawText, vars)
 				if err != nil {
 					return nil, err
 				}

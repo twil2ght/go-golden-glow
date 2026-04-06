@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"goldenglow/m"
 	"goldenglow/node"
+	"goldenglow/variable"
 )
 
 type Knot interface {
@@ -15,6 +16,7 @@ type Knot interface {
 	State() string
 	PrintTrace()
 	Visit(node string)
+	SetState(str string)
 }
 type knot struct {
 	trigger  node.Item
@@ -35,6 +37,9 @@ func (d *knot) PrintTrace() {
 func (d *knot) State() string {
 	return d.state
 }
+func (d *knot) SetState(str string) {
+	d.state = str
+}
 func (d *knot) Trigger() node.Item {
 	return d.trigger
 }
@@ -47,7 +52,7 @@ func (d *knot) TreeNode() *TreeNode {
 func (d *knot) SetTreeNode(node *TreeNode) {
 	d.treeNode = node
 }
-func NewKnot(t, src node.Item, trace m.Hash) (Knot, error) {
+func NewKnot(t, src node.Item, trace m.Hash, set variable.Set) (Knot, error) {
 	if t == nil {
 		return nil, fmt.Errorf("NewKnot: trigger==nil")
 	}
@@ -65,7 +70,7 @@ func NewKnot(t, src node.Item, trace m.Hash) (Knot, error) {
 	k := &knot{
 		trigger: t,
 		trace:   trace,
-		state:   node.GenVariableState(t.Variables()),
+		state:   node.GenVariableState(set),
 	}
 	k.Visit(nodeValue)
 	return k, nil
