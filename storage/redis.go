@@ -111,6 +111,12 @@ func (r *redisRepository) Set(key, value, expiration string) error {
 		if strings.HasPrefix(key, "Zero says") {
 			return fmt.Errorf("invalid key: %s", key)
 		}
+		if strings.HasPrefix(key, "Susie says") {
+			return fmt.Errorf("invalid key: %s", key)
+		}
+		if strings.HasPrefix(key, "Susie should") {
+			return fmt.Errorf("invalid key: %s", key)
+		}
 	}
 	exp, err := parseExpiration(expiration)
 	if err != nil {
