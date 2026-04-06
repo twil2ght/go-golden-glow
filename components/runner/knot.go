@@ -6,6 +6,7 @@ import (
 	"goldenglow/m"
 	"goldenglow/node"
 	"goldenglow/variable"
+	"maps"
 )
 
 type Knot interface {
@@ -44,7 +45,9 @@ func (d *knot) Trigger() node.Item {
 	return d.trigger
 }
 func (d *knot) Trace() m.Hash {
-	return d.trace
+	visited := make(map[string]struct{}, len(d.trace))
+	maps.Copy(visited, d.trace)
+	return visited
 }
 func (d *knot) TreeNode() *TreeNode {
 	return d.treeNode

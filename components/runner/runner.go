@@ -142,9 +142,7 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			parentTreeNode = b.treeBuilder.AddNode("🌿 "+Item.Trigger().Value(), 1, nil)
 			Item.SetTreeNode(parentTreeNode)
 		}
-		visited := make(map[string]struct{}, len(Item.Trace()))
-		maps.Copy(visited, Item.Trace())
-		templateKnots, err := b.genKnots(Item.Trigger(), visited)
+		templateKnots, err := b.genKnots(Item.Trigger(), Item.Trace())
 		Item.Trigger().SetVariable(Item.Trigger().VariableSetFromHub(Item.State()))
 		var raw, _ = Item.Trigger().ToText()
 		b.treeBuilder.AddNode("⭐ "+Item.Trigger().Value()+"("+raw+")", parentTreeNode.Depth+1, parentTreeNode)
@@ -281,9 +279,7 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 		// Add result node to tree
 		resultNode := b.treeBuilder.AddNode("🎯 RESULT: "+resultValue+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
 
-		visited := make(map[string]struct{}, len(T.Trace()))
-		maps.Copy(visited, T.Trace())
-		k, err := NewKnot(t, nil, visited, variableSet)
+		k, err := NewKnot(t, nil, T.Trace(), variableSet)
 		if err != nil {
 			b.treeBuilder.AddNode("⚠️ RESULT ERROR: "+err.Error()+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
 			continue
