@@ -112,7 +112,6 @@ func (b *Base) genKnots(src node.Item, trace m.Hash) ([]Knot, error) {
 	if err != nil {
 		return nil, err
 	}
-	logger.Debug("get templates", "templates_amount", len(nSet), "from", src.Value())
 	knots := make([]Knot, 0, len(nSet))
 	for _, n := range nSet {
 		k, err := NewKnot(n, src, trace, b.containerFactory.Encoder())
@@ -212,8 +211,13 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 }
 
 func (b *Base) processTrigger(n node.Item) (m.Hash, error) {
+
 	var errGroup []error
 	n.SetState(true)
+	var prevVariables = n.Variables()
+	defer func() {
+		_ = n.SetVariable(prevVariables)
+	}()
 	for state := range n.VariableStateMap() {
 		if n.VariableStateExecute()[state] {
 			continue
