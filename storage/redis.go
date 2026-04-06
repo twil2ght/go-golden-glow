@@ -8,6 +8,7 @@ import (
 	"goldenglow/utils"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -102,6 +103,15 @@ func parseRelativeDate(expiration string) (time.Time, error) {
 }
 
 func (r *redisRepository) Set(key, value, expiration string) error {
+	var length = len(strings.Fields(key))
+	if length > 1 {
+		if strings.HasPrefix(key, "if") || strings.HasPrefix(key, "then") || strings.HasPrefix(key, "[") || strings.HasPrefix(key, "check") {
+			return fmt.Errorf("invalid key: %s", key)
+		}
+		if strings.HasPrefix(key, "Zero says") {
+			return fmt.Errorf("invalid key: %s", key)
+		}
+	}
 	exp, err := parseExpiration(expiration)
 	if err != nil {
 		return err
