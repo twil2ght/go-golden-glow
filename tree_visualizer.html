@@ -985,7 +985,6 @@
     window.onload = function () {
         loadFromFile();
         setupKeyboardShortcuts();
-        setupAutoReload();
     };
 
     // Debug logging
@@ -1000,34 +999,7 @@
         debugOutput.scrollTop = debugOutput.scrollHeight;
     }
 
-    // Auto-reload tree.json every 2 seconds
-    function setupAutoReload() {
-        setInterval(() => {
-            if (currentTreeData) {
-                // FIX: 兼容双路径，自动重试加载
-                fetch('tree.json')
-                    .then(res => res.ok ? res : fetch('tree_output/tree.json'))
-                    .then(response => response.json())
-                    .then(data => {
-                        const newHash = JSON.stringify(data);
-                        const oldHash = JSON.stringify(currentTreeData);
-                        if (newHash !== oldHash) {
-                            debugLog('Tree data changed, reloading');
-                            currentTreeData = data;
-                            allNodes = [];
-                            flatNodes = [];
-                            const html = buildTreeHTML(data);
-                            document.getElementById('treeContent').innerHTML = html;
-                            updateStats();
-                            showToast('Tree updated', 'success');
-                        }
-                    })
-                    .catch(err => {
-                        // Silent fail on auto-reload
-                    });
-            }
-        }, 2000);
-    }
+
 
     function setupKeyboardShortcuts() {
         document.addEventListener('keydown', function (e) {
