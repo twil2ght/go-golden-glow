@@ -5,7 +5,6 @@ import (
 	"goldenglow/utils"
 	"goldenglow/variable"
 	"strings"
-	"sync"
 )
 
 type factory struct {
@@ -41,7 +40,6 @@ func (f *factory) New(val string) (Item, error) {
 		variableState:        make(map[string]map[string]bool),
 		variableSetHub:       make(map[string]variable.Set),
 		variableStateExecute: make(map[string]bool),
-		mu:                   sync.RWMutex{},
 	}
 	var (
 		node Item = &base

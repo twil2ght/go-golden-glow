@@ -197,7 +197,6 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 		for hashValue := range cHashMap {
 			state := Item.State()
 			err := triggerNode.SetVariable(triggerNode.VariableSetFromHub(state))
-			triggerNode.MarkDone(state, hashValue)
 			if err != nil {
 				errs = append(errs, err)
 				continue

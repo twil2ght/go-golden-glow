@@ -5,7 +5,6 @@ import (
 	"goldenglow/variable"
 	"sort"
 	"strings"
-	"sync"
 )
 
 type Set map[string]Item
@@ -32,10 +31,7 @@ type Item interface {
 	VariableStateExecute() map[string]bool
 	MarkExecuteState(state string)
 	VariableSetHub() map[string]variable.Set
-	MarkDone(state, cHash string)
 	ToText() (string, error)
-	Reset()
-	Mutex() *sync.RWMutex
 	SetByHub(state string, variables variable.Set) error
 }
 type Base struct {
@@ -46,12 +42,8 @@ type Base struct {
 	variableState        map[string]map[string]bool
 	variableStateExecute map[string]bool
 	variableSetHub       map[string]variable.Set
-	mu                   sync.RWMutex
 }
 
-func (b *Base) Mutex() *sync.RWMutex {
-	return &b.mu
-}
 func (b *Base) ToText() (string, error) {
 	e, err := b.parser(b.val, b.variables, false)
 	if err != nil {
@@ -108,22 +100,12 @@ func (b *Base) SetByHub(state string, variables variable.Set) error {
 	b.variableSetHub[state] = variable.Copy(variables)
 	return nil
 }
-func (b *Base) MarkDone(state, cHash string) {
-	if _, exists := b.variableState[state]; !exists {
-		b.variableState[state] = make(map[string]bool)
-	}
-	b.variableState[state][cHash] = true
-}
+
 func (b *Base) MarkExecuteState(state string) {
 	b.variableStateExecute[state] = true
 }
 func (b *Base) VariableStateExecute() map[string]bool {
 	return b.variableStateExecute
-}
-func (b *Base) Reset() {
-	b.variableState = make(map[string]map[string]bool)
-	b.variableSetHub = make(map[string]variable.Set)
-	b.variableStateExecute = make(map[string]bool)
 }
 
 func GenVariableState(vSet variable.Set) string {
