@@ -134,7 +134,6 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 	generator.Add("set_value", dataGen.NewLangData(
 		[]string{
 			"$1 is $2",
-			"$1 is a noun expression",
 		},
 		[]string{""},
 		dataGen.Parameters{
@@ -143,23 +142,22 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeDefault,
 	))
-	generator.Add("set_value_length_limited_to_1", dataGen.NewLangData(
-		[]string{
-			"$1 is a $2",
-			"[node:checker] [namespace:simple_kv] [key:$1] [value:1]" + " [len:enable]",
-		},
-		[]string{""},
-		dataGen.Parameters{
-			keyKey:   "$1",
-			keyValue: "a $2",
-		},
-		dataGen.LangTypeDefault,
-	))
+	//generator.Add("set_value_length_limited_to_1", dataGen.NewLangData(
+	//	[]string{
+	//		"$1 is a $2",
+	//		"[node:checker] [namespace:simple_kv] [key:$1] [value:1]" + " [len:enable]",
+	//	},
+	//	[]string{""},
+	//	dataGen.Parameters{
+	//		keyKey:   "$1",
+	//		keyValue: "a $2",
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
 	// Set operation - executor pattern
 	generator.Add("set_value_with_expiration", dataGen.NewLangData(
 		[]string{
 			"$1 is $2",
-			"$1 is a noun expression",
 			"the timeliness of $1 is $3",
 		},
 		[]string{""},
