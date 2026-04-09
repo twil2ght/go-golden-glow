@@ -122,8 +122,8 @@ func (w *word) OnRegisterDataGen(reg dataGen.Registry) error {
 		dataGen.LangTypeExtractor,
 	))
 	generator.Add("contains", dataGen.SNew(
-		"check if phrase $1 contains target $2",
-		"$1 contains $2",
+		"check if the word $2 is in phrase $1",
+		"the word $2 is in phrase $1",
 		dataGen.Parameters{
 			keyPhrase: "$1",
 			keyTarget: "$2",
