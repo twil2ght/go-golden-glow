@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"goldenglow/dataGen"
 	"goldenglow/executor"
+	"goldenglow/executor/checker"
 	"goldenglow/executor/extractor"
 	"goldenglow/lang"
 	"goldenglow/plugins"
@@ -26,6 +27,7 @@ const (
 	keyIndex  = "index"
 	keyDist   = "dist"
 	keyMode   = "mode"
+	keyTarget = "target"
 
 	// Mode values
 	modeLength = "length"
@@ -42,6 +44,20 @@ func (w *word) Name() string {
 
 func (w *word) OnRegisterExecutor(_ executor.Registry) error {
 	return nil
+}
+
+func (w *word) OnRegisterChecker(reg checker.Registry) error {
+	return reg.Register(w.Name(), func(params executor.Parameters) bool {
+		if err := executor.Validate(params, keyPhrase, keyTarget); err != nil {
+			return false
+		}
+
+		phrase := params[keyPhrase]
+		target := params[keyTarget]
+
+		// Check if target exists in phrase
+		return strings.Contains(phrase, target)
+	})
 }
 
 func (w *word) OnRegisterExtractor(reg extractor.Registry) error {
@@ -94,7 +110,7 @@ func (w *word) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeExtractor,
 	))
-	generator.Add("get_length", dataGen.SNew(
+	generator.Add("get_word_at", dataGen.SNew(
 		"check what is the word at index $3 in phrase $1",
 		"",
 		dataGen.Parameters{
@@ -104,6 +120,15 @@ func (w *word) OnRegisterDataGen(reg dataGen.Registry) error {
 			keyMode:   modeWordAt,
 		},
 		dataGen.LangTypeExtractor,
+	))
+	generator.Add("contains", dataGen.SNew(
+		"check if phrase $1 contains target $2",
+		"$1 contains $2",
+		dataGen.Parameters{
+			keyPhrase: "$1",
+			keyTarget: "$2",
+		},
+		dataGen.LangTypeChecker,
 	))
 	return reg.AddGenerator(w.Name(), generator)
 }
