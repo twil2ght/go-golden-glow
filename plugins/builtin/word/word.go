@@ -30,8 +30,9 @@ const (
 	keyTarget = "target"
 
 	// Mode values
-	modeLength = "length"
-	modeWordAt = "word_at"
+	modeLength  = "length"
+	modeWordAt  = "word_at"
+	modeIndexOf = "index_of"
 )
 
 type word struct {
@@ -92,6 +93,29 @@ func (w *word) OnRegisterExtractor(reg extractor.Registry) error {
 
 			return variable.New(params[keyDist], words[index]), nil
 
+		case modeIndexOf:
+			// Return the index of the target word/phrase in the phrase
+			if err := executor.Validate(params, keyTarget); err != nil {
+				return nil, err
+			}
+
+			target := params[keyTarget]
+
+			// Search for the target in the words array
+			foundIndex := -1
+			for i, word := range words {
+				if word == target {
+					foundIndex = i
+					break
+				}
+			}
+
+			if foundIndex == -1 {
+				return nil, fmt.Errorf("target '%s' not found in phrase", target)
+			}
+
+			return variable.New(params[keyDist], strconv.Itoa(foundIndex)), nil
+
 		default:
 			return nil, fmt.Errorf("unknown word plugin mode: %s", mode)
 		}
@@ -102,7 +126,7 @@ func (w *word) OnRegisterDataGen(reg dataGen.Registry) error {
 	generator := dataGen.NewGenerator(w.Name())
 	generator.Add("get_length", dataGen.SNew(
 		"check what is the amount of words in phrase $1",
-		"",
+		"the amount of words in phrase $1 is $2",
 		dataGen.Parameters{
 			keyDist:   "$2",
 			keyPhrase: "$1",
@@ -112,12 +136,23 @@ func (w *word) OnRegisterDataGen(reg dataGen.Registry) error {
 	))
 	generator.Add("get_word_at", dataGen.SNew(
 		"check what is the word at index $3 in phrase $1",
-		"",
+		"the word at index $3 in phrase $1 is $2",
 		dataGen.Parameters{
 			keyDist:   "$2",
 			keyPhrase: "$1",
 			keyIndex:  "$3",
 			keyMode:   modeWordAt,
+		},
+		dataGen.LangTypeExtractor,
+	))
+	generator.Add("index_of", dataGen.SNew(
+		"check what is the index of the word $3 in phrase $1",
+		"the index of the word $3 in phrase $1 is $2",
+		dataGen.Parameters{
+			keyDist:   "$2",
+			keyPhrase: "$1",
+			keyTarget: "$3",
+			keyMode:   modeIndexOf,
 		},
 		dataGen.LangTypeExtractor,
 	))
