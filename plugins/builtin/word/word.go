@@ -83,6 +83,7 @@ func (w *word) OnRegisterExtractor(reg extractor.Registry) error {
 			}
 
 			index, err := strconv.Atoi(params[keyIndex])
+
 			if err != nil {
 				return nil, fmt.Errorf("invalid index '%s': %w", params[keyIndex], err)
 			}
@@ -91,7 +92,7 @@ func (w *word) OnRegisterExtractor(reg extractor.Registry) error {
 				return nil, fmt.Errorf("index %d out of range [0, %d)", index, len(words))
 			}
 
-			return variable.New(params[keyDist], words[index]), nil
+			return variable.New(params[keyDist], words[index-1]), nil
 
 		case modeIndexOf:
 			// Return the index of the target word/phrase in the phrase
@@ -105,7 +106,7 @@ func (w *word) OnRegisterExtractor(reg extractor.Registry) error {
 			foundIndex := -1
 			for i, word := range words {
 				if word == target {
-					foundIndex = i
+					foundIndex = i + 1
 					break
 				}
 			}
