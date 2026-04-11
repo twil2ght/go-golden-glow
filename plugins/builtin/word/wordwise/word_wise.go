@@ -159,8 +159,8 @@ func (w *wordWise) OnRegisterDataGen(reg dataGen.Registry) error {
 
 	// Extractor: Get word length (character count)
 	generator.Add("get_length", dataGen.SNew(
-		"check what is the length of word $1",
-		"the length of word $1 is $2",
+		"check what is the amount of characters in word $1",
+		"the amount of characters in word $1 is $2",
 		dataGen.Parameters{
 			keyDist: "$2",
 			keyWord: "$1",
@@ -184,8 +184,8 @@ func (w *wordWise) OnRegisterDataGen(reg dataGen.Registry) error {
 
 	// Extractor: Get index of character/substring
 	generator.Add("index_of", dataGen.SNew(
-		"check what is the index of $3 in word $1",
-		"the index of $3 in word $1 is $2",
+		"check what is the index of the character $3 in word $1",
+		"the index of the character $3 in word $1 is $2",
 		dataGen.Parameters{
 			keyDist:   "$2",
 			keyWord:   "$1",
@@ -197,8 +197,8 @@ func (w *wordWise) OnRegisterDataGen(reg dataGen.Registry) error {
 
 	// Checker: Check if word starts with target
 	generator.Add("starts_with", dataGen.SNew(
-		"check if word $1 starts with $2",
-		"word $1 starts with $2",
+		"check if the word $1 starts with $2",
+		"the word $1 starts with $2",
 		dataGen.Parameters{
 			keyWord:   "$1",
 			keyTarget: "$2",
@@ -209,8 +209,8 @@ func (w *wordWise) OnRegisterDataGen(reg dataGen.Registry) error {
 
 	// Checker: Check if word ends with target
 	generator.Add("ends_with", dataGen.SNew(
-		"check if word $1 ends with $2",
-		"word $1 ends with $2",
+		"check if the word $1 ends with $2",
+		"the word $1 ends with $2",
 		dataGen.Parameters{
 			keyWord:   "$1",
 			keyTarget: "$2",
@@ -221,8 +221,8 @@ func (w *wordWise) OnRegisterDataGen(reg dataGen.Registry) error {
 
 	// Extractor: Generate new word by adding prefix
 	generator.Add("add_prefix", dataGen.SNew(
-		"add prefix $2 to word $1",
-		"the new word with prefix $2 is $3",
+		"check what is the word formed by adding prefix $2 to word $1",
+		"the word formed by adding prefix $2 to word $1 is $3",
 		dataGen.Parameters{
 			keyDist:   "$3",
 			keyWord:   "$1",
@@ -234,8 +234,8 @@ func (w *wordWise) OnRegisterDataGen(reg dataGen.Registry) error {
 
 	// Extractor: Generate new word by adding suffix
 	generator.Add("add_suffix", dataGen.SNew(
-		"add suffix $2 to word $1",
-		"the new word with suffix $2 is $3",
+		"check what is the word formed by adding suffix $2 to word $1",
+		"the word formed by adding suffix $2 to word $1 is $3",
 		dataGen.Parameters{
 			keyDist:   "$3",
 			keyWord:   "$1",
