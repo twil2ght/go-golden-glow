@@ -10,8 +10,6 @@ import (
 	"goldenglow/plugins"
 	"goldenglow/storage"
 	"goldenglow/variable"
-	"strconv"
-	"strings"
 )
 
 func init() {
@@ -28,7 +26,6 @@ const (
 	keyValue      = "value"
 	keyExpiration = "expiration"
 	keyDist       = "dist"
-	keyLen        = "len"
 )
 
 type simpleKV struct {
@@ -60,15 +57,7 @@ func (s *simpleKV) OnRegisterChecker(reg checker.Registry) error {
 		if err := executor.Validate(params, keyKey, keyValue); err != nil {
 			return false
 		}
-		if err := executor.Validate(params, keyLen); err == nil {
-			var target = params[keyKey]
-			var lengthStr = params[keyValue]
-			length, _ := strconv.Atoi(lengthStr)
-			if length != len(strings.Fields(target)) {
-				return false
-			}
-			return true
-		}
+
 		res, _ := s.repo.HGet(params[keyKey])
 		if res == nil {
 			return false
