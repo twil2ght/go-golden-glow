@@ -40,6 +40,9 @@ var (
 	// types
 	typeInput  = "input"
 	typeOutput = "output"
+
+	// special values
+	specialValueClear = "[clear]"
 )
 
 type builder struct {
@@ -57,20 +60,6 @@ func (b *builder) Name() string {
 	return pluginName
 }
 
-func (b *builder) add(value, valueType, mode string) error {
-	value = b.mapToPlaceholder(value)
-	switch mode {
-	case modeMultiCondition:
-		b.pocketCs2R = append(b.pocketCs2R, value)
-	case modeMultiResult:
-		b.pocketC2Rs = append(b.pocketC2Rs, value)
-	}
-	logger.Debug("Builder:add value", "value", value, "valueType", valueType, "mode", mode)
-	if valueType == typeOutput {
-		return b.build(mode)
-	}
-	return nil
-}
 func (b *builder) addV2(value, valueType, mode string) error {
 	value = b.mapToPlaceholder(value)
 	switch mode {
@@ -79,11 +68,13 @@ func (b *builder) addV2(value, valueType, mode string) error {
 	}
 	if valueType == typeOutput {
 		b.buildDone = true
-		err := b.buildV2(value)
-		if err != nil {
-			return err
+		if value != specialValueClear {
+			err := b.buildV2(value)
+			if err != nil {
+				return err
+			}
+			return b.buildSingle(value)
 		}
-		return b.buildSingle(value)
 	}
 	if b.buildDone {
 		b.input = nil
@@ -115,54 +106,6 @@ func (b *builder) buildV2(output string) error {
 		return fmt.Errorf("%s save: %v", pluginName, err)
 	}
 	logger.Debug("Builder:start build", "inputs", b.input, "output", output)
-	return nil
-}
-func (b *builder) build(mode string) error {
-	switch mode {
-	case modeMultiCondition:
-		return b.buildMultiCondition()
-	case modeMultiResult:
-		return b.buildMultiResult()
-	default:
-		return fmt.Errorf("unsupported mode: %s", mode)
-	}
-}
-
-func (b *builder) buildMultiCondition() error {
-	defer func() { b.pocketCs2R = nil }()
-	data := b.pocketCs2R
-
-	if len(data) < 2 {
-		return fmt.Errorf("pocketCs2R length < 2, data: %v", data)
-	}
-
-	conditions := data[:len(data)-1]
-	result := []string{data[len(data)-1]}
-
-	err := b.saver.Save(m.ToHash(conditions), m.ToHash(result))
-	if err != nil {
-		return fmt.Errorf("%s save: %v", pluginName, err)
-	}
-	logger.Debug("Builder:buildMultiCondition", "conditions", conditions, "result", result)
-	return nil
-}
-
-func (b *builder) buildMultiResult() error {
-	defer func() { b.pocketC2Rs = nil }()
-	data := b.pocketC2Rs
-
-	if len(data) < 2 {
-		return fmt.Errorf("pocketC2Rs length < 2, data: %v", data)
-	}
-
-	condition := []string{data[len(data)-1]}
-	results := data[:len(data)-1]
-
-	err := b.saver.Save(m.ToHash(condition), m.ToHash(results))
-	if err != nil {
-		return fmt.Errorf("%s save: %v", pluginName, err)
-	}
-	logger.Debug("Builder:buildMultiResult", "condition", condition, "results", results)
 	return nil
 }
 
