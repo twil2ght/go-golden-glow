@@ -96,9 +96,21 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 		dataGen.LangTypeExtractor,
 	))
 
+	//generator.Add("set_value", dataGen.NewLangData(
+	//	[]string{
+	//		"$1 is $2",
+	//	},
+	//	[]string{""},
+	//	dataGen.Parameters{
+	//		keyKey:   "$1",
+	//		keyValue: "$2",
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
 	generator.Add("set_value", dataGen.NewLangData(
 		[]string{
-			"$1 is $2",
+			"$3 says $1 is $2 to Susie",
+			"the phrase $1 is $2 refers to making attributions",
 		},
 		[]string{""},
 		dataGen.Parameters{
@@ -109,9 +121,23 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 	))
 
 	// Set operation - executor pattern
+	//generator.Add("set_value_with_expiration", dataGen.NewLangData(
+	//	[]string{
+	//		"$1 is $2",
+	//		"the timeliness of $1 is $3",
+	//	},
+	//	[]string{""},
+	//	dataGen.Parameters{
+	//		keyKey:        "$1",
+	//		keyValue:      "$2",
+	//		keyExpiration: "$3",
+	//	},
+	//	dataGen.LangTypeDefault,
+	//))
 	generator.Add("set_value_with_expiration", dataGen.NewLangData(
 		[]string{
-			"$1 is $2",
+			"$3 says $1 is $2 to Susie",
+			"the phrase $1 is $2 refers to making attributions",
 			"the timeliness of $1 is $3",
 		},
 		[]string{""},

@@ -28,11 +28,14 @@ const (
 	keyDist   = "dist"
 	keyMode   = "mode"
 	keyTarget = "target"
+	keyCount  = "count"
 
 	// Mode values
-	modeLength  = "length"
-	modeWordAt  = "word_at"
-	modeIndexOf = "index_of"
+	modeLength       = "length"
+	modeWordAt       = "word_at"
+	modeIndexOf      = "index_of"
+	modeTruncateHead = "truncate_head"
+	modeTruncateTail = "truncate_tail"
 )
 
 type word struct {
@@ -117,6 +120,50 @@ func (w *word) OnRegisterExtractor(reg extractor.Registry) error {
 
 			return variable.New(params[keyDist], strconv.Itoa(foundIndex)), nil
 
+		case modeTruncateHead:
+			// Truncate from the head by removing n words
+			if err := executor.Validate(params, keyCount); err != nil {
+				return nil, err
+			}
+
+			count, err := strconv.Atoi(params[keyCount])
+			if err != nil {
+				return nil, fmt.Errorf("invalid count '%s': %w", params[keyCount], err)
+			}
+
+			if count < 0 {
+				return nil, fmt.Errorf("count cannot be negative: %d", count)
+			}
+
+			if count >= len(words) {
+				return nil, fmt.Errorf("count %d exceeds phrase length %d", count, len(words))
+			}
+
+			truncated := words[count:]
+			return variable.New(params[keyDist], strings.Join(truncated, " ")), nil
+
+		case modeTruncateTail:
+			// Truncate from the tail by removing n words
+			if err := executor.Validate(params, keyCount); err != nil {
+				return nil, err
+			}
+
+			count, err := strconv.Atoi(params[keyCount])
+			if err != nil {
+				return nil, fmt.Errorf("invalid count '%s': %w", params[keyCount], err)
+			}
+
+			if count < 0 {
+				return nil, fmt.Errorf("count cannot be negative: %d", count)
+			}
+
+			if count >= len(words) {
+				return nil, fmt.Errorf("count %d exceeds phrase length %d", count, len(words))
+			}
+
+			truncated := words[:len(words)-count]
+			return variable.New(params[keyDist], strings.Join(truncated, " ")), nil
+
 		default:
 			return nil, fmt.Errorf("unknown word plugin mode: %s", mode)
 		}
@@ -165,6 +212,28 @@ func (w *word) OnRegisterDataGen(reg dataGen.Registry) error {
 			keyTarget: "$2",
 		},
 		dataGen.LangTypeChecker,
+	))
+	generator.Add("truncate_head", dataGen.SNew(
+		"check what is the phrase after removing $3 words from the head of phrase $1",
+		"the phrase after removing $3 words from the head of phrase $1 is $2",
+		dataGen.Parameters{
+			keyDist:   "$2",
+			keyPhrase: "$1",
+			keyCount:  "$3",
+			keyMode:   modeTruncateHead,
+		},
+		dataGen.LangTypeExtractor,
+	))
+	generator.Add("truncate_tail", dataGen.SNew(
+		"check what is the phrase after removing $3 words from the tail of phrase $1",
+		"the phrase after removing $3 words from the tail of phrase $1 is $2",
+		dataGen.Parameters{
+			keyDist:   "$2",
+			keyPhrase: "$1",
+			keyCount:  "$3",
+			keyMode:   modeTruncateTail,
+		},
+		dataGen.LangTypeExtractor,
 	))
 	return reg.AddGenerator(w.Name(), generator)
 }

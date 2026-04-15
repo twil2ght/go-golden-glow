@@ -117,7 +117,7 @@ func (k *kvExtra) OnRegisterDataGen(reg dataGen.Registry) error {
 	// Mode 3: Check if value is NOT equal
 	generator.Add("not_equal", dataGen.SNew(
 		"check if $1 is $2",
-		"the key $1 with the value $2 does not exist in Susie's brain",
+		"the key $1 with the value $2 does not exist in Susie's brain directly",
 		dataGen.Parameters{
 			keyKey:   "$1",
 			keyValue: "$2",

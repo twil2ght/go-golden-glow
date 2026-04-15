@@ -152,6 +152,36 @@ func (b *builder) OnRegisterDataGen(reg dataGen.Registry) error {
 		},
 		dataGen.LangTypeDefault,
 	))
+	generator.Add("input_V2", dataGen.SNew(
+		"[input] $1",
+		"",
+		dataGen.Parameters{
+			keyValue: "$1",
+			keyMode:  modeMultiCondition,
+			keyType:  typeInput,
+		},
+		dataGen.LangTypeDefault,
+	))
+	generator.Add("output_V2", dataGen.SNew(
+		"[output] $1",
+		"",
+		dataGen.Parameters{
+			keyValue: "$1",
+			keyMode:  modeMultiCondition,
+			keyType:  typeOutput,
+		},
+		dataGen.LangTypeDefault,
+	))
+	generator.Add("input_single", dataGen.SNew(
+		"[input_single] $1",
+		"",
+		dataGen.Parameters{
+			keyValue: "$1",
+			keyMode:  modeMultiCondition,
+			keyType:  typeInput,
+		},
+		dataGen.LangTypeDefault,
+	))
 	return reg.AddGenerator(b.Name(), generator)
 }
 
