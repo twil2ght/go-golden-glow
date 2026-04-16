@@ -4,6 +4,7 @@ import (
 	"goldenglow/m"
 	"goldenglow/pkg/log"
 	"regexp"
+	"sync"
 )
 
 // Item is an interface for variable
@@ -39,6 +40,7 @@ type Set map[string]Item
 type Base struct {
 	name  string
 	value string
+	mu    sync.RWMutex
 }
 
 var (
@@ -47,16 +49,24 @@ var (
 )
 
 func (b *Base) Name() string {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.name
 }
 func (b *Base) Value() string {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.value
 }
 func (b *Base) OK() bool {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.value != ""
 }
 
 func (b *Base) Set(value string) error {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	if value != "" {
 		b.value = value
 		return nil
@@ -65,6 +75,8 @@ func (b *Base) Set(value string) error {
 }
 
 func (b *Base) Copy() Item {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return New(b.Name(), b.Value())
 }
 
@@ -76,6 +88,7 @@ func New(k, v string) Item {
 	return &Base{
 		name:  k,
 		value: v,
+		mu:    sync.RWMutex{},
 	}
 }
 
