@@ -66,9 +66,3 @@ func NewKnot(t, src node.Item, trace m.Hash, set variable.Set) (Knot, error) {
 	}
 	return k, nil
 }
-func SimpleNewKnot(t node.Item) (Knot, error) {
-	if t == nil {
-		return nil, fmt.Errorf("NewKnot: trigger==nil")
-	}
-	return &knot{trigger: t}, nil
-}

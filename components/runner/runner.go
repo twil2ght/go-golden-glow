@@ -171,7 +171,7 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			Item.SetTreeNode(parentTreeNode)
 		}
 		templateKnots, err := b.genKnots(Item.Trigger(), Item.Trace(), false)
-		Item.Trigger().SetVariable(Item.Trigger().VariableSetFromHub(Item.State()))
+		_ = Item.Trigger().SetVariable(Item.Trigger().VariableSetFromHub(Item.State()))
 		var raw, _ = Item.Trigger().ToText()
 		b.treeBuilder.AddNode("⭐ "+Item.Trigger().Value()+"("+raw+")", parentTreeNode.Depth+1, parentTreeNode)
 		b.treeBuilder.AddNode("⭐ "+Item.Trigger().Value()+"("+Item.State()+")", parentTreeNode.Depth+1, parentTreeNode)
@@ -193,7 +193,7 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			}
 		}
 		for _, tk := range templateKnots {
-			tk.Trigger().SetVariable(tk.Trigger().VariableSetFromHub(raw))
+			_ = tk.Trigger().SetVariable(tk.Trigger().VariableSetFromHub(raw))
 			tk.SetState(node.GenVariableState(tk.Trigger().Variables()))
 			if tk.Trigger().Value() == parentValue {
 				// This is the parent node itself - reuse existing tree node

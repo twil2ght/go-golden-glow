@@ -32,7 +32,7 @@ type Base struct {
 	varReg       *regexp.Regexp
 	valueHash    m.Hash
 	valueHashKey string
-	mu           sync.RWMutex
+	mu           *sync.RWMutex
 }
 
 func (b *Base) ExtraStates() m.Hash {
@@ -207,6 +207,6 @@ func New(hashValue string, fetcher Fetcher, encoder node.Encoder, variableReg *r
 		fetcher:   fetcher,
 		encoder:   encoder,
 		varReg:    variableReg,
-		mu:        sync.RWMutex{},
+		mu:        &sync.RWMutex{},
 	}, nil
 }

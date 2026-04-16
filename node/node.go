@@ -40,7 +40,7 @@ type Base struct {
 	parser         variable.Parser
 	variableState  map[string]map[string]bool
 	variableSetHub map[string]variable.Set
-	mu             sync.RWMutex
+	mu             *sync.RWMutex
 }
 
 func (b *Base) ToText() (string, error) {

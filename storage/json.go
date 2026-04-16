@@ -24,7 +24,7 @@ type jsonRepository struct {
 	HDataPath string
 	HData     map[string]m.Hash
 	Data      map[string]string
-	mu        sync.Mutex
+	mu        *sync.Mutex
 }
 
 func (j *jsonRepository) Shutdown() error {
@@ -156,7 +156,7 @@ func NewJSONRepo(HDataPath, DataPath string) Repository {
 		DataPath:  DataPath,
 		Data:      make(map[string]string),
 		HData:     make(map[string]m.Hash),
-		mu:        sync.Mutex{},
+		mu:        &sync.Mutex{},
 	}
 	return repo
 }

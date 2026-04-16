@@ -40,7 +40,7 @@ type Set map[string]Item
 type Base struct {
 	name  string
 	value string
-	mu    sync.RWMutex
+	mu    *sync.RWMutex
 }
 
 var (
@@ -88,7 +88,7 @@ func New(k, v string) Item {
 	return &Base{
 		name:  k,
 		value: v,
-		mu:    sync.RWMutex{},
+		mu:    &sync.RWMutex{},
 	}
 }
 

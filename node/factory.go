@@ -12,7 +12,7 @@ type factory struct {
 	parser     variable.Parser
 	pool       Set
 	registries map[string]Creator
-	mu         sync.RWMutex
+	mu         *sync.RWMutex
 }
 
 func NewFactory(p variable.Parser) (Factory, error) {
@@ -23,7 +23,7 @@ func NewFactory(p variable.Parser) (Factory, error) {
 		parser:     p,
 		pool:       make(Set),
 		registries: make(map[string]Creator),
-		mu:         sync.RWMutex{},
+		mu:         &sync.RWMutex{},
 	}, nil
 }
 func (f *factory) NewFromPool(val string) (Item, error) {
@@ -46,7 +46,7 @@ func (f *factory) New(val string) (Item, error) {
 		parser:         f.parser,
 		variableState:  make(map[string]map[string]bool),
 		variableSetHub: make(map[string]variable.Set),
-		mu:             sync.RWMutex{},
+		mu:             &sync.RWMutex{},
 	}
 	var (
 		node Item = &base
