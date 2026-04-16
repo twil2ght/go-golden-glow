@@ -5,6 +5,7 @@ import (
 	"goldenglow/variable"
 	"sort"
 	"strings"
+	"sync"
 )
 
 type Set map[string]Item
@@ -28,23 +29,23 @@ type Item interface {
 	AttrWriter
 	VariableStateMap() map[string]map[string]bool
 	VariableSetFromHub(state string) variable.Set
-	VariableStateExecute() map[string]bool
-	MarkExecuteState(state string)
 	VariableSetHub() map[string]variable.Set
 	ToText() (string, error)
 	SetByHub(state string, variables variable.Set) error
 }
 type Base struct {
-	val                  string
-	state                bool
-	variables            variable.Set
-	parser               variable.Parser
-	variableState        map[string]map[string]bool
-	variableStateExecute map[string]bool
-	variableSetHub       map[string]variable.Set
+	val            string
+	state          bool
+	variables      variable.Set
+	parser         variable.Parser
+	variableState  map[string]map[string]bool
+	variableSetHub map[string]variable.Set
+	mu             sync.RWMutex
 }
 
 func (b *Base) ToText() (string, error) {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	e, err := b.parser(b.val, b.variables, false)
 	if err != nil {
 		return b.val, fmt.Errorf("%s parser error: %v", b.val, err)
@@ -52,9 +53,13 @@ func (b *Base) ToText() (string, error) {
 	return e, nil
 }
 func (b *Base) SetState(state bool) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
 	b.state = state
 }
 func (b *Base) OK() bool {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.state
 }
 func (b *Base) Execute() error {
@@ -67,12 +72,18 @@ func (b *Base) Value() string {
 	return b.val
 }
 func (b *Base) Variables() variable.Set {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return variable.Copy(b.variables)
 }
 func (b *Base) VariableStateMap() map[string]map[string]bool {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.variableState
 }
 func (b *Base) SetVariable(variables variable.Set) error {
+	b.mu.Lock()
+	defer b.mu.Unlock()
 	if variables == nil {
 		return fmt.Errorf("SetVariable:nil")
 	}
@@ -88,26 +99,24 @@ func (b *Base) VariableKeys() []string {
 	return variable.VarReg.FindAllString(b.val, -1)
 }
 func (b *Base) VariableSetFromHub(state string) variable.Set {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.variableSetHub[state]
 }
 func (b *Base) VariableSetHub() map[string]variable.Set {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.variableSetHub
 }
 func (b *Base) SetByHub(state string, variables variable.Set) error {
+	b.mu.Lock()
+	defer b.mu.Unlock()
 	if variables == nil {
 		return fmt.Errorf("SetVariable:nil")
 	}
 	b.variableSetHub[state] = variable.Copy(variables)
 	return nil
 }
-
-func (b *Base) MarkExecuteState(state string) {
-	b.variableStateExecute[state] = true
-}
-func (b *Base) VariableStateExecute() map[string]bool {
-	return b.variableStateExecute
-}
-
 func GenVariableState(vSet variable.Set) string {
 	// Extract keys from the variable set
 	keys := make([]string, 0, len(vSet))

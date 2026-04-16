@@ -158,6 +158,8 @@ func (b *Base) OK() (bool, error) {
 	}
 	return true, nil
 }
+
+// TODO
 func (b *Base) Next() error {
 	var err []error
 	for _, rn := range b.rNodes {
