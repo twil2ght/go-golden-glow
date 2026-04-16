@@ -8,8 +8,9 @@ import (
 )
 
 type source struct {
-	repo    storage.Repository
-	factory node.Factory
+	repo       storage.Repository
+	factory    node.Factory
+	positioner container.Positioner
 }
 
 func (s *source) GetTemplates() (node.Set, error) {
@@ -29,5 +30,11 @@ func (s *source) GetTemplates() (node.Set, error) {
 	return nodes, nil
 }
 func (s *source) filter(nodeValue m.Hash) m.Hash {
+	for nv := range nodeValue {
+		n, _ := s.factory.NewFromPool(nv)
+		if cHash, _ := s.positioner.ContainerOf(n); len(cHash) == 0 {
+			delete(nodeValue, nv)
+		}
+	}
 	return nodeValue
 }

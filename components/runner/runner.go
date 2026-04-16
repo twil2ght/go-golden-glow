@@ -278,7 +278,7 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 	if err != nil {
 		return nil, err
 	}
-	ok, err := c.Do(T.Trigger())
+	ok, err := c.Do(T.Trigger(), T.State())
 	results := c.RNode()
 	triggers := c.TNode()
 

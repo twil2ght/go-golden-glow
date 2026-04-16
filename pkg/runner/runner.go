@@ -1,0 +1,94 @@
+package runner
+
+import (
+	"goldenglow/container"
+	"goldenglow/node"
+	"goldenglow/node/template"
+	"goldenglow/pkg/knot"
+	"goldenglow/pkg/log"
+	"time"
+)
+
+type Runner interface {
+	Run(t node.Item) error
+}
+type runner struct {
+	ch               chan knot.Item
+	stopCh           chan struct{}
+	containerFactory container.Factory
+	timeout          time.Duration
+}
+
+var logger = log.Default()
+
+func (r *runner) Run(t node.Item) error {
+
+	initKnot, _ := knot.New(t)
+	r.ch <- initKnot
+
+	// Process until channel is empty and timeout has passed
+	for {
+		select {
+		case e, ok := <-r.ch:
+			if !ok {
+				// Channel closed
+				return nil
+			}
+			if err := r.handler(e); err != nil {
+				logger.Error("runner", "handler", err)
+			}
+		case <-time.After(r.timeout):
+			// Timeout: channel has been empty for the specified duration
+			close(r.ch)
+			return nil
+		}
+	}
+}
+func (r *runner) handler(k knot.Item) error {
+	trigger := k.Trigger()
+	_ = trigger.SetVariable(trigger.VariableSetFromHub(k.State()))
+	rawValue, _ := trigger.ToText()
+	templateNodes, err := GetTemplates(trigger)
+	if err != nil {
+		return err
+	}
+	for _, tempN := range templateNodes {
+		_ = tempN.SetVariable(trigger.VariableSetFromHub(rawValue))
+		_ = tempN.Execute()
+		cHashMap, err := r.containerFactory.Positioner().ContainerOf(tempN)
+		if err != nil {
+			return err
+		}
+		for hash := range cHashMap {
+			c, err := r.containerFactory.New(hash)
+			if err != nil {
+				return err
+			}
+			ok, err := c.Do(tempN, k.State())
+			if err != nil {
+				return err
+			}
+			if ok {
+				for _, rn := range c.RNode() {
+					NextKnot, err := knot.New(rn)
+					if err != nil {
+						return err
+					}
+					r.ch <- NextKnot
+				}
+			}
+		}
+	}
+	return nil
+}
+func GetTemplates(t node.Item) (node.Set, error) {
+	return template.DefaultCore().Get(t, true)
+}
+func New(containerFactory container.Factory, timeout time.Duration) Runner {
+	return &runner{
+		ch:               make(chan knot.Item, 1000),
+		stopCh:           make(chan struct{}),
+		containerFactory: containerFactory,
+		timeout:          timeout,
+	}
+}

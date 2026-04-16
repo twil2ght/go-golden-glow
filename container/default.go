@@ -20,4 +20,7 @@ func DefaultFactory() Factory {
 	factoryInstance.WithVarReg(variable.VarReg)
 	return factoryInstance
 }
+func DefaultPositioner() Positioner {
+	return positionerInstance
+}
 func DefaultStore() Store { return storeInstance }
