@@ -87,7 +87,7 @@ func (b *Base) Do(T node.Item, state string) (bool, error) {
 		return false, fmt.Errorf("OK() failed")
 	}
 
-	err = b.Next()
+	err = b.PassDownVariablesToResults()
 	if err != nil {
 		logger.Debug("next failed", "id", b.ID(), "error", err)
 		return false, err
@@ -157,16 +157,16 @@ func (b *Base) OK() (bool, error) {
 			return false, err
 		}
 	}
-	for _, varb := range b.variables {
-		if !varb.OK() {
-			return false, fmt.Errorf("variable:%s is empty", varb.Name())
+	for _, variableItem := range b.variables {
+		if !variableItem.OK() {
+			return false, fmt.Errorf("variable:%s is empty", variableItem.Name())
 		}
 	}
 	return true, nil
 }
 
-// TODO
-func (b *Base) Next() error {
+// PassDownVariablesToResults TODO
+func (b *Base) PassDownVariablesToResults() error {
 	var err []error
 	for _, rn := range b.rNodes {
 		var (
@@ -174,8 +174,8 @@ func (b *Base) Next() error {
 			finalVars = make(variable.Set, len(keys))
 		)
 		for _, key := range keys {
-			varb := b.variables[key]
-			if varb == nil {
+			variableItem := b.variables[key]
+			if variableItem == nil {
 				err = append(err, fmt.Errorf("next: variable:%s not found", key))
 				continue
 			}
