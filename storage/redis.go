@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -22,6 +23,7 @@ type expirableHash map[string]time.Time
 type redisRepository struct {
 	HDataPath string
 	HData     map[string]expirableHash
+	mu        sync.RWMutex
 }
 
 func parseExpiration(expiration string) (time.Time, error) {
@@ -103,6 +105,8 @@ func parseRelativeDate(expiration string) (time.Time, error) {
 }
 
 func (r *redisRepository) Set(key, value, expiration string) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
 	var length = len(strings.Fields(key))
 	if length > 1 {
 		if strings.HasPrefix(key, "if") || strings.HasPrefix(key, "then") || strings.HasPrefix(key, "[") || strings.HasPrefix(key, "check") {
@@ -135,11 +139,15 @@ func (r *redisRepository) Set(key, value, expiration string) error {
 	return nil
 }
 
-func (r *redisRepository) Get(_ string) (string, error) {
+func (r *redisRepository) Get(key string) (string, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
 	return "", nil
 }
 
 func (r *redisRepository) HGet(tag string) (m.Hash, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
 	he, ok := r.HData[tag]
 	if !ok {
 		return nil, log.NotFound(tag)
@@ -213,6 +221,7 @@ func NewRedisRepository(HDataPath string) RedisRepository {
 	repo := &redisRepository{
 		HDataPath: HDataPath,
 		HData:     make(map[string]expirableHash),
+		mu:        sync.RWMutex{},
 	}
 	return repo
 }

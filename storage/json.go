@@ -8,6 +8,7 @@ import (
 	"goldenglow/utils"
 	"os"
 	"path/filepath"
+	"sync"
 )
 
 var (
@@ -23,6 +24,7 @@ type jsonRepository struct {
 	HDataPath string
 	HData     map[string]m.Hash
 	Data      map[string]string
+	mu        sync.Mutex
 }
 
 func (j *jsonRepository) Shutdown() error {
@@ -30,6 +32,8 @@ func (j *jsonRepository) Shutdown() error {
 }
 
 func (j *jsonRepository) Get(key string) (string, error) {
+	j.mu.Lock()
+	defer j.mu.Unlock()
 	if value, ok := j.Data[key]; ok {
 		return value, nil
 	}
@@ -37,16 +41,22 @@ func (j *jsonRepository) Get(key string) (string, error) {
 }
 
 func (j *jsonRepository) Set(key, value string) error {
+	j.mu.Lock()
+	defer j.mu.Unlock()
 	j.Data[key] = value
 	return nil
 }
 
 func (j *jsonRepository) HSet(tag string, value m.Hash) error {
+	j.mu.Lock()
+	defer j.mu.Unlock()
 	j.HData[tag] = value
 	return nil
 }
 
 func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
+	j.mu.Lock()
+	defer j.mu.Unlock()
 	return j.HData[tag], nil
 }
 
@@ -146,6 +156,7 @@ func NewJSONRepo(HDataPath, DataPath string) Repository {
 		DataPath:  DataPath,
 		Data:      make(map[string]string),
 		HData:     make(map[string]m.Hash),
+		mu:        sync.Mutex{},
 	}
 	return repo
 }

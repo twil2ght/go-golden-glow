@@ -134,6 +134,8 @@ func (b *Base) ParseTrigger(T node.Item, GivenSet variable.Set) error {
 
 	return nil
 }
+
+// CheckAndExtract TODO
 func (b *Base) CheckAndExtract() error {
 	var errs []error
 
