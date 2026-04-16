@@ -69,12 +69,26 @@ func (r *runner) handler(k knot.Item) error {
 				return err
 			}
 			if ok {
-				for _, rn := range c.RNode() {
-					NextKnot, err := knot.New(rn)
-					if err != nil {
-						return err
+				extraStates := c.ExtraStates()
+				if len(extraStates) > 0 {
+					for state := range extraStates {
+						for _, rn := range c.RNode() {
+							_ = rn.SetVariable(rn.VariableSetFromHub(state))
+							NextKnot, err := knot.New(rn)
+							if err != nil {
+								return err
+							}
+							r.ch <- NextKnot
+						}
 					}
-					r.ch <- NextKnot
+				} else {
+					for _, rn := range c.RNode() {
+						NextKnot, err := knot.New(rn)
+						if err != nil {
+							return err
+						}
+						r.ch <- NextKnot
+					}
 				}
 			}
 		}

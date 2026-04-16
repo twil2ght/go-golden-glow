@@ -20,6 +20,7 @@ type Item interface {
 	RNode() node.Set
 	Variables() variable.Set
 	Do(external node.Item, state string) (bool, error)
+	ExtraStates() m.Hash
 }
 type Base struct {
 	hashValue    string
@@ -32,6 +33,10 @@ type Base struct {
 	valueHash    m.Hash
 	valueHashKey string
 	mu           sync.RWMutex
+}
+
+func (b *Base) ExtraStates() m.Hash {
+	return b.valueHash
 }
 
 func (b *Base) ID() string {
@@ -184,15 +189,6 @@ func (b *Base) PassDownVariablesToResults() error {
 			finalVars[key] = b.variables[key].Copy()
 		}
 		err = append(err, rn.SetVariable(finalVars))
-
-		// If we have valueHash from extractor, create variable sets for each value
-		if b.valueHash != nil {
-			for value := range b.valueHash {
-				finalVars[b.valueHashKey] = variable.New(b.valueHashKey, value)
-				err = append(err, rn.SetVariable(finalVars))
-			}
-			logger.Debug("merged valueHash into result node", "node", rn.Value(), "states", len(b.valueHash))
-		}
 	}
 	return errors.Join(err...)
 }
