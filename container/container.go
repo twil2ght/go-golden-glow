@@ -9,6 +9,7 @@ import (
 	"goldenglow/utils"
 	"goldenglow/variable"
 	"regexp"
+	"sync"
 )
 
 var logger = log.Default()
@@ -30,6 +31,7 @@ type Base struct {
 	varReg       *regexp.Regexp
 	valueHash    m.Hash
 	valueHashKey string
+	mu           sync.RWMutex
 }
 
 func (b *Base) ID() string {
@@ -42,9 +44,13 @@ func (b *Base) RNode() node.Set {
 	return b.rNodes
 }
 func (b *Base) Variables() variable.Set {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
 	return b.variables
 }
 func (b *Base) SetVariable(variables variable.Set) error {
+	b.mu.Lock()
+	defer b.mu.Unlock()
 	if variables != nil {
 		b.variables = variables
 		return nil
@@ -203,5 +209,6 @@ func New(hashValue string, fetcher Fetcher, encoder node.Encoder, variableReg *r
 		fetcher:   fetcher,
 		encoder:   encoder,
 		varReg:    variableReg,
+		mu:        sync.RWMutex{},
 	}, nil
 }
