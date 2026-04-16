@@ -6,41 +6,53 @@ import (
 	"goldenglow/node/template"
 	"goldenglow/pkg/knot"
 	"goldenglow/pkg/log"
+	"sync"
 	"time"
 )
 
 type Runner interface {
-	Run(t node.Item) error
+	Run(t node.Item)
 }
 type runner struct {
+	workerNum        int
 	ch               chan knot.Item
 	stopCh           chan struct{}
 	containerFactory container.Factory
 	timeout          time.Duration
+	stopOnce         *sync.Once
 }
 
 var logger = log.Default()
 
-func (r *runner) Run(t node.Item) error {
-
+func (r *runner) Run(t node.Item) {
 	initKnot, _ := knot.New(t)
 	r.ch <- initKnot
 
+	for i := 0; i < r.workerNum; i++ {
+		go r.worker(i)
+	}
+	<-r.stopCh
+}
+func (r *runner) worker(_ int) {
 	// Process until channel is empty and timeout has passed
 	for {
 		select {
 		case e, ok := <-r.ch:
 			if !ok {
-				// Channel closed
-				return nil
+				// Channel closed, stop worker
+				return
 			}
 			if err := r.handler(e); err != nil {
 				logger.Error("runner", "handler", err)
 			}
 		case <-time.After(r.timeout):
 			// Timeout: channel has been empty for the specified duration
-			close(r.ch)
-			return nil
+			// Use sync.Once to ensure thread-safe single execution
+			r.stopOnce.Do(func() {
+				close(r.ch)
+				r.stopCh <- struct{}{}
+			})
+			return
 		}
 	}
 }
@@ -100,7 +112,9 @@ func GetTemplates(t node.Item) (node.Set, error) {
 }
 func New(containerFactory container.Factory, timeout time.Duration) Runner {
 	return &runner{
+		workerNum:        5,
 		ch:               make(chan knot.Item, 1000),
+		stopOnce:         &sync.Once{},
 		stopCh:           make(chan struct{}),
 		containerFactory: containerFactory,
 		timeout:          timeout,
