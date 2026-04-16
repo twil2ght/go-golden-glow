@@ -6,11 +6,17 @@ import (
 	"regexp"
 )
 
+// Item is an interface for variable
 type Item interface {
+	// Name return the name of the variable
 	Name() string
+	// Value return the value of the variable
 	Value() string
+	// Set the value of the variable
 	Set(value string) error
+	// OK return true if the variable is valid(value !="")
 	OK() bool
+	// Copy return a copy of the variable item
 	Copy() Item
 }
 
@@ -21,14 +27,22 @@ type ValueMap interface {
 	Item
 	ValueMap() m.Hash
 }
+
+// Parser parse a given string with variables to a one without variables based on the given variables
+// strict: if true, return error if variable not found
 type Parser func(strWithVariables string, variables Set, strict bool) (string, error)
+
+// Set is a map of variable
 type Set map[string]Item
+
+// Base is a base struct for variable
 type Base struct {
 	name  string
 	value string
 }
 
 var (
+	//VarReg is a regular expression for variable(e.g. $1 $2...)
 	VarReg = regexp.MustCompile(`\$\d+`)
 )
 
@@ -54,6 +68,7 @@ func (b *Base) Copy() Item {
 	return New(b.Name(), b.Value())
 }
 
+// New create a new variable with the given key and value
 func New(k, v string) Item {
 	if k == "" {
 		k = "you get an empty key"
@@ -64,10 +79,9 @@ func New(k, v string) Item {
 	}
 }
 
-// valueMapItem is a variable item that carries a state hub (map[string]Set)
-// This allows extractors to return multiple variable sets for result nodes to inherit
+// valueMapItem implements ValueMap interface
 type valueMapItem struct {
-	Base
+	Item
 	hash m.Hash
 }
 
@@ -81,13 +95,12 @@ func NewValueMap(k, v string, values m.Hash) ValueMap {
 		k = "you get an empty key"
 	}
 	return &valueMapItem{
-		Base: Base{
-			name:  k,
-			value: v,
-		},
+		Item: New(k, v),
 		hash: values,
 	}
 }
+
+// Copy create a copy of the variable set
 func Copy(target Set) Set {
 	dist := make(Set, len(target))
 	for k, v := range target {
@@ -138,6 +151,7 @@ func (s Set) HasCycle() bool {
 	return false
 }
 
+// ToRawText implementing Parser
 func ToRawText(target string, variables Set, strict bool) (string, error) {
 	var (
 		changed  = true
@@ -153,8 +167,8 @@ func ToRawText(target string, variables Set, strict bool) (string, error) {
 		changed = false
 		prev = res
 		res = VarReg.ReplaceAllStringFunc(res, func(s string) string {
-			if varb, ok := variables[s]; ok {
-				return varb.Value()
+			if e, ok := variables[s]; ok {
+				return e.Value()
 			}
 			if strict {
 				shutdown = true
