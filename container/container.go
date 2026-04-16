@@ -140,7 +140,6 @@ func (b *Base) ParseTrigger(T node.Item, GivenSet variable.Set) error {
 	return nil
 }
 
-// CheckAndExtract TODO
 func (b *Base) CheckAndExtract() error {
 	var errs []error
 
@@ -172,7 +171,6 @@ func (b *Base) OK() (bool, error) {
 	return true, nil
 }
 
-// PassDownVariablesToResults TODO
 func (b *Base) PassDownVariablesToResults() error {
 	var err []error
 	for _, rn := range b.rNodes {
