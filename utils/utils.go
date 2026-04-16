@@ -11,18 +11,17 @@ var (
 	RootDir string
 )
 
+// init get project root and set the RootDir variable
 func init() {
-	// 获取项目根目录（自动识别，永远正确）
 	wd, err := os.Getwd()
 	if err != nil {
 		panic(err)
 	}
 
-	// 向上查找找到 go.mod 所在目录 = 项目根
 	RootDir = findProjectRoot(wd)
 }
 
-// 自动找项目根（有 go.mod 就是根）
+// findProjectRoot find project root (where go.mod is)
 func findProjectRoot(start string) string {
 	dir := start
 	for {
@@ -40,8 +39,8 @@ func findProjectRoot(start string) string {
 	return start
 }
 
-// NotNull 参数必须成对传入：key1, val1, key2, val2...
-// 只校验 val 是否为 nil / 空字符串
+// NotNull parameter must be passed in pairs: key1, val1, key2, val2...
+// check val whether it is nil / empty string
 func NotNull(args ...any) error {
 	if len(args)%2 != 0 {
 		return fmt.Errorf("args should be even,current amount: %d", len(args))
@@ -63,7 +62,7 @@ func NotNull(args ...any) error {
 	return nil
 }
 
-// isNil 安全判断 nil（兼容 error 等接口类型）
+// isNil check if nil safely (compatible with error etc. interface types)
 func isNil(a any) bool {
 	if a == nil {
 		return true
