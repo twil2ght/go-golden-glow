@@ -6,8 +6,11 @@ import (
 )
 
 var (
-	KeyDist      = "dist"
-	KeyNamespace = "namespace"
+	KeyDist       = "dist"
+	KeyNamespace  = "namespace"
+	NodeExecutor  = "[node:executor]"
+	NodeChecker   = "[node:checker]"
+	NodeExtractor = "[node:extractor]"
 )
 
 type Parameters registry.Registry[string]
