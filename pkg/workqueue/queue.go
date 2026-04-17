@@ -16,7 +16,7 @@ type DefaultQueue[T any] struct {
 }
 
 // New creates a new thread-safe queue
-func New[T any]() *DefaultQueue[T] {
+func New[T any]() Queue[T] {
 	return &DefaultQueue[T]{
 		items: make([]T, 0),
 		cond:  sync.NewCond(&sync.Mutex{}),
