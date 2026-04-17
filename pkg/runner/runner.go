@@ -11,8 +11,8 @@ import (
 )
 
 type Queue[T any] interface {
-	Get() T
-	Add(T)
+	Get() (item T, shutdown bool)
+	Add(item T)
 	Len() int
 	Shutdown()
 }
@@ -30,7 +30,7 @@ var logger = log.Default()
 
 func (r *runner) Run(ctx context.Context) {
 	for i := 0; i < r.workerNum; i++ {
-		go r.worker(ctx)
+		go r.worker()
 	}
 
 	go r.watchIdle(ctx, 1*time.Second, 500*time.Millisecond)
@@ -72,24 +72,23 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 
 // onIdle is called when the channel has been empty for the specified duration
 func (r *runner) onIdle() {
-	n := r.externalQueue.Get()
-	if n != nil {
+	n, shutdown := r.externalQueue.Get()
+	if !shutdown {
 		initKnot, _ := knot.New(n)
 		r.knotQueue.Add(initKnot)
+	} else {
+		r.externalQueue.Shutdown()
 	}
 }
-func (r *runner) worker(ctx context.Context) {
+func (r *runner) worker() {
 	for {
-		select {
-		case <-ctx.Done():
-			return
-		default:
-			e := r.knotQueue.Get()
-			if e != nil {
-				if err := r.handler(e); err != nil {
-					logger.Error("runner", "handler", err)
-				}
+		e, shutdown := r.knotQueue.Get()
+		if !shutdown {
+			if err := r.handler(e); err != nil {
+				logger.Error("runner", "handler", err)
 			}
+		} else {
+			return
 		}
 	}
 }
