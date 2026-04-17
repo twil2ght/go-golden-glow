@@ -9,11 +9,16 @@ import (
 type Creator func(value string) Interface
 type Factory interface {
 	Create(value string) Interface
+	CreatorRegistry() registry.Registry[Creator]
 }
 type factory struct {
 	creators registry.Registry[Creator]
 	items    registry.Registry[Interface]
 	mu       sync.RWMutex
+}
+
+func (f *factory) CreatorRegistry() registry.Registry[Creator] {
+	return f.creators
 }
 
 func (f *factory) Create(value string) Interface {
@@ -35,6 +40,9 @@ func NewFactory() Factory {
 		creators: registry.New[Creator](),
 		items:    registry.New[Interface](),
 	}
+}
+func DefaultFactory() Factory {
+	return NewFactory()
 }
 func GetHead(str string) string {
 	fields := strings.Fields(str)
