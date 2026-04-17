@@ -14,7 +14,7 @@ type Queue interface {
 	Get() node.Item
 }
 type Runner interface {
-	Run(t node.Item, ctx context.Context)
+	Run(ctx context.Context)
 }
 type runner struct {
 	workerNum        int
@@ -25,7 +25,7 @@ type runner struct {
 
 var logger = log.Default()
 
-func (r *runner) Run(t node.Item, ctx context.Context) {
+func (r *runner) Run(ctx context.Context) {
 	for i := 0; i < r.workerNum; i++ {
 		go r.worker(ctx)
 	}
@@ -142,7 +142,7 @@ func (r *runner) handler(k knot.Item) error {
 func GetTemplates(t node.Item) (node.Set, error) {
 	return template.DefaultCore().Get(t, false)
 }
-func New(containerFactory container.Factory, timeout time.Duration) Runner {
+func New(containerFactory container.Factory) Runner {
 	return &runner{
 		workerNum:        5,
 		ch:               make(chan knot.Item, 1000),
