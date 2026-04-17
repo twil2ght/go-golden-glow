@@ -58,14 +58,14 @@ func (r *runner) worker(_ int) {
 }
 func (r *runner) handler(k knot.Item) error {
 	trigger := k.Trigger()
-	_ = trigger.SetVariable(trigger.VariableSetFromHub(k.State()))
-	rawValue, _ := trigger.ToText()
+	_ = trigger.SetAndRegisterVars(trigger.GetVarSetByState(k.State()))
+	rawValue, _ := trigger.ToTextWithoutVars()
 	templateNodes, err := GetTemplates(trigger)
 	if err != nil {
 		return err
 	}
 	for _, tempN := range templateNodes {
-		_ = tempN.SetVariable(trigger.VariableSetFromHub(rawValue))
+		_ = tempN.SetAndRegisterVars(trigger.GetVarSetByState(rawValue))
 		_ = tempN.Execute()
 		cHashMap, err := r.containerFactory.Positioner().ContainerOf(tempN)
 		if err != nil {
@@ -85,7 +85,7 @@ func (r *runner) handler(k knot.Item) error {
 				if len(extraStates) > 0 {
 					for state := range extraStates {
 						for _, rn := range c.RNode() {
-							_ = rn.SetVariable(rn.VariableSetFromHub(state))
+							_ = rn.SetAndRegisterVars(rn.GetVarSetByState(state))
 							NextKnot, err := knot.New(rn)
 							if err != nil {
 								return err

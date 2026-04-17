@@ -36,7 +36,7 @@ func (d *BaseNode) Execute() error {
 func (d *BaseNode) GetParams() map[string]string {
 	params := make(map[string]string)
 
-	nodeValue, _ := d.ToText()
+	nodeValue, _ := d.ToTextWithoutVars()
 	if nodeValue == "" {
 		return params
 	}

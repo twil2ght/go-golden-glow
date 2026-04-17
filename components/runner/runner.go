@@ -113,7 +113,7 @@ func (b *Base) genKnots(src node.Item, trace m.Hash, specific bool) ([]Knot, err
 		return nil, err
 	}
 	knots := make([]Knot, 0, len(nSet))
-	var raw, _ = src.ToText()
+	var raw, _ = src.ToTextWithoutVars()
 	for _, n := range nSet {
 		var s node.Item
 		if n.Value() == src.Value() {
@@ -123,7 +123,7 @@ func (b *Base) genKnots(src node.Item, trace m.Hash, specific bool) ([]Knot, err
 		}
 		visited := make(map[string]struct{}, len(trace))
 		maps.Copy(visited, trace)
-		k, err := NewKnot(n, s, visited, n.VariableSetFromHub(raw))
+		k, err := NewKnot(n, s, visited, n.GetVarSetByState(raw))
 		if err != nil {
 			continue
 		}
@@ -145,7 +145,7 @@ func (b *Base) TempKnot(src node.Item, trace m.Hash) (Knot, error) {
 		n = e
 		break
 	}
-	var raw, _ = src.ToText()
+	var raw, _ = src.ToTextWithoutVars()
 	var s node.Item
 	if n.Value() == src.Value() {
 		s = src
@@ -154,7 +154,7 @@ func (b *Base) TempKnot(src node.Item, trace m.Hash) (Knot, error) {
 	}
 	visited := make(map[string]struct{}, len(trace))
 	maps.Copy(visited, trace)
-	k, err := NewKnot(n, s, visited, n.VariableSetFromHub(raw))
+	k, err := NewKnot(n, s, visited, n.GetVarSetByState(raw))
 	if err != nil {
 		return nil, err
 	}
@@ -171,8 +171,8 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			Item.SetTreeNode(parentTreeNode)
 		}
 		templateKnots, err := b.genKnots(Item.Trigger(), Item.Trace(), false)
-		_ = Item.Trigger().SetVariable(Item.Trigger().VariableSetFromHub(Item.State()))
-		var raw, _ = Item.Trigger().ToText()
+		_ = Item.Trigger().SetAndRegisterVars(Item.Trigger().GetVarSetByState(Item.State()))
+		var raw, _ = Item.Trigger().ToTextWithoutVars()
 		b.treeBuilder.AddNode("⭐ "+Item.Trigger().Value()+"("+raw+")", parentTreeNode.Depth+1, parentTreeNode)
 		b.treeBuilder.AddNode("⭐ "+Item.Trigger().Value()+"("+Item.State()+")", parentTreeNode.Depth+1, parentTreeNode)
 		if err != nil {
@@ -193,13 +193,13 @@ func (b *Base) produce(knots []Knot) ([]Knot, error) {
 			}
 		}
 		for _, tk := range templateKnots {
-			_ = tk.Trigger().SetVariable(tk.Trigger().VariableSetFromHub(raw))
-			tk.SetState(node.GenVariableState(tk.Trigger().Variables()))
+			_ = tk.Trigger().SetAndRegisterVars(tk.Trigger().GetVarSetByState(raw))
+			tk.SetState(node.GenVariableState(tk.Trigger().Vars()))
 			if tk.Trigger().Value() == parentValue {
 				// This is the parent node itself - reuse existing tree node
 				tk.SetTreeNode(parentTreeNode)
 			} else {
-				var raw, _ = tk.Trigger().ToText()
+				var raw, _ = tk.Trigger().ToTextWithoutVars()
 				// This is a new template-generated node - create tree node
 				tk.SetTreeNode(b.treeBuilder.AddNode("🌿 "+tk.Trigger().Value()+"("+raw+")", parentTreeNode.Depth+1, parentTreeNode))
 			}
@@ -233,7 +233,7 @@ func (b *Base) consume(knots []Knot) ([]Knot, error) {
 
 		for hashValue := range cHashMap {
 			state := Item.State()
-			err := triggerNode.SetVariable(triggerNode.VariableSetFromHub(state))
+			err := triggerNode.SetAndRegisterVars(triggerNode.GetVarSetByState(state))
 			if err != nil {
 				errs = append(errs, err)
 				continue
@@ -273,7 +273,7 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 	b.treeBuilder.AddNode("⚙️ State ["+T.State()+"]", parentTreeNode.Depth+1, parentTreeNode)
 	containerNode := b.treeBuilder.AddNode("📦 CONTAINER [ID: "+hashValue+"]", parentTreeNode.Depth+1, parentTreeNode)
 	for _, t := range triggers {
-		raw, _ := t.ToText()
+		raw, _ := t.ToTextWithoutVars()
 		if t.Value() == T.Trigger().Value() {
 			_ = b.treeBuilder.AddNode("🚀 TRIGGER: "+t.Value()+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
 			continue
@@ -290,8 +290,8 @@ func (b *Base) processContainer(hashValue string, T Knot, parentTreeNode *TreeNo
 	var knots = make([]Knot, 0, len(results))
 	for _, t := range results {
 		resultValue := t.Value()
-		variableSet := t.Variables()
-		raw, _ := t.ToText()
+		variableSet := t.Vars()
+		raw, _ := t.ToTextWithoutVars()
 		// Add result node to tree
 		resultNode := b.treeBuilder.AddNode("🎯 RESULT: "+resultValue+fmt.Sprintf("(%s)", raw), containerNode.Depth+1, containerNode)
 

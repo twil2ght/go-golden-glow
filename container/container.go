@@ -64,8 +64,8 @@ func (b *Base) SetVariable(variables variable.Set) error {
 }
 func (b *Base) Do(T node.Item, state string) (bool, error) {
 	err := b.SetNode()
-	_ = T.SetVariable(T.VariableSetFromHub(state))
-	GivenSet := T.Variables()
+	_ = T.SetAndRegisterVars(T.GetVarSetByState(state))
+	GivenSet := T.Vars()
 	if err != nil {
 		logger.Debug("setNode failed", "id", b.ID(), "error", err)
 		return false, err
@@ -175,7 +175,7 @@ func (b *Base) PassDownVariablesToResults() error {
 	var err []error
 	for _, rn := range b.rNodes {
 		var (
-			keys      = rn.VariableKeys()
+			keys      = rn.VarKeys()
 			finalVars = make(variable.Set, len(keys))
 		)
 		for _, key := range keys {
@@ -186,7 +186,7 @@ func (b *Base) PassDownVariablesToResults() error {
 			}
 			finalVars[key] = b.variables[key].Copy()
 		}
-		err = append(err, rn.SetVariable(finalVars))
+		err = append(err, rn.SetAndRegisterVars(finalVars))
 	}
 	return errors.Join(err...)
 }

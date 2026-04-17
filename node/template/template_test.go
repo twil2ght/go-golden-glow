@@ -38,7 +38,7 @@ func createTestNodeWithVars(value string, vars map[string]string) node.Item {
 		for k, v := range vars {
 			varSet[k] = variable.New(k, v)
 		}
-		_ = n.SetVariable(varSet)
+		_ = n.SetAndRegisterVars(varSet)
 	}
 	return n
 }
@@ -198,8 +198,19 @@ func TestCore_Get(t *testing.T) {
 		{
 			name: "real data test v2",
 			templates: node.Set{
+				"$1 is $2":           createTestNode("$1 is less than 23"),
 				"$1 is less than 19": createTestNode("$1 is less than 19"),
 				"$1 is less than 23": createTestNode("$1 is less than 23"),
+			},
+			targetValue: "$1 is less than $2",
+			wantErr:     false,
+			wantCount:   1,
+			givenVars:   map[string]string{"$1": "18", "$2": "19"},
+		},
+		{
+			name: "real data test v3",
+			templates: node.Set{
+				"$1 is $2": createTestNode("$1 is $2"),
 			},
 			targetValue: "$1 is less than $2",
 			wantErr:     false,
@@ -220,7 +231,7 @@ func TestCore_Get(t *testing.T) {
 			}
 
 			target := createTestNodeWithVars(tt.targetValue, tt.givenVars)
-			result, err := core.Get(target)
+			result, err := core.Get(target, false)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Get() error = %v, wantErr %v", err, tt.wantErr)
 				return

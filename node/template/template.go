@@ -212,17 +212,19 @@ func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, err
 	}
 	return matches, nil
 }
+
+// TODO add an extra parameter:state
 func (c *core) allUpperTemplates(target node.Item, templates node.Set) (node.Set, error) {
 	matches := make(node.Set)
-	var raw, _ = target.ToText()
+	var raw, _ = target.ToTextWithoutVars()
 	for key, n := range templates {
 		if ok, vars := c.matchTemplate(target.Value(), n.Value()); ok {
-			err := clean(target.Variables(), vars)
+			err := clean(target.Vars(), vars)
 			if err != nil {
 				return nil, err
 			}
-			err = n.SetVariable(vars)
-			err = n.SetByHub(raw, vars)
+			err = n.SetAndRegisterVars(vars)
+			err = n.RegisterVarSetWithOriginRawTextAsState(raw, vars)
 			if err != nil {
 				return nil, err
 			}
@@ -231,14 +233,17 @@ func (c *core) allUpperTemplates(target node.Item, templates node.Set) (node.Set
 	}
 	return matches, nil
 }
+
+// TODO stop using all states
+// add an extra parameter:state
 func (c *core) allLowerTemplates(target node.Item, templates node.Set, matches node.Set) (node.Set, error) {
 	var raw []string
-	for _, hub := range target.VariableSetHub() {
-		err := target.SetVariable(hub)
+	for _, hub := range target.VarSetRegistry() {
+		err := target.SetAndRegisterVars(hub)
 		if err != nil {
 			continue
 		}
-		rawItem, _ := target.ToText()
+		rawItem, _ := target.ToTextWithoutVars()
 		raw = append(raw, rawItem)
 	}
 	for key, n := range templates {
@@ -247,12 +252,12 @@ func (c *core) allLowerTemplates(target node.Item, templates node.Set, matches n
 				if ok, _ := c.matchTemplate(n.Value(), target.Value()); !ok {
 					continue
 				}
-				err := clean(target.Variables(), vars)
+				err := clean(target.Vars(), vars)
 				if err != nil {
 					return nil, err
 				}
-				err = n.SetVariable(vars)
-				err = n.SetByHub(rawText, vars)
+				err = n.SetAndRegisterVars(vars)
+				err = n.RegisterVarSetWithOriginRawTextAsState(rawText, vars)
 				if err != nil {
 					return nil, err
 				}

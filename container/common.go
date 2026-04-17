@@ -106,10 +106,10 @@ func (b *Base) findCompatibleVariableSet(nodes []node.Item) variable.Set {
 // getCompatibleVariableSets returns variable sets from a node that are compatible with baseVars
 // (i.e., they have the same values for any shared variables)
 func (b *Base) getCompatibleVariableSets(n node.Item, baseVars variable.Set) []variable.Set {
-	hub := n.VariableSetHub()
+	hub := n.VarSetRegistry()
 	if len(hub) == 0 {
 		// Fallback to current variables if hub is empty
-		vars := n.Variables()
+		vars := n.Vars()
 		if len(vars) > 0 && b.isCompatibleWithBase(vars, baseVars) {
 			return []variable.Set{vars}
 		}
@@ -184,7 +184,7 @@ func (b *Base) mergeTwoStates(setA, setB variable.Set) (variable.Set, bool) {
 func (b *Base) fallbackMerge(nodes []node.Item) variable.Set {
 	merged := make(variable.Set)
 	for _, n := range nodes {
-		for name, varItem := range n.Variables() {
+		for name, varItem := range n.Vars() {
 			if _, exists := merged[name]; !exists {
 				merged[name] = varItem.Copy()
 			}
@@ -214,7 +214,7 @@ func (b *Base) handleChecker(checker node.Checkable) error {
 		return err
 	}
 
-	if err := t.SetVariable(finalVars); err != nil {
+	if err := t.SetAndRegisterVars(finalVars); err != nil {
 		return fmt.Errorf("set variable failed: %w", err)
 	}
 
@@ -233,7 +233,7 @@ func (b *Base) handleExtractor(extractor node.Extractable) error {
 		return err
 	}
 
-	if err := t.SetVariable(finalVars); err != nil {
+	if err := t.SetAndRegisterVars(finalVars); err != nil {
 		return fmt.Errorf("set variable failed: %w", err)
 	}
 
@@ -253,7 +253,7 @@ func (b *Base) handleExtractor(extractor node.Extractable) error {
 }
 
 func (b *Base) prepareVariables(t node.Item, skipKey string) (variable.Set, error) {
-	keys := t.VariableKeys()
+	keys := t.VarKeys()
 	finalVars := make(variable.Set, len(keys))
 	var errs []error
 
@@ -286,10 +286,10 @@ func (b *Base) logAvailableVariables() {
 
 // checkVariableStateMap verifies that the current variable values exist in the trigger's variableStateMap
 func (b *Base) checkVariableStateMap(t node.Item) (bool, error) {
-	stateMap := t.VariableStateMap()
+	stateMap := t.VarStateRegistry()
 	logger.Debug("checkVariableStateMap", "node", t.Value(), "variableStateMap", stateMap)
 	var variableSet = make(variable.Set)
-	for _, key := range t.VariableKeys() {
+	for _, key := range t.VarKeys() {
 		if item, ok := b.variables[key]; ok {
 			variableSet[key] = item
 		} else {
@@ -297,7 +297,7 @@ func (b *Base) checkVariableStateMap(t node.Item) (bool, error) {
 		}
 	}
 	var state = node.GenVariableState(variableSet)
-	if _, ok := t.VariableStateMap()[state]; !ok {
+	if _, ok := t.VarStateRegistry()[state]; !ok {
 		return false, fmt.Errorf("variable state:%s not found", state)
 	}
 	return true, nil

@@ -2,6 +2,7 @@ package node
 
 import (
 	"fmt"
+	"goldenglow/m"
 	"goldenglow/variable"
 	"sort"
 	"strings"
@@ -12,12 +13,12 @@ type Set map[string]Item
 
 type AttrReader interface {
 	Value() string
-	Variables() variable.Set
-	VariableKeys() []string
+	Vars() variable.Set
+	VarKeys() []string
 }
 type AttrWriter interface {
 	SetState(state bool)
-	SetVariable(variables variable.Set) error
+	SetAndRegisterVars(variables variable.Set) error
 }
 type Executor interface {
 	OK() bool
@@ -27,23 +28,23 @@ type Item interface {
 	Executor
 	AttrReader
 	AttrWriter
-	VariableStateMap() map[string]map[string]bool
-	VariableSetFromHub(state string) variable.Set
-	VariableSetHub() map[string]variable.Set
-	ToText() (string, error)
-	SetByHub(state string, variables variable.Set) error
+	VarStateRegistry() m.Hash
+	GetVarSetByState(state string) variable.Set
+	VarSetRegistry() map[string]variable.Set
+	ToTextWithoutVars() (string, error)
+	RegisterVarSetWithOriginRawTextAsState(state string, variables variable.Set) error
 }
 type Base struct {
 	val            string
 	state          bool
 	variables      variable.Set
 	parser         variable.Parser
-	variableState  map[string]map[string]bool
+	variableState  m.Hash
 	variableSetHub map[string]variable.Set
 	mu             *sync.RWMutex
 }
 
-func (b *Base) ToText() (string, error) {
+func (b *Base) ToTextWithoutVars() (string, error) {
 	b.mu.RLock()
 	defer b.mu.RUnlock()
 	e, err := b.parser(b.val, b.variables, false)
@@ -71,17 +72,17 @@ func (b *Base) Execute() error {
 func (b *Base) Value() string {
 	return b.val
 }
-func (b *Base) Variables() variable.Set {
+func (b *Base) Vars() variable.Set {
 	b.mu.RLock()
 	defer b.mu.RUnlock()
 	return variable.Copy(b.variables)
 }
-func (b *Base) VariableStateMap() map[string]map[string]bool {
+func (b *Base) VarStateRegistry() m.Hash {
 	b.mu.RLock()
 	defer b.mu.RUnlock()
 	return b.variableState
 }
-func (b *Base) SetVariable(variables variable.Set) error {
+func (b *Base) SetAndRegisterVars(variables variable.Set) error {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 	if variables == nil {
@@ -90,25 +91,25 @@ func (b *Base) SetVariable(variables variable.Set) error {
 	b.variables = variables
 	var variableState = GenVariableState(variables)
 	if _, exists := b.variableState[variableState]; !exists {
-		b.variableState[variableState] = map[string]bool{}
+		b.variableState[variableState] = struct{}{}
 		b.variableSetHub[variableState] = variable.Copy(variables)
 	}
 	return nil
 }
-func (b *Base) VariableKeys() []string {
+func (b *Base) VarKeys() []string {
 	return variable.VarReg.FindAllString(b.val, -1)
 }
-func (b *Base) VariableSetFromHub(state string) variable.Set {
+func (b *Base) GetVarSetByState(state string) variable.Set {
 	b.mu.RLock()
 	defer b.mu.RUnlock()
 	return b.variableSetHub[state]
 }
-func (b *Base) VariableSetHub() map[string]variable.Set {
+func (b *Base) VarSetRegistry() map[string]variable.Set {
 	b.mu.RLock()
 	defer b.mu.RUnlock()
 	return b.variableSetHub
 }
-func (b *Base) SetByHub(state string, variables variable.Set) error {
+func (b *Base) RegisterVarSetWithOriginRawTextAsState(state string, variables variable.Set) error {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 	if variables == nil {

@@ -109,7 +109,8 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 	//))
 	generator.Add("set_value", dataGen.NewLangData(
 		[]string{
-			"$3 says $1 is $2 to Susie",
+			"$1 is $2",
+			"the key $1 with the value $2 does not exist in Susie's brain directly",
 			"the phrase $1 is $2 refers to making attributions",
 		},
 		[]string{""},
@@ -136,7 +137,8 @@ func (s *simpleKV) OnRegisterDataGen(reg dataGen.Registry) error {
 	//))
 	generator.Add("set_value_with_expiration", dataGen.NewLangData(
 		[]string{
-			"$3 says $1 is $2 to Susie",
+			"$1 is $2",
+			"the key $1 with the value $2 does not exist in Susie's brain directly",
 			"the phrase $1 is $2 refers to making attributions",
 			"the timeliness of $1 is $3",
 		},
