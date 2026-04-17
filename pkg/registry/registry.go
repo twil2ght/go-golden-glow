@@ -1,6 +1,9 @@
 package registry
 
-import "sync"
+import (
+	"fmt"
+	"sync"
+)
 
 type Registry[T any] interface {
 	Register(name string, value T)
@@ -41,6 +44,9 @@ func (d *DefaultRegistry[T]) Register(name string, value T) {
 func (d *DefaultRegistry[T]) Get(name string) (T, error) {
 	d.mu.RLock()
 	defer d.mu.RUnlock()
+	if _, exists := d.items[name]; !exists {
+		return *new(T), fmt.Errorf("no registry for %s", name)
+	}
 	return d.items[name], nil
 }
 
