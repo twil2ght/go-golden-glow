@@ -7,6 +7,7 @@ import (
 	"goldenglow/node/template"
 	"goldenglow/pkg/knot"
 	"goldenglow/pkg/log"
+	"sync"
 	"time"
 )
 
@@ -21,6 +22,8 @@ type Runner interface {
 }
 type runner struct {
 	workerNum        int
+	wg               *sync.WaitGroup
+	isShutdown       bool
 	containerFactory container.Factory
 	externalQueue    Queue[node.Item]
 	knotQueue        Queue[knot.Item]
@@ -29,15 +32,18 @@ type runner struct {
 var logger = log.Default()
 
 func (r *runner) Run(ctx context.Context) {
+	r.wg.Add(r.workerNum + 1)
+
 	for i := 0; i < r.workerNum; i++ {
-		go r.worker()
+		go r.worker(i)
 	}
 
 	go r.watchIdle(ctx, 1*time.Second, 500*time.Millisecond)
 
-	<-ctx.Done()
+	r.wg.Wait()
 }
 func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, timeout time.Duration) {
+	defer r.wg.Done()
 	ticker := time.NewTicker(checkInterval) // Check every second
 	defer ticker.Stop()
 
@@ -66,6 +72,10 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 				// Channel is not empty, reset idle state
 				isIdle = false
 			}
+		default:
+			if r.isShutdown {
+				return
+			}
 		}
 	}
 }
@@ -77,10 +87,12 @@ func (r *runner) onIdle() {
 		initKnot, _ := knot.New(n)
 		r.knotQueue.Add(initKnot)
 	} else {
-		r.externalQueue.Shutdown()
+		r.knotQueue.Shutdown()
+		r.isShutdown = true
 	}
 }
-func (r *runner) worker() {
+func (r *runner) worker(_ int) {
+	defer r.wg.Done()
 	for {
 		e, shutdown := r.knotQueue.Get()
 		if !shutdown {
@@ -150,5 +162,6 @@ func New(containerFactory container.Factory) Runner {
 	return &runner{
 		workerNum:        5,
 		containerFactory: containerFactory,
+		wg:               &sync.WaitGroup{},
 	}
 }
