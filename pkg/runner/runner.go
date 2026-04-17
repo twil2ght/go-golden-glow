@@ -1,40 +1,39 @@
 package runner
 
 import (
+	"context"
+	"goldenglow/components/queue"
 	"goldenglow/container"
 	"goldenglow/node"
 	"goldenglow/node/template"
 	"goldenglow/pkg/knot"
 	"goldenglow/pkg/log"
-	"sync"
 	"time"
 )
 
 type Runner interface {
-	Run(t node.Item)
+	Run(t node.Item, ctx context.Context)
 }
 type runner struct {
 	workerNum        int
 	ch               chan knot.Item
-	stopCh           chan struct{}
 	containerFactory container.Factory
-	timeout          time.Duration
-	stopOnce         *sync.Once
+	queue            queue.Queue
 }
 
 var logger = log.Default()
 
-func (r *runner) Run(t node.Item) {
+func (r *runner) Run(t node.Item, ctx context.Context) {
 	initKnot, _ := knot.New(t)
 	r.ch <- initKnot
 
 	for i := 0; i < r.workerNum; i++ {
-		go r.worker(i)
+		go r.worker(ctx)
 	}
-	<-r.stopCh
+
+	<-ctx.Done()
 }
-func (r *runner) worker(_ int) {
-	// Process until channel is empty and timeout has passed
+func (r *runner) worker(ctx context.Context) {
 	for {
 		select {
 		case e, ok := <-r.ch:
@@ -45,13 +44,7 @@ func (r *runner) worker(_ int) {
 			if err := r.handler(e); err != nil {
 				logger.Error("runner", "handler", err)
 			}
-		case <-time.After(r.timeout):
-			// Timeout: channel has been empty for the specified duration
-			// Use sync.Once to ensure thread-safe single execution
-			r.stopOnce.Do(func() {
-				close(r.ch)
-				r.stopCh <- struct{}{}
-			})
+		case <-ctx.Done():
 			return
 		}
 	}
@@ -114,9 +107,6 @@ func New(containerFactory container.Factory, timeout time.Duration) Runner {
 	return &runner{
 		workerNum:        5,
 		ch:               make(chan knot.Item, 1000),
-		stopOnce:         &sync.Once{},
-		stopCh:           make(chan struct{}),
 		containerFactory: containerFactory,
-		timeout:          timeout,
 	}
 }
