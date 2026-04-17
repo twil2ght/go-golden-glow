@@ -53,9 +53,19 @@ func (c *core) Get(tar node.Item, specific bool) (node.Set, error) {
 	if specific {
 		return c.toSpecific(tar, templates)
 	}
-	return c.AllTemplates(tar, templates)
+	ns, err := c.AllTemplates(tar, templates)
+	if err != nil {
+		return nil, err
+	}
+	return c.FilterBadThing(ns)
 }
-
+func (c *core) FilterBadThing(nodeSet node.Set) (node.Set, error) {
+	if _, ok := nodeSet["$1 is $2"]; ok && len(nodeSet) > 1 {
+		delete(nodeSet, "$1 is $2")
+		return nodeSet, nil
+	}
+	return nodeSet, nil
+}
 func (c *core) segment(tpl string) []string {
 	var segments []string
 	last := 0
