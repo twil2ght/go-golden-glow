@@ -10,17 +10,20 @@ import (
 	"time"
 )
 
-type Queue interface {
-	Get() node.Item
+type Queue[T any] interface {
+	Get() T
+	Add(T)
+	Len() int
+	Shutdown()
 }
 type Runner interface {
 	Run(ctx context.Context)
 }
 type runner struct {
 	workerNum        int
-	ch               chan knot.Item
 	containerFactory container.Factory
-	queue            Queue
+	externalQueue    Queue[node.Item]
+	knotQueue        Queue[knot.Item]
 }
 
 var logger = log.Default()
@@ -47,7 +50,7 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 			return
 		case <-ticker.C:
 			// Check if channel is empty
-			if len(r.ch) == 0 {
+			if r.knotQueue.Len() == 0 {
 				if !isIdle {
 					// Just became idle
 					isIdle = true
@@ -69,22 +72,24 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 
 // onIdle is called when the channel has been empty for the specified duration
 func (r *runner) onIdle() {
-	initKnot, _ := knot.New(r.queue.Get())
-	r.ch <- initKnot
+	n := r.externalQueue.Get()
+	if n != nil {
+		initKnot, _ := knot.New(n)
+		r.knotQueue.Add(initKnot)
+	}
 }
 func (r *runner) worker(ctx context.Context) {
 	for {
 		select {
-		case e, ok := <-r.ch:
-			if !ok {
-				// Channel closed, stop worker
-				return
-			}
-			if err := r.handler(e); err != nil {
-				logger.Error("runner", "handler", err)
-			}
 		case <-ctx.Done():
 			return
+		default:
+			e := r.knotQueue.Get()
+			if e != nil {
+				if err := r.handler(e); err != nil {
+					logger.Error("runner", "handler", err)
+				}
+			}
 		}
 	}
 }
@@ -122,7 +127,7 @@ func (r *runner) handler(k knot.Item) error {
 							if err != nil {
 								return err
 							}
-							r.ch <- NextKnot
+							r.knotQueue.Add(NextKnot)
 						}
 					}
 				} else {
@@ -131,7 +136,7 @@ func (r *runner) handler(k knot.Item) error {
 						if err != nil {
 							return err
 						}
-						r.ch <- NextKnot
+						r.knotQueue.Add(NextKnot)
 					}
 				}
 			}
@@ -145,7 +150,6 @@ func GetTemplates(t node.Item) (node.Set, error) {
 func New(containerFactory container.Factory) Runner {
 	return &runner{
 		workerNum:        5,
-		ch:               make(chan knot.Item, 1000),
 		containerFactory: containerFactory,
 	}
 }
