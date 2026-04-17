@@ -23,7 +23,7 @@ type Runner interface {
 type runner struct {
 	workerNum        int
 	wg               *sync.WaitGroup
-	isShutdown       bool
+	stopChan         chan struct{}
 	containerFactory container.Factory
 	externalQueue    Queue[node.Item]
 	knotQueue        Queue[knot.Item]
@@ -53,6 +53,10 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 	for {
 		select {
 		case <-ctx.Done():
+			r.knotQueue.Shutdown()
+			return
+		case <-r.stopChan:
+			r.knotQueue.Shutdown()
 			return
 		case <-ticker.C:
 			// Check if channel is empty
@@ -72,10 +76,6 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 				// Channel is not empty, reset idle state
 				isIdle = false
 			}
-		default:
-			if r.isShutdown {
-				return
-			}
 		}
 	}
 }
@@ -87,8 +87,7 @@ func (r *runner) onIdle() {
 		initKnot, _ := knot.New(n)
 		r.knotQueue.Add(initKnot)
 	} else {
-		r.knotQueue.Shutdown()
-		r.isShutdown = true
+		close(r.stopChan)
 	}
 }
 func (r *runner) worker(_ int) {
@@ -163,5 +162,6 @@ func New(containerFactory container.Factory) Runner {
 		workerNum:        5,
 		containerFactory: containerFactory,
 		wg:               &sync.WaitGroup{},
+		stopChan:         make(chan struct{}),
 	}
 }
