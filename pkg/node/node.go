@@ -7,7 +7,7 @@ import (
 )
 
 type Interface interface {
-	Execute()
+	Execute(state string)
 	Value() string
 	ToTextWithNoVars(state string) string
 }
@@ -17,7 +17,7 @@ type Node struct {
 	mu             sync.RWMutex
 }
 
-func (n *Node) Execute() {
+func (n *Node) Execute(_ string) {
 
 }
 func (n *Node) Value() string {
