@@ -16,7 +16,7 @@ type Executor struct {
 
 func (e *Executor) Execute(state string) {
 	params := GetParameters(e.ToTextWithNoVars(state))
-	namespace, _ := params.Get("namespace")
+	namespace, _ := params.Get(KeyNamespace)
 	handler, _ := e.handlers.Get(namespace)
 	if handler != nil {
 		handler(params)
@@ -30,7 +30,7 @@ type Checker struct {
 
 func (c *Checker) Check(state string) bool {
 	params := GetParameters(c.ToTextWithNoVars(state))
-	namespace, _ := params.Get("namespace")
+	namespace, _ := params.Get(KeyNamespace)
 	handler, _ := c.handlers.Get(namespace)
 	if handler != nil {
 		return handler(params)
@@ -50,7 +50,7 @@ func (e *Extractor) ExtractTarget(state string) string {
 
 func (e *Extractor) Extract(state string) variable.ValueMap {
 	params := GetParameters(e.ToTextWithNoVars(state))
-	namespace, _ := params.Get("namespace")
+	namespace, _ := params.Get(KeyNamespace)
 	handler, _ := e.handlers.Get(namespace)
 	if handler != nil {
 		return handler(params)

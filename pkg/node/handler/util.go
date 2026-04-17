@@ -6,7 +6,8 @@ import (
 )
 
 var (
-	KeyDist = "dist"
+	KeyDist      = "dist"
+	KeyNamespace = "namespace"
 )
 
 type Parameters registry.Registry[string]
