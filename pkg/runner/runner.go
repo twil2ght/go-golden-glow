@@ -108,7 +108,7 @@ func (r *runner) handler(k knot.Item) error {
 	return nil
 }
 func GetTemplates(t node.Item) (node.Set, error) {
-	return template.DefaultCore().Get(t, true)
+	return template.DefaultCore().Get(t, false)
 }
 func New(containerFactory container.Factory, timeout time.Duration) Runner {
 	return &runner{
