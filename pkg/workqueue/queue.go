@@ -4,7 +4,7 @@ import "sync"
 
 type Queue[T any] interface {
 	Add(item T)
-	Get() T
+	Get() (item T, shutdown bool)
 	Len() int
 	Shutdown()
 }
@@ -35,7 +35,7 @@ func (d *DefaultQueue[T]) Add(item T) {
 	d.cond.Signal()
 }
 
-func (d *DefaultQueue[T]) Get() T {
+func (d *DefaultQueue[T]) Get() (item T, shutdown bool) {
 	d.cond.L.Lock()
 	defer d.cond.L.Unlock()
 
@@ -45,12 +45,13 @@ func (d *DefaultQueue[T]) Get() T {
 
 	// Return zero value if shutdown and empty
 	if len(d.items) == 0 {
-		return *new(T)
+		return *new(T), d.shutdown
 	}
 
-	item := d.items[0]
+	item = d.items[0]
+	d.items[0] = *new(T)
 	d.items = d.items[1:]
-	return item
+	return item, d.shutdown
 }
 
 func (d *DefaultQueue[T]) Len() int {
