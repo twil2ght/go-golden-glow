@@ -5,6 +5,10 @@ import (
 	"strings"
 )
 
+var (
+	KeyDist = "dist"
+)
+
 type Parameters registry.Registry[string]
 
 func GetParameters(nodeValueWithNoVar string) Parameters {
