@@ -9,15 +9,15 @@ import (
 type Creator func(value string) Interface
 type Factory interface {
 	Create(value string) Interface
-	CreatorRegistry() registry.Registry[Creator]
+	CreatorRegistry() registry.Interface[Creator]
 }
 type factory struct {
-	creators registry.Registry[Creator]
-	items    registry.Registry[Interface]
+	creators registry.Interface[Creator]
+	items    registry.Interface[Interface]
 	mu       sync.RWMutex
 }
 
-func (f *factory) CreatorRegistry() registry.Registry[Creator] {
+func (f *factory) CreatorRegistry() registry.Interface[Creator] {
 	return f.creators
 }
 

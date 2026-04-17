@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-type Registry[T any] interface {
+type Interface[T any] interface {
 	Register(name string, value T)
 	Unregister(name string)
 	Get(name string) (T, error)
@@ -74,7 +74,7 @@ func (d *DefaultRegistry[T]) Keys() []string {
 }
 
 // New creates a new DefaultRegistry instance.
-func New[T any]() Registry[T] {
+func New[T any]() Interface[T] {
 	return &DefaultRegistry[T]{
 		items: make(map[string]T),
 		keys:  make([]string, 0),

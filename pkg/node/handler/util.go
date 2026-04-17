@@ -13,7 +13,7 @@ var (
 	NodeExtractor = "[node:extractor]"
 )
 
-type Parameters registry.Registry[string]
+type Parameters registry.Interface[string]
 
 func GetParameters(nodeValueWithNoVar string) Parameters {
 	params := registry.New[string]()

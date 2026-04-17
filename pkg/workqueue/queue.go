@@ -2,7 +2,7 @@ package workqueue
 
 import "sync"
 
-type Queue[T any] interface {
+type Interface[T any] interface {
 	Add(item T)
 	Get() (item T, shutdown bool)
 	Len() int
@@ -16,7 +16,7 @@ type DefaultQueue[T any] struct {
 }
 
 // New creates a new thread-safe queue
-func New[T any]() Queue[T] {
+func New[T any]() Interface[T] {
 	return &DefaultQueue[T]{
 		items: make([]T, 0),
 		cond:  sync.NewCond(&sync.Mutex{}),

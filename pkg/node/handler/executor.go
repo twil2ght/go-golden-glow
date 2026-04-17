@@ -11,7 +11,7 @@ type CheckHandler func(parameters Parameters) bool
 type ExtractorHandler func(parameters Parameters) variable.ValueMap
 type Executor struct {
 	node.Interface
-	handlers registry.Registry[ExecuteHandler]
+	handlers registry.Interface[ExecuteHandler]
 }
 
 func (e *Executor) Execute(state string) {
@@ -25,7 +25,7 @@ func (e *Executor) Execute(state string) {
 
 type Checker struct {
 	node.Interface
-	handlers registry.Registry[CheckHandler]
+	handlers registry.Interface[CheckHandler]
 }
 
 func (c *Checker) Check(state string) bool {
@@ -40,7 +40,7 @@ func (c *Checker) Check(state string) bool {
 
 type Extractor struct {
 	node.Interface
-	handlers registry.Registry[ExtractorHandler]
+	handlers registry.Interface[ExtractorHandler]
 }
 
 func (e *Extractor) ExtractTarget(state string) string {

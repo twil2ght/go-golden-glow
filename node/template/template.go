@@ -213,7 +213,6 @@ func (c *core) AllTemplates(target node.Item, templates node.Set) (node.Set, err
 	return matches, nil
 }
 
-// TODO add an extra parameter:state
 func (c *core) allUpperTemplates(target node.Item, templates node.Set) (node.Set, error) {
 	matches := make(node.Set)
 	var raw, _ = target.ToTextWithoutVars()
@@ -234,8 +233,6 @@ func (c *core) allUpperTemplates(target node.Item, templates node.Set) (node.Set
 	return matches, nil
 }
 
-// TODO stop using all states
-// add an extra parameter:state
 func (c *core) allLowerTemplates(target node.Item, templates node.Set, matches node.Set) (node.Set, error) {
 	var raw []string
 	for _, hub := range target.VarSetRegistry() {
