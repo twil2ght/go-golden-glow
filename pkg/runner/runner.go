@@ -2,7 +2,6 @@ package runner
 
 import (
 	"context"
-	"goldenglow/components/queue"
 	"goldenglow/container"
 	"goldenglow/node"
 	"goldenglow/node/template"
@@ -11,6 +10,9 @@ import (
 	"time"
 )
 
+type Queue interface {
+	Get() node.Item
+}
 type Runner interface {
 	Run(t node.Item, ctx context.Context)
 }
@@ -18,20 +20,57 @@ type runner struct {
 	workerNum        int
 	ch               chan knot.Item
 	containerFactory container.Factory
-	queue            queue.Queue
+	queue            Queue
 }
 
 var logger = log.Default()
 
 func (r *runner) Run(t node.Item, ctx context.Context) {
-	initKnot, _ := knot.New(t)
-	r.ch <- initKnot
-
 	for i := 0; i < r.workerNum; i++ {
 		go r.worker(ctx)
 	}
 
+	go r.watchIdle(ctx, 1*time.Second, 500*time.Millisecond)
+
 	<-ctx.Done()
+}
+func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, timeout time.Duration) {
+	ticker := time.NewTicker(checkInterval) // Check every second
+	defer ticker.Stop()
+
+	var idleStartTime time.Time
+	isIdle := false
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			// Check if channel is empty
+			if len(r.ch) == 0 {
+				if !isIdle {
+					// Just became idle
+					isIdle = true
+					idleStartTime = time.Now()
+				}
+
+				// Check if idle time has exceeded threshold
+				if time.Since(idleStartTime) > timeout { // 5 seconds idle threshold
+					r.onIdle()
+					isIdle = false // Reset to trigger again later if needed
+				}
+			} else {
+				// Channel is not empty, reset idle state
+				isIdle = false
+			}
+		}
+	}
+}
+
+// onIdle is called when the channel has been empty for the specified duration
+func (r *runner) onIdle() {
+	initKnot, _ := knot.New(r.queue.Get())
+	r.ch <- initKnot
 }
 func (r *runner) worker(ctx context.Context) {
 	for {
