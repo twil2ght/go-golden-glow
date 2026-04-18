@@ -138,10 +138,12 @@ func (r *runner) handler(k knot.Interface) error {
 func GetTemplates(t node.Interface, state string) m.Map[node.Interface] {
 	return m.Map[node.Interface](template.Default().GetTemplate(t, state))
 }
-func New() Runner {
+func New(knotQueue Queue[knot.Interface], externalQueue Queue[node.Interface]) Runner {
 	return &runner{
-		workerNum: 5,
-		wg:        &sync.WaitGroup{},
-		stopChan:  make(chan struct{}),
+		workerNum:     5,
+		wg:            &sync.WaitGroup{},
+		stopChan:      make(chan struct{}),
+		knotQueue:     knotQueue,
+		externalQueue: externalQueue,
 	}
 }
