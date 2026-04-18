@@ -23,7 +23,7 @@ const (
 )
 
 var (
-	RootDir                   = filepath.Join(utils.RootDir, "data")
+	RootDir                   = filepath.Join(utils.RootDir, "generated")
 	jsonExt                   = ".json"
 	ReflectDataExtraTypeToKey = map[DataExtraType]string{
 		AsExecutor:  handler.NodeExecutor,

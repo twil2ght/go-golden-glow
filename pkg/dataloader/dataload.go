@@ -5,6 +5,7 @@ import (
 	"goldenglow/m"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
+	"goldenglow/pkg/repo"
 	"os"
 )
 
@@ -16,7 +17,7 @@ type Repo interface {
 	Save(t, r m.Hash)
 }
 type Interface interface {
-	Load()
+	Load(rootDir string)
 }
 type loader struct {
 	repo Repo
@@ -44,4 +45,12 @@ func (l *loader) Load(rootDir string) {
 	}
 
 	OnFinishedInfoSum(tagMap)
+}
+func New(repo Repo) Interface {
+	return &loader{
+		repo: repo,
+	}
+}
+func Default() Interface {
+	return New(repo.DefaultService())
 }
