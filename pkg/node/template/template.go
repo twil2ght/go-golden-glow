@@ -14,15 +14,21 @@ var (
 type Set m.Map[node.Interface]
 type Interface interface {
 	GetTemplate(n node.Interface, state string) Set
+	BanFilter()
 }
 type Positioner interface {
-	GetContainerHashByTrigger(node.Interface) m.Hash
+	ContainerOf(node.Interface) m.Hash
 }
 type template struct {
 	templates  Set
 	repo       storage.Repository
 	factory    node.Factory
 	positioner Positioner
+	banFilter  bool
+}
+
+func (t *template) BanFilter() {
+	t.banFilter = true
 }
 
 func (t *template) initTemplate() {
@@ -37,9 +43,12 @@ func (t *template) initTemplate() {
 	}
 }
 func (t *template) filter(nodeHash m.Hash) m.Hash {
+	if t.banFilter {
+		return nodeHash
+	}
 	for nv := range nodeHash {
 		n := t.factory.Create(nv)
-		if cHash := t.positioner.GetContainerHashByTrigger(n); len(cHash) == 0 {
+		if cHash := t.positioner.ContainerOf(n); len(cHash) == 0 {
 			delete(nodeHash, nv)
 		}
 	}
