@@ -47,6 +47,7 @@ func (t *template) filter(nodeHash m.Hash) m.Hash {
 }
 func (t *template) GetTemplate(n node.Interface, state string) Set {
 	matches := make(Set)
+	t.initTemplate()
 	raw := n.ToTextWithNoVars(state)
 	for key, e := range t.templates {
 		if ok, vars := matchTemplate(raw, e.Value()); ok {
@@ -61,4 +62,19 @@ func (t *template) FilterBanned(set Set) Set {
 		delete(set, banned)
 	}
 	return set
+}
+func New(repo storage.Repository, factory node.Factory, positioner Positioner) Interface {
+	return &template{
+		templates:  Set{},
+		factory:    factory,
+		positioner: positioner,
+		repo:       repo,
+	}
+}
+func Default() Interface {
+	return New(
+		storage.DefaultJSONRepo(),
+		node.DefaultFactory(),
+		nil,
+	)
 }

@@ -20,7 +20,9 @@ type Repository interface {
 	HSet(tag string, value m.Hash) error
 }
 type Positioner interface {
-	ContainerOf(external node.Item) (m.Hash, error)
+	ContainerOf(external interface {
+		Value() string
+	}) (m.Hash, error)
 	Encoder() node.Encoder
 }
 

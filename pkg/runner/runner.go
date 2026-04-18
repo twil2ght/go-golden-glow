@@ -2,11 +2,13 @@ package runner
 
 import (
 	"context"
-	"goldenglow/container"
-	"goldenglow/node"
-	"goldenglow/node/template"
+	"goldenglow/m"
+	"goldenglow/pkg/container"
+	"goldenglow/pkg/container/positioner"
 	"goldenglow/pkg/knot"
 	"goldenglow/pkg/log"
+	"goldenglow/pkg/node"
+	"goldenglow/pkg/node/template"
 	"sync"
 	"time"
 )
@@ -21,12 +23,11 @@ type Runner interface {
 	Run(ctx context.Context)
 }
 type runner struct {
-	workerNum        int
-	wg               *sync.WaitGroup
-	stopChan         chan struct{}
-	containerFactory container.Factory
-	externalQueue    Queue[node.Item]
-	knotQueue        Queue[knot.Item]
+	workerNum     int
+	wg            *sync.WaitGroup
+	stopChan      chan struct{}
+	externalQueue Queue[node.Interface]
+	knotQueue     Queue[knot.Interface]
 }
 
 var logger = log.Default()
@@ -84,8 +85,10 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 func (r *runner) onIdle() {
 	n, shutdown := r.externalQueue.Get()
 	if !shutdown {
-		initKnot, _ := knot.New(n)
-		r.knotQueue.Add(initKnot)
+		initKnot := knot.New(n, "")
+		if initKnot != nil {
+			r.knotQueue.Add(initKnot)
+		}
 	} else {
 		close(r.stopChan)
 	}
@@ -103,65 +106,42 @@ func (r *runner) worker(_ int) {
 		}
 	}
 }
-func (r *runner) handler(k knot.Item) error {
+func (r *runner) handler(k knot.Interface) error {
 	trigger := k.Trigger()
-	_ = trigger.SetAndRegisterVars(trigger.GetVarSetByState(k.State()))
-	rawValue, _ := trigger.ToTextWithoutVars()
-	templateNodes, err := GetTemplates(trigger)
-	if err != nil {
-		return err
-	}
+	rawValueAsState := trigger.ToTextWithNoVars(k.State())
+	templateNodes := GetTemplates(trigger, k.State())
 	for _, tempN := range templateNodes {
-		_ = tempN.SetAndRegisterVars(trigger.GetVarSetByState(rawValue))
-		_ = tempN.Execute()
-		cHashMap, err := r.containerFactory.Positioner().ContainerOf(tempN)
-		if err != nil {
-			return err
+		tempN.Execute(rawValueAsState)
+		cHashMap := positioner.Default().ContainerOf(tempN)
+		if cHashMap == nil {
+			continue
 		}
 		for hash := range cHashMap {
-			c, err := r.containerFactory.New(hash)
-			if err != nil {
-				return err
+			c := container.NewWithDefaultFetcher(hash)
+			if c == nil {
+				continue
 			}
-			ok, err := c.Do(tempN, k.State())
-			if err != nil {
-				return err
+			ok := c.Forward(tempN, rawValueAsState)
+			if !ok {
+				continue
 			}
-			if ok {
-				extraStates := c.ExtraStates()
-				if len(extraStates) > 0 {
-					for state := range extraStates {
-						for _, rn := range c.RNode() {
-							_ = rn.SetAndRegisterVars(rn.GetVarSetByState(state))
-							NextKnot, err := knot.New(rn)
-							if err != nil {
-								return err
-							}
-							r.knotQueue.Add(NextKnot)
-						}
-					}
-				} else {
-					for _, rn := range c.RNode() {
-						NextKnot, err := knot.New(rn)
-						if err != nil {
-							return err
-						}
-						r.knotQueue.Add(NextKnot)
-					}
+			R, S := c.R()
+			for nv, rn := range R {
+				for _, s := range S[nv] {
+					r.knotQueue.Add(knot.New(rn, s))
 				}
 			}
 		}
 	}
 	return nil
 }
-func GetTemplates(t node.Item) (node.Set, error) {
-	return template.DefaultCore().Get(t, false)
+func GetTemplates(t node.Interface, state string) m.Map[node.Interface] {
+	return m.Map[node.Interface](template.Default().GetTemplate(t, state))
 }
-func New(containerFactory container.Factory) Runner {
+func New() Runner {
 	return &runner{
-		workerNum:        5,
-		containerFactory: containerFactory,
-		wg:               &sync.WaitGroup{},
-		stopChan:         make(chan struct{}),
+		workerNum: 5,
+		wg:        &sync.WaitGroup{},
+		stopChan:  make(chan struct{}),
 	}
 }

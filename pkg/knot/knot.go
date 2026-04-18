@@ -1,21 +1,19 @@
 package knot
 
 import (
-	"errors"
-	"goldenglow/node"
+	"goldenglow/pkg/node"
 )
 
-type Item interface {
-	Trigger() node.Item
+type Interface interface {
+	Trigger() node.Interface
 	State() string
-	SetState(string)
 }
 type knot struct {
-	trigger node.Item
+	trigger node.Interface
 	state   string
 }
 
-func (k knot) Trigger() node.Item {
+func (k knot) Trigger() node.Interface {
 	return k.trigger
 }
 
@@ -23,13 +21,12 @@ func (k knot) State() string {
 	return k.state
 }
 
-func (k knot) SetState(s string) {
-	k.state = s
-}
-
-func New(t node.Item) (Item, error) {
+func New(t node.Interface, state string) Interface {
 	if t == nil {
-		return nil, errors.New("NewKnot: trigger==nil")
+		return nil
 	}
-	return &knot{trigger: t}, nil
+	return &knot{
+		trigger: t,
+		state:   state,
+	}
 }

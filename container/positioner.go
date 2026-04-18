@@ -17,7 +17,9 @@ func (p *positioner) Encoder() node.Encoder {
 	return p.encoder
 }
 
-func (p *positioner) ContainerOf(node node.Item) (m.Hash, error) {
+func (p *positioner) ContainerOf(node interface {
+	Value() string
+}) (m.Hash, error) {
 	var (
 		tag = prefixT2C + p.encoder.Do(node.Value())
 	)
