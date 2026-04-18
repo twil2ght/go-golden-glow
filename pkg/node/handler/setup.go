@@ -2,7 +2,6 @@ package handler
 
 import (
 	"goldenglow/pkg/node"
-	"goldenglow/pkg/registry"
 )
 
 func init() {
@@ -13,20 +12,17 @@ func init() {
 }
 
 func ExecutorCreator(value string) node.Interface {
-	return &Executor{
-		Interface: node.New(value),
-		handlers:  registry.New[ExecuteHandler](),
+	return &executor{
+		Base: New[ExecuteHandler](value),
 	}
 }
 func CheckerCreator(value string) node.Interface {
-	return &Checker{
-		Interface: node.New(value),
-		handlers:  registry.New[CheckHandler](),
+	return &checker{
+		Base: New[CheckHandler](value),
 	}
 }
 func ExtractorCreator(value string) node.Interface {
-	return &Extractor{
-		Interface: node.New(value),
-		handlers:  registry.New[ExtractorHandler](),
+	return &extractor{
+		Base: New[ExtractorHandler](value),
 	}
 }

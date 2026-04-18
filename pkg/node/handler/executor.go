@@ -6,15 +6,33 @@ import (
 	"goldenglow/variable"
 )
 
+type Executor[T any] interface {
+	Handlers() registry.Interface[T]
+}
 type ExecuteHandler func(parameters Parameters)
 type CheckHandler func(parameters Parameters) bool
 type ExtractorHandler func(parameters Parameters) variable.ValueMap
-type Executor struct {
+
+type Base[T any] struct {
 	node.Interface
-	handlers registry.Interface[ExecuteHandler]
+	handlers registry.Interface[T]
 }
 
-func (e *Executor) Execute(state string) {
+func New[T any](value string) Base[T] {
+	return Base[T]{
+		Interface: node.New[T](value),
+		handlers:  registry.New[T](),
+	}
+}
+func (b *Base[T]) Handlers() registry.Interface[T] {
+	return b.handlers
+}
+
+type executor struct {
+	Base[ExecuteHandler]
+}
+
+func (e *executor) Execute(state string) {
 	params := GetParameters(e.ToTextWithNoVars(state))
 	namespace, _ := params.Get(KeyNamespace)
 	handler, _ := e.handlers.Get(namespace)
@@ -23,12 +41,11 @@ func (e *Executor) Execute(state string) {
 	}
 }
 
-type Checker struct {
-	node.Interface
-	handlers registry.Interface[CheckHandler]
+type checker struct {
+	Base[CheckHandler]
 }
 
-func (c *Checker) Check(state string) bool {
+func (c *checker) Check(state string) bool {
 	params := GetParameters(c.ToTextWithNoVars(state))
 	namespace, _ := params.Get(KeyNamespace)
 	handler, _ := c.handlers.Get(namespace)
@@ -38,18 +55,17 @@ func (c *Checker) Check(state string) bool {
 	return false
 }
 
-type Extractor struct {
-	node.Interface
-	handlers registry.Interface[ExtractorHandler]
+type extractor struct {
+	Base[ExtractorHandler]
 }
 
-func (e *Extractor) KeyDist() string {
+func (e *extractor) KeyDist() string {
 	params := GetParameters(e.Value())
 	val, _ := params.Get(KeyDist)
 	return val
 }
 
-func (e *Extractor) Extract(state string) variable.ValueMap {
+func (e *extractor) Extract(state string) variable.ValueMap {
 	params := GetParameters(e.ToTextWithNoVars(state))
 	namespace, _ := params.Get(KeyNamespace)
 	handler, _ := e.handlers.Get(namespace)
