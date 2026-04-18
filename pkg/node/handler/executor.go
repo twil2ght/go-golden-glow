@@ -43,8 +43,8 @@ type Extractor struct {
 	handlers registry.Interface[ExtractorHandler]
 }
 
-func (e *Extractor) ExtractTarget(state string) string {
-	params := GetParameters(e.ToTextWithNoVars(state))
+func (e *Extractor) KeyDist() string {
+	params := GetParameters(e.Value())
 	return params.Get(KeyDist)
 }
 
