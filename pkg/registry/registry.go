@@ -58,7 +58,6 @@ func (d *DefaultRegistry[T]) Range(f func(key string, item T) bool) {
 			return
 		}
 	}
-	return
 }
 
 func (d *DefaultRegistry[T]) Len() int {

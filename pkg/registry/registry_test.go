@@ -93,7 +93,7 @@ func TestDefaultRegistry_Range(t *testing.T) {
 	r.Register("z", 3)
 
 	seen := make([]int, 0, 3)
-	r.Range(func(value int) bool {
+	r.Range(func(_ string, value int) bool {
 		seen = append(seen, value)
 		return value != 2
 	})
