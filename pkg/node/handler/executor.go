@@ -45,7 +45,8 @@ type Extractor struct {
 
 func (e *Extractor) KeyDist() string {
 	params := GetParameters(e.Value())
-	return params.Get(KeyDist)
+	val, _ := params.Get(KeyDist)
+	return val
 }
 
 func (e *Extractor) Extract(state string) variable.ValueMap {
