@@ -14,6 +14,7 @@ var (
 type Set m.Map[node.Interface]
 type Interface interface {
 	GetTemplate(n node.Interface, state string) Set
+	// BanFilter for testing only
 	BanFilter()
 }
 type Positioner interface {
