@@ -9,7 +9,7 @@ type Interface[T any] interface {
 	Register(name string, value T)
 	Unregister(name string)
 	Get(name string) (T, error)
-	Range(f func(T) bool)
+	Range(f func(key string, item T) bool)
 	Len() int
 	Keys() []string
 }
@@ -50,11 +50,11 @@ func (d *DefaultRegistry[T]) Get(name string) (T, error) {
 	return d.items[name], nil
 }
 
-func (d *DefaultRegistry[T]) Range(f func(T) bool) {
+func (d *DefaultRegistry[T]) Range(f func(key string, item T) bool) {
 	d.mu.RLock()
 	defer d.mu.RUnlock()
 	for _, k := range d.keys {
-		if !f(d.items[k]) {
+		if !f(k, d.items[k]) {
 			return
 		}
 	}
