@@ -108,9 +108,9 @@ func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
 func (b *builder) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler]) {
 	reg.Handlers().Register(pluginName, func(parameters handler.Parameters) {
 		var (
-			value     = parameters.Get(keyValue)
-			valueType = parameters.Get(keyType)
-			mode      = parameters.Get(keyMode)
+			value, _     = parameters.Get(keyValue)
+			valueType, _ = parameters.Get(keyType)
+			mode, _      = parameters.Get(keyMode)
 		)
 		_ = b.add(value, valueType, mode)
 	})

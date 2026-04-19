@@ -27,6 +27,7 @@ type loader struct {
 func (l *loader) Load(rootDir string) {
 	jsonFiles := utils.FindAllJsonFiles(rootDir)
 	tagMap := m.Map[int]{}
+	OnStart(rootDir, len(jsonFiles))
 
 	for _, jsonFile := range jsonFiles {
 		content, err := os.ReadFile(jsonFile)

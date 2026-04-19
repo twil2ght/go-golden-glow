@@ -8,6 +8,7 @@ import (
 	"goldenglow/pkg/node/handler"
 	"goldenglow/plugin"
 	_ "goldenglow/plugin/mount"
+	"goldenglow/storage"
 )
 
 type Background struct {
@@ -16,6 +17,8 @@ type Background struct {
 }
 
 func Init() *Background {
+	_ = storage.DefaultJSONRepo().Init()
+	_ = storage.DefaultRedisRepo().Init()
 	var (
 		dataDir     = datagen.RootDir
 		pluginMgr   = plugin.DefaultManager
@@ -49,6 +52,7 @@ func Init() *Background {
 	executor.OnRegisterFactory(nodeFactory)
 	checker.OnRegisterFactory(nodeFactory)
 	extractor.OnRegisterFactory(nodeFactory)
+	dataGen.Run()
 	dataLoader.Load(dataDir)
 	return &Background{
 		MsgQueueMgr: msgQueueMgr,

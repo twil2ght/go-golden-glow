@@ -10,6 +10,9 @@ func OnLoadingError(file string) {
 		"file", file,
 	)
 }
+func OnStart(dir string, fileAmount int) {
+	logger.Info("starting data loader", "dir", dir, "fileAmount", fileAmount)
+}
 func OnFinishedInfoSum(tagMap m.Map[int]) {
 	logger.Info(" data loading is Done",
 		"module", "data loader",

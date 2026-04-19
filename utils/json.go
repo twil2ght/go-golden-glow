@@ -10,20 +10,24 @@ import (
 func FindAllJsonFiles(dir string) []string {
 	var jsonFiles []string
 
-	files, err := os.ReadDir(dir)
-	if err != nil {
+	walkErr := filepath.WalkDir(dir, func(path string, d os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() {
+			return nil
+		}
+
+		if strings.ToLower(filepath.Ext(d.Name())) == ".json" {
+			jsonFiles = append(jsonFiles, path)
+		}
+
 		return nil
-	}
+	})
 
-	for _, file := range files {
-		if file.IsDir() {
-			continue
-		}
-
-		if strings.ToLower(filepath.Ext(file.Name())) == ".json" {
-			fullPath := filepath.Join(dir, file.Name())
-			jsonFiles = append(jsonFiles, fullPath)
-		}
+	if walkErr != nil {
+		return nil
 	}
 
 	return jsonFiles

@@ -6,6 +6,7 @@ import (
 	"goldenglow/pkg/runner"
 	"goldenglow/pkg/setup"
 	"goldenglow/pkg/userInput"
+	"goldenglow/storage"
 	"goldenglow/utils"
 	"path/filepath"
 	"time"
@@ -37,4 +38,6 @@ func main() {
 		}
 	}()
 	<-ctx.Done()
+	_ = storage.DefaultJSONRepo().Shutdown()
+	_ = storage.DefaultRedisRepo().Shutdown()
 }

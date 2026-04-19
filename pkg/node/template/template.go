@@ -3,6 +3,7 @@ package template
 import (
 	"goldenglow/container"
 	"goldenglow/m"
+	"goldenglow/pkg/container/positioner"
 	"goldenglow/pkg/node"
 	"goldenglow/storage"
 )
@@ -85,6 +86,6 @@ func Default() Interface {
 	return New(
 		storage.DefaultJSONRepo(),
 		node.DefaultFactory,
-		nil,
+		positioner.Default(),
 	)
 }
