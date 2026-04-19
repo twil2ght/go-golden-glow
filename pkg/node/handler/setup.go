@@ -4,7 +4,7 @@ import (
 	"goldenglow/pkg/node"
 )
 
-func init() {
+func Init() {
 	creatorRegistry := node.DefaultFactory.CreatorRegistry()
 	creatorRegistry.Register(NodeExecutor, ExecutorCreator)
 	creatorRegistry.Register(NodeChecker, CheckerCreator)
