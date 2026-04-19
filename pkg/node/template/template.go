@@ -84,7 +84,7 @@ func New(repo storage.Repository, factory node.Factory, positioner Positioner) I
 func Default() Interface {
 	return New(
 		storage.DefaultJSONRepo(),
-		node.DefaultFactory(),
+		node.DefaultFactory,
 		nil,
 	)
 }

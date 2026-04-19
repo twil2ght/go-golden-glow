@@ -5,7 +5,7 @@ import (
 )
 
 func init() {
-	creatorRegistry := node.DefaultFactory().CreatorRegistry()
+	creatorRegistry := node.DefaultFactory.CreatorRegistry()
 	creatorRegistry.Register(NodeExecutor, ExecutorCreator)
 	creatorRegistry.Register(NodeChecker, CheckerCreator)
 	creatorRegistry.Register(NodeExtractor, ExtractorCreator)

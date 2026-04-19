@@ -38,7 +38,7 @@ func (r *mockRepo) Init() error {
 
 // createTestNode creates a test node using the real node factory
 func createTestNode(value string) node.Interface {
-	factory := node.DefaultFactory()
+	factory := node.DefaultFactory
 	return factory.Create(value)
 }
 func createTestVarSet(kv m.Map[string]) variable.Set {
@@ -189,7 +189,7 @@ func TestCore_Get(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			core := New(&mockRepo{items: tt.templates}, node.DefaultFactory(), positioner.Default())
+			core := New(&mockRepo{items: tt.templates}, node.DefaultFactory, positioner.Default())
 			core.BanFilter()
 			if core == nil {
 				t.Fatalf("New() failed")

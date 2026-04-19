@@ -58,6 +58,6 @@ func New(db storage.Repository, f node.Factory) Interface {
 func Default() Interface {
 	return New(
 		storage.DefaultJSONRepo(),
-		node.DefaultFactory(),
+		node.DefaultFactory,
 	)
 }
