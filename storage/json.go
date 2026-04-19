@@ -2,6 +2,7 @@ package storage
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"goldenglow/m"
 	"goldenglow/pkg/log"
@@ -51,14 +52,12 @@ func (j *jsonRepository) HSet(tag string, value m.Hash) error {
 	j.mu.Lock()
 	defer j.mu.Unlock()
 	j.HData[tag] = value
-	logger.Debug("HSet", "tag", tag, "value", value)
 	return nil
 }
 
 func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 	j.mu.Lock()
 	defer j.mu.Unlock()
-	logger.Debug("HGet", tag, j.HData[tag])
 	copied := m.Hash{}
 	if value, ok := j.HData[tag]; ok {
 		for k := range value {
@@ -66,7 +65,7 @@ func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 		}
 		return copied, nil
 	}
-	return nil, log.NotFound(tag)
+	return nil, errors.New("not found")
 }
 
 func (j *jsonRepository) Init() error {
@@ -146,9 +145,6 @@ func (j *jsonRepository) Save() error {
 	err := os.MkdirAll(DefaultJSONPathRoot, 0755)
 	if err != nil {
 		return err
-	}
-	for key, value := range j.HData {
-		logger.Debug("Saving JSON data", "key", key, "value", value)
 	}
 	if err := SaveAsJson(j.HDataPath, j.HData); err != nil {
 		return err
