@@ -6,6 +6,7 @@ import (
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/repo"
+	"goldenglow/utils"
 	"os"
 )
 
@@ -24,7 +25,7 @@ type loader struct {
 }
 
 func (l *loader) Load(rootDir string) {
-	jsonFiles := findAllJsonFiles(rootDir)
+	jsonFiles := utils.FindAllJsonFiles(rootDir)
 	tagMap := m.Map[int]{}
 
 	for _, jsonFile := range jsonFiles {
