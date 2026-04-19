@@ -41,9 +41,9 @@ func NewFactory() Factory {
 		items:    registry.New[Interface](),
 	}
 }
-func DefaultFactory() Factory {
-	return NewFactory()
-}
+
+var DefaultFactory = NewFactory()
+
 func GetHead(str string) string {
 	fields := strings.Fields(str)
 	if len(fields) == 0 {
