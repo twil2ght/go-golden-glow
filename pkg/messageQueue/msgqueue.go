@@ -27,8 +27,9 @@ func (mq *msgQueue) Shutdown() {
 	mq.Interface.Shutdown()
 	mq.Save()
 }
-func New() Interface {
+func New(cachePath string) Interface {
 	return &msgQueue{
 		Interface: workqueue.New[string](),
+		cachePath: cachePath,
 	}
 }
