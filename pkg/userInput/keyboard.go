@@ -41,8 +41,8 @@ func (k *Keyboard) Start(ctx context.Context) {
 		}
 	}
 }
-func NewKeyboard() *Keyboard {
+func NewKeyboard(queue messageQueue.Interface) *Keyboard {
 	return &Keyboard{
-		queue: messageQueue.New(),
+		queue: queue,
 	}
 }
