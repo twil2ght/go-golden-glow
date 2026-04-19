@@ -2,5 +2,5 @@
 package mount
 
 import (
-	_ "goldenglow/plugins/examplePlugin"
+	_ "goldenglow/plugin/builtin/builder"
 )

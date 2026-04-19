@@ -1,6 +1,8 @@
 package setup
 
 import (
+	"goldenglow/pkg/datagen"
+	"goldenglow/pkg/dataloader"
 	"goldenglow/pkg/messageQueue"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/node/handler"
@@ -15,11 +17,14 @@ type Background struct {
 
 func Init() *Background {
 	var (
+		dataDir     = datagen.RootDir
 		pluginMgr   = plugin.DefaultManager
 		executor    = handler.NewExecutor()
 		checker     = handler.NewChecker()
 		extractor   = handler.NewExtractor()
 		msgQueueMgr = messageQueue.NewManager()
+		dataGen     = datagen.NewGenerator()
+		dataLoader  = dataloader.Default()
 		nodeFactory = node.DefaultFactory
 	)
 	pluginMgr.Range(func(key string, item plugin.Interface) bool {
@@ -35,12 +40,16 @@ func Init() *Background {
 		if e, ok := item.(messageQueue.MsgQueueHook); ok {
 			e.OnRegisterMsgProvider(msgQueueMgr)
 		}
+		if e, ok := item.(datagen.Hook); ok {
+			e.OnRegisterDataGen(dataGen)
+		}
 		item.Init()
 		return true
 	})
 	executor.OnRegisterFactory(nodeFactory)
 	checker.OnRegisterFactory(nodeFactory)
 	extractor.OnRegisterFactory(nodeFactory)
+	dataLoader.Load(dataDir)
 	return &Background{
 		MsgQueueMgr: msgQueueMgr,
 		NodeFactory: nodeFactory,
