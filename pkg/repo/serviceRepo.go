@@ -57,18 +57,22 @@ func (s *service) Save(tv, rv m.Hash) {
 		}
 	}
 
-	nodeSet, _ := s.repo.HGet(KeyNodeSet)
-	if nodeSet == nil {
+	nodeSet, err := s.repo.HGet(KeyNodeSet)
+	fmt.Printf("nodeSet old:%+v\n", nodeSet)
+	if err != nil {
+		fmt.Printf("nodeSet err:%+v\n", err)
 		nodeSet = make(map[string]struct{})
 	}
 
 	for nv := range tv {
+		fmt.Printf("node:%+v\n", nv)
 		nodeSet[nv] = struct{}{}
 	}
 	for nv := range rv {
+		fmt.Printf("node:%+v\n", nv)
 		nodeSet[nv] = struct{}{}
 	}
-
+	fmt.Printf("nodeSet new:%+v\n", nodeSet)
 	_ = s.repo.HSet(KeyNodeSet, nodeSet)
 }
 

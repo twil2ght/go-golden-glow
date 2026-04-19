@@ -92,16 +92,6 @@ func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsExecutor,
 	))
-	provider.Add("input", datagen.NewData(
-		[]string{fmt.Sprintf("%s says [input] $1 to %s", config.User, config.GG)},
-		[]string{},
-		map[string]string{
-			keyValue: "$1",
-			keyMode:  modeMultiCondition,
-			keyType:  typeInput,
-		},
-		datagen.AsExecutor,
-	))
 	gen.AddProvider(pluginName, provider)
 }
 

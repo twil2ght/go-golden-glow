@@ -21,6 +21,7 @@ type ValidFormat struct {
 
 func (f *File) Run(dir string) {
 	jsonFiles := utils.FindAllJsonFiles(dir)
+	logger.Debug("userInput file starting ", "dir", dir, "amount", len(jsonFiles))
 	for _, jsonFile := range jsonFiles {
 		content, err := os.ReadFile(jsonFile)
 		if err != nil {

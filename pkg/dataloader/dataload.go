@@ -42,7 +42,7 @@ func (l *loader) Load(rootDir string) {
 			continue
 		}
 		tagMap[data.Tag]++
-
+		logger.Info("Loading data:", "tag", data.Tag, "T", data.Triggers, "R", data.Results)
 		l.repo.Save(m.ToHash(data.Triggers), m.ToHash(data.Results))
 	}
 

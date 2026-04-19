@@ -51,13 +51,22 @@ func (j *jsonRepository) HSet(tag string, value m.Hash) error {
 	j.mu.Lock()
 	defer j.mu.Unlock()
 	j.HData[tag] = value
+	logger.Debug("HSet", "tag", tag, "value", value)
 	return nil
 }
 
 func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 	j.mu.Lock()
 	defer j.mu.Unlock()
-	return j.HData[tag], nil
+	logger.Debug("HGet", tag, j.HData[tag])
+	copied := m.Hash{}
+	if value, ok := j.HData[tag]; ok {
+		for k := range value {
+			copied[k] = struct{}{}
+		}
+		return copied, nil
+	}
+	return nil, log.NotFound(tag)
 }
 
 func (j *jsonRepository) Init() error {
@@ -74,7 +83,10 @@ func (j *jsonRepository) Init() error {
 	if os.IsNotExist(err) {
 		//文件不存在 → 创建空 JSON 文件
 		emptyData := make(map[string]m.Hash)
-		data, _ := json.MarshalIndent(emptyData, "", "  ")
+		data, err := json.MarshalIndent(emptyData, "", "  ")
+		if err != nil {
+			return fmt.Errorf("marshal empty hash_data failed: %w", err)
+		}
 		err = os.WriteFile(j.HDataPath, data, 0644)
 		if err != nil {
 			return fmt.Errorf("create empty json file failed: %w", err)
@@ -99,7 +111,10 @@ func (j *jsonRepository) Init() error {
 	_, err = os.Stat(j.DataPath)
 	if os.IsNotExist(err) {
 		emptyData := make(map[string]string)
-		data, _ := json.MarshalIndent(emptyData, "", "  ")
+		data, err := json.MarshalIndent(emptyData, "", "  ")
+		if err != nil {
+			return fmt.Errorf("marshal empty data file failed: %w", err)
+		}
 		err = os.WriteFile(j.DataPath, data, 0644)
 		if err != nil {
 			return fmt.Errorf("create empty json data file failed: %w", err)
@@ -125,9 +140,15 @@ func (j *jsonRepository) Init() error {
 }
 
 func (j *jsonRepository) Save() error {
+	j.mu.Lock()
+	defer j.mu.Unlock()
+
 	err := os.MkdirAll(DefaultJSONPathRoot, 0755)
 	if err != nil {
 		return err
+	}
+	for key, value := range j.HData {
+		logger.Debug("Saving JSON data", "key", key, "value", value)
 	}
 	if err := SaveAsJson(j.HDataPath, j.HData); err != nil {
 		return err

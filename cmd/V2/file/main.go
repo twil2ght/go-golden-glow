@@ -38,6 +38,7 @@ func main() {
 		}
 	}()
 	<-ctx.Done()
+	//file.Run(dataDir)
 	_ = storage.DefaultJSONRepo().Shutdown()
 	_ = storage.DefaultRedisRepo().Shutdown()
 }
