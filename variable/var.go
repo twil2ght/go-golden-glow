@@ -25,8 +25,7 @@ type Item interface {
 // This allows extractors to return multiple variable sets that can be
 // inherited by result nodes
 type ValueMap interface {
-	Item
-	ValueMap() m.Hash
+	Get() m.Hash
 }
 
 // Parser parse a given string with variables to a one without variables based on the given variables
@@ -98,7 +97,7 @@ type valueMapItem struct {
 	hash m.Hash
 }
 
-func (s *valueMapItem) ValueMap() m.Hash {
+func (s *valueMapItem) Get() m.Hash {
 	return s.hash
 }
 

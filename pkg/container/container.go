@@ -109,7 +109,7 @@ func (c *container) getStateFromVarSetOfContainerForExtractDist(keysFiltered []s
 	for _, key := range keysFiltered {
 		varSetStart[key] = c.varSet[key]
 	}
-	for value := range c.extractDistValueMap.ValueMap() {
+	for value := range c.extractDistValueMap.Get() {
 		varSetCopy := variable.Copy(varSetStart)
 		varSetCopy[c.extractDist] = variable.New(c.extractDist, value)
 		varSetMap[node.GenVariableState(varSetCopy)] = varSetCopy

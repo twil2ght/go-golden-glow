@@ -2,6 +2,7 @@ package userInput
 
 import (
 	"context"
+	"goldenglow/pkg/messageQueue"
 	"os"
 	"testing"
 	"time"
@@ -32,7 +33,7 @@ func TestKeyboard_Start(t *testing.T) {
 	defer func() { os.Stdin = oldStdin }()
 
 	// Create keyboard
-	k := NewKeyboard()
+	k := NewKeyboard(messageQueue.New("test.json"))
 
 	// Create context with cancel
 	ctx, cancel := context.WithCancel(context.Background())

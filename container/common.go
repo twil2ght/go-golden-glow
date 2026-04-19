@@ -244,7 +244,7 @@ func (b *Base) handleExtractor(extractor node.Extractable) error {
 
 	b.variables[varb.Name()] = varb
 	if valueMap, ok := varb.(variable.ValueMap); ok {
-		b.valueHash = valueMap.ValueMap()
+		b.valueHash = valueMap.Get()
 		b.valueHashKey = varb.Name()
 		logger.Debug("extractor returned stateHub", "size", len(b.valueHash))
 	}

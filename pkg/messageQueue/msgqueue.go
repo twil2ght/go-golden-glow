@@ -21,7 +21,7 @@ func (mq *msgQueue) addToLog(value string) {
 	mq.logs = append(mq.logs, value)
 }
 func (mq *msgQueue) Save() {
-
+	//TODO
 }
 func (mq *msgQueue) Shutdown() {
 	mq.Interface.Shutdown()
