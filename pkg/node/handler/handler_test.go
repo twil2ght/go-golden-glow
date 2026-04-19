@@ -2,12 +2,13 @@ package handler
 
 import (
 	"goldenglow/m"
+	"goldenglow/pkg/registry"
 	"goldenglow/variable"
 	"testing"
 )
 
 func TestNew(t *testing.T) {
-	base := New[string]("test_value")
+	base := New[string]("test_value", registry.New[string]())
 	if base.Interface == nil {
 		t.Error("expected Interface to be initialized")
 	}
@@ -20,7 +21,7 @@ func TestNew(t *testing.T) {
 }
 
 func TestBase_Handlers(t *testing.T) {
-	base := New[string]("test")
+	base := New[string]("test", registry.New[string]())
 	handlers := base.Handlers()
 	if handlers == nil {
 		t.Error("expected handlers to be non-nil")
@@ -32,7 +33,7 @@ func TestBase_Handlers(t *testing.T) {
 
 func TestExecutor_Execute(t *testing.T) {
 	exec := &executor{
-		Base: New[ExecuteHandler]("test [namespace:test_handler]"),
+		Base: New[ExecuteHandler]("test [namespace:test_handler]", registry.New[ExecuteHandler]()),
 	}
 
 	called := false
@@ -53,7 +54,7 @@ func TestExecutor_Execute(t *testing.T) {
 
 func TestExecutor_Execute_NoHandler(t *testing.T) {
 	exec := &executor{
-		Base: New[ExecuteHandler]("test [namespace:unknown]"),
+		Base: New[ExecuteHandler]("test [namespace:unknown]", registry.New[ExecuteHandler]()),
 	}
 
 	// No handler registered, should not panic
@@ -62,7 +63,7 @@ func TestExecutor_Execute_NoHandler(t *testing.T) {
 
 func TestChecker_Check(t *testing.T) {
 	check := &checker{
-		Base: New[CheckHandler]("test [namespace:test_handler]"),
+		Base: New[CheckHandler]("test [namespace:test_handler]", registry.New[CheckHandler]()),
 	}
 
 	check.handlers.Register("test_handler", func(params Parameters) bool {
@@ -78,7 +79,7 @@ func TestChecker_Check(t *testing.T) {
 
 func TestChecker_Check_False(t *testing.T) {
 	check := &checker{
-		Base: New[CheckHandler]("test [namespace:test_handler]"),
+		Base: New[CheckHandler]("test [namespace:test_handler]", registry.New[CheckHandler]()),
 	}
 
 	check.handlers.Register("test_handler", func(params Parameters) bool {
@@ -93,7 +94,7 @@ func TestChecker_Check_False(t *testing.T) {
 
 func TestChecker_Check_NoHandler(t *testing.T) {
 	check := &checker{
-		Base: New[CheckHandler]("test [namespace:unknown]"),
+		Base: New[CheckHandler]("test [namespace:unknown]", registry.New[CheckHandler]()),
 	}
 
 	result := check.Check("some_state")
@@ -104,7 +105,7 @@ func TestChecker_Check_NoHandler(t *testing.T) {
 
 func TestExtractor_KeyDist(t *testing.T) {
 	ext := &extractor{
-		Base: New[ExtractorHandler]("test [dist:test_dist]"),
+		Base: New[ExtractorHandler]("test [dist:test_dist]", registry.New[ExtractorHandler]()),
 	}
 
 	dist := ext.KeyDist()
@@ -115,7 +116,7 @@ func TestExtractor_KeyDist(t *testing.T) {
 
 func TestExtractor_KeyDist_NoDist(t *testing.T) {
 	ext := &extractor{
-		Base: New[ExtractorHandler]("test"),
+		Base: New[ExtractorHandler]("test", registry.New[ExtractorHandler]()),
 	}
 
 	dist := ext.KeyDist()
@@ -126,7 +127,7 @@ func TestExtractor_KeyDist_NoDist(t *testing.T) {
 
 func TestExtractor_Extract(t *testing.T) {
 	ext := &extractor{
-		Base: New[ExtractorHandler]("test [namespace:test_handler]"),
+		Base: New[ExtractorHandler]("test [namespace:test_handler]", registry.New[ExtractorHandler]()),
 	}
 
 	ext.handlers.Register("test_handler", func(params Parameters) variable.ValueMap {
@@ -145,7 +146,7 @@ func TestExtractor_Extract(t *testing.T) {
 
 func TestExtractor_Extract_NoHandler(t *testing.T) {
 	ext := &extractor{
-		Base: New[ExtractorHandler]("test [namespace:unknown]"),
+		Base: New[ExtractorHandler]("test [namespace:unknown]", registry.New[ExtractorHandler]()),
 	}
 
 	result := ext.Extract("some_state")

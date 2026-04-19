@@ -8,6 +8,7 @@ import (
 
 type Executor[T any] interface {
 	Handlers() registry.Interface[T]
+	OnRegisterFactory(factory node.Factory)
 }
 type ExecuteHandler func(parameters Parameters)
 type CheckHandler func(parameters Parameters) bool
@@ -18,10 +19,10 @@ type Base[T any] struct {
 	handlers registry.Interface[T]
 }
 
-func New[T any](value string) Base[T] {
+func New[T any](value string, handlers registry.Interface[T]) Base[T] {
 	return Base[T]{
 		Interface: node.New(value),
-		handlers:  registry.New[T](),
+		handlers:  handlers,
 	}
 }
 func (b *Base[T]) Handlers() registry.Interface[T] {
@@ -30,6 +31,14 @@ func (b *Base[T]) Handlers() registry.Interface[T] {
 
 type executor struct {
 	Base[ExecuteHandler]
+}
+
+func (e *executor) OnRegisterFactory(factory node.Factory) {
+	factory.CreatorRegistry().Register(NodeExecutor, func(value string) node.Interface {
+		return &executor{
+			Base: New[ExecuteHandler](value, e.handlers),
+		}
+	})
 }
 
 func (e *executor) Execute(state string) {
@@ -45,6 +54,14 @@ type checker struct {
 	Base[CheckHandler]
 }
 
+func (c *checker) OnRegisterFactory(factory node.Factory) {
+	factory.CreatorRegistry().Register(NodeExecutor, func(value string) node.Interface {
+		return &checker{
+			Base: New[CheckHandler](value, c.handlers),
+		}
+	})
+}
+
 func (c *checker) Check(state string) bool {
 	params := GetParameters(c.ToTextWithNoVars(state))
 	namespace, _ := params.Get(KeyNamespace)
@@ -57,6 +74,14 @@ func (c *checker) Check(state string) bool {
 
 type extractor struct {
 	Base[ExtractorHandler]
+}
+
+func (e *extractor) OnRegisterFactory(factory node.Factory) {
+	factory.CreatorRegistry().Register(NodeExecutor, func(value string) node.Interface {
+		return &extractor{
+			Base: New[ExtractorHandler](value, e.handlers),
+		}
+	})
 }
 
 func (e *extractor) KeyDist() string {
