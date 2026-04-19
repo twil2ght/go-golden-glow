@@ -2,6 +2,7 @@ package datagen
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"testing"
@@ -107,7 +108,12 @@ func TestProviderAddAndRun(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer os.RemoveAll(tempDir)
+	defer func(path string) {
+		err := os.RemoveAll(path)
+		if err != nil {
+			fmt.Println(err)
+		}
+	}(tempDir)
 
 	// Override RootDir for testing
 	originalRootDir := RootDir
@@ -131,7 +137,12 @@ func TestProviderAddAndRun(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer file.Close()
+	defer func(file *os.File) {
+		err := file.Close()
+		if err != nil {
+			fmt.Println(err)
+		}
+	}(file)
 
 	var jsonData JsonFormatData
 	if err := json.NewDecoder(file).Decode(&jsonData); err != nil {
@@ -162,7 +173,12 @@ func TestGeneratorAddProviderAndRun(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer os.RemoveAll(tempDir)
+	defer func(path string) {
+		err := os.RemoveAll(path)
+		if err != nil {
+			fmt.Println(err)
+		}
+	}(tempDir)
 
 	originalRootDir := RootDir
 	RootDir = tempDir
