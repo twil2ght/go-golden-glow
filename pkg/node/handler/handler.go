@@ -49,6 +49,11 @@ func (e *executor) Execute(state string) {
 		handler(params)
 	}
 }
+func NewExecutor() Executor[ExecuteHandler] {
+	return &executor{
+		Base: New("", registry.New[ExecuteHandler]()),
+	}
+}
 
 type checker struct {
 	Base[CheckHandler]
@@ -70,6 +75,11 @@ func (c *checker) Check(state string) bool {
 		return handler(params)
 	}
 	return false
+}
+func NewChecker() Executor[CheckHandler] {
+	return &checker{
+		Base: New("", registry.New[CheckHandler]()),
+	}
 }
 
 type extractor struct {
@@ -98,4 +108,9 @@ func (e *extractor) Extract(state string) variable.ValueMap {
 		return handler(params)
 	}
 	return nil
+}
+func NewExtractor() Executor[ExtractorHandler] {
+	return &extractor{
+		Base: New("", registry.New[ExtractorHandler]()),
+	}
 }

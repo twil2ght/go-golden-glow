@@ -9,6 +9,7 @@ import (
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/node/template"
+	"goldenglow/pkg/workqueue"
 	"sync"
 	"time"
 )
@@ -26,8 +27,9 @@ type runner struct {
 	workerNum     int
 	wg            *sync.WaitGroup
 	stopChan      chan struct{}
-	externalQueue Queue[node.Interface]
+	externalQueue Queue[string]
 	knotQueue     Queue[knot.Interface]
+	nodeFactory   node.Factory
 }
 
 var logger = log.Default()
@@ -85,7 +87,7 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 func (r *runner) onIdle() {
 	n, shutdown := r.externalQueue.Get()
 	if !shutdown {
-		initKnot := knot.New(n, "")
+		initKnot := knot.New(r.nodeFactory.Create(n), "")
 		if initKnot != nil {
 			r.knotQueue.Add(initKnot)
 		}
@@ -138,12 +140,13 @@ func (r *runner) handler(k knot.Interface) error {
 func GetTemplates(t node.Interface, state string) m.Map[node.Interface] {
 	return m.Map[node.Interface](template.Default().GetTemplate(t, state))
 }
-func New(knotQueue Queue[knot.Interface], externalQueue Queue[node.Interface]) Runner {
+func New(workNum int, externalQueue Queue[string], nodeFactory node.Factory) Runner {
 	return &runner{
-		workerNum:     5,
+		workerNum:     workNum,
 		wg:            &sync.WaitGroup{},
 		stopChan:      make(chan struct{}),
-		knotQueue:     knotQueue,
+		knotQueue:     workqueue.New[knot.Interface](),
 		externalQueue: externalQueue,
+		nodeFactory:   nodeFactory,
 	}
 }
