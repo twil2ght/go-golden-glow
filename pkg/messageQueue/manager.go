@@ -7,6 +7,7 @@ import (
 
 type Manager interface {
 	Add(name string, provider chan string)
+	Start(msgQueue Interface, ctx context.Context)
 }
 type manager struct {
 	items registry.Interface[chan string]
