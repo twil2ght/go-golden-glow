@@ -20,7 +20,7 @@ type Base[T any] struct {
 
 func New[T any](value string) Base[T] {
 	return Base[T]{
-		Interface: node.New[T](value),
+		Interface: node.New(value),
 		handlers:  registry.New[T](),
 	}
 }
