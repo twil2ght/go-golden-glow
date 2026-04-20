@@ -65,7 +65,7 @@ func (t *template) GetTemplate(n node.Interface, state string) Set {
 	}
 	t.initTemplate()
 	raw := n.ToTextWithNoVars(state)
-	for key, e := range t.templates {
+	for key, e := range DeConflicted(n, t.templates) {
 		if ok, vars := matchTemplate(raw, e.Value()); ok {
 			e.VarSetRegistry().Register(raw, vars)
 			matches[key] = e
@@ -78,6 +78,21 @@ func AllowedToGetTemplate(n node.Interface) bool {
 		return true
 	}
 	return false
+}
+func DeConflicted(n node.Interface, set Set) Set {
+	conflictSet, _ := DefaultConflictManager.Get(n.Value())
+
+	if conflictSet == nil {
+		return set
+	}
+
+	for key := range set {
+		if _, ok := conflictSet[key]; ok {
+			delete(set, key)
+		}
+	}
+
+	return set
 }
 func (t *template) FilterBanned(set Set) Set {
 	if _, ok := set[banned]; ok && len(set) > 1 {
