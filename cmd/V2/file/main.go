@@ -15,7 +15,7 @@ import (
 var (
 	cacheLogPath = filepath.Join(utils.RootDir, "dialogue_history.log")
 	workNum      = 5
-	dataDir      = filepath.Join(utils.RootDir, "archive/start")
+	dataDir      = filepath.Join(utils.RootDir, "archive/info/grammar/make_attribution/safe_teach")
 )
 var (
 	bg          = setup.Init()

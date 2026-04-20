@@ -1,10 +1,10 @@
 package template
 
 import (
-	"goldenglow/container"
 	"goldenglow/m"
 	"goldenglow/pkg/container/positioner"
 	"goldenglow/pkg/node"
+	"goldenglow/pkg/repo"
 	"goldenglow/storage"
 )
 
@@ -34,7 +34,7 @@ func (t *template) BanFilter() {
 }
 
 func (t *template) initTemplate() {
-	nodeHash, _ := t.repo.HGet(container.KeyNodeSet)
+	nodeHash, _ := t.repo.HGet(repo.KeyNodeSet)
 
 	nodeHash = t.filter(nodeHash)
 	for nodeValue := range nodeHash {
