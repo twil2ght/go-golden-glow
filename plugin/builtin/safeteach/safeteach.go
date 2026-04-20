@@ -16,9 +16,18 @@ func init() {
 
 var (
 	name = "safeTeach"
+
+	keyMode = "mode"
 )
 
 type safeTeach struct{}
+
+func (s *safeTeach) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler]) {
+	reg.Handlers().Register(name, func(parameters handler.Parameters) {
+		mode, _ := parameters.Get(keyMode)
+		WriteConfig(mode == "on")
+	})
+}
 
 func (s *safeTeach) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 	reg.Handlers().Register(name, func(parameters handler.Parameters) bool {
@@ -35,12 +44,25 @@ func (s *safeTeach) OnRegisterDataGen(gen datagen.Generator) {
 		map[string]string{},
 		datagen.AsChecker,
 	))
+	provider.Add("set", datagen.NewData(
+		[]string{"[mode] $1"},
+		[]string{},
+		map[string]string{
+			keyMode: "$1",
+		},
+		datagen.AsExecutor,
+	))
 	gen.AddProvider(name, provider)
 }
 
 func (s *safeTeach) Init() {}
 
 func (s *safeTeach) Shutdown() {}
+
+type Mode struct {
+	Teach bool `json:"teach"`
+}
+
 func ReadConfig() (ok bool, mode bool) {
 	jsonFile := utils.FindAllJsonFiles(filepath.Join(utils.RootDir, "config/safeTeach.json"))
 	if len(jsonFile) == 0 {
@@ -50,13 +72,22 @@ func ReadConfig() (ok bool, mode bool) {
 	if err != nil {
 		return false, false
 	}
-	type Mode struct {
-		Teach bool `json:"teach"`
-	}
+
 	var m Mode
 	err = json.Unmarshal(content, &m)
 	if err != nil {
 		return false, false
 	}
 	return true, m.Teach
+}
+func WriteConfig(mode bool) {
+	var m = Mode{Teach: mode}
+	content, err := json.MarshalIndent(m, "", "  ")
+	if err != nil {
+		return
+	}
+	err = os.WriteFile(filepath.Join(utils.RootDir, "config/safeTeach.json"), content, 0644)
+	if err != nil {
+		return
+	}
 }
