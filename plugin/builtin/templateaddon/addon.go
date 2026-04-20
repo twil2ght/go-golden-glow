@@ -15,9 +15,6 @@ type addon struct {
 }
 
 func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
-	mgr.Register("", func(original, template node.Interface) bool {
-		return false
-	})
 	nodeValueSet, err := a.repo.HGet(repo.KeyNodeSet)
 	if err != nil {
 		return
@@ -25,7 +22,7 @@ func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
 	if nodeValueSet == nil {
 		return
 	}
-	var (
+	const (
 		tplToAvoid = "Zero says if $1 to Susie"
 	)
 	for nodeValue := range nodeValueSet {
@@ -35,5 +32,4 @@ func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
 			})
 		}
 	}
-
 }
