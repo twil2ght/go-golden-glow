@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"goldenglow/config"
-	"goldenglow/lang"
 	"goldenglow/m"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
@@ -154,10 +153,6 @@ func (b *builder) build(output string) error {
 	logger.Debug("Builder:start build", "inputs", b.input, "output", output)
 	return nil
 }
-func (b *builder) OnRegisterLang(reg lang.Registry) error {
-	return reg.Register(pluginName)
-}
-
 func NewBuilderPlugin(saver repo.Service) plugin.Interface {
 	return &builder{
 		saver:   saver,
