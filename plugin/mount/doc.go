@@ -3,4 +3,5 @@ package mount
 
 import (
 	_ "goldenglow/plugin/builtin/builder"
+	_ "goldenglow/plugin/builtin/safeteach"
 )

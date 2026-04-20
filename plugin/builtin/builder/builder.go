@@ -185,6 +185,5 @@ func (b *builder) Setup() error {
 	if err != nil {
 		return fmt.Errorf("unmarshal mapping file: %v", err)
 	}
-	logger.Info("Builder:Setup Done", "mapping", b.mapping)
 	return nil
 }

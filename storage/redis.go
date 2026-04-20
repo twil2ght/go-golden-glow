@@ -197,7 +197,6 @@ func (r *redisRepository) Init() error {
 		return err
 	}
 
-	logger.Info("Initialized Redis data store", "hdata_length", len(r.HData))
 	return nil
 }
 

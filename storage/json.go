@@ -133,8 +133,6 @@ func (j *jsonRepository) Init() error {
 		logger.Error("Failed to unmarshal JSON data file", "error", err)
 		return err
 	}
-
-	logger.Info("Initialized JSON data store", "hdata_length", len(j.HData), "data_length", len(j.Data))
 	return nil
 }
 
