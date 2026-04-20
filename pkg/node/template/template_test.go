@@ -185,6 +185,16 @@ func TestCore_Get(t *testing.T) {
 			wantCount:   1,
 			givenVars:   map[string]string{"$1": "18", "$2": "19"},
 		},
+		{
+			name: "real data test v3",
+			templates: m.Hash{
+				"[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": struct{}{},
+			},
+			targetValue: "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]",
+			wantErr:     false,
+			wantCount:   1,
+			givenVars:   map[string]string{"$1": "18"},
+		},
 	}
 
 	for _, tt := range tests {

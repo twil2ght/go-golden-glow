@@ -41,7 +41,7 @@ func (r *runner) Run(ctx context.Context) {
 		go r.worker(i)
 	}
 
-	go r.watchIdle(ctx, 1*time.Second, 500*time.Millisecond)
+	go r.watchIdle(ctx, 1*time.Second, 100*time.Millisecond)
 
 	r.wg.Wait()
 }

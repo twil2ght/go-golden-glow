@@ -51,7 +51,9 @@ func (t *template) filter(nodeHash m.Hash) m.Hash {
 	for nv := range nodeHash {
 		n := t.factory.Create(nv)
 		if cHash := t.positioner.ContainerOf(n); len(cHash) == 0 {
-			delete(nodeHash, nv)
+			if _, ok := n.(*node.Node); ok {
+				delete(nodeHash, nv)
+			}
 		}
 	}
 	return nodeHash
