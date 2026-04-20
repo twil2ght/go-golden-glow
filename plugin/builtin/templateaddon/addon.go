@@ -22,14 +22,18 @@ func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
 	if nodeValueSet == nil {
 		return
 	}
-	const (
-		tplToAvoid = "Zero says if $1 to Susie"
-	)
+
 	for nodeValue := range nodeValueSet {
-		if ok, _ := template.MatchTemplate(nodeValue, tplToAvoid); ok {
-			mgr.Register(nodeValue, func(original, tpl node.Interface) bool {
-				return tpl.Value() == tplToAvoid
-			})
+		for _, tplToAvoid := range loadAllTplToAvoid() {
+			if ok, _ := template.MatchTemplate(nodeValue, tplToAvoid); ok {
+				tplToAvoid := tplToAvoid
+				mgr.Register(nodeValue, func(original, tpl node.Interface) bool {
+					return tpl.Value() == tplToAvoid
+				})
+			}
 		}
 	}
+}
+func loadAllTplToAvoid() []string {
+	return []string{"Zero says if $1 to Susie"}
 }
