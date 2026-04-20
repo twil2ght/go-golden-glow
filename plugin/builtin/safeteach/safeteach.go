@@ -20,7 +20,7 @@ var (
 
 type safeTeach struct{}
 
-func (s *safeTeach) OnCheckExecutor(reg handler.Executor[handler.CheckHandler]) {
+func (s *safeTeach) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 	reg.Handlers().Register(name, func(parameters handler.Parameters) bool {
 		_, mode := ReadConfig()
 		return mode

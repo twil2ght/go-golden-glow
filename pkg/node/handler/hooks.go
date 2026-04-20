@@ -4,8 +4,8 @@ type ExecuteHook interface {
 	OnRegisterExecutor(reg Executor[ExecuteHandler])
 }
 type CheckHook interface {
-	OnCheckExecutor(reg Executor[CheckHandler])
+	OnRegisterChecker(reg Executor[CheckHandler])
 }
 type ExtractHook interface {
-	OnExtractExecutor(reg Executor[ExtractorHandler])
+	OnRegisterExtractor(reg Executor[ExtractorHandler])
 }

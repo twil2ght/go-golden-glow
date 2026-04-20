@@ -93,7 +93,6 @@ func New(k, v string) Item {
 
 // valueMapItem implements ValueMap interface
 type valueMapItem struct {
-	Item
 	hash m.Hash
 }
 
@@ -102,12 +101,8 @@ func (s *valueMapItem) Get() m.Hash {
 }
 
 // NewValueMap creates a new variable item with a state hub
-func NewValueMap(k, v string, values m.Hash) ValueMap {
-	if k == "" {
-		k = "you get an empty key"
-	}
+func NewValueMap(values m.Hash) ValueMap {
 	return &valueMapItem{
-		Item: New(k, v),
 		hash: values,
 	}
 }

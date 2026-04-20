@@ -35,10 +35,10 @@ func Init() *Background {
 			e.OnRegisterExecutor(executor)
 		}
 		if e, ok := item.(handler.CheckHook); ok {
-			e.OnCheckExecutor(checker)
+			e.OnRegisterChecker(checker)
 		}
 		if e, ok := item.(handler.ExtractHook); ok {
-			e.OnExtractExecutor(extractor)
+			e.OnRegisterExtractor(extractor)
 		}
 		if e, ok := item.(messageQueue.MsgQueueHook); ok {
 			e.OnRegisterMsgProvider(msgQueueMgr)
