@@ -36,7 +36,7 @@ func (t *template) BanFilter() {
 func (t *template) initTemplate() {
 	nodeHash, _ := t.repo.HGet(repo.KeyNodeSet)
 
-	nodeHash = t.filter(nodeHash)
+	nodeHash = t.PreFilter(nodeHash)
 	for nodeValue := range nodeHash {
 		n := t.factory.Create(nodeValue)
 		if n != nil {
@@ -44,7 +44,7 @@ func (t *template) initTemplate() {
 		}
 	}
 }
-func (t *template) filter(nodeHash m.Hash) m.Hash {
+func (t *template) PreFilter(nodeHash m.Hash) m.Hash {
 	if t.banFilter {
 		return nodeHash
 	}
@@ -60,10 +60,8 @@ func (t *template) filter(nodeHash m.Hash) m.Hash {
 }
 func (t *template) GetTemplate(n node.Interface, state string) Set {
 	matches := make(Set)
-	if !AllowedToGetTemplate(n) {
-		return matches
-	}
 	t.initTemplate()
+	t.templates = MidFilter(n, t.templates)
 	raw := n.ToTextWithNoVars(state)
 	for key, e := range DeConflicted(n, t.templates) {
 		if ok, vars := matchTemplate(raw, e.Value()); ok {
@@ -71,13 +69,18 @@ func (t *template) GetTemplate(n node.Interface, state string) Set {
 			matches[key] = e
 		}
 	}
-	return t.FilterBanned(matches)
+	return PostFilter(matches)
 }
-func AllowedToGetTemplate(n node.Interface) bool {
-	if _, ok := n.(*node.Node); ok {
-		return true
+func MidFilter(n node.Interface, set Set) Set {
+	var isDefault bool
+	_, isDefault = n.(*node.Node)
+	for nv := range set {
+		_, typeOK := set[nv].(*node.Node)
+		if typeOK != isDefault {
+			delete(set, nv)
+		}
 	}
-	return false
+	return set
 }
 func DeConflicted(n node.Interface, set Set) Set {
 	conflictSet, _ := DefaultConflictManager.Get(n.Value())
@@ -94,7 +97,7 @@ func DeConflicted(n node.Interface, set Set) Set {
 
 	return set
 }
-func (t *template) FilterBanned(set Set) Set {
+func PostFilter(set Set) Set {
 	if _, ok := set[banned]; ok && len(set) > 1 {
 		delete(set, banned)
 	}
