@@ -60,6 +60,9 @@ func (t *template) filter(nodeHash m.Hash) m.Hash {
 }
 func (t *template) GetTemplate(n node.Interface, state string) Set {
 	matches := make(Set)
+	if !AllowedToGetTemplate(n) {
+		return matches
+	}
 	t.initTemplate()
 	raw := n.ToTextWithNoVars(state)
 	for key, e := range t.templates {
@@ -69,6 +72,12 @@ func (t *template) GetTemplate(n node.Interface, state string) Set {
 		}
 	}
 	return t.FilterBanned(matches)
+}
+func AllowedToGetTemplate(n node.Interface) bool {
+	if _, ok := n.(*node.Node); ok {
+		return true
+	}
+	return false
 }
 func (t *template) FilterBanned(set Set) Set {
 	if _, ok := set[banned]; ok && len(set) > 1 {
