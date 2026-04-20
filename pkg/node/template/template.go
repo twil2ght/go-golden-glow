@@ -64,7 +64,7 @@ func (t *template) GetTemplate(n node.Interface, state string) Set {
 	t.templates = MidFilter(n, t.templates)
 	raw := n.ToTextWithNoVars(state)
 	for key, e := range DeConflicted(n, t.templates) {
-		if ok, vars := matchTemplate(raw, e.Value()); ok {
+		if ok, vars := MatchTemplate(raw, e.Value()); ok {
 			e.VarSetRegistry().Register(raw, vars)
 			matches[key] = e
 		}

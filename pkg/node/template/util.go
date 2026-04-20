@@ -24,7 +24,7 @@ func segment(tpl string) []string {
 	}
 	return segments
 }
-func matchTemplate(target, template string) (bool, variable.Set) {
+func MatchTemplate(target, template string) (bool, variable.Set) {
 	if template == "" {
 		return false, nil
 	}
