@@ -1,9 +1,26 @@
 package template
 
-import "goldenglow/pkg/registry"
+import (
+	"goldenglow/pkg/node"
+	"goldenglow/pkg/registry"
+)
 
-type ConflictSet[T comparable] map[T]map[T]struct{}
+type ConflictRule func(original, template node.Interface) bool
+type ConflictManager interface {
+	Register(valueOfOriginalNode string, rule ConflictRule)
+	registry.Interface[ConflictRule]
+}
+type manager struct {
+	registry.Interface[ConflictRule]
+}
+
+func (m *manager) Register(valueOfOriginalNode string, rule ConflictRule) {
+	m.Interface.Register(valueOfOriginalNode, rule)
+}
+func NewConflictManager() ConflictManager {
+	return &manager{registry.New[ConflictRule]()}
+}
 
 var (
-	DefaultConflictManager = registry.New[ConflictSet[string]]()
+	DefaultConflictManager = NewConflictManager()
 )

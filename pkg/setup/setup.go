@@ -6,6 +6,7 @@ import (
 	"goldenglow/pkg/messageQueue"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/node/handler"
+	"goldenglow/pkg/node/template"
 	"goldenglow/plugin"
 	_ "goldenglow/plugin/mount"
 	"goldenglow/storage"
@@ -29,6 +30,7 @@ func Init() *Background {
 		dataGen     = datagen.NewGenerator()
 		dataLoader  = dataloader.Default()
 		nodeFactory = node.DefaultFactory
+		conflictMgr = template.DefaultConflictManager
 	)
 	pluginMgr.Range(func(key string, item plugin.Interface) bool {
 		if e, ok := item.(handler.ExecuteHook); ok {
@@ -45,6 +47,9 @@ func Init() *Background {
 		}
 		if e, ok := item.(datagen.Hook); ok {
 			e.OnRegisterDataGen(dataGen)
+		}
+		if e, ok := item.(template.Hook); ok {
+			e.OnRegisterConflictRule(conflictMgr)
 		}
 		item.Init()
 		return true

@@ -83,14 +83,14 @@ func MidFilter(n node.Interface, set Set) Set {
 	return set
 }
 func DeConflicted(n node.Interface, set Set) Set {
-	conflictSet, _ := DefaultConflictManager.Get(n.Value())
+	conflictRule, _ := DefaultConflictManager.Get(n.Value())
 
-	if conflictSet == nil {
+	if conflictRule == nil {
 		return set
 	}
 
 	for key := range set {
-		if _, ok := conflictSet[key]; ok {
+		if conflictRule(n, set[key]) {
 			delete(set, key)
 		}
 	}
