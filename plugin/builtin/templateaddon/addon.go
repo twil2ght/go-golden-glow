@@ -15,6 +15,14 @@ import (
 	"path/filepath"
 )
 
+func init() {
+	plugin.DefaultManager.Register(name, New(storage.DefaultJSONRepo()))
+}
+
+var (
+	name = "template_addon"
+)
+
 type addon struct {
 	repo storage.Repository
 }
