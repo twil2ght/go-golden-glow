@@ -63,12 +63,12 @@ type Mode struct {
 	Teach bool `json:"teach"`
 }
 
+var (
+	path = filepath.Join(utils.RootDir, "config/safeTeach.json")
+)
+
 func ReadConfig() (ok bool, mode bool) {
-	jsonFile := utils.FindAllJsonFiles(filepath.Join(utils.RootDir, "config/safeTeach.json"))
-	if len(jsonFile) == 0 {
-		return false, false
-	}
-	content, err := os.ReadFile(jsonFile[0])
+	content, err := os.ReadFile(path)
 	if err != nil {
 		return false, false
 	}
@@ -86,7 +86,7 @@ func WriteConfig(mode bool) {
 	if err != nil {
 		return
 	}
-	err = os.WriteFile(filepath.Join(utils.RootDir, "config/safeTeach.json"), content, 0644)
+	err = os.WriteFile(path, content, 0644)
 	if err != nil {
 		return
 	}
