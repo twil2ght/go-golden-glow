@@ -8,10 +8,6 @@ import (
 	"goldenglow/storage"
 )
 
-var (
-	banned = "$1 is $2"
-)
-
 type Set m.Map[node.Interface]
 type Interface interface {
 	GetTemplate(n node.Interface, state string) Set
@@ -63,7 +59,7 @@ func (t *template) GetTemplate(n node.Interface, state string) Set {
 	t.initTemplate()
 	t.templates = MidFilter(n, t.templates)
 	raw := n.ToTextWithNoVars(state)
-	for key, e := range DeConflicted(n, t.templates) {
+	for key, e := range t.templates {
 		if ok, vars := MatchTemplate(raw, e.Value()); ok {
 			e.VarSetRegistry().Register(raw, vars)
 			matches[key] = e
@@ -82,24 +78,12 @@ func MidFilter(n node.Interface, set Set) Set {
 	}
 	return set
 }
-func DeConflicted(n node.Interface, set Set) Set {
-	conflictRule, _ := DefaultConflictManager.Get(n.Value())
-
-	if conflictRule == nil {
-		return set
-	}
-
-	for key := range set {
-		if conflictRule(n, set[key]) {
-			delete(set, key)
-		}
-	}
-
-	return set
-}
 func PostFilter(set Set) Set {
-	if _, ok := set[banned]; ok && len(set) > 1 {
-		delete(set, banned)
+	for key := range set {
+		conflictRule, _ := DefaultConflictManager.Get(key)
+		if conflictRule != nil {
+			conflictRule(set[key], set)
+		}
 	}
 	return set
 }

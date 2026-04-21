@@ -5,7 +5,7 @@ import (
 	"goldenglow/pkg/registry"
 )
 
-type ConflictRule func(origin, tpl node.Interface) bool
+type ConflictRule func(origin node.Interface, tplSet Set)
 type ConflictManager interface {
 	Register(valueOfOriginalNode string, rule ConflictRule)
 	registry.Interface[ConflictRule]
