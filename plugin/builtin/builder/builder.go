@@ -25,6 +25,8 @@ const (
 	keyValue = "value"
 	keyMode  = "mode"
 	keyType  = "type"
+
+	testing = true
 )
 
 var logger = log.Default()
@@ -149,7 +151,9 @@ func (b *builder) build(output string) error {
 	if len(b.input) == 0 {
 		return fmt.Errorf("no input")
 	}
-	b.saver.Save(m.ToHash(b.input), m.ToHash([]string{output}))
+	if !testing {
+		b.saver.Save(m.ToHash(b.input), m.ToHash([]string{output}))
+	}
 	logger.Debug("Builder:start build", "inputs", b.input, "output", output)
 	return nil
 }
