@@ -80,11 +80,16 @@ func MidFilter(n node.Interface, set Set) Set {
 }
 func PostFilter(set Set) Set {
 	for key := range set {
+		//log.Default().Debug("checking conflict rule", "node", key)
 		conflictRule, _ := DefaultConflictManager.Get(key)
 		if conflictRule != nil {
+			//log.Default().Debug("applying conflict rule", "node", key)
 			conflictRule(set[key], set)
 		}
 	}
+	//for key := range set {
+	//	log.Default().Debug("remaining node", "node", key)
+	//}
 	return set
 }
 func New(repo storage.Repository, factory node.Factory, positioner Positioner) Interface {

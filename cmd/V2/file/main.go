@@ -15,7 +15,7 @@ import (
 var (
 	cacheLogPath = filepath.Join(utils.RootDir, "dialogue_history.log")
 	workNum      = 5
-	dataDir      = filepath.Join(utils.RootDir, "archive/logic/make_connection")
+	dataDir      = filepath.Join(utils.RootDir, "knowledge/say_hello/hello")
 )
 var (
 	bg          = setup.Init()

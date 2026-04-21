@@ -47,6 +47,7 @@ func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
 			}
 			if ok, _ := template.MatchTemplate(nodeValue, tplToAvoid); ok {
 				tplToAvoid := tplToAvoid
+				//log.Default().Info("register conflict rule", "origin", nodeValue, "tplToAvoid", tplToAvoid)
 				mgr.Register(nodeValue, func(origin node.Interface, tplSet template.Set) {
 					delete(tplSet, tplToAvoid)
 				})
