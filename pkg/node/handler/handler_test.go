@@ -131,7 +131,7 @@ func TestExtractor_Extract(t *testing.T) {
 	}
 
 	ext.handlers.Register("test_handler", func(params Parameters) variable.ValueMap {
-		return variable.NewValueMap("test_var", "test_value", make(m.Hash))
+		return variable.NewValueMap(m.Hash{"test_var": struct{}{}, "test_value": struct{}{}})
 	})
 
 	result := ext.Extract("some_state")
