@@ -8,9 +8,12 @@ import (
 
 // getCompatibleSets
 func getCompatibleSets(n node.Interface, base variable.Set) ([]variable.Set, bool) {
+	if len(n.VarKeys()) == 0 {
+		return nil, true
+	}
 	registryN := n.VarSetRegistry()
 	if registryN.Len() == 0 {
-		return nil, true
+		return nil, false
 	}
 
 	var res []variable.Set
@@ -71,9 +74,12 @@ func mergeVariables(
 
 	baseVars := variable.Copy(varSet)
 
-	startNode, startSets := findStart(nodes, baseVars)
+	startNode, startSets, valid := findStart(nodes, baseVars)
 	if startNode == nil || len(startSets) == 0 {
 		// no node has varSet ->legal
+		if !valid {
+			return false
+		}
 		return true
 	}
 
@@ -121,12 +127,16 @@ func mergeVariables(
 }
 
 // findStart finds the first node that has varSet if it exists
-func findStart(nodes []node.Interface, baseVars variable.Set) (node.Interface, []variable.Set) {
+func findStart(nodes []node.Interface, baseVars variable.Set) (node.Interface, []variable.Set, bool) {
+	var hasValidItem bool
 	for _, n := range nodes {
-		sets, _ := getCompatibleSets(n, baseVars)
-		if len(sets) > 0 {
-			return n, sets
+		sets, valid := getCompatibleSets(n, baseVars)
+		if valid {
+			hasValidItem = true
+			if len(sets) > 0 {
+				return n, sets, true
+			}
 		}
 	}
-	return nil, nil
+	return nil, nil, hasValidItem
 }

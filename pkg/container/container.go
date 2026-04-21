@@ -99,7 +99,9 @@ func (c *container) handlerExtractor(t node.Interface) bool {
 func (c *container) getStateFromVarSetOfContainer(keys []string) (string, variable.Set) {
 	varSet := make(variable.Set)
 	for _, key := range keys {
-		varSet[key] = c.varSet[key]
+		if e, ok := c.varSet[key]; ok {
+			varSet[key] = e
+		}
 	}
 	return node.GenVariableState(varSet), varSet
 }
