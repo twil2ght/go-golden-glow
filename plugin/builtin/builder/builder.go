@@ -54,7 +54,7 @@ type builder struct {
 func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	provider.Add("input", datagen.NewData(
-		[]string{fmt.Sprintf("%s says [input] $1 to %s", config.User, config.GG)},
+		[]string{fmt.Sprintf("%s says to %s : [input] $1", config.User, config.GG)},
 		[]string{},
 		map[string]string{
 			keyValue: "$1",
@@ -74,7 +74,7 @@ func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExecutor,
 	))
 	provider.Add("output", datagen.NewData(
-		[]string{fmt.Sprintf("%s says [output] $1 to %s", config.User, config.GG)},
+		[]string{fmt.Sprintf("%s says to %s : [output] $1", config.User, config.GG)},
 		[]string{},
 		map[string]string{
 			keyValue: "$1",
