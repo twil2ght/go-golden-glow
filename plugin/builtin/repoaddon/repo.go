@@ -14,8 +14,9 @@ func init() {
 }
 
 const (
-	name    = "repo_addon"
-	testing = true
+	name     = "repo_addon"
+	nameFail = "repo_addon_fail"
+	testing  = true
 	// parameter keys
 	keyKey        = "key"
 	keyValue      = "value"
@@ -33,6 +34,7 @@ func (s *addon) Shutdown() {}
 
 func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
+	providerFail := datagen.NewProvider()
 	provider.Add("get_value", datagen.NewData(
 		[]string{"[repo] get $1"},
 		[]string{"[repo] $1 -> $2"},
@@ -70,7 +72,26 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsChecker,
 	))
+	providerFail.Add("get_value_not_exists", datagen.NewData(
+		[]string{"[repo] get $1"},
+		[]string{"[repo] $1 ->"},
+		map[string]string{
+			keyKey:  "$1",
+			keyDist: "$2",
+		},
+		datagen.AsChecker,
+	))
+	providerFail.Add("check_value_not_exists", datagen.NewData(
+		[]string{"[repo] check $1 -> $2"},
+		[]string{"[repo] $1 !-> $2"},
+		map[string]string{
+			keyKey:   "$1",
+			keyValue: "$2",
+		},
+		datagen.AsChecker,
+	))
 	gen.AddProvider(name, provider)
+	gen.AddProvider(nameFail, providerFail)
 }
 
 func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler]) {
@@ -100,6 +121,21 @@ func (s *addon) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 		}
 		_, ok := valueMap[val]
 		return ok
+	})
+	reg.Handlers().Register(nameFail, func(parameters handler.Parameters) bool {
+		var (
+			key, _  = parameters.Get(keyKey)
+			val, _  = parameters.Get(keyValue)
+			dist, _ = parameters.Get(keyDist)
+		)
+		//dist!="": check if the map is empty
+		//val!="": check if the value does not exist
+		valueMap, _ := s.repo.HGet(key)
+		if len(valueMap) == 0 {
+			return true
+		}
+		_, ok := valueMap[val]
+		return dist == "" && !ok
 	})
 }
 
