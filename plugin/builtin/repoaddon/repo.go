@@ -35,7 +35,7 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	provider.Add("get_value", datagen.NewData(
 		[]string{"[repo] get $1"},
-		[]string{"[repo] $1 = $2"},
+		[]string{"[repo] $1 -> $2"},
 		map[string]string{
 			keyKey:  "$1",
 			keyDist: "$2",
@@ -43,7 +43,7 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExtractor,
 	))
 	provider.Add("set_value", datagen.NewData(
-		[]string{"[repo] set $1 to $2"},
+		[]string{"[repo] set $1 -> $2"},
 		[]string{},
 		map[string]string{
 			keyKey:   "$1",
@@ -52,7 +52,7 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExecutor,
 	))
 	provider.Add("set_value_with_expiration", datagen.NewData(
-		[]string{"[repo] set $1 to $2 for $3"},
+		[]string{"[repo] set $1 -> $2 @ $3"},
 		[]string{},
 		map[string]string{
 			keyKey:        "$1",
@@ -62,8 +62,8 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExecutor,
 	))
 	provider.Add("check_value", datagen.NewData(
-		[]string{"[repo] check $1 = $2"},
-		[]string{"[repo] $1 = $2"},
+		[]string{"[repo] check $1 -> $2"},
+		[]string{"[repo] $1 -> $2"},
 		map[string]string{
 			keyKey:   "$1",
 			keyValue: "$2",
