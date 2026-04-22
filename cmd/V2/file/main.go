@@ -13,9 +13,9 @@ import (
 )
 
 var (
-	cacheLogPath = filepath.Join(utils.RootDir, "dialogue_history.log")
+	cacheLogPath = RelPath("dialogue_history.log")
 	workNum      = 5
-	dataDir      = filepath.Join(utils.RootDir, "knowledge/say_hello/hello")
+	dataDir      = RelPath("archive/logic/make_attribution/safe_teach/test")
 )
 var (
 	bg          = setup.Init()
@@ -26,9 +26,21 @@ var (
 )
 
 func main() {
+	//Init()
+	Run(dataDir)
+}
+func Init() {
+	Run(
+		RelPath("archive/start"),
+		RelPath("archive/logic/safe_teach"),
+	)
+}
+func Run(dataDir ...string) {
 	go consumer.Run(ctx)
 	go func() {
-		file.Run(dataDir)
+		for _, dir := range dataDir {
+			file.Run(dir)
+		}
 		for {
 			if msgQueue.Len() == 0 {
 				cancel()
@@ -40,4 +52,7 @@ func main() {
 	<-ctx.Done()
 	_ = storage.DefaultJSONRepo().Shutdown()
 	_ = storage.DefaultRedisRepo().Shutdown()
+}
+func RelPath(path string) string {
+	return filepath.Join(utils.RootDir, path)
 }
