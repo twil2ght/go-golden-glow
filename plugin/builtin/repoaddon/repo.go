@@ -2,6 +2,7 @@ package repoaddon
 
 import (
 	"goldenglow/pkg/datagen"
+	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
 	"goldenglow/plugin"
 	"goldenglow/storage"
@@ -13,8 +14,8 @@ func init() {
 }
 
 const (
-	name = "repo_addon"
-
+	name    = "repo_addon"
+	testing = true
 	// parameter keys
 	keyKey        = "key"
 	keyValue      = "value"
@@ -79,6 +80,10 @@ func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler])
 			value, _      = parameters.Get(keyValue)
 			expiration, _ = parameters.Get(keyExpiration)
 		)
+		if testing {
+			log.Default().Info("[repo] set", key, value)
+			return
+		}
 		_ = s.repo.Set(key, value, expiration)
 	})
 }
