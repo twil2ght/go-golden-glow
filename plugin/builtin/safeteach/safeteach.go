@@ -17,40 +17,61 @@ func init() {
 var (
 	name = "safeTeach"
 
-	keyMode = "mode"
+	keyKey   = "key"
+	keyValue = "value"
 )
 
 type safeTeach struct{}
 
 func (s *safeTeach) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler]) {
 	reg.Handlers().Register(name, func(parameters handler.Parameters) {
-		mode, _ := parameters.Get(keyMode)
-		WriteConfig(mode == "on")
+		var (
+			key, _   = parameters.Get(keyKey)
+			value, _ = parameters.Get(keyValue)
+			cfg, _   = ReadConfig()
+		)
+		cfg[key] = value == "on"
+		WriteConfig(cfg)
 	})
 }
 
 func (s *safeTeach) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 	reg.Handlers().Register(name, func(parameters handler.Parameters) bool {
-		_, mode := ReadConfig()
-		return mode
+		var (
+			cfg, _ = ReadConfig()
+			key, _ = parameters.Get(keyKey)
+		)
+
+		return cfg[key]
 	})
 }
 
 func (s *safeTeach) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
-	provider.Add("mode", datagen.NewData(
-		[]string{"check [mode]"},
-		[]string{"Zero starts to teach Susie"},
-		map[string]string{},
-		datagen.AsChecker,
-	))
 	provider.Add("set", datagen.NewData(
-		[]string{"[mode] $1"},
+		[]string{"[ST] $1 -> $2"},
 		[]string{},
 		map[string]string{
-			keyMode: "$1",
+			keyKey:   "$1",
+			keyValue: "$2",
 		},
 		datagen.AsExecutor,
+	))
+	provider.Add("teach", datagen.NewData(
+		[]string{"check [teach]"},
+		[]string{"Zero starts to teach Susie"},
+		map[string]string{
+			keyKey: "teach",
+		},
+		datagen.AsChecker,
+	))
+	provider.Add("ask", datagen.NewData(
+		[]string{"check [ask]"},
+		[]string{"Susie is enabled to ask Zero questions"},
+		map[string]string{
+			keyKey: "ask",
+		},
+		datagen.AsChecker,
 	))
 	gen.AddProvider(name, provider)
 }
@@ -59,30 +80,27 @@ func (s *safeTeach) Init() {}
 
 func (s *safeTeach) Shutdown() {}
 
-type Mode struct {
-	Teach bool `json:"teach"`
-}
+type Config map[string]bool
 
 var (
 	path = filepath.Join(utils.RootDir, "config/safeTeach.json")
 )
 
-func ReadConfig() (ok bool, mode bool) {
+func ReadConfig() (mode Config, ok bool) {
 	content, err := os.ReadFile(path)
 	if err != nil {
-		return false, false
+		return Config{}, false
 	}
 
-	var m Mode
+	var m Config
 	err = json.Unmarshal(content, &m)
 	if err != nil {
-		return false, false
+		return Config{}, false
 	}
-	return true, m.Teach
+	return m, true
 }
-func WriteConfig(mode bool) {
-	var m = Mode{Teach: mode}
-	content, err := json.MarshalIndent(m, "", "  ")
+func WriteConfig(config Config) {
+	content, err := json.MarshalIndent(config, "", "  ")
 	if err != nil {
 		return
 	}
