@@ -47,6 +47,9 @@ type mockFactory struct {
 	created map[string]node.Interface
 }
 
+func (mf *mockFactory) Reset() {
+}
+
 func (mf *mockFactory) Create(value string) node.Interface {
 	if n, ok := mf.created[value]; ok {
 		return n
@@ -64,6 +67,14 @@ func (mf *mockFactory) CreatorRegistry() registry.Interface[node.Creator] {
 // mockNode implements node.Interface for testing
 type mockNode struct {
 	value string
+}
+
+func (mn *mockNode) Activate() {
+
+}
+
+func (mn *mockNode) IsActivated() bool {
+	return true
 }
 
 func (mn *mockNode) Execute(state string)                 {}

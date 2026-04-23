@@ -10,6 +10,7 @@ type Creator func(value string) Interface
 type Factory interface {
 	Create(value string) Interface
 	CreatorRegistry() registry.Interface[Creator]
+	Reset()
 }
 type factory struct {
 	creators registry.Interface[Creator]
@@ -36,7 +37,11 @@ func (f *factory) Create(value string) Interface {
 	f.items.Register(value, item)
 	return item
 }
-
+func (f *factory) Reset() {
+	f.mu.Lock()
+	defer f.mu.Unlock()
+	f.items = registry.New[Interface]()
+}
 func NewFactory() Factory {
 	return &factory{
 		creators: registry.New[Creator](),
