@@ -2,8 +2,8 @@ package positioner
 
 import (
 	"goldenglow/m"
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/node"
-	"goldenglow/storage"
 	"goldenglow/utils"
 )
 
@@ -15,7 +15,7 @@ type Interface interface {
 	ContainerOf(node.Interface) m.Hash
 }
 type positioner struct {
-	repo storage.Repository
+	repo database.Repository
 }
 
 func (p *positioner) ContainerOf(n node.Interface) m.Hash {
@@ -28,7 +28,7 @@ func (p *positioner) ContainerOf(n node.Interface) m.Hash {
 	}
 	return hashValue
 }
-func New(repo storage.Repository) Interface {
+func New(repo database.Repository) Interface {
 	if err := utils.NotNull("repo", repo); err != nil {
 		return nil
 	}
@@ -37,5 +37,5 @@ func New(repo storage.Repository) Interface {
 	}
 }
 func Default() Interface {
-	return New(storage.DefaultJSONRepo())
+	return New(database.DefaultJSONRepo())
 }

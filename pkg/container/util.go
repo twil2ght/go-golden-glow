@@ -3,7 +3,7 @@ package container
 import (
 	"goldenglow/m"
 	"goldenglow/pkg/node"
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 )
 
 // getCompatibleSets

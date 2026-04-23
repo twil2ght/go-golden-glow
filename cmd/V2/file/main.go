@@ -2,11 +2,11 @@ package main
 
 import (
 	"context"
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/messageQueue"
 	"goldenglow/pkg/runner"
 	"goldenglow/pkg/setup"
 	"goldenglow/pkg/userInput"
-	"goldenglow/storage"
 	"goldenglow/utils"
 	"path/filepath"
 	"time"
@@ -15,7 +15,7 @@ import (
 var (
 	cacheLogPath = RelPath("dialogue_history.log")
 	workNum      = 5
-	dataDir      = RelPath("archive/logic/make_attribution/safe_teach/test")
+	dataDir      = RelPath("archive/logic/make_connection/safe_teach/test")
 )
 var (
 	bg          = setup.Init()
@@ -50,8 +50,8 @@ func Run(dataDir ...string) {
 		}
 	}()
 	<-ctx.Done()
-	_ = storage.DefaultJSONRepo().Shutdown()
-	_ = storage.DefaultRedisRepo().Shutdown()
+	_ = database.DefaultJSONRepo().Shutdown()
+	_ = database.DefaultRedisRepo().Shutdown()
 }
 func RelPath(path string) string {
 	return filepath.Join(utils.RootDir, path)

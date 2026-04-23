@@ -1,11 +1,11 @@
-package repo
+package brainsaver
 
 import (
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
 	"goldenglow/m"
-	"goldenglow/storage"
+	"goldenglow/pkg/database"
 	"sort"
 	"strings"
 )
@@ -25,7 +25,7 @@ type Service interface {
 }
 
 type service struct {
-	repo storage.Repository
+	repo database.Repository
 }
 
 func (s *service) Save(tv, rv m.Hash) {
@@ -110,9 +110,9 @@ func sortedKeys(m m.Hash) string {
 	sort.Strings(keys)
 	return strings.Join(keys, ",")
 }
-func NewService(repo storage.Repository) Service {
+func NewService(repo database.Repository) Service {
 	return &service{repo: repo}
 }
 func DefaultService() Service {
-	return NewService(storage.DefaultJSONRepo())
+	return NewService(database.DefaultJSONRepo())
 }

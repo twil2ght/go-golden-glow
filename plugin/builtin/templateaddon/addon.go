@@ -5,18 +5,18 @@ package templateaddon
 
 import (
 	"encoding/json"
+	"goldenglow/pkg/brainsaver"
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/node/template"
-	"goldenglow/pkg/repo"
 	"goldenglow/plugin"
-	"goldenglow/storage"
 	"goldenglow/utils"
 	"os"
 	"path/filepath"
 )
 
 func init() {
-	plugin.DefaultManager.Register(name, New(storage.DefaultJSONRepo()))
+	plugin.DefaultManager.Register(name, New(database.DefaultJSONRepo()))
 }
 
 var (
@@ -24,7 +24,7 @@ var (
 )
 
 type addon struct {
-	repo storage.Repository
+	repo database.Repository
 }
 
 func (a *addon) Init() {}
@@ -32,7 +32,7 @@ func (a *addon) Init() {}
 func (a *addon) Shutdown() {}
 
 func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
-	nodeValueSet, err := a.repo.HGet(repo.KeyNodeSet)
+	nodeValueSet, err := a.repo.HGet(brainsaver.KeyNodeSet)
 	if err != nil {
 		return
 	}
@@ -66,7 +66,7 @@ var (
 	TplListPath = filepath.Join(utils.RootDir, "config", "tpl_to_avoid.json")
 )
 
-func New(repo storage.Repository) plugin.Interface {
+func New(repo database.Repository) plugin.Interface {
 	return &addon{
 		repo: repo,
 	}

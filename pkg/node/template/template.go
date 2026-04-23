@@ -2,10 +2,10 @@ package template
 
 import (
 	"goldenglow/m"
+	"goldenglow/pkg/brainsaver"
 	"goldenglow/pkg/container/positioner"
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/node"
-	"goldenglow/pkg/repo"
-	"goldenglow/storage"
 )
 
 type Set m.Map[node.Interface]
@@ -19,7 +19,7 @@ type Positioner interface {
 }
 type template struct {
 	templates  Set
-	repo       storage.Repository
+	repo       database.Repository
 	factory    node.Factory
 	positioner Positioner
 	banFilter  bool
@@ -30,7 +30,7 @@ func (t *template) BanFilter() {
 }
 
 func (t *template) initTemplate() {
-	nodeHash, _ := t.repo.HGet(repo.KeyNodeSet)
+	nodeHash, _ := t.repo.HGet(brainsaver.KeyNodeSet)
 
 	nodeHash = t.PreFilter(nodeHash)
 	for nodeValue := range nodeHash {
@@ -92,7 +92,7 @@ func PostFilter(set Set) Set {
 	//}
 	return set
 }
-func New(repo storage.Repository, factory node.Factory, positioner Positioner) Interface {
+func New(repo database.Repository, factory node.Factory, positioner Positioner) Interface {
 	return &template{
 		templates:  Set{},
 		factory:    factory,
@@ -102,7 +102,7 @@ func New(repo storage.Repository, factory node.Factory, positioner Positioner) I
 }
 func Default() Interface {
 	return New(
-		storage.DefaultJSONRepo(),
+		database.DefaultJSONRepo(),
 		node.DefaultFactory,
 		positioner.Default(),
 	)

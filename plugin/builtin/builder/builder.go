@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"goldenglow/config"
 	"goldenglow/m"
+	"goldenglow/pkg/brainsaver"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
-	"goldenglow/pkg/repo"
 	"goldenglow/plugin"
 	"goldenglow/utils"
 	"os"
@@ -16,7 +16,7 @@ import (
 )
 
 func init() {
-	plugin.DefaultManager.Register(pluginName, NewBuilderPlugin(repo.DefaultService()))
+	plugin.DefaultManager.Register(pluginName, NewBuilderPlugin(brainsaver.DefaultService()))
 }
 
 const (
@@ -44,7 +44,7 @@ var (
 )
 
 type builder struct {
-	saver       repo.Service
+	saver       brainsaver.Service
 	mapping     map[string]string
 	input       []string
 	inputSingle []string
@@ -157,7 +157,7 @@ func (b *builder) build(output string) error {
 	logger.Debug("Builder:start build", "inputs", b.input, "output", output)
 	return nil
 }
-func NewBuilderPlugin(saver repo.Service) plugin.Interface {
+func NewBuilderPlugin(saver brainsaver.Service) plugin.Interface {
 	return &builder{
 		saver:   saver,
 		mapping: make(map[string]string),

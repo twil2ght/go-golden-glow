@@ -1,6 +1,7 @@
 package setup
 
 import (
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/dataloader"
 	"goldenglow/pkg/messageQueue"
@@ -9,7 +10,6 @@ import (
 	"goldenglow/pkg/node/template"
 	"goldenglow/plugin"
 	_ "goldenglow/plugin/mount"
-	"goldenglow/storage"
 )
 
 type Background struct {
@@ -18,8 +18,8 @@ type Background struct {
 }
 
 func Init() *Background {
-	_ = storage.DefaultJSONRepo().Init()
-	_ = storage.DefaultRedisRepo().Init()
+	_ = database.DefaultJSONRepo().Init()
+	_ = database.DefaultRedisRepo().Init()
 	var (
 		dataDir     = datagen.RootDir
 		pluginMgr   = plugin.DefaultManager

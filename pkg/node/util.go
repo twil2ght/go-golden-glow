@@ -1,7 +1,7 @@
 package node
 
 import (
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 	"sort"
 	"strings"
 )

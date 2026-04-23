@@ -1,4 +1,4 @@
-package storage
+package database
 
 import (
 	"encoding/json"
@@ -14,8 +14,7 @@ import (
 )
 
 var (
-	DefaultRedisPathRoot  = filepath.Join(utils.RootDir, "archive/Data/redis")
-	defaultRedisHDataPath = DefaultRedisPathRoot + "/hash_data.json"
+	defaultRedisHDataPath = filepath.Join(utils.RootDir, "archive/Data/redis/hash_data.json")
 )
 
 type expirableHash map[string]time.Time
@@ -139,7 +138,7 @@ func (r *redisRepository) Set(key, value, expiration string) error {
 	return nil
 }
 
-func (r *redisRepository) Get(key string) (string, error) {
+func (r *redisRepository) Get(_ string) (string, error) {
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 	return "", nil
@@ -165,58 +164,37 @@ func (r *redisRepository) HGet(tag string) (m.Hash, error) {
 }
 
 func (r *redisRepository) Init() error {
-	r.HData = make(map[string]expirableHash)
+	r.mu.Lock()
+	defer r.mu.Unlock()
 
-	err := os.MkdirAll(DefaultRedisPathRoot, 0755)
+	file, err := os.OpenFile(r.HDataPath, os.O_RDONLY|os.O_CREATE, 0644)
 	if err != nil {
-		return err
+		panic(err)
 	}
+	defer func() {
+		_ = file.Close()
+	}()
 
-	// Initialize HData file
-	_, err = os.Stat(r.HDataPath)
-	if os.IsNotExist(err) {
-		emptyData := make(map[string]expirableHash)
-		data, _ := json.MarshalIndent(emptyData, "", "  ")
-		err = os.WriteFile(r.HDataPath, data, 0644)
-		if err != nil {
-			return fmt.Errorf("create empty redis hash file failed: %w", err)
-		}
-		logger.Info("Created new empty Redis hash file", "path", r.HDataPath)
-	} else if err != nil {
-		return err
-	}
-
-	file, err := os.ReadFile(r.HDataPath)
+	stat, err := file.Stat()
 	if err != nil {
-		return err
+		panic(err)
+	}
+	if stat.Size() == 0 {
+		return nil
 	}
 
-	err = json.Unmarshal(file, &r.HData)
-	if err != nil {
-		logger.Error("Failed to unmarshal Redis hash file", "error", err)
-		return err
-	}
-
-	return nil
+	return json.NewDecoder(file).Decode(&r.HData)
 }
 
 func (r *redisRepository) Save() error {
-	err := os.MkdirAll(DefaultRedisPathRoot, 0755)
-	if err != nil {
-		return err
-	}
-	if err := SaveAsJson(r.HDataPath, r.HData); err != nil {
-		return err
-	}
-	return nil
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	return SaveAsJson(r.HDataPath, r.HData)
 }
 func (r *redisRepository) Shutdown() error {
 	return r.Save()
 }
 func NewRedisRepository(HDataPath string) RedisRepository {
-	if HDataPath == "" {
-		HDataPath = defaultRedisHDataPath
-	}
 	repo := &redisRepository{
 		HDataPath: HDataPath,
 		HData:     make(map[string]expirableHash),

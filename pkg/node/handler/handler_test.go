@@ -3,7 +3,7 @@ package handler
 import (
 	"goldenglow/m"
 	"goldenglow/pkg/registry"
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 	"testing"
 )
 

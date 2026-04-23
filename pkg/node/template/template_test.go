@@ -4,7 +4,7 @@ import (
 	"goldenglow/m"
 	"goldenglow/pkg/container/positioner"
 	"goldenglow/pkg/node"
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 	"testing"
 )
 

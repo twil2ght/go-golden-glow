@@ -3,7 +3,7 @@ package handler
 import (
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/registry"
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 )
 
 type Executor[T any] interface {

@@ -4,8 +4,8 @@ import (
 	"goldenglow/m"
 	"goldenglow/pkg/container/fetcher"
 	"goldenglow/pkg/node"
+	"goldenglow/pkg/variable"
 	"goldenglow/utils"
-	"goldenglow/variable"
 )
 
 type Checkable interface {

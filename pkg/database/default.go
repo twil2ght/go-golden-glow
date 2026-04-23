@@ -1,7 +1,7 @@
-package storage
+package database
 
 var (
-	jsonRepoInstance  = NewJSONRepo(defaultJSONHDataPath, defaultJSONDataPath)
+	jsonRepoInstance  = NewJSONRepo(defaultJSONHDataPath)
 	redisRepoInstance = NewRedisRepository(defaultRedisHDataPath)
 )
 

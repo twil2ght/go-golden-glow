@@ -5,11 +5,11 @@ import (
 	"goldenglow/m"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/registry"
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 	"testing"
 )
 
-// mockRepository implements storage.Repository for testing
+// mockRepository implements database.Repository for testing
 type mockRepository struct {
 	data map[string]m.Hash
 }

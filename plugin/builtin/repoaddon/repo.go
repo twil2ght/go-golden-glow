@@ -1,22 +1,22 @@
 package repoaddon
 
 import (
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
+	"goldenglow/pkg/variable"
 	"goldenglow/plugin"
-	"goldenglow/storage"
-	"goldenglow/variable"
 )
 
 func init() {
-	plugin.DefaultManager.Register(name, New(storage.DefaultRedisRepo()))
+	plugin.DefaultManager.Register(name, New(database.DefaultRedisRepo()))
 }
 
 const (
 	name     = "repo_addon"
 	nameFail = "repo_addon_fail"
-	testing  = true
+	testing  = false
 	// parameter keys
 	keyKey        = "key"
 	keyValue      = "value"
@@ -25,7 +25,7 @@ const (
 )
 
 type addon struct {
-	repo storage.RedisRepository
+	repo database.RedisRepository
 }
 
 func (s *addon) Init() {}
@@ -151,7 +151,7 @@ func (s *addon) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 		return variable.NewValueMap(valueMap)
 	})
 }
-func New(repo storage.RedisRepository) plugin.Interface {
+func New(repo database.RedisRepository) plugin.Interface {
 	return &addon{
 		repo: repo,
 	}

@@ -1,13 +1,13 @@
 package container
 
 import (
+	"goldenglow/pkg/variable"
 	"reflect"
 	"testing"
 
 	"goldenglow/m"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/registry"
-	"goldenglow/variable"
 )
 
 func TestGetCompatibleSets(t *testing.T) {

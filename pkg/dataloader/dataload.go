@@ -3,9 +3,9 @@ package dataloader
 import (
 	"encoding/json"
 	"goldenglow/m"
+	"goldenglow/pkg/brainsaver"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
-	"goldenglow/pkg/repo"
 	"goldenglow/utils"
 	"os"
 )
@@ -54,5 +54,5 @@ func New(repo Repo) Interface {
 	}
 }
 func Default() Interface {
-	return New(repo.DefaultService())
+	return New(brainsaver.DefaultService())
 }

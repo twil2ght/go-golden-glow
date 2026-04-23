@@ -1,4 +1,4 @@
-package repo
+package brainsaver
 
 import (
 	"goldenglow/m"

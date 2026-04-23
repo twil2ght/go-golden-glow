@@ -1,7 +1,7 @@
 package template
 
 import (
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 	"regexp"
 	"strings"
 )

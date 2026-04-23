@@ -2,8 +2,8 @@ package fetcher
 
 import (
 	"goldenglow/m"
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/node"
-	"goldenglow/storage"
 	"goldenglow/utils"
 )
 
@@ -17,7 +17,7 @@ type Interface interface {
 	R(hash string) m.Map[node.Interface]
 }
 type fetcher struct {
-	db       storage.Repository
+	db       database.Repository
 	nFactory node.Factory
 }
 
@@ -46,7 +46,7 @@ func (f *fetcher) toNode(tag string) m.Map[node.Interface] {
 	}
 	return nodes
 }
-func New(db storage.Repository, f node.Factory) Interface {
+func New(db database.Repository, f node.Factory) Interface {
 	if err := utils.NotNull("repo", db, "node_factory", f); err != nil {
 		return nil
 	}
@@ -57,7 +57,7 @@ func New(db storage.Repository, f node.Factory) Interface {
 }
 func Default() Interface {
 	return New(
-		storage.DefaultJSONRepo(),
+		database.DefaultJSONRepo(),
 		node.DefaultFactory,
 	)
 }

@@ -2,7 +2,7 @@ package node
 
 import (
 	"goldenglow/pkg/registry"
-	"goldenglow/variable"
+	"goldenglow/pkg/variable"
 	"sync"
 )
 
