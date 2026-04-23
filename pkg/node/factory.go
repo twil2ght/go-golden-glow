@@ -32,7 +32,9 @@ func (f *factory) Create(value string) Interface {
 		f.items.Register(value, item)
 		return item
 	}
-	return New(value)
+	item := New(value)
+	f.items.Register(value, item)
+	return item
 }
 
 func NewFactory() Factory {

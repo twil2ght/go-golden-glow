@@ -42,6 +42,8 @@ func (c *container) Forward(t node.Interface, state string) bool {
 		return false
 	}
 	varSet, _ := t.VarSetRegistry().Get(state)
+	//raw := t.ToTextWithNoVars(state)
+	//log.Default().Debug("[container] forward raw", "raw", raw, "state", t.VarSetRegistry().Len())
 	if !c.findCompatibleVarSet(t, varSet) {
 		return false
 	}
@@ -63,7 +65,7 @@ func (c *container) findCompatibleVarSet(t node.Interface, varSet variable.Set) 
 	if varSet != nil {
 		c.varSet = varSet
 	}
-	return mergeVariables(t, c.t, c.varSet)
+	return mergeVariables(t, c.NormalT(), c.varSet)
 }
 func (c *container) handleSpecialT() bool {
 	for _, t := range c.t {
@@ -137,6 +139,19 @@ func (c *container) FinalResults() {
 
 		c.s[r.Value()] = stateSlice
 	}
+}
+func (c *container) NormalT() m.Map[node.Interface] {
+	normalT := make(m.Map[node.Interface])
+	for _, t := range c.t {
+		var (
+			_, checkable   = t.(Checkable)
+			_, extractable = t.(Extractable)
+		)
+		if !checkable && !extractable {
+			normalT[t.Value()] = t
+		}
+	}
+	return normalT
 }
 
 // New creates a new container

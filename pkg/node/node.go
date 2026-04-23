@@ -12,11 +12,29 @@ type Interface interface {
 	VarKeys() []string
 	ToTextWithNoVars(state string) string
 	VarSetRegistry() registry.Interface[variable.Set]
+	NoState
+}
+type NoState interface {
+	Activate()
+	IsActivated() bool
 }
 type Node struct {
 	value          string
 	varSetRegistry registry.Interface[variable.Set]
 	mu             sync.RWMutex
+	activated      bool
+}
+
+func (n *Node) Activate() {
+	n.mu.Lock()
+	defer n.mu.Unlock()
+	n.activated = true
+}
+
+func (n *Node) IsActivated() bool {
+	n.mu.RLock()
+	defer n.mu.RUnlock()
+	return n.activated
 }
 
 func (n *Node) VarSetRegistry() registry.Interface[variable.Set] {

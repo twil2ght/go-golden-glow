@@ -60,7 +60,7 @@ type checker struct {
 }
 
 func (c *checker) OnRegisterFactory(factory node.Factory) {
-	factory.CreatorRegistry().Register(NodeExecutor, func(value string) node.Interface {
+	factory.CreatorRegistry().Register(NodeChecker, func(value string) node.Interface {
 		return &checker{
 			Base: New[CheckHandler](value, c.handlers),
 		}
@@ -87,7 +87,7 @@ type extractor struct {
 }
 
 func (e *extractor) OnRegisterFactory(factory node.Factory) {
-	factory.CreatorRegistry().Register(NodeExecutor, func(value string) node.Interface {
+	factory.CreatorRegistry().Register(NodeExtractor, func(value string) node.Interface {
 		return &extractor{
 			Base: New[ExtractorHandler](value, e.handlers),
 		}

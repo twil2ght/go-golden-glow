@@ -114,6 +114,10 @@ func (r *runner) handler(k knot.Interface) error {
 	templateNodes := GetTemplates(trigger, k.State())
 	for _, tempN := range templateNodes {
 		tempN.Execute(rawValueAsState)
+		if len(tempN.VarKeys()) == 0 {
+			tempN.Activate()
+		}
+
 		cHashMap := positioner.Default().ContainerOf(tempN)
 		if cHashMap == nil {
 			continue
@@ -124,10 +128,14 @@ func (r *runner) handler(k knot.Interface) error {
 				continue
 			}
 			ok := c.Forward(tempN, rawValueAsState)
+			printContainer(c.T(), make(m.Map[node.Interface]))
+			log.Default().Debug("cut")
 			if !ok {
 				continue
 			}
 			R, S := c.R()
+
+			printContainer(make(m.Map[node.Interface]), R)
 			for nv, rn := range R {
 				for _, s := range S[nv] {
 					r.knotQueue.Add(knot.New(rn, s))
@@ -148,5 +156,13 @@ func New(workNum int, externalQueue Queue[string], nodeFactory node.Factory) Run
 		knotQueue:     workqueue.New[knot.Interface](),
 		externalQueue: externalQueue,
 		nodeFactory:   nodeFactory,
+	}
+}
+func printContainer(T, R m.Map[node.Interface]) {
+	for _, t := range T {
+		log.Default().Debug("T:", "value", t.Value(), "state", t.VarSetRegistry().Len())
+	}
+	for _, r := range R {
+		log.Default().Debug("R:", "value", r.Value())
 	}
 }

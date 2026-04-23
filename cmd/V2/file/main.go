@@ -27,7 +27,11 @@ var (
 
 func main() {
 	//Init()
-	Run(dataDir)
+	Run(
+		//"archive/logic/make_connection/safe_teach/src",
+		//"archive/logic/make_question/safe_teach/ask/src",
+		"archive/logic/make_question/safe_teach/ask/test",
+	)
 }
 func Init() {
 	Run(

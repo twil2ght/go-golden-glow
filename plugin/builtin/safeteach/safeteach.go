@@ -3,6 +3,7 @@ package safeteach
 import (
 	"encoding/json"
 	"goldenglow/pkg/datagen"
+	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
 	"goldenglow/plugin"
 	"goldenglow/utils"
@@ -41,7 +42,7 @@ func (s *safeTeach) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]
 			cfg, _ = ReadConfig()
 			key, _ = parameters.Get(keyKey)
 		)
-
+		log.Default().Debug("[safeTeach] checking", "key", key)
 		return cfg[key]
 	})
 }

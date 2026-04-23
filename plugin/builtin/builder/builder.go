@@ -26,7 +26,7 @@ const (
 	keyMode  = "mode"
 	keyType  = "type"
 
-	testing = true
+	testing = false
 )
 
 var logger = log.Default()

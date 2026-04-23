@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"goldenglow/config"
 	"goldenglow/pkg/datagen"
+	"goldenglow/pkg/log"
 	"goldenglow/pkg/messageQueue"
 	"goldenglow/pkg/node/handler"
 	"goldenglow/plugin"
@@ -44,6 +45,7 @@ func (m *speaker) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler
 		if msg == "" {
 			return
 		}
+		log.Default().Info("speaking", "msg", msg, "to", to)
 		m.responseChan <- m.decorate(msg, to)
 	})
 }
