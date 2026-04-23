@@ -153,8 +153,6 @@ func (r *redisRepository) HGet(tag string) (m.Hash, error) {
 }
 
 func (r *redisRepository) Init() error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
 	return r.Load()
 }
 func (r *redisRepository) Shutdown() error {
