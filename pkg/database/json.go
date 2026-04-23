@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"goldenglow/m"
-	"goldenglow/pkg/log"
 	"goldenglow/utils"
 	"os"
 	"path/filepath"
@@ -15,47 +14,22 @@ var (
 	defaultJSONHDataPath = filepath.Join(utils.RootDir, "archive/Data/json/hash_data.json")
 )
 
-var logger = log.Default()
-
-type jsonRepository struct {
-	HDataPath string
-	HData     map[string]m.Hash
-	mu        *sync.Mutex
+type JSON[T any] struct {
+	path string
+	data map[string]T
+	mu   *sync.RWMutex
 }
 
-func (j *jsonRepository) Get(_ string) (string, error) { return "", nil }
-
-func (j *jsonRepository) Set(_, _ string) error { return nil }
-
-func (j *jsonRepository) Shutdown() error {
-	return j.Save()
+func (J *JSON[T]) Save() error {
+	J.mu.Lock()
+	defer J.mu.Unlock()
+	return SaveAsJson(J.path, J.data)
 }
 
-func (j *jsonRepository) HSet(tag string, value m.Hash) error {
-	j.mu.Lock()
-	defer j.mu.Unlock()
-	j.HData[tag] = value
-	return nil
-}
-
-func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
-	j.mu.Lock()
-	defer j.mu.Unlock()
-	copied := m.Hash{}
-	if value, ok := j.HData[tag]; ok {
-		for k := range value {
-			copied[k] = struct{}{}
-		}
-		return copied, nil
-	}
-	return nil, errors.New("not found")
-}
-
-func (j *jsonRepository) Init() error {
-	j.mu.Lock()
-	defer j.mu.Unlock()
-
-	file, err := os.OpenFile(j.HDataPath, os.O_RDONLY|os.O_CREATE, 0644)
+func (J *JSON[T]) Load() error {
+	J.mu.Lock()
+	defer J.mu.Unlock()
+	file, err := os.OpenFile(J.path, os.O_RDONLY|os.O_CREATE, 0644)
 	if err != nil {
 		panic(err)
 	}
@@ -71,29 +45,53 @@ func (j *jsonRepository) Init() error {
 		return nil
 	}
 
-	return json.NewDecoder(file).Decode(&j.HData)
+	return json.NewDecoder(file).Decode(&J.data)
+}
+func NewJSON[T any](path string) JSON[T] {
+	return JSON[T]{
+		path: path,
+		data: make(map[string]T),
+		mu:   &sync.RWMutex{},
+	}
 }
 
-func (j *jsonRepository) Save() error {
+type jsonRepository struct {
+	JSON[m.Hash]
+}
+
+func (j *jsonRepository) Get(_ string) (string, error) { return "", nil }
+
+func (j *jsonRepository) Set(_, _ string) error { return nil }
+
+func (j *jsonRepository) HSet(tag string, value m.Hash) error {
 	j.mu.Lock()
 	defer j.mu.Unlock()
-	if err := SaveAsJson(j.HDataPath, j.HData); err != nil {
-		return err
-	}
+	j.data[tag] = value
 	return nil
 }
-func SaveAsJson(path string, Data any) error {
-	data, err := json.MarshalIndent(Data, "", "  ")
-	if err != nil {
-		return err
+
+func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
+	j.mu.Lock()
+	defer j.mu.Unlock()
+	copied := m.Hash{}
+	if value, ok := j.data[tag]; ok {
+		for k := range value {
+			copied[k] = struct{}{}
+		}
+		return copied, nil
 	}
-	return os.WriteFile(path, data, 0644)
+	return nil, errors.New("not found")
 }
-func NewJSONRepo(HDataPath string) Repository {
+
+func (j *jsonRepository) Init() error {
+	return j.Load()
+}
+func (j *jsonRepository) Shutdown() error {
+	return j.Save()
+}
+func NewJSONRepo(path string) Repository {
 	repo := &jsonRepository{
-		HDataPath: HDataPath,
-		HData:     make(map[string]m.Hash),
-		mu:        &sync.Mutex{},
+		JSON: NewJSON[m.Hash](path),
 	}
 	return repo
 }

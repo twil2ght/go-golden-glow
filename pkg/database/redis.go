@@ -1,15 +1,12 @@
 package database
 
 import (
-	"encoding/json"
 	"fmt"
 	"goldenglow/m"
 	"goldenglow/pkg/log"
 	"goldenglow/utils"
-	"os"
 	"path/filepath"
 	"strings"
-	"sync"
 	"time"
 )
 
@@ -20,9 +17,7 @@ var (
 type expirableHash map[string]time.Time
 
 type redisRepository struct {
-	HDataPath string
-	HData     map[string]expirableHash
-	mu        sync.RWMutex
+	JSON[expirableHash]
 }
 
 func parseExpiration(expiration string) (time.Time, error) {
@@ -126,28 +121,22 @@ func (r *redisRepository) Set(key, value, expiration string) error {
 		return err
 	}
 
-	if r.HData[key] == nil {
-		r.HData[key] = make(expirableHash)
+	if r.data[key] == nil {
+		r.data[key] = make(expirableHash)
 	}
-	if _, ok := r.HData[key][value]; ok {
+	if _, ok := r.data[key][value]; ok {
 		if exp.IsZero() {
 			return nil
 		}
 	}
-	r.HData[key][value] = exp
+	r.data[key][value] = exp
 	return nil
-}
-
-func (r *redisRepository) Get(_ string) (string, error) {
-	r.mu.RLock()
-	defer r.mu.RUnlock()
-	return "", nil
 }
 
 func (r *redisRepository) HGet(tag string) (m.Hash, error) {
 	r.mu.RLock()
 	defer r.mu.RUnlock()
-	he, ok := r.HData[tag]
+	he, ok := r.data[tag]
 	if !ok {
 		return nil, log.NotFound(tag)
 	}
@@ -166,39 +155,14 @@ func (r *redisRepository) HGet(tag string) (m.Hash, error) {
 func (r *redisRepository) Init() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
-
-	file, err := os.OpenFile(r.HDataPath, os.O_RDONLY|os.O_CREATE, 0644)
-	if err != nil {
-		panic(err)
-	}
-	defer func() {
-		_ = file.Close()
-	}()
-
-	stat, err := file.Stat()
-	if err != nil {
-		panic(err)
-	}
-	if stat.Size() == 0 {
-		return nil
-	}
-
-	return json.NewDecoder(file).Decode(&r.HData)
-}
-
-func (r *redisRepository) Save() error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	return SaveAsJson(r.HDataPath, r.HData)
+	return r.Load()
 }
 func (r *redisRepository) Shutdown() error {
 	return r.Save()
 }
-func NewRedisRepository(HDataPath string) RedisRepository {
+func NewRedisRepository(path string) RedisRepository {
 	repo := &redisRepository{
-		HDataPath: HDataPath,
-		HData:     make(map[string]expirableHash),
-		mu:        sync.RWMutex{},
+		JSON: NewJSON[expirableHash](path),
 	}
 	return repo
 }
