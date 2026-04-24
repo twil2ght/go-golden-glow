@@ -95,6 +95,9 @@ func (c *container) handlerExtractor(t node.Interface) bool {
 	state, varSet := c.getStateFromVarSetOfContainer(keys)
 	t.VarSetRegistry().Register(state, varSet)
 	varSetMap := extractor.Extract(state)
+	if varSetMap == nil {
+		varSetMap = variable.NewValueMap(make(m.Hash))
+	}
 	c.extractDistValueMap = varSetMap
 	return varSet != nil
 }
