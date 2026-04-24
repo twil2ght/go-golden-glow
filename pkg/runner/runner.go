@@ -11,6 +11,7 @@ import (
 	"goldenglow/pkg/node/template"
 	"goldenglow/pkg/workqueue"
 	"sync"
+	"sync/atomic"
 	"time"
 )
 
@@ -30,6 +31,7 @@ type runner struct {
 	externalQueue Queue[string]
 	knotQueue     Queue[knot.Interface]
 	nodeFactory   node.Factory
+	pending       *atomic.Uint64
 }
 
 var logger = log.Default()
@@ -40,14 +42,13 @@ func (r *runner) Run(ctx context.Context) {
 	for i := 0; i < r.workerNum; i++ {
 		go r.worker(i)
 	}
-
-	go r.watchIdle(ctx, 100*time.Millisecond, 100*time.Millisecond)
+	go r.watchIdle(ctx, 10*time.Millisecond, 100*time.Millisecond)
 
 	r.wg.Wait()
 }
 func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, timeout time.Duration) {
 	defer r.wg.Done()
-	ticker := time.NewTicker(checkInterval) // Check every second
+	ticker := time.NewTicker(checkInterval)
 	defer ticker.Stop()
 
 	var idleStartTime time.Time
@@ -63,7 +64,7 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 			return
 		case <-ticker.C:
 			// Check if channel is empty
-			if r.knotQueue.Len() == 0 {
+			if r.IsFinished() {
 				if !isIdle {
 					// Just became idle
 					isIdle = true
@@ -71,9 +72,9 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 				}
 
 				// Check if idle time has exceeded threshold
-				if time.Since(idleStartTime) > timeout { // 5 seconds idle threshold
+				if time.Since(idleStartTime) > timeout {
 					r.onIdle()
-					isIdle = false // Reset to trigger again later if needed
+					isIdle = false
 				}
 			} else {
 				// Channel is not empty, reset idle state
@@ -82,9 +83,13 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 		}
 	}
 }
+func (r *runner) IsFinished() bool {
+	return r.knotQueue.Len() == 0 && r.pending.Load() == 0
+}
 
 // onIdle is called when the channel has been empty for the specified duration
 func (r *runner) onIdle() {
+	r.nodeFactory.Reset()
 	n, shutdown := r.externalQueue.Get()
 	if !shutdown {
 		initKnot := knot.New(r.nodeFactory.Create(n), "")
@@ -100,9 +105,13 @@ func (r *runner) worker(_ int) {
 	for {
 		e, shutdown := r.knotQueue.Get()
 		if !shutdown {
-			if err := r.handler(e); err != nil {
-				logger.Error("runner", "handler", err)
-			}
+			r.pending.Add(1)
+			func() {
+				defer r.pending.Add(^uint64(0))
+				if err := r.handler(e); err != nil {
+					logger.Error("runner", "handler", err)
+				}
+			}()
 		} else {
 			return
 		}
@@ -128,14 +137,14 @@ func (r *runner) handler(k knot.Interface) error {
 				continue
 			}
 			ok := c.Forward(tempN, rawValueAsState)
-			printContainer(c.T(), make(m.Map[node.Interface]))
-			log.Default().Debug("cut")
+			//printContainer(c.T(), make(m.Map[node.Interface]))
+			//log.Default().Debug("cut")
 			if !ok {
 				continue
 			}
 			R, S := c.R()
 
-			printContainer(make(m.Map[node.Interface]), R)
+			//printContainer(make(m.Map[node.Interface]), R)
 			for nv, rn := range R {
 				for _, s := range S[nv] {
 					r.knotQueue.Add(knot.New(rn, s))
@@ -156,6 +165,7 @@ func New(workNum int, externalQueue Queue[string], nodeFactory node.Factory) Run
 		knotQueue:     workqueue.New[knot.Interface](),
 		externalQueue: externalQueue,
 		nodeFactory:   nodeFactory,
+		pending:       new(atomic.Uint64),
 	}
 }
 func printContainer(T, R m.Map[node.Interface]) {
