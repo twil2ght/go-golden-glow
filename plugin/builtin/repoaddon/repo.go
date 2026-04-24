@@ -129,7 +129,7 @@ func (s *addon) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 			val, _  = parameters.Get(keyValue)
 			dist, _ = parameters.Get(keyDist)
 		)
-		log.Default().Debug("[repo] check (fail)", key, val)
+		log.Default().Debug("[repo] check (fail)", "key", key)
 		//dist!="": check if the map is empty
 		//val!="": check if the value does not exist
 		valueMap, _ := s.repo.HGet(key)
@@ -146,7 +146,7 @@ func (s *addon) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 		var (
 			key, _ = parameters.Get(keyKey)
 		)
-		log.Default().Debug("[repo] get", key)
+		log.Default().Debug("[repo] get", "key", key)
 		valueMap, err := s.repo.HGet(key)
 		if err != nil {
 			return nil
