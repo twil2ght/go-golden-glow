@@ -90,6 +90,9 @@ func (r *runner) IsFinished() bool {
 // onIdle is called when the channel has been empty for the specified duration
 func (r *runner) onIdle() {
 	r.nodeFactory.Reset()
+	DefaultManager.Range(func(_ string, F IdleHandler) bool {
+		return F()
+	})
 	n, shutdown := r.externalQueue.Get()
 	if !shutdown {
 		initKnot := knot.New(r.nodeFactory.Create(n), "")
@@ -137,14 +140,14 @@ func (r *runner) handler(k knot.Interface) error {
 				continue
 			}
 			ok := c.Forward(tempN, rawValueAsState)
-			//printContainer(c.T(), make(m.Map[node.Interface]))
-			//log.Default().Debug("cut")
+			printContainer(c.T(), make(m.Map[node.Interface]))
+			log.Default().Debug(" ")
 			if !ok {
 				continue
 			}
 			R, S := c.R()
 
-			//printContainer(make(m.Map[node.Interface]), R)
+			printContainer(make(m.Map[node.Interface]), R)
 			for nv, rn := range R {
 				for _, s := range S[nv] {
 					r.knotQueue.Add(knot.New(rn, s))

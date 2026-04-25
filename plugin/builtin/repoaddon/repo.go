@@ -1,10 +1,13 @@
 package repoaddon
 
 import (
+	"fmt"
 	"goldenglow/pkg/database"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
+	"goldenglow/pkg/registry"
+	"goldenglow/pkg/runner"
 	"goldenglow/pkg/variable"
 	"goldenglow/plugin"
 )
@@ -25,13 +28,21 @@ const (
 )
 
 type addon struct {
-	repo database.RedisRepository
+	repo  database.RedisRepository
+	cache registry.Interface[bool]
+}
+
+func (s *addon) OnRegisterIdleHandler(mgr registry.Interface[runner.IdleHandler]) {
+	mgr.Register(name, func() bool {
+		s.Reset()
+		return true
+	})
 }
 
 func (s *addon) Init() {}
 
 func (s *addon) Shutdown() {}
-
+func (s *addon) Reset()    { s.cache = registry.New[bool]() }
 func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	providerFail := datagen.NewProvider()
@@ -105,17 +116,23 @@ func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler])
 			log.Default().Info("[repo] set", key, value)
 			return
 		}
+		s.cache.Unregister(fmt.Sprintf("check %s!->%s", key, value))
 		_ = s.repo.Set(key, value, expiration)
 	})
 }
 
 func (s *addon) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
+	// check $1 -> $2: $1 -> $2($1 !-> $2)
 	reg.Handlers().Register(name, func(parameters handler.Parameters) bool {
 		var (
 			key, _ = parameters.Get(keyKey)
 			val, _ = parameters.Get(keyValue)
 		)
 		log.Default().Debug("[repo] check", key, val)
+		if e, _ := s.cache.Get(fmt.Sprintf("check %s->%s", key, val)); e {
+			return false
+		}
+		s.cache.Register(fmt.Sprintf("check %s->%s", key, val), true)
 		valueMap, err := s.repo.HGet(key)
 		if err != nil {
 			return false
@@ -130,6 +147,10 @@ func (s *addon) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 			dist, _ = parameters.Get(keyDist)
 		)
 		log.Default().Debug("[repo] check (fail)", "key", key)
+		if e, _ := s.cache.Get(fmt.Sprintf("check %s!->%s", key, val)); e {
+			return false
+		}
+		s.cache.Register(fmt.Sprintf("check %s!->%s", key, val), true)
 		//dist!="": check if the map is empty
 		//val!="": check if the value does not exist
 		valueMap, _ := s.repo.HGet(key)
@@ -148,6 +169,15 @@ func (s *addon) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 		)
 		log.Default().Debug("[repo] get", "key", key)
 		valueMap, err := s.repo.HGet(key)
+		for val := range valueMap {
+			if e, _ := s.cache.Get(fmt.Sprintf("%s->%s", key, val)); e {
+				delete(valueMap, val)
+			} else {
+				s.cache.Register(fmt.Sprintf("%s->%s", key, val), true)
+				s.cache.Register(fmt.Sprintf("check %s->%s", key, val), true)
+				s.cache.Register(fmt.Sprintf("check %s!->%s", key, val), true)
+			}
+		}
 		if err != nil {
 			return nil
 		}
@@ -156,6 +186,7 @@ func (s *addon) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 }
 func New(repo database.RedisRepository) plugin.Interface {
 	return &addon{
-		repo: repo,
+		repo:  repo,
+		cache: registry.New[bool](),
 	}
 }

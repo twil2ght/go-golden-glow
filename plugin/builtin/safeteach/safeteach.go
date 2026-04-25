@@ -5,6 +5,8 @@ import (
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
+	"goldenglow/pkg/registry"
+	"goldenglow/pkg/runner"
 	"goldenglow/plugin"
 	"goldenglow/utils"
 	"os"
@@ -12,7 +14,7 @@ import (
 )
 
 func init() {
-	plugin.DefaultManager.Register(name, &safeTeach{})
+	plugin.DefaultManager.Register(name, &safeTeach{registry.New[bool]()})
 }
 
 var (
@@ -22,8 +24,16 @@ var (
 	keyValue = "value"
 )
 
-type safeTeach struct{}
+type safeTeach struct {
+	cache registry.Interface[bool]
+}
 
+func (s *safeTeach) OnRegisterIdleHandler(mgr registry.Interface[runner.IdleHandler]) {
+	mgr.Register(name, func() bool {
+		s.Reset()
+		return true
+	})
+}
 func (s *safeTeach) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler]) {
 	reg.Handlers().Register(name, func(parameters handler.Parameters) {
 		var (
@@ -32,6 +42,7 @@ func (s *safeTeach) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandl
 			cfg, _   = ReadConfig()
 		)
 		cfg[key] = value == "on"
+		s.cache.Unregister(key)
 		WriteConfig(cfg)
 	})
 }
@@ -43,6 +54,10 @@ func (s *safeTeach) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]
 			key, _ = parameters.Get(keyKey)
 		)
 		log.Default().Debug("[safeTeach] checking", "key", key)
+		if cache, _ := s.cache.Get(key); cache {
+			return false
+		}
+		s.cache.Register(key, true)
 		return cfg[key]
 	})
 }
@@ -80,6 +95,7 @@ func (s *safeTeach) OnRegisterDataGen(gen datagen.Generator) {
 func (s *safeTeach) Init() {}
 
 func (s *safeTeach) Shutdown() {}
+func (s *safeTeach) Reset()    { s.cache = registry.New[bool]() }
 
 type Config map[string]bool
 

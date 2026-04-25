@@ -15,7 +15,6 @@ import (
 var (
 	cacheLogPath = RelPath("dialogue_history.log")
 	workNum      = 5
-	dataDir      = RelPath("archive/logic/make_connection/safe_teach/test")
 )
 var (
 	bg          = setup.Init()

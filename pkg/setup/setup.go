@@ -8,6 +8,7 @@ import (
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/node/handler"
 	"goldenglow/pkg/node/template"
+	"goldenglow/pkg/runner"
 	"goldenglow/plugin"
 	_ "goldenglow/plugin/mount"
 )
@@ -21,16 +22,17 @@ func Init() *Background {
 	_ = database.DefaultJSONRepo().Init()
 	_ = database.DefaultRedisRepo().Init()
 	var (
-		dataDir     = datagen.RootDir
-		pluginMgr   = plugin.DefaultManager
-		executor    = handler.NewExecutor()
-		checker     = handler.NewChecker()
-		extractor   = handler.NewExtractor()
-		msgQueueMgr = messageQueue.NewManager()
-		dataGen     = datagen.NewGenerator()
-		dataLoader  = dataloader.Default()
-		nodeFactory = node.DefaultFactory
-		conflictMgr = template.DefaultConflictManager
+		dataDir       = datagen.RootDir
+		pluginMgr     = plugin.DefaultManager
+		executor      = handler.NewExecutor()
+		checker       = handler.NewChecker()
+		extractor     = handler.NewExtractor()
+		msgQueueMgr   = messageQueue.NewManager()
+		dataGen       = datagen.NewGenerator()
+		dataLoader    = dataloader.Default()
+		nodeFactory   = node.DefaultFactory
+		runnerHookMgr = runner.DefaultManager
+		conflictMgr   = template.DefaultConflictManager
 	)
 	pluginMgr.Range(func(key string, item plugin.Interface) bool {
 		if e, ok := item.(handler.ExecuteHook); ok {
@@ -50,6 +52,9 @@ func Init() *Background {
 		}
 		if e, ok := item.(template.Hook); ok {
 			e.OnRegisterConflictRule(conflictMgr)
+		}
+		if e, ok := item.(runner.Hook); ok {
+			e.OnRegisterIdleHandler(runnerHookMgr)
 		}
 		item.Init()
 		return true

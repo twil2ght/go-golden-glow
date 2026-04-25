@@ -33,14 +33,14 @@ func New(devMode bool) Logger {
 		// 开发：文本格式，带文件行号，易读
 		handler = slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{
 			Level:       slog.LevelDebug,
-			AddSource:   true,
+			AddSource:   false,
 			ReplaceAttr: simplifySource,
 		})
 	} else {
 		// 生产：JSON 格式，ELK 友好
 		handler = slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 			Level:     slog.LevelInfo,
-			AddSource: true,
+			AddSource: false,
 		})
 	}
 
@@ -112,7 +112,6 @@ func simplifySource(_ []string, a slog.Attr) slog.Attr {
 
 var (
 	loggerInstance = New(true)
-	SimpleVersion  = false
 )
 
 func Default() Logger {
