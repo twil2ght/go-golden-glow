@@ -2,6 +2,7 @@ package log
 
 import (
 	"context"
+	"io"
 	"log/slog"
 	"os"
 	"path/filepath"
@@ -26,20 +27,33 @@ type Base struct {
 
 var _ Logger = (*Base)(nil)
 
+var logOutput io.Writer = os.Stderr
+
+// SetOutput redirects the log output writer (default os.Stderr).
+// Use os.Stdout to restore default behavior, or ioutil.Discard to silence all logs.
+func SetOutput(w io.Writer) {
+	logOutput = w
+}
+
+// SetLevel sets the minimum log level for the default logger.
+func SetLevel(l slog.Level) {
+	slog.SetLogLoggerLevel(l)
+}
+
+var defaultLevel = slog.LevelError
+
 func New(devMode bool) Logger {
 	var handler slog.Handler
 
 	if devMode {
-		// 开发：文本格式，带文件行号，易读
-		handler = slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{
-			Level:       slog.LevelDebug,
+		handler = slog.NewTextHandler(logOutput, &slog.HandlerOptions{
+			Level:       defaultLevel,
 			AddSource:   false,
 			ReplaceAttr: simplifySource,
 		})
 	} else {
-		// 生产：JSON 格式，ELK 友好
-		handler = slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
-			Level:     slog.LevelInfo,
+		handler = slog.NewJSONHandler(logOutput, &slog.HandlerOptions{
+			Level:     defaultLevel,
 			AddSource: false,
 		})
 	}
@@ -111,7 +125,7 @@ func simplifySource(_ []string, a slog.Attr) slog.Attr {
 }
 
 var (
-	loggerInstance = New(true)
+	loggerInstance = New(false)
 )
 
 func Default() Logger {

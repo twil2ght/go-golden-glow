@@ -26,9 +26,12 @@ var (
 
 func main() {
 	//Init()
-	Run(
-		//"archive/logic/make_connection/safe_teach/src",
-		//"archive/logic/make_question/safe_teach/ask/src",
+	//Run(
+	//	"archive/logic/make_connection/safe_teach/src",
+	//	"archive/logic/make_question/safe_teach/ask/src",
+	//	//"archive/logic/make_question/safe_teach/ask/test",
+	//)
+	RunWithMsgMgr(
 		"archive/logic/make_question/safe_teach/ask/test",
 	)
 }
@@ -53,6 +56,19 @@ func Run(dataDir ...string) {
 		}
 	}()
 	<-ctx.Done()
+	_ = database.DefaultJSONRepo().Shutdown()
+	_ = database.DefaultRedisRepo().Shutdown()
+}
+func RunWithMsgMgr(dataDir ...string) {
+	go bg.MsgQueueMgr.Start(msgQueue, ctx)
+	go consumer.Run(ctx)
+	go func() {
+		for _, dir := range dataDir {
+			file.Run(dir)
+		}
+	}()
+	time.Sleep(1 * time.Second)
+	cancel()
 	_ = database.DefaultJSONRepo().Shutdown()
 	_ = database.DefaultRedisRepo().Shutdown()
 }

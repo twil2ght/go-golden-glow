@@ -8,13 +8,19 @@ import (
 type Manager interface {
 	Add(name string, provider chan string)
 	Start(msgQueue Interface, ctx context.Context)
+	OnMessage(fn func(string))
 }
 type manager struct {
 	items registry.Interface[chan string]
+	onMsg func(string)
 }
 
 func (m *manager) Add(name string, provider chan string) {
 	m.items.Register(name, provider)
+}
+
+func (m *manager) OnMessage(fn func(string)) {
+	m.onMsg = fn
 }
 
 func (m *manager) Start(msgQueue Interface, ctx context.Context) {
@@ -25,6 +31,9 @@ func (m *manager) Start(msgQueue Interface, ctx context.Context) {
 				case <-ctx.Done():
 					return
 				case msg := <-item:
+					if m.onMsg != nil {
+						m.onMsg(msg)
+					}
 					msgQueue.Add(msg)
 				}
 			}
