@@ -1,7 +1,9 @@
 package utils
 
 import (
+	"encoding/json"
 	"fmt"
+	"goldenglow/m"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -74,4 +76,13 @@ func isNil(a any) bool {
 	default:
 		return false
 	}
+}
+func ReadConfig() m.Map[any] {
+	var cfg m.Map[any]
+	content, _ := os.ReadFile(filepath.Join(RootDir, "config.json"))
+	err := json.Unmarshal(content, &cfg)
+	if err != nil {
+		panic(err)
+	}
+	return cfg
 }

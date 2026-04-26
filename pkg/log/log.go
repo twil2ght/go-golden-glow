@@ -2,12 +2,22 @@ package log
 
 import (
 	"context"
+	"goldenglow/utils"
 	"io"
 	"log/slog"
 	"os"
 	"path/filepath"
 	"runtime"
 )
+
+func init() {
+	devMode := utils.ReadConfig()["dev_mode"].(bool)
+	if devMode {
+		loggerInstance = New(true)
+	} else {
+		loggerInstance = New(false)
+	}
+}
 
 type Logger interface {
 	Debug(msg string, args ...any)
@@ -40,20 +50,18 @@ func SetLevel(l slog.Level) {
 	slog.SetLogLoggerLevel(l)
 }
 
-var defaultLevel = slog.LevelError
-
 func New(devMode bool) Logger {
 	var handler slog.Handler
 
 	if devMode {
 		handler = slog.NewTextHandler(logOutput, &slog.HandlerOptions{
-			Level:       defaultLevel,
+			Level:       slog.LevelDebug,
 			AddSource:   false,
 			ReplaceAttr: simplifySource,
 		})
 	} else {
 		handler = slog.NewJSONHandler(logOutput, &slog.HandlerOptions{
-			Level:     defaultLevel,
+			Level:     slog.LevelError,
 			AddSource: false,
 		})
 	}
@@ -125,7 +133,7 @@ func simplifySource(_ []string, a slog.Attr) slog.Attr {
 }
 
 var (
-	loggerInstance = New(false)
+	loggerInstance Logger
 )
 
 func Default() Logger {
