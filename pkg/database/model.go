@@ -11,6 +11,8 @@ type Repository interface {
 type RedisRepository interface {
 	Set(key, value, expiration string) error
 	HGet(tag string) (m.Hash, error)
+	Del(key string)
+	HDel(key string, subKeys ...string)
 	Shutdown() error
 	Init() error
 }

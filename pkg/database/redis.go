@@ -6,7 +6,6 @@ import (
 	"goldenglow/pkg/log"
 	"goldenglow/utils"
 	"path/filepath"
-	"strings"
 	"time"
 )
 
@@ -101,21 +100,6 @@ func parseRelativeDate(expiration string) (time.Time, error) {
 func (r *redisRepository) Set(key, value, expiration string) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
-	var length = len(strings.Fields(key))
-	if length > 1 {
-		if strings.HasPrefix(key, "if") || strings.HasPrefix(key, "then") || strings.HasPrefix(key, "[") || strings.HasPrefix(key, "check") {
-			return fmt.Errorf("invalid key: %s", key)
-		}
-		if strings.HasPrefix(key, "Zero says") {
-			return fmt.Errorf("invalid key: %s", key)
-		}
-		if strings.HasPrefix(key, "Susie says") {
-			return fmt.Errorf("invalid key: %s", key)
-		}
-		if strings.HasPrefix(key, "Susie should") {
-			return fmt.Errorf("invalid key: %s", key)
-		}
-	}
 	exp, err := parseExpiration(expiration)
 	if err != nil {
 		return err
@@ -151,8 +135,39 @@ func (r *redisRepository) HGet(tag string) (m.Hash, error) {
 
 	return res, nil
 }
-
+func (r *redisRepository) Del(key string) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	delete(r.data, key)
+}
+func (r *redisRepository) HDel(key string, subKeys ...string) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if _, ok := r.data[key]; !ok {
+		return
+	}
+	for _, subKey := range subKeys {
+		delete(r.data[key], subKey)
+	}
+}
+func (r *redisRepository) clearExpired() {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for key, he := range r.data {
+		for subKey, exp := range he {
+			if !exp.IsZero() && time.Now().After(exp) {
+				delete(r.data[key], subKey)
+			}
+		}
+		if len(r.data[key]) == 0 {
+			delete(r.data, key)
+		} else {
+			r.data[key] = he
+		}
+	}
+}
 func (r *redisRepository) Init() error {
+	r.clearExpired()
 	return r.Load()
 }
 func (r *redisRepository) Shutdown() error {

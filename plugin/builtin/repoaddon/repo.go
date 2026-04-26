@@ -21,10 +21,11 @@ const (
 	nameFail = "repo_addon_fail"
 	testing  = false
 	// parameter keys
-	keyKey        = "key"
-	keyValue      = "value"
-	keyExpiration = "expiration"
-	keyDist       = "dist"
+	keyKey         = "key"
+	keyValue       = "value"
+	keyExpiration  = "expiration"
+	keyDist        = "dist"
+	KeySingleValue = "singleValue"
 )
 
 type addon struct {
@@ -61,6 +62,16 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		map[string]string{
 			keyKey:   "$1",
 			keyValue: "$2",
+		},
+		datagen.AsExecutor,
+	))
+	provider.Add("set_single_value", datagen.NewData(
+		[]string{"[repo] SSet $1 -> $2"},
+		[]string{},
+		map[string]string{
+			keyKey:         "$1",
+			keyValue:       "$2",
+			KeySingleValue: "true",
 		},
 		datagen.AsExecutor,
 	))
@@ -108,15 +119,19 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler]) {
 	reg.Handlers().Register(name, func(parameters handler.Parameters) {
 		var (
-			key, _        = parameters.Get(keyKey)
-			value, _      = parameters.Get(keyValue)
-			expiration, _ = parameters.Get(keyExpiration)
+			key, _         = parameters.Get(keyKey)
+			value, _       = parameters.Get(keyValue)
+			singleValue, _ = parameters.Get(KeySingleValue)
+			expiration, _  = parameters.Get(keyExpiration)
 		)
+		log.Default().Info("[repo] set", key, value)
 		if testing {
-			log.Default().Info("[repo] set", key, value)
 			return
 		}
 		s.cache.Unregister(fmt.Sprintf("check %s!->%s", key, value))
+		if singleValue == "true" {
+			s.repo.Del(key)
+		}
 		_ = s.repo.Set(key, value, expiration)
 	})
 }
