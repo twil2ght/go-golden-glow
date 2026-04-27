@@ -27,6 +27,14 @@ type mockNode struct {
 	value string
 }
 
+func (mn *mockNode) Activate() {
+
+}
+
+func (mn *mockNode) IsActivated() bool {
+	return true
+}
+
 func (mn *mockNode) Execute(state string)                 {}
 func (mn *mockNode) Value() string                        { return mn.value }
 func (mn *mockNode) VarKeys() []string                    { return nil }
