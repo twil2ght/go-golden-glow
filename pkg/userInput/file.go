@@ -26,11 +26,25 @@ func (f *File) Run(dir string) {
 		content, err := os.ReadFile(jsonFile)
 		if err != nil {
 			logger.Error(err.Error())
+			continue
 		}
+		// First try unmarshaling as an array of ValidFormat
+		var dataList []ValidFormat
+		err = json.Unmarshal(content, &dataList)
+		if err == nil && len(dataList) > 0 {
+			for _, item := range dataList {
+				for _, command := range item.Commands {
+					f.queue.Add(command)
+				}
+			}
+			continue
+		}
+		// Fall back to a single ValidFormat
 		data := ValidFormat{}
 		err = json.Unmarshal(content, &data)
 		if err != nil {
 			logger.Error(err.Error())
+			continue
 		}
 		for _, command := range data.Commands {
 			f.queue.Add(command)
