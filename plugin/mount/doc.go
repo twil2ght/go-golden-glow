@@ -8,4 +8,6 @@ import (
 	_ "goldenglow/plugin/builtin/safeteach"
 	_ "goldenglow/plugin/builtin/speaker"
 	_ "goldenglow/plugin/builtin/templateaddon"
+	_ "goldenglow/plugin/builtin/timer"
+	_ "goldenglow/plugin/builtin/word"
 )
