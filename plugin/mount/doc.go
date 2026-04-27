@@ -3,6 +3,7 @@ package mount
 
 import (
 	_ "goldenglow/plugin/builtin/builder"
+	_ "goldenglow/plugin/builtin/calculator"
 	_ "goldenglow/plugin/builtin/repoaddon"
 	_ "goldenglow/plugin/builtin/safeteach"
 	_ "goldenglow/plugin/builtin/speaker"
