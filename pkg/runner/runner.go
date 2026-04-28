@@ -2,6 +2,7 @@ package runner
 
 import (
 	"context"
+	"fmt"
 	"goldenglow/m"
 	"goldenglow/pkg/container"
 	"goldenglow/pkg/container/positioner"
@@ -146,7 +147,7 @@ func (r *runner) handler(k knot.Interface) error {
 				continue
 			}
 			R, S := c.R()
-
+			//printContainer(c.T(), make(m.Map[node.Interface]))
 			//printContainer(make(m.Map[node.Interface]), R)
 			for nv, rn := range R {
 				for _, s := range S[nv] {
@@ -173,7 +174,13 @@ func New(workNum int, externalQueue Queue[string], nodeFactory node.Factory) Run
 }
 func printContainer(T, R m.Map[node.Interface]) {
 	for _, t := range T {
-		log.Default().Debug("T:", "value", t.Value(), "state", t.VarSetRegistry().Len())
+		log.Default().Debug(
+			"T:",
+			"value", t.Value(),
+			"state", t.VarSetRegistry().Len(),
+			"varKeys", t.VarKeys(),
+			"type", fmt.Sprintf("%T", t),
+		)
 	}
 	for _, r := range R {
 		log.Default().Debug("R:", "value", r.Value())
