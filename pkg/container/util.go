@@ -78,11 +78,11 @@ func mergeVariables(
 	baseVars := variable.Copy(varSet)
 
 	startNode, startSets, hasInvalidItem := findStart(nodes, baseVars)
+	if hasInvalidItem {
+		return false
+	}
 	if startNode == nil || len(startSets) == 0 {
 		// no node has varSet ->legal
-		if hasInvalidItem {
-			return false
-		}
 		return true
 	}
 
@@ -131,14 +131,21 @@ func mergeVariables(
 
 // findStart finds the first node that has varSet if it exists
 func findStart(nodes []node.Interface, baseVars variable.Set) (node.Interface, []variable.Set, bool) {
+	var startNode node.Interface
+	var startSets []variable.Set
+
 	for _, n := range nodes {
 		sets, valid := getCompatibleSets(n, baseVars)
+
 		if !valid {
 			return nil, nil, true
 		}
-		if len(sets) > 0 {
-			return n, sets, false
+
+		if startNode == nil && len(sets) > 0 {
+			startNode = n
+			startSets = sets
 		}
 	}
-	return nil, nil, false
+
+	return startNode, startSets, false
 }
