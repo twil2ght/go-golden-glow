@@ -83,6 +83,24 @@ func (j *jsonRepository) HGet(tag string) (m.Hash, error) {
 	return nil, errors.New("not found")
 }
 
+func (j *jsonRepository) HDel(tag string, subKeys ...string) {
+	j.mu.Lock()
+	defer j.mu.Unlock()
+	if _, ok := j.data[tag]; !ok {
+		return
+	}
+	if len(subKeys) == 0 {
+		delete(j.data, tag)
+		return
+	}
+	for _, subKey := range subKeys {
+		delete(j.data[tag], subKey)
+	}
+	if len(j.data[tag]) == 0 {
+		delete(j.data, tag)
+	}
+}
+
 func (j *jsonRepository) Init() error {
 	return j.Load()
 }

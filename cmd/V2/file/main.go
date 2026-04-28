@@ -7,13 +7,11 @@ import (
 	"goldenglow/pkg/runner"
 	"goldenglow/pkg/setup"
 	"goldenglow/pkg/userInput"
-	"goldenglow/utils"
-	"path/filepath"
 	"time"
 )
 
 var (
-	cacheLogPath = RelPath("dialogue_history.log")
+	cacheLogPath = "dialogue_history.log"
 	workNum      = 5
 )
 var (
@@ -26,19 +24,28 @@ var (
 
 func main() {
 	//Init()
-	//Run(
-	//	"archive/logic/make_connection/safe_teach/src",
-	//	"archive/logic/make_question/safe_teach/ask/src",
-	//	//"archive/logic/make_question/safe_teach/ask/test",
-	//)
-	RunWithMsgMgr(
-		"archive/logic/make_question/safe_teach/ask/test",
+	Run(
+		//"archive/logic/make_attribution/safe_teach/src",
+		//"archive/logic/make_attribution/safe_teach/test",
+		//"archive/logic/make_connection/safe_teach/src",
+		//"archive/logic/make_connection/safe_teach/test",
+		//"archive/logic/make_question/safe_teach/ask/src",
+		//"archive/logic/make_question/safe_teach/ask/test",
+		//"archive/logic/make_question/safe_teach/answer/src",
+		//"archive/logic/make_question/safe_teach/answer/test",
+		"archive/logic/exclusion",
+		"archive/logic/make_answer/safe_teach/test",
 	)
+	//RunWithMsgMgr(
+	//	"archive/logic/make_question/safe_teach/ask/test",
+	//)
 }
 func Init() {
 	Run(
-		RelPath("archive/start"),
-		RelPath("archive/logic/safe_teach"),
+		"archive/start",
+		"archive/logic/safe_teach",
+		"archive/logic/utils.json",
+		"archive/logic/exclusion",
 	)
 }
 func Run(dataDir ...string) {
@@ -71,7 +78,4 @@ func RunWithMsgMgr(dataDir ...string) {
 	cancel()
 	_ = database.DefaultJSONRepo().Shutdown()
 	_ = database.DefaultRedisRepo().Shutdown()
-}
-func RelPath(path string) string {
-	return filepath.Join(utils.RootDir, path)
 }
