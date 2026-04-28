@@ -33,6 +33,22 @@ func (t *testRepo) Set(key, value string) error {
 	return nil
 }
 
+func (t *testRepo) HDel(tag string, subKeys ...string) {
+	if _, ok := t.data[tag]; !ok {
+		return
+	}
+	if len(subKeys) == 0 {
+		delete(t.data, tag)
+		return
+	}
+	for _, subKey := range subKeys {
+		delete(t.data[tag], subKey)
+	}
+	if len(t.data[tag]) == 0 {
+		delete(t.data, tag)
+	}
+}
+
 func (t *testRepo) Shutdown() error {
 	return nil
 }

@@ -28,6 +28,8 @@ func (r *mockRepo) Set(_, _ string) error {
 	return nil
 }
 
+func (r *mockRepo) HDel(tag string, subKeys ...string) {}
+
 func (r *mockRepo) Shutdown() error {
 	return nil
 }

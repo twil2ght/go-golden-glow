@@ -33,6 +33,22 @@ func (mr *mockRepository) Set(key, value string) error {
 	return nil
 }
 
+func (mr *mockRepository) HDel(tag string, subKeys ...string) {
+	if _, ok := mr.data[tag]; !ok {
+		return
+	}
+	if len(subKeys) == 0 {
+		delete(mr.data, tag)
+		return
+	}
+	for _, subKey := range subKeys {
+		delete(mr.data[tag], subKey)
+	}
+	if len(mr.data[tag]) == 0 {
+		delete(mr.data, tag)
+	}
+}
+
 func (mr *mockRepository) Shutdown() error {
 	return nil
 }
