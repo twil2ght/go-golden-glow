@@ -1,6 +1,5 @@
-*.log
-*.pb
 *.idea
-scripts/
-*.json
 /.idea/
+/archive/
+/generated/
+/.claude/
