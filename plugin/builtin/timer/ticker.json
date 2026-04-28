@@ -1,0 +1,12 @@
+{
+  "commands":[
+    "[input] [ticker] -> Done",
+    "[input] [repo] callback of [ticker] -> A",
+    "[output] A"
+  ],
+  "test": [
+    "[input] call A after 5 minutes",
+    "[output] [ticker] start -> 5m",
+    "[output] [repo] set callback of [ticker] -> call A"
+  ]
+}

@@ -1,0 +1,8 @@
+[
+  "Zero says to Susie : if $1",
+  "Zero says to Susie : then $1",
+  "$1 is $2",
+  "Zero says to Susie : $1 is $2",
+  "[repo] set $1 -> $2",
+  "[repo] how to B someone -> E them"
+]
