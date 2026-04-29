@@ -14,6 +14,10 @@ go run ./cmd/V2/keyboard
 # Build and run the file/batch mode
 go run ./cmd/V2/file
 
+# Verify a run was successful (check all expected containers saved)
+go run ./cmd/verify/                                          # check generated data only
+go run ./cmd/verify/ archive/logic/make_attribution/safe_teach/src  # also check builder containers from archive
+
 # Run all tests
 go test ./...
 
