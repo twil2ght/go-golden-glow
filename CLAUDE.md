@@ -5,6 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build / Test / Run
 
 ```bash
+# Run the data validator
+go run ./cmd/validator/
+
 # Build and run the interactive (keyboard) mode
 go run ./cmd/V2/keyboard
 

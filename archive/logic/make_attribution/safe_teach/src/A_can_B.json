@@ -1,0 +1,32 @@
+[
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : the verb A can do+sb+sth",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "learning verbs like: ask,tell,show,give",
+    "commands": [
+      "[input] Zero says to Susie : the verb A can do+sb+sth",
+      "[input] Zero starts to teach Susie",
+      "[output] [repo] set grammar usage of verb A -> do+sb+sth"
+    ]
+  },
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : the verb A can do+sb",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "learning transitive verbs like: greet,read,see",
+    "commands": [
+      "[input] Zero says to Susie : the verb A can do+sb",
+      "[input] Zero starts to teach Susie",
+      "[output] [repo] set grammar usage of verb A -> do+sb"
+    ]
+  }
+]

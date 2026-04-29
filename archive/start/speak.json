@@ -1,0 +1,6 @@
+{
+  "commands": [
+    "[input] Susie should say to B : A",
+    "[output] [speak] A -> B"
+  ]
+}

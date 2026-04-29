@@ -1,0 +1,10 @@
+{
+  "docs": "builder for building anything",
+  "tag":"builder",
+  "commands": [
+    "[input] Zero says to Susie : if A",
+    "[output] [input] A",
+    "[input] Zero says to Susie : then A",
+    "[output] [output] A"
+  ]
+}

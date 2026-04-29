@@ -1,0 +1,20 @@
+[
+  {
+    "description": "A do B -> A do(v2) B ",
+    "commands": [
+      "Zero says to Susie : let's start learning",
+      "Zero says to Susie : the singular of verb greet is greets",
+      "Zero says to Susie : if someone says hello to you",
+      "Zero says to Susie : then they greet you"
+    ]
+  },
+  {
+    "description": "A do B -> B do A",
+    "commands": [
+      "Zero says to Susie : let's start learning",
+      "Zero says to Susie : the verb greet can do+sb",
+      "Zero says to Susie : if someone greets you",
+      "Zero says to Susie : then you should greet them"
+    ]
+  }
+]

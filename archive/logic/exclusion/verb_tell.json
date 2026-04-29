@@ -1,0 +1,30 @@
+[
+  {
+    "description": "ways to set what to tell",
+    "commands": [
+      "[input] A asks B what C is",
+      "[input] [repo] A -> a human",
+      "[input] [repo] B -> a human",
+      "[output] [repo] set what to tell A -> C"
+    ]
+  },
+  {
+    "description": "gets",
+    "commands": [
+      "[input] B should tell A",
+      "[input] [repo] A -> a human",
+      "[input] [repo] B -> a human",
+      "[output] [repo] get what to tell A"
+    ]
+  },
+  {
+    "description": "routes",
+    "commands": [
+      "[input] B should tell A",
+      "[input] [repo] A -> a human",
+      "[input] [repo] B -> a human",
+      "[input] [repo] what to tell A -> C",
+      "[output] B should tell A C"
+    ]
+  }
+]

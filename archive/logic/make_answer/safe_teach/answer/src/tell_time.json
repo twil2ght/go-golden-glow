@@ -1,0 +1,30 @@
+[
+  {
+    "description": "gets",
+    "commands": [
+      "[input] D should tell C the time",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[output] [time] get time"
+    ]
+  },
+  {
+    "description": "routes",
+    "commands": [
+      "[input] D should tell C the time",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[input] [time] time -> A",
+      "[output] D should tell C the time is A"
+    ]
+  },
+  {
+    "description": "ways to tell time",
+    "commands": [
+      "[input] D should tell C the time is A",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[output] D should say to C : it is A"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "[input] Zero says to Susie : let's start learning",
+    "[output] [ST] teach -> on",
+    "[input] Zero says to Susie : you can ask me questions",
+    "[output] [ST] ask -> on"
+  ]
+}

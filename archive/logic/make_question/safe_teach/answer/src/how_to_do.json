@@ -1,0 +1,26 @@
+[
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : you can E them",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "gets",
+    "commands": [
+      "[input] Zero says to Susie : you can E them",
+      "[input] Zero starts to teach Susie",
+      "[output] [repo] get [last] Susie says to Zero"
+    ]
+  },
+  {
+    "description": "teach Susie how to B someone",
+    "commands": [
+      "[input] [repo] [last] Susie says to Zero -> how to B someone",
+      "[input] Zero says to Susie : you can E them",
+      "[input] Zero starts to teach Susie",
+      "[output] [repo] set how to B someone -> E them"
+    ]
+  }
+]

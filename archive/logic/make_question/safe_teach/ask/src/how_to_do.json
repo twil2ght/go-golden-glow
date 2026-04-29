@@ -1,0 +1,24 @@
+[
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Susie does not know how to B someone",
+      "[output] check [ask]"
+    ]
+  },
+  {
+    "description": "main trigger of asking",
+    "commands": [
+      "[input] Susie is enabled to ask Zero questions",
+      "[input] Susie does not know how to B someone",
+      "[output] Susie should ask Zero how to B someone"
+    ]
+  },
+  {
+    "description": "way to ask",
+    "commands": [
+      "[input] Susie should ask Zero how to B someone",
+      "[output] Susie should say to Zero : how to B someone"
+    ]
+  }
+]

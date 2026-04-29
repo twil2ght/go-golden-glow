@@ -1,0 +1,35 @@
+[
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : if someone A you B",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "gets",
+    "commands": [
+      "[input] Zero says to Susie : if someone A you B",
+      "[output] [repo] get grammar usage of verb A"
+    ]
+  },
+  {
+    "description": "extra bonus:set {them}",
+    "commands": [
+      "[input] Zero starts to teach Susie",
+      "[input] Zero says to Susie : if someone A you B",
+      "[output] [repo] SSet them -> someone A you B"
+    ]
+  },
+  {
+    "description": "make conditions",
+    "commands": [
+      "[input] Zero says to Susie : if someone A you B",
+      "[input] [repo] grammar usage of verb A -> do+sb+sth",
+      "[input] Zero starts to teach Susie",
+      "[output] [input] [repo] C -> a human",
+      "[output] [input] [repo] D -> a human",
+      "[output] [input] C A D B"
+    ]
+  }
+]

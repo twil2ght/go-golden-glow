@@ -1,0 +1,74 @@
+[
+  {
+    "description": "get the value of {they}",
+    "in": "[Get] they",
+    "out": "[repo] they -> A",
+    "commands": [
+      "[input] [Get] they",
+      "[output] [repo] get them",
+      "[input] [Get] they",
+      "[input] [repo] them -> A",
+      "[output] [repo] they -> A"
+    ]
+  },
+  {
+    "description": "get {how to B someone}",
+    "in": "[repo] get how to B someone",
+    "out": [
+      "[output] Susie knows how to B someone",
+      "[output] Susie does not know how to B someone"
+    ],
+    "commands": [
+      "[input] [repo] how to B someone -> E them",
+      "[output] Susie knows how to B someone",
+      "[input] [repo] how to B someone ->",
+      "[output] Susie does not know how to B someone"
+    ]
+  },
+  {
+    "description": "record the last sentence that Susie said to Zero",
+    "commands": [
+      "[input] Susie says to Zero : A",
+      "[output] [repo] SSet [last] Susie says to Zero -> A"
+    ]
+  },
+  {
+    "description": "action executor:pre-checks",
+    "commands": [
+      "[input] D should B C",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[output] get how to B someone"
+    ]
+  },
+  {
+    "description": "action executor:general",
+    "commands": [
+      "[input] D should B C",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[input] [repo] how to B someone -> E them",
+      "[output] D should E C"
+    ]
+  },
+  {
+    "description": "action executor:speak_1",
+    "commands": [
+      "[input] D should B C",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[input] [repo] how to B someone -> say E",
+      "[output] D should say to C : E"
+    ]
+  },
+  {
+    "description": "action executor:speak_2",
+    "commands": [
+      "[input] D should B C",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[input] [repo] how to B someone -> say E to them",
+      "[output] D should say to C : E"
+    ]
+  }
+]
