@@ -15,12 +15,12 @@
     ]
   },
   {
-    "description": "teach Susie how to B someone",
+    "description": "teach Susie how to A someone",
     "commands": [
-      "[input] [repo] [last] Susie says to Zero -> how to B someone",
+      "[input] [repo] [last] Susie says to Zero -> how to A someone",
       "[input] Zero says to Susie : you can E them",
       "[input] Zero starts to teach Susie",
-      "[output] [repo] set how to B someone -> E them"
+      "[output] [repo] set how to A someone -> E them"
     ]
   }
 ]

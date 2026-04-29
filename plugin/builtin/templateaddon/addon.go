@@ -1,6 +1,7 @@
 // Package templateaddon is a template addon for Package template
 // - dynamic: making conflictRules dynamically
 // - Localize: cache and load hardcoding conflictRules
+// TODO: enhance flexibility by banning(or keeping) the specific containers of a given template
 package templateaddon
 
 import (

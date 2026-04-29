@@ -25,7 +25,8 @@
     "description": "make conditions",
     "commands": [
       "[input] Zero says to Susie : if someone A you B",
-      "[input] [repo] grammar usage of verb A -> do+sb+sth",
+      "[input] [repo] the base form of verb A -> A1",
+      "[input] [repo] grammar usage of verb A1 -> do+sb+sth",
       "[input] Zero starts to teach Susie",
       "[output] [input] [repo] C -> a human",
       "[output] [input] [repo] D -> a human",

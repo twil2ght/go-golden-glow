@@ -2,16 +2,16 @@
   {
     "description": "checks",
     "commands": [
-      "[input] Zero says to Susie : A is B",
+      "[input] Zero says to Susie : B is F",
       "[output] check [teach]"
     ]
   },
   {
     "description": "general way to learn attributions",
     "commands": [
-      "[input] Zero says to Susie : A is B",
+      "[input] Zero says to Susie : B is F",
       "[input] Zero starts to teach Susie",
-      "[output] [repo] set A -> B"
+      "[output] [repo] set B -> F"
     ]
   }
 ]

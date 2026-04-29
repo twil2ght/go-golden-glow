@@ -2,7 +2,7 @@
   {
     "description": "checks",
     "commands": [
-      "[input] Susie does not know how to B someone E",
+      "[input] Susie does not know how to A someone B",
       "[output] check [ask]"
     ]
   },
@@ -10,15 +10,15 @@
     "description": "main trigger of asking",
     "commands": [
       "[input] Susie is enabled to ask Zero questions",
-      "[input] Susie does not know how to B someone E",
-      "[output] Susie should ask Zero how to B someone E"
+      "[input] Susie does not know how to A someone B",
+      "[output] Susie should ask Zero how to A someone B"
     ]
   },
   {
     "description": "way to ask",
     "commands": [
-      "[input] Susie should ask Zero how to B someone E",
-      "[output] Susie should say to Zero : how to B someone E"
+      "[input] Susie should ask Zero how to A someone B",
+      "[output] Susie should say to Zero : how to A someone B"
     ]
   }
 ]

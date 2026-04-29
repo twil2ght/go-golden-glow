@@ -2,34 +2,34 @@
   {
     "description": "checks",
     "commands": [
-      "[input] Zero says to Susie : then you should B them",
+      "[input] Zero says to Susie : then you should E them",
       "[output] check [teach]"
     ]
   },
   {
     "description": "gets",
     "commands": [
-      "[input] Zero says to Susie : then you should B them",
+      "[input] Zero says to Susie : then you should E them",
       "[output] [repo] get them",
-      "[output] [repo] get grammar usage of verb B"
+      "[output] [repo] get grammar usage of verb E"
     ]
   },
   {
-    "description": "extra bonus:check if Susie already knows how to B someone",
+    "description": "extra bonus:check if Susie already knows how to E someone",
     "commands": [
-      "[input] Zero says to Susie : then you should B them",
+      "[input] Zero says to Susie : then you should E them",
       "[input] [repo] them -> someone A you",
-      "[input] [repo] grammar usage of verb B -> do+sb",
+      "[input] [repo] grammar usage of verb E -> do+sb",
       "[input] Zero starts to teach Susie",
-      "[output] [repo] get how to B someone"
+      "[output] [repo] get how to E someone"
     ]
   },
   {
     "description": "make results for action triggers",
     "commands": [
-      "[input] Zero says to Susie : then you should B them",
+      "[input] Zero says to Susie : then you should E them",
       "[input] Zero starts to teach Susie",
-      "[output] [output] D should B C"
+      "[output] [output] D should E C"
     ]
   }
 ]

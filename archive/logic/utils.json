@@ -2,73 +2,73 @@
   {
     "description": "get the value of {they}",
     "in": "[Get] they",
-    "out": "[repo] they -> A",
+    "out": "[repo] they -> B",
     "commands": [
       "[input] [Get] they",
       "[output] [repo] get them",
       "[input] [Get] they",
-      "[input] [repo] them -> A",
-      "[output] [repo] they -> A"
+      "[input] [repo] them -> B",
+      "[output] [repo] they -> B"
     ]
   },
   {
-    "description": "get {how to B someone}",
-    "in": "[repo] get how to B someone",
+    "description": "get {how to A someone}",
+    "in": "[repo] get how to A someone",
     "out": [
-      "[output] Susie knows how to B someone",
-      "[output] Susie does not know how to B someone"
+      "[output] Susie knows how to A someone",
+      "[output] Susie does not know how to A someone"
     ],
     "commands": [
-      "[input] [repo] how to B someone -> E them",
-      "[output] Susie knows how to B someone",
-      "[input] [repo] how to B someone ->",
-      "[output] Susie does not know how to B someone"
+      "[input] [repo] how to A someone -> E them",
+      "[output] Susie knows how to A someone",
+      "[input] [repo] how to A someone ->",
+      "[output] Susie does not know how to A someone"
     ]
   },
   {
     "description": "record the last sentence that Susie said to Zero",
     "commands": [
-      "[input] Susie says to Zero : A",
-      "[output] [repo] SSet [last] Susie says to Zero -> A"
+      "[input] Susie says to Zero : B",
+      "[output] [repo] SSet [last] Susie says to Zero -> B"
     ]
   },
   {
     "description": "action executor:pre-checks",
     "commands": [
-      "[input] D should B C",
+      "[input] D should A C",
       "[input] [repo] C -> a human",
       "[input] [repo] D -> a human",
-      "[output] get how to B someone"
+      "[output] get how to A someone"
     ]
   },
   {
     "description": "action executor:general",
     "commands": [
-      "[input] D should B C",
+      "[input] D should A C",
       "[input] [repo] C -> a human",
       "[input] [repo] D -> a human",
-      "[input] [repo] how to B someone -> E them",
+      "[input] [repo] how to A someone -> E them",
       "[output] D should E C"
     ]
   },
   {
     "description": "action executor:speak_1",
     "commands": [
-      "[input] D should B C",
+      "[input] D should A C",
       "[input] [repo] C -> a human",
       "[input] [repo] D -> a human",
-      "[input] [repo] how to B someone -> say E",
-      "[output] D should say to C : E"
+      "[input] [repo] how to A someone -> say B",
+      "[output] D should say to C : B"
     ]
   },
   {
     "description": "action executor:speak_2",
     "commands": [
-      "[input] D should B C",
+      "[input] D should A C",
       "[input] [repo] C -> a human",
       "[input] [repo] D -> a human",
-      "[input] [repo] how to B someone -> say E to them",
-      "[output] D should say to C : E"
+      "[input] [repo] how to A someone -> say B to them",
+      "[output] D should say to C : B"
     ]
   }
 ]
