@@ -1,0 +1,15 @@
+[
+  {
+    "tag": "compliment",
+    "description": "someone compliments you",
+    "routes": [
+      "happy",
+      "thank"
+    ],
+    "commands": [
+      "if someone compliments you",
+      "then you should be happy",
+      "then you should thank them"
+    ]
+  }
+]

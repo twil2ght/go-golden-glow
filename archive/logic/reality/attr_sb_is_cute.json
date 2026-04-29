@@ -1,0 +1,15 @@
+[
+  {
+    "tag": "cute",
+    "description": "you are cute",
+    "routes": [
+      "compliment",
+      "like"
+    ],
+    "commands": [
+      "if someone thinks you are cute",
+      "then they like you",
+      "then they compliment you"
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : your B is F",
+      "[output] check [teach]",
+      "[input] Zero says to Susie : your B are F",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "",
+    "commands": [
+      "[input] Zero says to Susie : your B is F",
+      "[input] Zero starts to teach Susie",
+      "[output] [repo] set Susie 's B -> F"
+    ]
+  },
+  {
+    "description": "",
+    "commands": [
+      "[input] Zero says to Susie : your B are F",
+      "[input] Zero starts to teach Susie",
+      "[output] [repo] set Susie 's B -> F"
+    ]
+  }
+]
