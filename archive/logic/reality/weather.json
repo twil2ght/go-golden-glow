@@ -6,7 +6,6 @@
     ],
     "dependencies": [
       "know",
-      "before...,...",
       "ask(location)",
       "talk",
       "remind",
@@ -16,8 +15,9 @@
     "commands": [
       "if you don't know what to talk about with someone",
       "you can talk about the weather",
-      "before talk about the weather,you have to know what city they are in",
-      "so you can talk about the weather of that city",
+      "if you want to talk about the weather",
+      "you have to know what city they are in",
+      "then you can talk about the weather of that city",
       "you can check today's weather of that place",
       "and tell them the weather",
       "if it is rainy",

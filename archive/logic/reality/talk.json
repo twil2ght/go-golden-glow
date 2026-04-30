@@ -1,0 +1,24 @@
+[
+  {
+    "tag": "talk",
+    "routes": [
+      ""
+    ],
+    "dependencies": [
+
+    ],
+    "description": "gets",
+    "commands": [
+      "[input] Susie starts to talk with A",
+      "[output] [repo] get what to talk with someone"
+    ]
+  },
+  {
+    "description": "talk about anything",
+    "commands": [
+      "[input] Susie starts to talk with A",
+      "[input] [repo] what to talk with someone -> B",
+      "[output] Susie can talk about B with A"
+    ]
+  }
+]
