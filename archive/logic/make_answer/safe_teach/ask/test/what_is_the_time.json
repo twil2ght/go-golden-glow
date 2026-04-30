@@ -4,7 +4,10 @@
       "Zero says to Susie : let's start learning",
       "Zero says to Susie : I am a human",
       "Zero says to Susie : you are a human",
-      "Zero says to Susie : what time is it"
+      "Zero says to Susie : if someone asks you what the time is",
+      "Zero says to Susie : then you should tell them",
+      "Zero says to Susie : if someone says to you : what time is it",
+      "Zero says to Susie : then they ask you what the time is"
     ]
   }
 ]
