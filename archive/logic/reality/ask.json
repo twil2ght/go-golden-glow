@@ -1,0 +1,15 @@
+[
+  {
+    "tag": "ask",
+    "routes": [
+      "tell"
+    ],
+    "description": "set what to tell",
+    "commands": [
+      "[input] C asks D what A is",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[output] [repo] set what to tell C -> A"
+    ]
+  }
+]

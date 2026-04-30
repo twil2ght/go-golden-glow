@@ -3,6 +3,7 @@
     "tag": "ask",
     "description": "ask someone's name",
     "commands": [
+      "Zero says to Susie : what is your name"
     ]
   }
 ]
