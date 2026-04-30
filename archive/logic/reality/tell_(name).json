@@ -10,6 +10,10 @@
       "[input] [repo] C -> a human",
       "[input] [repo] D -> a human",
       "[output] D should say to C : my name is B"
+    ],
+    "demo": [
+      "Zero says to Susie : if you should tell someone your name",
+      "Zero says to Susie : then you can just say what your name is"
     ]
   }
 ]
