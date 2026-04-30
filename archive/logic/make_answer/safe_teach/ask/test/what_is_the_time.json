@@ -2,7 +2,9 @@
   {
     "commands": [
       "Zero says to Susie : let's start learning",
-      "Zero says to Susie : what is the time"
+      "Zero says to Susie : I am a human",
+      "Zero says to Susie : you are a human",
+      "Zero says to Susie : what time is it"
     ]
   }
 ]
