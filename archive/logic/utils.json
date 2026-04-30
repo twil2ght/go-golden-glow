@@ -70,5 +70,13 @@
       "[input] [repo] how to A someone -> say B to them",
       "[output] D should say to C : B"
     ]
+  },
+  {
+    "description": "we are human",
+    "commands": [
+      "[input] C says to D : B",
+      "[output] [repo] check C -> a human",
+      "[output] [repo] check D -> a human"
+    ]
   }
 ]

@@ -1,1 +1,20 @@
-{}
+{
+  "Susie": {
+    "a human": "0001-01-01T00:00:00Z"
+  },
+  "Zero": {
+    "a human": "0001-01-01T00:00:00Z"
+  },
+  "[last] Susie says to Zero": {
+    "it is 20:21:11": "0001-01-01T00:00:00Z"
+  },
+  "them": {
+    "someone asks you what the time is": "0001-01-01T00:00:00Z"
+  },
+  "what time": {
+    "it": "0001-01-01T00:00:00Z"
+  },
+  "what to tell Zero": {
+    "the time": "0001-01-01T00:00:00Z"
+  }
+}

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"goldenglow/pkg/database"
 	"goldenglow/pkg/datagen"
-	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
 	"goldenglow/pkg/registry"
 	"goldenglow/pkg/runner"
@@ -124,7 +123,7 @@ func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler])
 			singleValue, _ = parameters.Get(KeySingleValue)
 			expiration, _  = parameters.Get(keyExpiration)
 		)
-		log.Default().Info("[repo] set", key, value)
+		//log.Default().Info("[repo] set", key, value)
 		if testing {
 			return
 		}
@@ -143,7 +142,7 @@ func (s *addon) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 			key, _ = parameters.Get(keyKey)
 			val, _ = parameters.Get(keyValue)
 		)
-		log.Default().Debug("[repo] check", key, val)
+		//log.Default().Debug("[repo] check", key, val)
 		if e, _ := s.cache.Get(fmt.Sprintf("check %s->%s", key, val)); e {
 			return false
 		}
@@ -161,7 +160,7 @@ func (s *addon) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 			val, _  = parameters.Get(keyValue)
 			dist, _ = parameters.Get(keyDist)
 		)
-		log.Default().Debug("[repo] check (fail)", "key", key)
+		//log.Default().Debug("[repo] check (fail)", "key", key)
 		if e, _ := s.cache.Get(fmt.Sprintf("check %s!->%s", key, val)); e {
 			return false
 		}
@@ -182,7 +181,7 @@ func (s *addon) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 		var (
 			key, _ = parameters.Get(keyKey)
 		)
-		log.Default().Debug("[repo] get", "key", key)
+		//log.Default().Debug("[repo] get", "key", key)
 		valueMap, err := s.repo.HGet(key)
 		for val := range valueMap {
 			if e, _ := s.cache.Get(fmt.Sprintf("%s->%s", key, val)); e {

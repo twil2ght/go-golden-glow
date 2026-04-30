@@ -2,7 +2,6 @@ package safeteach
 
 import (
 	"goldenglow/pkg/datagen"
-	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
 	"goldenglow/pkg/registry"
 	"goldenglow/pkg/runner"
@@ -54,7 +53,7 @@ func (s *safeTeach) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]
 			cfg, _ = ReadConfig()
 			key, _ = parameters.Get(keyKey)
 		)
-		log.Default().Debug("[safeTeach] checking", "key", key)
+		//log.Default().Debug("[safeTeach] checking", "key", key)
 		if cache, _ := s.cache.Get(key); cache {
 			return false
 		}

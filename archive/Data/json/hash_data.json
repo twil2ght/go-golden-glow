@@ -1,1 +1,1741 @@
-{}
+{
+  "C-\u003eR:0052ff78c0b147407c8dbe115c3df5e3": {
+    "[phrase] IndexOf $1 # $3 -\u003e $2": {}
+  },
+  "C-\u003eR:05a450e45f9357dbfde05b1c584b310c": {
+    "check [ask]": {}
+  },
+  "C-\u003eR:06440b98142f892ce006054981122635": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:07dbc119b34346b1190ccb9fc7d2e5fe": {
+    "[time] date -\u003e $1": {}
+  },
+  "C-\u003eR:11133799f89eacb730edf07c9b843e41": {
+    "[repo] get them": {}
+  },
+  "C-\u003eR:12ca1800cc0b493d7b5661ef92b7d52a": {
+    "$4 should say to $3 : it is $2": {}
+  },
+  "C-\u003eR:177d4feb845ce425fc3fe4716e3bf9ac": {
+    "[input] [repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eR:1825d6eb32c16b10591a71e51b390413": {
+    "[input] [repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eR:1974caeacabd78080c41147b237b4e87": {
+    "[output] $4 should $5 $3": {}
+  },
+  "C-\u003eR:1efacdc505b91307c1845f24571b246b": {
+    "[input] $3 $1 $4 $2": {}
+  },
+  "C-\u003eR:1feed269a7e700ed73f9952b57a6e886": {
+    "[compute] $1 - $2 -\u003e $3": {}
+  },
+  "C-\u003eR:2102da39ea37ee97007a64d39f62b6f0": {
+    "[ST] teach -\u003e off": {}
+  },
+  "C-\u003eR:21f0ddf9ab70dc595d4ed9fa8dc38149": {
+    "[time] time -\u003e $1": {}
+  },
+  "C-\u003eR:240fd0f9c17075b18e5a041723644a0d": {
+    "[repo] get the singular of verb $5": {}
+  },
+  "C-\u003eR:24639a18b228c11eb7850a333b5887b0": {
+    "[repo] get grammar usage of verb $5": {}
+  },
+  "C-\u003eR:2b388e5035b121380d892c0ac761b5af": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:2cc3829e0e9b805a93b377495ccb2e43": {
+    "[output] $4 should $5 $3 $6": {}
+  },
+  "C-\u003eR:2d1319d9e61ca8301836a9558e6f920c": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:2dbcaeae947728d09b97a39fc57d3e86": {
+    "Susie is enabled to ask Zero questions": {}
+  },
+  "C-\u003eR:355e09ee515ab26840dc894285ef22f0": {
+    "$4 should tell $3 the time is $2": {}
+  },
+  "C-\u003eR:36b4cfbc553cc31b6421a7594b21acaf": {
+    "Susie should say to Zero : how to $1 someone": {}
+  },
+  "C-\u003eR:3b124b56749d9299bec16ca5af099c29": {
+    "[repo] check $3 -\u003e a human": {}
+  },
+  "C-\u003eR:3e85f9a894c0b2c7a9fec26960f5292d": {
+    "check [ask]": {}
+  },
+  "C-\u003eR:3ee204286f3e5547d59c3f6d82fbc834": {
+    "$4 should $5 $3": {}
+  },
+  "C-\u003eR:3f77bf77e5f22155f09aced668a746c1": {
+    "[repo] set $2 -\u003e $6": {}
+  },
+  "C-\u003eR:4140ca7309c0be597bb590a135df1f03": {
+    "[repo] get [last] Susie says to Zero": {}
+  },
+  "C-\u003eR:4167e1a5b41dc374345f1d15be61c000": {
+    "[repo] $1 -\u003e": {}
+  },
+  "C-\u003eR:4211cd42e6de25aae3b8a55eb48ed310": {
+    "[node:executor] [namespace:speaker] [response:$1] [to:$2]": {}
+  },
+  "C-\u003eR:463594028f884a39f96da8052aba080e": {
+    "[repo] check $4 -\u003e a human": {}
+  },
+  "C-\u003eR:473843708c23c1b6fa139d99b3a4d660": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:478ee4e33128c313ee9d592aebde428d": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:47ab6154b44229791ac1950f555770fe": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:4b065921275a09849498885b27fdb4f2": {
+    "[phrase] len $1 -\u003e $2": {}
+  },
+  "C-\u003eR:4eaa3832b110e55513564eb72af91d35": {
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eR:4f95988a047b968585bc0e04a4bf2b29": {
+    "[time] minute -\u003e $1": {}
+  },
+  "C-\u003eR:57a14f8a6145e3c6591652b95a2eba29": {
+    "[speak] $1 -\u003e $2": {}
+  },
+  "C-\u003eR:5a8e9cb9ddb38b3dfd883141586fc661": {
+    "[phrase] $1 @ $3 -\u003e $2": {}
+  },
+  "C-\u003eR:5c11bc2b3d65a6ad8fe107a42444ed08": {
+    "[repo] SSet [last] Susie says to Zero -\u003e $2": {}
+  },
+  "C-\u003eR:5d0456c6913730fc25a4e549b42afd40": {
+    "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {}
+  },
+  "C-\u003eR:64894dec4da129f11f61e9baa23ca119": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:6807ffda5e5e877c4cf37e1419976952": {
+    "[phrase] LastN $1 # $3 -\u003e $2": {}
+  },
+  "C-\u003eR:693d8904c998bb02cd144a3f6ec6b440": {
+    "[compute] $1 * $2 -\u003e $3": {}
+  },
+  "C-\u003eR:6b8ae5928f66c8a4314b678c8638eb4e": {
+    "[ST] ask -\u003e on": {}
+  },
+  "C-\u003eR:6bdb649fb37dfdf55e619691b75a0437": {
+    "[input] $1": {}
+  },
+  "C-\u003eR:6dbf44ebaffd8b0e753dc4c818719c95": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:6e331162f3bedf49b9c6eef91d9ebeaf": {
+    "[word] HasPrefix $1 # $2": {}
+  },
+  "C-\u003eR:6f5a80af4e0997387d1ddb4bb605d10e": {
+    "Susie should say to Zero : how to $1 someone $2": {}
+  },
+  "C-\u003eR:7073028023f03dd92ef5d6538e09b900": {
+    "[node:executor] [namespace:safeTeach] [key:$1] [value:$2]": {}
+  },
+  "C-\u003eR:718f144fdc100fc7497f22d88629976f": {
+    "[repo] get grammar usage of verb $1": {}
+  },
+  "C-\u003eR:774ad899081be519fce9ba9c48c8a07e": {
+    "[time] get time": {}
+  },
+  "C-\u003eR:77d81a66df35de5244f85610b1322171": {
+    "[word] len $1 -\u003e $2": {}
+  },
+  "C-\u003eR:7902838acd61f7d4aef206c1f9584f34": {
+    "Susie should ask Zero how to $1 someone $2": {}
+  },
+  "C-\u003eR:7dece49c261e74902a9890c90b5e515f": {
+    "[repo] set Susie 's $2 -\u003e $6": {}
+  },
+  "C-\u003eR:81cab545ee3eee64715d7e7c6b7325b5": {
+    "[word] AddSuffix $1 # $2 -\u003e $3": {}
+  },
+  "C-\u003eR:858bb9d18d6826e9e28e3b84464b1420": {
+    "[input] [repo] $3 -\u003e a human": {}
+  },
+  "C-\u003eR:888e9d3419ea640e055ca6a6156a3fca": {
+    "[phrase] FirstN $1 # $3 -\u003e $2": {}
+  },
+  "C-\u003eR:8f61ceabd7bddcefb45e3e4d5adde555": {
+    "[repo] get them": {}
+  },
+  "C-\u003eR:964e289481ef5e2f5e08c3c09b57f99d": {
+    "$4 should say to $3 : $2": {}
+  },
+  "C-\u003eR:971db458421df8487fffa6b27b81ca6a": {
+    "[ST] ask -\u003e off": {}
+  },
+  "C-\u003eR:9863284a8f1d9f6f01a01be1a0c760cc": {
+    "[repo] set grammar usage of verb $1 -\u003e do+sb+sth": {}
+  },
+  "C-\u003eR:9a806a0c5796ddae6797186bf63b9f30": {
+    "[phrase] HasPrefix $1 # $2": {}
+  },
+  "C-\u003eR:9b278a5397efd89fc3696b805b93fe20": {
+    "[repo] get them": {}
+  },
+  "C-\u003eR:9f2d1bc7769bc81b1931b59e7a89d479": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:a1fe0568826cc9b672bc71d84885daf7": {
+    "[node:executor] [namespace:repo_addon] [expiration:$3] [key:$1] [value:$2]": {}
+  },
+  "C-\u003eR:a282b1664096e8417f90d7ba66fee493": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:a3c1909b3a122cc5f9c0c7da892c04dc": {
+    "[repo] set how to $1 someone -\u003e $5 them": {}
+  },
+  "C-\u003eR:a3c8f1594823e098ba9c7f4f1296583a": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:a3eeca6a9a97aef514e9019ef73f4b22": {
+    "$4 should tell $3": {}
+  },
+  "C-\u003eR:a45c4a339de31718a5ac29096a14f8dd": {
+    "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {}
+  },
+  "C-\u003eR:a47a91fd05bf039f57a350f6598ced6d": {
+    "Susie should ask Zero how to $1 someone": {}
+  },
+  "C-\u003eR:a4b70f2c0cfb590a6b94a7e4751a7302": {
+    "[repo] get grammar usage of verb $1": {}
+  },
+  "C-\u003eR:a525d15635271536fea965a96c1718be": {
+    "[output] $3 $8 $4": {}
+  },
+  "C-\u003eR:a55d3adc6e3b60b3044890b0d0ae2400": {
+    "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
+  },
+  "C-\u003eR:a6955e829c75bad7a12138c0388151c2": {
+    "get how to $1 someone": {}
+  },
+  "C-\u003eR:a8250dc0fa2b60b7442d5e8ace7c37a3": {
+    "[repo] set Susie -\u003e $6": {}
+  },
+  "C-\u003eR:ab9efaed69a38eef683f2e8f0be3a7f9": {
+    "Susie does not know how to $1 someone": {}
+  },
+  "C-\u003eR:ac6518c260437ba4ccdc006c0c75b74b": {
+    "[repo] set Zero 's $2 -\u003e $6": {}
+  },
+  "C-\u003eR:acd10b7624c7e9f94fc1f9f8a9b5a607": {
+    "[compute] $1 \u003c $2": {}
+  },
+  "C-\u003eR:acf9b49d58ea97a7bc3cd56672a36d4b": {
+    "[repo] they -\u003e $2": {}
+  },
+  "C-\u003eR:b537655ef659a49ca72816bf5be1e0aa": {
+    "$4 should say to $3 : $2": {}
+  },
+  "C-\u003eR:b84b3e7492cbd4dabe29a6016a0d3633": {
+    "[repo] set what to tell $3 -\u003e $1": {}
+  },
+  "C-\u003eR:bb90a9175bbdc580deaaeb9099f1d045": {
+    "[word] AddPrefix $1 # $2 -\u003e $3": {}
+  },
+  "C-\u003eR:c04817970bbdd99aa4d04f78f2ea7a4c": {
+    "[compute] $1 \u003e $2": {}
+  },
+  "C-\u003eR:c122be6eba9308196d62491fcddd5c01": {
+    "[repo] set Zero -\u003e $6": {}
+  },
+  "C-\u003eR:c2b44466cecbf7a0e92702c92dbe7255": {
+    "[ST] teach -\u003e on": {}
+  },
+  "C-\u003eR:c2e9688672873ac1addb0de3ff4063e2": {
+    "[repo] $1 -\u003e $2": {}
+  },
+  "C-\u003eR:c56aa716e5a557386c89d24a34acc12c": {
+    "[Get] they": {}
+  },
+  "C-\u003eR:c6638166186bd2ea98ea0ff082542990": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:c8b2d720f3258f71d8d879149df1b0f1": {
+    "[repo] get how to $5 someone $6": {}
+  },
+  "C-\u003eR:c95a76d1bfc9570c4684bc92d36f12e0": {
+    "[repo] get what to tell $3": {}
+  },
+  "C-\u003eR:cb95a2d8fcc1afb9e26c72d127761746": {
+    "[repo] SSet them -\u003e someone $1 you": {}
+  },
+  "C-\u003eR:cd8f2688e76832f143bfea08b9827d49": {
+    "[word] $1 @ $3 -\u003e $2": {}
+  },
+  "C-\u003eR:cda83050d89049f4673da66ef33c5c30": {
+    "[repo] $1 -\u003e $2": {}
+  },
+  "C-\u003eR:cdf6c2a336bcc24f890185791ea76d0b": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:d257be0ff0d8508172b969e80fd5551e": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:d568b3f7e9218c901a3cdba6ed0559e0": {
+    "[repo] set grammar usage of verb $1 -\u003e do+sb": {}
+  },
+  "C-\u003eR:d8273a4e502a77a688a43335470b02fa": {
+    "Susie knows how to $1 someone": {}
+  },
+  "C-\u003eR:d8a215f5225078c6ff479380817e876c": {
+    "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
+  },
+  "C-\u003eR:d90c6d06eb339126b43b8342bf162d3f": {
+    "[repo] get grammar usage of verb $5": {}
+  },
+  "C-\u003eR:d9ac413eaa9c09e75a701d55110cb353": {
+    "[repo] SSet them -\u003e someone $1 you $2": {}
+  },
+  "C-\u003eR:da40385d0c295ad0bf875e56193df753": {
+    "[output] $1": {}
+  },
+  "C-\u003eR:dfa7739b531bda9fc922c95899566165": {
+    "[node:executor] [namespace:repo_addon] [key:$1] [value:$2]": {}
+  },
+  "C-\u003eR:e424483a3d9e87e7d70309d6de1516ce": {
+    "[repo] get how to $5 someone $6": {}
+  },
+  "C-\u003eR:e66ce61aa268479c0ef8173524082f63": {
+    "$4 should tell $3 $2": {}
+  },
+  "C-\u003eR:e70195c598f1e0df7b360b280762260e": {
+    "[repo] set Zero 's $2 -\u003e $6": {}
+  },
+  "C-\u003eR:e89a23f2022dff3d9d76e3b37c190687": {
+    "[compute] $1 = $2": {}
+  },
+  "C-\u003eR:e8f7f1898b439394234560532dda0c1b": {
+    "[time] hour -\u003e $1": {}
+  },
+  "C-\u003eR:e9a23028ea4f4ea7c068bd24d2fb7c44": {
+    "[compute] $1 + $2 -\u003e $3": {}
+  },
+  "C-\u003eR:ed44a0ebb02eaadf58784239e09815c0": {
+    "[repo] get how to $5 someone": {}
+  },
+  "C-\u003eR:edf664d274ba305d6713f28a465daa17": {
+    "[word] IndexOf $3 # $1 -\u003e $2": {}
+  },
+  "C-\u003eR:f3cef697e21036703c663acc953824a3": {
+    "[word] HasSuffix $1 # $2": {}
+  },
+  "C-\u003eR:f425c7782a11dd2faa6e2fea0d435d3e": {
+    "[input] [repo] $3 -\u003e a human": {}
+  },
+  "C-\u003eR:f553da98d35b4a864e24bf73205dd33a": {
+    "check [teach]": {}
+  },
+  "C-\u003eR:fa221c3f38be84f411cbda1656486c69": {
+    "[node:executor] [namespace:repo_addon] [key:$1] [singleValue:true] [value:$2]": {}
+  },
+  "C-\u003eR:fdeeaee165915a824f299e22d1df2a30": {
+    "[input] $3 $1 $4": {}
+  },
+  "C-\u003eR:fdefbc32ead1cdc80b7b847fb774b753": {
+    "[repo] set Susie 's $2 -\u003e $6": {}
+  },
+  "C-\u003eR:fe0e037f39eb222c9f84b78916cf6d84": {
+    "[repo] $1 !-\u003e $2": {}
+  },
+  "C-\u003eR:ff247c871d2bce20e46ff3c65171b64c": {
+    "$3 asks $4 what the time is": {}
+  },
+  "C-\u003eT:0052ff78c0b147407c8dbe115c3df5e3": {
+    "[node:extractor] [namespace:word] [dist:$2] [mode:index_of] [phrase:$1] [target:$3]": {},
+    "[phrase] IndexOf $1 # $3": {}
+  },
+  "C-\u003eT:05a450e45f9357dbfde05b1c584b310c": {
+    "Susie does not know how to $1 someone": {}
+  },
+  "C-\u003eT:06440b98142f892ce006054981122635": {
+    "Zero says to Susie : you are $6": {}
+  },
+  "C-\u003eT:07dbc119b34346b1190ccb9fc7d2e5fe": {
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:date]": {},
+    "[time] get date": {}
+  },
+  "C-\u003eT:11133799f89eacb730edf07c9b843e41": {
+    "Zero says to Susie : then you should $5 them $6": {}
+  },
+  "C-\u003eT:12ca1800cc0b493d7b5661ef92b7d52a": {
+    "$4 should tell $3 the time is $2": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eT:177d4feb845ce425fc3fe4716e3bf9ac": {
+    "Zero says to Susie : if someone $1 you": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:1825d6eb32c16b10591a71e51b390413": {
+    "Zero says to Susie : if someone $1 you $2": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:1974caeacabd78080c41147b237b4e87": {
+    "Zero says to Susie : then you should $5 them": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:1efacdc505b91307c1845f24571b246b": {
+    "Zero says to Susie : if someone $1 you $2": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:1feed269a7e700ed73f9952b57a6e886": {
+    "[compute] get $1 - $2": {},
+    "[node:extractor] [namespace:calculator] [dist:$3] [expression:$1-$2]": {}
+  },
+  "C-\u003eT:2102da39ea37ee97007a64d39f62b6f0": {
+    "Zero says to Susie : let's end learning": {}
+  },
+  "C-\u003eT:21f0ddf9ab70dc595d4ed9fa8dc38149": {
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:time]": {},
+    "[time] get time": {}
+  },
+  "C-\u003eT:240fd0f9c17075b18e5a041723644a0d": {
+    "Zero says to Susie : then they $5 you": {}
+  },
+  "C-\u003eT:24639a18b228c11eb7850a333b5887b0": {
+    "Zero says to Susie : then you should $5 them": {}
+  },
+  "C-\u003eT:2b388e5035b121380d892c0ac761b5af": {
+    "Zero says to Susie : you can $5 them": {}
+  },
+  "C-\u003eT:2cc3829e0e9b805a93b377495ccb2e43": {
+    "Zero says to Susie : then you should $5 them $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:2d1319d9e61ca8301836a9558e6f920c": {
+    "Zero says to Susie : $2 is $6": {}
+  },
+  "C-\u003eT:2dbcaeae947728d09b97a39fc57d3e86": {
+    "[node:checker] [namespace:safeTeach] [key:ask]": {},
+    "check [ask]": {}
+  },
+  "C-\u003eT:355e09ee515ab26840dc894285ef22f0": {
+    "$4 should tell $3 the time": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {},
+    "[time] time -\u003e $2": {}
+  },
+  "C-\u003eT:36b4cfbc553cc31b6421a7594b21acaf": {
+    "Susie should ask Zero how to $1 someone": {}
+  },
+  "C-\u003eT:3b124b56749d9299bec16ca5af099c29": {
+    "$3 says to $4 : $2": {}
+  },
+  "C-\u003eT:3e85f9a894c0b2c7a9fec26960f5292d": {
+    "Susie does not know how to $1 someone $2": {}
+  },
+  "C-\u003eT:3ee204286f3e5547d59c3f6d82fbc834": {
+    "$4 should $1 $3": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {},
+    "[repo] how to $1 someone -\u003e $5 them": {}
+  },
+  "C-\u003eT:3f77bf77e5f22155f09aced668a746c1": {
+    "Zero says to Susie : $2 is $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:4140ca7309c0be597bb590a135df1f03": {
+    "Zero says to Susie : you can $5 them": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:4167e1a5b41dc374345f1d15be61c000": {
+    "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
+    "[repo] get $1": {}
+  },
+  "C-\u003eT:4211cd42e6de25aae3b8a55eb48ed310": {
+    "[speak] $1 -\u003e $2": {}
+  },
+  "C-\u003eT:463594028f884a39f96da8052aba080e": {
+    "$3 says to $4 : $2": {}
+  },
+  "C-\u003eT:473843708c23c1b6fa139d99b3a4d660": {
+    "Zero says to Susie : if someone $1 you $2": {}
+  },
+  "C-\u003eT:478ee4e33128c313ee9d592aebde428d": {
+    "Zero says to Susie : the verb $1 can do+sb": {}
+  },
+  "C-\u003eT:47ab6154b44229791ac1950f555770fe": {
+    "Zero says to Susie : your $2 is $6": {}
+  },
+  "C-\u003eT:4b065921275a09849498885b27fdb4f2": {
+    "[node:extractor] [namespace:word] [dist:$2] [mode:length] [phrase:$1]": {},
+    "[phrase] len $1": {}
+  },
+  "C-\u003eT:4eaa3832b110e55513564eb72af91d35": {
+    "[node:checker] [namespace:safeTeach] [key:teach]": {},
+    "check [teach]": {}
+  },
+  "C-\u003eT:4f95988a047b968585bc0e04a4bf2b29": {
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:minute]": {},
+    "[time] get minute": {}
+  },
+  "C-\u003eT:57a14f8a6145e3c6591652b95a2eba29": {
+    "Susie should say to $2 : $1": {}
+  },
+  "C-\u003eT:5a8e9cb9ddb38b3dfd883141586fc661": {
+    "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:word_at] [phrase:$1]": {},
+    "[phrase] get $1 @ $3": {}
+  },
+  "C-\u003eT:5c11bc2b3d65a6ad8fe107a42444ed08": {
+    "Susie says to Zero : $2": {}
+  },
+  "C-\u003eT:5d0456c6913730fc25a4e549b42afd40": {
+    "[output] $1": {}
+  },
+  "C-\u003eT:64894dec4da129f11f61e9baa23ca119": {
+    "Zero says to Susie : if someone $1 you": {}
+  },
+  "C-\u003eT:6807ffda5e5e877c4cf37e1419976952": {
+    "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_head] [phrase:$1]": {},
+    "[phrase] LastN $1 # $3": {}
+  },
+  "C-\u003eT:693d8904c998bb02cd144a3f6ec6b440": {
+    "[compute] get $1 * $2": {},
+    "[node:extractor] [namespace:calculator] [dist:$3] [expression:$1*$2]": {}
+  },
+  "C-\u003eT:6b8ae5928f66c8a4314b678c8638eb4e": {
+    "Zero says to Susie : you can ask me questions": {}
+  },
+  "C-\u003eT:6bdb649fb37dfdf55e619691b75a0437": {
+    "Zero says to Susie : if $1": {}
+  },
+  "C-\u003eT:6dbf44ebaffd8b0e753dc4c818719c95": {
+    "Zero says to Susie : your $2 are $6": {}
+  },
+  "C-\u003eT:6e331162f3bedf49b9c6eef91d9ebeaf": {
+    "[node:checker] [namespace:word] [mode:starts_with] [target:$2] [word:$1]": {},
+    "[word] check HasPrefix $1 # $2": {}
+  },
+  "C-\u003eT:6f5a80af4e0997387d1ddb4bb605d10e": {
+    "Susie should ask Zero how to $1 someone $2": {}
+  },
+  "C-\u003eT:7073028023f03dd92ef5d6538e09b900": {
+    "[ST] $1 -\u003e $2": {}
+  },
+  "C-\u003eT:718f144fdc100fc7497f22d88629976f": {
+    "Zero says to Susie : if someone $1 you $2": {}
+  },
+  "C-\u003eT:774ad899081be519fce9ba9c48c8a07e": {
+    "$4 should tell $3 the time": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eT:77d81a66df35de5244f85610b1322171": {
+    "[node:extractor] [namespace:word] [dist:$2] [mode:char_length] [word:$1]": {},
+    "[word] len $1": {}
+  },
+  "C-\u003eT:7902838acd61f7d4aef206c1f9584f34": {
+    "Susie does not know how to $1 someone $2": {},
+    "Susie is enabled to ask Zero questions": {}
+  },
+  "C-\u003eT:7dece49c261e74902a9890c90b5e515f": {
+    "Zero says to Susie : your $2 is $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:81cab545ee3eee64715d7e7c6b7325b5": {
+    "[node:extractor] [namespace:word] [dist:$3] [mode:add_suffix] [suffix:$2] [word:$1]": {},
+    "[word] AddSuffix $1 # $2": {}
+  },
+  "C-\u003eT:858bb9d18d6826e9e28e3b84464b1420": {
+    "Zero says to Susie : if someone $1 you": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:888e9d3419ea640e055ca6a6156a3fca": {
+    "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_tail] [phrase:$1]": {},
+    "[phrase] FirstN $1 # $3": {}
+  },
+  "C-\u003eT:8f61ceabd7bddcefb45e3e4d5adde555": {
+    "[Get] they": {}
+  },
+  "C-\u003eT:964e289481ef5e2f5e08c3c09b57f99d": {
+    "$4 should $1 $3": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {},
+    "[repo] how to $1 someone -\u003e say $2 to them": {}
+  },
+  "C-\u003eT:971db458421df8487fffa6b27b81ca6a": {
+    "Zero says to Susie : you should not ask me questions": {}
+  },
+  "C-\u003eT:9863284a8f1d9f6f01a01be1a0c760cc": {
+    "Zero says to Susie : the verb $1 can do+sb+sth": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:9a806a0c5796ddae6797186bf63b9f30": {
+    "[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {},
+    "[phrase] check HasPrefix $1 # $2": {}
+  },
+  "C-\u003eT:9b278a5397efd89fc3696b805b93fe20": {
+    "Zero says to Susie : then you should $5 them": {}
+  },
+  "C-\u003eT:9f2d1bc7769bc81b1931b59e7a89d479": {
+    "Zero says to Susie : my $2 is $6": {}
+  },
+  "C-\u003eT:a1fe0568826cc9b672bc71d84885daf7": {
+    "[repo] set $1 -\u003e $2 @ $3": {}
+  },
+  "C-\u003eT:a282b1664096e8417f90d7ba66fee493": {
+    "Zero says to Susie : then they $5 you": {}
+  },
+  "C-\u003eT:a3c1909b3a122cc5f9c0c7da892c04dc": {
+    "Zero says to Susie : you can $5 them": {},
+    "Zero starts to teach Susie": {},
+    "[repo] [last] Susie says to Zero -\u003e how to $1 someone": {}
+  },
+  "C-\u003eT:a3c8f1594823e098ba9c7f4f1296583a": {
+    "Zero says to Susie : the verb $1 can do+sb+sth": {}
+  },
+  "C-\u003eT:a3eeca6a9a97aef514e9019ef73f4b22": {
+    "$3 asks $4 what the time is": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eT:a45c4a339de31718a5ac29096a14f8dd": {
+    "Zero says to Susie : [output] $1": {}
+  },
+  "C-\u003eT:a47a91fd05bf039f57a350f6598ced6d": {
+    "Susie does not know how to $1 someone": {},
+    "Susie is enabled to ask Zero questions": {}
+  },
+  "C-\u003eT:a4b70f2c0cfb590a6b94a7e4751a7302": {
+    "Zero says to Susie : if someone $1 you": {}
+  },
+  "C-\u003eT:a525d15635271536fea965a96c1718be": {
+    "Zero says to Susie : then they $5 you": {},
+    "Zero starts to teach Susie": {},
+    "[repo] the singular of verb $5 -\u003e $8": {}
+  },
+  "C-\u003eT:a55d3adc6e3b60b3044890b0d0ae2400": {
+    "Zero says to Susie : [input] $1": {}
+  },
+  "C-\u003eT:a6955e829c75bad7a12138c0388151c2": {
+    "$4 should $1 $3": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eT:a8250dc0fa2b60b7442d5e8ace7c37a3": {
+    "Zero says to Susie : you are $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:ab9efaed69a38eef683f2e8f0be3a7f9": {
+    "[repo] how to $1 someone -\u003e": {}
+  },
+  "C-\u003eT:ac6518c260437ba4ccdc006c0c75b74b": {
+    "Zero says to Susie : my $2 are $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:acd10b7624c7e9f94fc1f9f8a9b5a607": {
+    "[compute] check $1 \u003c $2": {},
+    "[node:checker] [namespace:calculator] [left:$1] [operator:\u003c] [right:$2]": {}
+  },
+  "C-\u003eT:acf9b49d58ea97a7bc3cd56672a36d4b": {
+    "[Get] they": {},
+    "[repo] them -\u003e $2": {}
+  },
+  "C-\u003eT:b537655ef659a49ca72816bf5be1e0aa": {
+    "$4 should $1 $3": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {},
+    "[repo] how to $1 someone -\u003e say $2": {}
+  },
+  "C-\u003eT:b84b3e7492cbd4dabe29a6016a0d3633": {
+    "$3 asks $4 what $1 is": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eT:bb90a9175bbdc580deaaeb9099f1d045": {
+    "[node:extractor] [namespace:word] [dist:$3] [mode:add_prefix] [prefix:$2] [word:$1]": {},
+    "[word] AddPrefix $1 # $2": {}
+  },
+  "C-\u003eT:c04817970bbdd99aa4d04f78f2ea7a4c": {
+    "[compute] check $1 \u003e $2": {},
+    "[node:checker] [namespace:calculator] [left:$1] [operator:\u003e] [right:$2]": {}
+  },
+  "C-\u003eT:c122be6eba9308196d62491fcddd5c01": {
+    "Zero says to Susie : I am $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:c2b44466cecbf7a0e92702c92dbe7255": {
+    "Zero says to Susie : let's start learning": {}
+  },
+  "C-\u003eT:c2e9688672873ac1addb0de3ff4063e2": {
+    "[node:checker] [namespace:repo_addon] [key:$1] [value:$2]": {},
+    "[repo] check $1 -\u003e $2": {}
+  },
+  "C-\u003eT:c56aa716e5a557386c89d24a34acc12c": {
+    "Zero says to Susie : then they $5 you": {}
+  },
+  "C-\u003eT:c6638166186bd2ea98ea0ff082542990": {
+    "Zero says to Susie : my $2 are $6": {}
+  },
+  "C-\u003eT:c8b2d720f3258f71d8d879149df1b0f1": {
+    "Zero says to Susie : then you should $5 them $6": {},
+    "Zero starts to teach Susie": {},
+    "[repo] grammar usage of verb $5 -\u003e do+sb+sth": {},
+    "[repo] them -\u003e someone $1 you $2": {}
+  },
+  "C-\u003eT:c95a76d1bfc9570c4684bc92d36f12e0": {
+    "$4 should tell $3": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
+  },
+  "C-\u003eT:cb95a2d8fcc1afb9e26c72d127761746": {
+    "Zero says to Susie : if someone $1 you": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:cd8f2688e76832f143bfea08b9827d49": {
+    "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:char_at] [word:$1]": {},
+    "[word] get $1 @ $3": {}
+  },
+  "C-\u003eT:cda83050d89049f4673da66ef33c5c30": {
+    "[node:extractor] [namespace:repo_addon] [dist:$2] [key:$1]": {},
+    "[repo] get $1": {}
+  },
+  "C-\u003eT:cdf6c2a336bcc24f890185791ea76d0b": {
+    "Zero says to Susie : then you should $5 them": {}
+  },
+  "C-\u003eT:d257be0ff0d8508172b969e80fd5551e": {
+    "Zero says to Susie : then you should $5 them $6": {}
+  },
+  "C-\u003eT:d568b3f7e9218c901a3cdba6ed0559e0": {
+    "Zero says to Susie : the verb $1 can do+sb": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:d8273a4e502a77a688a43335470b02fa": {
+    "[repo] how to $1 someone -\u003e $5 them": {}
+  },
+  "C-\u003eT:d8a215f5225078c6ff479380817e876c": {
+    "[input] $1": {}
+  },
+  "C-\u003eT:d90c6d06eb339126b43b8342bf162d3f": {
+    "Zero says to Susie : then you should $5 them $6": {}
+  },
+  "C-\u003eT:d9ac413eaa9c09e75a701d55110cb353": {
+    "Zero says to Susie : if someone $1 you $2": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:da40385d0c295ad0bf875e56193df753": {
+    "Zero says to Susie : then $1": {}
+  },
+  "C-\u003eT:dfa7739b531bda9fc922c95899566165": {
+    "[repo] set $1 -\u003e $2": {}
+  },
+  "C-\u003eT:e424483a3d9e87e7d70309d6de1516ce": {
+    "Zero says to Susie : then you should $5 them $6": {},
+    "Zero starts to teach Susie": {},
+    "[repo] grammar usage of verb $5 -\u003e do+sb+sth": {},
+    "[repo] them -\u003e someone $1 you": {}
+  },
+  "C-\u003eT:e66ce61aa268479c0ef8173524082f63": {
+    "$4 should tell $3": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {},
+    "[repo] what to tell $3 -\u003e $2": {}
+  },
+  "C-\u003eT:e70195c598f1e0df7b360b280762260e": {
+    "Zero says to Susie : my $2 is $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:e89a23f2022dff3d9d76e3b37c190687": {
+    "[compute] check $1 = $2": {},
+    "[node:checker] [namespace:calculator] [left:$1] [operator:=] [right:$2]": {}
+  },
+  "C-\u003eT:e8f7f1898b439394234560532dda0c1b": {
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:hour]": {},
+    "[time] get hour": {}
+  },
+  "C-\u003eT:e9a23028ea4f4ea7c068bd24d2fb7c44": {
+    "[compute] get $1 + $2": {},
+    "[node:extractor] [namespace:calculator] [dist:$3] [expression:$1+$2]": {}
+  },
+  "C-\u003eT:ed44a0ebb02eaadf58784239e09815c0": {
+    "Zero says to Susie : then you should $5 them": {},
+    "Zero starts to teach Susie": {},
+    "[repo] grammar usage of verb $5 -\u003e do+sb": {},
+    "[repo] them -\u003e someone $1 you": {}
+  },
+  "C-\u003eT:edf664d274ba305d6713f28a465daa17": {
+    "[node:extractor] [namespace:word] [dist:$2] [mode:char_index_of] [target:$3] [word:$1]": {},
+    "[word] IndexOf $1 # $3": {}
+  },
+  "C-\u003eT:f3cef697e21036703c663acc953824a3": {
+    "[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {},
+    "[word] check HasSuffix $1 # $2": {}
+  },
+  "C-\u003eT:f425c7782a11dd2faa6e2fea0d435d3e": {
+    "Zero says to Susie : if someone $1 you $2": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:f553da98d35b4a864e24bf73205dd33a": {
+    "Zero says to Susie : I am $6": {}
+  },
+  "C-\u003eT:fa221c3f38be84f411cbda1656486c69": {
+    "[repo] SSet $1 -\u003e $2": {}
+  },
+  "C-\u003eT:fdeeaee165915a824f299e22d1df2a30": {
+    "Zero says to Susie : if someone $1 you": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:fdefbc32ead1cdc80b7b847fb774b753": {
+    "Zero says to Susie : your $2 are $6": {},
+    "Zero starts to teach Susie": {}
+  },
+  "C-\u003eT:fe0e037f39eb222c9f84b78916cf6d84": {
+    "[node:checker] [namespace:repo_addon_fail] [key:$1] [value:$2]": {},
+    "[repo] check $1 -\u003e $2": {}
+  },
+  "C-\u003eT:ff247c871d2bce20e46ff3c65171b64c": {
+    "$3 says to $4 : what time is it": {}
+  },
+  "R-\u003eC:$3 asks $4 what the time is": {
+    "ff247c871d2bce20e46ff3c65171b64c": {}
+  },
+  "R-\u003eC:$4 should $5 $3": {
+    "3ee204286f3e5547d59c3f6d82fbc834": {}
+  },
+  "R-\u003eC:$4 should say to $3 : $2": {
+    "964e289481ef5e2f5e08c3c09b57f99d": {},
+    "b537655ef659a49ca72816bf5be1e0aa": {}
+  },
+  "R-\u003eC:$4 should say to $3 : it is $2": {
+    "12ca1800cc0b493d7b5661ef92b7d52a": {}
+  },
+  "R-\u003eC:$4 should tell $3": {
+    "a3eeca6a9a97aef514e9019ef73f4b22": {}
+  },
+  "R-\u003eC:$4 should tell $3 $2": {
+    "e66ce61aa268479c0ef8173524082f63": {}
+  },
+  "R-\u003eC:$4 should tell $3 the time is $2": {
+    "355e09ee515ab26840dc894285ef22f0": {}
+  },
+  "R-\u003eC:Susie does not know how to $1 someone": {
+    "ab9efaed69a38eef683f2e8f0be3a7f9": {}
+  },
+  "R-\u003eC:Susie is enabled to ask Zero questions": {
+    "2dbcaeae947728d09b97a39fc57d3e86": {}
+  },
+  "R-\u003eC:Susie knows how to $1 someone": {
+    "d8273a4e502a77a688a43335470b02fa": {}
+  },
+  "R-\u003eC:Susie should ask Zero how to $1 someone": {
+    "a47a91fd05bf039f57a350f6598ced6d": {}
+  },
+  "R-\u003eC:Susie should ask Zero how to $1 someone $2": {
+    "7902838acd61f7d4aef206c1f9584f34": {}
+  },
+  "R-\u003eC:Susie should say to Zero : how to $1 someone": {
+    "36b4cfbc553cc31b6421a7594b21acaf": {}
+  },
+  "R-\u003eC:Susie should say to Zero : how to $1 someone $2": {
+    "6f5a80af4e0997387d1ddb4bb605d10e": {}
+  },
+  "R-\u003eC:Zero starts to teach Susie": {
+    "4eaa3832b110e55513564eb72af91d35": {}
+  },
+  "R-\u003eC:[Get] they": {
+    "c56aa716e5a557386c89d24a34acc12c": {}
+  },
+  "R-\u003eC:[ST] ask -\u003e off": {
+    "971db458421df8487fffa6b27b81ca6a": {}
+  },
+  "R-\u003eC:[ST] ask -\u003e on": {
+    "6b8ae5928f66c8a4314b678c8638eb4e": {}
+  },
+  "R-\u003eC:[ST] teach -\u003e off": {
+    "2102da39ea37ee97007a64d39f62b6f0": {}
+  },
+  "R-\u003eC:[ST] teach -\u003e on": {
+    "c2b44466cecbf7a0e92702c92dbe7255": {}
+  },
+  "R-\u003eC:[compute] $1 * $2 -\u003e $3": {
+    "693d8904c998bb02cd144a3f6ec6b440": {}
+  },
+  "R-\u003eC:[compute] $1 + $2 -\u003e $3": {
+    "e9a23028ea4f4ea7c068bd24d2fb7c44": {}
+  },
+  "R-\u003eC:[compute] $1 - $2 -\u003e $3": {
+    "1feed269a7e700ed73f9952b57a6e886": {}
+  },
+  "R-\u003eC:[compute] $1 \u003c $2": {
+    "acd10b7624c7e9f94fc1f9f8a9b5a607": {}
+  },
+  "R-\u003eC:[compute] $1 = $2": {
+    "e89a23f2022dff3d9d76e3b37c190687": {}
+  },
+  "R-\u003eC:[compute] $1 \u003e $2": {
+    "c04817970bbdd99aa4d04f78f2ea7a4c": {}
+  },
+  "R-\u003eC:[input] $1": {
+    "6bdb649fb37dfdf55e619691b75a0437": {}
+  },
+  "R-\u003eC:[input] $3 $1 $4": {
+    "fdeeaee165915a824f299e22d1df2a30": {}
+  },
+  "R-\u003eC:[input] $3 $1 $4 $2": {
+    "1efacdc505b91307c1845f24571b246b": {}
+  },
+  "R-\u003eC:[input] [repo] $3 -\u003e a human": {
+    "858bb9d18d6826e9e28e3b84464b1420": {},
+    "f425c7782a11dd2faa6e2fea0d435d3e": {}
+  },
+  "R-\u003eC:[input] [repo] $4 -\u003e a human": {
+    "177d4feb845ce425fc3fe4716e3bf9ac": {},
+    "1825d6eb32c16b10591a71e51b390413": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {
+    "a55d3adc6e3b60b3044890b0d0ae2400": {},
+    "d8a215f5225078c6ff479380817e876c": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {
+    "5d0456c6913730fc25a4e549b42afd40": {},
+    "a45c4a339de31718a5ac29096a14f8dd": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:repo_addon] [expiration:$3] [key:$1] [value:$2]": {
+    "a1fe0568826cc9b672bc71d84885daf7": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:repo_addon] [key:$1] [singleValue:true] [value:$2]": {
+    "fa221c3f38be84f411cbda1656486c69": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:repo_addon] [key:$1] [value:$2]": {
+    "dfa7739b531bda9fc922c95899566165": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:safeTeach] [key:$1] [value:$2]": {
+    "7073028023f03dd92ef5d6538e09b900": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:speaker] [response:$1] [to:$2]": {
+    "4211cd42e6de25aae3b8a55eb48ed310": {}
+  },
+  "R-\u003eC:[output] $1": {
+    "da40385d0c295ad0bf875e56193df753": {}
+  },
+  "R-\u003eC:[output] $3 $8 $4": {
+    "a525d15635271536fea965a96c1718be": {}
+  },
+  "R-\u003eC:[output] $4 should $5 $3": {
+    "1974caeacabd78080c41147b237b4e87": {}
+  },
+  "R-\u003eC:[output] $4 should $5 $3 $6": {
+    "2cc3829e0e9b805a93b377495ccb2e43": {}
+  },
+  "R-\u003eC:[phrase] $1 @ $3 -\u003e $2": {
+    "5a8e9cb9ddb38b3dfd883141586fc661": {}
+  },
+  "R-\u003eC:[phrase] FirstN $1 # $3 -\u003e $2": {
+    "888e9d3419ea640e055ca6a6156a3fca": {}
+  },
+  "R-\u003eC:[phrase] HasPrefix $1 # $2": {
+    "9a806a0c5796ddae6797186bf63b9f30": {}
+  },
+  "R-\u003eC:[phrase] IndexOf $1 # $3 -\u003e $2": {
+    "0052ff78c0b147407c8dbe115c3df5e3": {}
+  },
+  "R-\u003eC:[phrase] LastN $1 # $3 -\u003e $2": {
+    "6807ffda5e5e877c4cf37e1419976952": {}
+  },
+  "R-\u003eC:[phrase] len $1 -\u003e $2": {
+    "4b065921275a09849498885b27fdb4f2": {}
+  },
+  "R-\u003eC:[repo] $1 !-\u003e $2": {
+    "fe0e037f39eb222c9f84b78916cf6d84": {}
+  },
+  "R-\u003eC:[repo] $1 -\u003e": {
+    "4167e1a5b41dc374345f1d15be61c000": {}
+  },
+  "R-\u003eC:[repo] $1 -\u003e $2": {
+    "c2e9688672873ac1addb0de3ff4063e2": {},
+    "cda83050d89049f4673da66ef33c5c30": {}
+  },
+  "R-\u003eC:[repo] SSet [last] Susie says to Zero -\u003e $2": {
+    "5c11bc2b3d65a6ad8fe107a42444ed08": {}
+  },
+  "R-\u003eC:[repo] SSet them -\u003e someone $1 you": {
+    "cb95a2d8fcc1afb9e26c72d127761746": {}
+  },
+  "R-\u003eC:[repo] SSet them -\u003e someone $1 you $2": {
+    "d9ac413eaa9c09e75a701d55110cb353": {}
+  },
+  "R-\u003eC:[repo] check $3 -\u003e a human": {
+    "3b124b56749d9299bec16ca5af099c29": {}
+  },
+  "R-\u003eC:[repo] check $4 -\u003e a human": {
+    "463594028f884a39f96da8052aba080e": {}
+  },
+  "R-\u003eC:[repo] get [last] Susie says to Zero": {
+    "4140ca7309c0be597bb590a135df1f03": {}
+  },
+  "R-\u003eC:[repo] get grammar usage of verb $1": {
+    "718f144fdc100fc7497f22d88629976f": {},
+    "a4b70f2c0cfb590a6b94a7e4751a7302": {}
+  },
+  "R-\u003eC:[repo] get grammar usage of verb $5": {
+    "24639a18b228c11eb7850a333b5887b0": {},
+    "d90c6d06eb339126b43b8342bf162d3f": {}
+  },
+  "R-\u003eC:[repo] get how to $5 someone": {
+    "ed44a0ebb02eaadf58784239e09815c0": {}
+  },
+  "R-\u003eC:[repo] get how to $5 someone $6": {
+    "c8b2d720f3258f71d8d879149df1b0f1": {},
+    "e424483a3d9e87e7d70309d6de1516ce": {}
+  },
+  "R-\u003eC:[repo] get the singular of verb $5": {
+    "240fd0f9c17075b18e5a041723644a0d": {}
+  },
+  "R-\u003eC:[repo] get them": {
+    "11133799f89eacb730edf07c9b843e41": {},
+    "8f61ceabd7bddcefb45e3e4d5adde555": {},
+    "9b278a5397efd89fc3696b805b93fe20": {}
+  },
+  "R-\u003eC:[repo] get what to tell $3": {
+    "c95a76d1bfc9570c4684bc92d36f12e0": {}
+  },
+  "R-\u003eC:[repo] set $2 -\u003e $6": {
+    "3f77bf77e5f22155f09aced668a746c1": {}
+  },
+  "R-\u003eC:[repo] set Susie 's $2 -\u003e $6": {
+    "7dece49c261e74902a9890c90b5e515f": {},
+    "fdefbc32ead1cdc80b7b847fb774b753": {}
+  },
+  "R-\u003eC:[repo] set Susie -\u003e $6": {
+    "a8250dc0fa2b60b7442d5e8ace7c37a3": {}
+  },
+  "R-\u003eC:[repo] set Zero 's $2 -\u003e $6": {
+    "ac6518c260437ba4ccdc006c0c75b74b": {},
+    "e70195c598f1e0df7b360b280762260e": {}
+  },
+  "R-\u003eC:[repo] set Zero -\u003e $6": {
+    "c122be6eba9308196d62491fcddd5c01": {}
+  },
+  "R-\u003eC:[repo] set grammar usage of verb $1 -\u003e do+sb": {
+    "d568b3f7e9218c901a3cdba6ed0559e0": {}
+  },
+  "R-\u003eC:[repo] set grammar usage of verb $1 -\u003e do+sb+sth": {
+    "9863284a8f1d9f6f01a01be1a0c760cc": {}
+  },
+  "R-\u003eC:[repo] set how to $1 someone -\u003e $5 them": {
+    "a3c1909b3a122cc5f9c0c7da892c04dc": {}
+  },
+  "R-\u003eC:[repo] set what to tell $3 -\u003e $1": {
+    "b84b3e7492cbd4dabe29a6016a0d3633": {}
+  },
+  "R-\u003eC:[repo] they -\u003e $2": {
+    "acf9b49d58ea97a7bc3cd56672a36d4b": {}
+  },
+  "R-\u003eC:[speak] $1 -\u003e $2": {
+    "57a14f8a6145e3c6591652b95a2eba29": {}
+  },
+  "R-\u003eC:[time] date -\u003e $1": {
+    "07dbc119b34346b1190ccb9fc7d2e5fe": {}
+  },
+  "R-\u003eC:[time] get time": {
+    "774ad899081be519fce9ba9c48c8a07e": {}
+  },
+  "R-\u003eC:[time] hour -\u003e $1": {
+    "e8f7f1898b439394234560532dda0c1b": {}
+  },
+  "R-\u003eC:[time] minute -\u003e $1": {
+    "4f95988a047b968585bc0e04a4bf2b29": {}
+  },
+  "R-\u003eC:[time] time -\u003e $1": {
+    "21f0ddf9ab70dc595d4ed9fa8dc38149": {}
+  },
+  "R-\u003eC:[word] $1 @ $3 -\u003e $2": {
+    "cd8f2688e76832f143bfea08b9827d49": {}
+  },
+  "R-\u003eC:[word] AddPrefix $1 # $2 -\u003e $3": {
+    "bb90a9175bbdc580deaaeb9099f1d045": {}
+  },
+  "R-\u003eC:[word] AddSuffix $1 # $2 -\u003e $3": {
+    "81cab545ee3eee64715d7e7c6b7325b5": {}
+  },
+  "R-\u003eC:[word] HasPrefix $1 # $2": {
+    "6e331162f3bedf49b9c6eef91d9ebeaf": {}
+  },
+  "R-\u003eC:[word] HasSuffix $1 # $2": {
+    "f3cef697e21036703c663acc953824a3": {}
+  },
+  "R-\u003eC:[word] IndexOf $3 # $1 -\u003e $2": {
+    "edf664d274ba305d6713f28a465daa17": {}
+  },
+  "R-\u003eC:[word] len $1 -\u003e $2": {
+    "77d81a66df35de5244f85610b1322171": {}
+  },
+  "R-\u003eC:check [ask]": {
+    "05a450e45f9357dbfde05b1c584b310c": {},
+    "3e85f9a894c0b2c7a9fec26960f5292d": {}
+  },
+  "R-\u003eC:check [teach]": {
+    "06440b98142f892ce006054981122635": {},
+    "2b388e5035b121380d892c0ac761b5af": {},
+    "2d1319d9e61ca8301836a9558e6f920c": {},
+    "473843708c23c1b6fa139d99b3a4d660": {},
+    "478ee4e33128c313ee9d592aebde428d": {},
+    "47ab6154b44229791ac1950f555770fe": {},
+    "64894dec4da129f11f61e9baa23ca119": {},
+    "6dbf44ebaffd8b0e753dc4c818719c95": {},
+    "9f2d1bc7769bc81b1931b59e7a89d479": {},
+    "a282b1664096e8417f90d7ba66fee493": {},
+    "a3c8f1594823e098ba9c7f4f1296583a": {},
+    "c6638166186bd2ea98ea0ff082542990": {},
+    "cdf6c2a336bcc24f890185791ea76d0b": {},
+    "d257be0ff0d8508172b969e80fd5551e": {},
+    "f553da98d35b4a864e24bf73205dd33a": {}
+  },
+  "R-\u003eC:get how to $1 someone": {
+    "a6955e829c75bad7a12138c0388151c2": {}
+  },
+  "T-\u003eC:$3 asks $4 what $1 is": {
+    "b84b3e7492cbd4dabe29a6016a0d3633": {}
+  },
+  "T-\u003eC:$3 asks $4 what the time is": {
+    "a3eeca6a9a97aef514e9019ef73f4b22": {}
+  },
+  "T-\u003eC:$3 says to $4 : $2": {
+    "3b124b56749d9299bec16ca5af099c29": {},
+    "463594028f884a39f96da8052aba080e": {}
+  },
+  "T-\u003eC:$3 says to $4 : what time is it": {
+    "ff247c871d2bce20e46ff3c65171b64c": {}
+  },
+  "T-\u003eC:$4 should $1 $3": {
+    "3ee204286f3e5547d59c3f6d82fbc834": {},
+    "964e289481ef5e2f5e08c3c09b57f99d": {},
+    "a6955e829c75bad7a12138c0388151c2": {},
+    "b537655ef659a49ca72816bf5be1e0aa": {}
+  },
+  "T-\u003eC:$4 should tell $3": {
+    "c95a76d1bfc9570c4684bc92d36f12e0": {},
+    "e66ce61aa268479c0ef8173524082f63": {}
+  },
+  "T-\u003eC:$4 should tell $3 the time": {
+    "355e09ee515ab26840dc894285ef22f0": {},
+    "774ad899081be519fce9ba9c48c8a07e": {}
+  },
+  "T-\u003eC:$4 should tell $3 the time is $2": {
+    "12ca1800cc0b493d7b5661ef92b7d52a": {}
+  },
+  "T-\u003eC:Susie does not know how to $1 someone": {
+    "05a450e45f9357dbfde05b1c584b310c": {},
+    "a47a91fd05bf039f57a350f6598ced6d": {}
+  },
+  "T-\u003eC:Susie does not know how to $1 someone $2": {
+    "3e85f9a894c0b2c7a9fec26960f5292d": {},
+    "7902838acd61f7d4aef206c1f9584f34": {}
+  },
+  "T-\u003eC:Susie is enabled to ask Zero questions": {
+    "7902838acd61f7d4aef206c1f9584f34": {},
+    "a47a91fd05bf039f57a350f6598ced6d": {}
+  },
+  "T-\u003eC:Susie says to Zero : $2": {
+    "5c11bc2b3d65a6ad8fe107a42444ed08": {}
+  },
+  "T-\u003eC:Susie should ask Zero how to $1 someone": {
+    "36b4cfbc553cc31b6421a7594b21acaf": {}
+  },
+  "T-\u003eC:Susie should ask Zero how to $1 someone $2": {
+    "6f5a80af4e0997387d1ddb4bb605d10e": {}
+  },
+  "T-\u003eC:Susie should say to $2 : $1": {
+    "57a14f8a6145e3c6591652b95a2eba29": {}
+  },
+  "T-\u003eC:Zero says to Susie : $2 is $6": {
+    "2d1319d9e61ca8301836a9558e6f920c": {},
+    "3f77bf77e5f22155f09aced668a746c1": {}
+  },
+  "T-\u003eC:Zero says to Susie : I am $6": {
+    "c122be6eba9308196d62491fcddd5c01": {},
+    "f553da98d35b4a864e24bf73205dd33a": {}
+  },
+  "T-\u003eC:Zero says to Susie : [input] $1": {
+    "a55d3adc6e3b60b3044890b0d0ae2400": {}
+  },
+  "T-\u003eC:Zero says to Susie : [output] $1": {
+    "a45c4a339de31718a5ac29096a14f8dd": {}
+  },
+  "T-\u003eC:Zero says to Susie : if $1": {
+    "6bdb649fb37dfdf55e619691b75a0437": {}
+  },
+  "T-\u003eC:Zero says to Susie : if someone $1 you": {
+    "177d4feb845ce425fc3fe4716e3bf9ac": {},
+    "64894dec4da129f11f61e9baa23ca119": {},
+    "858bb9d18d6826e9e28e3b84464b1420": {},
+    "a4b70f2c0cfb590a6b94a7e4751a7302": {},
+    "cb95a2d8fcc1afb9e26c72d127761746": {},
+    "fdeeaee165915a824f299e22d1df2a30": {}
+  },
+  "T-\u003eC:Zero says to Susie : if someone $1 you $2": {
+    "1825d6eb32c16b10591a71e51b390413": {},
+    "1efacdc505b91307c1845f24571b246b": {},
+    "473843708c23c1b6fa139d99b3a4d660": {},
+    "718f144fdc100fc7497f22d88629976f": {},
+    "d9ac413eaa9c09e75a701d55110cb353": {},
+    "f425c7782a11dd2faa6e2fea0d435d3e": {}
+  },
+  "T-\u003eC:Zero says to Susie : let's end learning": {
+    "2102da39ea37ee97007a64d39f62b6f0": {}
+  },
+  "T-\u003eC:Zero says to Susie : let's start learning": {
+    "c2b44466cecbf7a0e92702c92dbe7255": {}
+  },
+  "T-\u003eC:Zero says to Susie : my $2 are $6": {
+    "ac6518c260437ba4ccdc006c0c75b74b": {},
+    "c6638166186bd2ea98ea0ff082542990": {}
+  },
+  "T-\u003eC:Zero says to Susie : my $2 is $6": {
+    "9f2d1bc7769bc81b1931b59e7a89d479": {},
+    "e70195c598f1e0df7b360b280762260e": {}
+  },
+  "T-\u003eC:Zero says to Susie : the verb $1 can do+sb": {
+    "478ee4e33128c313ee9d592aebde428d": {},
+    "d568b3f7e9218c901a3cdba6ed0559e0": {}
+  },
+  "T-\u003eC:Zero says to Susie : the verb $1 can do+sb+sth": {
+    "9863284a8f1d9f6f01a01be1a0c760cc": {},
+    "a3c8f1594823e098ba9c7f4f1296583a": {}
+  },
+  "T-\u003eC:Zero says to Susie : then $1": {
+    "da40385d0c295ad0bf875e56193df753": {}
+  },
+  "T-\u003eC:Zero says to Susie : then they $5 you": {
+    "240fd0f9c17075b18e5a041723644a0d": {},
+    "a282b1664096e8417f90d7ba66fee493": {},
+    "a525d15635271536fea965a96c1718be": {},
+    "c56aa716e5a557386c89d24a34acc12c": {}
+  },
+  "T-\u003eC:Zero says to Susie : then you should $5 them": {
+    "1974caeacabd78080c41147b237b4e87": {},
+    "24639a18b228c11eb7850a333b5887b0": {},
+    "9b278a5397efd89fc3696b805b93fe20": {},
+    "cdf6c2a336bcc24f890185791ea76d0b": {},
+    "ed44a0ebb02eaadf58784239e09815c0": {}
+  },
+  "T-\u003eC:Zero says to Susie : then you should $5 them $6": {
+    "11133799f89eacb730edf07c9b843e41": {},
+    "2cc3829e0e9b805a93b377495ccb2e43": {},
+    "c8b2d720f3258f71d8d879149df1b0f1": {},
+    "d257be0ff0d8508172b969e80fd5551e": {},
+    "d90c6d06eb339126b43b8342bf162d3f": {},
+    "e424483a3d9e87e7d70309d6de1516ce": {}
+  },
+  "T-\u003eC:Zero says to Susie : you are $6": {
+    "06440b98142f892ce006054981122635": {},
+    "a8250dc0fa2b60b7442d5e8ace7c37a3": {}
+  },
+  "T-\u003eC:Zero says to Susie : you can $5 them": {
+    "2b388e5035b121380d892c0ac761b5af": {},
+    "4140ca7309c0be597bb590a135df1f03": {},
+    "a3c1909b3a122cc5f9c0c7da892c04dc": {}
+  },
+  "T-\u003eC:Zero says to Susie : you can ask me questions": {
+    "6b8ae5928f66c8a4314b678c8638eb4e": {}
+  },
+  "T-\u003eC:Zero says to Susie : you should not ask me questions": {
+    "971db458421df8487fffa6b27b81ca6a": {}
+  },
+  "T-\u003eC:Zero says to Susie : your $2 are $6": {
+    "6dbf44ebaffd8b0e753dc4c818719c95": {},
+    "fdefbc32ead1cdc80b7b847fb774b753": {}
+  },
+  "T-\u003eC:Zero says to Susie : your $2 is $6": {
+    "47ab6154b44229791ac1950f555770fe": {},
+    "7dece49c261e74902a9890c90b5e515f": {}
+  },
+  "T-\u003eC:Zero starts to teach Susie": {
+    "177d4feb845ce425fc3fe4716e3bf9ac": {},
+    "1825d6eb32c16b10591a71e51b390413": {},
+    "1974caeacabd78080c41147b237b4e87": {},
+    "1efacdc505b91307c1845f24571b246b": {},
+    "2cc3829e0e9b805a93b377495ccb2e43": {},
+    "3f77bf77e5f22155f09aced668a746c1": {},
+    "4140ca7309c0be597bb590a135df1f03": {},
+    "7dece49c261e74902a9890c90b5e515f": {},
+    "858bb9d18d6826e9e28e3b84464b1420": {},
+    "9863284a8f1d9f6f01a01be1a0c760cc": {},
+    "a3c1909b3a122cc5f9c0c7da892c04dc": {},
+    "a525d15635271536fea965a96c1718be": {},
+    "a8250dc0fa2b60b7442d5e8ace7c37a3": {},
+    "ac6518c260437ba4ccdc006c0c75b74b": {},
+    "c122be6eba9308196d62491fcddd5c01": {},
+    "c8b2d720f3258f71d8d879149df1b0f1": {},
+    "cb95a2d8fcc1afb9e26c72d127761746": {},
+    "d568b3f7e9218c901a3cdba6ed0559e0": {},
+    "d9ac413eaa9c09e75a701d55110cb353": {},
+    "e424483a3d9e87e7d70309d6de1516ce": {},
+    "e70195c598f1e0df7b360b280762260e": {},
+    "ed44a0ebb02eaadf58784239e09815c0": {},
+    "f425c7782a11dd2faa6e2fea0d435d3e": {},
+    "fdeeaee165915a824f299e22d1df2a30": {},
+    "fdefbc32ead1cdc80b7b847fb774b753": {}
+  },
+  "T-\u003eC:[Get] they": {
+    "8f61ceabd7bddcefb45e3e4d5adde555": {},
+    "acf9b49d58ea97a7bc3cd56672a36d4b": {}
+  },
+  "T-\u003eC:[ST] $1 -\u003e $2": {
+    "7073028023f03dd92ef5d6538e09b900": {}
+  },
+  "T-\u003eC:[compute] check $1 \u003c $2": {
+    "acd10b7624c7e9f94fc1f9f8a9b5a607": {}
+  },
+  "T-\u003eC:[compute] check $1 = $2": {
+    "e89a23f2022dff3d9d76e3b37c190687": {}
+  },
+  "T-\u003eC:[compute] check $1 \u003e $2": {
+    "c04817970bbdd99aa4d04f78f2ea7a4c": {}
+  },
+  "T-\u003eC:[compute] get $1 * $2": {
+    "693d8904c998bb02cd144a3f6ec6b440": {}
+  },
+  "T-\u003eC:[compute] get $1 + $2": {
+    "e9a23028ea4f4ea7c068bd24d2fb7c44": {}
+  },
+  "T-\u003eC:[compute] get $1 - $2": {
+    "1feed269a7e700ed73f9952b57a6e886": {}
+  },
+  "T-\u003eC:[input] $1": {
+    "d8a215f5225078c6ff479380817e876c": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:calculator] [left:$1] [operator:\u003c] [right:$2]": {
+    "acd10b7624c7e9f94fc1f9f8a9b5a607": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:calculator] [left:$1] [operator:=] [right:$2]": {
+    "e89a23f2022dff3d9d76e3b37c190687": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:calculator] [left:$1] [operator:\u003e] [right:$2]": {
+    "c04817970bbdd99aa4d04f78f2ea7a4c": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:repo_addon] [key:$1] [value:$2]": {
+    "c2e9688672873ac1addb0de3ff4063e2": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {
+    "4167e1a5b41dc374345f1d15be61c000": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:repo_addon_fail] [key:$1] [value:$2]": {
+    "fe0e037f39eb222c9f84b78916cf6d84": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:safeTeach] [key:ask]": {
+    "2dbcaeae947728d09b97a39fc57d3e86": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:safeTeach] [key:teach]": {
+    "4eaa3832b110e55513564eb72af91d35": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {
+    "f3cef697e21036703c663acc953824a3": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:word] [mode:starts_with] [target:$2] [word:$1]": {
+    "6e331162f3bedf49b9c6eef91d9ebeaf": {}
+  },
+  "T-\u003eC:[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {
+    "9a806a0c5796ddae6797186bf63b9f30": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:calculator] [dist:$3] [expression:$1*$2]": {
+    "693d8904c998bb02cd144a3f6ec6b440": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:calculator] [dist:$3] [expression:$1+$2]": {
+    "e9a23028ea4f4ea7c068bd24d2fb7c44": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:calculator] [dist:$3] [expression:$1-$2]": {
+    "1feed269a7e700ed73f9952b57a6e886": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:repo_addon] [dist:$2] [key:$1]": {
+    "cda83050d89049f4673da66ef33c5c30": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:date]": {
+    "07dbc119b34346b1190ccb9fc7d2e5fe": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:hour]": {
+    "e8f7f1898b439394234560532dda0c1b": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:minute]": {
+    "4f95988a047b968585bc0e04a4bf2b29": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:time]": {
+    "21f0ddf9ab70dc595d4ed9fa8dc38149": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_head] [phrase:$1]": {
+    "6807ffda5e5e877c4cf37e1419976952": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_tail] [phrase:$1]": {
+    "888e9d3419ea640e055ca6a6156a3fca": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:char_at] [word:$1]": {
+    "cd8f2688e76832f143bfea08b9827d49": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:word_at] [phrase:$1]": {
+    "5a8e9cb9ddb38b3dfd883141586fc661": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$2] [mode:char_index_of] [target:$3] [word:$1]": {
+    "edf664d274ba305d6713f28a465daa17": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$2] [mode:char_length] [word:$1]": {
+    "77d81a66df35de5244f85610b1322171": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$2] [mode:index_of] [phrase:$1] [target:$3]": {
+    "0052ff78c0b147407c8dbe115c3df5e3": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$2] [mode:length] [phrase:$1]": {
+    "4b065921275a09849498885b27fdb4f2": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$3] [mode:add_prefix] [prefix:$2] [word:$1]": {
+    "bb90a9175bbdc580deaaeb9099f1d045": {}
+  },
+  "T-\u003eC:[node:extractor] [namespace:word] [dist:$3] [mode:add_suffix] [suffix:$2] [word:$1]": {
+    "81cab545ee3eee64715d7e7c6b7325b5": {}
+  },
+  "T-\u003eC:[output] $1": {
+    "5d0456c6913730fc25a4e549b42afd40": {}
+  },
+  "T-\u003eC:[phrase] FirstN $1 # $3": {
+    "888e9d3419ea640e055ca6a6156a3fca": {}
+  },
+  "T-\u003eC:[phrase] IndexOf $1 # $3": {
+    "0052ff78c0b147407c8dbe115c3df5e3": {}
+  },
+  "T-\u003eC:[phrase] LastN $1 # $3": {
+    "6807ffda5e5e877c4cf37e1419976952": {}
+  },
+  "T-\u003eC:[phrase] check HasPrefix $1 # $2": {
+    "9a806a0c5796ddae6797186bf63b9f30": {}
+  },
+  "T-\u003eC:[phrase] get $1 @ $3": {
+    "5a8e9cb9ddb38b3dfd883141586fc661": {}
+  },
+  "T-\u003eC:[phrase] len $1": {
+    "4b065921275a09849498885b27fdb4f2": {}
+  },
+  "T-\u003eC:[repo] $3 -\u003e a human": {
+    "12ca1800cc0b493d7b5661ef92b7d52a": {},
+    "355e09ee515ab26840dc894285ef22f0": {},
+    "3ee204286f3e5547d59c3f6d82fbc834": {},
+    "774ad899081be519fce9ba9c48c8a07e": {},
+    "964e289481ef5e2f5e08c3c09b57f99d": {},
+    "a3eeca6a9a97aef514e9019ef73f4b22": {},
+    "a6955e829c75bad7a12138c0388151c2": {},
+    "b537655ef659a49ca72816bf5be1e0aa": {},
+    "b84b3e7492cbd4dabe29a6016a0d3633": {},
+    "c95a76d1bfc9570c4684bc92d36f12e0": {},
+    "e66ce61aa268479c0ef8173524082f63": {}
+  },
+  "T-\u003eC:[repo] $4 -\u003e a human": {
+    "12ca1800cc0b493d7b5661ef92b7d52a": {},
+    "355e09ee515ab26840dc894285ef22f0": {},
+    "3ee204286f3e5547d59c3f6d82fbc834": {},
+    "774ad899081be519fce9ba9c48c8a07e": {},
+    "964e289481ef5e2f5e08c3c09b57f99d": {},
+    "a3eeca6a9a97aef514e9019ef73f4b22": {},
+    "a6955e829c75bad7a12138c0388151c2": {},
+    "b537655ef659a49ca72816bf5be1e0aa": {},
+    "b84b3e7492cbd4dabe29a6016a0d3633": {},
+    "c95a76d1bfc9570c4684bc92d36f12e0": {},
+    "e66ce61aa268479c0ef8173524082f63": {}
+  },
+  "T-\u003eC:[repo] SSet $1 -\u003e $2": {
+    "fa221c3f38be84f411cbda1656486c69": {}
+  },
+  "T-\u003eC:[repo] [last] Susie says to Zero -\u003e how to $1 someone": {
+    "a3c1909b3a122cc5f9c0c7da892c04dc": {}
+  },
+  "T-\u003eC:[repo] check $1 -\u003e $2": {
+    "c2e9688672873ac1addb0de3ff4063e2": {},
+    "fe0e037f39eb222c9f84b78916cf6d84": {}
+  },
+  "T-\u003eC:[repo] get $1": {
+    "4167e1a5b41dc374345f1d15be61c000": {},
+    "cda83050d89049f4673da66ef33c5c30": {}
+  },
+  "T-\u003eC:[repo] grammar usage of verb $5 -\u003e do+sb": {
+    "ed44a0ebb02eaadf58784239e09815c0": {}
+  },
+  "T-\u003eC:[repo] grammar usage of verb $5 -\u003e do+sb+sth": {
+    "c8b2d720f3258f71d8d879149df1b0f1": {},
+    "e424483a3d9e87e7d70309d6de1516ce": {}
+  },
+  "T-\u003eC:[repo] how to $1 someone -\u003e": {
+    "ab9efaed69a38eef683f2e8f0be3a7f9": {}
+  },
+  "T-\u003eC:[repo] how to $1 someone -\u003e $5 them": {
+    "3ee204286f3e5547d59c3f6d82fbc834": {},
+    "d8273a4e502a77a688a43335470b02fa": {}
+  },
+  "T-\u003eC:[repo] how to $1 someone -\u003e say $2": {
+    "b537655ef659a49ca72816bf5be1e0aa": {}
+  },
+  "T-\u003eC:[repo] how to $1 someone -\u003e say $2 to them": {
+    "964e289481ef5e2f5e08c3c09b57f99d": {}
+  },
+  "T-\u003eC:[repo] set $1 -\u003e $2": {
+    "dfa7739b531bda9fc922c95899566165": {}
+  },
+  "T-\u003eC:[repo] set $1 -\u003e $2 @ $3": {
+    "a1fe0568826cc9b672bc71d84885daf7": {}
+  },
+  "T-\u003eC:[repo] the singular of verb $5 -\u003e $8": {
+    "a525d15635271536fea965a96c1718be": {}
+  },
+  "T-\u003eC:[repo] them -\u003e $2": {
+    "acf9b49d58ea97a7bc3cd56672a36d4b": {}
+  },
+  "T-\u003eC:[repo] them -\u003e someone $1 you": {
+    "e424483a3d9e87e7d70309d6de1516ce": {},
+    "ed44a0ebb02eaadf58784239e09815c0": {}
+  },
+  "T-\u003eC:[repo] them -\u003e someone $1 you $2": {
+    "c8b2d720f3258f71d8d879149df1b0f1": {}
+  },
+  "T-\u003eC:[repo] what to tell $3 -\u003e $2": {
+    "e66ce61aa268479c0ef8173524082f63": {}
+  },
+  "T-\u003eC:[speak] $1 -\u003e $2": {
+    "4211cd42e6de25aae3b8a55eb48ed310": {}
+  },
+  "T-\u003eC:[time] get date": {
+    "07dbc119b34346b1190ccb9fc7d2e5fe": {}
+  },
+  "T-\u003eC:[time] get hour": {
+    "e8f7f1898b439394234560532dda0c1b": {}
+  },
+  "T-\u003eC:[time] get minute": {
+    "4f95988a047b968585bc0e04a4bf2b29": {}
+  },
+  "T-\u003eC:[time] get time": {
+    "21f0ddf9ab70dc595d4ed9fa8dc38149": {}
+  },
+  "T-\u003eC:[time] time -\u003e $2": {
+    "355e09ee515ab26840dc894285ef22f0": {}
+  },
+  "T-\u003eC:[word] AddPrefix $1 # $2": {
+    "bb90a9175bbdc580deaaeb9099f1d045": {}
+  },
+  "T-\u003eC:[word] AddSuffix $1 # $2": {
+    "81cab545ee3eee64715d7e7c6b7325b5": {}
+  },
+  "T-\u003eC:[word] IndexOf $1 # $3": {
+    "edf664d274ba305d6713f28a465daa17": {}
+  },
+  "T-\u003eC:[word] check HasPrefix $1 # $2": {
+    "6e331162f3bedf49b9c6eef91d9ebeaf": {}
+  },
+  "T-\u003eC:[word] check HasSuffix $1 # $2": {
+    "f3cef697e21036703c663acc953824a3": {}
+  },
+  "T-\u003eC:[word] get $1 @ $3": {
+    "cd8f2688e76832f143bfea08b9827d49": {}
+  },
+  "T-\u003eC:[word] len $1": {
+    "77d81a66df35de5244f85610b1322171": {}
+  },
+  "T-\u003eC:check [ask]": {
+    "2dbcaeae947728d09b97a39fc57d3e86": {}
+  },
+  "T-\u003eC:check [teach]": {
+    "4eaa3832b110e55513564eb72af91d35": {}
+  },
+  "nodeSet": {
+    "$3 asks $4 what $1 is": {},
+    "$3 asks $4 what the time is": {},
+    "$3 says to $4 : $2": {},
+    "$3 says to $4 : what time is it": {},
+    "$4 should $1 $3": {},
+    "$4 should $5 $3": {},
+    "$4 should say to $3 : $2": {},
+    "$4 should say to $3 : it is $2": {},
+    "$4 should tell $3": {},
+    "$4 should tell $3 $2": {},
+    "$4 should tell $3 the time": {},
+    "$4 should tell $3 the time is $2": {},
+    "Susie does not know how to $1 someone": {},
+    "Susie does not know how to $1 someone $2": {},
+    "Susie is enabled to ask Zero questions": {},
+    "Susie knows how to $1 someone": {},
+    "Susie says to Zero : $2": {},
+    "Susie should ask Zero how to $1 someone": {},
+    "Susie should ask Zero how to $1 someone $2": {},
+    "Susie should say to $2 : $1": {},
+    "Susie should say to Zero : how to $1 someone": {},
+    "Susie should say to Zero : how to $1 someone $2": {},
+    "Zero says to Susie : $2 is $6": {},
+    "Zero says to Susie : I am $6": {},
+    "Zero says to Susie : [input] $1": {},
+    "Zero says to Susie : [output] $1": {},
+    "Zero says to Susie : if $1": {},
+    "Zero says to Susie : if someone $1 you": {},
+    "Zero says to Susie : if someone $1 you $2": {},
+    "Zero says to Susie : let's end learning": {},
+    "Zero says to Susie : let's start learning": {},
+    "Zero says to Susie : my $2 are $6": {},
+    "Zero says to Susie : my $2 is $6": {},
+    "Zero says to Susie : the verb $1 can do+sb": {},
+    "Zero says to Susie : the verb $1 can do+sb+sth": {},
+    "Zero says to Susie : then $1": {},
+    "Zero says to Susie : then they $5 you": {},
+    "Zero says to Susie : then you should $5 them": {},
+    "Zero says to Susie : then you should $5 them $6": {},
+    "Zero says to Susie : you are $6": {},
+    "Zero says to Susie : you can $5 them": {},
+    "Zero says to Susie : you can ask me questions": {},
+    "Zero says to Susie : you should not ask me questions": {},
+    "Zero says to Susie : your $2 are $6": {},
+    "Zero says to Susie : your $2 is $6": {},
+    "Zero starts to teach Susie": {},
+    "[Get] they": {},
+    "[ST] $1 -\u003e $2": {},
+    "[ST] ask -\u003e off": {},
+    "[ST] ask -\u003e on": {},
+    "[ST] teach -\u003e off": {},
+    "[ST] teach -\u003e on": {},
+    "[compute] $1 * $2 -\u003e $3": {},
+    "[compute] $1 + $2 -\u003e $3": {},
+    "[compute] $1 - $2 -\u003e $3": {},
+    "[compute] $1 \u003c $2": {},
+    "[compute] $1 = $2": {},
+    "[compute] $1 \u003e $2": {},
+    "[compute] check $1 \u003c $2": {},
+    "[compute] check $1 = $2": {},
+    "[compute] check $1 \u003e $2": {},
+    "[compute] get $1 * $2": {},
+    "[compute] get $1 + $2": {},
+    "[compute] get $1 - $2": {},
+    "[input] $1": {},
+    "[input] $3 $1 $4": {},
+    "[input] $3 $1 $4 $2": {},
+    "[input] [repo] $3 -\u003e a human": {},
+    "[input] [repo] $4 -\u003e a human": {},
+    "[node:checker] [namespace:calculator] [left:$1] [operator:\u003c] [right:$2]": {},
+    "[node:checker] [namespace:calculator] [left:$1] [operator:=] [right:$2]": {},
+    "[node:checker] [namespace:calculator] [left:$1] [operator:\u003e] [right:$2]": {},
+    "[node:checker] [namespace:repo_addon] [key:$1] [value:$2]": {},
+    "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
+    "[node:checker] [namespace:repo_addon_fail] [key:$1] [value:$2]": {},
+    "[node:checker] [namespace:safeTeach] [key:ask]": {},
+    "[node:checker] [namespace:safeTeach] [key:teach]": {},
+    "[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {},
+    "[node:checker] [namespace:word] [mode:starts_with] [target:$2] [word:$1]": {},
+    "[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {},
+    "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {},
+    "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {},
+    "[node:executor] [namespace:repo_addon] [expiration:$3] [key:$1] [value:$2]": {},
+    "[node:executor] [namespace:repo_addon] [key:$1] [singleValue:true] [value:$2]": {},
+    "[node:executor] [namespace:repo_addon] [key:$1] [value:$2]": {},
+    "[node:executor] [namespace:safeTeach] [key:$1] [value:$2]": {},
+    "[node:executor] [namespace:speaker] [response:$1] [to:$2]": {},
+    "[node:extractor] [namespace:calculator] [dist:$3] [expression:$1*$2]": {},
+    "[node:extractor] [namespace:calculator] [dist:$3] [expression:$1+$2]": {},
+    "[node:extractor] [namespace:calculator] [dist:$3] [expression:$1-$2]": {},
+    "[node:extractor] [namespace:repo_addon] [dist:$2] [key:$1]": {},
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:date]": {},
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:hour]": {},
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:minute]": {},
+    "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:time]": {},
+    "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_head] [phrase:$1]": {},
+    "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_tail] [phrase:$1]": {},
+    "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:char_at] [word:$1]": {},
+    "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:word_at] [phrase:$1]": {},
+    "[node:extractor] [namespace:word] [dist:$2] [mode:char_index_of] [target:$3] [word:$1]": {},
+    "[node:extractor] [namespace:word] [dist:$2] [mode:char_length] [word:$1]": {},
+    "[node:extractor] [namespace:word] [dist:$2] [mode:index_of] [phrase:$1] [target:$3]": {},
+    "[node:extractor] [namespace:word] [dist:$2] [mode:length] [phrase:$1]": {},
+    "[node:extractor] [namespace:word] [dist:$3] [mode:add_prefix] [prefix:$2] [word:$1]": {},
+    "[node:extractor] [namespace:word] [dist:$3] [mode:add_suffix] [suffix:$2] [word:$1]": {},
+    "[output] $1": {},
+    "[output] $3 $8 $4": {},
+    "[output] $4 should $5 $3": {},
+    "[output] $4 should $5 $3 $6": {},
+    "[phrase] $1 @ $3 -\u003e $2": {},
+    "[phrase] FirstN $1 # $3": {},
+    "[phrase] FirstN $1 # $3 -\u003e $2": {},
+    "[phrase] HasPrefix $1 # $2": {},
+    "[phrase] IndexOf $1 # $3": {},
+    "[phrase] IndexOf $1 # $3 -\u003e $2": {},
+    "[phrase] LastN $1 # $3": {},
+    "[phrase] LastN $1 # $3 -\u003e $2": {},
+    "[phrase] check HasPrefix $1 # $2": {},
+    "[phrase] get $1 @ $3": {},
+    "[phrase] len $1": {},
+    "[phrase] len $1 -\u003e $2": {},
+    "[repo] $1 !-\u003e $2": {},
+    "[repo] $1 -\u003e": {},
+    "[repo] $1 -\u003e $2": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {},
+    "[repo] SSet $1 -\u003e $2": {},
+    "[repo] SSet [last] Susie says to Zero -\u003e $2": {},
+    "[repo] SSet them -\u003e someone $1 you": {},
+    "[repo] SSet them -\u003e someone $1 you $2": {},
+    "[repo] [last] Susie says to Zero -\u003e how to $1 someone": {},
+    "[repo] check $1 -\u003e $2": {},
+    "[repo] check $3 -\u003e a human": {},
+    "[repo] check $4 -\u003e a human": {},
+    "[repo] get $1": {},
+    "[repo] get [last] Susie says to Zero": {},
+    "[repo] get grammar usage of verb $1": {},
+    "[repo] get grammar usage of verb $5": {},
+    "[repo] get how to $5 someone": {},
+    "[repo] get how to $5 someone $6": {},
+    "[repo] get the singular of verb $5": {},
+    "[repo] get them": {},
+    "[repo] get what to tell $3": {},
+    "[repo] grammar usage of verb $5 -\u003e do+sb": {},
+    "[repo] grammar usage of verb $5 -\u003e do+sb+sth": {},
+    "[repo] how to $1 someone -\u003e": {},
+    "[repo] how to $1 someone -\u003e $5 them": {},
+    "[repo] how to $1 someone -\u003e say $2": {},
+    "[repo] how to $1 someone -\u003e say $2 to them": {},
+    "[repo] set $1 -\u003e $2": {},
+    "[repo] set $1 -\u003e $2 @ $3": {},
+    "[repo] set $2 -\u003e $6": {},
+    "[repo] set Susie 's $2 -\u003e $6": {},
+    "[repo] set Susie -\u003e $6": {},
+    "[repo] set Zero 's $2 -\u003e $6": {},
+    "[repo] set Zero -\u003e $6": {},
+    "[repo] set grammar usage of verb $1 -\u003e do+sb": {},
+    "[repo] set grammar usage of verb $1 -\u003e do+sb+sth": {},
+    "[repo] set how to $1 someone -\u003e $5 them": {},
+    "[repo] set what to tell $3 -\u003e $1": {},
+    "[repo] the singular of verb $5 -\u003e $8": {},
+    "[repo] them -\u003e $2": {},
+    "[repo] them -\u003e someone $1 you": {},
+    "[repo] them -\u003e someone $1 you $2": {},
+    "[repo] they -\u003e $2": {},
+    "[repo] what to tell $3 -\u003e $2": {},
+    "[speak] $1 -\u003e $2": {},
+    "[time] date -\u003e $1": {},
+    "[time] get date": {},
+    "[time] get hour": {},
+    "[time] get minute": {},
+    "[time] get time": {},
+    "[time] hour -\u003e $1": {},
+    "[time] minute -\u003e $1": {},
+    "[time] time -\u003e $1": {},
+    "[time] time -\u003e $2": {},
+    "[word] $1 @ $3 -\u003e $2": {},
+    "[word] AddPrefix $1 # $2": {},
+    "[word] AddPrefix $1 # $2 -\u003e $3": {},
+    "[word] AddSuffix $1 # $2": {},
+    "[word] AddSuffix $1 # $2 -\u003e $3": {},
+    "[word] HasPrefix $1 # $2": {},
+    "[word] HasSuffix $1 # $2": {},
+    "[word] IndexOf $1 # $3": {},
+    "[word] IndexOf $3 # $1 -\u003e $2": {},
+    "[word] check HasPrefix $1 # $2": {},
+    "[word] check HasSuffix $1 # $2": {},
+    "[word] get $1 @ $3": {},
+    "[word] len $1": {},
+    "[word] len $1 -\u003e $2": {},
+    "check [ask]": {},
+    "check [teach]": {},
+    "get how to $1 someone": {}
+  }
+}
