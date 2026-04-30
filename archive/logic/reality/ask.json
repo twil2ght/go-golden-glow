@@ -11,5 +11,12 @@
       "[input] [repo] D -> a human",
       "[output] [repo] set what to tell C -> A"
     ]
+  },
+  {
+    "description": "ask if ...",
+    "commands": [
+      "[input] D should ask C if C will A",
+      "[output] D should say to C : will you A"
+    ]
   }
 ]

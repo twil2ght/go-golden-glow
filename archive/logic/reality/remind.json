@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "remind",
+    "routes": [
+      ""
+    ],
+    "description": "remind sb",
+    "commands": [
+      "[input] D should remind C to A when they E",
+      "[output] D should say to C: remind to A when you E"
+    ]
+  }
+]

@@ -14,7 +14,7 @@
     ]
   },
   {
-    "description": "talk about anything",
+    "description": "talk about a certain topic",
     "commands": [
       "[input] Susie starts to talk with A",
       "[input] [repo] what to talk with someone -> B",

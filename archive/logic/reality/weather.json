@@ -2,14 +2,13 @@
   {
     "tag": "weather",
     "routes": [
-      ""
+      "remind",
+      "ask",
+      "weather plugin"
     ],
     "dependencies": [
       "know",
-      "ask(location)",
-      "talk",
-      "remind",
-      "weather plugin"
+      "talk"
     ],
     "description": "talk about the weather",
     "commands": [
@@ -17,11 +16,18 @@
       "you can talk about the weather",
       "if you want to talk about the weather",
       "you have to know what city they are in",
+      "[output] [output] [repo] get the city C is in",
+      "[output] [input] D wants to talk about the weather with C",
+      "[output] [input] the city C is in -> B",
       "then you can talk about the weather of that city",
+      "[output] [output] D can talk about the weather of B",
+      "(how to talk about the weather)",
       "you can check today's weather of that place",
+      "(check whose weather and how's the weather)",
       "and tell them the weather",
+      "(check what {it} is)",
       "if it is rainy",
-      "you can remind them to take an umbrella when going out",
+      "you can remind them to take an umbrella when they go out",
       "if it is sunny",
       "you can ask them if they want to go out today"
     ]
