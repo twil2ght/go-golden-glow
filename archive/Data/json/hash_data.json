@@ -53,6 +53,9 @@
   "C-\u003eR:2d1319d9e61ca8301836a9558e6f920c": {
     "check [teach]": {}
   },
+  "C-\u003eR:2d27b7f9fc865231add88bf0ff6bfabd": {
+    "$3 greets $4": {}
+  },
   "C-\u003eR:2dbcaeae947728d09b97a39fc57d3e86": {
     "Susie is enabled to ask Zero questions": {}
   },
@@ -266,6 +269,9 @@
   "C-\u003eR:c8b2d720f3258f71d8d879149df1b0f1": {
     "[repo] get how to $5 someone $6": {}
   },
+  "C-\u003eR:c91301b7398fbb1bb035cce4395e5a57": {
+    "$4 should greet $3": {}
+  },
   "C-\u003eR:c95a76d1bfc9570c4684bc92d36f12e0": {
     "[repo] get what to tell $3": {}
   },
@@ -417,6 +423,11 @@
   },
   "C-\u003eT:2d1319d9e61ca8301836a9558e6f920c": {
     "Zero says to Susie : $2 is $6": {}
+  },
+  "C-\u003eT:2d27b7f9fc865231add88bf0ff6bfabd": {
+    "$3 says hello to $4": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
   },
   "C-\u003eT:2dbcaeae947728d09b97a39fc57d3e86": {
     "[node:checker] [namespace:safeTeach] [key:ask]": {},
@@ -686,6 +697,11 @@
     "[repo] grammar usage of verb $5 -\u003e do+sb+sth": {},
     "[repo] them -\u003e someone $1 you $2": {}
   },
+  "C-\u003eT:c91301b7398fbb1bb035cce4395e5a57": {
+    "$3 greets $4": {},
+    "[repo] $3 -\u003e a human": {},
+    "[repo] $4 -\u003e a human": {}
+  },
   "C-\u003eT:c95a76d1bfc9570c4684bc92d36f12e0": {
     "$4 should tell $3": {},
     "[repo] $3 -\u003e a human": {},
@@ -802,8 +818,14 @@
   "R-\u003eC:$3 asks $4 what the time is": {
     "ff247c871d2bce20e46ff3c65171b64c": {}
   },
+  "R-\u003eC:$3 greets $4": {
+    "2d27b7f9fc865231add88bf0ff6bfabd": {}
+  },
   "R-\u003eC:$4 should $5 $3": {
     "3ee204286f3e5547d59c3f6d82fbc834": {}
+  },
+  "R-\u003eC:$4 should greet $3": {
+    "c91301b7398fbb1bb035cce4395e5a57": {}
   },
   "R-\u003eC:$4 should say to $3 : $2": {
     "964e289481ef5e2f5e08c3c09b57f99d": {},
@@ -1102,6 +1124,12 @@
   },
   "T-\u003eC:$3 asks $4 what the time is": {
     "a3eeca6a9a97aef514e9019ef73f4b22": {}
+  },
+  "T-\u003eC:$3 greets $4": {
+    "c91301b7398fbb1bb035cce4395e5a57": {}
+  },
+  "T-\u003eC:$3 says hello to $4": {
+    "2d27b7f9fc865231add88bf0ff6bfabd": {}
   },
   "T-\u003eC:$3 says to $4 : $2": {
     "3b124b56749d9299bec16ca5af099c29": {},
@@ -1418,6 +1446,7 @@
   },
   "T-\u003eC:[repo] $3 -\u003e a human": {
     "12ca1800cc0b493d7b5661ef92b7d52a": {},
+    "2d27b7f9fc865231add88bf0ff6bfabd": {},
     "355e09ee515ab26840dc894285ef22f0": {},
     "3ee204286f3e5547d59c3f6d82fbc834": {},
     "774ad899081be519fce9ba9c48c8a07e": {},
@@ -1426,11 +1455,13 @@
     "a6955e829c75bad7a12138c0388151c2": {},
     "b537655ef659a49ca72816bf5be1e0aa": {},
     "b84b3e7492cbd4dabe29a6016a0d3633": {},
+    "c91301b7398fbb1bb035cce4395e5a57": {},
     "c95a76d1bfc9570c4684bc92d36f12e0": {},
     "e66ce61aa268479c0ef8173524082f63": {}
   },
   "T-\u003eC:[repo] $4 -\u003e a human": {
     "12ca1800cc0b493d7b5661ef92b7d52a": {},
+    "2d27b7f9fc865231add88bf0ff6bfabd": {},
     "355e09ee515ab26840dc894285ef22f0": {},
     "3ee204286f3e5547d59c3f6d82fbc834": {},
     "774ad899081be519fce9ba9c48c8a07e": {},
@@ -1439,6 +1470,7 @@
     "a6955e829c75bad7a12138c0388151c2": {},
     "b537655ef659a49ca72816bf5be1e0aa": {},
     "b84b3e7492cbd4dabe29a6016a0d3633": {},
+    "c91301b7398fbb1bb035cce4395e5a57": {},
     "c95a76d1bfc9570c4684bc92d36f12e0": {},
     "e66ce61aa268479c0ef8173524082f63": {}
   },
@@ -1546,10 +1578,13 @@
   "nodeSet": {
     "$3 asks $4 what $1 is": {},
     "$3 asks $4 what the time is": {},
+    "$3 greets $4": {},
+    "$3 says hello to $4": {},
     "$3 says to $4 : $2": {},
     "$3 says to $4 : what time is it": {},
     "$4 should $1 $3": {},
     "$4 should $5 $3": {},
+    "$4 should greet $3": {},
     "$4 should say to $3 : $2": {},
     "$4 should say to $3 : it is $2": {},
     "$4 should tell $3": {},

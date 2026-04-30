@@ -23,25 +23,25 @@ var (
 )
 
 func main() {
-	//Run(
-	//	//"archive/start",
-	//	//"archive/logic/safe_teach",
-	//	//"archive/logic/utils.json",
-	//	//"archive/logic/make_attribution/safe_teach/src",
-	//	//"archive/logic/make_attribution/safe_teach/test",
-	//	//"archive/logic/make_connection/safe_teach/src",
-	//	//"archive/logic/make_connection/safe_teach/test",
-	//	//"archive/logic/make_question/safe_teach/ask/src",
-	//	//"archive/logic/make_question/safe_teach/ask/test",
-	//	//"archive/logic/make_question/safe_teach/answer/src",
-	//	//"archive/logic/make_question/safe_teach/answer/test",
-	//	//"archive/logic/make_answer/safe_teach/ask/src",
-	//	//"archive/logic/make_answer/safe_teach/answer/src",
-	//	//"archive/logic/make_answer/safe_teach/test",
-	//)
-	RunWithMsgMgr(
-		"archive/logic/make_answer/safe_teach/ask/test",
+	Run(
+		//"archive/start",
+		//"archive/logic/safe_teach",
+		//"archive/logic/utils.json",
+		//"archive/logic/make_attribution/safe_teach/src",
+		//"archive/logic/make_attribution/safe_teach/test",
+		//"archive/logic/make_connection/safe_teach/src",
+		"archive/logic/make_connection/safe_teach/test",
+		//"archive/logic/make_question/safe_teach/ask/src",
+		//"archive/logic/make_question/safe_teach/ask/test",
+		//"archive/logic/make_question/safe_teach/answer/src",
+		//"archive/logic/make_question/safe_teach/answer/test",
+		//"archive/logic/make_answer/safe_teach/ask/src",
+		//"archive/logic/make_answer/safe_teach/answer/src",
+		//"archive/logic/make_answer/safe_teach/test",
 	)
+	//RunWithMsgMgr(
+	//	"archive/logic/make_answer/safe_teach/ask/test",
+	//)
 }
 func Run(dataDir ...string) {
 	go consumer.Run(ctx)
