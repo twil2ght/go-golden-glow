@@ -1,0 +1,3 @@
+- grammar usage of verb $1 → do+sb / do+sb+sth
+- the singular of verb $1 → $2
+- [last] Susie says to Zero → $1
