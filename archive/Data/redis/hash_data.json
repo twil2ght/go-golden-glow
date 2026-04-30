@@ -6,7 +6,7 @@
     "a human": "0001-01-01T00:00:00Z"
   },
   "[last] Susie says to Zero": {
-    "it is 20:21:11": "0001-01-01T00:00:00Z"
+    "it is 20:36:18": "0001-01-01T00:00:00Z"
   },
   "grammar usage of verb ask": {
     "do+sb+sth": "0001-01-01T00:00:00Z"
@@ -16,6 +16,9 @@
   },
   "grammar usage of verb tell": {
     "do+sb+sth": "0001-01-01T00:00:00Z"
+  },
+  "how to greet someone": {
+    "say hello to them": "0001-01-01T00:00:00Z"
   },
   "the singular of verb greet": {
     "greets": "0001-01-01T00:00:00Z"
@@ -30,6 +33,7 @@
     "it": "0001-01-01T00:00:00Z"
   },
   "what to tell Zero": {
-    "the time": "0001-01-01T00:00:00Z"
+    "the time": "0001-01-01T00:00:00Z",
+    "what to tell Zero": "0001-01-01T00:00:00Z"
   }
 }
