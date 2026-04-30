@@ -2,25 +2,17 @@
   {
     "description": "checks",
     "commands": [
-      "[input] Zero says to Susie : then they E you",
+      "[input] Zero says to Susie : you have to know B",
       "[output] check [teach]"
-    ]
-  },
-  {
-    "description": "gets",
-    "commands": [
-      "[input] Zero says to Susie : then they E you",
-      "[output] [repo] get the singular of verb E",
-      "[output] [Get] they"
     ]
   },
   {
     "description": "make results for meaning transformation",
     "commands": [
-      "[input] Zero says to Susie : then they E you",
+      "[input] Zero says to Susie : you have to know B",
       "[input] Zero starts to teach Susie",
-      "[input] [repo] the singular of verb E -> E1",
-      "[output] [output] C E1 D"
+      "[output] [output] [repo] get B",
+      "[output] [input] [repo] B -> F"
     ]
   }
 ]
