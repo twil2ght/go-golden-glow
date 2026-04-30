@@ -1,0 +1,8 @@
+[
+  {
+    "commands": [
+      "[repo] set Susie -> a human",
+      "[repo] set Susie 's name -> Susie"
+    ]
+  }
+]
