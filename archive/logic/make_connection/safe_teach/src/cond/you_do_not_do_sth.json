@@ -1,0 +1,18 @@
+[
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : if you don't know B",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "make conditions",
+    "commands": [
+      "[input] Zero says to Susie : if you don't know B",
+      "[input] Zero starts to teach Susie",
+      "[output] [input] D does not know B",
+      "[output] [input] [repo] D -> a human"
+    ]
+  }
+]
