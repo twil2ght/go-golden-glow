@@ -14,6 +14,7 @@
     "commands": [
       "if you don't know what to talk about with someone",
       "you can talk about the weather",
+      "(check with whom and set {they})",
       "if you want to talk about the weather",
       "you have to know what city they are in",
       "[output] [output] [repo] get the city C is in",
