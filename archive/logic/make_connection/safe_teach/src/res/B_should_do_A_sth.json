@@ -33,7 +33,6 @@
     "description": "make results for action triggers",
     "commands": [
       "[input] Zero says to Susie : then you should E them F",
-      "[input] [repo] grammar usage of verb E -> do+sb+sth",
       "[input] Zero starts to teach Susie",
       "[output] [output] D should E C F"
     ]
