@@ -1,0 +1,29 @@
+[
+  {
+    "tag": "weather",
+    "routes": [
+      ""
+    ],
+    "dependencies": [
+      "know",
+      "before...,...",
+      "ask(location)",
+      "talk",
+      "remind",
+      "weather plugin"
+    ],
+    "description": "talk about the weather",
+    "commands": [
+      "if you don't know what to talk about with someone",
+      "you can talk about the weather",
+      "before talk about the weather,you have to know what city they are in",
+      "so you can talk about the weather of that city",
+      "you can check today's weather of that place",
+      "and tell them the weather",
+      "if it is rainy",
+      "you can remind them to take an umbrella when going out",
+      "if it is sunny",
+      "you can ask them if they want to go out today"
+    ]
+  }
+]

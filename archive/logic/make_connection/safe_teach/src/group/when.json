@@ -1,0 +1,10 @@
+[
+  {
+    "commands": [
+      "[input] Zero says to Susie : you can A when you E",
+      "[input] Zero starts to teach Susie",
+      "[output] [output] D can A",
+      "[output] [input] D E"
+    ]
+  }
+]
