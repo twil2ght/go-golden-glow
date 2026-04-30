@@ -78,5 +78,13 @@
       "[output] [repo] check C -> a human",
       "[output] [repo] check D -> a human"
     ]
+  },
+  {
+    "description": "we are human",
+    "commands": [
+      "[input] C says to D : you are B",
+      "[input] [repo] the word B -> an adjective",
+      "[output] C thinks D is B"
+    ]
   }
 ]
