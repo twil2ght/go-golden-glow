@@ -1,7 +1,6 @@
 package safeteach
 
 import (
-	"encoding/json"
 	"goldenglow/pkg/datagen"
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
@@ -11,6 +10,8 @@ import (
 	"goldenglow/utils"
 	"os"
 	"path/filepath"
+
+	"gopkg.in/yaml.v3"
 )
 
 func init() {
@@ -100,7 +101,7 @@ func (s *safeTeach) Reset()    { s.cache = registry.New[bool]() }
 type Config map[string]bool
 
 var (
-	path = filepath.Join(utils.RootDir, "config/safeTeach.json")
+	path = filepath.Join(utils.RootDir, "config/safeTeach.yaml")
 )
 
 func ReadConfig() (mode Config, ok bool) {
@@ -110,14 +111,14 @@ func ReadConfig() (mode Config, ok bool) {
 	}
 
 	var m Config
-	err = json.Unmarshal(content, &m)
+	err = yaml.Unmarshal(content, &m)
 	if err != nil {
 		return Config{}, false
 	}
 	return m, true
 }
 func WriteConfig(config Config) {
-	content, err := json.MarshalIndent(config, "", "  ")
+	content, err := yaml.Marshal(config)
 	if err != nil {
 		return
 	}

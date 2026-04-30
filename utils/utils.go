@@ -1,12 +1,13 @@
 package utils
 
 import (
-	"encoding/json"
 	"fmt"
 	"goldenglow/m"
 	"os"
 	"path/filepath"
 	"reflect"
+
+	"gopkg.in/yaml.v3"
 )
 
 var (
@@ -79,8 +80,8 @@ func isNil(a any) bool {
 }
 func ReadConfig() m.Map[any] {
 	var cfg m.Map[any]
-	content, _ := os.ReadFile(filepath.Join(RootDir, "config.json"))
-	err := json.Unmarshal(content, &cfg)
+	content, _ := os.ReadFile(filepath.Join(RootDir, "config.yaml"))
+	err := yaml.Unmarshal(content, &cfg)
 	if err != nil {
 		panic(err)
 	}

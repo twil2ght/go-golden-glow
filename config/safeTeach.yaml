@@ -1,0 +1,4 @@
+# Safe-teach mode flags.
+# When a key is true, the corresponding behavior is allowed.
+ask: true
+teach: true
