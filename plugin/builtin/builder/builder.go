@@ -12,6 +12,7 @@ import (
 	"goldenglow/plugin"
 	"goldenglow/utils"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -164,7 +165,7 @@ func NewBuilderPlugin(saver brainsaver.Service) plugin.Interface {
 	}
 }
 
-var mappingPath = utils.RootDir + "/plugin/builtin/builder/mapping.json"
+var mappingPath = filepath.Join(utils.RootDir, "config/builder_mapping.json")
 
 func (b *builder) mapToPlaceholder(value string) string {
 	var parts = strings.Fields(value)
