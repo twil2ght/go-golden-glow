@@ -1,0 +1,15 @@
+[
+  {
+    "tag": "tell",
+    "description": "tell your name",
+    "routes": [
+      "tell"
+    ],
+    "commands": [
+      "[input] D should tell C D 's name is B",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[output] D should say to C : my name is B"
+    ]
+  }
+]
