@@ -24,7 +24,7 @@
       "[output] [output] [repo] get B"
     ],
     "demo": [
-      "{DONE}if you want to talk about the weather with someone",
+      "{DONE}if you should talk about the weather with someone",
       "{DONE}you should know what city they are in",
       "{DONE}([repo] set the city -> city C is in)",
       "then you can talk about the weather of the city",
