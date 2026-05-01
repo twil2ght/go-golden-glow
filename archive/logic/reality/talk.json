@@ -20,5 +20,13 @@
       "[input] [repo] what to talk with someone -> B",
       "[output] Susie can talk about B with A"
     ]
+  },
+  {
+    "description": "routes",
+    "commands": [
+      "[input] D wants to talk about the B of the F with C",
+      "[input] [repo] the F -> F1",
+      "[output] D wants to talk about the B of F1 with C"
+    ]
   }
 ]

@@ -1,0 +1,10 @@
+[
+  {
+    "tag": "know",
+    "description": "know sth",
+    "commands": [
+      "[input] D should know B",
+      "[output] [repo] get B"
+    ]
+  }
+]
