@@ -34,7 +34,7 @@
     ]
   },
   {
-    "description": "one of triggers",
+    "description": "one of the triggers for talking about the weather",
     "commands": [
       "[input] Susie starts to talk with A",
       "[output] [repo] get what to talk with someone"
@@ -51,7 +51,7 @@
     ]
   },
   {
-    "description": "prepare to talk about the weather",
+    "description": "collecting information to prepare to talk about the weather",
     "commands": [
       "[input] D should talk about the weather",
       "[input] [repo] D is talking with -> C",
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "description": "talk about the weather",
+    "description": "call [weather] api",
     "commands": [
       "[input] D should talk about the weather of B",
       "[output] [weather] get B",
@@ -70,21 +70,22 @@
     ]
   },
   {
-    "description": "the city C is in is rainy",
+    "description": "check if it is rainy in C's city",
+    "type": "merge",
     "commands": [
       "[input] [repo] the city C is in -> B",
       "[input] [weather] the weather of B -> rainy",
-      "[output] the city C is in is rainy"
+      "[output] it is rainy in C 's city"
     ]
   },
   {
-    "description": "remind",
+    "description": "remind them to take an umbrella",
+    "type": "route",
+    "static": true,
     "commands": [
       "if you are talking with someone",
-      "([input] D is talking with C)",
-      "and the city they are in is rainy",
-      "([input] the city C is in is rainy)",
-      "you can remind them to take an umbrella when they go out"
+      "if it is rainy in their city",
+      "then you should remind them to take an umbrella when going out"
     ]
   }
 ]
