@@ -12,6 +12,15 @@
     ]
   },
   {
+    "description": "get they if necessary",
+    "commands": [
+      "[input] A they B",
+      "[output] [Get] they",
+      "[input] they B",
+      "[output] [Get] they"
+    ]
+  },
+  {
     "description": "get {how to A someone}",
     "in": "[repo] get how to A someone",
     "out": [
@@ -80,7 +89,7 @@
     ]
   },
   {
-    "description": "we are human",
+    "description": "what do you think",
     "commands": [
       "[input] C says to D : you are B",
       "[input] [repo] the word B -> an adjective",

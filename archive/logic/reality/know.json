@@ -6,5 +6,13 @@
       "[input] D should know B",
       "[output] [repo] get B"
     ]
+  },
+  {
+    "description": "know sth",
+    "commands": [
+      "[input] D should know what B they A",
+      "[input] [repo] they -> C",
+      "[output] [repo] get what B C A"
+    ]
   }
 ]
