@@ -22,20 +22,6 @@
       "[input] Zero says to Susie : you should know B",
       "[input] Zero starts to teach Susie",
       "[output] [output] [repo] get B"
-    ],
-    "demo": [
-      "{DONE}if you should talk about the weather with someone",
-      "{DONE}you should know what city they are in",
-      "{DONE}([repo] set the city -> city C is in)",
-      "then you can talk about the weather of the city",
-      "(that city->get what city C is in)",
-      "then you can talk about the weather of the city C is in",
-      "[repo] city C is in -> F",
-      "then you can talk about the weather of F"
-    ],
-    "demo2": [
-      "for example, if the city C is in is New York",
-      "then you can talk about the weather of New York"
     ]
   }
 ]

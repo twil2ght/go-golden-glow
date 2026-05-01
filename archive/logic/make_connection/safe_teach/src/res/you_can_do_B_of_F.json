@@ -1,0 +1,25 @@
+[
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : you can A the B of the F",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "gets",
+    "commands": [
+      "[input] Zero says to Susie : you can A the B of the F",
+      "[output] [repo] get the F"
+    ]
+  },
+  {
+    "description": "make results for action triggers",
+    "commands": [
+      "[input] Zero says to Susie : you can A the B of the F",
+      "[input] Zero starts to teach Susie",
+      "[input] [repo] the F -> F1",
+      "[output] [output] D should A the B of F1"
+    ]
+  }
+]

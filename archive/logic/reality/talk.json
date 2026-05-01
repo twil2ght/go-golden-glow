@@ -10,7 +10,9 @@
     "description": "gets",
     "commands": [
       "[input] Susie starts to talk with A",
-      "[output] [repo] get what to talk with someone"
+      "[output] [repo] get what to talk with someone",
+      "[input] D should talk about the B of the F",
+      "[input] [repo] get the F"
     ]
   },
   {
@@ -18,15 +20,22 @@
     "commands": [
       "[input] Susie starts to talk with A",
       "[input] [repo] what to talk with someone -> B",
-      "[output] Susie can talk about B with A"
+      "[output] Susie should talk about B with A"
     ]
   },
   {
     "description": "routes",
     "commands": [
-      "[input] D wants to talk about the B of the F with C",
+      "[input] D should talk about the B of the F",
       "[input] [repo] the F -> F1",
-      "[output] D wants to talk about the B of F1 with C"
+      "[output] D should talk about the B of F1"
+    ]
+  },
+  {
+    "description": "extra bonus",
+    "commands": [
+      "[input] [repo] D is talking with -> C",
+      "[output] D is talking with C"
     ]
   }
 ]

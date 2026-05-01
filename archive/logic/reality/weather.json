@@ -32,5 +32,59 @@
       "if it is sunny",
       "you can ask them if they want to go out today"
     ]
+  },
+  {
+    "description": "one of triggers",
+    "commands": [
+      "[input] Susie starts to talk with A",
+      "[output] [repo] get what to talk with someone"
+    ]
+  },
+  {
+    "description": "gets",
+    "commands": [
+      "[input] D should talk about the weather",
+      "[output] [repo] get D is talking with",
+      "[input] D should talk about the weather",
+      "[input] [repo] D is talking with -> C",
+      "[output] [repo] get the city C is in"
+    ]
+  },
+  {
+    "description": "prepare to talk about the weather",
+    "commands": [
+      "[input] D should talk about the weather",
+      "[input] [repo] D is talking with -> C",
+      "[input] [repo] the city C is in -> B",
+      "[output] D should talk about the weather of B"
+    ]
+  },
+  {
+    "description": "talk about the weather",
+    "commands": [
+      "[input] D should talk about the weather of B",
+      "[output] [weather] get B",
+      "[input] [weather] the weather of B -> rainy",
+      "[input] [repo] D is talking with -> C",
+      "[output] D should tell C that it is rainy in B"
+    ]
+  },
+  {
+    "description": "the city C is in is rainy",
+    "commands": [
+      "[input] [repo] the city C is in -> B",
+      "[input] [weather] the weather of B -> rainy",
+      "[output] the city C is in is rainy"
+    ]
+  },
+  {
+    "description": "remind",
+    "commands": [
+      "if you are talking with someone",
+      "([input] D is talking with C)",
+      "and the city they are in is rainy",
+      "([input] the city C is in is rainy)",
+      "you can remind them to take an umbrella when they go out"
+    ]
   }
 ]
