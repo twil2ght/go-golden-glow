@@ -31,5 +31,14 @@
       "[input] [repo] what to tell C -> your B",
       "[output] D should tell C D 's B"
     ]
+  },
+  {
+    "description": "tell name",
+    "commands": [
+      "[input] D should tell C D 's name is B",
+      "[input] [repo] C -> a human",
+      "[input] [repo] D -> a human",
+      "[output] D should say to C : my name is B"
+    ]
   }
 ]
