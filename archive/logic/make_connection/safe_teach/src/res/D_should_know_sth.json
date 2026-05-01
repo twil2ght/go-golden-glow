@@ -3,11 +3,13 @@
     "description": "checks",
     "commands": [
       "[input] Zero says to Susie : you should know B",
-      "[output] check [teach]"
+      "[output] check [teach]",
+      "[input] Zero says to Susie : you should know what B they A F",
+      "[output] [repo] get the singular of verb A"
     ]
   },
   {
-    "description": "make results for meaning transformation",
+    "description": "",
     "commands": [
       "[input] Zero says to Susie : you should know what B they A F",
       "[input] [repo] the singular of verb A -> A1",
@@ -17,7 +19,7 @@
     ]
   },
   {
-    "description": "make results for meaning transformation",
+    "description": "",
     "commands": [
       "[input] Zero says to Susie : you should know B",
       "[input] Zero starts to teach Susie",

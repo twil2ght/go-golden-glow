@@ -1,44 +1,54 @@
-[
-  {
-    "tag": "tell",
-    "description": "gets",
-    "commands": [
-      "[input] D should tell C",
-      "[input] [repo] C -> a human",
-      "[input] [repo] D -> a human",
-      "[output] [repo] get what to tell C"
-    ]
-  },
-  {
-    "description": "routes:complement what to tell",
-    "commands": [
-      "[input] D should tell C",
-      "[input] [repo] C -> a human",
-      "[input] [repo] D -> a human",
-      "[input] [repo] what to tell C -> B",
-      "[output] D should tell C B"
-    ],
-    "template_banned": [
-      "[repo] what to tell C -> B"
-    ]
-  },
-  {
-    "description": "routes:complement what to tell",
-    "commands": [
-      "[input] D should tell C",
-      "[input] [repo] C -> a human",
-      "[input] [repo] D -> a human",
-      "[input] [repo] what to tell C -> your B",
-      "[output] D should tell C D 's B"
-    ]
-  },
-  {
-    "description": "tell name",
-    "commands": [
-      "[input] D should tell C D 's name is B",
-      "[input] [repo] C -> a human",
-      "[input] [repo] D -> a human",
-      "[output] D should say to C : my name is B"
-    ]
-  }
-]
+{
+  "tag": "tell",
+  "route": [
+    "speaker plugin"
+  ],
+  "dependencies": [
+    "talk",
+    "know"
+  ],
+  "data": [
+    {
+      "type": "get",
+      "commands": [
+        "[input] D should tell C",
+        "[input] [repo] C -> a human",
+        "[input] [repo] D -> a human",
+        "[output] [repo] get what to tell C"
+      ]
+    },
+    {
+      "type": "route",
+      "commands": [
+        "[input] D should tell C",
+        "[input] [repo] C -> a human",
+        "[input] [repo] D -> a human",
+        "[input] [repo] what to tell C -> B",
+        "[output] D should tell C B"
+      ],
+      "template_banned": [
+        "[repo] what to tell C -> B"
+      ]
+    },
+    {
+      "type": "route",
+      "commands": [
+        "[input] D should tell C",
+        "[input] [repo] C -> a human",
+        "[input] [repo] D -> a human",
+        "[input] [repo] what to tell C -> your B",
+        "[output] D should tell C D 's B"
+      ]
+    },
+    {
+      "description": "tell name",
+      "type": "api",
+      "commands": [
+        "[input] D should tell C D 's name is B",
+        "[input] [repo] C -> a human",
+        "[input] [repo] D -> a human",
+        "[output] D should say to C : my name is B"
+      ]
+    }
+  ]
+}

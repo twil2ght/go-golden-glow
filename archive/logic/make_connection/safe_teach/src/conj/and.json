@@ -1,8 +1,13 @@
 [
   {
     "description": "and",
-    "commands": [
-
+    "demo": [
+      "[input] Zero says to Susie : if A",
+      "[input] Zero says to Susie : and B",
+      "[output] [input] B",
+      "[input] Zero says to Susie : then A",
+      "[input] Zero says to Susie : and B",
+      "[output] [output] B"
     ]
   }
 ]
