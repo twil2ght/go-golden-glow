@@ -1,3 +1,19 @@
 [
-
+  {
+    "description": "checks",
+    "commands": [
+      "[input] Zero says to Susie : if you want to A with someone",
+      "[output] check [teach]"
+    ]
+  },
+  {
+    "description": "make conditions",
+    "commands": [
+      "[input] Zero says to Susie : if you want to A with someone",
+      "[input] Zero starts to teach Susie",
+      "[output] [input] D wants to A with C",
+      "[output] [input] [repo] D -> a human",
+      "[output] [input] [repo] C -> a human"
+    ]
+  }
 ]
