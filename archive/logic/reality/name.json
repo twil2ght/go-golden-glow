@@ -1,12 +1,27 @@
 [
   {
+    "tag": "name",
+    "route": [
+      "ask"
+    ],
+    "dependencies": [
+      "talk",
+      "know"
+    ]
+  },
+  {
+    "type": "get",
     "commands": [
-      "if someone means to introduce themselves to you",
-      "and they tells you their name ",
-      "you have to make a response to them",
-      "you can say : hello Susie. if they tell you their name is Susie",
-      "or you can say : nice to meet you",
-      "whatever"
+      "[input] C starts to talk to D",
+      "[output] [repo] get C's name"
+    ]
+  },
+  {
+    "type": "route",
+    "commands": [
+      "[input] C starts to talk to D",
+      "[input] D doesn't know C 's name",
+      "[output] D should ask C what their name is"
     ]
   }
 ]

@@ -1,9 +1,9 @@
 [
   {
-    "commands": [
+    "demo": [
       "if someone says something to you",
       "and you don't know what their words mean",
-      "then you should ask them what their words mean",
+      "then you should ask them",
       "you can say to them : I don't know what those words mean",
       "they say : it means A"
     ]
