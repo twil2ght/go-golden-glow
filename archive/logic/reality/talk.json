@@ -32,7 +32,7 @@
     ]
   },
   {
-    "description": "extra bonus",
+    "type": "extra bonus",
     "commands": [
       "[input] [repo] D is talking with -> C",
       "[output] D is talking with C"
