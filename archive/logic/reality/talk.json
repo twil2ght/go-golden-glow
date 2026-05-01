@@ -1,35 +1,10 @@
 {
-
   "tag": "talk",
   "routes": [
   ],
   "dependencies": [
   ],
   "data": [
-    {
-      "commands": [
-        "[input] Susie starts to talk with A",
-        "[output] [repo] get what to talk with someone",
-        "[input] D should talk about the B of the F",
-        "[input] [repo] get the F"
-      ]
-    },
-    {
-      "description": "talk about a certain topic",
-      "commands": [
-        "[input] Susie starts to talk with A",
-        "[input] [repo] what to talk with someone -> B",
-        "[output] Susie should talk about B with A"
-      ]
-    },
-    {
-      "description": "routes",
-      "commands": [
-        "[input] D should talk about the B of the F",
-        "[input] [repo] the F -> F1",
-        "[output] D should talk about the B of F1"
-      ]
-    },
     {
       "type": "route",
       "description": "extra bonus",

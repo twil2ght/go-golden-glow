@@ -12,14 +12,14 @@
   {
     "type": "get",
     "commands": [
-      "[input] C starts to talk to D",
+      "[input] C starts to talk with D",
       "[output] [repo] get C's name"
     ]
   },
   {
     "type": "route",
     "commands": [
-      "[input] C starts to talk to D",
+      "[input] C starts to talk with D",
       "[input] D doesn't know C 's name",
       "[output] D should ask C what their name is"
     ]
