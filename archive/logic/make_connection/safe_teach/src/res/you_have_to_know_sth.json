@@ -2,22 +2,32 @@
   {
     "description": "checks",
     "commands": [
-      "[input] Zero says to Susie : you have to know B",
+      "[input] Zero says to Susie : you should know B",
       "[output] check [teach]"
     ]
   },
   {
     "description": "make results for meaning transformation",
     "commands": [
-      "[input] Zero says to Susie : you have to know B",
+      "[input] Zero says to Susie : you should know what B they A F",
+      "[input] [repo] the singular of verb A -> A1",
+      "[input] Zero starts to teach Susie",
+      "[output] [output] [repo] get what B C A1 F",
+      "[output] [repo] set the B -> the B C A1 F"
+    ]
+  },
+  {
+    "description": "make results for meaning transformation",
+    "commands": [
+      "[input] Zero says to Susie : you should know B",
       "[input] Zero starts to teach Susie",
       "[output] [output] [repo] get B"
     ],
     "demo": [
-      "if you want to talk about the weather with someone",
-      "you should know what city they are in",
-      "([repo] set that city -> city C is in)",
-      "then you can talk about the weather of that city",
+      "{DONE}if you want to talk about the weather with someone",
+      "{DONE}you should know what city they are in",
+      "{DONE}([repo] set the city -> city C is in)",
+      "then you can talk about the weather of the city",
       "(that city->get what city C is in)",
       "then you can talk about the weather of the city C is in",
       "[repo] city C is in -> F",

@@ -1,4 +1,5 @@
 // Package template provides a handler to get template nodes with a given one.
-// the template "$1 is $2" is the only template that is prohibited
-// (can be available when it is the only one)
+//   - special feature: if two placeholders come one after another,
+//     then the first one always get only 1 word
+//     E.g. I like eating some cakes -> I like $1{eating} $2{some cakes}
 package template
