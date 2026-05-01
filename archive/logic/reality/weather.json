@@ -1,77 +1,66 @@
-[
-  {
-    "tag": "weather",
-    "routes": [
-      "remind",
-      "ask",
-      "weather plugin",
-      "tell"
-    ],
-    "dependencies": [
-      "talk"
-    ],
-    "description": "talk about the weather",
-    "demo": [
-      "if you don't know what to talk about with someone",
-      "you can talk about the weather",
-      "if it is sunny",
-      "you can ask them if they want to go out today"
-    ]
-  },
-  {
-    "type": "route",
-    "description": "one of the triggers for talking about the weather",
-    "commands": [
-      "[input] Susie starts to talk with A",
-      "[output] [repo] get what to talk with someone"
-    ]
-  },
-  {
-    "type": "get",
-    "commands": [
-      "[input] D should talk about the weather",
-      "[output] [repo] get D is talking with",
-      "[input] D should talk about the weather",
-      "[input] [repo] D is talking with -> C",
-      "[output] [repo] get the city C is in"
-    ]
-  },
-  {
-    "description": "collecting information to prepare to talk about the weather",
-    "commands": [
-      "[input] D should talk about the weather",
-      "[input] [repo] D is talking with -> C",
-      "[input] [repo] the city C is in -> B",
-      "[output] D should talk about the weather of B"
-    ]
-  },
-  {
-    "description": "call [weather] api",
-    "type": "api",
-    "commands": [
-      "[input] D should talk about the weather of B",
-      "[output] [weather] get B",
-      "[input] [weather] the weather of B -> rainy",
-      "[input] [repo] D is talking with -> C",
-      "[output] D should tell C that it is rainy in B"
-    ]
-  },
-  {
-    "type": "merge",
-    "commands": [
-      "[input] [repo] the city C is in -> B",
-      "[input] [weather] the weather of B -> rainy",
-      "[output] it is rainy in C 's city"
-    ]
-  },
-  {
-    "description": "remind them to take an umbrella",
-    "type": "route",
-    "static": true,
-    "commands": [
-      "if you are talking with someone",
-      "if it is rainy in their city",
-      "then you should remind them to take an umbrella when going out"
-    ]
-  }
-]
+{
+  "tag": "weather",
+  "routes": [
+    "remind",
+    "ask",
+    "weather plugin",
+    "tell"
+  ],
+  "dependencies": [
+    "talk"
+  ],
+  "demo": [
+    "if it is sunny",
+    "you can ask them if they want to go out today"
+  ],
+  "data": [
+    {
+      "type": "get",
+      "commands": [
+        "[input] D should talk about the weather",
+        "[output] [repo] get D is talking with",
+        "[input] D should talk about the weather",
+        "[input] [repo] D is talking with -> C",
+        "[output] [repo] get the city C is in"
+      ]
+    },
+    {
+      "description": "collecting information to prepare to talk about the weather",
+      "commands": [
+        "[input] D should talk about the weather",
+        "[input] [repo] D is talking with -> C",
+        "[input] [repo] the city C is in -> B",
+        "[output] D should talk about the weather of B"
+      ]
+    },
+    {
+      "description": "call [weather] api",
+      "type": "api",
+      "commands": [
+        "[input] D should talk about the weather of B",
+        "[output] [weather] get B",
+        "[input] [weather] the weather of B -> rainy",
+        "[input] [repo] D is talking with -> C",
+        "[output] D should tell C it is rainy in B"
+      ]
+    },
+    {
+      "type": "merge",
+      "commands": [
+        "[input] [repo] the city C is in -> B",
+        "[input] [weather] the weather of B -> rainy",
+        "[output] it is rainy in C 's city"
+      ]
+    },
+    {
+      "description": "remind them to take an umbrella",
+      "type": "route",
+      "static": true,
+      "commands": [
+        "if you are talking with someone",
+        "if it is rainy in their city",
+        "then you should remind them to take an umbrella when going out"
+      ]
+    }
+  ]
+}
