@@ -4,7 +4,7 @@
     "routes": [
       "tell"
     ],
-    "description": "set what to tell",
+    "type": "set",
     "commands": [
       "[input] C asks D what A is",
       "[input] [repo] C -> a human",
@@ -14,6 +14,7 @@
   },
   {
     "description": "ask if they will",
+    "type": "api",
     "commands": [
       "[input] D should ask C if they will A",
       "[output] D should say to C : will you A"
@@ -21,6 +22,7 @@
   },
   {
     "description": "ask if they want to",
+    "type": "api",
     "commands": [
       "[input] D should ask C if they want to A",
       "[output] D should say to C : do you want to A"

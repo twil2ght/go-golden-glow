@@ -9,10 +9,6 @@
   "dependencies": [
     "talk"
   ],
-  "demo": [
-    "if it is sunny",
-    "you can ask them if they want to go out today"
-  ],
   "data": [
     {
       "type": "get",
