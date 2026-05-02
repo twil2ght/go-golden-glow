@@ -13,10 +13,17 @@
     ]
   },
   {
-    "description": "ask if ...",
+    "description": "ask if they will",
     "commands": [
-      "[input] D should ask C if C will A",
+      "[input] D should ask C if they will A",
       "[output] D should say to C : will you A"
+    ]
+  },
+  {
+    "description": "ask if they want to",
+    "commands": [
+      "[input] D should ask C if they want to A",
+      "[output] D should say to C : do you want to A"
     ]
   }
 ]

@@ -48,18 +48,30 @@
       "type": "merge",
       "commands": [
         "[input] [repo] the city C is in -> B",
-        "[input] [weather] the weather of B -> rainy",
-        "[output] it is rainy in C 's city"
+        "[input] [weather] the weather of B -> F",
+        "[output] it is F in C 's city"
       ]
     },
     {
       "description": "remind them to take an umbrella",
       "type": "route",
       "static": true,
+      "language": "natural",
       "commands": [
-        "if you are talking with someone",
-        "if it is rainy in their city",
-        "then you should remind them to take an umbrella when going out"
+        "Zero says to Susie : if you are talking with someone",
+        "Zero says to Susie : if it is rainy in their city",
+        "Zero says to Susie : then you should remind them to take an umbrella when going out"
+      ]
+    },
+    {
+      "description": "ask them if they want to go out",
+      "type": "route",
+      "static": true,
+      "language": "natural",
+      "commands": [
+        "Zero says to Susie : if you are talking with someone",
+        "Zero says to Susie : if it is sunny in their city",
+        "Zero says to Susie : then you should ask them if they want to go out"
       ]
     }
   ]
