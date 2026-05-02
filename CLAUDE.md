@@ -8,6 +8,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Run the data validator
 go run ./cmd/validator/
 
+# Browse nodes and containers in a web UI (http://localhost:8080)
+go run ./cmd/tool/html/
+
+# Query containers containing a node from the CLI
+go run ./cmd/tool/ <node-value>
+
 # Build and run the interactive (keyboard) mode
 go run ./cmd/V2/keyboard
 
