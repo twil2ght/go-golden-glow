@@ -1,31 +1,33 @@
-[
-  {
-    "tag": "ask",
-    "routes": [
-      "tell"
-    ],
-    "type": "set",
-    "commands": [
-      "[input] C asks D what A is",
-      "[input] [repo] C -> a human",
-      "[input] [repo] D -> a human",
-      "[output] [repo] set what to tell C -> A"
-    ]
-  },
-  {
-    "description": "ask if they will",
-    "type": "api",
-    "commands": [
-      "[input] D should ask C if they will A",
-      "[output] D should say to C : will you A"
-    ]
-  },
-  {
-    "description": "ask if they want to",
-    "type": "api",
-    "commands": [
-      "[input] D should ask C if they want to A",
-      "[output] D should say to C : do you want to A"
-    ]
-  }
-]
+{
+  "tag": "ask",
+  "routes": [
+    "tell"
+  ],
+  "data": [
+    {
+      "type": "set",
+      "commands": [
+        "[input] C asks D what A is",
+        "[input] [repo] C -> a human",
+        "[input] [repo] D -> a human",
+        "[output] [repo] set what to tell C -> A"
+      ]
+    },
+    {
+      "description": "ask if they will",
+      "type": "api",
+      "commands": [
+        "[input] D should ask C if they will A",
+        "[output] D should say to C : will you A"
+      ]
+    },
+    {
+      "description": "ask if they want to",
+      "type": "api",
+      "commands": [
+        "[input] D should ask C if they want to A",
+        "[output] D should say to C : do you want to A"
+      ]
+    }
+  ]
+}

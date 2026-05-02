@@ -1,11 +1,14 @@
 [
   {
     "demo": [
-      "if someone says something to you",
-      "and you don't know what their words mean",
-      "then you should ask them",
-      "you can say to them : I don't know what those words mean",
-      "they say : it means A"
+      "you are cute",
+      "what is cute",
+      "it is an adjective",
+      "what do you mean",
+      "(you are cute means ->)",
+      "they mean to complement you",
+      "what time is it",
+      "(what time is it means -> asking for the time)"
     ]
   }
 ]

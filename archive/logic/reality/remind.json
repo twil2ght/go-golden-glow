@@ -1,22 +1,22 @@
-[
-  {
-    "tag": "remind",
-    "routes": [
-      "speaker plugin"
-    ]
-  },
-  {
-    "description": "remind sb",
-    "commands": [
-      "[input] D should remind C to A when they E",
-      "[output] D should say to C: don't forget to A when you E"
-    ]
-  },
-  {
-    "description": "remind sb",
-    "commands": [
-      "[input] D should remind C to A when E",
-      "[output] D should say to C: don't forget to A when E"
-    ]
-  }
-]
+{
+  "tag": "ask",
+  "routes": [
+    "tell"
+  ],
+  "data": [
+    {
+      "description": "remind sb",
+      "commands": [
+        "[input] D should remind C to A when they E",
+        "[output] D should say to C: don't forget to A when you E"
+      ]
+    },
+    {
+      "description": "remind sb",
+      "commands": [
+        "[input] D should remind C to A when E",
+        "[output] D should say to C: don't forget to A when E"
+      ]
+    }
+  ]
+}
