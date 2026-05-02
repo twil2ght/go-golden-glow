@@ -1,0 +1,14 @@
+{
+  "tag": "thank",
+  "description": "someone thanks you",
+  "data": [
+    {
+      "type": "route",
+      "description": "callback when someone thanks you",
+      "commands": [
+        "[input] C thanks D",
+        "[output] D should be happy"
+      ]
+    }
+  ]
+}
