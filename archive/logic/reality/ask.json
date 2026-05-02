@@ -28,6 +28,30 @@
         "[input] D should ask C if they want to A",
         "[output] D should say to C : do you want to A"
       ]
+    },
+    {
+      "type": "route",
+      "description": "ask the city that someone is in",
+      "commands": [
+        "[input] D should ask C which city they are in",
+        "[output] D should say to C : which city are you in"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "someone asks your name",
+      "commands": [
+        "[input] C says to D : what is your name",
+        "[output] C asks D what their name is"
+      ]
+    },
+    {
+      "type": "api",
+      "description": "ask someone's name",
+      "commands": [
+        "[input] D should ask C what their name is",
+        "[output] D should say to C : what is your name"
+      ]
     }
   ]
 }
