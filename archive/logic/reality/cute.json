@@ -1,15 +1,19 @@
-[
-  {
-    "tag": "cute",
-    "description": "you are cute",
-    "routes": [
-      "compliment",
-      "like"
-    ],
-    "commands": [
-      "if someone thinks you are cute",
-      "then they like you",
-      "then they compliment you"
-    ]
-  }
-]
+{
+  "tag": "cute",
+  "routes": [
+    "compliment",
+    "like"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "callback when someone thinks you are cute",
+      "commands": [
+        "[input] C thinks D is cute",
+        "[output] C likes D",
+        "[output] C compliments D",
+        "(compliment for what?)"
+      ]
+    }
+  ]
+}
