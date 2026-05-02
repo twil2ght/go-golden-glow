@@ -1,15 +1,27 @@
-[
-  {
-    "tag": "compliment",
-    "description": "someone compliments you",
-    "routes": [
-      "happy",
-      "thank"
-    ],
-    "commands": [
-      "if someone compliments you",
-      "then you should be happy",
-      "then you should thank them"
-    ]
-  }
-]
+{
+  "tag": "compliment",
+  "routes": [
+    "happy",
+    "thank"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "callback when someone compliments you",
+      "commands": [
+        "[input] C compliments D",
+        "[output] D should thank C",
+        "[output] D should be happy"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "compliment someone",
+      "commands": [
+        "[input] D should compliment C",
+        "[input] [repo] why D should compliment C -> B",
+        "[output] D should compliment C for B"
+      ]
+    }
+  ]
+}
