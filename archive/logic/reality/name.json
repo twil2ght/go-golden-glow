@@ -1,27 +1,27 @@
-[
-  {
-    "tag": "name",
-    "route": [
-      "ask"
-    ],
-    "dependencies": [
-      "talk",
-      "know"
-    ]
-  },
-  {
-    "type": "get",
-    "commands": [
-      "[input] C starts to talk with D",
-      "[output] [repo] get C's name"
-    ]
-  },
-  {
-    "type": "route",
-    "commands": [
-      "[input] C starts to talk with D",
-      "[input] D doesn't know C 's name",
-      "[output] D should ask C what their name is"
-    ]
-  }
-]
+{
+  "tag": "name",
+  "route": [
+    "ask"
+  ],
+  "dependencies": [
+    "talk",
+    "know"
+  ],
+  "data": [
+    {
+      "type": "get",
+      "commands": [
+        "[input] D starts to talk with C",
+        "[output] [repo] get C's name"
+      ]
+    },
+    {
+      "type": "route",
+      "commands": [
+        "[input] D starts to talk with C",
+        "[input] D doesn't know C 's name",
+        "[output] D should ask C what their name is"
+      ]
+    }
+  ]
+}

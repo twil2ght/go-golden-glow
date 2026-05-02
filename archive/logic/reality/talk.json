@@ -3,8 +3,17 @@
   "routes": [
   ],
   "dependencies": [
+    "chat_init"
   ],
   "data": [
+    {
+      "type": "set",
+      "description": "chat_init",
+      "commands": [
+        "[input] D starts to talk with C",
+        "[output] [repo] SSet D is talking with -> C"
+      ]
+    },
     {
       "type": "route",
       "description": "extra bonus",
