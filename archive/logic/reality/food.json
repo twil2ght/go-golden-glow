@@ -1,0 +1,22 @@
+{
+  "tag": "food",
+  "routes": [
+
+  ],
+  "data": [
+    {
+      "type": "get",
+      "description": "get food",
+      "commands": [
+
+      ]
+    },
+    {
+      "type": "get",
+      "description": "get drink",
+      "commands": [
+
+      ]
+    }
+  ]
+}

@@ -6,11 +6,23 @@
   "data": [
     {
       "type": "route",
-      "description": "callback when someone likes you",
+      "description": "someone likes sth",
       "commands": [
-        "[input] C likes D",
-        "[output] D should be happy",
-        "[output] D should say to C : You are welcome"
+        
+      ]
+    },
+    {
+      "type": "route",
+      "description": "someone likes to do sth",
+      "commands": [
+
+      ]
+    },
+    {
+      "type": "route",
+      "description": "someone likes doing sth",
+      "commands": [
+
       ]
     }
   ]
