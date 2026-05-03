@@ -1,0 +1,35 @@
+{
+  "tag": "welcome",
+  "route": [
+    "accept",
+    "thank"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "thanks",
+      "commands": [
+        "[input] C thanks D",
+        "[input] D says to C : You're welcome",
+        "[output] D accepts C 's thanks",
+        "[output] D means to be friendly to C"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "welcome someone to your place",
+      "commands": [
+        "[input] C enters Susie 's chat room",
+        "[output] Susie should welcome C to her chat room"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "welcome someone to your place",
+      "commands": [
+        "[input] Susie should welcome C to her chat room",
+        "[output] Susie should say to C : Welcome to my chat room"
+      ]
+    }
+  ]
+}
