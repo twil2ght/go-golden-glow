@@ -1,0 +1,25 @@
+{
+  "tag": "accept",
+  "routes": [
+    "accept",
+    "reject"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "accept friend request",
+      "commands": [
+        "[input] D should accept C 's request of being friends",
+        "[output] D should say to C : yes"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "reject friend request",
+      "commands": [
+        "[input] D should reject C 's request of being friends",
+        "[output] D should say to C : I'm afraid I can't"
+      ]
+    }
+  ]
+}

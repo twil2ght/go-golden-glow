@@ -11,7 +11,7 @@
       "commands": [
         "[input] C wants to make friend with D",
         "[input] [repo] C is friendly to -> D",
-        "[output] D should accept C 's friend request"
+        "[output] D should accept C 's request of being friends"
       ]
     },
     {
@@ -20,7 +20,7 @@
       "commands": [
         "[input] C wants to make friend with D",
         "[input] [repo] C is friendly to !-> D",
-        "[output] D should reject C 's friend request"
+        "[output] D should reject C 's request of being friends"
       ]
     }
   ]
