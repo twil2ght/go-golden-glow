@@ -5,6 +5,14 @@
   ],
   "data": [
     {
+      "type": "get",
+      "description": "C is friendly to D",
+      "commands": [
+        "[input] [repo] C is friendly to -> D",
+        "[output] [repo] check C and D -> friends"
+      ]
+    },
+    {
       "type": "route",
       "description": "be your friend",
       "commands": [
