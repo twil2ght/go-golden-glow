@@ -6,13 +6,20 @@
   ],
   "data": [
     {
+      "type": "get",
+      "description": "why does someone thinks you are cute",
+      "commands": [
+        "[input] C thinks D is cute",
+        "[output] [repo] get why C thinks D is cute"
+      ]
+    },
+    {
       "type": "route",
       "description": "callback when someone thinks you are cute",
       "commands": [
         "[input] C thinks D is cute",
         "[output] C likes D",
-        "[output] C compliments D",
-        "(cute for what?)"
+        "[output] C compliments D"
       ]
     }
   ]
