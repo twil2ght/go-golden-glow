@@ -1,0 +1,27 @@
+{
+  "tag": "friend",
+  "routes": [
+    "accept",
+    "reject"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "someone wants to be your friend:accept",
+      "commands": [
+        "[input] C wants to make friend with D",
+        "[input] [repo] C is friendly to -> D",
+        "[output] D should accept C 's friend request"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "someone wants to be your friend:reject",
+      "commands": [
+        "[input] C wants to make friend with D",
+        "[input] [repo] C is friendly to !-> D",
+        "[output] D should reject C 's friend request"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "tag": "friendly",
+  "routes": [
+    "ask"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "be your friend",
+      "commands": [
+        "[input] [repo] C is friendly to -> D",
+        "[input] [repo] C and D !-> friends",
+        "[output] D should ask C to be their friend"
+      ]
+    }
+  ]
+}
