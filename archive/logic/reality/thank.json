@@ -1,13 +1,41 @@
 {
   "tag": "thank",
-  "description": "someone thanks you",
+  "route": [
+    "speaker plugin"
+  ],
   "data": [
+    {
+      "type": "get",
+      "description": "why someone thanks you",
+      "commands": [
+        "[input] C thanks D",
+        "[output] [repo] get why C thanks D"
+      ]
+    },
     {
       "type": "route",
       "description": "callback when someone thanks you",
       "commands": [
         "[input] C thanks D",
-        "[output] D should be happy"
+        "[output] D should be happy",
+        "[output] D should say to C : You are welcome"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "thank for what",
+      "commands": [
+        "[input] D should thank C",
+        "[input] [repo] why D thank C -> B",
+        "[output] D should thank C for B"
+      ]
+    },
+    {
+      "type": "api",
+      "description": "thank you",
+      "commands": [
+        "[input] D should thank C",
+        "[output] D should say to C: thank you"
       ]
     }
   ]

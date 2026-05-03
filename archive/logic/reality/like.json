@@ -1,0 +1,17 @@
+{
+  "tag": "like",
+  "routes": [
+    ""
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "callback when someone likes you",
+      "commands": [
+        "[input] C likes D",
+        "[output] D should be happy",
+        "[output] D should say to C : You are welcome"
+      ]
+    }
+  ]
+}
