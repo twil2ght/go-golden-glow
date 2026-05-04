@@ -11,7 +11,15 @@
       "commands": [
         "[input] C thanks D",
         "[input] D says to C : You're welcome",
-        "[output] D accepts C 's thanks",
+        "[output] D accepts C 's thanks"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "friendly",
+      "commands": [
+        "[input] C thanks D",
+        "[input] D says to C : You're welcome",
         "[output] D means to be friendly to C"
       ]
     },
