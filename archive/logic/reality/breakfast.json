@@ -5,16 +5,6 @@
   "data": [
     {
       "type": "route",
-      "description": "when is it breakfast time",
-      "commands": [
-        "[input] [time] hour -> A",
-        "[input] [calculate] A > 4",
-        "[input] [calculate] A < 11",
-        "[output] it is breakfast time"
-      ]
-    },
-    {
-      "type": "route",
       "description": "ask someone if they have breakfast",
       "commands": [
         "[input] D should ask C if they have breakfast",
@@ -35,14 +25,6 @@
       "commands": [
         "[input] D should tell C the harm of not having breakfast",
         "[output] D should say to C : not having breakfast can be harmful to your health"
-      ]
-    },
-    {
-      "type": "route",
-      "description": "ask someone if they want to breakfast",
-      "commands": [
-        "[input] D should ask C if they want to breakfast",
-        "[output] D should say to C : do you want to eat breakfast"
       ]
     }
   ]
