@@ -1,14 +1,52 @@
 {
   "tag": "like",
   "routes": [
-    ""
+    "mean",
+    "ask"
   ],
   "data": [
     {
       "type": "route",
-      "description": "someone likes sth",
+      "description": "asks if someone likes sth",
       "commands": [
-        
+        "[input] D asks C if they like B",
+        "[input] C means yes",
+        "[output] C likes B"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "someone says they like sth",
+      "commands": [
+        "[input] C says to D : I like B",
+        "[output] C likes B"
+      ]
+    },
+    {
+      "type": "set",
+      "description": "someone likes sth:animal",
+      "commands": [
+        "[input] C likes B",
+        "[input] [repo] B -> an animal",
+        "[output] [repo] set animals C likes -> B"
+      ]
+    },
+    {
+      "type": "set",
+      "description": "someone likes sth:food",
+      "commands": [
+        "[input] C likes B",
+        "[input] [repo] B -> a type of food",
+        "[output] [repo] set food C likes -> B"
+      ]
+    },
+    {
+      "type": "set",
+      "description": "someone likes sth:sport",
+      "commands": [
+        "[input] C likes B",
+        "[input] [repo] B -> a type of sport",
+        "[output] [repo] set sport C likes -> B"
       ]
     },
     {
