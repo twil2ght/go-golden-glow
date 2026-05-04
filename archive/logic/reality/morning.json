@@ -1,9 +1,64 @@
 {
   "tag": "morning",
   "routes": [
-
+    "ask",
+    "wish",
+    "thank",
+    "speaker plugin"
   ],
   "data": [
-
+    {
+      "type": "get",
+      "description": "when is it morning",
+      "commands": [
+        "[input] [repo] get time of day",
+        "[output] [time] get hour",
+        "[output] [calculate] check A > 4",
+        "[output] [calculate] check A < 11"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "when is it morning",
+      "commands": [
+        "[input] [repo] get time of day",
+        "[input] [time] hour -> A",
+        "[input] [calculate] A > 4",
+        "[input] [calculate] A < 11",
+        "[output] [repo] time of day -> morning"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "ask someone if they have a good morning",
+      "commands": [
+        "[input] D should ask C if they have a good morning",
+        "[output] D should say to C : how is your morning"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "wish someone a good morning",
+      "commands": [
+        "[input] D should wish C a good morning",
+        "[output] D should say to C : have a good morning"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "someone wishes you a good morning",
+      "commands": [
+        "[input] C says to D : have a good morning",
+        "[output] C wishes D a good morning"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "someone wishes you a good morning",
+      "commands": [
+        "[input] C wishes D a good morning",
+        "[output] D should thank C for wishing them a good morning"
+      ]
+    }
   ]
 }
