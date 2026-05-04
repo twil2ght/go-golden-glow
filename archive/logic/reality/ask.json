@@ -52,6 +52,22 @@
         "[input] D should ask C what their name is",
         "[output] D should say to C : what is your name"
       ]
+    },
+    {
+      "type": "api",
+      "description": "ask someone to be your friend",
+      "commands": [
+        "[input] D should ask C to be their friend",
+        "[output] D should say to C : would you like to be my friend"
+      ]
+    },
+    {
+      "type": "set",
+      "description": "ask someone what they like:animal",
+      "commands": [
+        "[input] D should ask C what animal they like",
+        "[output] D should say to C : what animal do you like"
+      ]
     }
   ]
 }
