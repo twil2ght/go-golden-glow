@@ -1,0 +1,49 @@
+{
+  "tag": "question",
+  "routes": [
+    "ask"
+  ],
+  "data": [
+    {
+      "type": "get",
+      "description": "ask engine:check",
+      "commands": [
+        "[input] [repo] D is doing -> waiting for C to answer a question",
+        "[input] D is able to speak",
+        "[output] D is able to ask questions"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "ask engine:main",
+      "commands": [
+        "[input] D is able to ask",
+        "[input] D should ask C",
+        "[input] [repo] C -> a human",
+        "[input] [repo] D -> a human",
+        "[input] [repo] the questions for D to ask C -> B",
+        "[input] [repo] how to ask C B for D -> say F",
+        "[output] D should say to C : F"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "ask engine:callback",
+      "commands": [
+        "[input] D asks C B",
+        "[output] [repo] del the questions for D to ask C -> B"
+      ]
+    },
+    {
+      "type": "set",
+      "description": "ask engine:set",
+      "commands": [
+        "[input] Zero says to Susie : if you want to ask someone B",
+        "[output] [repo] set what to set -> how to ask someone B",
+        "[input] Zero says to Susie : you can say to them : F",
+        "[input] [repo] what to set -> how to ask someone B",
+        "[input] [repo] set how to ask someone B -> F"
+      ]
+    }
+  ]
+}

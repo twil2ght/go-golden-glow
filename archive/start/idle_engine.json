@@ -1,0 +1,16 @@
+{
+  "tag": "free",
+  "routes": [
+    "ask"
+  ],
+  "data": [
+    {
+      "type": "get",
+      "commands": [
+        "[input] D does not know what to talk with C",
+        "[input] [repo] the questions for D to ask C -> B",
+        "[output] D should ask C"
+      ]
+    }
+  ]
+}
