@@ -16,6 +16,14 @@
         "[input] C asks D what the time is",
         "[output] D should tell C what the time is"
       ]
+    },
+    {
+      "type": "get",
+      "description": "morning; afternoon; evening; night",
+      "commands": [
+        "[input] [repo] get time of day",
+        "[output] [time] get hour"
+      ]
     }
   ]
 }
