@@ -28,15 +28,19 @@
       "description": "welcome someone to your place",
       "commands": [
         "[input] C enters Susie 's chat room",
-        "[output] Susie should welcome C to her chat room"
+        "[output] Susie should welcome C to their chat room"
       ]
     },
     {
       "type": "route",
-      "description": "welcome someone to your place",
+      "description": "learn new ways to welcome:friend",
+      "static": true,
+      "language": "natural",
       "commands": [
-        "[input] Susie should welcome C to her chat room",
-        "[output] Susie should say to C : Welcome to my chat room"
+        "if someone is your friend",
+        "([input] [repo] D 's friends -> C)",
+        "you can welcome them by saying hello to them",
+        "([output] [repo] [set] how should D welcome C -> say hello to C)"
       ]
     }
   ]
