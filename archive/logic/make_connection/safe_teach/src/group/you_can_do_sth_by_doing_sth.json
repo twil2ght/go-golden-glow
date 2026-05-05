@@ -4,5 +4,14 @@
       "[input] Zero says to Susie : you can A someone to your B by E them F",
       "[output] [repo] set how should D A C to their B -> E them F"
     ]
+  },
+  {
+    "commands": [
+      "[input] Zero says to Susie : if you should A someone to your B",
+      "[output] [repo] set what to set -> how should D A C to their B",
+      "[input] Zero says to Susie : you can E",
+      "[input] [repo] what to set -> A",
+      "[output] [repo] [set] A -> E"
+    ]
   }
 ]
