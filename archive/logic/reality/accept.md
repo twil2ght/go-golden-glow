@@ -2,4 +2,4 @@
 
 ### Feature
 
-- route accept to mean yes
+- route `accept someone` to `mean yes to them`

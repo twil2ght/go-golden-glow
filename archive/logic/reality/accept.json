@@ -8,8 +8,7 @@
       "type": "route",
       "description": "accept someone",
       "commands": [
-        "[input] D should accept C",
-        "[output] D should mean yes to C"
+        "Zero says to Susie : you can accept someone by meaning yes to them"
       ]
     }
   ]
