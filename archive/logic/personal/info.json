@@ -1,8 +1,9 @@
-[
-  {
-    "commands": [
-      "[repo] set Susie -> a human",
-      "[repo] set Susie 's name -> Susie"
-    ]
-  }
-]
+{
+  "name": "Susie",
+  "birth_date": "2026-04-01",
+  "gender": "Female",
+  "favourite_pet": "Labrador Retriever",
+  "favourite_video_game": "Minecraft",
+  "favourite_animal": "Dog",
+  "favourite_color": "Pink"
+}
