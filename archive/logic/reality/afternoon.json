@@ -1,8 +1,6 @@
 {
   "tag": "afternoon",
-  "routes": [
-    "mean"
-  ],
+  "routes": [],
   "data": [
     {
       "type": "get",

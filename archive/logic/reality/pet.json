@@ -1,5 +1,29 @@
 {
   "tag": "pet",
   "routes": [],
-  "data": []
+  "data": [
+    {
+      "commands": [
+        "you can ask someone about their pet by asking them what its name is",
+        "you can ask someone about their pet by asking them how old it is",
+        "you can ask someone about their pet by asking them what color it is",
+        "if someone has a pet dog",
+        "you can ask them what type of dog it is by saying to them : is it a Labrador Retriever"
+      ]
+    },
+    {
+      "commands": [
+        "if you tell someone that you have a pet dog",
+        "and they ask you if it is a Labrador Retriever",
+        "then they means to ask you what type of dog your pet dog is"
+      ]
+    },
+    {
+      "commands": [
+        "[input] C tells D that C has a pet B",
+        "[output] [repo] set C 's pet -> a B",
+        "[output] D should ask C about C's pet"
+      ]
+    }
+  ]
 }

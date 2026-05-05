@@ -1,0 +1,25 @@
+{
+  "tag": "evening",
+  "routes": [],
+  "data": [
+    {
+      "type": "get",
+      "description": "when is it evening",
+      "commands": [
+        "[output] [time] get hour",
+        "[output] [calculate] check A > 17",
+        "[output] [calculate] check A < 24"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "when is it evening",
+      "commands": [
+        "[input] [time] hour -> A",
+        "[input] [calculate] A > 17",
+        "[input] [calculate] A < 24",
+        "[output] [repo] time of day -> evening"
+      ]
+    }
+  ]
+}
