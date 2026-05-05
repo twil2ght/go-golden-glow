@@ -7,66 +7,61 @@
     {
       "type": "set",
       "commands": [
-        "[input] C asks D what A is",
-        "[input] [repo] C -> a human",
-        "[input] [repo] D -> a human",
-        "[output] [repo] set what to tell C -> A"
+        "[input] C asks D B",
+        "[input] [repo] C -> an object",
+        "[input] [repo] D -> an object",
+        "[input] [repo] B -> an object",
+        "[output] [repo] set what D should tell C -> B"
       ]
     },
     {
       "description": "ask if they will",
       "type": "api",
       "commands": [
-        "[input] D should ask C if they will A",
-        "[output] D should say to C : will you A"
+        "Zero says to Susie : you can ask someone if they will A by saying to them : will you A"
       ]
     },
     {
       "description": "ask if they want to",
       "type": "api",
       "commands": [
-        "[input] D should ask C if they want to A",
-        "[output] D should say to C : do you want to A"
+        "Zero says to Susie : you can ask someone if they want to A by saying to them : do you want to A"
       ]
     },
     {
       "type": "route",
       "description": "ask the city that someone is in",
       "commands": [
-        "[input] D should ask C which city they are in",
-        "[output] D should say to C : which city are you in"
+        "Zero says to Susie : you can ask someone which city they are in by saying to them : which city are you in"
       ]
     },
     {
       "type": "route",
-      "description": "someone asks your name",
+      "description": "someone asks your B",
       "commands": [
-        "[input] C says to D : what is your name",
-        "[output] C asks D what their name is"
+        "[input] C says to D : what is your B",
+        "[output] C asks D what their B is"
       ]
     },
     {
       "type": "api",
-      "description": "ask someone's name",
+      "description": "ask someone's B",
       "commands": [
-        "[input] D should ask C what their name is",
-        "[output] D should say to C : what is your name"
+        "Zero says to Susie : you can ask someone what their B is by saying to them : what is your B"
       ]
     },
     {
       "type": "api",
-      "description": "ask someone to be your friend",
+      "description": "ask someone to be your B",
       "commands": [
-        "[input] D should ask C to be their friend",
-        "[output] D should say to C : would you like to be my friend"
+        "Zero says to Susie : you can ask someone to be your B by saying to them : would you like to be my B"
       ]
     },
     {
       "type": "set",
-      "description": "ask someone what they like:animal",
+      "description": "ask someone what B they A",
       "commands": [
-        "[input] D should ask C what animal they like",
-        "[output] D should say to C : what animal do you like"
+        "Zero says to Susie : you can ask someone what B they A by saying to them : what B do you A"
       ]
     },
     {
