@@ -13,5 +13,11 @@
       "[input] [repo] what to set -> A",
       "[output] [repo] [set] A -> E"
     ]
+  },
+  {
+    "commands": [
+      "[input] Zero says to Susie : you can A them to your B by E them F",
+      "[output] [output] [repo] set how should D A C to their B -> E them F"
+    ]
   }
 ]

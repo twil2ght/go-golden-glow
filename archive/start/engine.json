@@ -4,7 +4,9 @@
       "type": "route",
       "description": "",
       "commands": [
-        "[input] D should A C B",
+        "[input] D should A C",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
         "[input] [repo] how should D A C B -> E them",
         "[output] D should E C"
       ]
@@ -13,7 +15,9 @@
       "type": "route",
       "description": "",
       "commands": [
-        "[input] D should A C B",
+        "[input] D should A C",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
         "[input] [repo] how should D A C B -> E them F",
         "[output] D should E C F"
       ]
@@ -23,7 +27,59 @@
       "description": "",
       "commands": [
         "[input] D should A C B",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
+        "[input] [repo] how should D A C B -> E them",
+        "[output] D should E C"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "",
+      "commands": [
+        "[input] D should A C B",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
+        "[input] [repo] how should D A C B -> E them F",
+        "[output] D should E C F"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "",
+      "commands": [
+        "[input] D should A C B",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
         "[output] [repo] get how should D A C B"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "",
+      "commands": [
+        "[input] D should A C",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
+        "[output] [repo] get how should D A C B"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "",
+      "commands": [
+        "[input] D should A C B",
+        "[output] [repo] check D -> an object",
+        "[output] [repo] check C -> an object"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "",
+      "commands": [
+        "[input] D should A C",
+        "[output] [repo] check D -> an object",
+        "[output] [repo] check C -> an object"
       ]
     }
   ]

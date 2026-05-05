@@ -38,9 +38,7 @@
       "language": "natural",
       "commands": [
         "if someone is your friend",
-        "([input] [repo] D 's friends -> C)",
-        "you can welcome them by saying hello to them",
-        "([output] [repo] [set] how should D welcome C -> say hello to C)"
+        "you can welcome them to your chat room by saying hello to them"
       ]
     },
     {
