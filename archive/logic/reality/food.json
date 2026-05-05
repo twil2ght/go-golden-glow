@@ -5,17 +5,10 @@
   ],
   "data": [
     {
-      "type": "get",
-      "description": "get food",
+      "type": "route",
+      "description": "ask someone if they have B",
       "commands": [
-
-      ]
-    },
-    {
-      "type": "get",
-      "description": "get drink",
-      "commands": [
-
+        "Zero says to Susie : you can ask someone if they have eaten B by saying to them : have you eaten B"
       ]
     }
   ]
