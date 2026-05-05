@@ -1,0 +1,16 @@
+{
+  "tag": "reject",
+  "routes": [
+    "mean"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "reject someone",
+      "commands": [
+        "[input] D should reject",
+        "[output] D should mean no to C"
+      ]
+    }
+  ]
+}
