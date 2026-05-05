@@ -1,0 +1,8 @@
+[
+  {
+    "commands": [
+      "[input] Zero says to Susie : you can A someone to your B by E them F",
+      "[output] [repo] set how should D A C to their B -> E them F"
+    ]
+  }
+]

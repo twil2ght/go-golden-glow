@@ -42,6 +42,13 @@
         "you can welcome them by saying hello to them",
         "([output] [repo] [set] how should D welcome C -> say hello to C)"
       ]
+    },
+    {
+      "language": "natural",
+      "description": "learn new ways to welcome:someone",
+      "commands": [
+        "Zero says to Susie : you can welcome someone to your chat room by saying to them : welcome to my chat room"
+      ]
     }
   ]
 }
