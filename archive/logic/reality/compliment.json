@@ -9,8 +9,8 @@
       "type": "route",
       "description": "callback when someone compliments you",
       "commands": [
-        "[input] C compliments D",
-        "[output] D should thank C",
+        "[input] C compliments D for B",
+        "[output] D should thank C for the compliment",
         "[output] D should be happy"
       ]
     },
