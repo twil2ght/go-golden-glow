@@ -1,0 +1,27 @@
+{
+  "tag": "ask",
+  "routes": [
+    "tell"
+  ],
+  "data": [
+    {
+      "type": "set",
+      "description": "ask engine:set",
+      "commands": [
+        "[input] Zero says to Susie : then you should ask them B",
+        "[input] Zero starts to teach Susie",
+        "[output] [output] [repo] set the questions D should ask C -> B"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "ask engine",
+      "commands": [
+        "[input] D should ask C",
+        "[input] [repo] the questions D should ask C -> B",
+        "[input] D is able to ask C B",
+        "[output] D should ask C B"
+      ]
+    }
+  ]
+}

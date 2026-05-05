@@ -1,0 +1,16 @@
+{
+  "tag": "mean",
+  "routes": [
+
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "asks if someone likes sth",
+      "commands": [
+        "[input] D says to C : yes",
+        "[output] D means yes"
+      ]
+    }
+  ]
+}

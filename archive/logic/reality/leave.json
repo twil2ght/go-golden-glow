@@ -1,0 +1,13 @@
+{
+  "tag": "leave",
+  "routes": [],
+  "data": [
+    {
+      "type": "route",
+      "commands": [
+        "[input] C will leave Susie 's chat room",
+        "[output] Susie should say to C : so long"
+      ]
+    }
+  ]
+}

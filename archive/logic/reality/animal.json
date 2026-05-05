@@ -1,0 +1,15 @@
+{
+  "tag": "animal",
+  "routes": [
+    "tell"
+  ],
+  "data": [
+    {
+      "type": "set",
+      "commands": [
+        "[input] D should ask C what animal they like",
+        "[output] D should say to C : do you like dogs"
+      ]
+    }
+  ]
+}

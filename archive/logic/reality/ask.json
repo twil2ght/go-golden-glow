@@ -68,6 +68,20 @@
         "[input] D should ask C what animal they like",
         "[output] D should say to C : what animal do you like"
       ]
+    },
+    {
+      "type": "route",
+      "commands": [
+        "[input] C says to D : can you tell me what B is",
+        "[output] C asks D what B is"
+      ]
+    },
+    {
+      "type": "route",
+      "commands": [
+        "[input] C says to D : can you tell me what B are",
+        "[output] C asks D what B are"
+      ]
     }
   ]
 }

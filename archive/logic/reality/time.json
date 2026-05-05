@@ -1,9 +1,21 @@
 {
   "tag": "time",
   "routes": [
-
   ],
   "data": [
-
+    {
+      "type": "route",
+      "commands": [
+        "[input] C says to D : what time is it",
+        "[output] C asks D what the time is"
+      ]
+    },
+    {
+      "type": "route",
+      "commands": [
+        "[input] C asks D what the time is",
+        "[output] D should tell C what the time is"
+      ]
+    }
   ]
 }
