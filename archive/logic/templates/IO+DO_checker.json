@@ -33,6 +33,8 @@
       "description": "preparatory checks:details",
       "commands": [
         "[input] [repo] parse the phrase C $1 C1",
+        "[input] [repo] the phrase C -> an object",
+        "[input] [repo] the phrase C1 -> an object",
         "[output] [repo] 1st object of the phrase C $1 C1 -> C",
         "[output] [repo] 2nd object of the phrase C $1 C1 -> C1",
         "[output] [repo] the phrase C -> 2obj"

@@ -1,0 +1,61 @@
+{
+  "usage": "engine",
+  "description": "S+V+IO+DO",
+  "data": [
+    {
+      "type": "dataGen",
+      "description": "generate and cache data",
+      "commands": [
+        "[input] [repo] the property of the phrase A -> describe object",
+        "[output] [template] [adj] A -> IO+DO_checker"
+      ]
+    },
+    {
+      "description": "main router",
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] the word A -> a verb",
+        "[input] [repo] grammar usage of D -> an object",
+        "[input] [repo] the phrase B -> IO+DO",
+        "[input] [repo] IO of the phrase B -> C",
+        "[input] [repo] how should D A B -> E them F",
+        "[output] D should E C F"
+      ]
+    },
+    {
+      "type": "check",
+      "commands": [
+        "[input] D should A B",
+        "[output] [repo] check the word A -> a verb"
+      ]
+    },
+    {
+      "type": "check",
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] the word A -> a verb",
+        "[output] [repo] check grammar usage of D -> an object"
+      ]
+    },
+    {
+      "type": "check",
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] the word A -> a verb",
+        "[input] [repo] grammar usage of D -> an object",
+        "[output] [repo] verify the phrase B -> IO+DO"
+      ]
+    },
+    {
+      "type": "check",
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] the word A -> a verb",
+        "[input] [repo] grammar usage of D -> an object",
+        "[input] [repo] the phrase B -> IO+DO",
+        "[input] [repo] IO of the phrase B -> C",
+        "[output] [repo] get how should D A B"
+      ]
+    }
+  ]
+}
