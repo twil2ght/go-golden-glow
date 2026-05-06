@@ -1,0 +1,36 @@
+{
+  "name": "V+O+OC_checker",
+  "is_template": true,
+  "args": {
+    "verb": "$1"
+  },
+  "API": "[repo] verify the phrase F -> V+O+OC",
+  "callback": [
+    "[repo] the phrase F -> V+O+OC",
+    "[repo] O of the phrase F -> C",
+    "[repo] OC of the phrase F -> C1"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "main router",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> V+O+OC",
+        "[input] [repo] the phrase B -> O+OC",
+        "[input] [repo] O of the phrase B -> C",
+        "[input] [repo] OC of the phrase B -> C1",
+        "[output] [repo] the phrase $1 B -> V+O+OC",
+        "[output] [repo] O of the phrase $1 B -> C",
+        "[output] [repo] OC of the phrase $1 B -> C1"
+      ]
+    },
+    {
+      "type": "get",
+      "description": "get verb data",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> V+O+OC",
+        "[output] [repo] verify the phrase B -> O+OC"
+      ]
+    }
+  ]
+}
