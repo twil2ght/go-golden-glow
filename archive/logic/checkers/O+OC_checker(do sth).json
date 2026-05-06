@@ -1,0 +1,32 @@
+{
+  "name": "O+OC_checker",
+  "is_template": true,
+  "args": {
+    "verb": "$1"
+  },
+  "API": "[repo] verify the phrase F -> O+OC",
+  "callback": [
+    "[repo] the phrase F -> O+OC",
+    "[repo] O of the phrase F -> C",
+    "[repo] OC of the phrase F -> $1 B"
+  ],
+  "data": [
+    {
+      "description": "main",
+      "commands": [
+        "[input] [repo] verify the phrase C $1 B -> O+OC",
+        "[input] [repo] type of the phrase $1 B -> verb",
+        "[output] [repo] the phrase C $1 B -> O+OC",
+        "[output] [repo] O of the phrase C $1 B -> C",
+        "[output] [repo] OC of the phrase C $1 B -> $1 B"
+      ]
+    },
+    {
+      "description": "preparatory checks",
+      "commands": [
+        "[input] [repo] verify the phrase C $1 B -> O+OC",
+        "[output] [repo] verify type of the phrase $1 B -> verb"
+      ]
+    }
+  ]
+}
