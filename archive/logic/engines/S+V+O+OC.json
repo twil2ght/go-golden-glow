@@ -11,7 +11,9 @@
         "[input] [repo] the word B -> an adjective",
         "[output] [template] [adj] B -> O+OC_checker_v3",
         "[input] [repo] the property of the phrase A -> describe object",
-        "[output] [template] [attr] A -> O+OC_checker_v4"
+        "[output] [template] [attr] A -> O+OC_checker_v4",
+        "[input] [repo] the gerund of the verb B -> F",
+        "[output] [template] [gerund] F -> O+OC_checker_v5"
       ]
     },
     {
