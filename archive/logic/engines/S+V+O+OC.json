@@ -1,13 +1,13 @@
 {
   "usage": "engine",
-  "description": "S+V+O+OC(to do sth)",
+  "description": "S+V+O+OC",
   "data": [
     {
       "type": "dataGen",
       "description": "generate and cache data",
       "commands": [
-        "[input] [repo] the property of the phrase A -> describe object",
-        "[output] [template] [adj] A -> O+OC_checker"
+        "[input] [repo] the word B -> a verb",
+        "[output] [template] [verb] B -> O+OC_checker_v2"
       ]
     },
     {

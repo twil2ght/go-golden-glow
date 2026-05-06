@@ -1,5 +1,5 @@
 {
-  "name": "O+OC_checker",
+  "name": "O+OC_checker_v2",
   "is_template": true,
   "args": {
     "verb": "$1"

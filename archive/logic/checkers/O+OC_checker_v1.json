@@ -1,5 +1,5 @@
 {
-  "name": "O+OC_checker",
+  "name": "O+OC_checker_v1",
   "is_template": false,
   "API": "[repo] verify the phrase F -> O+OC",
   "callback": [
