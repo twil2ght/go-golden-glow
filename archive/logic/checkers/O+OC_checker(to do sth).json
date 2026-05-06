@@ -1,0 +1,38 @@
+{
+  "name": "O+OC_checker",
+  "API": "[repo] verify the phrase F -> O+OC",
+  "is_template": false,
+  "callback": [
+    "[repo] the phrase F -> O+OC",
+    "[repo] O of the phrase F -> B",
+    "[repo] OC of the phrase F -> to A"
+  ],
+  "data": [
+    {
+      "description": "main",
+      "commands": [
+        "[input] [repo] verify the phrase B to A -> O+OC",
+        "[input] [repo] grammar usage of B -> an object",
+        "[input] [repo] type of the phrase A -> verb",
+        "[output] [repo] the phrase B to A -> O+OC",
+        "[output] [repo] O of the phrase B to A -> B",
+        "[output] [repo] OC of the phrase B to A -> to A"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [repo] verify the phrase B to A -> O+OC",
+        "[output] [repo] check grammar usage of B -> an object"
+      ]
+    },
+    {
+      "description": "preparatory checks:2",
+      "commands": [
+        "[input] [repo] verify the phrase B to A -> O+OC",
+        "[input] [repo] grammar usage of B -> an object",
+        "[output] [repo] verify type of the phrase A -> verb"
+      ]
+    }
+  ]
+}

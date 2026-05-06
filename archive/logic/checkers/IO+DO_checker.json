@@ -1,5 +1,6 @@
 {
   "name": "IO+DO_checker",
+  "is_template": true,
   "args": {
     "adj": "$1"
   },

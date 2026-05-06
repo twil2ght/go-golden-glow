@@ -1,0 +1,13 @@
+{
+  "tag": "adjective",
+  "route": [],
+  "data": [
+    {
+      "description": "learning",
+      "commands": [
+        "[input] [repo] the word B -> an adjective",
+        "[output] [repo] set the property of the phrase B -> describe object"
+      ]
+    }
+  ]
+}

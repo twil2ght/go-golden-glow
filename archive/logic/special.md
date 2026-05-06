@@ -4,5 +4,6 @@
 - `$4 is talking with -> $3`
 - `an object` refers things(include:`what sth is`)
 - `[repo] verify the phrase B -> IO+DO`
+- `[repo] verify type of the phrase A -> verb`
 - `[repo] grammar usage of D -> an object`
 - `[repo] the word A -> a verb`
