@@ -1,38 +1,38 @@
 {
-  "name": "IO+DO_checker",
+  "name": "O+OC_checker_v4",
   "is_template": true,
   "args": {
     "attr": "$1"
   },
-  "API": "[repo] verify the phrase B -> IO+DO",
+  "API": "[repo] verify the phrase B -> O+OC",
   "callback": [
-    "[repo] the phrase B -> IO+DO",
-    "[repo] IO of the phrase B -> C",
-    "[repo] DO of the phrase B -> C1"
+    "[repo] the phrase B -> O+OC",
+    "[repo] O of the phrase B -> C",
+    "[repo] OC of the phrase B -> C1"
   ],
   "data": [
     {
       "description": "main",
       "commands": [
-        "[input] [repo] verify the phrase C $1 B -> IO+DO",
+        "[input] [repo] verify the phrase C $1 B -> O+OC",
         "[input] [repo] grammar usage of $1 B -> an object",
         "[input] [repo] grammar usage of C -> an object",
-        "[output] [repo] the phrase C $1 B -> IO+DO",
-        "[output] [repo] IO of the phrase C $1 B -> C",
-        "[output] [repo] DO of the phrase C $1 B -> $1 B"
+        "[output] [repo] the phrase C $1 B -> O+OC",
+        "[output] [repo] O of the phrase C $1 B -> C",
+        "[output] [repo] OC of the phrase C $1 B -> $1 B"
       ]
     },
     {
       "description": "preparatory checks",
       "commands": [
-        "[input] [repo] verify the phrase C $1 B -> IO+DO",
+        "[input] [repo] verify the phrase C $1 B -> O+OC",
         "[output] [repo] verify grammar usage of $1 B -> an object"
       ]
     },
     {
       "description": "preparatory checks:details",
       "commands": [
-        "[input] [repo] verify the phrase C $1 B -> IO+DO",
+        "[input] [repo] verify the phrase C $1 B -> O+OC",
         "[input] [repo] grammar usage of $1 B -> an object",
         "[output] [repo] verify grammar usage of C -> an object"
       ]

@@ -7,7 +7,7 @@
       "description": "generate and cache data",
       "commands": [
         "[input] [repo] the property of the phrase A -> describe object",
-        "[output] [template] [adj] A -> IO+DO_checker"
+        "[output] [template] [attr] A -> IO+DO_checker"
       ]
     },
     {

@@ -9,7 +9,9 @@
         "[input] [repo] the word B -> a verb",
         "[output] [template] [verb] B -> O+OC_checker_v2",
         "[input] [repo] the word B -> an adjective",
-        "[output] [template] [adj] B -> O+OC_checker_v3"
+        "[output] [template] [adj] B -> O+OC_checker_v3",
+        "[input] [repo] the property of the phrase A -> describe object",
+        "[output] [template] [attr] A -> O+OC_checker_v4"
       ]
     },
     {
