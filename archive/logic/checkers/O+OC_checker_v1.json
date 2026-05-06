@@ -23,7 +23,7 @@
       "description": "preparatory checks:1",
       "commands": [
         "[input] [repo] verify the phrase C to A -> O+OC",
-        "[output] [repo] check grammar usage of C -> an object"
+        "[output] [repo] verify grammar usage of C -> an object"
       ]
     },
     {

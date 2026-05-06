@@ -5,5 +5,6 @@
 - `an object` refers things(include:`what sth is`)
 - `[repo] verify the phrase B -> IO+DO`
 - `[repo] verify type of the phrase A -> verb`
+- `[repo] verify grammar usage of C -> an object`
 - `[repo] grammar usage of D -> an object`
 - `[repo] the word A -> a verb`
