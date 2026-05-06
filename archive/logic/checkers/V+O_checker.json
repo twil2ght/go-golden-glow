@@ -1,0 +1,32 @@
+{
+  "name": "V+O_checker",
+  "is_template": true,
+  "args": {
+    "verb": "$1"
+  },
+  "API": "[repo] verify the phrase F -> V+O",
+  "callback": [
+    "[repo] the phrase F -> V+O",
+    "[repo] object of the phrase F-> B"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "main router",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> V+O",
+        "[input] [repo] grammar usage of B -> an object",
+        "[output] [repo] the phrase $1 B -> V+O",
+        "[output] [repo] object of the phrase $1 B -> B"
+      ]
+    },
+    {
+      "type": "get",
+      "description": "get verb data",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> V+O",
+        "[output] [repo] verify grammar usage of B -> an object"
+      ]
+    }
+  ]
+}

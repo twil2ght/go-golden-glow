@@ -1,0 +1,13 @@
+{
+  "type": "engine",
+  "data": [
+    {
+      "type": "dataGen",
+      "description": "generate verb data",
+      "commands": [
+        "[input] [repo] the word B -> a verb",
+        "[output] [template] [verb] B -> V+O_checker"
+      ]
+    }
+  ]
+}
