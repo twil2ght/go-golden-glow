@@ -1,0 +1,24 @@
+{
+  "name": "verb_phrase_checker",
+  "is_template": false,
+  "API": "[repo] verify type of the phrase A -> verb",
+  "callback": [
+    "[repo] type of the phrase A -> verb"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "main router",
+      "commands": [
+        "[input] [repo] verify type of the phrase A -> verb"
+      ]
+    },
+    {
+      "type": "get",
+      "description": "checks",
+      "commands": [
+        "verify type of the phrase A -> verb"
+      ]
+    }
+  ]
+}

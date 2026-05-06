@@ -40,7 +40,7 @@
       "commands": [
         "[input] D should A B",
         "[input] [repo] the word A -> a verb",
-        "[output] [repo] check grammar usage of D -> an object"
+        "[output] [repo] verify grammar usage of D -> an object"
       ]
     },
     {

@@ -1,38 +1,29 @@
 {
   "usage": "engine",
-  "description": "S+V+IO+DO",
+  "description": "S+V+O",
   "data": [
-    {
-      "type": "dataGen",
-      "description": "generate and cache data",
-      "commands": [
-        "[input] [repo] the property of the phrase A -> describe object",
-        "[output] [template] [attr] A -> IO+DO_checker"
-      ]
-    },
     {
       "description": "main router",
       "commands": [
-        "[input] D should A B",
+        "[input] D should A C",
         "[input] [repo] the word A -> a verb",
         "[input] [repo] grammar usage of D -> an object",
-        "[input] [repo] the phrase B -> IO+DO",
-        "[input] [repo] IO of the phrase B -> C",
-        "[input] [repo] how should D A B -> E them F",
+        "[input] [repo] grammar usage of C -> an object",
+        "[input] [repo] how should D A C -> E them F",
         "[output] D should E C F"
       ]
     },
     {
       "type": "check",
       "commands": [
-        "[input] D should A B",
+        "[input] D should A C",
         "[output] [repo] check the word A -> a verb"
       ]
     },
     {
       "type": "check",
       "commands": [
-        "[input] D should A B",
+        "[input] D should A C",
         "[input] [repo] the word A -> a verb",
         "[output] [repo] verify grammar usage of D -> an object"
       ]
@@ -40,21 +31,20 @@
     {
       "type": "check",
       "commands": [
-        "[input] D should A B",
+        "[input] D should A C",
         "[input] [repo] the word A -> a verb",
         "[input] [repo] grammar usage of D -> an object",
-        "[output] [repo] verify the phrase B -> IO+DO"
+        "[output] [repo] verify grammar usage of B -> an object"
       ]
     },
     {
       "type": "check",
       "commands": [
-        "[input] D should A B",
+        "[input] D should A C",
         "[input] [repo] the word A -> a verb",
         "[input] [repo] grammar usage of D -> an object",
-        "[input] [repo] the phrase B -> IO+DO",
-        "[input] [repo] IO of the phrase B -> C",
-        "[output] [repo] get how should D A B"
+        "[input] [repo] grammar usage of C -> an object",
+        "[output] [repo] get how should D A C"
       ]
     }
   ]
