@@ -1,0 +1,31 @@
+{
+  "name": "object_checker_v2",
+  "is_template": true,
+  "args": {
+    "attr": "$1"
+  },
+  "API": "[repo] verify grammar usage of B -> an object",
+  "callback": [
+    "[repo] grammar usage of B -> an object"
+  ],
+  "description": "if C is an object,then $1(attr)+C is an object",
+  "data": [
+    {
+      "type": "route",
+      "description": "main router",
+      "commands": [
+        "[input] [repo] verify grammar usage of $1 C -> an object",
+        "[input] [repo] grammar usage of C -> an object",
+        "[output] [repo] grammar usage of $1 C -> an object"
+      ]
+    },
+    {
+      "type": "get",
+      "description": "checks",
+      "commands": [
+        "[input] [repo] verify grammar usage of $1 C -> an object",
+        "[output] [repo] check grammar usage of C -> an object"
+      ]
+    }
+  ]
+}

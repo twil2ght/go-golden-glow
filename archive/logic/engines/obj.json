@@ -1,0 +1,13 @@
+{
+  "type":"engine",
+  "data": [
+    {
+      "type": "dataGen",
+      "description": "generate and cache data",
+      "commands": [
+        "[input] [repo] grammar usage of B -> an attribute",
+        "[output] [template] [attr] B -> object_checker_v2"
+      ]
+    }
+  ]
+}
