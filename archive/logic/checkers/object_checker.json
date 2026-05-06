@@ -1,0 +1,18 @@
+{
+  "name": "object_checker_v1",
+  "is_template": false,
+  "API": "[repo] verify grammar usage of C -> an object",
+  "callback": [
+    "[repo] grammar usage of C -> an object"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "object that cached in [repo]",
+      "commands": [
+        "[input] [repo] verify grammar usage of C -> an object",
+        "[output] [repo] check grammar usage of C -> an object"
+      ]
+    }
+  ]
+}
