@@ -6,9 +6,27 @@
   "data": [
     {
       "type": "route",
-      "description": "ask someone if they have B",
+      "description": "ask someone if they have eaten B",
       "commands": [
         "Zero says to Susie : you can ask someone if they have eaten B by saying to them : have you eaten B"
+      ]
+    },
+    {
+      "description": "ask someone if they like eating B",
+      "commands": [
+        "Zero says to Susie : you can ask someone if they like eating B by saying to them : do you like eating B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] C is hungry",
+        "[output] C may want to eat food"
+      ]
+    },
+    {
+      "commands": [
+        "[input] C says to D : I want to eat a big meal",
+        "[output] C may be hungry"
       ]
     }
   ]

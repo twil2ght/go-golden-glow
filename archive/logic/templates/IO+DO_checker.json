@@ -1,0 +1,42 @@
+{
+  "name": "IO+DO_checker",
+  "args": {
+    "adj": "$1"
+  },
+  "API": "[repo] verify the phrase B -> IO+DO",
+  "callback": [
+    "[repo] the phrase B -> IO+DO",
+    "[repo] IO of the phrase B -> C",
+    "[repo] DO of the phrase B -> C1"
+  ],
+  "data": [
+    {
+      "description": "main",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> IO+DO",
+        "[input] [repo] the phrase B -> 2obj",
+        "[input] 1st object of the phrase B -> C",
+        "[input] 2nd object of the phrase B -> C1",
+        "[output] [repo] the phrase $1 B -> IO+DO",
+        "[output] [repo] IO of the phrase $1 B -> C",
+        "[output] [repo] DO of the phrase $1 B -> C1"
+      ]
+    },
+    {
+      "description": "preparatory checks",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> IO+DO",
+        "[output] [repo] parse the phrase B"
+      ]
+    },
+    {
+      "description": "preparatory checks:details",
+      "commands": [
+        "[input] [repo] parse the phrase C $1 C1",
+        "[output] [repo] 1st object of the phrase C $1 C1 -> C",
+        "[output] [repo] 2nd object of the phrase C $1 C1 -> C1",
+        "[output] [repo] the phrase C -> 2obj"
+      ]
+    }
+  ]
+}

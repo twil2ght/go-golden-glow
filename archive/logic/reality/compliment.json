@@ -11,7 +11,7 @@
       "commands": [
         "[input] C compliments D for B",
         "[output] D should thank C for the compliment",
-        "[output] D should be happy"
+        "[output] D may be happy"
       ]
     },
     {

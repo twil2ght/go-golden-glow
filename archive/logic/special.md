@@ -3,3 +3,4 @@
 - `[last] Susie says to Zero -> $1`
 - `$4 is talking with -> $3`
 - `an object` refers things(include:`what sth is`)
+- `[repo] verify the phrase B -> IO+DO`

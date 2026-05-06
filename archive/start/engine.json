@@ -5,9 +5,10 @@
       "description": "",
       "commands": [
         "[input] D should A C",
+        "[input] [repo] A -> a verb",
         "[input] [repo] D -> an object",
         "[input] [repo] C -> an object",
-        "[input] [repo] how should D A C B -> E them",
+        "[input] [repo] how should D A C -> E them",
         "[output] D should E C"
       ]
     },
@@ -16,9 +17,36 @@
       "description": "",
       "commands": [
         "[input] D should A C",
+        "[input] [repo] A -> a verb",
         "[input] [repo] D -> an object",
         "[input] [repo] C -> an object",
-        "[input] [repo] how should D A C B -> E them F",
+        "[input] [repo] how should D A C -> E them F",
+        "[output] D should E C F"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "",
+      "commands": [
+        "[input] D should A G C",
+        "[input] [repo] A -> a verb",
+        "[input] [repo] G -> a preposition",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
+        "[input] [repo] how should D A C -> E them",
+        "[output] D should E C"
+      ]
+    },
+    {
+      "type": "route",
+      "description": "",
+      "commands": [
+        "[input] D should A G C",
+        "[input] [repo] A -> a verb",
+        "[input] [repo] G -> a preposition",
+        "[input] [repo] D -> an object",
+        "[input] [repo] C -> an object",
+        "[input] [repo] how should D A C -> E them F",
         "[output] D should E C F"
       ]
     },

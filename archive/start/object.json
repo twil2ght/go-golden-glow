@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] A -> a verb",
+        "[input] [repo] D -> an object",
+        "[input] [repo] the phrase B -> IO+DO",
+        "[input] [repo] IO of the phrase B -> C",
+        "[input] [repo] how should D A B -> E them F",
+        "[output] D should E C F"
+      ]
+    },
+    {
+      "commands": [
+        "[input] D should A B",
+        "[output] [repo] check A -> a verb"
+      ]
+    },
+    {
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] A -> a verb",
+        "[output] [repo] check D -> an object"
+      ]
+    },
+    {
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] A -> a verb",
+        "[input] [repo] D -> an object",
+        "[output] [repo] verify the phrase B -> IO+DO"
+      ]
+    },
+    {
+      "commands": [
+        "[input] D should A B",
+        "[input] [repo] A -> a verb",
+        "[input] [repo] D -> an object",
+        "[input] [repo] the phrase B -> IO+DO",
+        "[input] [repo] IO of the phrase B -> C",
+        "[output] [repo] get how should D A B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] the property of the phrase A -> describe object",
+        "[output] [template] [adj] A -> IO+DO_checker"
+      ]
+    }
+  ]
+}
