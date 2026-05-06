@@ -5,7 +5,7 @@
       "type": "dataGen",
       "description": "generate verb data",
       "commands": [
-        "[input] [repo] the word B -> a verb",
+        "[input] [repo] the word B -> a transitive verb",
         "[output] [template] [verb] B -> V+O_checker"
       ]
     }
