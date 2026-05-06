@@ -1,0 +1,32 @@
+{
+  "name": "O+OC_checker_v3",
+  "is_template": true,
+  "args": {
+    "adj": "$1"
+  },
+  "API": "[repo] verify the phrase B -> O+OC",
+  "callback": [
+    "[repo] the phrase B -> O+OC",
+    "[repo] O of the phrase B -> C",
+    "[repo] OC of the phrase B -> $1"
+  ],
+  "data": [
+    {
+      "description": "main",
+      "commands": [
+        "[input] [repo] verify the phrase C $1 -> O+OC",
+        "[input] [repo] grammar usage of C -> an object",
+        "[output] [repo] the phrase C $1 -> O+OC",
+        "[output] [repo] O of the phrase C $1 -> C",
+        "[output] [repo] OC of the phrase C $1 -> $1"
+      ]
+    },
+    {
+      "description": "preparatory checks",
+      "commands": [
+        "[input] [repo] verify the phrase C $1 -> O+OC",
+        "[output] [repo] verify grammar usage of C -> an object"
+      ]
+    }
+  ]
+}
