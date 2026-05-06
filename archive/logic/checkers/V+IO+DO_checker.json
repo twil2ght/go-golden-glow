@@ -1,0 +1,36 @@
+{
+  "name": "V+IO+DO_checker",
+  "is_template": true,
+  "args": {
+    "verb": "$1"
+  },
+  "API": "[repo] verify the phrase F -> V+IO+DO",
+  "callback": [
+    "[repo] the phrase F -> V+IO+DO",
+    "[repo] IO of the phrase F -> C",
+    "[repo] DO of the phrase F -> C1"
+  ],
+  "data": [
+    {
+      "type": "route",
+      "description": "main router",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> V+IO+DO",
+        "[input] [repo] the phrase B -> IO+DO",
+        "[input] [repo] IO of the phrase B -> C",
+        "[input] [repo] DO of the phrase B -> C1",
+        "[output] [repo] the phrase $1 B -> V+IO+DO",
+        "[output] [repo] IO of the phrase $1 B -> C",
+        "[output] [repo] DO of the phrase $1 B -> C1"
+      ]
+    },
+    {
+      "type": "get",
+      "description": "get verb data",
+      "commands": [
+        "[input] [repo] verify the phrase $1 B -> V+IO+DO",
+        "[output] [repo] verify the phrase B -> IO+DO"
+      ]
+    }
+  ]
+}
