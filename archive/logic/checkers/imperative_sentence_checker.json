@@ -1,0 +1,26 @@
+{
+  "name": "imperative_sentence_checker",
+  "API": "[repo] verify the sentence A1 -> imperative",
+  "callback": [
+    "[repo] the sentence A1 -> imperative"
+  ],
+  "data": [
+    {
+      "description": "main checks",
+      "commands": [
+        "[input] [repo] verify the sentence A1 -> imperative",
+        "[input] [repo] the phrase A1 -> V",
+        "[output] [repo] the sentence A1 -> imperative",
+        "[input] [repo] verify the sentence A1 -> imperative",
+        "[input] [repo] the phrase A1 -> V+O",
+        "[output] [repo] the sentence A1 -> imperative",
+        "[input] [repo] verify the sentence A1 -> imperative",
+        "[input] [repo] the phrase A1 -> V+O+OC",
+        "[output] [repo] the sentence A1 -> imperative",
+        "[input] [repo] verify the sentence A1 -> imperative",
+        "[input] [repo] the phrase A1 -> V+IO+DO",
+        "[output] [repo] the sentence A1 -> imperative"
+      ]
+    }
+  ]
+}

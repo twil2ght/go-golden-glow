@@ -1,0 +1,27 @@
+{
+  "description": "set methods(by imperative sentence)",
+  "tips_of_args": {
+    "A1": "should be imperative"
+  },
+  "data": [
+    {
+      "description": "main router",
+      "commands": [
+        "[input] C says to Susie : A1",
+        "[input] C means to teach",
+        "[input] Susie means to learn",
+        "[input] [repo] trust C -> yes",
+        "[input] [repo] the sentence A1 -> imperative",
+        "[input] [repo] what to [set] -> F",
+        "[output] [repo] SetByStep F -> A1"
+      ]
+    },
+    {
+      "description": "pre-checks",
+      "commands": [
+        "[input] C says to Susie : A1",
+        "[output] [repo] verify the sentence A1 -> imperative"
+      ]
+    }
+  ]
+}

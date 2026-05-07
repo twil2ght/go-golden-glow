@@ -1,0 +1,14 @@
+{
+  "description": "set target(by to...)",
+  "data": [
+    {
+      "commands": [
+        "[input] C says to Susie : to A",
+        "[input] [repo] trust C -> yes",
+        "[input] C means to teach",
+        "[input] Susie means to learn",
+        "[output] [repo] set what to [set] -> how should D A"
+      ]
+    }
+  ]
+}

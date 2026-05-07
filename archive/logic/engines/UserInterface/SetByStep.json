@@ -1,0 +1,28 @@
+{
+  "name": "SetByStep",
+  "API": "[repo] SetByStep F -> A1",
+  "callback": [],
+  "data": [
+    {
+      "description": "main router",
+      "commands": [
+        "[input] [repo] SetByStep F -> A1",
+        "[input] [repo] StepToSet of F -> B",
+        "[input] [calculate] B + 1 -> B1",
+        "[output] [repo] set step B of F -> A1",
+        "[output] [repo] set StepToSet of F -> B1"
+      ]
+    },
+    {
+      "description": "pre-checks",
+      "commands": [
+        "[input] [repo] SetByStep F -> A1",
+        "[output] [repo] get StepToSet of F",
+
+        "[input] [repo] SetByStep F -> A1",
+        "[input] [repo] StepToSet of F -> B",
+        "[output] [calculate] B + 1"
+      ]
+    }
+  ]
+}
