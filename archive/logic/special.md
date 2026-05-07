@@ -10,3 +10,8 @@
 - `[repo] grammar usage of D -> an object`
 - `[repo] the word A -> a verb`
 - `[repo] verify struct of the phrase B`
+- `[repo] SetByStep F -> A1`
+- `[repo] StepToSet of F -> B`
+- `[repo] trust C -> yes`
+- `C means to teach`
+- `Susie means to learn`
