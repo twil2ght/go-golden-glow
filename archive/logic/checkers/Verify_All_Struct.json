@@ -1,14 +1,16 @@
 {
   "name": "Verify_All_Struct",
   "description": "Verify All Struct",
-  "API": "[repo] verify struct of the phrase B with V",
+  "API": [
+    "[repo] verify struct of the phrase B"
+  ],
   "callback":[
     "..."
   ],
   "data": [
     {
       "commands": [
-        "[input] [repo] verify struct of the phrase B with verb",
+        "[input] [repo] verify struct of the phrase B",
         "[output] [repo] verify the phrase B -> V",
         "[output] [repo] verify the phrase B -> V+O",
         "[output] [repo] verify the phrase B -> V+O+OC",
