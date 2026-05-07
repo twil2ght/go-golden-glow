@@ -23,7 +23,7 @@
       "commands": [
         "[input] D should A",
         "[input] [repo] state of step B of how should D A -> done",
-        "[input] [calculate] B +1 -> B1",
+        "[input] [calculate] B + 1 -> B1",
         "[input] [repo] step B1 of how should D A -> E",
         "[output] D should E"
       ]
@@ -33,7 +33,7 @@
       "commands": [
         "[input] D should A",
         "[input] [repo] state of step B of how should D A -> done",
-        "[output] [calculate] B +1"
+        "[output] [calculate] B + 1"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "commands": [
         "[input] D should A",
         "[input] [repo] state of step B of how should D A -> done",
-        "[input] [calculate] B +1 -> B1",
+        "[input] [calculate] B + 1 -> B1",
         "[output] [repo] get step B1 of how should D A"
       ]
     },

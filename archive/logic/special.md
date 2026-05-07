@@ -9,3 +9,4 @@
 - `[repo] verify grammar usage of C -> an object`
 - `[repo] grammar usage of D -> an object`
 - `[repo] the word A -> a verb`
+- `[repo] verify struct of the phrase B`

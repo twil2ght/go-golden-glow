@@ -1,0 +1,47 @@
+{
+  "type": "dataGen",
+  "data": [
+    {
+      "type": "dataGen",
+      "description": "generate and cache data",
+      "commands": [
+        "[input] [repo] the property of the phrase A -> describe object",
+        "[output] [template] [attr] A -> IO+DO_checker"
+      ]
+    },
+    {
+      "type": "dataGen",
+      "description": "generate and cache data",
+      "commands": [
+        "[input] [repo] the word B -> a verb",
+        "[output] [template] [verb] B -> O+OC_checker_v2",
+        "[input] [repo] the word B -> an adjective",
+        "[output] [template] [adj] B -> O+OC_checker_v3",
+        "[input] [repo] the property of the phrase A -> describe object",
+        "[output] [template] [attr] A -> O+OC_checker_v4",
+        "[input] [repo] the gerund of the verb B -> F",
+        "[output] [template] [gerund] F -> O+OC_checker_v5"
+      ]
+    },
+    {
+      "type": "dataGen",
+      "description": "generate and cache data",
+      "commands": [
+        "[input] [repo] grammar usage of B -> an attribute",
+        "[output] [template] [attr] B -> object_checker_v2"
+      ]
+    },
+    {
+      "type": "dataGen",
+      "description": "generate verb data",
+      "commands": [
+        "[input] [repo] the word B -> a transitive verb",
+        "[output] [template] [verb] B -> V+O_checker",
+        "[input] [repo] grammar usage of verb B -> V+IO+DO",
+        "[output] [template] [verb] B -> V+IO+DO_checker",
+        "[input] [repo] grammar usage of verb B -> V+O+OC",
+        "[output] [template] [verb] B -> V+O+OC_checker"
+      ]
+    }
+  ]
+}
