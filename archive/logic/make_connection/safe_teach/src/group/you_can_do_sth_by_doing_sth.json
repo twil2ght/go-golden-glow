@@ -2,13 +2,13 @@
   {
     "commands": [
       "[input] Zero says to Susie : you can A someone to your B by E them F",
-      "[output] [repo] set how should D A C to their B -> E them F"
+      "[output] [repo] set how should D A C to D 's B -> E C F"
     ]
   },
   {
     "commands": [
       "[input] Zero says to Susie : you can A someone B by E them F",
-      "[output] [repo] set how should D A C B -> E them F"
+      "[output] [repo] set how should D A C B -> E C F"
     ]
   },
   {
@@ -23,7 +23,7 @@
   {
     "commands": [
       "[input] Zero says to Susie : you can A them to your B by E them F",
-      "[output] [output] [repo] set how should D A C to their B -> E them F"
+      "[output] [output] [repo] set how should D A C to D 's B -> E C F"
     ]
   }
 ]

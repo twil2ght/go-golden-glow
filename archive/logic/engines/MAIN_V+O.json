@@ -1,0 +1,65 @@
+{
+  "usage": "engine",
+  "description": "main:V+O branch",
+  "tips": [
+    "A(or E) could be V+O,V+O+OC,V+IO+DO,V"
+  ],
+  "data": [
+    {
+      "description": "main router:V+O/V+O",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] grammar usage of D -> an object",
+        "[input] [repo] the phrase A -> V+O",
+        "[input] [repo] object of the phrase A -> C",
+        "[input] [repo] how should D A -> E",
+        "[input] [repo] the phrase E -> V+O",
+        "[input] [repo] verb of the phrase E -> E1",
+        "[input] [repo] object of the phrase E -> them",
+        "[output] D should E1 C"
+      ]
+    },
+    {
+      "description": "main router:V+O/V+O+OC",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] grammar usage of D -> an object",
+        "[input] [repo] the phrase A -> V+O",
+        "[input] [repo] object of the phrase A -> C",
+        "[input] [repo] how should D A -> E",
+        "[input] [repo] the phrase E -> V+O+OC",
+        "[input] [repo] verb of the phrase E -> E1",
+        "[input] [repo] O of the phrase E -> them",
+        "[input] [repo] OC of the phrase E -> F",
+        "[output] D should E1 C F"
+      ]
+    },
+    {
+      "description": "main router:V+O/V+IO+DO",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] grammar usage of D -> an object",
+        "[input] [repo] the phrase A -> V+O",
+        "[input] [repo] object of the phrase A -> C",
+        "[input] [repo] how should D A -> E",
+        "[input] [repo] the phrase E -> V+IO+DO",
+        "[input] [repo] verb of the phrase E -> E1",
+        "[input] [repo] IO of the phrase E -> them",
+        "[input] [repo] DO of the phrase E -> F",
+        "[output] D should E1 C F"
+      ]
+    },
+    {
+      "description": "main router:V+O/V",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] grammar usage of D -> an object",
+        "[input] [repo] the phrase A -> V+O",
+        "[input] [repo] object of the phrase A -> C",
+        "[input] [repo] how should D A -> E",
+        "[input] [repo] the phrase E -> V",
+        "[output] D should E"
+      ]
+    }
+  ]
+}

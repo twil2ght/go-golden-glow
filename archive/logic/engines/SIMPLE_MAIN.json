@@ -1,0 +1,32 @@
+{
+  "usage": "engine",
+  "description": "main:V+O branch",
+  "tips": [
+    "A(or E) could be V+O,V+O+OC,V+IO+DO,V"
+  ],
+  "data": [
+    {
+      "description": "main router:V+O/V+O",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] how should D A -> E",
+        "[output] D should E"
+      ],
+      "demo":[
+        "introduce yourself",
+        "1.tell name",
+        "2.tell age",
+        "D should introduce self",
+        "how should D introduce self -> tell name",
+        "how should D introduce self -> tell age",
+        "D should introduce yourself",
+        "first step -> tell name",
+        "do tell name",
+        "current step done",
+        "step->next",
+        "no steps",
+        "quit"
+      ]
+    }
+  ]
+}

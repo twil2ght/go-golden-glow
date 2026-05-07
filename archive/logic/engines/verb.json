@@ -6,7 +6,11 @@
       "description": "generate verb data",
       "commands": [
         "[input] [repo] the word B -> a transitive verb",
-        "[output] [template] [verb] B -> V+O_checker"
+        "[output] [template] [verb] B -> V+O_checker",
+        "[input] [repo] grammar usage of verb B -> V+IO+DO",
+        "[output] [template] [verb] B -> V+IO+DO_checker",
+        "[input] [repo] grammar usage of verb B -> V+O+OC",
+        "[output] [template] [verb] B -> V+O+OC_checker"
       ]
     }
   ]

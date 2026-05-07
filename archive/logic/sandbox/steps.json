@@ -1,0 +1,44 @@
+{
+  "type": "sandbox",
+  "name": "unit",
+  "description": "unit test for sandbox",
+  "data": [
+    {
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] step 1 of how should D A -> E",
+        "[output] D should E",
+        "",
+        "[input] D should A",
+        "[input] [repo] state of step B of how should D A -> done",
+        "[input] [calculate] B +1 -> B1",
+        "[input] [repo] [repo] step B1 of how should D A -> E",
+        "[output] D should E"
+      ]
+    },
+    {
+      "main": [
+        "[input] to A",
+        "[output] [repo] set what to set -> how should D A",
+
+        "[input] A1",
+        "[input] [repo] what to set -> F",
+        "[output] [repo] stepSet F -> A1",
+
+        "[input] if E",
+        "[output] [input] E",
+
+        "[input] then E1",
+        "(you can A by B)",
+        "[input] [repo] what to set -> F",
+        "[output] [output] [repo] stepSet F -> E1"
+      ],
+      "util": [
+        "[input] [repo] stepSet A -> B",
+        "[input] [repo] step of A -> F",
+        "[output] [repo] set step F of A -> B",
+        "[output] F++"
+      ]
+    }
+  ]
+}

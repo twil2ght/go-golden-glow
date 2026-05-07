@@ -1,0 +1,64 @@
+{
+  "type": "engine",
+  "name": "iterator_main",
+  "description": "iterator main engine",
+  "data": [
+    {
+      "description": "initialize the iterator",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] step 1 of how should D A -> E",
+        "[output] D should E"
+      ]
+    },
+    {
+      "description": "initialize the iterator:pre-checks",
+      "commands": [
+        "[input] D should A",
+        "[output] [repo] get step 1 of how should D A"
+      ]
+    },
+    {
+      "description": "iterate the iterator",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] state of step B of how should D A -> done",
+        "[input] [calculate] B +1 -> B1",
+        "[input] [repo] step B1 of how should D A -> E",
+        "[output] D should E"
+      ]
+    },
+    {
+      "description": "iterate the iterator:pre-checks:compute simple plus calculation",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] state of step B of how should D A -> done",
+        "[output] [calculate] B +1"
+      ]
+    },
+    {
+      "description": "iterate the iterator:pre-checks:get the next thing to do",
+      "commands": [
+        "[input] D should A",
+        "[input] [repo] state of step B of how should D A -> done",
+        "[input] [calculate] B +1 -> B1",
+        "[output] [repo] get step B1 of how should D A"
+      ]
+    },
+    {
+      "description": "iterate the iterator:hook",
+      "commands": [
+        "[input] [repo] step B of how should D A -> E",
+        "[input] [repo] verb of the phrase E -> E1",
+        "[input] [repo] singular of E1 -> A1",
+        "[input] [repo] object part of the phrase E -> F",
+        "[input] D A1 F",
+        "[output] [repo] state of step B of how should D A -> done"
+      ]
+    },
+    {
+      "description": "end the iterator:it will end itself",
+      "commands": []
+    }
+  ]
+}
