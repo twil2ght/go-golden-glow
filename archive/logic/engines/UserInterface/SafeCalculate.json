@@ -13,9 +13,7 @@
       "commands": [
         "[input] [safe++] A",
         "[input] [repo] A -> B",
-        "[input] [repo] Ban [safe++] A -> no",
         "[input] [calculate] B + 1 -> B1",
-        "[input] [repo] set Ban [safe++] A -> yes",
         "[output] [repo] set A -> B1",
         "[output] [repo] Latest A -> B1"
       ]
@@ -28,23 +26,11 @@
       ]
     },
     {
-      "description": "Safe++:sets",
-      "commands": [
-        "[input] [safe++] A",
-        "[input] [repo] A -> B",
-        "[input] [repo] Ban [safe++] A -> no",
-        "[input] [calculate] B + 1 -> B1",
-        "[output] [repo] set Ban [safe++] A -> yes"
-      ]
-    },
-    {
       "description": "Safe--:main",
       "commands": [
         "[input] [safe--] A",
         "[input] [repo] A -> B",
-        "[input] [repo] Ban [safe--] A -> no",
         "[input] [calculate] B + 1 -> B1",
-        "[input] [repo] set Ban [safe--] A -> yes",
         "[output] [repo] set A -> B1",
         "[output] [repo] Latest A -> B1"
       ]
@@ -54,16 +40,6 @@
       "commands": [
         "[input] [safe--] A",
         "[output] [repo] get A"
-      ]
-    },
-    {
-      "description": "Safe--:sets",
-      "commands": [
-        "[input] [safe--] A",
-        "[input] [repo] A -> B",
-        "[input] [repo] Ban [safe--] A -> no",
-        "[input] [calculate] B + 1 -> B1",
-        "[output] [repo] set Ban [safe--] A -> yes"
       ]
     }
   ]
