@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [repo] [Cond] A",
+        "[input] [repo] [Res] D",
+        "[input] [repo] New [CondGroup] ID of D -> B",
+        "[output] [repo] Len of the NO. B [CondGroup] of D ++",
+        "[output] [repo] set Then what? A -> the Count of NO. B [CondGroup] of D --"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] the Count of NO. B [CondGroup] of D -> 0",
+        "[output] A"
+      ]
+    },
+    {
+      "description": "Hook:On Multi-Group Activated",
+      "commands": [
+        "[input] [repo] the Count of NO. B [CondGroup] of D -> 0",
+        "[input] [repo] the Count of NO. B1 [CondGroup] of D -> 0",
+        "[output] [Hook:On Multi-Group Activated] A"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "description": "Reset Count of CondGroup:main",
+      "commands": [
+        "[input] [repo] [Reset] Count of NO. B [CondGroup] of D",
+        "[input] [repo] Len of NO. B [CondGroup] of D -> F",
+        "[output] [repo] set Count of NO. B [CondGroup] of D -> F"
+      ]
+    },
+    {
+      "description": "Reset Count of CondGroup:gets",
+      "commands": [
+        "[input] [repo] [Reset] Count of NO. B [CondGroup] of D",
+        "[output] [repo] get Len of NO. B [CondGroup] of D -> F"
+      ]
+    }
+  ]
+}

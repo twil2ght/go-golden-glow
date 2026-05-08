@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "description": "CondGroup Activated",
+      "commands": [
+        "[input] [repo] Count of NO. B [CondGroup] of D -> 0",
+        "[output] D"
+      ]
+    }
+  ]
+}

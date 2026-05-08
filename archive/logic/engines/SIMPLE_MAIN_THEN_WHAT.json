@@ -1,0 +1,20 @@
+{
+  "type": "engine",
+  "name": "simple_main_then_what",
+  "data": [
+    {
+      "description": "main router",
+      "commands": [
+        "[input] A",
+        "[input] [repo] Then what? A -> B",
+        "[output] B"
+      ]
+    },
+    {
+      "description": "compat",
+      "commands": [
+        "[repo] set Then what? D should A -> [I Do] D should A"
+      ]
+    }
+  ]
+}

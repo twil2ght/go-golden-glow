@@ -1,0 +1,28 @@
+{
+  "name": "imperative_with_if",
+  "data": [
+    {
+      "description": "main router",
+      "commands": [
+        "[input] C says to Susie : if A",
+        "[input] [repo] trust C -> yes",
+        "[input] C means to teach",
+        "[input] Susie means to learn",
+        "[input] [repo] what to [set] -> B",
+        "[output] [repo] set sub cond of B -> A"
+      ]
+    },
+    {
+      "description": "pre-checks",
+      "commands": [
+        "[input] C says to Susie : A1",
+        "[input] [repo] trust C -> yes",
+        "[input] C means to teach",
+        "[input] Susie means to learn",
+        "[input] [repo] what to [set] -> B",
+        "[input] [repo] sub cond of B -> A",
+        "[output] [repo] set Then what? A -> A1"
+      ]
+    }
+  ]
+}
