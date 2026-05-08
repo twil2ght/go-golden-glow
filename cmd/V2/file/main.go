@@ -23,25 +23,13 @@ var (
 )
 
 func main() {
-	//Run(
-	////"archive/start",
-	////"archive/logic/safe_teach",
-	////"archive/logic/utils.json",
-	////"archive/logic/make_attribution/safe_teach/src",
-	////"archive/logic/make_attribution/safe_teach/test",
-	////"archive/logic/make_connection/safe_teach/src",
-	////"archive/logic/make_connection/safe_teach/test",
-	////"archive/logic/make_question/safe_teach/ask/src",
-	////"archive/logic/make_question/safe_teach/ask/test",
-	////"archive/logic/make_question/safe_teach/answer/src",
-	////"archive/logic/make_question/safe_teach/answer/test/you_can_E_them.json",
-	////"archive/logic/make_answer/safe_teach/ask/src",
-	////"archive/logic/make_answer/safe_teach/answer/src",
-	//)
-	RunWithMsgMgr(
-		"archive/logic/make_answer/safe_teach/ask/test",
-		//"archive/logic/make_connection/safe_teach/test",
+	Run(
+		//"archive/logic/engines/UserInterface/SafeCalculate.json",
+		"archive/logic/engines/UserInterface/SafeCalculate_test.json",
 	)
+	//RunWithMsgMgr(
+	//
+	//)
 }
 func Run(dataDir ...string) {
 	go consumer.Run(ctx)

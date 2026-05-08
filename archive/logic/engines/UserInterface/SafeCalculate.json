@@ -12,8 +12,8 @@
       "commands": [
         "[input] [safe++] A",
         "[input] [repo] A -> B",
-        "[input] [calculate] B + 1 -> B1",
-        "[output] [repo] set A -> B1",
+        "[input] [compute] B + 1 -> B1",
+        "[output] [repo] SSet A -> B1",
         "[output] [repo] Latest A -> B1"
       ]
     },
@@ -29,7 +29,11 @@
       "description": "Safe++:gets",
       "commands": [
         "[input] [safe++] A",
-        "[output] [repo] get A"
+        "[output] [repo] get A",
+
+        "[input] [safe++] A",
+        "[input] [repo] A -> B",
+        "[output] [compute] get B + 1"
       ]
     },
     {
@@ -37,8 +41,8 @@
       "commands": [
         "[input] [safe--] A",
         "[input] [repo] A -> B",
-        "[input] [calculate] B + 1 -> B1",
-        "[output] [repo] set A -> B1",
+        "[input] [compute] B - 1 -> B1",
+        "[output] [repo] SSet A -> B1",
         "[output] [repo] Latest A -> B1"
       ]
     },
@@ -46,7 +50,11 @@
       "description": "Safe--:gets",
       "commands": [
         "[input] [safe--] A",
-        "[output] [repo] get A"
+        "[output] [repo] get A",
+
+        "[input] [safe--] A",
+        "[input] [repo] A -> B",
+        "[output] [compute] get B - 1"
       ]
     }
   ]

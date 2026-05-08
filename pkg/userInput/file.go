@@ -18,6 +18,9 @@ type File struct {
 type ValidFormat struct {
 	Commands []string `json:"commands"`
 }
+type Data struct {
+	Data []ValidFormat `json:"data"`
+}
 
 func (f *File) Run(dir string) {
 	jsonFiles := utils.FindAllJsonFiles(dir)
@@ -29,10 +32,10 @@ func (f *File) Run(dir string) {
 			continue
 		}
 		// First try unmarshaling as an array of ValidFormat
-		var dataList []ValidFormat
+		var dataList Data
 		err = json.Unmarshal(content, &dataList)
-		if err == nil && len(dataList) > 0 {
-			for _, item := range dataList {
+		if err == nil && len(dataList.Data) > 0 {
+			for _, item := range dataList.Data {
 				for _, command := range item.Commands {
 					f.queue.Add(command)
 				}
