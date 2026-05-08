@@ -1,0 +1,40 @@
+{
+  "description": "CondGroup:Iterator",
+  "data": [
+    {
+      "commands": [
+        "[input] [repo] No. F [Cond] -> A",
+        "[input] [repo] [Res] -> D",
+        "[input] [repo] Latest Len of [CondGroup] of D -> B",
+        "[output] [repo] [safe++] Len of NO. B [CondGroup] of D",
+        "[output] [repo] set Then what? A -> [safe--] Count of NO. B [CondGroup] of D"
+      ]
+    },
+    {
+      "description": "iterate",
+      "commands": [
+        "[input] [repo] No. F [Cond] -> A",
+        "[input] [repo] [Res] -> D",
+        "[input] [repo] Latest Len of [CondGroup] of D -> B",
+        "[input] [repo] [safe++] Len of NO. B [CondGroup] of D",
+        "[input] [calculate] F + 1 -> F1",
+        "[input] [repo] fetch No. F1 [Cond]"
+      ]
+    },
+    {
+      "description": "checks",
+      "commands": [
+        "[input] [repo] [Res] -> D",
+        "[output] [safe++] Len of [CondGroup] of D",
+        "[output] [repo] fetch [Cond]"
+      ]
+    },
+    {
+      "description": "initialize",
+      "commands": [
+        "[input] [repo] fetch [Cond]",
+        "[output] [repo] get No. 1 [Cond]"
+      ]
+    }
+  ]
+}
