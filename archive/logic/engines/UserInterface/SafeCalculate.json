@@ -4,8 +4,7 @@
     "[safe--] A"
   ],
   "callback": [
-    "[repo] Latest A -> B",
-    "[repo] A -> B"
+    "[repo] Latest A -> B"
   ],
   "data": [
     {
