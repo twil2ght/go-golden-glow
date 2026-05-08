@@ -14,6 +14,16 @@
         "[input] [repo] [Reset] Count of NO. B [CondGroup] of D",
         "[output] [repo] get Len of NO. B [CondGroup] of D -> F"
       ]
+    },
+    {
+      "description": "Reset [Cond]:main",
+      "commands": [
+        "[input] [repo] [Reset] [Cond]",
+        "[output] [repo] del No. 1 [Cond]",
+        "[input] [repo] del No. F [Cond]",
+        "[input] [calculate] F +1 -> F1",
+        "[output] [repo] del No. F1 [Cond]"
+      ]
     }
   ]
 }

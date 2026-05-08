@@ -9,7 +9,7 @@
         "[input] C means to teach",
         "[input] Susie means to learn",
         "[input] [repo] what to [set] -> B",
-        "[output] [repo] set sub cond of B -> A"
+        "[output] [repo] set [Cond] of B -> A"
       ]
     },
     {
@@ -20,8 +20,17 @@
         "[input] C means to teach",
         "[input] Susie means to learn",
         "[input] [repo] what to [set] -> B",
-        "[input] [repo] sub cond of B -> A",
-        "[output] [repo] set Then what? A -> A1"
+        "[output] [repo] [Res] of B -> A1",
+        "[output] [repo] SetByStep B -> A1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [Res] of B -> A1",
+        "[input] [repo] Len of [Cond] -> F",
+        "[input] [calculate] F + 1 -> F1",
+        "[output] [repo] set No. F1 [Cond] -> B",
+        "[output] [repo] [Res] -> A1"
       ]
     }
   ]

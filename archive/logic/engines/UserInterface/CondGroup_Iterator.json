@@ -22,7 +22,7 @@
         "[input] [repo] [Res] -> D",
         "[input] [repo] Latest Len of [CondGroup] of D -> B",
         "[input] [calculate] F + 1 -> F1",
-        "[output] [repo] fetch No. F1 [Cond]"
+        "[output] [repo] get No. F1 [Cond]"
       ]
     },
     {
