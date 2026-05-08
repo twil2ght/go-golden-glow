@@ -19,6 +19,14 @@
       ]
     },
     {
+      "description": "Safe++:init to 0",
+      "commands": [
+        "[input] [safe++] A",
+        "[input] [repo] A ->",
+        "[output] [repo] A -> 0"
+      ]
+    },
+    {
       "description": "Safe++:gets",
       "commands": [
         "[input] [safe++] A",
