@@ -71,6 +71,9 @@
   "C-\u003eR:888e9d3419ea640e055ca6a6156a3fca": {
     "[phrase] FirstN $1 # $3 -\u003e $2": {}
   },
+  "C-\u003eR:946f0e181d7f5ee2575560ea45275988": {
+    "[safe++] [CurStep] of $6": {}
+  },
   "C-\u003eR:9a806a0c5796ddae6797186bf63b9f30": {
     "[phrase] HasPrefix $1 # $2": {}
   },
@@ -130,6 +133,9 @@
   },
   "C-\u003eR:f3cef697e21036703c663acc953824a3": {
     "[word] HasSuffix $1 # $2": {}
+  },
+  "C-\u003eR:f49d8371d3800556889baf1c55cdfdf6": {
+    "[repo] set step $2 of $6 -\u003e $7": {}
   },
   "C-\u003eR:f8a018a13e1e9f6f0e0a08373956b96e": {
     "[repo] $1 -\u003e 0": {}
@@ -235,6 +241,9 @@
     "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_tail] [phrase:$1]": {},
     "[phrase] FirstN $1 # $3": {}
   },
+  "C-\u003eT:946f0e181d7f5ee2575560ea45275988": {
+    "[repo] SetByStep $6 -\u003e $7": {}
+  },
   "C-\u003eT:9a806a0c5796ddae6797186bf63b9f30": {
     "[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {},
     "[phrase] check HasPrefix $1 # $2": {}
@@ -309,6 +318,10 @@
   "C-\u003eT:f3cef697e21036703c663acc953824a3": {
     "[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {},
     "[word] check HasSuffix $1 # $2": {}
+  },
+  "C-\u003eT:f49d8371d3800556889baf1c55cdfdf6": {
+    "[repo] Latest [CurStep] of $6 -\u003e $2": {},
+    "[repo] SetByStep $6 -\u003e $7": {}
   },
   "C-\u003eT:f8a018a13e1e9f6f0e0a08373956b96e": {
     "[repo] $1 -\u003e": {},
@@ -416,6 +429,12 @@
   "R-\u003eC:[repo] get $1": {
     "4fb980937c3bb9c17e9896ca61ad3cca": {},
     "c7e7c535e994a53ff142a6f3057197ab": {}
+  },
+  "R-\u003eC:[repo] set step $2 of $6 -\u003e $7": {
+    "f49d8371d3800556889baf1c55cdfdf6": {}
+  },
+  "R-\u003eC:[safe++] [CurStep] of $6": {
+    "946f0e181d7f5ee2575560ea45275988": {}
   },
   "R-\u003eC:[time] date -\u003e $1": {
     "07dbc119b34346b1190ccb9fc7d2e5fe": {}
@@ -607,8 +626,15 @@
     "bb58479656bdbb51f3b51bc29dda3796": {},
     "d7427e12b3339c461aba68c8fe1a5082": {}
   },
+  "T-\u003eC:[repo] Latest [CurStep] of $6 -\u003e $2": {
+    "f49d8371d3800556889baf1c55cdfdf6": {}
+  },
   "T-\u003eC:[repo] SSet $1 -\u003e $2": {
     "fa221c3f38be84f411cbda1656486c69": {}
+  },
+  "T-\u003eC:[repo] SetByStep $6 -\u003e $7": {
+    "946f0e181d7f5ee2575560ea45275988": {},
+    "f49d8371d3800556889baf1c55cdfdf6": {}
   },
   "T-\u003eC:[repo] check $1 -\u003e $2": {
     "c2e9688672873ac1addb0de3ff4063e2": {},
@@ -756,13 +782,17 @@
     "[repo] $1 -\u003e $2": {},
     "[repo] $1 -\u003e 0": {},
     "[repo] Latest $1 -\u003e $9": {},
+    "[repo] Latest [CurStep] of $6 -\u003e $2": {},
     "[repo] SSet $1 -\u003e $2": {},
     "[repo] SSet $1 -\u003e $9": {},
+    "[repo] SetByStep $6 -\u003e $7": {},
     "[repo] check $1 -\u003e $2": {},
     "[repo] get $1": {},
     "[repo] set $1 -\u003e $2": {},
     "[repo] set $1 -\u003e $2 @ $3": {},
+    "[repo] set step $2 of $6 -\u003e $7": {},
     "[safe++] $1": {},
+    "[safe++] [CurStep] of $6": {},
     "[safe--] $1": {},
     "[speak] $1 -\u003e $2": {},
     "[time] date -\u003e $1": {},

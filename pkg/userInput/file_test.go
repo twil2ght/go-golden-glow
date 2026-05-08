@@ -19,7 +19,7 @@ func TestNewFile(t *testing.T) {
 func TestFile_Run_AddsCommandsFromValidJsonFiles(t *testing.T) {
 	dir := t.TempDir()
 	filePath := filepath.Join(dir, "input.json")
-	data := ValidFormat{Commands: []string{"foo", "bar"}}
+	data := Data{Data: []ValidFormat{{Commands: []string{"foo", "bar"}}}}
 	content, err := json.Marshal(data)
 	if err != nil {
 		t.Fatal(err)
@@ -57,7 +57,7 @@ func TestFile_Run_LogsErrorForInvalidJsonButContinues(t *testing.T) {
 	dir := t.TempDir()
 	validPath := filepath.Join(dir, "valid.json")
 	invalidPath := filepath.Join(dir, "invalid.json")
-	validData := ValidFormat{Commands: []string{"hello"}}
+	validData := Data{Data: []ValidFormat{{Commands: []string{"hello"}}}}
 	validContent, err := json.Marshal(validData)
 	if err != nil {
 		t.Fatal(err)

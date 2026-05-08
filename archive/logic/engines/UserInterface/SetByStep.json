@@ -1,5 +1,8 @@
 {
   "name": "SetByStep",
+  "dependencies": [
+    "SafeCalculate"
+  ],
   "API": "[repo] SetByStep F -> A1",
   "callback": [],
   "data": [
@@ -7,22 +10,15 @@
       "description": "main router",
       "commands": [
         "[input] [repo] SetByStep F -> A1",
-        "[input] [repo] Latest StepToSet of F -> B",
-        "[output] [repo] set step B of F -> A1",
-        
-        "[input] [repo] SetByStep F -> A1",
-        "[output] [safe++] StepToSet of F"
+        "[input] [repo] Latest [CurStep] of F -> B",
+        "[output] [repo] set step B of F -> A1"
       ]
     },
     {
       "description": "pre-checks",
       "commands": [
         "[input] [repo] SetByStep F -> A1",
-        "[output] [repo] get StepToSet of F",
-
-        "[input] [repo] SetByStep F -> A1",
-        "[input] [repo] StepToSet of F -> B",
-        "[output] [calculate] B + 1"
+        "[output] [safe++] [CurStep] of F"
       ]
     }
   ]

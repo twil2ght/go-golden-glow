@@ -25,7 +25,9 @@ var (
 func main() {
 	Run(
 		//"archive/logic/engines/UserInterface/SafeCalculate.json",
-		"archive/logic/engines/UserInterface/SafeCalculate_test.json",
+		//"archive/logic/engines/UserInterface/SafeCalculate_test.json",
+		//"archive/logic/engines/UserInterface/SetByStep.json",
+		"archive/logic/engines/UserInterface/SetByStep_test.json",
 	)
 	//RunWithMsgMgr(
 	//
