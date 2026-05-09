@@ -1,4 +1,7 @@
 {
+  "dependencies": [
+    "SafeCalculate"
+  ],
   "description": "CondGroup:Iterator",
   "data": [
     {
@@ -6,7 +9,7 @@
         "[input] [repo] No. F [Cond] -> A",
         "[input] [repo] [Res] -> D",
         "[input] [repo] Latest Len of [CondGroup] of D -> B",
-        "[output] [repo] [safe++] Len of NO. B [CondGroup] of D",
+        "[output] [safe++] Len of NO. B [CondGroup] of D",
         "[output] [repo] set Then what? A -> [safe--] Count of NO. B [CondGroup] of D"
       ]
     },
@@ -15,13 +18,11 @@
       "commands": [
         "[input] [repo] No. F [Cond] -> A",
         "[input] [repo] [Res] -> D",
-        "[input] [repo] Latest Len of [CondGroup] of D -> B",
-        "[output] [calculate] F + 1",
+        "[output] [compute] get F + 1",
 
         "[input] [repo] No. F [Cond] -> A",
         "[input] [repo] [Res] -> D",
-        "[input] [repo] Latest Len of [CondGroup] of D -> B",
-        "[input] [calculate] F + 1 -> F1",
+        "[input] [compute] F + 1 -> F1",
         "[output] [repo] get No. F1 [Cond]"
       ]
     },
@@ -30,13 +31,6 @@
       "commands": [
         "[input] [repo] [Res] -> D",
         "[output] [safe++] Len of [CondGroup] of D",
-        "[output] [repo] fetch [Cond]"
-      ]
-    },
-    {
-      "description": "initialize",
-      "commands": [
-        "[input] [repo] fetch [Cond]",
         "[output] [repo] get No. 1 [Cond]"
       ]
     }
