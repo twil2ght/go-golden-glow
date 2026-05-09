@@ -1,4 +1,10 @@
 {
+  "Len of NO. 1 [CondGroup] of Susie is adorable": {
+    "3": "0001-01-01T00:00:00Z"
+  },
+  "Len of [CondGroup] of Susie is adorable": {
+    "1": "0001-01-01T00:00:00Z"
+  },
   "No. 1 [Cond]": {
     "Susie is happy": "0001-01-01T00:00:00Z"
   },
@@ -7,5 +13,14 @@
   },
   "No. 3 [Cond]": {
     "Susie is smart": "0001-01-01T00:00:00Z"
+  },
+  "[Then] Susie is cute": {
+    "[safe--] Susie is cute @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable": "0001-01-01T00:00:00Z"
+  },
+  "[Then] Susie is happy": {
+    "[safe--] Susie is happy @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable": "0001-01-01T00:00:00Z"
+  },
+  "[Then] Susie is smart": {
+    "[safe--] Susie is smart @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable": "0001-01-01T00:00:00Z"
   }
 }

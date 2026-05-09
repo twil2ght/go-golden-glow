@@ -1,12 +1,1 @@
-[
-  "Zero says to Susie : if $1",
-  "Zero says to Susie : then $1",
-  "$1 is $2",
-  "Zero says to Susie : $1 is $2",
-  "[repo] set $1 -> $2",
-  "[repo] how to B someone -> E them",
-  "$4 should $2 $3",
-  "[repo] what to tell $3 -> $2",
-  "[repo] $4 @ $1 ->",
-  "$4 @ [GET] $1"
-]
+[]

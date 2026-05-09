@@ -10,7 +10,7 @@
     {
       "description": "Safe++:main",
       "commands": [
-        "[safe++] A @Caller C",
+        "[input] [safe++] A @Caller C",
         "[input] [repo] C @ A -> B",
         "[input] [compute] C @ B + 1 -> B1",
         "[output] [repo] [SSET] A -> B1",
@@ -20,10 +20,10 @@
     {
       "description": "Safe++:gets",
       "commands": [
-        "[safe++] A @Caller C",
+        "[input] [safe++] A @Caller C",
         "[output] [repo] [GET] A @Caller C",
 
-        "[safe++] A @Caller C",
+        "[input] [safe++] A @Caller C",
         "[input] [repo] C @ A -> B",
         "[output] [compute] [GET] B + 1 @Caller C"
       ]
@@ -31,7 +31,7 @@
     {
       "description": "Safe--:main",
       "commands": [
-        "[safe--] A @Caller C",
+        "[input] [safe--] A @Caller C",
         "[input] [repo] C @ A -> B",
         "[input] [compute] C @ B - 1 -> B1",
         "[output] [repo] [SSET] A -> B1",
@@ -41,10 +41,10 @@
     {
       "description": "Safe--:gets",
       "commands": [
-        "[safe--] A @Caller C",
+        "[input] [safe--] A @Caller C",
         "[output] [repo] [GET] A @Caller C",
 
-        "[safe--] A @Caller C",
+        "[input] [safe--] A @Caller C",
         "[input] [repo] C @ A -> B",
         "[output] [compute] [GET] B - 1 @Caller C"
       ]
@@ -52,7 +52,7 @@
     {
       "description": "init to 0",
       "commands": [
-        "[safe++] A @Caller C",
+        "[input] [safe++] A @Caller C",
         "[input] [repo] C @ A ->",
         "[output] [repo] C @ A -> 0"
       ]
