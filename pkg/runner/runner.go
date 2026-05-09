@@ -10,7 +10,10 @@ import (
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/node/template"
+	"goldenglow/pkg/registry"
+	"goldenglow/pkg/tracer"
 	"goldenglow/pkg/workqueue"
+	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -33,6 +36,9 @@ type runner struct {
 	knotQueue     Queue[knot.Interface]
 	nodeFactory   node.Factory
 	pending       *atomic.Uint64
+	traceMgr      registry.Interface[TraceHandler]
+	knotSeq       atomic.Uint64
+	knotParents   sync.Map // map[string]int — key "value\x00state" → parent knotSeq
 }
 
 var logger = log.Default()
@@ -124,6 +130,22 @@ func (r *runner) worker(_ int) {
 func (r *runner) handler(k knot.Interface) error {
 	trigger := k.Trigger()
 	rawValueAsState := trigger.ToTextWithNoVars(k.State())
+	knotSeq := int(r.knotSeq.Add(1))
+
+	parentSeq := 0
+	if p, ok := r.knotParents.Load(knotKey(trigger.Value(), k.State())); ok {
+		parentSeq = p.(int)
+	}
+
+	r.traceEvent(tracer.Event{
+		Type:          tracer.EventKnotReceived,
+		Timestamp:     time.Now(),
+		NodeValue:     trigger.Value(),
+		State:         k.State(),
+		KnotSeq:       knotSeq,
+		ParentKnotSeq: parentSeq,
+	})
+
 	templateNodes := GetTemplates(trigger, k.State())
 	for _, tempN := range templateNodes {
 		tempN.Execute(rawValueAsState)
@@ -133,25 +155,74 @@ func (r *runner) handler(k knot.Interface) error {
 
 		cHashMap := positioner.Default().ContainerOf(tempN)
 		if cHashMap == nil {
+			r.traceEvent(tracer.Event{
+				Type:      tracer.EventTemplateSkipped,
+				Timestamp: time.Now(),
+				NodeValue: tempN.Value(),
+				State:     rawValueAsState,
+				Detail:    map[string]string{"reason": "no_container"},
+				KnotSeq:   knotSeq,
+			})
 			continue
 		}
+
+		r.traceEvent(tracer.Event{
+			Type:      tracer.EventTemplateMatched,
+			Timestamp: time.Now(),
+			NodeValue: tempN.Value(),
+			State:     rawValueAsState,
+			KnotSeq:   knotSeq,
+		})
+
 		for hash := range cHashMap {
+			r.traceEvent(tracer.Event{
+				Type:      tracer.EventContainerFound,
+				Timestamp: time.Now(),
+				NodeValue: hash,
+				State:     tempN.Value(),
+				Detail:    map[string]string{"container_hash": hash},
+				KnotSeq:   knotSeq,
+			})
+
 			c := container.NewWithDefaultFetcher(hash)
 			if c == nil {
 				continue
 			}
 			ok := c.Forward(tempN, rawValueAsState)
-			//printContainer(c.T(), make(m.Map[node.Interface]))
-			//log.Default().Debug(" ")
+			tNodes := tNodeValues(c.T())
 			if !ok {
+				r.traceEvent(tracer.Event{
+					Type:      tracer.EventContainerReject,
+					Timestamp: time.Now(),
+					NodeValue: hash,
+					State:     rawValueAsState,
+					Detail:    map[string]string{"container_hash": hash, "t_nodes": tNodes},
+					KnotSeq:   knotSeq,
+				})
 				continue
 			}
+			r.traceEvent(tracer.Event{
+				Type:      tracer.EventContainerForward,
+				Timestamp: time.Now(),
+				NodeValue: hash,
+				State:     rawValueAsState,
+				Detail:    map[string]string{"container_hash": hash, "t_nodes": tNodes},
+				KnotSeq:   knotSeq,
+			})
+
 			R, S := c.R()
-			//printContainer(c.T(), make(m.Map[node.Interface]))
-			//printContainer(make(m.Map[node.Interface]), R)
 			for nv, rn := range R {
 				for _, s := range S[nv] {
 					log.Default().Debug("R", "value", rn.ToTextWithNoVars(s), "raw", rn.Value())
+					r.traceEvent(tracer.Event{
+						Type:      tracer.EventResultProduced,
+						Timestamp: time.Now(),
+						NodeValue: rn.Value(),
+						State:     s,
+						Detail:    map[string]string{"result_raw": rn.ToTextWithNoVars(s)},
+						KnotSeq:   knotSeq,
+					})
+					r.knotParents.Store(knotKey(rn.Value(), s), knotSeq)
 					r.knotQueue.Add(knot.New(rn, s))
 				}
 			}
@@ -159,9 +230,28 @@ func (r *runner) handler(k knot.Interface) error {
 	}
 	return nil
 }
+
+func knotKey(value, state string) string {
+	return value + "\x00" + state
+}
+
+func tNodeValues(T m.Map[node.Interface]) string {
+	vals := make([]string, 0, len(T))
+	for _, tn := range T {
+		vals = append(vals, tn.Value())
+	}
+	return strings.Join(vals, "\n")
+}
 func GetTemplates(t node.Interface, state string) m.Map[node.Interface] {
 	return m.Map[node.Interface](template.Default().GetTemplate(t, state))
 }
+func (r *runner) traceEvent(e tracer.Event) {
+	r.traceMgr.Range(func(_ string, h TraceHandler) bool {
+		h(e)
+		return true
+	})
+}
+
 func New(workNum int, externalQueue Queue[string], nodeFactory node.Factory) Runner {
 	return &runner{
 		workerNum:     workNum,
@@ -171,6 +261,7 @@ func New(workNum int, externalQueue Queue[string], nodeFactory node.Factory) Run
 		externalQueue: externalQueue,
 		nodeFactory:   nodeFactory,
 		pending:       new(atomic.Uint64),
+		traceMgr:      DefaultTraceManager,
 	}
 }
 func printContainer(T, R m.Map[node.Interface]) {

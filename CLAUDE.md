@@ -32,6 +32,10 @@ go test ./pkg/registry/
 
 # Run a specific test
 go test ./pkg/registry/ -run TestRegistry_Register
+
+# Trace execution: generates trace/execution.html + trace/execution.json
+go run ./cmd/V2/file
+# Open trace/execution.html in any browser to view the flow graph and event timeline
 ```
 
 There is no Makefile or task runner. `go run` and `go test` are the only entry points.
@@ -83,6 +87,7 @@ Plugins live in `plugin/builtin/`. Each plugin's `init()` registers itself with 
 | `datagen.Hook` | Register training data generators |
 | `template.Hook` | Register conflict rules for template filtering |
 | `runner.Hook` | Register idle handlers (called when knot queue drains) |
+| `runner.TraceHook` | Register trace handlers (receive execution events for debugging) |
 
 `plugin/mount/doc.go` blank-imports all active plugins. `setup.Init()` (`pkg/setup/setup.go`) wires everything together: it creates all core services, iterates over registered plugins calling their hook registration methods, runs data generation, loads persistent data, and returns the `Background` struct with the wired message queue manager and node factory.
 
@@ -94,6 +99,35 @@ Plugins live in `plugin/builtin/`. Each plugin's `init()` registers itself with 
 
 When the knot queue AND pending counter are both zero for a configurable timeout, the runner calls `onIdle()`, which resets the node factory, invokes all registered idle handlers, and pulls the next item from the external (message) queue to restart the cycle.
 
+### Debug tracing (`pkg/tracer`)
+
+The runner emits trace events at every key point in the pipeline. The `plugin/builtin/tracer` plugin collects them and writes output files on shutdown:
+
+| Event | When |
+|---|---|
+| `KnotReceived` | Knot pulled from queue for processing |
+| `TemplateMatched` | Template node matched the trigger |
+| `TemplateSkipped` | Template filtered out (no container, type mismatch, conflict rule) |
+| `ContainerFound` | Container hash found for a template node |
+| `ContainerForward` | `container.Forward()` returned true |
+| `ContainerReject` | `container.Forward()` returned false (checker failed, var merge failed, etc.) |
+| `ResultProduced` | Result knot added to knot queue |
+
+Output files (written to `trace/`):
+- `execution.html` — Self-contained HTML page with inline SVG flow graph + event timeline table. Open in any browser.
+- `execution.json` — Structured JSON trace with timestamps, node values, variable states, and detail maps
+
+Plugin config constants in `plugin/builtin/tracer/tracer.go`:
+- `resetOnIdle` — clear events each idle cycle (default: false, accumulate across cycles)
+- `writeOnIdle` — write files each idle cycle (default: false)
+- `writeOnShutdown` — write files on plugin shutdown (default: true)
+
+To use programmatically, implement `runner.TraceHook` and call `OnRegisterTraceHandler(mgr)`. The `tracer.Collector` is thread-safe and provides `HTML()`, `JSON()`, and `StringSummary()` output methods.
+
 ### Configuration
 
 `config/config.go` holds two constants: `GG` ("Susie") and `User` ("Zero") — the system persona and user name used in natural language templates.
+
+### Rules
+
+- when visualizing or making a graph, use HTML only

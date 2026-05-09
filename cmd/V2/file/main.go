@@ -7,6 +7,7 @@ import (
 	"goldenglow/pkg/runner"
 	"goldenglow/pkg/setup"
 	"goldenglow/pkg/userInput"
+	"goldenglow/plugin"
 	"time"
 )
 
@@ -52,6 +53,10 @@ func Run(dataDir ...string) {
 	<-ctx.Done()
 	_ = database.DefaultJSONRepo().Shutdown()
 	_ = database.DefaultRedisRepo().Shutdown()
+	plugin.DefaultManager.Range(func(_ string, p plugin.Interface) bool {
+		p.Shutdown()
+		return true
+	})
 }
 func RunWithMsgMgr(dataDir ...string) {
 	go bg.MsgQueueMgr.Start(msgQueue, ctx)
@@ -65,4 +70,8 @@ func RunWithMsgMgr(dataDir ...string) {
 	cancel()
 	_ = database.DefaultJSONRepo().Shutdown()
 	_ = database.DefaultRedisRepo().Shutdown()
+	plugin.DefaultManager.Range(func(_ string, p plugin.Interface) bool {
+		p.Shutdown()
+		return true
+	})
 }

@@ -105,7 +105,7 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 	))
 	providerFail.Add("get_value_not_exists_with_cond", datagen.NewData(
 		[]string{"[repo] $4 @ [GET] $1"},
-		[]string{"[repo] $1 ->"},
+		[]string{"[repo] $4 @ $1 ->"},
 		map[string]string{
 			keyKey:  "$1",
 			keyDist: "$2",

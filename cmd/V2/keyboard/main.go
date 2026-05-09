@@ -9,6 +9,7 @@ import (
 	"goldenglow/pkg/runner"
 	"goldenglow/pkg/setup"
 	"goldenglow/pkg/tui"
+	"goldenglow/plugin"
 	"goldenglow/utils"
 	"os/signal"
 	"path/filepath"
@@ -58,6 +59,11 @@ func main() {
 
 	// Run the TUI (blocks until ctx is done)
 	chatUI.Start(ctx)
+
+	plugin.DefaultManager.Range(func(_ string, p plugin.Interface) bool {
+		p.Shutdown()
+		return true
+	})
 }
 func WithUserPrefix(user, msg string) string {
 	return fmt.Sprintf("%s says to %s : %s", user, config.GG, msg)
