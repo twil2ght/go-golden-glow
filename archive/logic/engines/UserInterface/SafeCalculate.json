@@ -12,7 +12,7 @@
       "commands": [
         "[input] [safe++] A",
         "[input] [repo] A -> B",
-        "[input] [compute] B + 1 -> B1",
+        "[input] [compute] A @ B + 1 -> B1",
         "[output] [repo] SSet A -> B1",
         "[output] [repo] Latest A -> B1"
       ]
@@ -33,7 +33,7 @@
 
         "[input] [safe++] A",
         "[input] [repo] A -> B",
-        "[output] [compute] get B + 1"
+        "[output] [compute] A @ get B + 1"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "commands": [
         "[input] [safe--] A",
         "[input] [repo] A -> B",
-        "[input] [compute] B - 1 -> B1",
+        "[input] [compute] A @ B - 1 -> B1",
         "[output] [repo] SSet A -> B1",
         "[output] [repo] Latest A -> B1"
       ]
@@ -54,7 +54,7 @@
 
         "[input] [safe--] A",
         "[input] [repo] A -> B",
-        "[output] [compute] get B - 1"
+        "[output] [compute] A @ get B - 1"
       ]
     }
   ]

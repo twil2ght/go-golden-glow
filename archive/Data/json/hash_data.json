@@ -2,11 +2,17 @@
   "C-\u003eR:0052ff78c0b147407c8dbe115c3df5e3": {
     "[phrase] IndexOf $1 # $3 -\u003e $2": {}
   },
+  "C-\u003eR:010e083918e05d1e34bb62f91fc56894": {
+    "[compute] get $6 + 1": {}
+  },
   "C-\u003eR:07dbc119b34346b1190ccb9fc7d2e5fe": {
     "[time] date -\u003e $1": {}
   },
   "C-\u003eR:0c4397c2db70c98b16c75c12795dd067": {
     "[compute] get $2 - 1": {}
+  },
+  "C-\u003eR:0e1f5e770e34e730b0f0e3e54a9fadd1": {
+    "[safe++] Len of NO. $2 [CondGroup] of $4": {}
   },
   "C-\u003eR:1feed269a7e700ed73f9952b57a6e886": {
     "[compute] $1 - $2 -\u003e $3": {}
@@ -16,6 +22,9 @@
   },
   "C-\u003eR:2dbcaeae947728d09b97a39fc57d3e86": {
     "Susie is enabled to ask Zero questions": {}
+  },
+  "C-\u003eR:3e15b4c96754dfcdccd7994c961d0d52": {
+    "[repo] get No. 1 [Cond]": {}
   },
   "C-\u003eR:4167e1a5b41dc374345f1d15be61c000": {
     "[repo] $1 -\u003e": {}
@@ -40,6 +49,9 @@
   },
   "C-\u003eR:527cc695bef578251ade5970744d1801": {
     "[repo] Latest $1 -\u003e $9": {}
+  },
+  "C-\u003eR:54b25c2a9ade26bc87097a27e3827a23": {
+    "[repo] get No. $10 [Cond]": {}
   },
   "C-\u003eR:58346371e351c857704aa51edc085ace": {
     "[repo] SSet $1 -\u003e $9": {}
@@ -71,9 +83,6 @@
   "C-\u003eR:888e9d3419ea640e055ca6a6156a3fca": {
     "[phrase] FirstN $1 # $3 -\u003e $2": {}
   },
-  "C-\u003eR:946f0e181d7f5ee2575560ea45275988": {
-    "[safe++] [CurStep] of $6": {}
-  },
   "C-\u003eR:9a806a0c5796ddae6797186bf63b9f30": {
     "[phrase] HasPrefix $1 # $2": {}
   },
@@ -101,6 +110,9 @@
   "C-\u003eR:c2e9688672873ac1addb0de3ff4063e2": {
     "[repo] $1 -\u003e $2": {}
   },
+  "C-\u003eR:c5e3d97506e80a817f355bc68ec1c14d": {
+    "[repo] set Then what? $1 -\u003e [safe--] Count of NO. $2 [CondGroup] of $4": {}
+  },
   "C-\u003eR:c7e7c535e994a53ff142a6f3057197ab": {
     "[repo] get $1": {}
   },
@@ -115,6 +127,9 @@
   },
   "C-\u003eR:d8a215f5225078c6ff479380817e876c": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
+  },
+  "C-\u003eR:daf9832b4ce51e3a3d8a369c1efd84b9": {
+    "[safe++] Len of [CondGroup] of $4": {}
   },
   "C-\u003eR:dfa7739b531bda9fc922c95899566165": {
     "[node:executor] [namespace:repo_addon] [key:$1] [value:$2]": {}
@@ -134,9 +149,6 @@
   "C-\u003eR:f3cef697e21036703c663acc953824a3": {
     "[word] HasSuffix $1 # $2": {}
   },
-  "C-\u003eR:f49d8371d3800556889baf1c55cdfdf6": {
-    "[repo] set step $2 of $6 -\u003e $7": {}
-  },
   "C-\u003eR:f8a018a13e1e9f6f0e0a08373956b96e": {
     "[repo] $1 -\u003e 0": {}
   },
@@ -150,6 +162,10 @@
     "[node:extractor] [namespace:word] [dist:$2] [mode:index_of] [phrase:$1] [target:$3]": {},
     "[phrase] IndexOf $1 # $3": {}
   },
+  "C-\u003eT:010e083918e05d1e34bb62f91fc56894": {
+    "[repo] No. $6 [Cond] -\u003e $1": {},
+    "[repo] [Res] -\u003e $4": {}
+  },
   "C-\u003eT:07dbc119b34346b1190ccb9fc7d2e5fe": {
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:date]": {},
     "[time] get date": {}
@@ -157,6 +173,11 @@
   "C-\u003eT:0c4397c2db70c98b16c75c12795dd067": {
     "[repo] $1 -\u003e $2": {},
     "[safe--] $1": {}
+  },
+  "C-\u003eT:0e1f5e770e34e730b0f0e3e54a9fadd1": {
+    "[repo] Latest Len of [CondGroup] of $4 -\u003e $2": {},
+    "[repo] No. $6 [Cond] -\u003e $1": {},
+    "[repo] [Res] -\u003e $4": {}
   },
   "C-\u003eT:1feed269a7e700ed73f9952b57a6e886": {
     "[compute] get $1 - $2": {},
@@ -169,6 +190,9 @@
   "C-\u003eT:2dbcaeae947728d09b97a39fc57d3e86": {
     "[node:checker] [namespace:safeTeach] [key:ask]": {},
     "check [ask]": {}
+  },
+  "C-\u003eT:3e15b4c96754dfcdccd7994c961d0d52": {
+    "[repo] [Res] -\u003e $4": {}
   },
   "C-\u003eT:4167e1a5b41dc374345f1d15be61c000": {
     "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
@@ -201,6 +225,11 @@
     "[compute] $2 - 1 -\u003e $9": {},
     "[repo] $1 -\u003e $2": {},
     "[safe--] $1": {}
+  },
+  "C-\u003eT:54b25c2a9ade26bc87097a27e3827a23": {
+    "[compute] $6 + 1 -\u003e $10": {},
+    "[repo] No. $6 [Cond] -\u003e $1": {},
+    "[repo] [Res] -\u003e $4": {}
   },
   "C-\u003eT:58346371e351c857704aa51edc085ace": {
     "[compute] $2 + 1 -\u003e $9": {},
@@ -241,9 +270,6 @@
     "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_tail] [phrase:$1]": {},
     "[phrase] FirstN $1 # $3": {}
   },
-  "C-\u003eT:946f0e181d7f5ee2575560ea45275988": {
-    "[repo] SetByStep $6 -\u003e $7": {}
-  },
   "C-\u003eT:9a806a0c5796ddae6797186bf63b9f30": {
     "[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {},
     "[phrase] check HasPrefix $1 # $2": {}
@@ -277,6 +303,11 @@
     "[node:checker] [namespace:repo_addon] [key:$1] [value:$2]": {},
     "[repo] check $1 -\u003e $2": {}
   },
+  "C-\u003eT:c5e3d97506e80a817f355bc68ec1c14d": {
+    "[repo] Latest Len of [CondGroup] of $4 -\u003e $2": {},
+    "[repo] No. $6 [Cond] -\u003e $1": {},
+    "[repo] [Res] -\u003e $4": {}
+  },
   "C-\u003eT:c7e7c535e994a53ff142a6f3057197ab": {
     "[safe++] $1": {}
   },
@@ -295,6 +326,9 @@
   },
   "C-\u003eT:d8a215f5225078c6ff479380817e876c": {
     "[input] $1": {}
+  },
+  "C-\u003eT:daf9832b4ce51e3a3d8a369c1efd84b9": {
+    "[repo] [Res] -\u003e $4": {}
   },
   "C-\u003eT:dfa7739b531bda9fc922c95899566165": {
     "[repo] set $1 -\u003e $2": {}
@@ -318,10 +352,6 @@
   "C-\u003eT:f3cef697e21036703c663acc953824a3": {
     "[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {},
     "[word] check HasSuffix $1 # $2": {}
-  },
-  "C-\u003eT:f49d8371d3800556889baf1c55cdfdf6": {
-    "[repo] Latest [CurStep] of $6 -\u003e $2": {},
-    "[repo] SetByStep $6 -\u003e $7": {}
   },
   "C-\u003eT:f8a018a13e1e9f6f0e0a08373956b96e": {
     "[repo] $1 -\u003e": {},
@@ -363,6 +393,9 @@
   },
   "R-\u003eC:[compute] get $2 - 1": {
     "0c4397c2db70c98b16c75c12795dd067": {}
+  },
+  "R-\u003eC:[compute] get $6 + 1": {
+    "010e083918e05d1e34bb62f91fc56894": {}
   },
   "R-\u003eC:[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {
     "a55d3adc6e3b60b3044890b0d0ae2400": {},
@@ -430,11 +463,20 @@
     "4fb980937c3bb9c17e9896ca61ad3cca": {},
     "c7e7c535e994a53ff142a6f3057197ab": {}
   },
-  "R-\u003eC:[repo] set step $2 of $6 -\u003e $7": {
-    "f49d8371d3800556889baf1c55cdfdf6": {}
+  "R-\u003eC:[repo] get No. $10 [Cond]": {
+    "54b25c2a9ade26bc87097a27e3827a23": {}
   },
-  "R-\u003eC:[safe++] [CurStep] of $6": {
-    "946f0e181d7f5ee2575560ea45275988": {}
+  "R-\u003eC:[repo] get No. 1 [Cond]": {
+    "3e15b4c96754dfcdccd7994c961d0d52": {}
+  },
+  "R-\u003eC:[repo] set Then what? $1 -\u003e [safe--] Count of NO. $2 [CondGroup] of $4": {
+    "c5e3d97506e80a817f355bc68ec1c14d": {}
+  },
+  "R-\u003eC:[safe++] Len of NO. $2 [CondGroup] of $4": {
+    "0e1f5e770e34e730b0f0e3e54a9fadd1": {}
+  },
+  "R-\u003eC:[safe++] Len of [CondGroup] of $4": {
+    "daf9832b4ce51e3a3d8a369c1efd84b9": {}
   },
   "R-\u003eC:[time] date -\u003e $1": {
     "07dbc119b34346b1190ccb9fc7d2e5fe": {}
@@ -485,6 +527,9 @@
   "T-\u003eC:[compute] $2 - 1 -\u003e $9": {
     "527cc695bef578251ade5970744d1801": {},
     "d7427e12b3339c461aba68c8fe1a5082": {}
+  },
+  "T-\u003eC:[compute] $6 + 1 -\u003e $10": {
+    "54b25c2a9ade26bc87097a27e3827a23": {}
   },
   "T-\u003eC:[compute] check $1 \u003c $2": {
     "acd10b7624c7e9f94fc1f9f8a9b5a607": {}
@@ -626,15 +671,26 @@
     "bb58479656bdbb51f3b51bc29dda3796": {},
     "d7427e12b3339c461aba68c8fe1a5082": {}
   },
-  "T-\u003eC:[repo] Latest [CurStep] of $6 -\u003e $2": {
-    "f49d8371d3800556889baf1c55cdfdf6": {}
+  "T-\u003eC:[repo] Latest Len of [CondGroup] of $4 -\u003e $2": {
+    "0e1f5e770e34e730b0f0e3e54a9fadd1": {},
+    "c5e3d97506e80a817f355bc68ec1c14d": {}
+  },
+  "T-\u003eC:[repo] No. $6 [Cond] -\u003e $1": {
+    "010e083918e05d1e34bb62f91fc56894": {},
+    "0e1f5e770e34e730b0f0e3e54a9fadd1": {},
+    "54b25c2a9ade26bc87097a27e3827a23": {},
+    "c5e3d97506e80a817f355bc68ec1c14d": {}
   },
   "T-\u003eC:[repo] SSet $1 -\u003e $2": {
     "fa221c3f38be84f411cbda1656486c69": {}
   },
-  "T-\u003eC:[repo] SetByStep $6 -\u003e $7": {
-    "946f0e181d7f5ee2575560ea45275988": {},
-    "f49d8371d3800556889baf1c55cdfdf6": {}
+  "T-\u003eC:[repo] [Res] -\u003e $4": {
+    "010e083918e05d1e34bb62f91fc56894": {},
+    "0e1f5e770e34e730b0f0e3e54a9fadd1": {},
+    "3e15b4c96754dfcdccd7994c961d0d52": {},
+    "54b25c2a9ade26bc87097a27e3827a23": {},
+    "c5e3d97506e80a817f355bc68ec1c14d": {},
+    "daf9832b4ce51e3a3d8a369c1efd84b9": {}
   },
   "T-\u003eC:[repo] check $1 -\u003e $2": {
     "c2e9688672873ac1addb0de3ff4063e2": {},
@@ -719,6 +775,7 @@
     "[compute] $1 \u003e $2": {},
     "[compute] $2 + 1 -\u003e $9": {},
     "[compute] $2 - 1 -\u003e $9": {},
+    "[compute] $6 + 1 -\u003e $10": {},
     "[compute] check $1 \u003c $2": {},
     "[compute] check $1 = $2": {},
     "[compute] check $1 \u003e $2": {},
@@ -727,6 +784,7 @@
     "[compute] get $1 - $2": {},
     "[compute] get $2 + 1": {},
     "[compute] get $2 - 1": {},
+    "[compute] get $6 + 1": {},
     "[input] $1": {},
     "[node:checker] [namespace:calculator] [left:$1] [operator:\u003c] [right:$2]": {},
     "[node:checker] [namespace:calculator] [left:$1] [operator:=] [right:$2]": {},
@@ -782,17 +840,21 @@
     "[repo] $1 -\u003e $2": {},
     "[repo] $1 -\u003e 0": {},
     "[repo] Latest $1 -\u003e $9": {},
-    "[repo] Latest [CurStep] of $6 -\u003e $2": {},
+    "[repo] Latest Len of [CondGroup] of $4 -\u003e $2": {},
+    "[repo] No. $6 [Cond] -\u003e $1": {},
     "[repo] SSet $1 -\u003e $2": {},
     "[repo] SSet $1 -\u003e $9": {},
-    "[repo] SetByStep $6 -\u003e $7": {},
+    "[repo] [Res] -\u003e $4": {},
     "[repo] check $1 -\u003e $2": {},
     "[repo] get $1": {},
+    "[repo] get No. $10 [Cond]": {},
+    "[repo] get No. 1 [Cond]": {},
     "[repo] set $1 -\u003e $2": {},
     "[repo] set $1 -\u003e $2 @ $3": {},
-    "[repo] set step $2 of $6 -\u003e $7": {},
+    "[repo] set Then what? $1 -\u003e [safe--] Count of NO. $2 [CondGroup] of $4": {},
     "[safe++] $1": {},
-    "[safe++] [CurStep] of $6": {},
+    "[safe++] Len of NO. $2 [CondGroup] of $4": {},
+    "[safe++] Len of [CondGroup] of $4": {},
     "[safe--] $1": {},
     "[speak] $1 -\u003e $2": {},
     "[time] date -\u003e $1": {},

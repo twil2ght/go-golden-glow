@@ -4,7 +4,8 @@
       "commands": [
         "[safe++] hello world",
         "[safe++] hello world",
-        "[safe--] hello world"
+        "[safe--] hello world",
+        ""
       ]
     }
   ]

@@ -4,7 +4,10 @@ import (
 	"fmt"
 	"goldenglow/m"
 	"goldenglow/pkg/datagen"
+	"goldenglow/pkg/log"
 	"goldenglow/pkg/node/handler"
+	"goldenglow/pkg/registry"
+	"goldenglow/pkg/runner"
 	"goldenglow/pkg/variable"
 	"goldenglow/plugin"
 	"strconv"
@@ -23,10 +26,19 @@ const (
 	keyRight      = "right"
 	keyOperator   = "operator"
 	keyDist       = "dist"
+	keyCaller     = "caller"
 )
 
-type calculator struct{}
+type calculator struct {
+	cache registry.Interface[bool]
+}
 
+func (c *calculator) OnRegisterIdleHandler(mgr registry.Interface[runner.IdleHandler]) {
+	mgr.Register(name, func() bool {
+		c.Reset()
+		return true
+	})
+}
 func (c *calculator) OnRegisterChecker(reg handler.Executor[handler.CheckHandler]) {
 	reg.Handlers().Register(name, func(parameters handler.Parameters) bool {
 		left, err := parameters.Get(keyLeft)
@@ -77,8 +89,12 @@ func (c *calculator) OnRegisterExtractor(reg handler.Executor[handler.ExtractorH
 		if err != nil {
 			return nil
 		}
-
+		//if e, _ := c.cache.Get(expression); e {
+		//	return nil
+		//}
+		//c.cache.Register(expression, true)
 		result, err := c.calculate(expression)
+		log.Default().Debug("calculator", "expression", expression, "result", result)
 		if err != nil {
 			return nil
 		}
@@ -233,59 +249,65 @@ func lastBinaryOpOutsideParens(s, charset string) int {
 func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	provider.Add("compare_lt", datagen.NewData(
-		[]string{"[compute] check $1 < $2"},
-		[]string{"[compute] $1 < $2"},
+		[]string{"[compute] $4 @ check $1 < $2"},
+		[]string{"[compute] $4 @ $1 < $2"},
 		map[string]string{
 			keyLeft:     "$1",
 			keyRight:    "$2",
 			keyOperator: "<",
+			keyCaller:   "$4",
 		},
 		datagen.AsChecker,
 	))
 	provider.Add("compare_gt", datagen.NewData(
-		[]string{"[compute] check $1 > $2"},
-		[]string{"[compute] $1 > $2"},
+		[]string{"[compute] $4 @ check $1 > $2"},
+		[]string{"[compute] $4 @ $1 > $2"},
 		map[string]string{
 			keyLeft:     "$1",
 			keyRight:    "$2",
 			keyOperator: ">",
+			keyCaller:   "$4",
 		},
 		datagen.AsChecker,
 	))
 	provider.Add("compare_eq", datagen.NewData(
-		[]string{"[compute] check $1 = $2"},
-		[]string{"[compute] $1 = $2"},
+		[]string{"[compute] $4 @ check $1 = $2"},
+		[]string{"[compute] $4 @ $1 = $2"},
 		map[string]string{
 			keyLeft:     "$1",
 			keyRight:    "$2",
 			keyOperator: "=",
+			keyCaller:   "$4",
 		},
 		datagen.AsChecker,
 	))
 	provider.Add("plus", datagen.NewData(
-		[]string{"[compute] get $1 + $2"},
-		[]string{"[compute] $1 + $2 -> $3"},
+		[]string{"[compute] $4 @ get $1 + $2"},
+		[]string{"[compute] $4 @ $1 + $2 -> $3"},
 		map[string]string{
 			keyExpression: "$1+$2",
 			keyDist:       "$3",
+			keyCaller:     "$4",
 		},
 		datagen.AsExtractor,
 	))
 	provider.Add("sub", datagen.NewData(
-		[]string{"[compute] get $1 - $2"},
-		[]string{"[compute] $1 - $2 -> $3"},
+		[]string{"[compute] $4 @ get $1 - $2"},
+		[]string{"[compute] $4 @ $1 - $2 -> $3"},
 		map[string]string{
 			keyExpression: "$1-$2",
 			keyDist:       "$3",
+			keyCaller:     "$4",
 		},
 		datagen.AsExtractor,
 	))
 	provider.Add("multiply", datagen.NewData(
-		[]string{"[compute] get $1 * $2"},
-		[]string{"[compute] $1 * $2 -> $3"},
+		[]string{"[compute] $4 @ get $1 * $2"},
+		[]string{"[compute] $4 @ $1 * $2 -> $3"},
 		map[string]string{
 			keyExpression: "$1*$2",
 			keyDist:       "$3",
+			keyCaller:     "$4",
 		},
 		datagen.AsExtractor,
 	))
@@ -296,6 +318,10 @@ func (c *calculator) Init() {}
 
 func (c *calculator) Shutdown() {}
 
+func (c *calculator) Reset() {
+
+}
+
 func NewCalculator() plugin.Interface {
-	return &calculator{}
+	return &calculator{cache: registry.New[bool]()}
 }

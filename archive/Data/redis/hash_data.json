@@ -1,11 +1,1 @@
-{
-  "[CurStep] of hello Susie": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "step 1 of hello Susie": {
-    "hello golden glow": "0001-01-01T00:00:00Z"
-  },
-  "step 2 of hello Susie": {
-    "hello GoldenGlow": "0001-01-01T00:00:00Z"
-  }
-}
+{}

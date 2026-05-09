@@ -27,7 +27,9 @@ func main() {
 		//"archive/logic/engines/UserInterface/SafeCalculate.json",
 		//"archive/logic/engines/UserInterface/SafeCalculate_test.json",
 		//"archive/logic/engines/UserInterface/SetByStep.json",
-		"archive/logic/engines/UserInterface/SetByStep_test.json",
+		//"archive/logic/engines/UserInterface/SetByStep_test.json",
+		//"archive/logic/engines/UserInterface/CondGroup_Iterator.json",
+		"archive/logic/engines/UserInterface/CondGroup_Iterator_test.json",
 	)
 	//RunWithMsgMgr(
 	//
