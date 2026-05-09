@@ -2,13 +2,16 @@
   "data": [
     {
       "commands": [
-        "[repo] set No. 1 [Cond] -> Susie is happy",
+        "[repo] [SET] No. 1 [Cond] -> Susie is happy",
+        "[repo] [SET] No. 2 [Cond] -> Susie is cute",
+        "[repo] [SET] No. 3 [Cond] -> Susie is smart",
         "[repo] [Res] -> Susie is adorable",
         ""
       ],
       "demo": [
-        "[repo] set No. 2 [Cond] -> Susie is cute",
-        "[repo] set No. 3 [Cond] -> Susie is smart"
+        "[repo] [SET] No. 1 [Cond] -> Susie is happy",
+        "[repo] [SET] No. 2 [Cond] -> Susie is cute",
+        "[repo] [SET] No. 3 [Cond] -> Susie is smart"
       ]
     }
   ]

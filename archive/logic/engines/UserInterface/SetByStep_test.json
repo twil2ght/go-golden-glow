@@ -2,8 +2,8 @@
   "data": [
     {
       "commands": [
-        "[repo] SetByStep hello Susie -> hello golden glow",
-        "[repo] SetByStep hello Susie -> hello GoldenGlow"
+        "[repo] test @ [SetByStep] hello Susie -> hello golden glow",
+        "[repo] test @ [SetByStep] hello Susie -> hello GoldenGlow"
       ]
     }
   ]

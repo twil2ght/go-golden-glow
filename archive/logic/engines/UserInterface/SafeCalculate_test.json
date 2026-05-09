@@ -2,9 +2,9 @@
   "data": [
     {
       "commands": [
-        "[safe++] hello world",
-        "[safe++] hello world",
-        "[safe--] hello world",
+        "[safe++] test @ [GET] hello world",
+        "[safe++] test @ [GET] hello world",
+        "[safe--] test @ [GET] hello world",
         ""
       ]
     }

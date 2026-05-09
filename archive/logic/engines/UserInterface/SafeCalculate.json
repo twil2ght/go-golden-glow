@@ -1,60 +1,60 @@
 {
   "API": [
-    "[safe++] A",
-    "[safe--] A"
+    "[safe++] C @ [GET] A",
+    "[safe--] C @ [GET] A"
   ],
   "callback": [
-    "[repo] Latest A -> B"
+    "[repo] C @ [Latest] A -> B"
   ],
   "data": [
     {
       "description": "Safe++:main",
       "commands": [
-        "[input] [safe++] A",
-        "[input] [repo] A -> B",
-        "[input] [compute] A @ B + 1 -> B1",
-        "[output] [repo] SSet A -> B1",
-        "[output] [repo] Latest A -> B1"
-      ]
-    },
-    {
-      "description": "Safe++:init to 0",
-      "commands": [
-        "[input] [safe++] A",
-        "[input] [repo] A ->",
-        "[output] [repo] A -> 0"
+        "[input] [safe++] C @ [GET] A",
+        "[input] [repo] C @ A -> B",
+        "[input] [compute] C @ A @ B + 1 -> B1",
+        "[output] [repo] [SSET] A -> B1",
+        "[output] [repo] C @ [Latest] A -> B1"
       ]
     },
     {
       "description": "Safe++:gets",
       "commands": [
-        "[input] [safe++] A",
-        "[output] [repo] get A",
+        "[input] [safe++] C @ [GET] A",
+        "[output] [repo] C @ [GET] A",
 
-        "[input] [safe++] A",
-        "[input] [repo] A -> B",
-        "[output] [compute] A @ get B + 1"
+        "[input] [safe++] C @ [GET] A",
+        "[input] [repo] C @ A -> B",
+        "[output] [compute] C @ A @ [GET] B + 1"
       ]
     },
     {
       "description": "Safe--:main",
       "commands": [
-        "[input] [safe--] A",
-        "[input] [repo] A -> B",
-        "[input] [compute] A @ B - 1 -> B1",
-        "[output] [repo] SSet A -> B1",
-        "[output] [repo] Latest A -> B1"
+        "[input] [safe--] C @ [GET] A",
+        "[input] [repo] C @ A -> B",
+        "[input] [compute] C @ A @ B - 1 -> B1",
+        "[output] [repo] [SSET] A -> B1",
+        "[output] [repo] C @ [Latest] A -> B1"
       ]
     },
     {
       "description": "Safe--:gets",
       "commands": [
-        "[input] [safe--] A",
-        "[output] [repo] get A",
+        "[input] [safe--] C @ [GET] A",
+        "[output] [repo] C @ [GET] A",
 
-        "[input] [safe--] A",
-        "[input] [repo] A -> B",
-        "[output] [compute] A @ get B - 1"
+        "[input] [safe--] C @ [GET] A",
+        "[input] [repo] C @ A -> B",
+        "[output] [compute] C @ A @ [GET] B - 1"
+      ]
+    },
+    {
+      "description": "init to 0",
+      "commands": [
+        "[input] [safe++] C @ [GET] A",
+        "[input] [repo] A ->",
+        "[output] [repo] C @ A -> 0"
       ]
     }
   ]

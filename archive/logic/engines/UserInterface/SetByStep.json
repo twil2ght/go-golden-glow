@@ -3,22 +3,22 @@
   "dependencies": [
     "SafeCalculate"
   ],
-  "API": "[repo] SetByStep F -> A1",
+  "API": "[repo] C @ [SetByStep] F -> A1",
   "callback": [],
   "data": [
     {
       "description": "main router",
       "commands": [
-        "[input] [repo] SetByStep F -> A1",
-        "[input] [repo] Latest [CurStep] of F -> B",
-        "[output] [repo] set step B of F -> A1"
+        "[input] [repo] C @ [SetByStep] F -> A1",
+        "[input] [repo] C @ A1 @ [Latest] [CurStep] of F -> B",
+        "[output] [repo] [SET] step B of F -> A1"
       ]
     },
     {
       "description": "pre-checks",
       "commands": [
-        "[input] [repo] SetByStep F -> A1",
-        "[output] [safe++] [CurStep] of F"
+        "[input] [repo] C @ [SetByStep] F -> A1",
+        "[output] [safe++] C @ A1 @ [GET] [CurStep] of F"
       ]
     }
   ]
