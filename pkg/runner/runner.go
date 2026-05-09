@@ -38,7 +38,8 @@ type runner struct {
 	pending       *atomic.Uint64
 	traceMgr      registry.Interface[TraceHandler]
 	knotSeq       atomic.Uint64
-	knotParents   sync.Map // map[string]int — key "value\x00state" → parent knotSeq
+	knotParents   sync.Map      // map[string]int — key "value\x00state" → parent knotSeq
+	idleNotify    chan struct{} // signaled by workers when they finish and system appears idle
 }
 
 var logger = log.Default()
@@ -49,17 +50,20 @@ func (r *runner) Run(ctx context.Context) {
 	for i := 0; i < r.workerNum; i++ {
 		go r.worker(i)
 	}
-	go r.watchIdle(ctx, 5*time.Millisecond, 100*time.Millisecond)
+	go r.watchIdle(ctx, 100*time.Millisecond)
 
 	r.wg.Wait()
 }
-func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, timeout time.Duration) {
+func (r *runner) watchIdle(ctx context.Context, timeout time.Duration) {
 	defer r.wg.Done()
-	ticker := time.NewTicker(checkInterval)
-	defer ticker.Stop()
 
-	var idleStartTime time.Time
-	isIdle := false
+	timer := time.NewTimer(timeout)
+	timer.Stop()
+
+	// Kick-start: if system starts idle, start the debounce timer immediately.
+	if r.IsFinished() {
+		timer.Reset(timeout)
+	}
 
 	for {
 		select {
@@ -69,23 +73,21 @@ func (r *runner) watchIdle(ctx context.Context, checkInterval time.Duration, tim
 		case <-r.stopChan:
 			r.knotQueue.Shutdown()
 			return
-		case <-ticker.C:
-			// Check if channel is empty
+		case <-r.idleNotify:
+			// A worker finished and the system might be idle.
 			if r.IsFinished() {
-				if !isIdle {
-					// Just became idle
-					isIdle = true
-					idleStartTime = time.Now()
+				if !timer.Stop() {
+					select {
+					case <-timer.C:
+					default:
+					}
 				}
-
-				// Check if idle time has exceeded threshold
-				if time.Since(idleStartTime) > timeout {
-					r.onIdle()
-					isIdle = false
-				}
-			} else {
-				// Channel is not empty, reset idle state
-				isIdle = false
+				timer.Reset(timeout)
+			}
+		case <-timer.C:
+			// Debounce elapsed; if still idle, trigger the next input cycle.
+			if r.IsFinished() {
+				r.onIdle()
 			}
 		}
 	}
@@ -114,17 +116,23 @@ func (r *runner) worker(_ int) {
 	defer r.wg.Done()
 	for {
 		e, shutdown := r.knotQueue.Get()
-		if !shutdown {
-			r.pending.Add(1)
-			func() {
-				defer r.pending.Add(^uint64(0))
-				if err := r.handler(e); err != nil {
-					logger.Error("runner", "handler", err)
-				}
-			}()
-		} else {
+		if shutdown {
 			return
 		}
+		r.pending.Add(1)
+		func() {
+			defer func() {
+				if r.pending.Add(^uint64(0)) == 0 && r.knotQueue.Len() == 0 {
+					select {
+					case r.idleNotify <- struct{}{}:
+					default:
+					}
+				}
+			}()
+			if err := r.handler(e); err != nil {
+				logger.Error("runner", "handler", err)
+			}
+		}()
 	}
 }
 func (r *runner) handler(k knot.Interface) error {
@@ -262,6 +270,7 @@ func New(workNum int, externalQueue Queue[string], nodeFactory node.Factory) Run
 		nodeFactory:   nodeFactory,
 		pending:       new(atomic.Uint64),
 		traceMgr:      DefaultTraceManager,
+		idleNotify:    make(chan struct{}, 1),
 	}
 }
 func printContainer(T, R m.Map[node.Interface]) {

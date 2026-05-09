@@ -40,7 +40,7 @@
       "description": "checks",
       "commands": [
         "[input] [repo] [Res] -> D",
-        "[output] [safe++] [GET] Len of [CondGroup] of D @Caller [Res]",
+        "[output] [safe++] Len of [CondGroup] of D @Caller [Res]",
 
         "[input] [repo] [Res] -> D",
         "[input] [repo] [Res] @ [Latest] Len of [CondGroup] of D -> B",

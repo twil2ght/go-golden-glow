@@ -13,7 +13,7 @@
     {
       "description": "compat",
       "commands": [
-        "[repo] set Then what? D should A -> [I Do] D should A"
+        "[repo] [SET] Then what? D should A -> [I Do] D should A"
       ]
     }
   ]

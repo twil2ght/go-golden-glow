@@ -60,7 +60,7 @@
         "[input] [repo] grammar usage of D -> an object",
         "[input] [repo] the phrase B -> O+OC",
         "[input] [repo] O of the phrase B -> C",
-        "[output] [repo] get how should D A B"
+        "[output] [repo] [GET] how should D A B"
       ]
     }
   ]

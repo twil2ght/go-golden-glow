@@ -1,5 +1,8 @@
 {
   "description": "CondGroup:Simple",
+  "dependencies": [
+    "SafeCalculate"
+  ],
   "data": [
     {
       "commands": [
@@ -7,7 +10,7 @@
         "[input] [repo] [Res] -> D",
         "[input] [repo] Latest Len of [CondGroup] of D -> B",
         "[output] [repo] [safe++] Len of NO. B [CondGroup] of D",
-        "[output] [repo] set Then what? A -> [safe--] Count of NO. B [CondGroup] of D"
+        "[output] [repo] [SET] Then what? A -> [safe--] Count of NO. B [CondGroup] of D"
       ]
     },
     {
@@ -15,7 +18,7 @@
       "commands": [
         "[input] [repo] [Res] -> D",
         "[output] [safe++] Len of [CondGroup] of D",
-        "[output] [repo] fetch [Cond]"
+        "[output] [repo] [GET] [Cond]"
       ]
     }
   ]

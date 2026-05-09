@@ -15,7 +15,7 @@
       "description": "initialize the iterator:pre-checks",
       "commands": [
         "[input] D should A",
-        "[output] [repo] get step 1 of how should D A"
+        "[output] [repo] [GET] step 1 of how should D A"
       ]
     },
     {
@@ -23,7 +23,7 @@
       "commands": [
         "[input] D should A",
         "[input] [repo] state of step B of how should D A -> done",
-        "[input] [calculate] B + 1 -> B1",
+        "[input] [compute] B + 1 -> B1",
         "[input] [repo] step B1 of how should D A -> E",
         "[output] D should E"
       ]
@@ -33,7 +33,7 @@
       "commands": [
         "[input] D should A",
         "[input] [repo] state of step B of how should D A -> done",
-        "[output] [calculate] B + 1"
+        "[output] [compute] B + 1"
       ]
     },
     {
@@ -41,8 +41,8 @@
       "commands": [
         "[input] D should A",
         "[input] [repo] state of step B of how should D A -> done",
-        "[input] [calculate] B + 1 -> B1",
-        "[output] [repo] get step B1 of how should D A"
+        "[input] [compute] B + 1 -> B1",
+        "[output] [repo] [GET] step B1 of how should D A"
       ]
     },
     {

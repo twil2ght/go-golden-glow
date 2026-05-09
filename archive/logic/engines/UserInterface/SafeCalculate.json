@@ -12,7 +12,7 @@
       "commands": [
         "[safe++] A @Caller C",
         "[input] [repo] C @ A -> B",
-        "[input] [compute] C @ A @ B + 1 -> B1",
+        "[input] [compute] C @ B + 1 -> B1",
         "[output] [repo] [SSET] A -> B1",
         "[output] [repo] C @ [Latest] A -> B1"
       ]
@@ -33,7 +33,7 @@
       "commands": [
         "[safe--] A @Caller C",
         "[input] [repo] C @ A -> B",
-        "[input] [compute] C @ A @ B - 1 -> B1",
+        "[input] [compute] C @ B - 1 -> B1",
         "[output] [repo] [SSET] A -> B1",
         "[output] [repo] C @ [Latest] A -> B1"
       ]

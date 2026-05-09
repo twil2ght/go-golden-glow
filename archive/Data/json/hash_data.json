@@ -2,47 +2,53 @@
   "C-\u003eR:0052ff78c0b147407c8dbe115c3df5e3": {
     "[phrase] IndexOf $1 # $3 -\u003e $2": {}
   },
-  "C-\u003eR:0390e1d296cba2fefa25a3e0cfaa69b9": {
-    "[compute] $4 @ $1 \u003e $2": {}
-  },
   "C-\u003eR:07dbc119b34346b1190ccb9fc7d2e5fe": {
     "[time] date -\u003e $1": {}
   },
   "C-\u003eR:07e8e9f1edc60f65cb5f6c0e0954d185": {
     "[node:executor] [namespace:repo_addon] [key:$1] [singleValue:true] [value:$2]": {}
   },
-  "C-\u003eR:089e5d78b92a368a81b33cd31915918a": {
-    "[safe++] No. 1 [Cond] @ [GET] Len of NO. $2 [CondGroup] of $4": {}
+  "C-\u003eR:080cc852d9bd9d887e147114c9b11857": {
+    "[repo] [GET] No. $10 [Cond] @Caller No. $6 [Cond]": {}
   },
-  "C-\u003eR:0fe5e8adfe26de99125e63b7d94d4e3c": {
+  "C-\u003eR:0ba40e89e011b74c21b6b9bf90bfe652": {
+    "[compute] [GET] $2 + 1 @Caller $3": {}
+  },
+  "C-\u003eR:0c75e6cf42b28b41b6e2a915ecd308ef": {
     "[repo] [SSET] $1 -\u003e $9": {}
   },
-  "C-\u003eR:1237b3600a00fd73a9968d2889417c78": {
-    "[repo] $3 @ [GET] $1": {}
+  "C-\u003eR:0dee4c2863ec3beab77a53da973c3695": {
+    "[compute] [GET] $2 - 1 @Caller $3": {}
+  },
+  "C-\u003eR:1068ebe9b483c1ae294a894059a2f79d": {
+    "[safe++] Len of NO. $2 [CondGroup] of $4 @Caller No. 1 [Cond]": {}
+  },
+  "C-\u003eR:106e1868c223f953ef1f1245ddfff1bc": {
+    "[repo] [GET] $1 @Caller $3": {}
+  },
+  "C-\u003eR:13089232f7904a4d1ca6fb4ee24845de": {
+    "[repo] [GET] $1 @Caller $3": {}
+  },
+  "C-\u003eR:1355649bb943ea2c4de0983906df2d0c": {
+    "[repo] $3 @ [Latest] $1 -\u003e $9": {}
   },
   "C-\u003eR:17c5c05153eeed9af7398f9357c159cd": {
     "[node:executor] [namespace:repo_addon] [key:$1] [value:$2]": {}
   },
-  "C-\u003eR:218bdb9d6297424f71e11b16af8042ef": {
-    "[compute] No. $6 [Cond] @ [GET] $6 - 1": {}
+  "C-\u003eR:1d2488cf410599ab6dcd407aacbeed72": {
+    "[repo] $4 @ $1 -\u003e $2": {}
+  },
+  "C-\u003eR:1dde910cccc6dcf67c0fd19c75ec3413": {
+    "[compute] $4 @ $1 = $2": {}
   },
   "C-\u003eR:21f0ddf9ab70dc595d4ed9fa8dc38149": {
     "[time] time -\u003e $1": {}
   },
-  "C-\u003eR:2af13cdeddf38cfe50057bcd74ff1454": {
-    "[safe++] $4 @ [GET] Len of [CondGroup] of $4": {}
-  },
-  "C-\u003eR:2d414dbebe6d8775ebbb5b265390fe60": {
-    "[compute] $4 @ $1 * $2 -\u003e $3": {}
-  },
   "C-\u003eR:2dbcaeae947728d09b97a39fc57d3e86": {
     "Susie is enabled to ask Zero questions": {}
   },
-  "C-\u003eR:31c17fcad08944edc43ad9f78d9ba95b": {
+  "C-\u003eR:3d6ac7f77429b0b06cf3a35a1933b1a3": {
     "[repo] [SET] [Then] $1 -\u003e [safe--] $1 @ [GET] Count of NO. $2 [CondGroup] of $4": {}
-  },
-  "C-\u003eR:3d9dcd9aae4e9bce6503773ccf4aa398": {
-    "[repo] [GET] No. 1 [Cond]": {}
   },
   "C-\u003eR:4012989653df59b1e69633f4d0f2f3b3": {
     "[repo] $1 !-\u003e $2": {}
@@ -50,8 +56,8 @@
   "C-\u003eR:4211cd42e6de25aae3b8a55eb48ed310": {
     "[node:executor] [namespace:speaker] [response:$1] [to:$2]": {}
   },
-  "C-\u003eR:42650472015a18b21e9661b143927b6a": {
-    "[compute] $3 @ $1 @ [GET] $2 + 1": {}
+  "C-\u003eR:47a8c3031af9e7eb9d41968a56bbe1c8": {
+    "[repo] [GET] No. 1 [Cond] @Caller [Res]": {}
   },
   "C-\u003eR:4b065921275a09849498885b27fdb4f2": {
     "[phrase] len $1 -\u003e $2": {}
@@ -62,9 +68,6 @@
   "C-\u003eR:4f95988a047b968585bc0e04a4bf2b29": {
     "[time] minute -\u003e $1": {}
   },
-  "C-\u003eR:595623073b46675f5db37c44fe7c3210": {
-    "[compute] $4 @ $1 = $2": {}
-  },
   "C-\u003eR:5a8e9cb9ddb38b3dfd883141586fc661": {
     "[phrase] $1 @ $3 -\u003e $2": {}
   },
@@ -74,26 +77,26 @@
   "C-\u003eR:5d0456c6913730fc25a4e549b42afd40": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {}
   },
+  "C-\u003eR:61a71035a5283325f0a3c42d50df4255": {
+    "[compute] [GET] $6 + 1 @Caller No. $6 [Cond]": {}
+  },
+  "C-\u003eR:651dc3736c1acac15564912dbf0cb3b1": {
+    "[compute] $4 @ $1 \u003c $2": {}
+  },
   "C-\u003eR:6807ffda5e5e877c4cf37e1419976952": {
     "[phrase] LastN $1 # $3 -\u003e $2": {}
   },
-  "C-\u003eR:688342182a0415c6ebabd8776cbe6f34": {
-    "[repo] $3 @ [Latest] $1 -\u003e $9": {}
-  },
-  "C-\u003eR:6bf5503726d0baa524955349842ce178": {
-    "[repo] [SSET] $1 -\u003e $9": {}
-  },
-  "C-\u003eR:6c8c2735d03fb7c6f314e8879cc320fc": {
-    "[repo] [SET] [Then] $1 -\u003e [safe--] $1 @ [GET] Count of NO. $2 [CondGroup] of $4": {}
+  "C-\u003eR:6c5f6e667e97cd13f8610dd8893142a9": {
+    "[repo] $4 @ $1 -\u003e": {}
   },
   "C-\u003eR:6e331162f3bedf49b9c6eef91d9ebeaf": {
     "[word] HasPrefix $1 # $2": {}
   },
-  "C-\u003eR:7034b48b483289023760f40750af9118": {
-    "[compute] $4 @ $1 \u003c $2": {}
-  },
   "C-\u003eR:7073028023f03dd92ef5d6538e09b900": {
     "[node:executor] [namespace:safeTeach] [key:$1] [value:$2]": {}
+  },
+  "C-\u003eR:77204f66ffb109f0bcbe186f2d86f370": {
+    "[compute] $4 @ $1 * $2 -\u003e $3": {}
   },
   "C-\u003eR:77d81a66df35de5244f85610b1322171": {
     "[word] len $1 -\u003e $2": {}
@@ -110,44 +113,47 @@
   "C-\u003eR:9a806a0c5796ddae6797186bf63b9f30": {
     "[phrase] HasPrefix $1 # $2": {}
   },
+  "C-\u003eR:9b86f843bd41426e726c5ae8e759ecbc": {
+    "[repo] [SSET] $1 -\u003e $9": {}
+  },
   "C-\u003eR:a45c4a339de31718a5ac29096a14f8dd": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {}
   },
   "C-\u003eR:a55d3adc6e3b60b3044890b0d0ae2400": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
   },
-  "C-\u003eR:a7a70d5b6b862db6b7eea764e0fdd613": {
-    "[repo] $4 @ $1 -\u003e $2": {}
+  "C-\u003eR:a9435ac0e06655eccf0f663ef34d774c": {
+    "[repo] $3 @ $1 -\u003e 0": {}
   },
-  "C-\u003eR:ab0a2c10eb92a43122af7a23d82d543f": {
-    "[repo] [GET] No. $10 [Cond]": {}
+  "C-\u003eR:a9b48f7466eea0d1bd663c3b5360e58d": {
+    "[repo] [SET] [Then] $1 -\u003e [safe--] $1 @ [GET] Count of NO. $2 [CondGroup] of $4": {}
   },
-  "C-\u003eR:ac66cedaa6342afb5666f234ea1f980d": {
-    "[repo] $3 @ [GET] $1": {}
-  },
-  "C-\u003eR:ad446802c986e5c8ad8b27da3e01909b": {
-    "[compute] $3 @ $1 @ [GET] $2 - 1": {}
-  },
-  "C-\u003eR:aea5c609ead8deb6c3e0328be367e621": {
+  "C-\u003eR:b544aaa05f90c1ec33834a507fb6d1bd": {
     "[compute] $4 @ $1 + $2 -\u003e $3": {}
   },
   "C-\u003eR:bb90a9175bbdc580deaaeb9099f1d045": {
     "[word] AddPrefix $1 # $2 -\u003e $3": {}
   },
-  "C-\u003eR:c6e30e992ef81cb1f20198ad1fdf20b5": {
-    "[repo] $3 @ [Latest] $1 -\u003e $9": {}
-  },
-  "C-\u003eR:ca64b667b47523531a455fdc66468e96": {
-    "[repo] $3 @ $1 -\u003e 0": {}
+  "C-\u003eR:c96fe79ebe0b798c7949c231071d861a": {
+    "[safe++] [GET] Len of [CondGroup] of $4 @Caller [Res]": {}
   },
   "C-\u003eR:cd8f2688e76832f143bfea08b9827d49": {
     "[word] $1 @ $3 -\u003e $2": {}
   },
-  "C-\u003eR:d709d60d6cc58adede784ca0f120dd35": {
-    "[safe++] No. $6 [Cond] @ [GET] Len of NO. $2 [CondGroup] of $4": {}
+  "C-\u003eR:d204894a9d3b9a20405625bba85026e6": {
+    "[repo] $3 @ [Latest] $1 -\u003e $9": {}
+  },
+  "C-\u003eR:d78ab5fe239b7199c631ab3af4695d96": {
+    "[compute] $4 @ $1 - $2 -\u003e $3": {}
   },
   "C-\u003eR:d8a215f5225078c6ff479380817e876c": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
+  },
+  "C-\u003eR:dca2ba6203001bb5c31db43329ebd1f9": {
+    "[safe++] [GET] Len of NO. $2 [CondGroup] of $4 @Caller No. $6 [Cond]": {}
+  },
+  "C-\u003eR:df9bd5fe14eb172fae670fbb73a6c94f": {
+    "[compute] $4 @ $1 \u003e $2": {}
   },
   "C-\u003eR:e8f7f1898b439394234560532dda0c1b": {
     "[time] hour -\u003e $1": {}
@@ -158,25 +164,12 @@
   "C-\u003eR:edf664d274ba305d6713f28a465daa17": {
     "[word] IndexOf $3 # $1 -\u003e $2": {}
   },
-  "C-\u003eR:f0166b5a7a0504e88301fad5b82789db": {
-    "[compute] $4 @ $1 - $2 -\u003e $3": {}
-  },
   "C-\u003eR:f3cef697e21036703c663acc953824a3": {
     "[word] HasSuffix $1 # $2": {}
-  },
-  "C-\u003eR:f95dd3a46df82058642aea78d02ac765": {
-    "[compute] No. $6 [Cond] @ [GET] $6 + 1": {}
-  },
-  "C-\u003eR:fdd22c349d4dda4003ad97a9a53c1448": {
-    "[repo] $4 @ $1 -\u003e": {}
   },
   "C-\u003eT:0052ff78c0b147407c8dbe115c3df5e3": {
     "[node:extractor] [namespace:word] [dist:$2] [mode:index_of] [phrase:$1] [target:$3]": {},
     "[phrase] IndexOf $1 # $3": {}
-  },
-  "C-\u003eT:0390e1d296cba2fefa25a3e0cfaa69b9": {
-    "[compute] $4 @ [CHECK] $1 \u003e $2": {},
-    "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003e] [right:$2]": {}
   },
   "C-\u003eT:07dbc119b34346b1190ccb9fc7d2e5fe": {
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:date]": {},
@@ -185,50 +178,60 @@
   "C-\u003eT:07e8e9f1edc60f65cb5f6c0e0954d185": {
     "[repo] [SSET] $1 -\u003e $2": {}
   },
-  "C-\u003eT:089e5d78b92a368a81b33cd31915918a": {
-    "[repo] $4 @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {},
-    "[repo] No. 1 [Cond] -\u003e $1": {},
+  "C-\u003eT:080cc852d9bd9d887e147114c9b11857": {
+    "[compute] No. $6 [Cond] @ $6 + 1 -\u003e $10": {},
+    "[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {},
     "[repo] [Res] -\u003e $4": {}
   },
-  "C-\u003eT:0fe5e8adfe26de99125e63b7d94d4e3c": {
-    "[compute] $3 @ $1 @ $2 - 1 -\u003e $9": {},
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe--] $3 @ [GET] $1": {}
+  "C-\u003eT:0ba40e89e011b74c21b6b9bf90bfe652": {
+    "[repo] $3 @ $1 -\u003e $2": {}
   },
-  "C-\u003eT:1237b3600a00fd73a9968d2889417c78": {
-    "[safe++] $3 @ [GET] $1": {}
+  "C-\u003eT:0c75e6cf42b28b41b6e2a915ecd308ef": {
+    "[compute] $3 @ $1 @ $2 - 1 -\u003e $9": {},
+    "[repo] $3 @ $1 -\u003e $2": {}
+  },
+  "C-\u003eT:0dee4c2863ec3beab77a53da973c3695": {
+    "[repo] $3 @ $1 -\u003e $2": {}
+  },
+  "C-\u003eT:1068ebe9b483c1ae294a894059a2f79d": {
+    "[repo] [Res] -\u003e $4": {},
+    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {},
+    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {}
+  },
+  "C-\u003eT:106e1868c223f953ef1f1245ddfff1bc": {
+    "[compute] $3 @ $1 @ $2 + 1 -\u003e $9": {},
+    "[repo] $3 @ $1 -\u003e $2": {}
+  },
+  "C-\u003eT:13089232f7904a4d1ca6fb4ee24845de": {
+    "[compute] $3 @ $1 @ $2 - 1 -\u003e $9": {},
+    "[repo] $3 @ $1 -\u003e $2": {}
+  },
+  "C-\u003eT:1355649bb943ea2c4de0983906df2d0c": {
+    "[compute] $3 @ $1 @ $2 - 1 -\u003e $9": {},
+    "[repo] $3 @ $1 -\u003e $2": {}
   },
   "C-\u003eT:17c5c05153eeed9af7398f9357c159cd": {
     "[repo] [SET] $1 -\u003e $2": {}
   },
-  "C-\u003eT:218bdb9d6297424f71e11b16af8042ef": {
-    "[repo] No. $6 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
+  "C-\u003eT:1d2488cf410599ab6dcd407aacbeed72": {
+    "[node:extractor] [namespace:repo_addon] [dist:$2] [key:$1]": {},
+    "[repo] [GET] $1 @Caller $4": {}
+  },
+  "C-\u003eT:1dde910cccc6dcf67c0fd19c75ec3413": {
+    "[compute] [CHECK] $1 = $2 @Caller $4": {},
+    "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:=] [right:$2]": {}
   },
   "C-\u003eT:21f0ddf9ab70dc595d4ed9fa8dc38149": {
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:time]": {},
     "[time] get time": {}
   },
-  "C-\u003eT:2af13cdeddf38cfe50057bcd74ff1454": {
-    "[repo] [Res] -\u003e $4": {}
-  },
-  "C-\u003eT:2d414dbebe6d8775ebbb5b265390fe60": {
-    "[compute] $4 @ [GET] $1 * $2": {},
-    "[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1*$2]": {}
-  },
   "C-\u003eT:2dbcaeae947728d09b97a39fc57d3e86": {
     "[node:checker] [namespace:safeTeach] [key:ask]": {},
     "check [ask]": {}
   },
-  "C-\u003eT:31c17fcad08944edc43ad9f78d9ba95b": {
-    "[compute] No. $6 [Cond] @ $6 - 1 -\u003e $10": {},
-    "[repo] No. $10 [Cond] @ [Latest] Len of NO. $2 [CondGroup] of $4 -\u003e $9": {},
-    "[repo] No. $6 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
-  },
-  "C-\u003eT:3d9dcd9aae4e9bce6503773ccf4aa398": {
-    "[repo] $4 @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {},
-    "[repo] [Res] -\u003e $4": {}
+  "C-\u003eT:3d6ac7f77429b0b06cf3a35a1933b1a3": {
+    "[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {},
+    "[repo] No. $10 [Cond] @ [Latest] Len of NO. $2 [CondGroup] of $4 -\u003e $9": {}
   },
   "C-\u003eT:4012989653df59b1e69633f4d0f2f3b3": {
     "[node:checker] [namespace:repo_addon_fail] [key:$1] [value:$2]": {},
@@ -237,9 +240,9 @@
   "C-\u003eT:4211cd42e6de25aae3b8a55eb48ed310": {
     "[speak] $1 -\u003e $2": {}
   },
-  "C-\u003eT:42650472015a18b21e9661b143927b6a": {
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe++] $3 @ [GET] $1": {}
+  "C-\u003eT:47a8c3031af9e7eb9d41968a56bbe1c8": {
+    "[repo] [Res] -\u003e $4": {},
+    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {}
   },
   "C-\u003eT:4b065921275a09849498885b27fdb4f2": {
     "[node:extractor] [namespace:word] [dist:$2] [mode:length] [phrase:$1]": {},
@@ -253,10 +256,6 @@
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:minute]": {},
     "[time] get minute": {}
   },
-  "C-\u003eT:595623073b46675f5db37c44fe7c3210": {
-    "[compute] $4 @ [CHECK] $1 = $2": {},
-    "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:=] [right:$2]": {}
-  },
   "C-\u003eT:5a8e9cb9ddb38b3dfd883141586fc661": {
     "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:word_at] [phrase:$1]": {},
     "[phrase] get $1 @ $3": {}
@@ -268,35 +267,32 @@
   "C-\u003eT:5d0456c6913730fc25a4e549b42afd40": {
     "[output] $1": {}
   },
+  "C-\u003eT:61a71035a5283325f0a3c42d50df4255": {
+    "[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {},
+    "[repo] [Res] -\u003e $4": {}
+  },
+  "C-\u003eT:651dc3736c1acac15564912dbf0cb3b1": {
+    "[compute] [CHECK] $1 \u003c $2 @Caller $4": {},
+    "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003c] [right:$2]": {}
+  },
   "C-\u003eT:6807ffda5e5e877c4cf37e1419976952": {
     "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_head] [phrase:$1]": {},
     "[phrase] LastN $1 # $3": {}
   },
-  "C-\u003eT:688342182a0415c6ebabd8776cbe6f34": {
-    "[compute] $3 @ $1 @ $2 + 1 -\u003e $9": {},
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe++] $3 @ [GET] $1": {}
-  },
-  "C-\u003eT:6bf5503726d0baa524955349842ce178": {
-    "[compute] $3 @ $1 @ $2 + 1 -\u003e $9": {},
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe++] $3 @ [GET] $1": {}
-  },
-  "C-\u003eT:6c8c2735d03fb7c6f314e8879cc320fc": {
-    "[repo] $4 @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {},
-    "[repo] No. 1 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
+  "C-\u003eT:6c5f6e667e97cd13f8610dd8893142a9": {
+    "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
+    "[repo] [GET] $1 @Caller $4": {}
   },
   "C-\u003eT:6e331162f3bedf49b9c6eef91d9ebeaf": {
     "[node:checker] [namespace:word] [mode:starts_with] [target:$2] [word:$1]": {},
     "[word] check HasPrefix $1 # $2": {}
   },
-  "C-\u003eT:7034b48b483289023760f40750af9118": {
-    "[compute] $4 @ [CHECK] $1 \u003c $2": {},
-    "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003c] [right:$2]": {}
-  },
   "C-\u003eT:7073028023f03dd92ef5d6538e09b900": {
     "[ST] $1 -\u003e $2": {}
+  },
+  "C-\u003eT:77204f66ffb109f0bcbe186f2d86f370": {
+    "[compute] [GET] $1 * $2 @Caller $4": {},
+    "[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1*$2]": {}
   },
   "C-\u003eT:77d81a66df35de5244f85610b1322171": {
     "[node:extractor] [namespace:word] [dist:$2] [mode:char_length] [word:$1]": {},
@@ -318,57 +314,57 @@
     "[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {},
     "[phrase] check HasPrefix $1 # $2": {}
   },
+  "C-\u003eT:9b86f843bd41426e726c5ae8e759ecbc": {
+    "[compute] $3 @ $1 @ $2 + 1 -\u003e $9": {},
+    "[repo] $3 @ $1 -\u003e $2": {}
+  },
   "C-\u003eT:a45c4a339de31718a5ac29096a14f8dd": {
     "Zero says to Susie : [output] $1": {}
   },
   "C-\u003eT:a55d3adc6e3b60b3044890b0d0ae2400": {
     "Zero says to Susie : [input] $1": {}
   },
-  "C-\u003eT:a7a70d5b6b862db6b7eea764e0fdd613": {
-    "[node:extractor] [namespace:repo_addon] [dist:$2] [key:$1]": {},
-    "[repo] $4 @ [GET] $1": {}
+  "C-\u003eT:a9435ac0e06655eccf0f663ef34d774c": {
+    "[repo] $3 @ $1 -\u003e": {}
   },
-  "C-\u003eT:ab0a2c10eb92a43122af7a23d82d543f": {
-    "[compute] No. $6 [Cond] @ $6 + 1 -\u003e $10": {},
-    "[repo] No. $6 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
+  "C-\u003eT:a9b48f7466eea0d1bd663c3b5360e58d": {
+    "[repo] [Res] -\u003e $4": {},
+    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {},
+    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {}
   },
-  "C-\u003eT:ac66cedaa6342afb5666f234ea1f980d": {
-    "[safe--] $3 @ [GET] $1": {}
-  },
-  "C-\u003eT:ad446802c986e5c8ad8b27da3e01909b": {
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe--] $3 @ [GET] $1": {}
-  },
-  "C-\u003eT:aea5c609ead8deb6c3e0328be367e621": {
-    "[compute] $4 @ [GET] $1 + $2": {},
+  "C-\u003eT:b544aaa05f90c1ec33834a507fb6d1bd": {
+    "[compute] [GET] $1 + $2 @Caller $4": {},
     "[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1+$2]": {}
   },
   "C-\u003eT:bb90a9175bbdc580deaaeb9099f1d045": {
     "[node:extractor] [namespace:word] [dist:$3] [mode:add_prefix] [prefix:$2] [word:$1]": {},
     "[word] AddPrefix $1 # $2": {}
   },
-  "C-\u003eT:c6e30e992ef81cb1f20198ad1fdf20b5": {
-    "[compute] $3 @ $1 @ $2 - 1 -\u003e $9": {},
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe--] $3 @ [GET] $1": {}
-  },
-  "C-\u003eT:ca64b667b47523531a455fdc66468e96": {
-    "[repo] $3 @ $1 -\u003e": {},
-    "[safe++] $3 @ [GET] $1": {}
+  "C-\u003eT:c96fe79ebe0b798c7949c231071d861a": {
+    "[repo] [Res] -\u003e $4": {}
   },
   "C-\u003eT:cd8f2688e76832f143bfea08b9827d49": {
     "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:char_at] [word:$1]": {},
     "[word] get $1 @ $3": {}
   },
-  "C-\u003eT:d709d60d6cc58adede784ca0f120dd35": {
-    "[compute] No. $6 [Cond] @ $6 - 1 -\u003e $10": {},
-    "[repo] No. $10 [Cond] @ [Latest] Len of NO. $2 [CondGroup] of $4 -\u003e $9": {},
-    "[repo] No. $6 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
+  "C-\u003eT:d204894a9d3b9a20405625bba85026e6": {
+    "[compute] $3 @ $1 @ $2 + 1 -\u003e $9": {},
+    "[repo] $3 @ $1 -\u003e $2": {}
+  },
+  "C-\u003eT:d78ab5fe239b7199c631ab3af4695d96": {
+    "[compute] [GET] $1 - $2 @Caller $4": {},
+    "[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1-$2]": {}
   },
   "C-\u003eT:d8a215f5225078c6ff479380817e876c": {
     "[input] $1": {}
+  },
+  "C-\u003eT:dca2ba6203001bb5c31db43329ebd1f9": {
+    "[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {},
+    "[repo] No. $10 [Cond] @ [Latest] Len of NO. $2 [CondGroup] of $4 -\u003e $9": {}
+  },
+  "C-\u003eT:df9bd5fe14eb172fae670fbb73a6c94f": {
+    "[compute] [CHECK] $1 \u003e $2 @Caller $4": {},
+    "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003e] [right:$2]": {}
   },
   "C-\u003eT:e8f7f1898b439394234560532dda0c1b": {
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:hour]": {},
@@ -382,21 +378,9 @@
     "[node:extractor] [namespace:word] [dist:$2] [mode:char_index_of] [target:$3] [word:$1]": {},
     "[word] IndexOf $1 # $3": {}
   },
-  "C-\u003eT:f0166b5a7a0504e88301fad5b82789db": {
-    "[compute] $4 @ [GET] $1 - $2": {},
-    "[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1-$2]": {}
-  },
   "C-\u003eT:f3cef697e21036703c663acc953824a3": {
     "[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {},
     "[word] check HasSuffix $1 # $2": {}
-  },
-  "C-\u003eT:f95dd3a46df82058642aea78d02ac765": {
-    "[repo] No. $6 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
-  },
-  "C-\u003eT:fdd22c349d4dda4003ad97a9a53c1448": {
-    "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
-    "[repo] $4 @ [GET] $1": {}
   },
   "R-\u003eC:Susie is enabled to ask Zero questions": {
     "2dbcaeae947728d09b97a39fc57d3e86": {}
@@ -404,35 +388,32 @@
   "R-\u003eC:Zero starts to teach Susie": {
     "4eaa3832b110e55513564eb72af91d35": {}
   },
-  "R-\u003eC:[compute] $3 @ $1 @ [GET] $2 + 1": {
-    "42650472015a18b21e9661b143927b6a": {}
-  },
-  "R-\u003eC:[compute] $3 @ $1 @ [GET] $2 - 1": {
-    "ad446802c986e5c8ad8b27da3e01909b": {}
-  },
   "R-\u003eC:[compute] $4 @ $1 * $2 -\u003e $3": {
-    "2d414dbebe6d8775ebbb5b265390fe60": {}
+    "77204f66ffb109f0bcbe186f2d86f370": {}
   },
   "R-\u003eC:[compute] $4 @ $1 + $2 -\u003e $3": {
-    "aea5c609ead8deb6c3e0328be367e621": {}
+    "b544aaa05f90c1ec33834a507fb6d1bd": {}
   },
   "R-\u003eC:[compute] $4 @ $1 - $2 -\u003e $3": {
-    "f0166b5a7a0504e88301fad5b82789db": {}
+    "d78ab5fe239b7199c631ab3af4695d96": {}
   },
   "R-\u003eC:[compute] $4 @ $1 \u003c $2": {
-    "7034b48b483289023760f40750af9118": {}
+    "651dc3736c1acac15564912dbf0cb3b1": {}
   },
   "R-\u003eC:[compute] $4 @ $1 = $2": {
-    "595623073b46675f5db37c44fe7c3210": {}
+    "1dde910cccc6dcf67c0fd19c75ec3413": {}
   },
   "R-\u003eC:[compute] $4 @ $1 \u003e $2": {
-    "0390e1d296cba2fefa25a3e0cfaa69b9": {}
+    "df9bd5fe14eb172fae670fbb73a6c94f": {}
   },
-  "R-\u003eC:[compute] No. $6 [Cond] @ [GET] $6 + 1": {
-    "f95dd3a46df82058642aea78d02ac765": {}
+  "R-\u003eC:[compute] [GET] $2 + 1 @Caller $3": {
+    "0ba40e89e011b74c21b6b9bf90bfe652": {}
   },
-  "R-\u003eC:[compute] No. $6 [Cond] @ [GET] $6 - 1": {
-    "218bdb9d6297424f71e11b16af8042ef": {}
+  "R-\u003eC:[compute] [GET] $2 - 1 @Caller $3": {
+    "0dee4c2863ec3beab77a53da973c3695": {}
+  },
+  "R-\u003eC:[compute] [GET] $6 + 1 @Caller No. $6 [Cond]": {
+    "61a71035a5283325f0a3c42d50df4255": {}
   },
   "R-\u003eC:[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {
     "a55d3adc6e3b60b3044890b0d0ae2400": {},
@@ -483,44 +464,44 @@
     "eb6e737441004cd27d059f129f8c6c0b": {}
   },
   "R-\u003eC:[repo] $3 @ $1 -\u003e 0": {
-    "ca64b667b47523531a455fdc66468e96": {}
-  },
-  "R-\u003eC:[repo] $3 @ [GET] $1": {
-    "1237b3600a00fd73a9968d2889417c78": {},
-    "ac66cedaa6342afb5666f234ea1f980d": {}
+    "a9435ac0e06655eccf0f663ef34d774c": {}
   },
   "R-\u003eC:[repo] $3 @ [Latest] $1 -\u003e $9": {
-    "688342182a0415c6ebabd8776cbe6f34": {},
-    "c6e30e992ef81cb1f20198ad1fdf20b5": {}
+    "1355649bb943ea2c4de0983906df2d0c": {},
+    "d204894a9d3b9a20405625bba85026e6": {}
   },
   "R-\u003eC:[repo] $4 @ $1 -\u003e": {
-    "fdd22c349d4dda4003ad97a9a53c1448": {}
+    "6c5f6e667e97cd13f8610dd8893142a9": {}
   },
   "R-\u003eC:[repo] $4 @ $1 -\u003e $2": {
-    "a7a70d5b6b862db6b7eea764e0fdd613": {}
+    "1d2488cf410599ab6dcd407aacbeed72": {}
   },
-  "R-\u003eC:[repo] [GET] No. $10 [Cond]": {
-    "ab0a2c10eb92a43122af7a23d82d543f": {}
+  "R-\u003eC:[repo] [GET] $1 @Caller $3": {
+    "106e1868c223f953ef1f1245ddfff1bc": {},
+    "13089232f7904a4d1ca6fb4ee24845de": {}
   },
-  "R-\u003eC:[repo] [GET] No. 1 [Cond]": {
-    "3d9dcd9aae4e9bce6503773ccf4aa398": {}
+  "R-\u003eC:[repo] [GET] No. $10 [Cond] @Caller No. $6 [Cond]": {
+    "080cc852d9bd9d887e147114c9b11857": {}
+  },
+  "R-\u003eC:[repo] [GET] No. 1 [Cond] @Caller [Res]": {
+    "47a8c3031af9e7eb9d41968a56bbe1c8": {}
   },
   "R-\u003eC:[repo] [SET] [Then] $1 -\u003e [safe--] $1 @ [GET] Count of NO. $2 [CondGroup] of $4": {
-    "31c17fcad08944edc43ad9f78d9ba95b": {},
-    "6c8c2735d03fb7c6f314e8879cc320fc": {}
+    "3d6ac7f77429b0b06cf3a35a1933b1a3": {},
+    "a9b48f7466eea0d1bd663c3b5360e58d": {}
   },
   "R-\u003eC:[repo] [SSET] $1 -\u003e $9": {
-    "0fe5e8adfe26de99125e63b7d94d4e3c": {},
-    "6bf5503726d0baa524955349842ce178": {}
+    "0c75e6cf42b28b41b6e2a915ecd308ef": {},
+    "9b86f843bd41426e726c5ae8e759ecbc": {}
   },
-  "R-\u003eC:[safe++] $4 @ [GET] Len of [CondGroup] of $4": {
-    "2af13cdeddf38cfe50057bcd74ff1454": {}
+  "R-\u003eC:[safe++] Len of NO. $2 [CondGroup] of $4 @Caller No. 1 [Cond]": {
+    "1068ebe9b483c1ae294a894059a2f79d": {}
   },
-  "R-\u003eC:[safe++] No. $6 [Cond] @ [GET] Len of NO. $2 [CondGroup] of $4": {
-    "d709d60d6cc58adede784ca0f120dd35": {}
+  "R-\u003eC:[safe++] [GET] Len of NO. $2 [CondGroup] of $4 @Caller No. $6 [Cond]": {
+    "dca2ba6203001bb5c31db43329ebd1f9": {}
   },
-  "R-\u003eC:[safe++] No. 1 [Cond] @ [GET] Len of NO. $2 [CondGroup] of $4": {
-    "089e5d78b92a368a81b33cd31915918a": {}
+  "R-\u003eC:[safe++] [GET] Len of [CondGroup] of $4 @Caller [Res]": {
+    "c96fe79ebe0b798c7949c231071d861a": {}
   },
   "R-\u003eC:[time] date -\u003e $1": {
     "07dbc119b34346b1190ccb9fc7d2e5fe": {}
@@ -565,56 +546,54 @@
     "7073028023f03dd92ef5d6538e09b900": {}
   },
   "T-\u003eC:[compute] $3 @ $1 @ $2 + 1 -\u003e $9": {
-    "688342182a0415c6ebabd8776cbe6f34": {},
-    "6bf5503726d0baa524955349842ce178": {}
+    "106e1868c223f953ef1f1245ddfff1bc": {},
+    "9b86f843bd41426e726c5ae8e759ecbc": {},
+    "d204894a9d3b9a20405625bba85026e6": {}
   },
   "T-\u003eC:[compute] $3 @ $1 @ $2 - 1 -\u003e $9": {
-    "0fe5e8adfe26de99125e63b7d94d4e3c": {},
-    "c6e30e992ef81cb1f20198ad1fdf20b5": {}
-  },
-  "T-\u003eC:[compute] $4 @ [CHECK] $1 \u003c $2": {
-    "7034b48b483289023760f40750af9118": {}
-  },
-  "T-\u003eC:[compute] $4 @ [CHECK] $1 = $2": {
-    "595623073b46675f5db37c44fe7c3210": {}
-  },
-  "T-\u003eC:[compute] $4 @ [CHECK] $1 \u003e $2": {
-    "0390e1d296cba2fefa25a3e0cfaa69b9": {}
-  },
-  "T-\u003eC:[compute] $4 @ [GET] $1 * $2": {
-    "2d414dbebe6d8775ebbb5b265390fe60": {}
-  },
-  "T-\u003eC:[compute] $4 @ [GET] $1 + $2": {
-    "aea5c609ead8deb6c3e0328be367e621": {}
-  },
-  "T-\u003eC:[compute] $4 @ [GET] $1 - $2": {
-    "f0166b5a7a0504e88301fad5b82789db": {}
+    "0c75e6cf42b28b41b6e2a915ecd308ef": {},
+    "13089232f7904a4d1ca6fb4ee24845de": {},
+    "1355649bb943ea2c4de0983906df2d0c": {}
   },
   "T-\u003eC:[compute] No. $6 [Cond] @ $6 + 1 -\u003e $10": {
-    "ab0a2c10eb92a43122af7a23d82d543f": {}
+    "080cc852d9bd9d887e147114c9b11857": {}
   },
-  "T-\u003eC:[compute] No. $6 [Cond] @ $6 - 1 -\u003e $10": {
-    "31c17fcad08944edc43ad9f78d9ba95b": {},
-    "d709d60d6cc58adede784ca0f120dd35": {}
+  "T-\u003eC:[compute] [CHECK] $1 \u003c $2 @Caller $4": {
+    "651dc3736c1acac15564912dbf0cb3b1": {}
+  },
+  "T-\u003eC:[compute] [CHECK] $1 = $2 @Caller $4": {
+    "1dde910cccc6dcf67c0fd19c75ec3413": {}
+  },
+  "T-\u003eC:[compute] [CHECK] $1 \u003e $2 @Caller $4": {
+    "df9bd5fe14eb172fae670fbb73a6c94f": {}
+  },
+  "T-\u003eC:[compute] [GET] $1 * $2 @Caller $4": {
+    "77204f66ffb109f0bcbe186f2d86f370": {}
+  },
+  "T-\u003eC:[compute] [GET] $1 + $2 @Caller $4": {
+    "b544aaa05f90c1ec33834a507fb6d1bd": {}
+  },
+  "T-\u003eC:[compute] [GET] $1 - $2 @Caller $4": {
+    "d78ab5fe239b7199c631ab3af4695d96": {}
   },
   "T-\u003eC:[input] $1": {
     "d8a215f5225078c6ff479380817e876c": {}
   },
   "T-\u003eC:[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003c] [right:$2]": {
-    "7034b48b483289023760f40750af9118": {}
+    "651dc3736c1acac15564912dbf0cb3b1": {}
   },
   "T-\u003eC:[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:=] [right:$2]": {
-    "595623073b46675f5db37c44fe7c3210": {}
+    "1dde910cccc6dcf67c0fd19c75ec3413": {}
   },
   "T-\u003eC:[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003e] [right:$2]": {
-    "0390e1d296cba2fefa25a3e0cfaa69b9": {}
+    "df9bd5fe14eb172fae670fbb73a6c94f": {}
   },
   "T-\u003eC:[node:checker] [namespace:repo_addon] [key:$1] [value:$2]": {
     "eb6e737441004cd27d059f129f8c6c0b": {}
   },
   "T-\u003eC:[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {
-    "89839cba232e181e71cf34e875a7aec6": {},
-    "fdd22c349d4dda4003ad97a9a53c1448": {}
+    "6c5f6e667e97cd13f8610dd8893142a9": {},
+    "89839cba232e181e71cf34e875a7aec6": {}
   },
   "T-\u003eC:[node:checker] [namespace:repo_addon_fail] [key:$1] [value:$2]": {
     "4012989653df59b1e69633f4d0f2f3b3": {}
@@ -635,17 +614,17 @@
     "9a806a0c5796ddae6797186bf63b9f30": {}
   },
   "T-\u003eC:[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1*$2]": {
-    "2d414dbebe6d8775ebbb5b265390fe60": {}
+    "77204f66ffb109f0bcbe186f2d86f370": {}
   },
   "T-\u003eC:[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1+$2]": {
-    "aea5c609ead8deb6c3e0328be367e621": {}
+    "b544aaa05f90c1ec33834a507fb6d1bd": {}
   },
   "T-\u003eC:[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1-$2]": {
-    "f0166b5a7a0504e88301fad5b82789db": {}
+    "d78ab5fe239b7199c631ab3af4695d96": {}
   },
   "T-\u003eC:[node:extractor] [namespace:repo_addon] [dist:$2] [key:$1]": {
-    "5c4fa1e2afe64fbc43ef43b593bdd974": {},
-    "a7a70d5b6b862db6b7eea764e0fdd613": {}
+    "1d2488cf410599ab6dcd407aacbeed72": {},
+    "5c4fa1e2afe64fbc43ef43b593bdd974": {}
   },
   "T-\u003eC:[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:date]": {
     "07dbc119b34346b1190ccb9fc7d2e5fe": {}
@@ -711,39 +690,29 @@
     "4b065921275a09849498885b27fdb4f2": {}
   },
   "T-\u003eC:[repo] $3 @ $1 -\u003e": {
-    "ca64b667b47523531a455fdc66468e96": {}
+    "a9435ac0e06655eccf0f663ef34d774c": {}
   },
   "T-\u003eC:[repo] $3 @ $1 -\u003e $2": {
-    "0fe5e8adfe26de99125e63b7d94d4e3c": {},
-    "42650472015a18b21e9661b143927b6a": {},
-    "688342182a0415c6ebabd8776cbe6f34": {},
-    "6bf5503726d0baa524955349842ce178": {},
-    "ad446802c986e5c8ad8b27da3e01909b": {},
-    "c6e30e992ef81cb1f20198ad1fdf20b5": {}
+    "0ba40e89e011b74c21b6b9bf90bfe652": {},
+    "0c75e6cf42b28b41b6e2a915ecd308ef": {},
+    "0dee4c2863ec3beab77a53da973c3695": {},
+    "106e1868c223f953ef1f1245ddfff1bc": {},
+    "13089232f7904a4d1ca6fb4ee24845de": {},
+    "1355649bb943ea2c4de0983906df2d0c": {},
+    "9b86f843bd41426e726c5ae8e759ecbc": {},
+    "d204894a9d3b9a20405625bba85026e6": {}
   },
-  "T-\u003eC:[repo] $4 @ [GET] $1": {
-    "a7a70d5b6b862db6b7eea764e0fdd613": {},
-    "fdd22c349d4dda4003ad97a9a53c1448": {}
-  },
-  "T-\u003eC:[repo] $4 @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {
-    "089e5d78b92a368a81b33cd31915918a": {},
-    "3d9dcd9aae4e9bce6503773ccf4aa398": {},
-    "6c8c2735d03fb7c6f314e8879cc320fc": {}
+  "T-\u003eC:[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {
+    "3d6ac7f77429b0b06cf3a35a1933b1a3": {},
+    "dca2ba6203001bb5c31db43329ebd1f9": {}
   },
   "T-\u003eC:[repo] No. $10 [Cond] @ [Latest] Len of NO. $2 [CondGroup] of $4 -\u003e $9": {
-    "31c17fcad08944edc43ad9f78d9ba95b": {},
-    "d709d60d6cc58adede784ca0f120dd35": {}
+    "3d6ac7f77429b0b06cf3a35a1933b1a3": {},
+    "dca2ba6203001bb5c31db43329ebd1f9": {}
   },
-  "T-\u003eC:[repo] No. $6 [Cond] -\u003e $1": {
-    "218bdb9d6297424f71e11b16af8042ef": {},
-    "31c17fcad08944edc43ad9f78d9ba95b": {},
-    "ab0a2c10eb92a43122af7a23d82d543f": {},
-    "d709d60d6cc58adede784ca0f120dd35": {},
-    "f95dd3a46df82058642aea78d02ac765": {}
-  },
-  "T-\u003eC:[repo] No. 1 [Cond] -\u003e $1": {
-    "089e5d78b92a368a81b33cd31915918a": {},
-    "6c8c2735d03fb7c6f314e8879cc320fc": {}
+  "T-\u003eC:[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {
+    "080cc852d9bd9d887e147114c9b11857": {},
+    "61a71035a5283325f0a3c42d50df4255": {}
   },
   "T-\u003eC:[repo] [CHECK] $1 -\u003e $2": {
     "4012989653df59b1e69633f4d0f2f3b3": {},
@@ -753,35 +722,32 @@
     "5c4fa1e2afe64fbc43ef43b593bdd974": {},
     "89839cba232e181e71cf34e875a7aec6": {}
   },
+  "T-\u003eC:[repo] [GET] $1 @Caller $4": {
+    "1d2488cf410599ab6dcd407aacbeed72": {},
+    "6c5f6e667e97cd13f8610dd8893142a9": {}
+  },
   "T-\u003eC:[repo] [Res] -\u003e $4": {
-    "089e5d78b92a368a81b33cd31915918a": {},
-    "218bdb9d6297424f71e11b16af8042ef": {},
-    "2af13cdeddf38cfe50057bcd74ff1454": {},
-    "31c17fcad08944edc43ad9f78d9ba95b": {},
-    "3d9dcd9aae4e9bce6503773ccf4aa398": {},
-    "6c8c2735d03fb7c6f314e8879cc320fc": {},
-    "ab0a2c10eb92a43122af7a23d82d543f": {},
-    "d709d60d6cc58adede784ca0f120dd35": {},
-    "f95dd3a46df82058642aea78d02ac765": {}
+    "080cc852d9bd9d887e147114c9b11857": {},
+    "1068ebe9b483c1ae294a894059a2f79d": {},
+    "47a8c3031af9e7eb9d41968a56bbe1c8": {},
+    "61a71035a5283325f0a3c42d50df4255": {},
+    "a9b48f7466eea0d1bd663c3b5360e58d": {},
+    "c96fe79ebe0b798c7949c231071d861a": {}
+  },
+  "T-\u003eC:[repo] [Res] @ No. 1 [Cond] -\u003e $1": {
+    "1068ebe9b483c1ae294a894059a2f79d": {},
+    "a9b48f7466eea0d1bd663c3b5360e58d": {}
+  },
+  "T-\u003eC:[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {
+    "1068ebe9b483c1ae294a894059a2f79d": {},
+    "47a8c3031af9e7eb9d41968a56bbe1c8": {},
+    "a9b48f7466eea0d1bd663c3b5360e58d": {}
   },
   "T-\u003eC:[repo] [SET] $1 -\u003e $2": {
     "17c5c05153eeed9af7398f9357c159cd": {}
   },
   "T-\u003eC:[repo] [SSET] $1 -\u003e $2": {
     "07e8e9f1edc60f65cb5f6c0e0954d185": {}
-  },
-  "T-\u003eC:[safe++] $3 @ [GET] $1": {
-    "1237b3600a00fd73a9968d2889417c78": {},
-    "42650472015a18b21e9661b143927b6a": {},
-    "688342182a0415c6ebabd8776cbe6f34": {},
-    "6bf5503726d0baa524955349842ce178": {},
-    "ca64b667b47523531a455fdc66468e96": {}
-  },
-  "T-\u003eC:[safe--] $3 @ [GET] $1": {
-    "0fe5e8adfe26de99125e63b7d94d4e3c": {},
-    "ac66cedaa6342afb5666f234ea1f980d": {},
-    "ad446802c986e5c8ad8b27da3e01909b": {},
-    "c6e30e992ef81cb1f20198ad1fdf20b5": {}
   },
   "T-\u003eC:[speak] $1 -\u003e $2": {
     "4211cd42e6de25aae3b8a55eb48ed310": {}
@@ -833,24 +799,22 @@
     "[ST] $1 -\u003e $2": {},
     "[compute] $3 @ $1 @ $2 + 1 -\u003e $9": {},
     "[compute] $3 @ $1 @ $2 - 1 -\u003e $9": {},
-    "[compute] $3 @ $1 @ [GET] $2 + 1": {},
-    "[compute] $3 @ $1 @ [GET] $2 - 1": {},
     "[compute] $4 @ $1 * $2 -\u003e $3": {},
     "[compute] $4 @ $1 + $2 -\u003e $3": {},
     "[compute] $4 @ $1 - $2 -\u003e $3": {},
     "[compute] $4 @ $1 \u003c $2": {},
     "[compute] $4 @ $1 = $2": {},
     "[compute] $4 @ $1 \u003e $2": {},
-    "[compute] $4 @ [CHECK] $1 \u003c $2": {},
-    "[compute] $4 @ [CHECK] $1 = $2": {},
-    "[compute] $4 @ [CHECK] $1 \u003e $2": {},
-    "[compute] $4 @ [GET] $1 * $2": {},
-    "[compute] $4 @ [GET] $1 + $2": {},
-    "[compute] $4 @ [GET] $1 - $2": {},
     "[compute] No. $6 [Cond] @ $6 + 1 -\u003e $10": {},
-    "[compute] No. $6 [Cond] @ $6 - 1 -\u003e $10": {},
-    "[compute] No. $6 [Cond] @ [GET] $6 + 1": {},
-    "[compute] No. $6 [Cond] @ [GET] $6 - 1": {},
+    "[compute] [CHECK] $1 \u003c $2 @Caller $4": {},
+    "[compute] [CHECK] $1 = $2 @Caller $4": {},
+    "[compute] [CHECK] $1 \u003e $2 @Caller $4": {},
+    "[compute] [GET] $1 * $2 @Caller $4": {},
+    "[compute] [GET] $1 + $2 @Caller $4": {},
+    "[compute] [GET] $1 - $2 @Caller $4": {},
+    "[compute] [GET] $2 + 1 @Caller $3": {},
+    "[compute] [GET] $2 - 1 @Caller $3": {},
+    "[compute] [GET] $6 + 1 @Caller No. $6 [Cond]": {},
     "[input] $1": {},
     "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003c] [right:$2]": {},
     "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:=] [right:$2]": {},
@@ -906,29 +870,28 @@
     "[repo] $3 @ $1 -\u003e": {},
     "[repo] $3 @ $1 -\u003e $2": {},
     "[repo] $3 @ $1 -\u003e 0": {},
-    "[repo] $3 @ [GET] $1": {},
     "[repo] $3 @ [Latest] $1 -\u003e $9": {},
     "[repo] $4 @ $1 -\u003e": {},
     "[repo] $4 @ $1 -\u003e $2": {},
-    "[repo] $4 @ [GET] $1": {},
-    "[repo] $4 @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {},
+    "[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {},
     "[repo] No. $10 [Cond] @ [Latest] Len of NO. $2 [CondGroup] of $4 -\u003e $9": {},
-    "[repo] No. $6 [Cond] -\u003e $1": {},
-    "[repo] No. 1 [Cond] -\u003e $1": {},
+    "[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {},
     "[repo] [CHECK] $1 -\u003e $2": {},
     "[repo] [GET] $1": {},
-    "[repo] [GET] No. $10 [Cond]": {},
-    "[repo] [GET] No. 1 [Cond]": {},
+    "[repo] [GET] $1 @Caller $3": {},
+    "[repo] [GET] $1 @Caller $4": {},
+    "[repo] [GET] No. $10 [Cond] @Caller No. $6 [Cond]": {},
+    "[repo] [GET] No. 1 [Cond] @Caller [Res]": {},
     "[repo] [Res] -\u003e $4": {},
+    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {},
+    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {},
     "[repo] [SET] $1 -\u003e $2": {},
     "[repo] [SET] [Then] $1 -\u003e [safe--] $1 @ [GET] Count of NO. $2 [CondGroup] of $4": {},
     "[repo] [SSET] $1 -\u003e $2": {},
     "[repo] [SSET] $1 -\u003e $9": {},
-    "[safe++] $3 @ [GET] $1": {},
-    "[safe++] $4 @ [GET] Len of [CondGroup] of $4": {},
-    "[safe++] No. $6 [Cond] @ [GET] Len of NO. $2 [CondGroup] of $4": {},
-    "[safe++] No. 1 [Cond] @ [GET] Len of NO. $2 [CondGroup] of $4": {},
-    "[safe--] $3 @ [GET] $1": {},
+    "[safe++] Len of NO. $2 [CondGroup] of $4 @Caller No. 1 [Cond]": {},
+    "[safe++] [GET] Len of NO. $2 [CondGroup] of $4 @Caller No. $6 [Cond]": {},
+    "[safe++] [GET] Len of [CondGroup] of $4 @Caller [Res]": {},
     "[speak] $1 -\u003e $2": {},
     "[time] date -\u003e $1": {},
     "[time] get date": {},

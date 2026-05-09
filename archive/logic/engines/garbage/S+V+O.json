@@ -34,7 +34,7 @@
         "[input] D should A C",
         "[input] [repo] the word A -> a verb",
         "[input] [repo] grammar usage of D -> an object",
-        "[output] [repo] verify grammar usage of B -> an object"
+        "[output] [repo] verify grammar usage of C -> an object"
       ]
     },
     {
@@ -44,7 +44,7 @@
         "[input] [repo] the word A -> a verb",
         "[input] [repo] grammar usage of D -> an object",
         "[input] [repo] grammar usage of C -> an object",
-        "[output] [repo] get how should D A C"
+        "[output] [repo] [GET] how should D A C"
       ]
     }
   ]
