@@ -10,17 +10,17 @@
         "[input] [repo] [Res] @ No. 1 [Cond] -> A",
         "[input] [repo] [Res] -> D",
         "[input] [repo] [Res] @ [Latest] Len of [CondGroup] of D -> B",
-        "[output] [safe++] Len of NO. B [CondGroup] of D @Caller No. 1 [Cond]",
-        "[output] [repo] [SET] [Then] A -> [safe--] A @ [GET] Count of NO. B [CondGroup] of D"
+        "[output] [safe++] Len of No. B [CondGroup] of D @Caller No. 1 [Cond]",
+        "[output] [repo] [SET] [Then] A -> [safe--] A @ [GET] Count of No. B [CondGroup] of D"
       ]
     },
     {
       "description": "main:iterate",
       "commands": [
         "[input] [repo] No. F1 [Cond] @ No. F [Cond] -> A",
-        "[input] [repo] No. F1 [Cond] @ [Latest] Len of NO. B [CondGroup] of D -> B1",
-        "[output] [safe++] Len of NO. B [CondGroup] of D @Caller No. F [Cond]",
-        "[output] [repo] [SET] [Then] A -> [safe--] A @ [GET] Count of NO. B [CondGroup] of D"
+        "[input] [repo] No. F1 [Cond] @ [Latest] Len of No. B [CondGroup] of D -> B1",
+        "[output] [safe++] Len of No. B [CondGroup] of D @Caller No. F [Cond]",
+        "[output] [repo] [SET] [Then] A -> [safe--] A @ [GET] Count of No. B [CondGroup] of D"
       ]
     },
     {
