@@ -7,46 +7,44 @@
     {
       "description": "main:1st step",
       "commands": [
-        "[input] [repo] No. 1 [Cond] -> A",
+        "[input] [repo] [Res] @ No. 1 [Cond] -> A",
         "[input] [repo] [Res] -> D",
-        "[input] [repo] D @ [Latest] Len of [CondGroup] of D -> B",
-        "[output] [safe++] No. 1 [Cond] @ [GET] Len of NO. B [CondGroup] of D",
+        "[input] [repo] [Res] @ [Latest] Len of [CondGroup] of D -> B",
+        "[output] [safe++] Len of NO. B [CondGroup] of D @Caller No. 1 [Cond]",
         "[output] [repo] [SET] [Then] A -> [safe--] A @ [GET] Count of NO. B [CondGroup] of D"
       ]
     },
     {
       "description": "main:iterate",
       "commands": [
-        "[input] [repo] No. F [Cond] -> A",
+        "[input] [repo] No. F1 [Cond] @ No. F [Cond] -> A",
         "[input] [repo] No. F1 [Cond] @ [Latest] Len of NO. B [CondGroup] of D -> B1",
-        "[input] [compute] No. F [Cond] @ F - 1 -> F1",
-        "[input] [repo] [Res] -> D",
-        "[output] [safe++] No. F [Cond] @ [GET] Len of NO. B [CondGroup] of D",
+        "[output] [safe++] [GET] Len of NO. B [CondGroup] of D @Caller No. F [Cond]",
         "[output] [repo] [SET] [Then] A -> [safe--] A @ [GET] Count of NO. B [CondGroup] of D"
       ]
     },
     {
       "description": "iterate",
       "commands": [
-        "[input] [repo] No. F [Cond] -> A",
+        "[input] [repo] No. B1 [Cond] @ No. F [Cond] -> A",
         "[input] [repo] [Res] -> D",
-        "[output] [compute] No. F [Cond] @ [GET] F + 1",
-        "[output] [compute] No. F [Cond] @ [GET] F - 1",
+        "[output] [compute] [GET] F + 1 @Caller No. F [Cond]",
 
-        "[input] [repo] No. F [Cond] -> A",
+        "[input] [repo] No. B1 [Cond] @ No. F [Cond] -> A",
         "[input] [repo] [Res] -> D",
         "[input] [compute] No. F [Cond] @ F + 1 -> F1",
-        "[output] [repo] [GET] No. F1 [Cond]"
+        "[output] [repo] [GET] No. F1 [Cond] @Caller No. F [Cond]"
       ]
     },
     {
       "description": "checks",
       "commands": [
         "[input] [repo] [Res] -> D",
-        "[output] [safe++] D @ [GET] Len of [CondGroup] of D",
+        "[output] [safe++] [GET] Len of [CondGroup] of D @Caller [Res]",
+
         "[input] [repo] [Res] -> D",
-        "[input] [repo] D @ [Latest] Len of [CondGroup] of D -> B",
-        "[output] [repo] [GET] No. 1 [Cond]"
+        "[input] [repo] [Res] @ [Latest] Len of [CondGroup] of D -> B",
+        "[output] [repo] [GET] No. 1 [Cond] @Caller [Res]"
       ]
     }
   ]

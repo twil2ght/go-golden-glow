@@ -249,7 +249,7 @@ func lastBinaryOpOutsideParens(s, charset string) int {
 func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	provider.Add("compare_lt", datagen.NewData(
-		[]string{"[compute] $4 @ [CHECK] $1 < $2"},
+		[]string{"[compute] [CHECK] $1 < $2 @Caller $4"},
 		[]string{"[compute] $4 @ $1 < $2"},
 		map[string]string{
 			keyLeft:     "$1",
@@ -260,7 +260,7 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsChecker,
 	))
 	provider.Add("compare_gt", datagen.NewData(
-		[]string{"[compute] $4 @ [CHECK] $1 > $2"},
+		[]string{"[compute] [CHECK] $1 > $2 @Caller $4"},
 		[]string{"[compute] $4 @ $1 > $2"},
 		map[string]string{
 			keyLeft:     "$1",
@@ -271,7 +271,7 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsChecker,
 	))
 	provider.Add("compare_eq", datagen.NewData(
-		[]string{"[compute] $4 @ [CHECK] $1 = $2"},
+		[]string{"[compute] [CHECK] $1 = $2 @Caller $4"},
 		[]string{"[compute] $4 @ $1 = $2"},
 		map[string]string{
 			keyLeft:     "$1",
@@ -282,7 +282,7 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsChecker,
 	))
 	provider.Add("plus", datagen.NewData(
-		[]string{"[compute] $4 @ [GET] $1 + $2"},
+		[]string{"[compute] [GET] $1 + $2 @Caller $4"},
 		[]string{"[compute] $4 @ $1 + $2 -> $3"},
 		map[string]string{
 			keyExpression: "$1+$2",
@@ -292,7 +292,7 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExtractor,
 	))
 	provider.Add("sub", datagen.NewData(
-		[]string{"[compute] $4 @ [GET] $1 - $2"},
+		[]string{"[compute] [GET] $1 - $2 @Caller $4"},
 		[]string{"[compute] $4 @ $1 - $2 -> $3"},
 		map[string]string{
 			keyExpression: "$1-$2",
@@ -302,7 +302,7 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExtractor,
 	))
 	provider.Add("multiply", datagen.NewData(
-		[]string{"[compute] $4 @ [GET] $1 * $2"},
+		[]string{"[compute] [GET] $1 * $2 @Caller $4"},
 		[]string{"[compute] $4 @ $1 * $2 -> $3"},
 		map[string]string{
 			keyExpression: "$1*$2",

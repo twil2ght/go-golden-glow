@@ -15,6 +15,7 @@
     "Susie is smart": "0001-01-01T00:00:00Z"
   },
   "[Then] Susie is happy": {
+    "[safe--] Susie is happy @ Count of NO. 1 [CondGroup] of Susie is adorable -\u003e": "0001-01-01T00:00:00Z",
     "[safe--] Susie is happy @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable": "0001-01-01T00:00:00Z"
   }
 }

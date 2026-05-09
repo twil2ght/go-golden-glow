@@ -1,7 +1,7 @@
 {
   "API": [
-    "[safe++] C @ [GET] A",
-    "[safe--] C @ [GET] A"
+    "[safe++] A @Caller C",
+    "[safe--] A @Caller C"
   ],
   "callback": [
     "[repo] C @ [Latest] A -> B"
@@ -10,7 +10,7 @@
     {
       "description": "Safe++:main",
       "commands": [
-        "[input] [safe++] C @ [GET] A",
+        "[safe++] A @Caller C",
         "[input] [repo] C @ A -> B",
         "[input] [compute] C @ A @ B + 1 -> B1",
         "[output] [repo] [SSET] A -> B1",
@@ -20,18 +20,18 @@
     {
       "description": "Safe++:gets",
       "commands": [
-        "[input] [safe++] C @ [GET] A",
-        "[output] [repo] C @ [GET] A",
+        "[safe++] A @Caller C",
+        "[output] [repo] [GET] A @Caller C",
 
-        "[input] [safe++] C @ [GET] A",
+        "[safe++] A @Caller C",
         "[input] [repo] C @ A -> B",
-        "[output] [compute] C @ A @ [GET] B + 1"
+        "[output] [compute] [GET] B + 1 @Caller C"
       ]
     },
     {
       "description": "Safe--:main",
       "commands": [
-        "[input] [safe--] C @ [GET] A",
+        "[safe--] A @Caller C",
         "[input] [repo] C @ A -> B",
         "[input] [compute] C @ A @ B - 1 -> B1",
         "[output] [repo] [SSET] A -> B1",
@@ -41,18 +41,18 @@
     {
       "description": "Safe--:gets",
       "commands": [
-        "[input] [safe--] C @ [GET] A",
-        "[output] [repo] C @ [GET] A",
+        "[safe--] A @Caller C",
+        "[output] [repo] [GET] A @Caller C",
 
-        "[input] [safe--] C @ [GET] A",
+        "[safe--] A @Caller C",
         "[input] [repo] C @ A -> B",
-        "[output] [compute] C @ A @ [GET] B - 1"
+        "[output] [compute] [GET] B - 1 @Caller C"
       ]
     },
     {
       "description": "init to 0",
       "commands": [
-        "[input] [safe++] C @ [GET] A",
+        "[safe++] A @Caller C",
         "[input] [repo] C @ A ->",
         "[output] [repo] C @ A -> 0"
       ]

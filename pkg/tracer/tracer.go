@@ -111,9 +111,9 @@ type treeResult struct {
 	raw   string
 }
 
-// HTML builds a self-contained HTML page with a collapsible tree view and event timeline.
+// HTML builds a self-contained HTML page with a collapsible tree view.
 // Each knot expands to show templates → containers → results → child knots.
-// Opens directly in any browser — no external dependencies.
+// Rejected containers are omitted. Opens directly in any browser.
 func (c *Collector) HTML() string {
 	events := c.Events()
 	if len(events) == 0 {
@@ -177,12 +177,11 @@ func (c *Collector) HTML() string {
 					}
 				}
 			case EventContainerReject:
-				if curCont != nil {
-					curCont.forwarded = false
-					if tn := ev.Detail["t_nodes"]; tn != "" {
-						curCont.content = tn
-					}
+				// Drop rejected containers — only forwarded ones matter
+				if curTpl != nil && len(curTpl.containers) > 0 {
+					curTpl.containers = curTpl.containers[:len(curTpl.containers)-1]
 				}
+				curCont = nil
 			case EventResultProduced:
 				if curCont != nil {
 					curCont.results = append(curCont.results, treeResult{
@@ -193,6 +192,16 @@ func (c *Collector) HTML() string {
 				}
 			}
 		}
+		// Drop templates that ended up with no containers (all rejected)
+		filtered := tk.templates[:0]
+		for _, tpl := range tk.templates {
+			if !tpl.skipped && len(tpl.containers) == 0 {
+				continue
+			}
+			filtered = append(filtered, tpl)
+		}
+		tk.templates = filtered
+
 		knots = append(knots, tk)
 		knotBySeq[tk.seq] = &knots[len(knots)-1]
 	}
@@ -218,66 +227,49 @@ func buildHTMLPage(c *Collector, knots []treeKnot, children map[int][]*treeKnot,
 	page.WriteString("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n")
 	page.WriteString("<title>Execution Trace</title>\n")
 	page.WriteString("<style>\n")
-	page.WriteString("  :root { --knot: #6366f1; --tpl: #ca8a04; --cont-fwd: #16a34a; --cont-rej: #dc2626; --result: #0891b2; }\n")
-	page.WriteString("  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; font-size: 12px; }\n")
+	page.WriteString("  :root { --knot: #6366f1; --tpl: #ca8a04; --cont-fwd: #16a34a; --result: #0891b2; }\n")
+	page.WriteString("  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; font-size: 20px; }\n")
 	page.WriteString("  .header { padding: 8px 12px 0; }\n")
-	page.WriteString("  h1 { font-size: 16px; margin: 0 0 2px; }\n")
-	page.WriteString("  .sub { color: #94a3b8; font-size: 11px; margin-bottom: 6px; }\n")
-	page.WriteString("  .legend { display: flex; gap: 10px; flex-wrap: wrap; font-size: 11px; padding: 0 12px 8px; border-bottom: 1px solid #e2e8f0; }\n")
+	page.WriteString("  h1 { font-size: 24px; margin: 0 0 2px; }\n")
+	page.WriteString("  .sub { color: #94a3b8; font-size: 16px; margin-bottom: 6px; }\n")
+	page.WriteString("  .legend { display: flex; gap: 10px; flex-wrap: wrap; font-size: 16px; padding: 0 12px 8px; border-bottom: 1px solid #e2e8f0; }\n")
 	page.WriteString("  .legend span { display: flex; align-items: center; gap: 4px; }\n")
-	page.WriteString("  .legend .dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }\n")
+	page.WriteString("  .legend .dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }\n")
 	page.WriteString("  .tree-wrap { padding: 4px 0 12px; }\n")
 	page.WriteString("  .tree-root { margin: 0; padding: 0 0 0 16px; }\n")
 	page.WriteString("  details { margin: 0; }\n")
 	page.WriteString("  details > summary { cursor: pointer; list-style: none; }\n")
 	page.WriteString("  details > summary::-webkit-details-marker { display: none; }\n")
-	page.WriteString("  details > summary::before { content: '▸ '; font-size: 9px; color: #94a3b8; transition: transform .15s; display: inline-block; }\n")
+	page.WriteString("  details > summary::before { content: '▸ '; font-size: 14px; color: #94a3b8; transition: transform .15s; display: inline-block; }\n")
 	page.WriteString("  details[open] > summary::before { content: '▾ '; }\n")
 	page.WriteString("  /* knot node */\n")
 	page.WriteString("  .knot-block { margin: 0; }\n")
-	page.WriteString("  .knot-block > summary { display: flex; align-items: center; gap: 4px; padding: 2px 6px; background: #eef2ff; border-left: 3px solid var(--knot); border-radius: 3px; margin: 2px 0; font-size: 12px; }\n")
-	page.WriteString("  .knot-block > summary .badge { background: var(--knot); color: #fff; font-size: 9px; padding: 0px 5px; border-radius: 8px; font-weight: 600; flex-shrink: 0; }\n")
+	page.WriteString("  .knot-block > summary { display: flex; align-items: center; gap: 6px; padding: 3px 8px; background: #eef2ff; border-left: 3px solid var(--knot); border-radius: 3px; margin: 2px 0; }\n")
+	page.WriteString("  .knot-block > summary .badge { background: var(--knot); color: #fff; font-size: 14px; padding: 1px 7px; border-radius: 8px; font-weight: 600; flex-shrink: 0; }\n")
 	page.WriteString("  .knot-block > summary .knot-val { font-weight: 500; }\n")
-	page.WriteString("  .knot-block > summary .knot-state { color: #94a3b8; font-size: 10px; }\n")
-	page.WriteString("  .knot-block > summary .knot-parent { color: #94a3b8; font-size: 9px; margin-left: auto; }\n")
+	page.WriteString("  .knot-block > summary .knot-state { color: #94a3b8; font-size: 16px; }\n")
+	page.WriteString("  .knot-block > summary .knot-parent { color: #94a3b8; font-size: 14px; margin-left: auto; }\n")
 	page.WriteString("  .knot-body { margin-left: 10px; padding-left: 6px; border-left: 1px dashed #cbd5e1; }\n")
 	page.WriteString("  /* template */\n")
 	page.WriteString("  .tpl-block { margin: 0; }\n")
-	page.WriteString("  .tpl-block > summary { display: flex; align-items: center; gap: 4px; padding: 1px 5px; background: #fefce8; border-left: 3px solid var(--tpl); border-radius: 2px; margin: 1px 0; font-size: 11px; }\n")
-	page.WriteString("  .tpl-block > summary .badge { background: var(--tpl); color: #fff; font-size: 9px; padding: 0px 5px; border-radius: 8px; font-weight: 600; flex-shrink: 0; }\n")
+	page.WriteString("  .tpl-block > summary { display: flex; align-items: center; gap: 6px; padding: 2px 6px; background: #fefce8; border-left: 3px solid var(--tpl); border-radius: 2px; margin: 1px 0; font-size: 18px; }\n")
+	page.WriteString("  .tpl-block > summary .badge { background: var(--tpl); color: #fff; font-size: 13px; padding: 1px 6px; border-radius: 8px; font-weight: 600; flex-shrink: 0; }\n")
 	page.WriteString("  .tpl-block.skipped > summary { opacity: .55; background: #f1f5f9; border-left-color: #94a3b8; }\n")
 	page.WriteString("  .tpl-block.skipped > summary .badge { background: #94a3b8; }\n")
 	page.WriteString("  .tpl-body { margin-left: 6px; padding-left: 4px; border-left: 1px solid #e2e8f0; }\n")
 	page.WriteString("  /* container */\n")
-	page.WriteString("  .cont-item { margin: 1px 0; border-radius: 2px; font-size: 11px; }\n")
-	page.WriteString("  .cont-item summary { display: flex; align-items: flex-start; gap: 4px; padding: 1px 5px; }\n")
+	page.WriteString("  .cont-item { margin: 1px 0; border-radius: 2px; }\n")
+	page.WriteString("  .cont-item summary { display: flex; align-items: flex-start; gap: 6px; padding: 2px 6px; font-size: 17px; }\n")
 	page.WriteString("  .cont-item.fwd { background: #f0fdf4; border-left: 3px solid var(--cont-fwd); }\n")
-	page.WriteString("  .cont-item.rej { background: #fef2f2; border-left: 3px solid var(--cont-rej); opacity: .65; }\n")
-	page.WriteString("  .cont-item .badge { font-size: 9px; padding: 0px 5px; border-radius: 8px; font-weight: 600; color: #fff; flex-shrink: 0; }\n")
+	page.WriteString("  .cont-item .badge { font-size: 13px; padding: 1px 6px; border-radius: 8px; font-weight: 600; color: #fff; flex-shrink: 0; }\n")
 	page.WriteString("  .cont-item.fwd .badge { background: var(--cont-fwd); }\n")
-	page.WriteString("  .cont-item.rej .badge { background: var(--cont-rej); }\n")
-	page.WriteString("  .cont-content { font-family: monospace; font-size: 10px; color: #475569; white-space: pre-line; line-height: 1.3; }\n")
+	page.WriteString("  .cont-content { font-family: monospace; font-size: 16px; color: #475569; white-space: pre-line; line-height: 1.3; }\n")
 	page.WriteString("  /* result */\n")
 	page.WriteString("  .res-block { margin: 1px 0 1px 6px; }\n")
-	page.WriteString("  .res-block > summary { display: flex; align-items: center; gap: 4px; padding: 1px 5px; background: #ecfeff; border-left: 3px solid var(--result); border-radius: 2px; font-size: 11px; }\n")
-	page.WriteString("  .res-block > summary .badge { background: var(--result); color: #fff; font-size: 9px; padding: 0px 5px; border-radius: 8px; font-weight: 600; flex-shrink: 0; }\n")
-	page.WriteString("  .res-block > summary .child-hint { font-size: 9px; color: #94a3b8; }\n")
+	page.WriteString("  .res-block > summary { display: flex; align-items: center; gap: 6px; padding: 2px 6px; background: #ecfeff; border-left: 3px solid var(--result); border-radius: 2px; font-size: 17px; }\n")
+	page.WriteString("  .res-block > summary .badge { background: var(--result); color: #fff; font-size: 13px; padding: 1px 6px; border-radius: 8px; font-weight: 600; flex-shrink: 0; }\n")
+	page.WriteString("  .res-block > summary .child-hint { font-size: 14px; color: #94a3b8; }\n")
 	page.WriteString("  .res-body { margin-left: 4px; padding-left: 4px; border-left: 1px solid #cbd5e1; }\n")
-	page.WriteString("  /* empty state */\n")
-	page.WriteString("  .empty-children { font-size: 10px; color: #94a3b8; font-style: italic; padding: 1px 4px; }\n")
-	page.WriteString("  /* timeline table */\n")
-	page.WriteString("  .timeline { margin: 16px 12px 16px; }\n")
-	page.WriteString("  .timeline h2 { font-size: 14px; margin-bottom: 4px; }\n")
-	page.WriteString("  table { border-collapse: collapse; width: 100%; font-size: 11px; }\n")
-	page.WriteString("  th, td { text-align: left; padding: 3px 8px; border-bottom: 1px solid #e2e8f0; }\n")
-	page.WriteString("  th { background: #f1f5f9; font-weight: 600; color: #475569; }\n")
-	page.WriteString("  tr.event-knot { border-left: 3px solid var(--knot); }\n")
-	page.WriteString("  tr.event-template { border-left: 3px solid var(--tpl); }\n")
-	page.WriteString("  tr.event-container-fwd { border-left: 3px solid var(--cont-fwd); }\n")
-	page.WriteString("  tr.event-container-rej { border-left: 3px solid var(--cont-rej); }\n")
-	page.WriteString("  tr.event-result { border-left: 3px solid var(--result); }\n")
-	page.WriteString("  .detail { font-size: 10px; color: #94a3b8; }\n")
-	page.WriteString("  tr:hover { background: #f8fafc; }\n")
 	page.WriteString("</style>\n")
 	page.WriteString("</head>\n")
 	page.WriteString("<body>\n")
@@ -290,7 +282,6 @@ func buildHTMLPage(c *Collector, knots []treeKnot, children map[int][]*treeKnot,
 	page.WriteString("  <span><span class=\"dot\" style=\"background:var(--knot)\"></span> Knot</span>\n")
 	page.WriteString("  <span><span class=\"dot\" style=\"background:var(--tpl)\"></span> Template</span>\n")
 	page.WriteString("  <span><span class=\"dot\" style=\"background:var(--cont-fwd)\"></span> Container forward</span>\n")
-	page.WriteString("  <span><span class=\"dot\" style=\"background:var(--cont-rej)\"></span> Container reject</span>\n")
 	page.WriteString("  <span><span class=\"dot\" style=\"background:var(--result)\"></span> Result</span>\n")
 	page.WriteString("  <span><span class=\"dot\" style=\"background:#94a3b8\"></span> Skipped</span>\n")
 	page.WriteString("</div>\n")
@@ -304,65 +295,14 @@ func buildHTMLPage(c *Collector, knots []treeKnot, children map[int][]*treeKnot,
 	}
 
 	page.WriteString("<div class=\"tree-wrap\">\n")
-	page.WriteString("<ul class=\"tree-root\">\n")
-	renderTree(&page, roots, children, knotBySeq, "  ")
-	page.WriteString("</ul>\n")
-	page.WriteString("</div>\n")
-
-	// Timeline table
-	page.WriteString("<div class=\"timeline\">\n")
-	page.WriteString("<h2>Event Timeline</h2>\n")
-	page.WriteString("<table>\n")
-	page.WriteString("<thead><tr><th>#</th><th>Time</th><th>Event</th><th>Seq</th><th>Node</th><th>Details</th></tr></thead>\n")
-	page.WriteString("<tbody>\n")
-
-	for i, ev := range c.Events() {
-		rowClass := ""
-		switch ev.Type {
-		case EventKnotReceived:
-			rowClass = "event-knot"
-		case EventTemplateMatched:
-			rowClass = "event-template"
-		case EventContainerForward:
-			rowClass = "event-container-fwd"
-		case EventContainerReject:
-			rowClass = "event-container-rej"
-		case EventResultProduced:
-			rowClass = "event-result"
-		}
-
-		detailParts := []string{}
-		if ev.State != "" {
-			detailParts = append(detailParts, "state="+truncate(ev.State, 40))
-		}
-		for k, v := range ev.Detail {
-			if k == "t_nodes" {
-				continue // shown in tree, skip in table
-			}
-			detailParts = append(detailParts, k+"="+truncate(v, 30))
-		}
-		if ev.ParentKnotSeq > 0 {
-			detailParts = append(detailParts, fmt.Sprintf("parent=K%d", ev.ParentKnotSeq))
-		}
-
-		seqStr := ""
-		if ev.KnotSeq > 0 {
-			seqStr = fmt.Sprintf("K%d", ev.KnotSeq)
-		}
-
-		page.WriteString(fmt.Sprintf(
-			"<tr class=\"%s\"><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class=\"detail\">%s</td></tr>\n",
-			rowClass,
-			i+1,
-			ev.Timestamp.Format("15:04:05.000"),
-			ev.Type.String(),
-			seqStr,
-			html.EscapeString(truncate(ev.NodeValue, 60)),
-			html.EscapeString(strings.Join(detailParts, " · ")),
-		))
+	if len(roots) == 0 {
+		page.WriteString("<p>No root knots found.</p>\n")
+	} else {
+		page.WriteString("<ul class=\"tree-root\">\n")
+		renderTree(&page, roots, children, knotBySeq, "  ")
+		page.WriteString("</ul>\n")
 	}
-
-	page.WriteString("</tbody>\n</table>\n</div>\n")
+	page.WriteString("</div>\n")
 	page.WriteString("</body>\n</html>")
 	return page.String()
 }
@@ -414,9 +354,9 @@ func renderKnot(page *strings.Builder, k *treeKnot, childByResult map[string]*tr
 		page.WriteString(fmt.Sprintf("%s  </div>\n", indent))
 		page.WriteString(fmt.Sprintf("%s</details>\n", indent))
 	} else {
-		// leaf knot (no templates expanded)
+		// leaf knot (no templates)
 		page.WriteString(fmt.Sprintf("%s<div class=\"knot-block\">\n", indent))
-		page.WriteString(fmt.Sprintf("%s  <span style=\"display:inline-flex;align-items:center;gap:4px;padding:1px 5px;font-size:11px;\"><span class=\"badge\">K%d</span>%s</span>", indent, k.seq, html.EscapeString(label)))
+		page.WriteString(fmt.Sprintf("%s  <span style=\"display:inline-flex;align-items:center;gap:4px;padding:2px 6px;\"><span class=\"badge\">K%d</span>%s</span>", indent, k.seq, html.EscapeString(label)))
 		if k.state != "" {
 			page.WriteString(fmt.Sprintf(" <span class=\"knot-state\">[%s]</span>", html.EscapeString(truncate(k.state, 30))))
 		}
@@ -441,7 +381,7 @@ func renderTemplate(page *strings.Builder, tpl *treeTemplate, childByResult map[
 
 	hasContainers := len(tpl.containers) > 0
 	if hasContainers {
-		page.WriteString(fmt.Sprintf("%s<details class=\"tpl-block\">\n", indent))
+		page.WriteString(fmt.Sprintf("%s<details class=\"tpl-block\" open>\n", indent))
 	} else {
 		page.WriteString(fmt.Sprintf("%s<div class=\"tpl-block\">\n", indent))
 	}
@@ -460,26 +400,18 @@ func renderTemplate(page *strings.Builder, tpl *treeTemplate, childByResult map[
 }
 
 func renderContainer(page *strings.Builder, cont *treeContainer, childByResult map[string]*treeKnot, children map[int][]*treeKnot, knotBySeq map[int]*treeKnot, indent string) {
-	cls := "fwd"
-	tag := "FWD"
-	if !cont.forwarded {
-		cls = "rej"
-		tag = "REJ"
-	}
 	hasResults := len(cont.results) > 0
-
-	// Show T-node content lines
 	contentHTML := html.EscapeString(cont.content)
 
 	if hasResults {
-		page.WriteString(fmt.Sprintf("%s<details class=\"cont-item %s\">\n", indent, cls))
-		page.WriteString(fmt.Sprintf("%s  <summary><span class=\"badge\">%s</span><span class=\"cont-content\">%s</span></summary>\n", indent, tag, contentHTML))
+		page.WriteString(fmt.Sprintf("%s<details class=\"cont-item fwd\" open>\n", indent))
+		page.WriteString(fmt.Sprintf("%s  <summary><span class=\"badge\">FWD</span><span class=\"cont-content\">%s</span></summary>\n", indent, contentHTML))
 		for _, res := range cont.results {
 			renderResult(page, &res, childByResult, children, knotBySeq, indent+"  ")
 		}
 		page.WriteString(fmt.Sprintf("%s</details>\n", indent))
 	} else {
-		page.WriteString(fmt.Sprintf("%s<div class=\"cont-item %s\"><span class=\"badge\">%s</span><span class=\"cont-content\">%s</span></div>\n", indent, cls, tag, contentHTML))
+		page.WriteString(fmt.Sprintf("%s<div class=\"cont-item fwd\"><span class=\"badge\">FWD</span><span class=\"cont-content\">%s</span></div>\n", indent, contentHTML))
 	}
 }
 
@@ -500,7 +432,7 @@ func renderResult(page *strings.Builder, res *treeResult, childByResult map[stri
 			grandByResult[gkey] = gc
 		}
 
-		page.WriteString(fmt.Sprintf("%s<details class=\"res-block\">\n", indent))
+		page.WriteString(fmt.Sprintf("%s<details class=\"res-block\" open>\n", indent))
 		page.WriteString(fmt.Sprintf("%s  <summary><span class=\"badge\">RES</span>%s", indent, html.EscapeString(truncate(display, 60))))
 		if res.state != "" {
 			page.WriteString(fmt.Sprintf(" <span class=\"child-hint\">[%s]</span>", html.EscapeString(truncate(res.state, 20))))
@@ -512,7 +444,7 @@ func renderResult(page *strings.Builder, res *treeResult, childByResult map[stri
 		page.WriteString(fmt.Sprintf("%s  </div>\n", indent))
 		page.WriteString(fmt.Sprintf("%s</details>\n", indent))
 	} else {
-		page.WriteString(fmt.Sprintf("%s<div class=\"res-block\"><span style=\"display:inline-flex;align-items:center;gap:4px;padding:1px 5px;font-size:11px;background:#ecfeff;border-left:3px solid var(--result);border-radius:2px;\"><span class=\"badge\">RES</span>%s</span>", indent, html.EscapeString(truncate(display, 60))))
+		page.WriteString(fmt.Sprintf("%s<div class=\"res-block\"><span style=\"display:inline-flex;align-items:center;gap:4px;padding:2px 6px;background:#ecfeff;border-left:3px solid var(--result);border-radius:2px;\"><span class=\"badge\">RES</span>%s</span>", indent, html.EscapeString(truncate(display, 60))))
 		if res.state != "" {
 			page.WriteString(fmt.Sprintf(" <span class=\"child-hint\">[%s]</span>", html.EscapeString(truncate(res.state, 20))))
 		}

@@ -57,7 +57,7 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExtractor,
 	))
 	provider.Add("get_value_with_cond", datagen.NewData(
-		[]string{"[repo] $4 @ [GET] $1"},
+		[]string{"[repo] [GET] $1 @Caller $4"},
 		[]string{"[repo] $4 @ $1 -> $2"},
 		map[string]string{
 			keyKey:  "$1",
@@ -84,16 +84,6 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsExecutor,
 	))
-	provider.Add("set_value_with_expiration", datagen.NewData(
-		[]string{"[repo] [SET] $1 -> $2 @ $3"},
-		[]string{},
-		map[string]string{
-			keyKey:        "$1",
-			keyValue:      "$2",
-			keyExpiration: "$3",
-		},
-		datagen.AsExecutor,
-	))
 	provider.Add("check_value", datagen.NewData(
 		[]string{"[repo] [CHECK] $1 -> $2"},
 		[]string{"[repo] $1 -> $2"},
@@ -104,7 +94,7 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsChecker,
 	))
 	providerFail.Add("get_value_not_exists_with_cond", datagen.NewData(
-		[]string{"[repo] $4 @ [GET] $1"},
+		[]string{"[repo] [GET] $1 @Caller $4"},
 		[]string{"[repo] $4 @ $1 ->"},
 		map[string]string{
 			keyKey:  "$1",
