@@ -3,11 +3,13 @@
     {
       "description": "one controller can only use once",
       "commands": [
-        "[safe--] Count of No. 1 [CondGroup] of Susie is adorable @Caller Susie is cute",
-        "[safe--] Count of No. 1 [CondGroup] of Susie is adorable @Caller Susie is happy",
-        "[safe--] Count of No. 1 [CondGroup] of Susie is adorable @Caller Susie is smart"
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute",
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is happy",
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is smart"
       ],
       "demo": [
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute",
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute"
       ]
     }
   ]

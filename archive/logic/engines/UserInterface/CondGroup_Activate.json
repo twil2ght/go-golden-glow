@@ -30,8 +30,8 @@
     {
       "description": "route:null->no",
       "commands":[
-        "[input] [repo] C @ [CondGroup:DoneState] of C for No. B of D ->",
-        "[output] [repo] C @ [CondGroup:DoneState] of C for No. B of D -> no"
+        "[input] [repo] [CondGroup:DoneState] of C for No. B of D ->",
+        "[output] [repo] [CondGroup:DoneState] of C for No. B of D -> no"
       ]
     }
   ]
