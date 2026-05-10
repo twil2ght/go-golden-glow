@@ -1,0 +1,45 @@
+{
+  "type": "engine",
+  "name": "iterator_main",
+  "API": [
+    "D [Execute] A @Caller C"
+  ],
+  "Hook(Used)": [
+    "[repo] C @ [Execute:Done] step B of D [Execute] A -> yes"
+  ],
+  "data": [
+    {
+      "description": "initialize the iterator:pre-checks",
+      "commands": [
+        "[input] D [Execute] A @Caller C",
+        "[output] [repo] [GET] step 1 of D [Execute] A @Caller C"
+      ]
+    },
+    {
+      "description": "initialize the iterator",
+      "commands": [
+        "[input] [repo] C @ step 1 of D [Execute] A -> E",
+        "[output] D [Execute] E @Caller C step 1 of D [Execute] A"
+      ]
+    },
+    {
+      "description": "iterate the iterator",
+      "commands": [
+        "[input] [repo] C @ step B1 of D [Execute] A -> E",
+        "[output] D [Execute] E @Caller C step B1 of D [Execute] A"
+      ]
+    },
+    {
+      "description": "iterate the iterator:pre-checks",
+      "commands": [
+        "[input] D [Execute] A @Caller C",
+        "[input] [repo] C @ [Execute:Done] step B of D [Execute] A -> yes",
+        "[output] [compute] B + 1 @Caller C",
+
+        "[input] [repo] C @ [Execute:Done] step B of D [Execute] A -> yes",
+        "[input] [compute] C @ B + 1 -> B1",
+        "[output] [repo] [GET] step B1 of D [Execute] A@Caller C"
+      ]
+    }
+  ]
+}
