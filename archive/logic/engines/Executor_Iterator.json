@@ -1,6 +1,4 @@
 {
-  "type": "engine",
-  "name": "iterator_main",
   "API": [
     "D [Execute] A @Caller C"
   ],
