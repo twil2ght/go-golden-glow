@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "description": "one controller can only use once",
+      "commands": [
+        "[safe--] Susie is cute @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable",
+        "[safe--] Susie is happy @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable",
+        "[safe--] Susie is smart @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable"
+      ],
+      "demo": [
+      ]
+    }
+  ]
+}

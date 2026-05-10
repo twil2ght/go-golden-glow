@@ -1,28 +1,42 @@
 {
+  "API": [
+    "[CondGroup:Reset] No. B of D",
+    "[Cond:Reset]"
+  ],
   "data": [
     {
       "description": "Reset Count of CondGroup:main",
       "commands": [
-        "[input] [repo] [Reset] Count of NO. B [CondGroup] of D",
-        "[input] [repo] Len of NO. B [CondGroup] of D -> F",
-        "[output] [repo] set Count of NO. B [CondGroup] of D -> F"
+        "[input] [CondGroup:Reset] No. B of D",
+        "[input] [repo] [Reset] @ Len of No. B [CondGroup] of D -> F",
+        "[output] [repo] [SSET] Count of No. B [CondGroup] of D -> F"
       ]
     },
     {
       "description": "Reset Count of CondGroup:gets",
       "commands": [
-        "[input] [repo] [Reset] Count of NO. B [CondGroup] of D",
-        "[output] [repo] get Len of NO. B [CondGroup] of D -> F"
+        "[input] [CondGroup:Reset] No. B of D",
+        "[output] [repo] [GET] Len of No. B [CondGroup] of D @Caller [Reset]"
       ]
     },
     {
       "description": "Reset [Cond]:main",
       "commands": [
-        "[input] [repo] [Reset] [Cond]",
-        "[output] [repo] del No. 1 [Cond]",
-        "[input] [repo] del No. F [Cond]",
-        "[input] [calculate] F +1 -> F1",
-        "[output] [repo] del No. F1 [Cond]"
+        "[input] [Cond:Reset]",
+        "[output] [repo] [GET] No. 1 [Cond] @Caller [Cond:Reset]",
+
+        "[input] [repo] [Cond:Reset] @ No. 1 [Cond] -> A",
+        "[output] [repo] [DEL] No. 1 [Cond]",
+
+        "[input] [compute] [Cond:Reset] No. F @ F +1 -> F1",
+        "[output] [repo] [GET] No. F1 [Cond] @Caller [Cond:Reset] No. F",
+
+        "[input] [repo] [Cond:Reset] No. F @ No. F1 [Cond] -> A",
+        "[output] [repo] [DEL] No. F1 [Cond]",
+
+        "[input] [Cond:Reset]",
+        "[input] [repo] [DEL] No. F [Cond]",
+        "[output] [compute] [GET] F + 1 @Caller [Cond:Reset] No. F"
       ]
     }
   ]

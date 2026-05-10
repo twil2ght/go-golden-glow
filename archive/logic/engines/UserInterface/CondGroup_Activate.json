@@ -1,0 +1,38 @@
+{
+  "dependencies": [
+    "SafeCalculate"
+  ],
+  "API": [
+    "[CondGroup:Done] No. B of D @Caller C"
+  ],
+  "data": [
+    {
+      "description": "CondGroup Activated",
+      "commands": [
+        "[input] [repo] C @ [Latest] Count of No. B [CondGroup] of D -> 0",
+        "[output] D"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [CondGroup:Done] No. B of D @Caller C",
+        "[input] [repo] [CondGroup:DoneState] of C for No. B of D -> no",
+        "[output] [safe--] Count of No. B [CondGroup] of D @Caller C",
+        "[output] [repo] [SET] [CondGroup:DoneState] of C for No. B of D -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [CondGroup:Done] No. B of D @Caller C",
+        "[output] [repo] [GET] [CondGroup:DoneState] of C for No. B of D"
+      ]
+    },
+    {
+      "description": "route:null->no",
+      "commands":[
+        "[input] [repo] C @ [CondGroup:DoneState] of C for No. B of D ->",
+        "[output] [repo] C @ [CondGroup:DoneState] of C for No. B of D -> no"
+      ]
+    }
+  ]
+}
