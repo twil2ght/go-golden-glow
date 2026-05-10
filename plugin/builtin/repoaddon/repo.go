@@ -19,13 +19,13 @@ func init() {
 const (
 	name     = "repo_addon"
 	nameFail = "repo_addon_fail"
-	testing  = false
 	// parameter keys
 	keyKey         = "key"
 	keyValue       = "value"
 	keyExpiration  = "expiration"
 	keyDist        = "dist"
 	KeySingleValue = "singleValue"
+	keyDelete      = "delete"
 )
 
 type addon struct {
@@ -84,6 +84,15 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsExecutor,
 	))
+	provider.Add("set_value", datagen.NewData(
+		[]string{"[repo] [DEL] $1"},
+		[]string{},
+		map[string]string{
+			keyKey:    "$1",
+			keyDelete: "true",
+		},
+		datagen.AsExecutor,
+	))
 	provider.Add("check_value", datagen.NewData(
 		[]string{"[repo] [CHECK] $1 -> $2"},
 		[]string{"[repo] $1 -> $2"},
@@ -130,12 +139,15 @@ func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler])
 			key, _         = parameters.Get(keyKey)
 			value, _       = parameters.Get(keyValue)
 			singleValue, _ = parameters.Get(KeySingleValue)
+			del, _         = parameters.Get(keyDelete)
 			expiration, _  = parameters.Get(keyExpiration)
 		)
-		log.Default().Info("[repo] set", key, value)
-		if testing {
+		if del == "true" {
+			log.Default().Info("[repo] del", key)
+			s.repo.Del(key)
 			return
 		}
+		log.Default().Info("[repo] set", key, value)
 		s.cache.Unregister(fmt.Sprintf("check %s!->%s", key, value))
 		if singleValue == "true" {
 			s.repo.Del(key)
