@@ -1,4 +1,7 @@
 {
+  "dependencies": [
+    "CondGroup_Activate"
+  ],
   "API": [
     "D [Execute] A @Caller C"
   ],
@@ -14,17 +17,11 @@
       ]
     },
     {
-      "description": "initialize the iterator",
-      "commands": [
-        "[input] [repo] C @ step 1 of D [Execute] A -> E",
-        "[output] D [Execute] E @Caller C step 1 of D [Execute] A"
-      ]
-    },
-    {
       "description": "iterate the iterator",
+      "Tips": "here must be the controller that fires the `D [Execute] E`;if not,then lock the controller again",
       "commands": [
         "[input] [repo] C @ step B1 of D [Execute] A -> E",
-        "[output] D [Execute] E @Caller C step B1 of D [Execute] A"
+        "[output] [CondGroup:DoneAuto] D [Execute] E @Caller step B1 of D [Execute] A"
       ]
     },
     {

@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "description": "speak engine:set",
+      "commands": [
+        "[input] Susie [Execute] speak to B : A @Caller C",
+        "[input] [repo] speak to B : A @ [Button] Speak -> on",
+        "[output] [speak] A -> B"
+      ]
+    },
+    {
+      "description": "speak engine:set",
+      "commands": [
+        "[input] Susie [Execute] speak to B : A @Caller C",
+        "[output] [repo] [GET] [Button] Speak @Caller speak to B : A"
+      ]
+    },
+    {
+      "commands": [
+
+        "[input] Susie can't speak",
+        "[output] [repo] [SET] [Button] Speak -> Off",
+        "[input] [repo] [Button] Speak -> Off",
+        "[output] Susie can't speak",
+
+        "[input] Susie can speak",
+        "[output] [repo] [SET] [Button] Speak -> On",
+        "[input] [repo] [Button] Speak -> On",
+        "[output] Susie can speak",
+
+        "[safe--] Count of No. 1 of Susie can speak @ C"
+      ]
+    },
+    {
+      "description": "builtin controller",
+      "commands": [
+        "[repo] [SET] [Then] Susie is speaking -> [safe++] Count of No. 1 [CondGroup] of Susie can speak @ Susie is speaking",
+        "[repo] [SET] [Then] Susie stops speaking -> [CondGroup:Done] No. 1 of Susie can speak @ Susie stops speaking"
+      ]
+    }
+  ]
+}

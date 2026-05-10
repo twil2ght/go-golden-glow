@@ -3,7 +3,8 @@
     "SafeCalculate"
   ],
   "API": [
-    "[CondGroup:Done] No. B of D @Caller C"
+    "[CondGroup:Done] No. B of D @Caller C",
+    "[CondGroup:DoneAuto] D @Caller C"
   ],
   "data": [
     {
@@ -32,6 +33,19 @@
       "commands":[
         "[input] [repo] [CondGroup:DoneState] of C for No. B of D ->",
         "[output] [repo] [CondGroup:DoneState] of C for No. B of D -> no"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [CondGroup:DoneAuto] D @Caller C",
+        "[input] [repo] [CondGroup:Index] of D for C -> B",
+        "[output] [CondGroup:Done] No. B of D @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [CondGroup:DoneAuto] D @Caller C",
+        "[output] [repo] [GET] [CondGroup:Index] of D for C"
       ]
     }
   ]
