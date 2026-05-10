@@ -1,11 +1,14 @@
 {
+  "Hook": [
+    "[CondGroup:Multi-Activated] D"
+  ],
   "data": [
     {
       "description": "On Multi-Group Activated",
       "commands": [
-        "[input] [repo] Count of NO. B [CondGroup] of D -> 0",
-        "[input] [repo] Count of NO. B1 [CondGroup] of D -> 0",
-        "[output] [Hook:On Multi-Group Activated] A"
+        "[input] [repo] C @ [Latest] Count of No. A [CondGroup] of D -> 0",
+        "[input] [repo] F @ [Latest] Count of No. B [CondGroup] of D -> 0",
+        "[output] [CondGroup:Multi-Activated] D"
       ]
     }
   ]

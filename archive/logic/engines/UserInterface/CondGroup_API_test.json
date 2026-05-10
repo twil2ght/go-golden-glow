@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[CondGroup:Reset] No. 1 of Susie is adorable"
+      ],
+      "demo": [
+        "[Cond:Reset]",
+        "[CondGroup:Reset] No. 1 of Susie is adorable"
+      ]
+    }
+  ]
+}

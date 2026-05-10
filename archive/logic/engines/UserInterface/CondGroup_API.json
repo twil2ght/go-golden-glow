@@ -28,7 +28,7 @@
         "[input] [repo] [Cond:Reset] @ No. 1 [Cond] -> A",
         "[output] [repo] [DEL] No. 1 [Cond]",
 
-        "[input] [compute] [Cond:Reset] No. F @ F +1 -> F1",
+        "[input] [compute] [Cond:Reset] No. F @ F + 1 -> F1",
         "[output] [repo] [GET] No. F1 [Cond] @Caller [Cond:Reset] No. F",
 
         "[input] [repo] [Cond:Reset] No. F @ No. F1 [Cond] -> A",

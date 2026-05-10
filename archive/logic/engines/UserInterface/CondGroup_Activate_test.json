@@ -3,9 +3,9 @@
     {
       "description": "one controller can only use once",
       "commands": [
-        "[safe--] Susie is cute @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable",
-        "[safe--] Susie is happy @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable",
-        "[safe--] Susie is smart @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable"
+        "[safe--] Count of No. 1 [CondGroup] of Susie is adorable @Caller Susie is cute",
+        "[safe--] Count of No. 1 [CondGroup] of Susie is adorable @Caller Susie is happy",
+        "[safe--] Count of No. 1 [CondGroup] of Susie is adorable @Caller Susie is smart"
       ],
       "demo": [
       ]

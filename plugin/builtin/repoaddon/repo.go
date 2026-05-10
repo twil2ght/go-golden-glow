@@ -84,7 +84,7 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsExecutor,
 	))
-	provider.Add("set_value", datagen.NewData(
+	provider.Add("del_value", datagen.NewData(
 		[]string{"[repo] [DEL] $1"},
 		[]string{},
 		map[string]string{
@@ -143,7 +143,7 @@ func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler])
 			expiration, _  = parameters.Get(keyExpiration)
 		)
 		if del == "true" {
-			log.Default().Info("[repo] del", key)
+			log.Default().Info("[repo] del", "key", key)
 			s.repo.Del(key)
 			return
 		}
