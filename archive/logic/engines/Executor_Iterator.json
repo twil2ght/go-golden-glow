@@ -5,35 +5,42 @@
   "API": [
     "D [Execute] A @Caller C"
   ],
-  "Hook(Used)": [
-    "[repo] C @ [Execute:Done] step B of D [Execute] A -> yes"
+  "callback": [
+    "[repo] C @ [Execute:Done] D [Execute] A -> yes"
   ],
   "data": [
     {
-      "description": "initialize the iterator:pre-checks",
+      "description": "initialize",
       "commands": [
         "[input] D [Execute] A @Caller C",
         "[output] [repo] [GET] step 1 of D [Execute] A @Caller C"
       ]
     },
     {
-      "description": "iterate the iterator",
+      "description": "main",
       "Tips": "here must be the controller that fires the `D [Execute] E`;if not,then lock the controller again",
       "commands": [
-        "[input] [repo] C @ step B1 of D [Execute] A -> E",
-        "[output] [CondGroup:DoneAuto] D [Execute] E @Caller step B1 of D [Execute] A"
+        "[input] [repo] C @ step B of D [Execute] A -> E",
+        "[output] [CondGroup:DoneAuto] D [Execute] E @Caller step B of D [Execute] A"
       ]
     },
     {
-      "description": "iterate the iterator:pre-checks",
+      "description": "iterate",
       "commands": [
         "[input] D [Execute] A @Caller C",
-        "[input] [repo] C @ [Execute:Done] step B of D [Execute] A -> yes",
+        "[input] [repo] step B of D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
         "[output] [compute] B + 1 @Caller C",
 
-        "[input] [repo] C @ [Execute:Done] step B of D [Execute] A -> yes",
+        "[input] [repo] step B of D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
         "[input] [compute] C @ B + 1 -> B1",
-        "[output] [repo] [GET] step B1 of D [Execute] A@Caller C"
+        "[output] [repo] [GET] step B1 of D [Execute] A @Caller C"
+      ]
+    },
+    {
+      "description": "shutdown",
+      "commands": [
+        "[input] [repo] C @ step B of D [Execute] A ->",
+        "[output] [repo] C @ [Execute:Done] D [Execute] A -> yes"
       ]
     }
   ]
