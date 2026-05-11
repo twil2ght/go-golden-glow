@@ -8,6 +8,12 @@
   "callback": [
     "[repo] C @ [Execute:Done] D [Execute] A -> yes"
   ],
+  "override": [
+    {
+      "source": "[repo] C @ [Latest] Count of No. B [CondGroup] of D -> 0",
+      "target": "[repo] step F of D [Execute] A @ [Latest] Count of No. B [CondGroup] of D [Execute] E -> 0"
+    }
+  ],
   "data": [
     {
       "description": "initialize",
@@ -21,7 +27,10 @@
       "Tips": "here must be the controller that fires the `D [Execute] E`;if not,then lock the controller again",
       "commands": [
         "[input] [repo] C @ step B of D [Execute] A -> E",
-        "[output] [CondGroup:DoneAuto] D [Execute] E @Caller step B of D [Execute] A"
+        "[output] [CondGroup:DoneAuto] D [Execute] E @Caller step B of D [Execute] A",
+
+        "[input] [repo] step B of D [Execute] A @ [Latest] Count of No. B1 [CondGroup] of D [Execute] E -> 0",
+        "[output] D [Execute] E @Caller step B of D [Execute] A"
       ]
     },
     {
@@ -30,7 +39,6 @@
         "[input] D [Execute] A @Caller C",
         "[input] [repo] step B of D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
         "[output] [compute] B + 1 @Caller C",
-
         "[input] [repo] step B of D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
         "[input] [compute] C @ B + 1 -> B1",
         "[output] [repo] [GET] step B1 of D [Execute] A @Caller C"
