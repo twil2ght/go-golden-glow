@@ -5,8 +5,7 @@
         "[repo] [SET] No. 1 [Cond] -> Susie is happy",
         "[repo] [SET] No. 2 [Cond] -> Susie is cute",
         "[repo] [SET] No. 3 [Cond] -> Susie is smart",
-        "[repo] [Res] -> Susie is adorable",
-        ""
+        "[repo] [Res] -> Susie is adorable"
       ],
       "demo": [
         "[repo] [SET] No. 1 [Cond] -> Susie is happy",
