@@ -3,13 +3,26 @@
     {
       "description": "one controller can only use once",
       "commands": [
-        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute",
-        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is happy",
-        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is smart"
+
       ],
       "demo": [
         "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute",
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is happy",
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is smart",
+        "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute",
         "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute"
+      ]
+    },
+    {
+      "description": "test:DoneAuto",
+      "commands": [
+        "[CondGroup:DoneAuto] Susie is adorable @Caller Susie is cute",
+        "[CondGroup:DoneAuto] Susie is adorable @Caller Susie is happy",
+        "[CondGroup:DoneAuto] Susie is adorable @Caller Susie is smart"
+      ],
+      "demo": [
+        "[CondGroup:DoneAuto] Susie is adorable @Caller Susie is cute",
+        "[CondGroup:DoneAuto] Susie is adorable @Caller Susie is cute"
       ]
     }
   ]

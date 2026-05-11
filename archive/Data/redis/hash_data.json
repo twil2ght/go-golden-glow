@@ -26,13 +26,22 @@
   "[CondGroup:DoneState] of Susie is smart for No. 1 of Susie is adorable": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup:Index] of Susie is adorable for Susie is cute": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] of Susie is adorable for Susie is happy": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] of Susie is adorable for Susie is smart": {
+    "1": "0001-01-01T00:00:00Z"
+  },
   "[Then] Susie is cute": {
-    "[safe--] Susie is cute @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable": "0001-01-01T00:00:00Z"
+    "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute": "0001-01-01T00:00:00Z"
   },
   "[Then] Susie is happy": {
-    "[safe--] Susie is happy @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable": "0001-01-01T00:00:00Z"
+    "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is happy": "0001-01-01T00:00:00Z"
   },
   "[Then] Susie is smart": {
-    "[safe--] Susie is smart @ [GET] Count of NO. 1 [CondGroup] of Susie is adorable": "0001-01-01T00:00:00Z"
+    "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is smart": "0001-01-01T00:00:00Z"
   }
 }
