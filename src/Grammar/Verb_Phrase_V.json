@@ -1,0 +1,19 @@
+{
+  "API": [
+    {
+      "caller": "[Grammar:Verify:V] A @Caller C",
+      "callback": [
+        "[Grammar:Verify:V] A -> yes"
+      ]
+    }
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V] A @Caller C",
+        "[input] [repo] C @ [Grammar:Property:Word] A -> verb",
+        "[output] [Grammar:Verify:V] A -> yes"
+      ]
+    }
+  ]
+}

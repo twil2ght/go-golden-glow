@@ -1,0 +1,45 @@
+{
+  "API": [
+    {
+      "caller": "[Grammar:Verify:VerbPhrase] A @Caller C",
+      "callback": [
+        "[Grammar:Verify:VerbPhrase] A -> yes"
+      ]
+    }
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V] C [VerbPhrase] @ A -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] A -> yes",
+
+        "[input] [Grammar:Verify:V+O] C [VerbPhrase] @ A -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] A -> yes",
+
+        "[input] [Grammar:Verify:V+IO+DO] C [VerbPhrase] @ A -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] A -> yes",
+
+        "[input] [Grammar:Verify:V+O+OC] C [VerbPhrase] @ A -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:VerbPhrase] A @Caller C",
+        "[output] [Grammar:Verify:V] A @Caller C [VerbPhrase]",
+
+        "[input] [Grammar:Verify:V] C [VerbPhrase] @ A -> no",
+        "[output] [Grammar:Verify:V+O] A @Caller C [VerbPhrase]",
+
+        "[input] [Grammar:Verify:V+O] C [VerbPhrase] @ A -> no",
+        "[output] [Grammar:Verify:V+IO+DO] A @Caller C [VerbPhrase]",
+
+        "[input] [Grammar:Verify:V+IO+DO] C [VerbPhrase] @ A -> no",
+        "[output] [Grammar:Verify:V+O+OC] A @Caller C [VerbPhrase]",
+
+        "[input] [Grammar:Verify:V+O+OC] C [VerbPhrase] @ A -> no",
+        "[output] [Grammar:Verify:VerbPhrase] A -> no"
+      ]
+    }
+  ]
+}
