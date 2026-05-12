@@ -1,0 +1,97 @@
+{
+  "dependencies": [
+    "../SafeCalculate"
+  ],
+  "API": [
+    "[CondGroup:Done] No. {B} of {D} [BY] A @Caller {C}",
+    "[CondGroup:Undone] No. {B} of {D} [BY] A @Caller {C}",
+    "[CondGroup:DoneAuto] {D} [BY] A @Caller {C}",
+    "[CondGroup:UndoneAuto] {D} [BY] A @Caller {C}"
+  ],
+  "callback": [
+    "[CondGroup:MarkDone:NewCount] C @ No. B of D [BY] A -> F"
+  ],
+  "args": {
+    "B": "the index of the groups of D",
+    "D": "the result of the group(also the group itself)",
+    "A": "the controller(appear as the caller)"
+  },
+  "data": [
+    {
+      "description": "Callback",
+      "commands": [
+        "[input] [repo] C [BY] A @ [Latest] Count of No. B [CondGroup] of D -> F",
+        "[output] [CondGroup:MarkDone:NewCount] C @ No. B of D [BY] A"
+      ]
+    },
+    {
+      "description": "Mark CondGroup as Done",
+      "commands": [
+        "[input] [CondGroup:Done] No. B of D [BY] A @Caller C",
+        "[input] [repo] [CondGroup:DoneState] of A for No. B of D -> no",
+        "[output] [safe--] Count of No. B [CondGroup] of D @Caller C [BY] A",
+        "[output] [repo] [SET] [CondGroup:DoneState] of A for No. B of D -> yes"
+      ]
+    },
+    {
+      "description": "Check if CondGroup is Done",
+      "commands": [
+        "[input] [CondGroup:Done] No. B of D [BY] A @Caller C",
+        "[output] [repo] [GET] [CondGroup:DoneState] of A for No. B of D"
+      ]
+    },
+    {
+      "description": "route:null->no",
+      "commands":[
+        "[input] [repo] [CondGroup:DoneState] of A for No. B of D ->",
+        "[output] [repo] [CondGroup:DoneState] of A for No. B of D -> no"
+      ]
+    },
+    {
+      "description": "Mark CondGroup as Done Automatically",
+      "commands": [
+        "[input] [CondGroup:DoneAuto] D [BY] A @Caller C",
+        "[input] [repo] [CondGroup:Index] of D for A -> B",
+        "[output] [CondGroup:Done] No. B of D [BY] A @Caller C"
+      ]
+    },
+    {
+      "description": "Get CondGroup Done Index",
+      "commands": [
+        "[input] [CondGroup:DoneAuto] D [BY] A @Caller C",
+        "[output] [repo] [GET] [CondGroup:Index] of D for A"
+      ]
+    },
+    {
+      "description": "Mark CondGroup as Undone Automatically",
+      "commands": [
+        "[input] [CondGroup:UndoneAuto] D [BY] A @Caller C",
+        "[input] [repo] [CondGroup:Index] of D for A -> B",
+        "[output] [CondGroup:Undone] No. B of D [BY] A @Caller C"
+      ]
+    },
+    {
+      "description": "Get CondGroup Index",
+      "commands": [
+        "[input] [CondGroup:UndoneAuto] D [BY] A @Caller C",
+        "[output] [repo] [GET] [CondGroup:Index] of D for A"
+      ]
+    },
+    {
+      "description": "Undo CondGroup",
+      "commands": [
+        "[input] [CondGroup:Undone] No. B of D [BY] A @Caller C",
+        "[input] [repo] [CondGroup:DoneState] of A for No. B of D -> yes",
+        "[output] [safe++] Count of No. B [CondGroup] of D @Caller C [BY] A",
+        "[output] [repo] [DEL] [CondGroup:DoneState] of C for No. B of D"
+      ]
+    },
+    {
+      "description": "Check if CondGroup is done",
+      "commands": [
+        "[input] [CondGroup:Undone] No. B of D [BY] A @Caller C",
+        "[output] [repo] [GET] [CondGroup:DoneState] of A for No. B of D"
+      ]
+    }
+  ]
+}

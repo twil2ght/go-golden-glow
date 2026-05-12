@@ -1,0 +1,24 @@
+{
+  "API": [
+    {
+      "caller": "[Executor:Get:Steps:Count] D [Execute] A @Caller C",
+      "callback": "[Executor:Steps:Count] C @ D [Execute] A -> F"
+    }
+  ],
+  "data": [
+    {
+      "description": "Get Steps Count",
+      "commands": [
+        "[input] [Executor:Get:Steps:Count] D [Execute] A @Caller C",
+        "[output] [repo] [GET] [Executor:Steps:Count] D [Execute] A @Caller C",
+
+        "[input] [repo] C @ [Executor:Steps:Count] D [Execute] A -> F",
+        "[output] [Executor:Steps:Count] C @ D [Execute] A -> F",
+
+        "[input] [repo] C @ [Executor:Steps:Count] D [Execute] A ->",
+        "[output] [Executor:Steps:Count] C @ D [Execute] A -> 0"
+      ]
+    }
+  ]
+
+}

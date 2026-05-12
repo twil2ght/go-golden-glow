@@ -1,0 +1,37 @@
+{
+  "dependencies": [
+    "../SafeCalculate/Plus_1"
+  ],
+  "API": [
+    {
+      "caller": "[Cond:Add] A @Caller C",
+      "callback": "[Cond:Count] C [Add] A @ -> F"
+    }
+  ],
+  "data": [
+    {
+      "description": "[Cond:Add]",
+      "commands": [
+        "[input] [Cond:Add] A",
+        "[output] [Cond:Count++] @Caller C [Add] A",
+
+        "[input] [Cond:Count] C [Add] A @ -> B",
+        "[output] [repo] [SET] No. B -> A"
+      ]
+    },
+    {
+      "description": "Count++",
+      "commands": [
+        "[input] [Cond:Count++] @Caller C",
+        "[output] [safe++] [Cond:Count] @Caller C"
+      ]
+    },
+    {
+      "description": "callback of [Cond:Count] Operator",
+      "commands": [
+        "[input] [repo] C @ [Latest] [Cond:Count] -> F",
+        "[output] [Cond:Count] C @ -> F"
+      ]
+    }
+  ]
+}

@@ -13,6 +13,25 @@
         "if then know you",
         "say hello to them"
       ]
+    },
+    {
+      "chat": [
+        "when someone enters your chat room",
+        "[Cond] C enters D 's chat room",
+        "welcome them",
+        "[Res] D [Execute] welcome C",
+        "",
+        "to welcome them",
+        "[Cond] Step 1 of D [Execute] welcome C",
+        "you can say : welcome to my chat room",
+        "[Res] D [Execute] say : welcome to my chat room",
+        "if you know their name",
+        "[Cond] D knows C 's name",
+        "then you can call them by name",
+        "[repo] [Res] D [Execute] call C 's name",
+        "if you don't know their name",
+        "then you can ask what their name is"
+      ]
     }
   ]
 }

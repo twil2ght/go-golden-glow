@@ -1,0 +1,59 @@
+{
+  "dependencies": [
+    "utils"
+  ],
+  "description": "Maker",
+  "API": [
+    "[Res] D"
+  ],
+  "callback": [
+    "[Res:Done] D",
+    "[Cond:Used] No. F1 -> A",
+    "[repo] [SET] [CondGroup:Index] of D for A -> B | F",
+    "[repo] [SET] [CondGroup] No. F of No. B of D -> A",
+    "[repo] [SET] [Then] A -> [CondGroup:Done] No. B of D @Caller A"
+  ],
+  "data": [
+    {
+      "description": "main",
+      "commands": [
+        "[input] [repo] No. F @ No. F1 [Cond] -> A",
+        "[output] [Cond:Used] No. F1 -> A",
+        "[output] [CondGroup:ElementCount++] No. B of D @Caller No. F1 [Cond]",
+        "[output] [repo] [SET] [Then] A -> [CondGroup:Done] No. B of D @Caller A",
+
+        "[input] [CondGroup:ElementCount] No. B1 [Cond] @ No. B of D -> F",
+        "[output] [repo] [SET] [CondGroup:Index] D of A -> B | F",
+        "[output] [repo] [SET] [CondGroup] No. F of No. B of D -> A"
+      ]
+    },
+    {
+      "description": "iterate",
+      "commands": [
+        "[input] [CondGroup:ElementCount] No. B1 [Cond] @ No. B of D -> F",
+        "[output] [compute] [GET] B1 + 1 @Caller No. B1 [Cond]",
+
+        "[input] [CondGroup:ElementCount] No. B1 [Cond] @ No. B of D -> F",
+        "[input] [compute] No. B1 [Cond] @ B1 + 1 -> F1",
+        "[output] [repo] [GET] No. F1 [Cond] @Caller No. B1"
+      ]
+    },
+    {
+      "description": "init",
+      "commands": [
+        "[input] [Res] D",
+        "[output] [CondGroup:Count++] D @Caller [Res]",
+
+        "[input] [CondGroup:Count] [Res] @ D -> B",
+        "[output] [repo] [GET] No. 1 [Cond] @Caller No. 0"
+      ]
+    },
+    {
+      "description": "shutdown",
+      "commands": [
+        "[input] [repo] No. F @ No. F1 [Cond] ->",
+        "[output] [Res:Done] D"
+      ]
+    }
+  ]
+}

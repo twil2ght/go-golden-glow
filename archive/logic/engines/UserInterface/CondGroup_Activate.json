@@ -4,7 +4,9 @@
   ],
   "API": [
     "[CondGroup:Done] No. B of D @Caller C",
-    "[CondGroup:DoneAuto] D @Caller C"
+    "[CondGroup:Undone] No. B of D @Caller C",
+    "[CondGroup:DoneAuto] D @Caller C",
+    "[CondGroup:UndoneAuto] D @Caller C"
   ],
   "data": [
     {
@@ -15,6 +17,7 @@
       ]
     },
     {
+      "description": "Mark CondGroup as Done",
       "commands": [
         "[input] [CondGroup:Done] No. B of D @Caller C",
         "[input] [repo] [CondGroup:DoneState] of C for No. B of D -> no",
@@ -23,6 +26,7 @@
       ]
     },
     {
+      "description": "Check if CondGroup is Done",
       "commands": [
         "[input] [CondGroup:Done] No. B of D @Caller C",
         "[output] [repo] [GET] [CondGroup:DoneState] of C for No. B of D"
@@ -36,6 +40,7 @@
       ]
     },
     {
+      "description": "Mark CondGroup as Done Automatically",
       "commands": [
         "[input] [CondGroup:DoneAuto] D @Caller C",
         "[input] [repo] [CondGroup:Index] of D for C -> B",
@@ -43,9 +48,41 @@
       ]
     },
     {
+      "description": "Get CondGroup Done Index",
       "commands": [
         "[input] [CondGroup:DoneAuto] D @Caller C",
         "[output] [repo] [GET] [CondGroup:Index] of D for C"
+      ]
+    },
+    {
+      "description": "Mark CondGroup as Undone Automatically",
+      "commands": [
+        "[input] [CondGroup:UndoneAuto] D @Caller C",
+        "[input] [repo] [CondGroup:Index] of D for C -> B",
+        "[output] [CondGroup:Undone] No. B of D @Caller C"
+      ]
+    },
+    {
+      "description": "Get CondGroup Index",
+      "commands": [
+        "[input] [CondGroup:UndoneAuto] D @Caller C",
+        "[output] [repo] [GET] [CondGroup:Index] of D for C"
+      ]
+    },
+    {
+      "description": "Undo CondGroup",
+      "commands": [
+        "[input] [CondGroup:Undone] No. B of D @Caller C",
+        "[input] [repo] [CondGroup:DoneState] of C for No. B of D -> yes",
+        "[output] [safe++] Count of No. B [CondGroup] of D @Caller C",
+        "[output] [repo] [DEL] [CondGroup:DoneState] of C for No. B of D"
+      ]
+    },
+    {
+      "description": "Check if CondGroup is done",
+      "commands": [
+        "[input] [CondGroup:Undone] No. B of D @Caller C",
+        "[output] [repo] [GET] [CondGroup:DoneState] of C for No. B of D"
       ]
     }
   ]

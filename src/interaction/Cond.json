@@ -1,0 +1,59 @@
+{
+  "description": "set target(by to...)",
+  "override": [
+    {
+      "source":"[Executor:Steps:Count] D [Execute] A -> F",
+      "target":"[Executor:Steps:Count] D [Execute] A -> 0"
+    }
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] C says to Susie : to A",
+        "[input] [TeachMode] Teacher @ -> C",
+        "[input] [Grammar:Verify:VerbPhrase] A -> yes",
+        "[input] [Executor:Steps:Count] D [Execute] A -> 0",
+        "[output] [Cond:Add] step 1 of D [Execute] A",
+
+        "[input] C says to Susie : to A",
+        "[input] [TeachMode] Teacher @ -> C",
+        "[input] [Executor:Steps:Count] D [Execute] A -> F",
+        "[output] [Executor:Hook:AlreadyLearned] D [Execute] A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] C says to Susie : to A",
+        "[output] [TeachMode:Check] Teacher @ -> C",
+        "[output] [Executor:Get:Steps:Count] D [Execute] A",
+        "[output] [Grammar:Verify:VerbPhrase] A"
+      ]
+    },
+    {
+      "description": "Hook: AlreadyLearned",
+      "commands": [
+        "[repo] [SET] [Executor:Hook:AlreadyLearned] D [Execute] A -> Susie already knows how to A"
+      ]
+    },
+    {
+      "description": "for [TeachMode]",
+      "commands": [
+        "[input] [repo] trust C -> yes",
+        "[input] C means to teach",
+        "[input] Susie means to learn",
+        "[output] [TeachMode] Teacher @ -> C"
+      ]
+    },
+    {
+      "description": "for [Executor]",
+      "commands": [
+        "[input] [Cond:Used] No. F -> step B of D [Execute] A",
+        "[output] [compute] [GET] B + 1 @Caller [Cond:Used] step F",
+
+        "[input] [Cond:Used] No. F -> step B of D [Execute] A",
+        "[input] [compute] [Cond:Used] step F @ B + 1 -> B1",
+        "[output] [repo] [SET] No. F [Cond] -> step B1 of D [Execute] A"
+      ]
+    }
+  ]
+}
