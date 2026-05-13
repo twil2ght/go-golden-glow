@@ -1,10 +1,11 @@
 {
-  "name": "V+IO+DO_checker",
+  "name": "V+IO+DO",
   "is_template": true,
   "args": [
     "$verb"
   ],
   "API": "[Grammar:Verify:V+IO+DO] $verb B @Caller C",
+  "template_API": "[template:Run] [V+IO+DO] @Args A @Caller C",
   "callback": [
     "[Grammar:Verify:V+IO+DO] C @ $verb B -> yes",
     "[Grammar:V+IO+DO:Verb] C @ $verb B -> $verb",

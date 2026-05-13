@@ -3,7 +3,7 @@
   "is_template": true,
   "args": ["$gerund"],
   "API":"[Grammar:Verify:O+OC] B @Caller C",
-  "template_API": "[template:Generate] [O+OC:doing_sth] @Gerund A @Caller C",
+  "template_API": "[template:Run] [O+OC:doing_sth] @Args A @Caller C",
   "callback": [
     "[Grammar:Verify:O+OC] C @ B -> yes",
     "[Grammar:O+OC:Object] C @ B -> A",

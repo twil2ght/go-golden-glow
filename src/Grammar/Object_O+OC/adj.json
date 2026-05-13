@@ -3,7 +3,7 @@
   "is_template": true,
   "args": ["$attr"],
   "API":"[Grammar:Verify:O+OC] B @Caller C",
-  "template_API": "[template:Generate] [O+OC:adj] @Adjective A @Caller C",
+  "template_API": "[template:Run] [O+OC:adj] @Args A @Caller C",
   "callback": [
     "[Grammar:Verify:O+OC] C @ B -> yes",
     "[Grammar:O+OC:Object] C @ B -> A",
