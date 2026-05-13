@@ -100,7 +100,7 @@ func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExecutor,
 	))
 	provider.Add("template", datagen.NewData(
-		[]string{"[template] $1 @Args $2 @Caller $3"},
+		[]string{"[template:Run] $1 @Args $2 @Caller $3"},
 		[]string{},
 		map[string]string{
 			KeyName: "$1",
