@@ -57,7 +57,7 @@ func replaceVars(s string, vars map[string]string) string {
 	return s
 }
 
-// parseTemplateArgs args:"key1=value1,key2=value2" -> map[key1:value1 key2:value2]
+// parseTemplateArgs args:"key1 = value1,key2 = value2" -> map[key1:value1 key2:value2]
 func parseTemplateArgs(args string) (map[string]string, error) {
 	result := make(map[string]string)
 	for _, pair := range strings.Split(args, ",") {
@@ -68,7 +68,7 @@ func parseTemplateArgs(args string) (map[string]string, error) {
 		if len(kv) != 2 {
 			return nil, fmt.Errorf("invalid args pair: %s", pair)
 		}
-		result[kv[0]] = kv[1]
+		result[strings.TrimSpace(kv[0])] = strings.TrimSpace(kv[1])
 	}
 	return result, nil
 }
