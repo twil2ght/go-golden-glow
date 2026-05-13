@@ -27,6 +27,9 @@ const (
 	keyMode  = "mode"
 	keyType  = "type"
 
+	KeyName = "name"
+	KeyArgs = "args"
+
 	testing = false
 )
 
@@ -35,6 +38,7 @@ var (
 	// modes
 	modeMultiCondition = "multi_condition"
 	modeSingleInput    = "single_input"
+	modeTemplate       = "template"
 
 	// types
 	typeInput  = "input"
@@ -50,6 +54,7 @@ type builder struct {
 	input       []string
 	inputSingle []string
 	buildDone   bool
+	templates   m.Map[*template]
 }
 
 func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
@@ -94,6 +99,16 @@ func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsExecutor,
 	))
+	provider.Add("template", datagen.NewData(
+		[]string{"[template] $1 @Args $2 @Caller $3"},
+		[]string{},
+		map[string]string{
+			KeyName: "$1",
+			KeyArgs: "$2",
+			keyMode: modeTemplate,
+		},
+		datagen.AsExecutor,
+	))
 	gen.AddProvider(pluginName, provider)
 }
 
@@ -104,6 +119,14 @@ func (b *builder) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler
 			valueType, _ = parameters.Get(keyType)
 			mode, _      = parameters.Get(keyMode)
 		)
+		if mode == modeTemplate {
+			var (
+				name, _ = parameters.Get(KeyName)
+				args, _ = parameters.Get(KeyArgs)
+			)
+			b.RunTemplate(name, args)
+			return
+		}
 		_ = b.add(value, valueType, mode)
 	})
 }
@@ -176,11 +199,48 @@ func (b *builder) mapToPlaceholder(value string) string {
 	}
 	return strings.Join(parts, " ")
 }
+func (b *builder) ParseTpl(tpl *template, arg m.Map[string]) {
+	for _, item := range tpl.Data {
+		var inputs, outputs []string
+		for _, cmd := range item.Commands {
+			cmd = b.mapToPlaceholder(replaceVars(cmd, arg))
+			switch {
+			case strings.HasPrefix(cmd, "[input] "):
+				inputs = append(inputs, strings.TrimPrefix(cmd, "[input] "))
+			case strings.HasPrefix(cmd, "[output] "):
+				outputs = append(outputs, strings.TrimPrefix(cmd, "[output] "))
+			}
+		}
+		if len(inputs) > 0 && len(outputs) > 0 {
+			b.saver.Save(m.ToHash(inputs), m.ToHash(outputs))
+			logger.Debug("templateGen: saved container",
+				"template", tpl.Name, "inputs", inputs, "outputs", outputs)
+		}
+	}
+}
+func (b *builder) RunTemplate(name, stringArgs string) {
+	tpl := b.templates[name]
+	if tpl == nil {
+		logger.Error("template not found", "name", name)
+		return
+	}
+	args, err := parseTemplateArgs(stringArgs)
+	if err != nil {
+		logger.Error("parse template args error", "name", name, "err", err)
+		return
+	}
+	b.ParseTpl(tpl, args)
+}
 func (b *builder) Setup() error {
 	mappingData, err := os.ReadFile(mappingPath)
 	if err != nil {
 		return fmt.Errorf("read mapping file: %v", err)
 	}
+	tpls, err := loadTemplates(templateDir)
+	if err != nil {
+		return fmt.Errorf("load templates: %v", err)
+	}
+	b.templates = tpls
 	err = json.Unmarshal(mappingData, &b.mapping)
 	if err != nil {
 		return fmt.Errorf("unmarshal mapping file: %v", err)
