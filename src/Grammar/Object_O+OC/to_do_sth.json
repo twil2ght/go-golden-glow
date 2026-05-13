@@ -1,0 +1,34 @@
+{
+  "name": "O+OC_checker:to_do_sth",
+  "is_template": false,
+  "API":"[Grammar:Verify:O+OC] B @Caller C",
+  "callback": [
+    "[Grammar:Verify:O+OC] C @ B -> yes",
+    "[Grammar:O+OC:Object] C @ B -> A",
+    "[Grammar:O+OC:OC] C @ B -> F"
+  ],
+  "data": [
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B to A @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] C [O+OC] @ A -> yes",
+        "[output] [Grammar:Verify:O+OC] C @ B to A -> yes",
+        "[output] [Grammar:O+OC:Object] C @ B to A -> B",
+        "[output] [Grammar:O+OC:OC] C @ B to A -> A"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B to A @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [O+OC]",
+
+        "[input] [Grammar:Verify:O+OC] B to A @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] A @Caller C [O+OC]"
+      ]
+    }
+  ]
+}

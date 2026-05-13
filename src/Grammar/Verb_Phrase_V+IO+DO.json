@@ -1,31 +1,31 @@
 {
   "name": "V+IO+DO_checker",
   "is_template": true,
-  "args": {
-    "verb": "$1"
-  },
-  "API": "[Grammar:Verify:V+IO+DO] $1 B @Caller C",
+  "args": [
+    "$verb"
+  ],
+  "API": "[Grammar:Verify:V+IO+DO] $verb B @Caller C",
   "callback": [
-    "[Grammar:Verify:V+IO+DO] C @ $1 B -> yes",
-    "[Grammar:V+IO+DO:Verb] C @ $1 B -> $1",
-    "[Grammar:V+IO+DO:Object] C @ $1 B -> F"
+    "[Grammar:Verify:V+IO+DO] C @ $verb B -> yes",
+    "[Grammar:V+IO+DO:Verb] C @ $verb B -> $verb",
+    "[Grammar:V+IO+DO:Object] C @ $verb B -> F"
   ],
   "data": [
     {
       "commands": [
-        "[input] [Grammar:Verify:V+IO+DO] $1 B @Caller C",
-        "[input] [Grammar:Verify:IO+DO] C $1 @ B -> yes",
-        "[output] [Grammar:Verify:V+IO+DO] C @ $1 B -> yes",
-        "[output] [Grammar:V+IO+DO:Verb] C @ $1 B -> $1",
+        "[input] [Grammar:Verify:V+IO+DO] $verb B @Caller C",
+        "[input] [Grammar:Verify:IO+DO] C $verb @ B -> yes",
+        "[output] [Grammar:Verify:V+IO+DO] C @ $verb B -> yes",
+        "[output] [Grammar:V+IO+DO:Verb] C @ $verb B -> $verb",
 
-        "[input] [Grammar:IO+DO:IndirectObject] C $1 @ B -> F",
-        "[output] [Grammar:V+IO+DO:Object] C @ $1 B -> F"
+        "[input] [Grammar:IO+DO:IndirectObject] C $verb @ B -> F",
+        "[output] [Grammar:V+IO+DO:Object] C @ $verb B -> F"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:Verify:V+IO+DO] $1 B @Caller C",
-        "[output] [Grammar:Verify:IO+DO] B @Caller C $1"
+        "[input] [Grammar:Verify:V+IO+DO] $verb B @Caller C",
+        "[output] [Grammar:Verify:IO+DO] B @Caller C $verb"
       ]
     }
   ]

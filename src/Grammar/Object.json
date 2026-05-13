@@ -1,0 +1,42 @@
+{
+  "name": "object",
+  "is_template": true,
+  "args": [
+    "$attr"
+  ],
+  "API":"[Grammar:Verify:Object] B @Caller C",
+  "template_API": "[template:Generate] [object] @Args A @Caller C",
+  "callback": [
+    "[Grammar:Verify:Object] C @ B -> yes",
+    "[Grammar:Object:Noun] C @ B -> F"
+  ],
+  "data": [
+    {
+      "description": "object that cached in [repo]",
+      "commands": [
+        "[input] [Grammar:Verify:Object] B @Caller C",
+        "[input] [repo] C @ [Grammar:Object] B -> yes",
+        "[output] [Grammar:Verify:Object] C @ B -> yes",
+
+        "[input] [Grammar:Verify:Object] B @Caller C",
+        "[output] [repo] [GET] [Grammar:Object] B @Caller C"
+      ]
+    },
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:Object] $attr B @Caller C",
+        "[input] [repo] C [Object] @ [Grammar:Property:Word] B -> noun",
+        "[output] [Grammar:Verify:Object] C @ $attr B -> yes",
+        "[output] [Grammar:Object:Noun] C @ B -> B"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:Object] $attr B @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word] B @Caller C [Object]"
+      ]
+    }
+  ]
+}

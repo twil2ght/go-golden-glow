@@ -1,0 +1,36 @@
+{
+  "name": "O+OC:doing_sth",
+  "is_template": true,
+  "args": ["$gerund"],
+  "API":"[Grammar:Verify:O+OC] B @Caller C",
+  "template_API": "[template:Generate] [O+OC:doing_sth] @Gerund A @Caller C",
+  "callback": [
+    "[Grammar:Verify:O+OC] C @ B -> yes",
+    "[Grammar:O+OC:Object] C @ B -> A",
+    "[Grammar:O+OC:OC] C @ B -> F"
+  ],
+  "data": [
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $gerund A @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] C [O+OC] @ $gerund A -> yes",
+        "[output] [Grammar:Verify:O+OC] C @ B $gerund A -> yes",
+        "[output] [Grammar:O+OC:Object] C @ B $gerund A -> B",
+        "[output] [Grammar:O+OC:OC] C @ B $gerund A -> $gerund A"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $gerund A @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [O+OC]",
+
+        "[input] [Grammar:Verify:O+OC] B $gerund A @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] $gerund A @Caller C [O+OC]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "O+OC:adj",
+  "is_template": true,
+  "args": ["$attr"],
+  "API":"[Grammar:Verify:O+OC] B @Caller C",
+  "template_API": "[template:Generate] [O+OC:adj] @Adjective A @Caller C",
+  "callback": [
+    "[Grammar:Verify:O+OC] C @ B -> yes",
+    "[Grammar:O+OC:Object] C @ B -> A",
+    "[Grammar:O+OC:OC] C @ B -> F"
+  ],
+  "data": [
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $attr @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
+        "[output] [Grammar:Verify:O+OC] C @ B $attr -> yes",
+        "[output] [Grammar:O+OC:Object] C @ B $attr -> B",
+        "[output] [Grammar:O+OC:OC] C @ B $attr -> $attr"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $attr @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C $attr"
+      ]
+    }
+  ]
+}
