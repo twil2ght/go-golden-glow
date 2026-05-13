@@ -31,22 +31,7 @@
       ]
     },
     {
-      "description": "Hook: AlreadyLearned",
-      "commands": [
-        "[repo] [SET] [Executor:Hook:AlreadyLearned] D [Execute] A -> Susie already knows how to A"
-      ]
-    },
-    {
-      "description": "for [TeachMode]",
-      "commands": [
-        "[input] [repo] trust C -> yes",
-        "[input] C means to teach",
-        "[input] Susie means to learn",
-        "[output] [TeachMode] Teacher @ -> C"
-      ]
-    },
-    {
-      "description": "for [Executor]",
+      "description": "update step of D [Execute] A",
       "commands": [
         "[input] [Cond:Used] No. F -> step B of D [Execute] A",
         "[output] [compute] [GET] B + 1 @Caller [Cond:Used] step F",

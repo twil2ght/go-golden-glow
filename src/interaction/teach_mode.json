@@ -1,0 +1,35 @@
+{
+  "API": [
+    {
+      "caller": "[TeachMode:Check] Teacher A @Caller C",
+      "callback": "[TeachMode] C @ Teacher A -> yes"
+    }
+  ],
+  "data": [
+    {
+      "description": "for [TeachMode]",
+      "commands": [
+        "[input] [TeachMode:Check] Teacher A @Caller C",
+        "[output] [repo] [GET] [TeachMode] Teacher A @Caller C [TeachMode:Check]",
+
+        "[input] [repo] C [TeachMode:Check] @ [TeachMode] Teacher A -> yes",
+        "[output] [TeachMode] Teacher @ -> A",
+
+        "[input] [repo] C [TeachMode:Check] @ [TeachMode] Teacher A ->",
+        "[input] [repo] C [TeachMode:Check] @ [TeachMode] Teacher A -> no",
+
+        "[input] [repo] C [TeachMode:Check] @ [TeachMode] Teacher A -> no",
+        "[input] [repo] trust A -> yes",
+        "[input] A means to teach",
+        "[input] Susie means to learn",
+        "[output] [TeachMode] Teacher @ -> A",
+
+        "[input] [repo] trust A -> yes",
+        "[input] A means to teach",
+        "[input] Susie means to learn",
+        "[output] [repo] [SET] [TeachMode] Teacher A -> yes",
+        "[output] [TeachMode] Teacher @ -> A"
+      ]
+    }
+  ]
+}

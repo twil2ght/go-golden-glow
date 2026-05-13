@@ -1,0 +1,9 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SET] [Executor:Hook:AlreadyLearned] D [Execute] A -> Susie already knows how to A"
+      ]
+    }
+  ]
+}
