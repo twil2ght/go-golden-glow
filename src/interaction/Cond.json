@@ -11,13 +11,14 @@
       "commands": [
         "[input] C says to Susie : to A",
         "[input] [TeachMode] Teacher @ -> C",
-        "[input] [Grammar:Verify:VerbPhrase] A -> yes",
-        "[input] [Executor:Steps:Count] D [Execute] A -> 0",
+        "[input] [Grammar:Verify:VerbPhrase] [say] @ A -> yes",
+        "[input] [Executor:Check:Exist] [say] @ D [Execute] A -> no",
         "[output] [Cond:Add] step 1 of D [Execute] A",
 
         "[input] C says to Susie : to A",
         "[input] [TeachMode] Teacher @ -> C",
-        "[input] [Executor:Steps:Count] D [Execute] A -> F",
+        "[input] [Grammar:Verify:VerbPhrase] [say] @ A -> yes",
+        "[input] [Executor:Check:Exist] [say] @ D [Execute] A -> yes",
         "[output] [Executor:Hook:AlreadyLearned] D [Execute] A"
       ]
     },
@@ -25,8 +26,8 @@
       "commands": [
         "[input] C says to Susie : to A",
         "[output] [TeachMode:Check] Teacher @ -> C",
-        "[output] [Executor:Get:Steps:Count] D [Execute] A",
-        "[output] [Grammar:Verify:VerbPhrase] A"
+        "[output] [Executor:Check:Exist] D [Execute] A @Caller [say]",
+        "[output] [Grammar:Verify:VerbPhrase] A @Caller [say]"
       ]
     },
     {
