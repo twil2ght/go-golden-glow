@@ -2,11 +2,13 @@
   "C-\u003eR:0052ff78c0b147407c8dbe115c3df5e3": {
     "[phrase] IndexOf $1 # $3 -\u003e $2": {}
   },
-  "C-\u003eR:021b53aef8fb65f1b59bd319abdb5825": {
-    "[CondGroup:Done] No. $2 of $4 @Caller $3": {}
+  "C-\u003eR:01292c901fec93b4991bd88cf9b8e050": {
+    "[Grammar:V+O:Object] $3 @ welcome $2 -\u003e $2": {},
+    "[Grammar:V+O:Verb] $3 @ welcome $2 -\u003e welcome": {},
+    "[Grammar:Verify:V+O] $3 @ welcome $2 -\u003e yes": {}
   },
-  "C-\u003eR:03a10d2065d68cd182bcc62a6d35ebe0": {
-    "[repo] [GET] No. $10 [Cond] @Caller [Cond:Reset] No. $6": {}
+  "C-\u003eR:0564abe62392678930da860510e0a6ff": {
+    "[TeachMode:Check] Teacher $3 @Caller [say]": {}
   },
   "C-\u003eR:07dbc119b34346b1190ccb9fc7d2e5fe": {
     "[time] date -\u003e $1": {}
@@ -14,8 +16,11 @@
   "C-\u003eR:07e8e9f1edc60f65cb5f6c0e0954d185": {
     "[node:executor] [namespace:repo_addon] [key:$1] [singleValue:true] [value:$2]": {}
   },
-  "C-\u003eR:080cc852d9bd9d887e147114c9b11857": {
-    "[repo] [GET] No. $10 [Cond] @Caller No. $6 [Cond]": {}
+  "C-\u003eR:0b48547919a0ad24c8b99c1488a26a77": {
+    "[Grammar:Verify:Object] $3 @ $2 -\u003e yes": {}
+  },
+  "C-\u003eR:11d39daf76b60c2ce6f9ec200db06854": {
+    "[Grammar:Verify:IO+DO] $3 @ $2 to $1 -\u003e yes": {}
   },
   "C-\u003eR:15f15f6b1bb0410e7e045a0fef26af10": {
     "[node:executor] [namespace:repo_addon] [delete:true] [key:$1]": {}
@@ -23,38 +28,38 @@
   "C-\u003eR:17c5c05153eeed9af7398f9357c159cd": {
     "[node:executor] [namespace:repo_addon] [key:$1] [value:$2]": {}
   },
+  "C-\u003eR:18722948c6b84a089698025052a2fe77": {
+    "[Grammar:Verify:V] $3 @ $1 -\u003e no": {}
+  },
   "C-\u003eR:1d2488cf410599ab6dcd407aacbeed72": {
     "[repo] $4 @ $1 -\u003e $2": {}
   },
   "C-\u003eR:1dde910cccc6dcf67c0fd19c75ec3413": {
     "[compute] $4 @ $1 = $2": {}
   },
-  "C-\u003eR:209b2a4913a2d1292666251ee547ed51": {
-    "[repo] [DEL] No. $10 [Cond]": {}
-  },
   "C-\u003eR:21f0ddf9ab70dc595d4ed9fa8dc38149": {
     "[time] time -\u003e $1": {}
   },
-  "C-\u003eR:23b936ca40cb3d51e641530b18b44f53": {
-    "[repo] [GET] [CondGroup:DoneState] of $3 for No. $2 of $4": {}
+  "C-\u003eR:221de707e167f4909cb50bbaf972cc1b": {
+    "[Res] Susie [Execute] $1": {}
   },
-  "C-\u003eR:255d7c5197274bb4370971d5b7b2f010": {
-    "[repo] [SET] [CondGroup:Index] of $4 for $1 -\u003e $2": {}
-  },
-  "C-\u003eR:29989b452cf434e2fbae61705ed618b4": {
-    "$4": {}
-  },
-  "C-\u003eR:2ae31305ca309bac08b3b45e27cdf3ba": {
-    "[compute] [GET] $2 - 1 @Caller $3": {}
-  },
-  "C-\u003eR:2c11d97dc04855c82f1938658f87b01a": {
-    "[repo] [SSET] $1 -\u003e $9": {}
+  "C-\u003eR:2ce4cbcc9e2881c1becb6b0d9d0aaf59": {
+    "[repo] [GET] [Executor:Steps:Count] $4 [Execute] $1 @Caller $3": {}
   },
   "C-\u003eR:2dbcaeae947728d09b97a39fc57d3e86": {
     "Susie is enabled to ask Zero questions": {}
   },
+  "C-\u003eR:33e4702285557853326a4e9a61229571": {
+    "[node:executor] [namespace:builder] [args:$2] [mode:template] [name:$1]": {}
+  },
+  "C-\u003eR:3d8841a21b43c949706350fc4913da25": {
+    "[Grammar:Verify:VerbPhrase] $1 @Caller [say]": {}
+  },
   "C-\u003eR:3f41eea6deccab2ed7a8df4713bd45f8": {
     "[repo] $3 @ $1 -\u003e 0": {}
+  },
+  "C-\u003eR:3f8c3eedc19b92fa541e4ca3c12ea488": {
+    "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {}
   },
   "C-\u003eR:4012989653df59b1e69633f4d0f2f3b3": {
     "[repo] $1 !-\u003e $2": {}
@@ -65,17 +70,8 @@
   "C-\u003eR:4211cd42e6de25aae3b8a55eb48ed310": {
     "[node:executor] [namespace:speaker] [response:$1] [to:$2]": {}
   },
-  "C-\u003eR:43235f0471d8fe877602ba5ee82a710b": {
-    "[repo] [GET] [CondGroup:Index] of $4 for $3": {}
-  },
-  "C-\u003eR:45296382f44629010225f07098037e91": {
-    "[repo] [SSET] Count of No. $2 [CondGroup] of $4 -\u003e $6": {}
-  },
-  "C-\u003eR:470a57dfde6bd250a06500172b2144d0": {
-    "[repo] $3 @ [Latest] $1 -\u003e $9": {}
-  },
-  "C-\u003eR:47a8c3031af9e7eb9d41968a56bbe1c8": {
-    "[repo] [GET] No. 1 [Cond] @Caller [Res]": {}
+  "C-\u003eR:44411fab9b2e3c6cc08482d537c503e5": {
+    "[safe++] [Cond:Count] @Caller $3": {}
   },
   "C-\u003eR:4b065921275a09849498885b27fdb4f2": {
     "[phrase] len $1 -\u003e $2": {}
@@ -86,14 +82,8 @@
   "C-\u003eR:4f95988a047b968585bc0e04a4bf2b29": {
     "[time] minute -\u003e $1": {}
   },
-  "C-\u003eR:52e160f34a7e63b665b235460853d9a5": {
-    "[safe++] Len of [CondGroup] of $4 @Caller [Res]": {}
-  },
-  "C-\u003eR:54aa43b029e447c3374d69dd13cb31a6": {
-    "[repo] [SET] [CondGroup:Index] of $4 for $1 -\u003e $2": {}
-  },
-  "C-\u003eR:57d5437d25da2a879ca57c02d8a144c3": {
-    "[repo] [SET] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e yes": {}
+  "C-\u003eR:5659288577ae28a87517740a7eedd691": {
+    "[repo] [SET] [TeachMode] Teacher $1 -\u003e yes": {}
   },
   "C-\u003eR:5a8e9cb9ddb38b3dfd883141586fc661": {
     "[phrase] $1 @ $3 -\u003e $2": {}
@@ -107,8 +97,17 @@
   "C-\u003eR:5d50a5ec883184899806f2fd60adfc5e": {
     "[repo] [GET] $1 @Caller $3": {}
   },
-  "C-\u003eR:61a71035a5283325f0a3c42d50df4255": {
-    "[compute] [GET] $6 + 1 @Caller No. $6 [Cond]": {}
+  "C-\u003eR:5e4facbd8418a2e83586d9121acc6959": {
+    "[Grammar:Verify:VerbPhrase] $1 @Caller [say]": {}
+  },
+  "C-\u003eR:5fa8fdff747d2fd910470073b5827061": {
+    "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {}
+  },
+  "C-\u003eR:60b0c276026a34aef7a4d1db98b9952d": {
+    "[Grammar:Verify:Object] $2 @Caller $3 [IO+DO]": {}
+  },
+  "C-\u003eR:61641771dc7bc3fdde5122f5e29b699b": {
+    "[Cond:Count++] @Caller $3 [Add] $1": {}
   },
   "C-\u003eR:651dc3736c1acac15564912dbf0cb3b1": {
     "[compute] $4 @ $1 \u003c $2": {}
@@ -119,17 +118,23 @@
   "C-\u003eR:6c5f6e667e97cd13f8610dd8893142a9": {
     "[repo] $4 @ $1 -\u003e": {}
   },
+  "C-\u003eR:6dd5524f3ab576ba2e73b782b467bc5b": {
+    "[Grammar:Verify:V+O+OC] $1 @Caller $3 [VerbPhrase]": {}
+  },
   "C-\u003eR:6e331162f3bedf49b9c6eef91d9ebeaf": {
     "[word] HasPrefix $1 # $2": {}
   },
-  "C-\u003eR:70458d9caf144626480dcd71ccfaffd5": {
-    "[repo] [GET] No. 1 [Cond] @Caller [Cond:Reset]": {}
+  "C-\u003eR:6e71b78d0305cc23427f963ec232af83": {
+    "[Grammar:Verify:Object] $2 @Caller $3 welcome": {}
   },
   "C-\u003eR:7073028023f03dd92ef5d6538e09b900": {
     "[node:executor] [namespace:safeTeach] [key:$1] [value:$2]": {}
   },
-  "C-\u003eR:766e3341ac17689fd6cb522de9607fe5": {
-    "[safe++] Len of No. $2 [CondGroup] of $4 @Caller No. 1 [Cond]": {}
+  "C-\u003eR:760ef3620d77c34f6803cc4cff3e3ff7": {
+    "[Executor:Hook:AlreadyLearned] Susie [Execute] $1": {}
+  },
+  "C-\u003eR:7653453a7da3f8aef66a8a38305a114e": {
+    "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {}
   },
   "C-\u003eR:77204f66ffb109f0bcbe186f2d86f370": {
     "[compute] $4 @ $1 * $2 -\u003e $3": {}
@@ -137,8 +142,17 @@
   "C-\u003eR:77d81a66df35de5244f85610b1322171": {
     "[word] len $1 -\u003e $2": {}
   },
+  "C-\u003eR:7e36b069c843f4081a18673d46aa819c": {
+    "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {}
+  },
+  "C-\u003eR:7fd46a0741b4f453ef2fbf43978c2f60": {
+    "[Grammar:Verify:Object] $1 @Caller $3 [IO+DO]": {}
+  },
   "C-\u003eR:81cab545ee3eee64715d7e7c6b7325b5": {
     "[word] AddSuffix $1 # $2 -\u003e $3": {}
+  },
+  "C-\u003eR:829dcfb11a9ba4b38123c87adabef56e": {
+    "[Cond:Count] $3 @ -\u003e $6": {}
   },
   "C-\u003eR:888e9d3419ea640e055ca6a6156a3fca": {
     "[phrase] FirstN $1 # $3 -\u003e $2": {}
@@ -146,14 +160,31 @@
   "C-\u003eR:89839cba232e181e71cf34e875a7aec6": {
     "[repo] $1 -\u003e": {}
   },
-  "C-\u003eR:91dd290a825a1dd6bb73c12180f2207f": {
-    "[compute] [GET] $6 + 1 @Caller [Cond:Reset] No. $6": {}
+  "C-\u003eR:8aa1409248eb5a828487eff501733471": {
+    "[Grammar:Verify:V+O] $1 @Caller $3 [VerbPhrase]": {}
+  },
+  "C-\u003eR:8fcd401e34d0dc4df8ad82354153c227": {
+    "[repo] [SET] No. $6 [Cond] -\u003e step $9 of Susie [Execute] $1": {}
+  },
+  "C-\u003eR:92dd69710857a977619754a0def9708d": {
+    "[Grammar:V+IO+DO:Object] $3 @ say $2 -\u003e $6": {},
+    "[Grammar:V+IO+DO:Verb] $3 @ say $2 -\u003e say": {},
+    "[Grammar:Verify:V+IO+DO] $3 @ say $2 -\u003e yes": {}
   },
   "C-\u003eR:9a806a0c5796ddae6797186bf63b9f30": {
     "[phrase] HasPrefix $1 # $2": {}
   },
+  "C-\u003eR:9adbcceca25630f2fbefa50b983f5b42": {
+    "[repo] [GET] [Grammar:Object] $2 @Caller $3": {}
+  },
+  "C-\u003eR:9b94eceafe7a0eed85ea03550cc7381a": {
+    "[compute] [GET] $2 + 1 @Caller [Cond:Used] step $6": {}
+  },
   "C-\u003eR:9ccd80d01cf30722ba0252ad56d45204": {
     "[compute] [GET] $2 + 1 @Caller $3": {}
+  },
+  "C-\u003eR:a26d7e24fa70960c2466275a300f21f4": {
+    "[repo] [GET] [Grammar:Property:Word:Verb] $1 @Caller $3": {}
   },
   "C-\u003eR:a45c4a339de31718a5ac29096a14f8dd": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {}
@@ -161,29 +192,41 @@
   "C-\u003eR:a55d3adc6e3b60b3044890b0d0ae2400": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
   },
-  "C-\u003eR:a9c7088ef06f714dbaf135d762fceeb7": {
-    "[safe--] Count of No. $2 [CondGroup] of $4 @Caller $3": {}
-  },
-  "C-\u003eR:b511da1a4fa983555aa571c4f7f5dff5": {
-    "[repo] [DEL] No. 1 [Cond]": {}
+  "C-\u003eR:ad901be3cc309f756880cad339dbb63b": {
+    "[Grammar:Verify:IO+DO] $2 @Caller $3 say": {}
   },
   "C-\u003eR:b544aaa05f90c1ec33834a507fb6d1bd": {
     "[compute] $4 @ $1 + $2 -\u003e $3": {}
   },
-  "C-\u003eR:b6f630c51d6252e9d95a9c6ead588d2e": {
-    "[repo] [GET] No. 2 [Cond] @Caller No. 1 [Cond]": {}
-  },
-  "C-\u003eR:b7a08e6795ad812a9695eb29c7e36b7a": {
-    "[repo] [SET] [Then] $1 -\u003e [CondGroup:Done] No. $2 of $4 @Caller $1": {}
-  },
   "C-\u003eR:bb90a9175bbdc580deaaeb9099f1d045": {
     "[word] AddPrefix $1 # $2 -\u003e $3": {}
   },
-  "C-\u003eR:be96a57022dc6fbd698213e1e343aee7": {
-    "[repo] [GET] $1 @Caller $3": {}
+  "C-\u003eR:bdedf374f03c636254406dea057f3ea0": {
+    "[repo] [GET] [TeachMode] Teacher $1 @Caller $3 [TeachMode:Check]": {}
+  },
+  "C-\u003eR:c7a27be728cff53cf310b5ed85db8d1c": {
+    "[Executor:Get:Steps:Count] Susie [Execute] $1 @Caller [say]": {}
+  },
+  "C-\u003eR:c97ddfa721046a86059edbfb169d1019": {
+    "[Grammar:Verify:V+IO+DO] $1 @Caller $3 [VerbPhrase]": {}
   },
   "C-\u003eR:cd8f2688e76832f143bfea08b9827d49": {
     "[word] $1 @ $3 -\u003e $2": {}
+  },
+  "C-\u003eR:ceb4afc6d6f13fd1537db9ecdccec4e6": {
+    "[repo] [SET] No. $2 -\u003e $1": {}
+  },
+  "C-\u003eR:d44c4852e513a0286b193c4acbe28c46": {
+    "[TeachMode] $3 @ Teacher $1 -\u003e yes": {}
+  },
+  "C-\u003eR:d4fc582d5eb6e2dc52cbd8052de235f6": {
+    "[Executor:Steps:Count] $3 @ $4 [Execute] $1 -\u003e 0": {}
+  },
+  "C-\u003eR:d4fd341a0182fc0c683e123bab5ec0ae": {
+    "[TeachMode] $3 @ Teacher $1 -\u003e yes": {}
+  },
+  "C-\u003eR:d6405105e9eb0af9a61d546c695b25f8": {
+    "[Grammar:IO+DO:DirectObject] $3 @ $2 to $1 -\u003e $2": {}
   },
   "C-\u003eR:d78ab5fe239b7199c631ab3af4695d96": {
     "[compute] $4 @ $1 - $2 -\u003e $3": {}
@@ -191,20 +234,23 @@
   "C-\u003eR:d8a215f5225078c6ff479380817e876c": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
   },
-  "C-\u003eR:da57672821db3b08ab48f4bba350ec39": {
-    "[repo] [SET] [Then] $1 -\u003e [CondGroup:Done] No. $2 of $4 @Caller $1": {}
-  },
-  "C-\u003eR:dd8ad0711eff0dbccb9b7d44801a602f": {
-    "[safe++] Len of No. $2 [CondGroup] of $4 @Caller No. $6 [Cond]": {}
+  "C-\u003eR:db64c621eba4e31c61c06d331971c5b7": {
+    "[node:executor] [namespace:printer] [msg:$1]": {}
   },
   "C-\u003eR:df9bd5fe14eb172fae670fbb73a6c94f": {
     "[compute] $4 @ $1 \u003e $2": {}
   },
+  "C-\u003eR:e1b7259de5486ce8f0632a1917fd1b62": {
+    "[Grammar:IO+DO:IndirectObject] $3 @ $2 to $1 -\u003e $1": {}
+  },
+  "C-\u003eR:e3e3e0b6c89d1c9432354c91ab7ae034": {
+    "[Executor:Steps:Count] $3 @ $4 [Execute] $1 -\u003e $6": {}
+  },
+  "C-\u003eR:e7a1e49ffc978a85dd8b45959b0c4ce4": {
+    "[Grammar:Verify:V] $1 @Caller $3 [VerbPhrase]": {}
+  },
   "C-\u003eR:e8f7f1898b439394234560532dda0c1b": {
     "[time] hour -\u003e $1": {}
-  },
-  "C-\u003eR:e9fd69cafa5a5a2677a07f5a0096b920": {
-    "[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e no": {}
   },
   "C-\u003eR:eb6e737441004cd27d059f129f8c6c0b": {
     "[repo] $1 -\u003e $2": {}
@@ -212,25 +258,31 @@
   "C-\u003eR:edf664d274ba305d6713f28a465daa17": {
     "[word] IndexOf $3 # $1 -\u003e $2": {}
   },
+  "C-\u003eR:f06ce3e5a53ef762424c39065ab77c61": {
+    "[TeachMode:Check] Teacher $3 @Caller [say]": {}
+  },
   "C-\u003eR:f3cef697e21036703c663acc953824a3": {
     "[word] HasSuffix $1 # $2": {}
   },
-  "C-\u003eR:f4105c43056a6f725f5b9d77636d6b3a": {
-    "[repo] [GET] Len of No. $2 [CondGroup] of $4 @Caller [Reset]": {}
+  "C-\u003eR:f6bf63b1166728ed158a24573feebe58": {
+    "[Cond:Add] step 1 of Susie [Execute] $1 @Caller $3": {}
   },
   "C-\u003eR:f7c7e37163f23fe6d48b8c70d7326ca2": {
     "[repo] $3 @ [Latest] $1 -\u003e $9": {}
+  },
+  "C-\u003eR:ff4cca6cf014a65b1000a6c469fd43c3": {
+    "[Grammar:Verify:V] $3 @ $1 -\u003e yes": {}
   },
   "C-\u003eT:0052ff78c0b147407c8dbe115c3df5e3": {
     "[node:extractor] [namespace:word] [dist:$2] [mode:index_of] [phrase:$1] [target:$3]": {},
     "[phrase] IndexOf $1 # $3": {}
   },
-  "C-\u003eT:021b53aef8fb65f1b59bd319abdb5825": {
-    "[CondGroup:DoneAuto] $4 @Caller $3": {},
-    "[repo] [CondGroup:Index] of $4 for $3 -\u003e $2": {}
+  "C-\u003eT:01292c901fec93b4991bd88cf9b8e050": {
+    "[Grammar:Verify:Object] $3 welcome @ $2 -\u003e yes": {},
+    "[Grammar:Verify:V+O] welcome $2 @Caller $3": {}
   },
-  "C-\u003eT:03a10d2065d68cd182bcc62a6d35ebe0": {
-    "[compute] [Cond:Reset] No. $6 @ $6 + 1 -\u003e $10": {}
+  "C-\u003eT:0564abe62392678930da860510e0a6ff": {
+    "$3 says to Susie : $1": {}
   },
   "C-\u003eT:07dbc119b34346b1190ccb9fc7d2e5fe": {
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:date]": {},
@@ -239,16 +291,24 @@
   "C-\u003eT:07e8e9f1edc60f65cb5f6c0e0954d185": {
     "[repo] [SSET] $1 -\u003e $2": {}
   },
-  "C-\u003eT:080cc852d9bd9d887e147114c9b11857": {
-    "[compute] No. $6 [Cond] @ $6 + 1 -\u003e $10": {},
-    "[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
+  "C-\u003eT:0b48547919a0ad24c8b99c1488a26a77": {
+    "[Grammar:Verify:Object] $2 @Caller $3": {},
+    "[repo] $3 @ [Grammar:Object] $2 -\u003e yes": {}
+  },
+  "C-\u003eT:11d39daf76b60c2ce6f9ec200db06854": {
+    "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $2 -\u003e yes": {}
   },
   "C-\u003eT:15f15f6b1bb0410e7e045a0fef26af10": {
     "[repo] [DEL] $1": {}
   },
   "C-\u003eT:17c5c05153eeed9af7398f9357c159cd": {
     "[repo] [SET] $1 -\u003e $2": {}
+  },
+  "C-\u003eT:18722948c6b84a089698025052a2fe77": {
+    "[Grammar:Verify:V] $1 @Caller $3": {},
+    "[repo] $3 @ [Grammar:Property:Word:Verb] $1 -\u003e": {}
   },
   "C-\u003eT:1d2488cf410599ab6dcd407aacbeed72": {
     "[node:extractor] [namespace:repo_addon] [dist:$2] [key:$1]": {},
@@ -258,39 +318,34 @@
     "[compute] [CHECK] $1 = $2 @Caller $4": {},
     "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:=] [right:$2]": {}
   },
-  "C-\u003eT:209b2a4913a2d1292666251ee547ed51": {
-    "[repo] [Cond:Reset] No. $6 @ No. $10 [Cond] -\u003e $1": {}
-  },
   "C-\u003eT:21f0ddf9ab70dc595d4ed9fa8dc38149": {
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:time]": {},
     "[time] get time": {}
   },
-  "C-\u003eT:23b936ca40cb3d51e641530b18b44f53": {
-    "[CondGroup:Done] No. $2 of $4 @Caller $3": {}
+  "C-\u003eT:221de707e167f4909cb50bbaf972cc1b": {
+    "$3 says to Susie : $1": {},
+    "[Grammar:Verify:VerbPhrase] [say] @ $1 -\u003e yes": {},
+    "[TeachMode] [say] @ Teacher $3 -\u003e yes": {}
   },
-  "C-\u003eT:255d7c5197274bb4370971d5b7b2f010": {
-    "[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {},
-    "[repo] No. $10 [Cond] @ [Latest] Len of No. $2 [CondGroup] of $4 -\u003e $9": {}
-  },
-  "C-\u003eT:29989b452cf434e2fbae61705ed618b4": {
-    "[repo] $3 @ [Latest] Count of No. $2 [CondGroup] of $4 -\u003e 0": {}
-  },
-  "C-\u003eT:2ae31305ca309bac08b3b45e27cdf3ba": {
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe--] $1 @Caller $3": {}
-  },
-  "C-\u003eT:2c11d97dc04855c82f1938658f87b01a": {
-    "[compute] $3 @ $2 - 1 -\u003e $9": {},
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe--] $1 @Caller $3": {}
+  "C-\u003eT:2ce4cbcc9e2881c1becb6b0d9d0aaf59": {
+    "[Executor:Get:Steps:Count] $4 [Execute] $1 @Caller $3": {}
   },
   "C-\u003eT:2dbcaeae947728d09b97a39fc57d3e86": {
     "[node:checker] [namespace:safeTeach] [key:ask]": {},
     "check [ask]": {}
   },
+  "C-\u003eT:33e4702285557853326a4e9a61229571": {
+    "[template:Run] $1 @Args $2 @Caller $3": {}
+  },
+  "C-\u003eT:3d8841a21b43c949706350fc4913da25": {
+    "$3 says to Susie : $1": {}
+  },
   "C-\u003eT:3f41eea6deccab2ed7a8df4713bd45f8": {
     "[repo] $3 @ $1 -\u003e": {},
     "[safe++] $1 @Caller $3": {}
+  },
+  "C-\u003eT:3f8c3eedc19b92fa541e4ca3c12ea488": {
+    "[Grammar:Verify:V+O+OC] $3 [VerbPhrase] @ $1 -\u003e yes": {}
   },
   "C-\u003eT:4012989653df59b1e69633f4d0f2f3b3": {
     "[node:checker] [namespace:repo_addon_fail] [key:$1] [value:$2]": {},
@@ -304,21 +359,8 @@
   "C-\u003eT:4211cd42e6de25aae3b8a55eb48ed310": {
     "[speak] $1 -\u003e $2": {}
   },
-  "C-\u003eT:43235f0471d8fe877602ba5ee82a710b": {
-    "[CondGroup:DoneAuto] $4 @Caller $3": {}
-  },
-  "C-\u003eT:45296382f44629010225f07098037e91": {
-    "[CondGroup:Reset] No. $2 of $4": {},
-    "[repo] [Reset] @ Len of No. $2 [CondGroup] of $4 -\u003e $6": {}
-  },
-  "C-\u003eT:470a57dfde6bd250a06500172b2144d0": {
-    "[compute] $3 @ $2 - 1 -\u003e $9": {},
-    "[repo] $3 @ $1 -\u003e $2": {},
-    "[safe--] $1 @Caller $3": {}
-  },
-  "C-\u003eT:47a8c3031af9e7eb9d41968a56bbe1c8": {
-    "[repo] [Res] -\u003e $4": {},
-    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {}
+  "C-\u003eT:44411fab9b2e3c6cc08482d537c503e5": {
+    "[Cond:Count++] @Caller $3": {}
   },
   "C-\u003eT:4b065921275a09849498885b27fdb4f2": {
     "[node:extractor] [namespace:word] [dist:$2] [mode:length] [phrase:$1]": {},
@@ -332,17 +374,10 @@
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:minute]": {},
     "[time] get minute": {}
   },
-  "C-\u003eT:52e160f34a7e63b665b235460853d9a5": {
-    "[repo] [Res] -\u003e $4": {}
-  },
-  "C-\u003eT:54aa43b029e447c3374d69dd13cb31a6": {
-    "[repo] [Res] -\u003e $4": {},
-    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {},
-    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {}
-  },
-  "C-\u003eT:57d5437d25da2a879ca57c02d8a144c3": {
-    "[CondGroup:Done] No. $2 of $4 @Caller $3": {},
-    "[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e no": {}
+  "C-\u003eT:5659288577ae28a87517740a7eedd691": {
+    "$1 means to teach": {},
+    "Susie means to learn": {},
+    "[repo] trust $1 -\u003e yes": {}
   },
   "C-\u003eT:5a8e9cb9ddb38b3dfd883141586fc661": {
     "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:word_at] [phrase:$1]": {},
@@ -358,9 +393,17 @@
   "C-\u003eT:5d50a5ec883184899806f2fd60adfc5e": {
     "[safe++] $1 @Caller $3": {}
   },
-  "C-\u003eT:61a71035a5283325f0a3c42d50df4255": {
-    "[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {},
-    "[repo] [Res] -\u003e $4": {}
+  "C-\u003eT:5e4facbd8418a2e83586d9121acc6959": {
+    "$3 says to Susie : to $1": {}
+  },
+  "C-\u003eT:5fa8fdff747d2fd910470073b5827061": {
+    "[Grammar:Verify:V+IO+DO] $3 [VerbPhrase] @ $1 -\u003e yes": {}
+  },
+  "C-\u003eT:60b0c276026a34aef7a4d1db98b9952d": {
+    "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {}
+  },
+  "C-\u003eT:61641771dc7bc3fdde5122f5e29b699b": {
+    "[Cond:Add] $1 @Caller $3": {}
   },
   "C-\u003eT:651dc3736c1acac15564912dbf0cb3b1": {
     "[compute] [CHECK] $1 \u003c $2 @Caller $4": {},
@@ -374,20 +417,27 @@
     "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
     "[repo] [GET] $1 @Caller $4": {}
   },
+  "C-\u003eT:6dd5524f3ab576ba2e73b782b467bc5b": {
+    "[Grammar:Verify:VerbPhrase] $1 @Caller $3": {}
+  },
   "C-\u003eT:6e331162f3bedf49b9c6eef91d9ebeaf": {
     "[node:checker] [namespace:word] [mode:starts_with] [target:$2] [word:$1]": {},
     "[word] check HasPrefix $1 # $2": {}
   },
-  "C-\u003eT:70458d9caf144626480dcd71ccfaffd5": {
-    "[Cond:Reset]": {}
+  "C-\u003eT:6e71b78d0305cc23427f963ec232af83": {
+    "[Grammar:Verify:V+O] welcome $2 @Caller $3": {}
   },
   "C-\u003eT:7073028023f03dd92ef5d6538e09b900": {
     "[ST] $1 -\u003e $2": {}
   },
-  "C-\u003eT:766e3341ac17689fd6cb522de9607fe5": {
-    "[repo] [Res] -\u003e $4": {},
-    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {},
-    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {}
+  "C-\u003eT:760ef3620d77c34f6803cc4cff3e3ff7": {
+    "$3 says to Susie : to $1": {},
+    "[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e $6": {},
+    "[Grammar:Verify:VerbPhrase] [say] @ $1 -\u003e yes": {},
+    "[TeachMode] [say] @ Teacher $3 -\u003e yes": {}
+  },
+  "C-\u003eT:7653453a7da3f8aef66a8a38305a114e": {
+    "[Grammar:Verify:V+O] $3 [VerbPhrase] @ $1 -\u003e yes": {}
   },
   "C-\u003eT:77204f66ffb109f0bcbe186f2d86f370": {
     "[compute] [GET] $1 * $2 @Caller $4": {},
@@ -397,9 +447,18 @@
     "[node:extractor] [namespace:word] [dist:$2] [mode:char_length] [word:$1]": {},
     "[word] len $1": {}
   },
+  "C-\u003eT:7e36b069c843f4081a18673d46aa819c": {
+    "[Grammar:Verify:V] $3 [VerbPhrase] @ $1 -\u003e yes": {}
+  },
+  "C-\u003eT:7fd46a0741b4f453ef2fbf43978c2f60": {
+    "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {}
+  },
   "C-\u003eT:81cab545ee3eee64715d7e7c6b7325b5": {
     "[node:extractor] [namespace:word] [dist:$3] [mode:add_suffix] [suffix:$2] [word:$1]": {},
     "[word] AddSuffix $1 # $2": {}
+  },
+  "C-\u003eT:829dcfb11a9ba4b38123c87adabef56e": {
+    "[repo] $3 @ [Latest] [Cond:Count] -\u003e $6": {}
   },
   "C-\u003eT:888e9d3419ea640e055ca6a6156a3fca": {
     "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_tail] [phrase:$1]": {},
@@ -409,17 +468,34 @@
     "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
     "[repo] [GET] $1": {}
   },
-  "C-\u003eT:91dd290a825a1dd6bb73c12180f2207f": {
-    "[Cond:Reset]": {},
-    "[repo] [DEL] No. $6 [Cond]": {}
+  "C-\u003eT:8aa1409248eb5a828487eff501733471": {
+    "[Grammar:Verify:VerbPhrase] $1 @Caller $3": {}
+  },
+  "C-\u003eT:8fcd401e34d0dc4df8ad82354153c227": {
+    "[Cond:Used] No. $6 -\u003e step $2 of Susie [Execute] $1": {},
+    "[compute] [Cond:Used] step $6 @ $2 + 1 -\u003e $9": {}
+  },
+  "C-\u003eT:92dd69710857a977619754a0def9708d": {
+    "[Grammar:IO+DO:IndirectObject] $3 say @ $2 -\u003e $6": {},
+    "[Grammar:Verify:IO+DO] $3 say @ $2 -\u003e yes": {},
+    "[Grammar:Verify:V+IO+DO] say $2 @Caller $3": {}
   },
   "C-\u003eT:9a806a0c5796ddae6797186bf63b9f30": {
     "[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {},
     "[phrase] check HasPrefix $1 # $2": {}
   },
+  "C-\u003eT:9adbcceca25630f2fbefa50b983f5b42": {
+    "[Grammar:Verify:Object] $2 @Caller $3": {}
+  },
+  "C-\u003eT:9b94eceafe7a0eed85ea03550cc7381a": {
+    "[Cond:Used] No. $6 -\u003e step $2 of Susie [Execute] $1": {}
+  },
   "C-\u003eT:9ccd80d01cf30722ba0252ad56d45204": {
     "[repo] $3 @ $1 -\u003e $2": {},
     "[safe++] $1 @Caller $3": {}
+  },
+  "C-\u003eT:a26d7e24fa70960c2466275a300f21f4": {
+    "[Grammar:Verify:V] $1 @Caller $3": {}
   },
   "C-\u003eT:a45c4a339de31718a5ac29096a14f8dd": {
     "Zero says to Susie : [output] $1": {}
@@ -427,35 +503,49 @@
   "C-\u003eT:a55d3adc6e3b60b3044890b0d0ae2400": {
     "Zero says to Susie : [input] $1": {}
   },
-  "C-\u003eT:a9c7088ef06f714dbaf135d762fceeb7": {
-    "[CondGroup:Done] No. $2 of $4 @Caller $3": {},
-    "[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e no": {}
-  },
-  "C-\u003eT:b511da1a4fa983555aa571c4f7f5dff5": {
-    "[repo] [Cond:Reset] @ No. 1 [Cond] -\u003e $1": {}
+  "C-\u003eT:ad901be3cc309f756880cad339dbb63b": {
+    "[Grammar:Verify:V+IO+DO] say $2 @Caller $3": {}
   },
   "C-\u003eT:b544aaa05f90c1ec33834a507fb6d1bd": {
     "[compute] [GET] $1 + $2 @Caller $4": {},
     "[node:extractor] [namespace:calculator] [caller:$4] [dist:$3] [expression:$1+$2]": {}
   },
-  "C-\u003eT:b6f630c51d6252e9d95a9c6ead588d2e": {
-    "[repo] [Res] -\u003e $4": {},
-    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {}
-  },
-  "C-\u003eT:b7a08e6795ad812a9695eb29c7e36b7a": {
-    "[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {},
-    "[repo] No. $10 [Cond] @ [Latest] Len of No. $2 [CondGroup] of $4 -\u003e $9": {}
-  },
   "C-\u003eT:bb90a9175bbdc580deaaeb9099f1d045": {
     "[node:extractor] [namespace:word] [dist:$3] [mode:add_prefix] [prefix:$2] [word:$1]": {},
     "[word] AddPrefix $1 # $2": {}
   },
-  "C-\u003eT:be96a57022dc6fbd698213e1e343aee7": {
-    "[safe--] $1 @Caller $3": {}
+  "C-\u003eT:bdedf374f03c636254406dea057f3ea0": {
+    "[TeachMode:Check] Teacher $1 @Caller $3": {}
+  },
+  "C-\u003eT:c7a27be728cff53cf310b5ed85db8d1c": {
+    "$3 says to Susie : to $1": {}
+  },
+  "C-\u003eT:c97ddfa721046a86059edbfb169d1019": {
+    "[Grammar:Verify:VerbPhrase] $1 @Caller $3": {}
   },
   "C-\u003eT:cd8f2688e76832f143bfea08b9827d49": {
     "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:char_at] [word:$1]": {},
     "[word] get $1 @ $3": {}
+  },
+  "C-\u003eT:ceb4afc6d6f13fd1537db9ecdccec4e6": {
+    "[Cond:Count] $3 [Add] $1 @ -\u003e $2": {}
+  },
+  "C-\u003eT:d44c4852e513a0286b193c4acbe28c46": {
+    "[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e yes": {}
+  },
+  "C-\u003eT:d4fc582d5eb6e2dc52cbd8052de235f6": {
+    "[repo] $3 @ [Executor:Steps:Count] $4 [Execute] $1 -\u003e": {}
+  },
+  "C-\u003eT:d4fd341a0182fc0c683e123bab5ec0ae": {
+    "$1 means to teach": {},
+    "Susie means to learn": {},
+    "[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e": {},
+    "[repo] trust $1 -\u003e yes": {}
+  },
+  "C-\u003eT:d6405105e9eb0af9a61d546c695b25f8": {
+    "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $2 -\u003e yes": {}
   },
   "C-\u003eT:d78ab5fe239b7199c631ab3af4695d96": {
     "[compute] [GET] $1 - $2 @Caller $4": {},
@@ -464,25 +554,27 @@
   "C-\u003eT:d8a215f5225078c6ff479380817e876c": {
     "[input] $1": {}
   },
-  "C-\u003eT:da57672821db3b08ab48f4bba350ec39": {
-    "[repo] [Res] -\u003e $4": {},
-    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {},
-    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {}
-  },
-  "C-\u003eT:dd8ad0711eff0dbccb9b7d44801a602f": {
-    "[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {},
-    "[repo] No. $10 [Cond] @ [Latest] Len of No. $2 [CondGroup] of $4 -\u003e $9": {}
+  "C-\u003eT:db64c621eba4e31c61c06d331971c5b7": {
+    "[Print] $1 @Caller $2": {}
   },
   "C-\u003eT:df9bd5fe14eb172fae670fbb73a6c94f": {
     "[compute] [CHECK] $1 \u003e $2 @Caller $4": {},
     "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003e] [right:$2]": {}
   },
+  "C-\u003eT:e1b7259de5486ce8f0632a1917fd1b62": {
+    "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $2 -\u003e yes": {}
+  },
+  "C-\u003eT:e3e3e0b6c89d1c9432354c91ab7ae034": {
+    "[repo] $3 @ [Executor:Steps:Count] $4 [Execute] $1 -\u003e $6": {}
+  },
+  "C-\u003eT:e7a1e49ffc978a85dd8b45959b0c4ce4": {
+    "[Grammar:Verify:VerbPhrase] $1 @Caller $3": {}
+  },
   "C-\u003eT:e8f7f1898b439394234560532dda0c1b": {
     "[node:extractor] [namespace:timer] [dist:$1] [mode:fetch] [type:hour]": {},
     "[time] get hour": {}
-  },
-  "C-\u003eT:e9fd69cafa5a5a2677a07f5a0096b920": {
-    "[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e": {}
   },
   "C-\u003eT:eb6e737441004cd27d059f129f8c6c0b": {
     "[node:checker] [namespace:repo_addon] [key:$1] [value:$2]": {},
@@ -492,20 +584,27 @@
     "[node:extractor] [namespace:word] [dist:$2] [mode:char_index_of] [target:$3] [word:$1]": {},
     "[word] IndexOf $1 # $3": {}
   },
+  "C-\u003eT:f06ce3e5a53ef762424c39065ab77c61": {
+    "$3 says to Susie : to $1": {}
+  },
   "C-\u003eT:f3cef697e21036703c663acc953824a3": {
     "[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {},
     "[word] check HasSuffix $1 # $2": {}
   },
-  "C-\u003eT:f4105c43056a6f725f5b9d77636d6b3a": {
-    "[CondGroup:Reset] No. $2 of $4": {}
+  "C-\u003eT:f6bf63b1166728ed158a24573feebe58": {
+    "$3 says to Susie : to $1": {},
+    "[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e 0": {},
+    "[Grammar:Verify:VerbPhrase] [say] @ $1 -\u003e yes": {},
+    "[TeachMode] [say] @ Teacher $3 -\u003e yes": {}
   },
   "C-\u003eT:f7c7e37163f23fe6d48b8c70d7326ca2": {
     "[compute] $3 @ $2 + 1 -\u003e $9": {},
     "[repo] $3 @ $1 -\u003e $2": {},
     "[safe++] $1 @Caller $3": {}
   },
-  "R-\u003eC:$4": {
-    "29989b452cf434e2fbae61705ed618b4": {}
+  "C-\u003eT:ff4cca6cf014a65b1000a6c469fd43c3": {
+    "[Grammar:Verify:V] $1 @Caller $3": {},
+    "[repo] $3 @ [Grammar:Property:Word:Verb] $1 -\u003e yes": {}
   },
   "R-\u003eC:Susie is enabled to ask Zero questions": {
     "2dbcaeae947728d09b97a39fc57d3e86": {}
@@ -513,8 +612,107 @@
   "R-\u003eC:Zero starts to teach Susie": {
     "4eaa3832b110e55513564eb72af91d35": {}
   },
-  "R-\u003eC:[CondGroup:Done] No. $2 of $4 @Caller $3": {
-    "021b53aef8fb65f1b59bd319abdb5825": {}
+  "R-\u003eC:[Cond:Add] step 1 of Susie [Execute] $1 @Caller $3": {
+    "f6bf63b1166728ed158a24573feebe58": {}
+  },
+  "R-\u003eC:[Cond:Count++] @Caller $3 [Add] $1": {
+    "61641771dc7bc3fdde5122f5e29b699b": {}
+  },
+  "R-\u003eC:[Cond:Count] $3 @ -\u003e $6": {
+    "829dcfb11a9ba4b38123c87adabef56e": {}
+  },
+  "R-\u003eC:[Executor:Get:Steps:Count] Susie [Execute] $1 @Caller [say]": {
+    "c7a27be728cff53cf310b5ed85db8d1c": {}
+  },
+  "R-\u003eC:[Executor:Hook:AlreadyLearned] Susie [Execute] $1": {
+    "760ef3620d77c34f6803cc4cff3e3ff7": {}
+  },
+  "R-\u003eC:[Executor:Steps:Count] $3 @ $4 [Execute] $1 -\u003e $6": {
+    "e3e3e0b6c89d1c9432354c91ab7ae034": {}
+  },
+  "R-\u003eC:[Executor:Steps:Count] $3 @ $4 [Execute] $1 -\u003e 0": {
+    "d4fc582d5eb6e2dc52cbd8052de235f6": {}
+  },
+  "R-\u003eC:[Grammar:IO+DO:DirectObject] $3 @ $2 to $1 -\u003e $2": {
+    "d6405105e9eb0af9a61d546c695b25f8": {}
+  },
+  "R-\u003eC:[Grammar:IO+DO:IndirectObject] $3 @ $2 to $1 -\u003e $1": {
+    "e1b7259de5486ce8f0632a1917fd1b62": {}
+  },
+  "R-\u003eC:[Grammar:V+IO+DO:Object] $3 @ say $2 -\u003e $6": {
+    "92dd69710857a977619754a0def9708d": {}
+  },
+  "R-\u003eC:[Grammar:V+IO+DO:Verb] $3 @ say $2 -\u003e say": {
+    "92dd69710857a977619754a0def9708d": {}
+  },
+  "R-\u003eC:[Grammar:V+O:Object] $3 @ welcome $2 -\u003e $2": {
+    "01292c901fec93b4991bd88cf9b8e050": {}
+  },
+  "R-\u003eC:[Grammar:V+O:Verb] $3 @ welcome $2 -\u003e welcome": {
+    "01292c901fec93b4991bd88cf9b8e050": {}
+  },
+  "R-\u003eC:[Grammar:Verify:IO+DO] $2 @Caller $3 say": {
+    "ad901be3cc309f756880cad339dbb63b": {}
+  },
+  "R-\u003eC:[Grammar:Verify:IO+DO] $3 @ $2 to $1 -\u003e yes": {
+    "11d39daf76b60c2ce6f9ec200db06854": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $1 @Caller $3 [IO+DO]": {
+    "7fd46a0741b4f453ef2fbf43978c2f60": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $2 @Caller $3 [IO+DO]": {
+    "60b0c276026a34aef7a4d1db98b9952d": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $2 @Caller $3 welcome": {
+    "6e71b78d0305cc23427f963ec232af83": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $3 @ $2 -\u003e yes": {
+    "0b48547919a0ad24c8b99c1488a26a77": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+IO+DO] $1 @Caller $3 [VerbPhrase]": {
+    "c97ddfa721046a86059edbfb169d1019": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+IO+DO] $3 @ say $2 -\u003e yes": {
+    "92dd69710857a977619754a0def9708d": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+O+OC] $1 @Caller $3 [VerbPhrase]": {
+    "6dd5524f3ab576ba2e73b782b467bc5b": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+O] $1 @Caller $3 [VerbPhrase]": {
+    "8aa1409248eb5a828487eff501733471": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+O] $3 @ welcome $2 -\u003e yes": {
+    "01292c901fec93b4991bd88cf9b8e050": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V] $1 @Caller $3 [VerbPhrase]": {
+    "e7a1e49ffc978a85dd8b45959b0c4ce4": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V] $3 @ $1 -\u003e no": {
+    "18722948c6b84a089698025052a2fe77": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V] $3 @ $1 -\u003e yes": {
+    "ff4cca6cf014a65b1000a6c469fd43c3": {}
+  },
+  "R-\u003eC:[Grammar:Verify:VerbPhrase] $1 @Caller [say]": {
+    "3d8841a21b43c949706350fc4913da25": {},
+    "5e4facbd8418a2e83586d9121acc6959": {}
+  },
+  "R-\u003eC:[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {
+    "3f8c3eedc19b92fa541e4ca3c12ea488": {},
+    "5fa8fdff747d2fd910470073b5827061": {},
+    "7653453a7da3f8aef66a8a38305a114e": {},
+    "7e36b069c843f4081a18673d46aa819c": {}
+  },
+  "R-\u003eC:[Res] Susie [Execute] $1": {
+    "221de707e167f4909cb50bbaf972cc1b": {}
+  },
+  "R-\u003eC:[TeachMode:Check] Teacher $3 @Caller [say]": {
+    "0564abe62392678930da860510e0a6ff": {},
+    "f06ce3e5a53ef762424c39065ab77c61": {}
+  },
+  "R-\u003eC:[TeachMode] $3 @ Teacher $1 -\u003e yes": {
+    "d44c4852e513a0286b193c4acbe28c46": {},
+    "d4fd341a0182fc0c683e123bab5ec0ae": {}
   },
   "R-\u003eC:[compute] $4 @ $1 * $2 -\u003e $3": {
     "77204f66ffb109f0bcbe186f2d86f370": {}
@@ -537,14 +735,11 @@
   "R-\u003eC:[compute] [GET] $2 + 1 @Caller $3": {
     "9ccd80d01cf30722ba0252ad56d45204": {}
   },
-  "R-\u003eC:[compute] [GET] $2 - 1 @Caller $3": {
-    "2ae31305ca309bac08b3b45e27cdf3ba": {}
+  "R-\u003eC:[compute] [GET] $2 + 1 @Caller [Cond:Used] step $6": {
+    "9b94eceafe7a0eed85ea03550cc7381a": {}
   },
-  "R-\u003eC:[compute] [GET] $6 + 1 @Caller No. $6 [Cond]": {
-    "61a71035a5283325f0a3c42d50df4255": {}
-  },
-  "R-\u003eC:[compute] [GET] $6 + 1 @Caller [Cond:Reset] No. $6": {
-    "91dd290a825a1dd6bb73c12180f2207f": {}
+  "R-\u003eC:[node:executor] [namespace:builder] [args:$2] [mode:template] [name:$1]": {
+    "33e4702285557853326a4e9a61229571": {}
   },
   "R-\u003eC:[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {
     "a55d3adc6e3b60b3044890b0d0ae2400": {},
@@ -553,6 +748,9 @@
   "R-\u003eC:[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {
     "5d0456c6913730fc25a4e549b42afd40": {},
     "a45c4a339de31718a5ac29096a14f8dd": {}
+  },
+  "R-\u003eC:[node:executor] [namespace:printer] [msg:$1]": {
+    "db64c621eba4e31c61c06d331971c5b7": {}
   },
   "R-\u003eC:[node:executor] [namespace:repo_addon] [delete:true] [key:$1]": {
     "15f15f6b1bb0410e7e045a0fef26af10": {}
@@ -601,7 +799,6 @@
     "3f41eea6deccab2ed7a8df4713bd45f8": {}
   },
   "R-\u003eC:[repo] $3 @ [Latest] $1 -\u003e $9": {
-    "470a57dfde6bd250a06500172b2144d0": {},
     "f7c7e37163f23fe6d48b8c70d7326ca2": {}
   },
   "R-\u003eC:[repo] $4 @ $1 -\u003e": {
@@ -610,72 +807,35 @@
   "R-\u003eC:[repo] $4 @ $1 -\u003e $2": {
     "1d2488cf410599ab6dcd407aacbeed72": {}
   },
-  "R-\u003eC:[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e no": {
-    "e9fd69cafa5a5a2677a07f5a0096b920": {}
-  },
-  "R-\u003eC:[repo] [DEL] No. $10 [Cond]": {
-    "209b2a4913a2d1292666251ee547ed51": {}
-  },
-  "R-\u003eC:[repo] [DEL] No. 1 [Cond]": {
-    "b511da1a4fa983555aa571c4f7f5dff5": {}
-  },
   "R-\u003eC:[repo] [GET] $1 @Caller $3": {
-    "5d50a5ec883184899806f2fd60adfc5e": {},
-    "be96a57022dc6fbd698213e1e343aee7": {}
+    "5d50a5ec883184899806f2fd60adfc5e": {}
   },
-  "R-\u003eC:[repo] [GET] Len of No. $2 [CondGroup] of $4 @Caller [Reset]": {
-    "f4105c43056a6f725f5b9d77636d6b3a": {}
+  "R-\u003eC:[repo] [GET] [Executor:Steps:Count] $4 [Execute] $1 @Caller $3": {
+    "2ce4cbcc9e2881c1becb6b0d9d0aaf59": {}
   },
-  "R-\u003eC:[repo] [GET] No. $10 [Cond] @Caller No. $6 [Cond]": {
-    "080cc852d9bd9d887e147114c9b11857": {}
+  "R-\u003eC:[repo] [GET] [Grammar:Object] $2 @Caller $3": {
+    "9adbcceca25630f2fbefa50b983f5b42": {}
   },
-  "R-\u003eC:[repo] [GET] No. $10 [Cond] @Caller [Cond:Reset] No. $6": {
-    "03a10d2065d68cd182bcc62a6d35ebe0": {}
+  "R-\u003eC:[repo] [GET] [Grammar:Property:Word:Verb] $1 @Caller $3": {
+    "a26d7e24fa70960c2466275a300f21f4": {}
   },
-  "R-\u003eC:[repo] [GET] No. 1 [Cond] @Caller [Cond:Reset]": {
-    "70458d9caf144626480dcd71ccfaffd5": {}
+  "R-\u003eC:[repo] [GET] [TeachMode] Teacher $1 @Caller $3 [TeachMode:Check]": {
+    "bdedf374f03c636254406dea057f3ea0": {}
   },
-  "R-\u003eC:[repo] [GET] No. 1 [Cond] @Caller [Res]": {
-    "47a8c3031af9e7eb9d41968a56bbe1c8": {}
+  "R-\u003eC:[repo] [SET] No. $2 -\u003e $1": {
+    "ceb4afc6d6f13fd1537db9ecdccec4e6": {}
   },
-  "R-\u003eC:[repo] [GET] No. 2 [Cond] @Caller No. 1 [Cond]": {
-    "b6f630c51d6252e9d95a9c6ead588d2e": {}
+  "R-\u003eC:[repo] [SET] No. $6 [Cond] -\u003e step $9 of Susie [Execute] $1": {
+    "8fcd401e34d0dc4df8ad82354153c227": {}
   },
-  "R-\u003eC:[repo] [GET] [CondGroup:DoneState] of $3 for No. $2 of $4": {
-    "23b936ca40cb3d51e641530b18b44f53": {}
-  },
-  "R-\u003eC:[repo] [GET] [CondGroup:Index] of $4 for $3": {
-    "43235f0471d8fe877602ba5ee82a710b": {}
-  },
-  "R-\u003eC:[repo] [SET] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e yes": {
-    "57d5437d25da2a879ca57c02d8a144c3": {}
-  },
-  "R-\u003eC:[repo] [SET] [CondGroup:Index] of $4 for $1 -\u003e $2": {
-    "255d7c5197274bb4370971d5b7b2f010": {},
-    "54aa43b029e447c3374d69dd13cb31a6": {}
-  },
-  "R-\u003eC:[repo] [SET] [Then] $1 -\u003e [CondGroup:Done] No. $2 of $4 @Caller $1": {
-    "b7a08e6795ad812a9695eb29c7e36b7a": {},
-    "da57672821db3b08ab48f4bba350ec39": {}
+  "R-\u003eC:[repo] [SET] [TeachMode] Teacher $1 -\u003e yes": {
+    "5659288577ae28a87517740a7eedd691": {}
   },
   "R-\u003eC:[repo] [SSET] $1 -\u003e $9": {
-    "2c11d97dc04855c82f1938658f87b01a": {},
     "40ec3a86b07d8996ccc92f17661b32d1": {}
   },
-  "R-\u003eC:[repo] [SSET] Count of No. $2 [CondGroup] of $4 -\u003e $6": {
-    "45296382f44629010225f07098037e91": {}
-  },
-  "R-\u003eC:[safe++] Len of No. $2 [CondGroup] of $4 @Caller No. $6 [Cond]": {
-    "dd8ad0711eff0dbccb9b7d44801a602f": {}
-  },
-  "R-\u003eC:[safe++] Len of No. $2 [CondGroup] of $4 @Caller No. 1 [Cond]": {
-    "766e3341ac17689fd6cb522de9607fe5": {}
-  },
-  "R-\u003eC:[safe++] Len of [CondGroup] of $4 @Caller [Res]": {
-    "52e160f34a7e63b665b235460853d9a5": {}
-  },
-  "R-\u003eC:[safe--] Count of No. $2 [CondGroup] of $4 @Caller $3": {
-    "a9c7088ef06f714dbaf135d762fceeb7": {}
+  "R-\u003eC:[safe++] [Cond:Count] @Caller $3": {
+    "44411fab9b2e3c6cc08482d537c503e5": {}
   },
   "R-\u003eC:[time] date -\u003e $1": {
     "07dbc119b34346b1190ccb9fc7d2e5fe": {}
@@ -710,42 +870,137 @@
   "R-\u003eC:[word] len $1 -\u003e $2": {
     "77d81a66df35de5244f85610b1322171": {}
   },
+  "T-\u003eC:$1 means to teach": {
+    "5659288577ae28a87517740a7eedd691": {},
+    "d4fd341a0182fc0c683e123bab5ec0ae": {}
+  },
+  "T-\u003eC:$3 says to Susie : $1": {
+    "0564abe62392678930da860510e0a6ff": {},
+    "221de707e167f4909cb50bbaf972cc1b": {},
+    "3d8841a21b43c949706350fc4913da25": {}
+  },
+  "T-\u003eC:$3 says to Susie : to $1": {
+    "5e4facbd8418a2e83586d9121acc6959": {},
+    "760ef3620d77c34f6803cc4cff3e3ff7": {},
+    "c7a27be728cff53cf310b5ed85db8d1c": {},
+    "f06ce3e5a53ef762424c39065ab77c61": {},
+    "f6bf63b1166728ed158a24573feebe58": {}
+  },
+  "T-\u003eC:Susie means to learn": {
+    "5659288577ae28a87517740a7eedd691": {},
+    "d4fd341a0182fc0c683e123bab5ec0ae": {}
+  },
   "T-\u003eC:Zero says to Susie : [input] $1": {
     "a55d3adc6e3b60b3044890b0d0ae2400": {}
   },
   "T-\u003eC:Zero says to Susie : [output] $1": {
     "a45c4a339de31718a5ac29096a14f8dd": {}
   },
-  "T-\u003eC:[Cond:Reset]": {
-    "70458d9caf144626480dcd71ccfaffd5": {},
-    "91dd290a825a1dd6bb73c12180f2207f": {}
+  "T-\u003eC:[Cond:Add] $1 @Caller $3": {
+    "61641771dc7bc3fdde5122f5e29b699b": {}
   },
-  "T-\u003eC:[CondGroup:DoneAuto] $4 @Caller $3": {
-    "021b53aef8fb65f1b59bd319abdb5825": {},
-    "43235f0471d8fe877602ba5ee82a710b": {}
+  "T-\u003eC:[Cond:Count++] @Caller $3": {
+    "44411fab9b2e3c6cc08482d537c503e5": {}
   },
-  "T-\u003eC:[CondGroup:Done] No. $2 of $4 @Caller $3": {
-    "23b936ca40cb3d51e641530b18b44f53": {},
-    "57d5437d25da2a879ca57c02d8a144c3": {},
-    "a9c7088ef06f714dbaf135d762fceeb7": {}
+  "T-\u003eC:[Cond:Count] $3 [Add] $1 @ -\u003e $2": {
+    "ceb4afc6d6f13fd1537db9ecdccec4e6": {}
   },
-  "T-\u003eC:[CondGroup:Reset] No. $2 of $4": {
-    "45296382f44629010225f07098037e91": {},
-    "f4105c43056a6f725f5b9d77636d6b3a": {}
+  "T-\u003eC:[Cond:Used] No. $6 -\u003e step $2 of Susie [Execute] $1": {
+    "8fcd401e34d0dc4df8ad82354153c227": {},
+    "9b94eceafe7a0eed85ea03550cc7381a": {}
+  },
+  "T-\u003eC:[Executor:Get:Steps:Count] $4 [Execute] $1 @Caller $3": {
+    "2ce4cbcc9e2881c1becb6b0d9d0aaf59": {}
+  },
+  "T-\u003eC:[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e $6": {
+    "760ef3620d77c34f6803cc4cff3e3ff7": {}
+  },
+  "T-\u003eC:[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e 0": {
+    "f6bf63b1166728ed158a24573feebe58": {}
+  },
+  "T-\u003eC:[Grammar:IO+DO:IndirectObject] $3 say @ $2 -\u003e $6": {
+    "92dd69710857a977619754a0def9708d": {}
+  },
+  "T-\u003eC:[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {
+    "11d39daf76b60c2ce6f9ec200db06854": {},
+    "60b0c276026a34aef7a4d1db98b9952d": {},
+    "7fd46a0741b4f453ef2fbf43978c2f60": {},
+    "d6405105e9eb0af9a61d546c695b25f8": {},
+    "e1b7259de5486ce8f0632a1917fd1b62": {}
+  },
+  "T-\u003eC:[Grammar:Verify:IO+DO] $3 say @ $2 -\u003e yes": {
+    "92dd69710857a977619754a0def9708d": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] $2 @Caller $3": {
+    "0b48547919a0ad24c8b99c1488a26a77": {},
+    "9adbcceca25630f2fbefa50b983f5b42": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] $3 [IO+DO] @ $1 -\u003e yes": {
+    "11d39daf76b60c2ce6f9ec200db06854": {},
+    "d6405105e9eb0af9a61d546c695b25f8": {},
+    "e1b7259de5486ce8f0632a1917fd1b62": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] $3 [IO+DO] @ $2 -\u003e yes": {
+    "11d39daf76b60c2ce6f9ec200db06854": {},
+    "d6405105e9eb0af9a61d546c695b25f8": {},
+    "e1b7259de5486ce8f0632a1917fd1b62": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] $3 welcome @ $2 -\u003e yes": {
+    "01292c901fec93b4991bd88cf9b8e050": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V+IO+DO] $3 [VerbPhrase] @ $1 -\u003e yes": {
+    "5fa8fdff747d2fd910470073b5827061": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V+IO+DO] say $2 @Caller $3": {
+    "92dd69710857a977619754a0def9708d": {},
+    "ad901be3cc309f756880cad339dbb63b": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V+O+OC] $3 [VerbPhrase] @ $1 -\u003e yes": {
+    "3f8c3eedc19b92fa541e4ca3c12ea488": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V+O] $3 [VerbPhrase] @ $1 -\u003e yes": {
+    "7653453a7da3f8aef66a8a38305a114e": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V+O] welcome $2 @Caller $3": {
+    "01292c901fec93b4991bd88cf9b8e050": {},
+    "6e71b78d0305cc23427f963ec232af83": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V] $1 @Caller $3": {
+    "18722948c6b84a089698025052a2fe77": {},
+    "a26d7e24fa70960c2466275a300f21f4": {},
+    "ff4cca6cf014a65b1000a6c469fd43c3": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V] $3 [VerbPhrase] @ $1 -\u003e yes": {
+    "7e36b069c843f4081a18673d46aa819c": {}
+  },
+  "T-\u003eC:[Grammar:Verify:VerbPhrase] $1 @Caller $3": {
+    "6dd5524f3ab576ba2e73b782b467bc5b": {},
+    "8aa1409248eb5a828487eff501733471": {},
+    "c97ddfa721046a86059edbfb169d1019": {},
+    "e7a1e49ffc978a85dd8b45959b0c4ce4": {}
+  },
+  "T-\u003eC:[Grammar:Verify:VerbPhrase] [say] @ $1 -\u003e yes": {
+    "221de707e167f4909cb50bbaf972cc1b": {},
+    "760ef3620d77c34f6803cc4cff3e3ff7": {},
+    "f6bf63b1166728ed158a24573feebe58": {}
+  },
+  "T-\u003eC:[Print] $1 @Caller $2": {
+    "db64c621eba4e31c61c06d331971c5b7": {}
   },
   "T-\u003eC:[ST] $1 -\u003e $2": {
     "7073028023f03dd92ef5d6538e09b900": {}
   },
+  "T-\u003eC:[TeachMode:Check] Teacher $1 @Caller $3": {
+    "bdedf374f03c636254406dea057f3ea0": {}
+  },
+  "T-\u003eC:[TeachMode] [say] @ Teacher $3 -\u003e yes": {
+    "221de707e167f4909cb50bbaf972cc1b": {},
+    "760ef3620d77c34f6803cc4cff3e3ff7": {},
+    "f6bf63b1166728ed158a24573feebe58": {}
+  },
   "T-\u003eC:[compute] $3 @ $2 + 1 -\u003e $9": {
     "40ec3a86b07d8996ccc92f17661b32d1": {},
     "f7c7e37163f23fe6d48b8c70d7326ca2": {}
-  },
-  "T-\u003eC:[compute] $3 @ $2 - 1 -\u003e $9": {
-    "2c11d97dc04855c82f1938658f87b01a": {},
-    "470a57dfde6bd250a06500172b2144d0": {}
-  },
-  "T-\u003eC:[compute] No. $6 [Cond] @ $6 + 1 -\u003e $10": {
-    "080cc852d9bd9d887e147114c9b11857": {}
   },
   "T-\u003eC:[compute] [CHECK] $1 \u003c $2 @Caller $4": {
     "651dc3736c1acac15564912dbf0cb3b1": {}
@@ -756,8 +1011,8 @@
   "T-\u003eC:[compute] [CHECK] $1 \u003e $2 @Caller $4": {
     "df9bd5fe14eb172fae670fbb73a6c94f": {}
   },
-  "T-\u003eC:[compute] [Cond:Reset] No. $6 @ $6 + 1 -\u003e $10": {
-    "03a10d2065d68cd182bcc62a6d35ebe0": {}
+  "T-\u003eC:[compute] [Cond:Used] step $6 @ $2 + 1 -\u003e $9": {
+    "8fcd401e34d0dc4df8ad82354153c227": {}
   },
   "T-\u003eC:[compute] [GET] $1 * $2 @Caller $4": {
     "77204f66ffb109f0bcbe186f2d86f370": {}
@@ -885,55 +1140,40 @@
     "3f41eea6deccab2ed7a8df4713bd45f8": {}
   },
   "T-\u003eC:[repo] $3 @ $1 -\u003e $2": {
-    "2ae31305ca309bac08b3b45e27cdf3ba": {},
-    "2c11d97dc04855c82f1938658f87b01a": {},
     "40ec3a86b07d8996ccc92f17661b32d1": {},
-    "470a57dfde6bd250a06500172b2144d0": {},
     "9ccd80d01cf30722ba0252ad56d45204": {},
     "f7c7e37163f23fe6d48b8c70d7326ca2": {}
   },
-  "T-\u003eC:[repo] $3 @ [Latest] Count of No. $2 [CondGroup] of $4 -\u003e 0": {
-    "29989b452cf434e2fbae61705ed618b4": {}
+  "T-\u003eC:[repo] $3 @ [Executor:Steps:Count] $4 [Execute] $1 -\u003e": {
+    "d4fc582d5eb6e2dc52cbd8052de235f6": {}
   },
-  "T-\u003eC:[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {
-    "255d7c5197274bb4370971d5b7b2f010": {},
-    "b7a08e6795ad812a9695eb29c7e36b7a": {},
-    "dd8ad0711eff0dbccb9b7d44801a602f": {}
+  "T-\u003eC:[repo] $3 @ [Executor:Steps:Count] $4 [Execute] $1 -\u003e $6": {
+    "e3e3e0b6c89d1c9432354c91ab7ae034": {}
   },
-  "T-\u003eC:[repo] No. $10 [Cond] @ [Latest] Len of No. $2 [CondGroup] of $4 -\u003e $9": {
-    "255d7c5197274bb4370971d5b7b2f010": {},
-    "b7a08e6795ad812a9695eb29c7e36b7a": {},
-    "dd8ad0711eff0dbccb9b7d44801a602f": {}
+  "T-\u003eC:[repo] $3 @ [Grammar:Object] $2 -\u003e yes": {
+    "0b48547919a0ad24c8b99c1488a26a77": {}
   },
-  "T-\u003eC:[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {
-    "080cc852d9bd9d887e147114c9b11857": {},
-    "61a71035a5283325f0a3c42d50df4255": {}
+  "T-\u003eC:[repo] $3 @ [Grammar:Property:Word:Verb] $1 -\u003e": {
+    "18722948c6b84a089698025052a2fe77": {}
+  },
+  "T-\u003eC:[repo] $3 @ [Grammar:Property:Word:Verb] $1 -\u003e yes": {
+    "ff4cca6cf014a65b1000a6c469fd43c3": {}
+  },
+  "T-\u003eC:[repo] $3 @ [Latest] [Cond:Count] -\u003e $6": {
+    "829dcfb11a9ba4b38123c87adabef56e": {}
+  },
+  "T-\u003eC:[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e": {
+    "d4fd341a0182fc0c683e123bab5ec0ae": {}
+  },
+  "T-\u003eC:[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e yes": {
+    "d44c4852e513a0286b193c4acbe28c46": {}
   },
   "T-\u003eC:[repo] [CHECK] $1 -\u003e $2": {
     "4012989653df59b1e69633f4d0f2f3b3": {},
     "eb6e737441004cd27d059f129f8c6c0b": {}
   },
-  "T-\u003eC:[repo] [Cond:Reset] @ No. 1 [Cond] -\u003e $1": {
-    "b511da1a4fa983555aa571c4f7f5dff5": {}
-  },
-  "T-\u003eC:[repo] [Cond:Reset] No. $6 @ No. $10 [Cond] -\u003e $1": {
-    "209b2a4913a2d1292666251ee547ed51": {}
-  },
-  "T-\u003eC:[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e": {
-    "e9fd69cafa5a5a2677a07f5a0096b920": {}
-  },
-  "T-\u003eC:[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e no": {
-    "57d5437d25da2a879ca57c02d8a144c3": {},
-    "a9c7088ef06f714dbaf135d762fceeb7": {}
-  },
-  "T-\u003eC:[repo] [CondGroup:Index] of $4 for $3 -\u003e $2": {
-    "021b53aef8fb65f1b59bd319abdb5825": {}
-  },
   "T-\u003eC:[repo] [DEL] $1": {
     "15f15f6b1bb0410e7e045a0fef26af10": {}
-  },
-  "T-\u003eC:[repo] [DEL] No. $6 [Cond]": {
-    "91dd290a825a1dd6bb73c12180f2207f": {}
   },
   "T-\u003eC:[repo] [GET] $1": {
     "5c4fa1e2afe64fbc43ef43b593bdd974": {},
@@ -943,36 +1183,15 @@
     "1d2488cf410599ab6dcd407aacbeed72": {},
     "6c5f6e667e97cd13f8610dd8893142a9": {}
   },
-  "T-\u003eC:[repo] [Res] -\u003e $4": {
-    "080cc852d9bd9d887e147114c9b11857": {},
-    "47a8c3031af9e7eb9d41968a56bbe1c8": {},
-    "52e160f34a7e63b665b235460853d9a5": {},
-    "54aa43b029e447c3374d69dd13cb31a6": {},
-    "61a71035a5283325f0a3c42d50df4255": {},
-    "766e3341ac17689fd6cb522de9607fe5": {},
-    "b6f630c51d6252e9d95a9c6ead588d2e": {},
-    "da57672821db3b08ab48f4bba350ec39": {}
-  },
-  "T-\u003eC:[repo] [Res] @ No. 1 [Cond] -\u003e $1": {
-    "54aa43b029e447c3374d69dd13cb31a6": {},
-    "766e3341ac17689fd6cb522de9607fe5": {},
-    "b6f630c51d6252e9d95a9c6ead588d2e": {},
-    "da57672821db3b08ab48f4bba350ec39": {}
-  },
-  "T-\u003eC:[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {
-    "47a8c3031af9e7eb9d41968a56bbe1c8": {},
-    "54aa43b029e447c3374d69dd13cb31a6": {},
-    "766e3341ac17689fd6cb522de9607fe5": {},
-    "da57672821db3b08ab48f4bba350ec39": {}
-  },
-  "T-\u003eC:[repo] [Reset] @ Len of No. $2 [CondGroup] of $4 -\u003e $6": {
-    "45296382f44629010225f07098037e91": {}
-  },
   "T-\u003eC:[repo] [SET] $1 -\u003e $2": {
     "17c5c05153eeed9af7398f9357c159cd": {}
   },
   "T-\u003eC:[repo] [SSET] $1 -\u003e $2": {
     "07e8e9f1edc60f65cb5f6c0e0954d185": {}
+  },
+  "T-\u003eC:[repo] trust $1 -\u003e yes": {
+    "5659288577ae28a87517740a7eedd691": {},
+    "d4fd341a0182fc0c683e123bab5ec0ae": {}
   },
   "T-\u003eC:[safe++] $1 @Caller $3": {
     "3f41eea6deccab2ed7a8df4713bd45f8": {},
@@ -981,14 +1200,11 @@
     "9ccd80d01cf30722ba0252ad56d45204": {},
     "f7c7e37163f23fe6d48b8c70d7326ca2": {}
   },
-  "T-\u003eC:[safe--] $1 @Caller $3": {
-    "2ae31305ca309bac08b3b45e27cdf3ba": {},
-    "2c11d97dc04855c82f1938658f87b01a": {},
-    "470a57dfde6bd250a06500172b2144d0": {},
-    "be96a57022dc6fbd698213e1e343aee7": {}
-  },
   "T-\u003eC:[speak] $1 -\u003e $2": {
     "4211cd42e6de25aae3b8a55eb48ed310": {}
+  },
+  "T-\u003eC:[template:Run] $1 @Args $2 @Caller $3": {
+    "33e4702285557853326a4e9a61229571": {}
   },
   "T-\u003eC:[time] get date": {
     "07dbc119b34346b1190ccb9fc7d2e5fe": {}
@@ -1030,36 +1246,89 @@
     "4eaa3832b110e55513564eb72af91d35": {}
   },
   "nodeSet": {
-    "$4": {},
+    "$1 means to teach": {},
+    "$3 says to Susie : $1": {},
+    "$3 says to Susie : to $1": {},
     "Susie is enabled to ask Zero questions": {},
+    "Susie means to learn": {},
     "Zero says to Susie : [input] $1": {},
     "Zero says to Susie : [output] $1": {},
     "Zero starts to teach Susie": {},
-    "[Cond:Reset]": {},
-    "[CondGroup:DoneAuto] $4 @Caller $3": {},
-    "[CondGroup:Done] No. $2 of $4 @Caller $3": {},
-    "[CondGroup:Reset] No. $2 of $4": {},
+    "[Cond:Add] $1 @Caller $3": {},
+    "[Cond:Add] step 1 of Susie [Execute] $1 @Caller $3": {},
+    "[Cond:Count++] @Caller $3": {},
+    "[Cond:Count++] @Caller $3 [Add] $1": {},
+    "[Cond:Count] $3 @ -\u003e $6": {},
+    "[Cond:Count] $3 [Add] $1 @ -\u003e $2": {},
+    "[Cond:Used] No. $6 -\u003e step $2 of Susie [Execute] $1": {},
+    "[Executor:Get:Steps:Count] $4 [Execute] $1 @Caller $3": {},
+    "[Executor:Get:Steps:Count] Susie [Execute] $1 @Caller [say]": {},
+    "[Executor:Hook:AlreadyLearned] Susie [Execute] $1": {},
+    "[Executor:Steps:Count] $3 @ $4 [Execute] $1 -\u003e $6": {},
+    "[Executor:Steps:Count] $3 @ $4 [Execute] $1 -\u003e 0": {},
+    "[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e $6": {},
+    "[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e 0": {},
+    "[Grammar:IO+DO:DirectObject] $3 @ $2 to $1 -\u003e $2": {},
+    "[Grammar:IO+DO:IndirectObject] $3 @ $2 to $1 -\u003e $1": {},
+    "[Grammar:IO+DO:IndirectObject] $3 say @ $2 -\u003e $6": {},
+    "[Grammar:V+IO+DO:Object] $3 @ say $2 -\u003e $6": {},
+    "[Grammar:V+IO+DO:Verb] $3 @ say $2 -\u003e say": {},
+    "[Grammar:V+O:Object] $3 @ welcome $2 -\u003e $2": {},
+    "[Grammar:V+O:Verb] $3 @ welcome $2 -\u003e welcome": {},
+    "[Grammar:Verify:IO+DO] $2 @Caller $3 say": {},
+    "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {},
+    "[Grammar:Verify:IO+DO] $3 @ $2 to $1 -\u003e yes": {},
+    "[Grammar:Verify:IO+DO] $3 say @ $2 -\u003e yes": {},
+    "[Grammar:Verify:Object] $1 @Caller $3 [IO+DO]": {},
+    "[Grammar:Verify:Object] $2 @Caller $3": {},
+    "[Grammar:Verify:Object] $2 @Caller $3 [IO+DO]": {},
+    "[Grammar:Verify:Object] $2 @Caller $3 welcome": {},
+    "[Grammar:Verify:Object] $3 @ $2 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 [IO+DO] @ $2 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 welcome @ $2 -\u003e yes": {},
+    "[Grammar:Verify:V+IO+DO] $1 @Caller $3 [VerbPhrase]": {},
+    "[Grammar:Verify:V+IO+DO] $3 @ say $2 -\u003e yes": {},
+    "[Grammar:Verify:V+IO+DO] $3 [VerbPhrase] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:V+IO+DO] say $2 @Caller $3": {},
+    "[Grammar:Verify:V+O+OC] $1 @Caller $3 [VerbPhrase]": {},
+    "[Grammar:Verify:V+O+OC] $3 [VerbPhrase] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:V+O] $1 @Caller $3 [VerbPhrase]": {},
+    "[Grammar:Verify:V+O] $3 @ welcome $2 -\u003e yes": {},
+    "[Grammar:Verify:V+O] $3 [VerbPhrase] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:V+O] welcome $2 @Caller $3": {},
+    "[Grammar:Verify:V] $1 @Caller $3": {},
+    "[Grammar:Verify:V] $1 @Caller $3 [VerbPhrase]": {},
+    "[Grammar:Verify:V] $3 @ $1 -\u003e no": {},
+    "[Grammar:Verify:V] $3 @ $1 -\u003e yes": {},
+    "[Grammar:Verify:V] $3 [VerbPhrase] @ $1 -\u003e yes": {},
+    "[Grammar:Verify:VerbPhrase] $1 @Caller $3": {},
+    "[Grammar:Verify:VerbPhrase] $1 @Caller [say]": {},
+    "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {},
+    "[Grammar:Verify:VerbPhrase] [say] @ $1 -\u003e yes": {},
+    "[Print] $1 @Caller $2": {},
+    "[Res] Susie [Execute] $1": {},
     "[ST] $1 -\u003e $2": {},
+    "[TeachMode:Check] Teacher $1 @Caller $3": {},
+    "[TeachMode:Check] Teacher $3 @Caller [say]": {},
+    "[TeachMode] $3 @ Teacher $1 -\u003e yes": {},
+    "[TeachMode] [say] @ Teacher $3 -\u003e yes": {},
     "[compute] $3 @ $2 + 1 -\u003e $9": {},
-    "[compute] $3 @ $2 - 1 -\u003e $9": {},
     "[compute] $4 @ $1 * $2 -\u003e $3": {},
     "[compute] $4 @ $1 + $2 -\u003e $3": {},
     "[compute] $4 @ $1 - $2 -\u003e $3": {},
     "[compute] $4 @ $1 \u003c $2": {},
     "[compute] $4 @ $1 = $2": {},
     "[compute] $4 @ $1 \u003e $2": {},
-    "[compute] No. $6 [Cond] @ $6 + 1 -\u003e $10": {},
     "[compute] [CHECK] $1 \u003c $2 @Caller $4": {},
     "[compute] [CHECK] $1 = $2 @Caller $4": {},
     "[compute] [CHECK] $1 \u003e $2 @Caller $4": {},
-    "[compute] [Cond:Reset] No. $6 @ $6 + 1 -\u003e $10": {},
+    "[compute] [Cond:Used] step $6 @ $2 + 1 -\u003e $9": {},
     "[compute] [GET] $1 * $2 @Caller $4": {},
     "[compute] [GET] $1 + $2 @Caller $4": {},
     "[compute] [GET] $1 - $2 @Caller $4": {},
     "[compute] [GET] $2 + 1 @Caller $3": {},
-    "[compute] [GET] $2 - 1 @Caller $3": {},
-    "[compute] [GET] $6 + 1 @Caller No. $6 [Cond]": {},
-    "[compute] [GET] $6 + 1 @Caller [Cond:Reset] No. $6": {},
+    "[compute] [GET] $2 + 1 @Caller [Cond:Used] step $6": {},
     "[input] $1": {},
     "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:\u003c] [right:$2]": {},
     "[node:checker] [namespace:calculator] [caller:$4] [left:$1] [operator:=] [right:$2]": {},
@@ -1072,8 +1341,10 @@
     "[node:checker] [namespace:word] [mode:ends_with] [target:$2] [word:$1]": {},
     "[node:checker] [namespace:word] [mode:starts_with] [target:$2] [word:$1]": {},
     "[node:checker] [namespace:word] [mode:starts_with_phrase] [phrase:$1] [target:$2]": {},
+    "[node:executor] [namespace:builder] [args:$2] [mode:template] [name:$1]": {},
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {},
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {},
+    "[node:executor] [namespace:printer] [msg:$1]": {},
     "[node:executor] [namespace:repo_addon] [delete:true] [key:$1]": {},
     "[node:executor] [namespace:repo_addon] [key:$1] [singleValue:true] [value:$2]": {},
     "[node:executor] [namespace:repo_addon] [key:$1] [value:$2]": {},
@@ -1116,52 +1387,37 @@
     "[repo] $3 @ $1 -\u003e": {},
     "[repo] $3 @ $1 -\u003e $2": {},
     "[repo] $3 @ $1 -\u003e 0": {},
+    "[repo] $3 @ [Executor:Steps:Count] $4 [Execute] $1 -\u003e": {},
+    "[repo] $3 @ [Executor:Steps:Count] $4 [Execute] $1 -\u003e $6": {},
+    "[repo] $3 @ [Grammar:Object] $2 -\u003e yes": {},
+    "[repo] $3 @ [Grammar:Property:Word:Verb] $1 -\u003e": {},
+    "[repo] $3 @ [Grammar:Property:Word:Verb] $1 -\u003e yes": {},
     "[repo] $3 @ [Latest] $1 -\u003e $9": {},
-    "[repo] $3 @ [Latest] Count of No. $2 [CondGroup] of $4 -\u003e 0": {},
+    "[repo] $3 @ [Latest] [Cond:Count] -\u003e $6": {},
+    "[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e": {},
+    "[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e yes": {},
     "[repo] $4 @ $1 -\u003e": {},
     "[repo] $4 @ $1 -\u003e $2": {},
-    "[repo] No. $10 [Cond] @ No. $6 [Cond] -\u003e $1": {},
-    "[repo] No. $10 [Cond] @ [Latest] Len of No. $2 [CondGroup] of $4 -\u003e $9": {},
-    "[repo] No. $9 [Cond] @ No. $6 [Cond] -\u003e $1": {},
     "[repo] [CHECK] $1 -\u003e $2": {},
-    "[repo] [Cond:Reset] @ No. 1 [Cond] -\u003e $1": {},
-    "[repo] [Cond:Reset] No. $6 @ No. $10 [Cond] -\u003e $1": {},
-    "[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e": {},
-    "[repo] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e no": {},
-    "[repo] [CondGroup:Index] of $4 for $3 -\u003e $2": {},
     "[repo] [DEL] $1": {},
-    "[repo] [DEL] No. $10 [Cond]": {},
-    "[repo] [DEL] No. $6 [Cond]": {},
-    "[repo] [DEL] No. 1 [Cond]": {},
     "[repo] [GET] $1": {},
     "[repo] [GET] $1 @Caller $3": {},
     "[repo] [GET] $1 @Caller $4": {},
-    "[repo] [GET] Len of No. $2 [CondGroup] of $4 @Caller [Reset]": {},
-    "[repo] [GET] No. $10 [Cond] @Caller No. $6 [Cond]": {},
-    "[repo] [GET] No. $10 [Cond] @Caller [Cond:Reset] No. $6": {},
-    "[repo] [GET] No. 1 [Cond] @Caller [Cond:Reset]": {},
-    "[repo] [GET] No. 1 [Cond] @Caller [Res]": {},
-    "[repo] [GET] No. 2 [Cond] @Caller No. 1 [Cond]": {},
-    "[repo] [GET] [CondGroup:DoneState] of $3 for No. $2 of $4": {},
-    "[repo] [GET] [CondGroup:Index] of $4 for $3": {},
-    "[repo] [Res] -\u003e $4": {},
-    "[repo] [Res] @ No. 1 [Cond] -\u003e $1": {},
-    "[repo] [Res] @ [Latest] Len of [CondGroup] of $4 -\u003e $2": {},
-    "[repo] [Reset] @ Len of No. $2 [CondGroup] of $4 -\u003e $6": {},
+    "[repo] [GET] [Executor:Steps:Count] $4 [Execute] $1 @Caller $3": {},
+    "[repo] [GET] [Grammar:Object] $2 @Caller $3": {},
+    "[repo] [GET] [Grammar:Property:Word:Verb] $1 @Caller $3": {},
+    "[repo] [GET] [TeachMode] Teacher $1 @Caller $3 [TeachMode:Check]": {},
     "[repo] [SET] $1 -\u003e $2": {},
-    "[repo] [SET] [CondGroup:DoneState] of $3 for No. $2 of $4 -\u003e yes": {},
-    "[repo] [SET] [CondGroup:Index] of $4 for $1 -\u003e $2": {},
-    "[repo] [SET] [Then] $1 -\u003e [CondGroup:Done] No. $2 of $4 @Caller $1": {},
+    "[repo] [SET] No. $2 -\u003e $1": {},
+    "[repo] [SET] No. $6 [Cond] -\u003e step $9 of Susie [Execute] $1": {},
+    "[repo] [SET] [TeachMode] Teacher $1 -\u003e yes": {},
     "[repo] [SSET] $1 -\u003e $2": {},
     "[repo] [SSET] $1 -\u003e $9": {},
-    "[repo] [SSET] Count of No. $2 [CondGroup] of $4 -\u003e $6": {},
+    "[repo] trust $1 -\u003e yes": {},
     "[safe++] $1 @Caller $3": {},
-    "[safe++] Len of No. $2 [CondGroup] of $4 @Caller No. $6 [Cond]": {},
-    "[safe++] Len of No. $2 [CondGroup] of $4 @Caller No. 1 [Cond]": {},
-    "[safe++] Len of [CondGroup] of $4 @Caller [Res]": {},
-    "[safe--] $1 @Caller $3": {},
-    "[safe--] Count of No. $2 [CondGroup] of $4 @Caller $3": {},
+    "[safe++] [Cond:Count] @Caller $3": {},
     "[speak] $1 -\u003e $2": {},
+    "[template:Run] $1 @Args $2 @Caller $3": {},
     "[time] date -\u003e $1": {},
     "[time] get date": {},
     "[time] get hour": {},

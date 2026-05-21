@@ -2,7 +2,7 @@ package builder
 
 import (
 	"encoding/json"
-	"fmt"
+	"errors"
 	"goldenglow/m"
 	"os"
 	"path/filepath"
@@ -16,10 +16,10 @@ var (
 )
 
 type template struct {
-	Name       string            `json:"name"`
-	IsTemplate bool              `json:"is_template"`
-	Args       map[string]string `json:"args"`
-	Data       []dataItem        `json:"data"`
+	Name       string     `json:"name"`
+	IsTemplate bool       `json:"is_template"`
+	Args       []string   `json:"args"`
+	Data       []dataItem `json:"data"`
 }
 
 type dataItem struct {
@@ -58,17 +58,18 @@ func replaceVars(s string, vars map[string]string) string {
 }
 
 // parseTemplateArgs args:"key1 = value1,key2 = value2" -> map[key1:value1 key2:value2]
-func parseTemplateArgs(args string) (map[string]string, error) {
+func parseTemplateArgs(args string, tpl *template) (map[string]string, error) {
 	result := make(map[string]string)
-	for _, pair := range strings.Split(args, ",") {
-		if pair == "" {
+	if len(strings.Split(args, ",")) != len(tpl.Args) {
+		logger.Debug("templateGen: wrong number of args", "expected", len(tpl.Args), "got", len(args))
+		return nil, errors.New("templateGen: wrong number of args")
+	}
+	for i, value := range strings.Split(args, ",") {
+		if value == "" {
 			continue
 		}
-		kv := strings.Split(pair, "=")
-		if len(kv) != 2 {
-			return nil, fmt.Errorf("invalid args pair: %s", pair)
-		}
-		result[strings.TrimSpace(kv[0])] = strings.TrimSpace(kv[1])
+		result[strings.TrimSpace(tpl.Args[i])] = strings.TrimSpace(value)
+		logger.Debug("templateGen: replaced arg", "key", tpl.Args[i], "arg", value)
 	}
 	return result, nil
 }

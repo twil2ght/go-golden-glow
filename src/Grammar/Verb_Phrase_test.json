@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Verb] welcome -> yes",
+        "[repo] [SET] [Grammar:Object] someone -> yes",
+        "[template:Run] V+O @Args welcome @Caller test",
+        "[Grammar:Verify:VerbPhrase] welcome someone @Caller [say]"
+      ]
+    }
+  ]
+}

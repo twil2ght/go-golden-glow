@@ -11,8 +11,18 @@
     {
       "commands": [
         "[input] [Grammar:Verify:V] A @Caller C",
-        "[input] [repo] C @ [Grammar:Property:Word] A -> verb",
-        "[output] [Grammar:Verify:V] A -> yes"
+        "[input] [repo] C @ [Grammar:Property:Word:Verb] A -> yes",
+        "[output] [Grammar:Verify:V] C @ A -> yes",
+
+        "[input] [Grammar:Verify:V] A @Caller C",
+        "[input] [repo] C @ [Grammar:Property:Word:Verb] A ->",
+        "[output] [Grammar:Verify:V] C @ A -> no"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V] A @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Verb] A @Caller C"
       ]
     }
   ]

@@ -42,8 +42,6 @@ func (c *container) Forward(t node.Interface, state string) bool {
 		return false
 	}
 	varSet, _ := t.VarSetRegistry().Get(state)
-	//raw := t.ToTextWithNoVars(state)
-	//log.Default().Debug("[container] forward raw", "raw", raw, "state", t.VarSetRegistry().Len())
 	if !c.findCompatibleVarSet(t, varSet) {
 		return false
 	}

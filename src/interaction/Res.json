@@ -1,25 +1,25 @@
 {
+  "dependencies": [
+    "teach_mode",
+    "../pkg/Executor/utils",
+    "../Grammar/Verb_Phrase",
+    "../pkg/Cond/utils"
+  ],
   "description": "set methods(by imperative sentence)",
-  "tips_of_args": {
-    "A1": "should be imperative"
-  },
   "data": [
     {
-      "description": "main router",
       "commands": [
         "[input] C says to Susie : A",
-        "[input] [repo] trust C -> yes",
-        "[input] C means to teach",
-        "[input] Susie means to learn",
-        "[input] [repo] [Grammar:Verify:Sentence] A -> imperative",
-        "[output] [Res] D [Execute] A"
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] [say] @ A -> yes",
+        "[output] [Res] Susie [Execute] A"
       ]
     },
     {
-      "description": "pre-checks",
       "commands": [
         "[input] C says to Susie : A",
-        "[output] [Grammar:Verify:Sentence] A -> imperative"
+        "[output] [Grammar:Verify:VerbPhrase] A @Caller [say]",
+        "[output] [TeachMode:Check] Teacher C @Caller [say]"
       ]
     }
   ]

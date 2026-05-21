@@ -1,44 +1,50 @@
 {
+  "dependencies": [
+    "teach_mode",
+    "../pkg/Executor/utils",
+    "../Grammar/Verb_Phrase",
+    "../pkg/Cond/utils"
+  ],
   "description": "set target(by to...)",
   "override": [
     {
-      "source":"[Executor:Steps:Count] D [Execute] A -> F",
-      "target":"[Executor:Steps:Count] D [Execute] A -> 0"
+      "source":"[Executor:Steps:Count] Susie [Execute] A -> F",
+      "target":"[Executor:Steps:Count] Susie [Execute] A -> 0"
     }
   ],
   "data": [
     {
       "commands": [
         "[input] C says to Susie : to A",
-        "[input] [TeachMode] Teacher @ -> C",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
         "[input] [Grammar:Verify:VerbPhrase] [say] @ A -> yes",
-        "[input] [Executor:Check:Exist] [say] @ D [Execute] A -> no",
-        "[output] [Cond:Add] step 1 of D [Execute] A",
+        "[input] [Executor:Steps:Count] [say] @ Susie [Execute] A -> 0",
+        "[output] [Cond:Add] step 1 of Susie [Execute] A @Caller C",
 
         "[input] C says to Susie : to A",
-        "[input] [TeachMode] Teacher @ -> C",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
         "[input] [Grammar:Verify:VerbPhrase] [say] @ A -> yes",
-        "[input] [Executor:Check:Exist] [say] @ D [Execute] A -> yes",
-        "[output] [Executor:Hook:AlreadyLearned] D [Execute] A"
+        "[input] [Executor:Steps:Count] [say] @ Susie [Execute] A -> F",
+        "[output] [Executor:Hook:AlreadyLearned] Susie [Execute] A"
       ]
     },
     {
       "commands": [
         "[input] C says to Susie : to A",
-        "[output] [TeachMode:Check] Teacher @ -> C",
-        "[output] [Executor:Check:Exist] D [Execute] A @Caller [say]",
+        "[output] [TeachMode:Check] Teacher C @Caller [say]",
+        "[output] [Executor:Get:Steps:Count] Susie [Execute] A @Caller [say]",
         "[output] [Grammar:Verify:VerbPhrase] A @Caller [say]"
       ]
     },
     {
-      "description": "update step of D [Execute] A",
+      "description": "update step of Susie [Execute] A",
       "commands": [
-        "[input] [Cond:Used] No. F -> step B of D [Execute] A",
+        "[input] [Cond:Used] No. F -> step B of Susie [Execute] A",
         "[output] [compute] [GET] B + 1 @Caller [Cond:Used] step F",
 
-        "[input] [Cond:Used] No. F -> step B of D [Execute] A",
+        "[input] [Cond:Used] No. F -> step B of Susie [Execute] A",
         "[input] [compute] [Cond:Used] step F @ B + 1 -> B1",
-        "[output] [repo] [SET] No. F [Cond] -> step B1 of D [Execute] A"
+        "[output] [repo] [SET] No. F [Cond] -> step B1 of Susie [Execute] A"
       ]
     }
   ]

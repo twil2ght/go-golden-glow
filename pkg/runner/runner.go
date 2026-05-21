@@ -98,6 +98,7 @@ func (r *runner) IsFinished() bool {
 
 // onIdle is called when the channel has been empty for the specified duration
 func (r *runner) onIdle() {
+	r.knotParents.Clear()
 	r.nodeFactory.Reset()
 	DefaultManager.Range(func(_ string, F IdleHandler) bool {
 		return F()
@@ -221,6 +222,10 @@ func (r *runner) handler(k knot.Interface) error {
 			R, S := c.R()
 			for nv, rn := range R {
 				for _, s := range S[nv] {
+					key := knotKey(rn.Value(), s)
+					if _, loaded := r.knotParents.LoadOrStore(key, knotSeq); loaded {
+						continue
+					}
 					log.Default().Debug("R", "value", rn.ToTextWithNoVars(s), "raw", rn.Value())
 					r.traceEvent(tracer.Event{
 						Type:      tracer.EventResultProduced,
@@ -230,7 +235,6 @@ func (r *runner) handler(k knot.Interface) error {
 						Detail:    map[string]string{"result_raw": rn.ToTextWithNoVars(s)},
 						KnotSeq:   knotSeq,
 					})
-					r.knotParents.Store(knotKey(rn.Value(), s), knotSeq)
 					r.knotQueue.Add(knot.New(rn, s))
 				}
 			}

@@ -25,20 +25,20 @@ var (
 
 func main() {
 	Run(
-	//"archive/logic/engines/UserInterface/SafeCalculate.json",
-	//"archive/logic/engines/UserInterface/SafeCalculate_test.json",
-	//"archive/logic/engines/UserInterface/SetByStep.json",
-	//"archive/logic/engines/UserInterface/SetByStep_test.json",
-	//"archive/logic/engines/UserInterface/CondGroup_Iterator.json",
-	//"archive/logic/engines/UserInterface/CondGroup_Iterator_test.json",
-	//"archive/logic/engines/UserInterface/CondGroup_API.json",
-	//"archive/logic/engines/UserInterface/CondGroup_API_test.json",
-	//"archive/logic/engines/UserInterface/CondGroup_Activate.json",
-	//"archive/logic/engines/UserInterface/CondGroup_Activate_test.json",
+		//"src/pkg/Executor/utils.json",
+		//"src/pkg/Executor/util_test.json",
+		//"src/Grammar/template_test.json",
+		//"src/pkg/Cond/utils.json",
+		//"src/pkg/Cond/utils_test.json",
+		//"src/Grammar/Object_repo.json",
+		//"src/Grammar/Verb_Phrase.json",
+		//"src/Grammar/Verb_Phrase_test.json",
+		//"src/interaction/Cond.json",
+		//"src/test/2.json",
+		//"src/interaction/Res.json",
+		//"src/Grammar/Object_IO+DO_to.json",
+		"src/test/1.json",
 	)
-	//RunWithMsgMgr(
-	//
-	//)
 }
 func Run(dataDir ...string) {
 	go consumer.Run(ctx)

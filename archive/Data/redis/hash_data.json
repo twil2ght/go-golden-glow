@@ -1,47 +1,26 @@
 {
-  "Count of No. 1 [CondGroup] of Susie is adorable": {
-    "0": "0001-01-01T00:00:00Z"
+  "No. 1": {
+    "step 1 of Susie [Execute] welcome someone": "0001-01-01T00:00:00Z"
   },
-  "Len of No. 1 [CondGroup] of Susie is adorable": {
-    "3": "0001-01-01T00:00:00Z"
-  },
-  "Len of [CondGroup] of Susie is adorable": {
+  "[Cond:Count]": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "No. 1 [Cond]": {
-    "Susie is happy": "0001-01-01T00:00:00Z"
-  },
-  "No. 2 [Cond]": {
-    "Susie is cute": "0001-01-01T00:00:00Z"
-  },
-  "No. 3 [Cond]": {
-    "Susie is smart": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:DoneState] of Susie is cute for No. 1 of Susie is adorable": {
+  "[Grammar:Object] hello": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:DoneState] of Susie is happy for No. 1 of Susie is adorable": {
+  "[Grammar:Object] someone": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:DoneState] of Susie is smart for No. 1 of Susie is adorable": {
+  "[Grammar:Object] them": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] of Susie is adorable for Susie is cute": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Grammar:Property:Word:Verb] say": {
+    "yes": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] of Susie is adorable for Susie is happy": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Grammar:Property:Word:Verb] welcome": {
+    "yes": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] of Susie is adorable for Susie is smart": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Then] Susie is cute": {
-    "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is cute": "0001-01-01T00:00:00Z"
-  },
-  "[Then] Susie is happy": {
-    "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is happy": "0001-01-01T00:00:00Z"
-  },
-  "[Then] Susie is smart": {
-    "[CondGroup:Done] No. 1 of Susie is adorable @Caller Susie is smart": "0001-01-01T00:00:00Z"
+  "[TeachMode] Teacher dev": {
+    "yes": "0001-01-01T00:00:00Z"
   }
 }

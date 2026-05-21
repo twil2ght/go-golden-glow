@@ -1,0 +1,9 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Cond:Add] someone enters Susie 's chat room @Caller test"
+      ]
+    }
+  ]
+}

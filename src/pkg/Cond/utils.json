@@ -12,7 +12,7 @@
     {
       "description": "[Cond:Add]",
       "commands": [
-        "[input] [Cond:Add] A",
+        "[input] [Cond:Add] A @Caller C",
         "[output] [Cond:Count++] @Caller C [Add] A",
 
         "[input] [Cond:Count] C [Add] A @ -> B",

@@ -224,7 +224,7 @@ func (b *builder) RunTemplate(name, stringArgs string) {
 		logger.Error("template not found", "name", name)
 		return
 	}
-	args, err := parseTemplateArgs(stringArgs)
+	args, err := parseTemplateArgs(stringArgs, tpl)
 	if err != nil {
 		logger.Error("parse template args error", "name", name, "err", err)
 		return
