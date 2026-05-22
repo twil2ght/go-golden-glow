@@ -44,7 +44,7 @@
 
         "[input] [Cond:Used] No. F -> step B of Susie [Execute] A",
         "[input] [compute] [Cond:Used] step F @ B + 1 -> B1",
-        "[output] [repo] [SET] No. F [Cond] -> step B1 of Susie [Execute] A"
+        "[output] [repo] [SSET] No. F [Cond] -> step B1 of Susie [Execute] A"
       ]
     }
   ]

@@ -40,19 +40,19 @@
       "description": "",
       "commands": [
         "[input] [CondGroup:Get:Count] D @Caller C",
-        "[output] [repo] [GET] [CondGroup:Count] D @Caller C",
+        "[output] [repo] [GET] [CondGroup:Count] D @Caller C [CondGroup:Get]",
 
         "[input] [CondGroup:Get:ElementCount] No. B of D @Caller C",
-        "[output] [repo] [GET] [CondGroup:ElementCount] No. B of D @Caller C"
+        "[output] [repo] [GET] [CondGroup:ElementCount] No. B of D @Caller C [CondGroup:Get]"
       ]
     },
     {
       "description": "",
       "commands": [
-        "[input] [repo] C @ [CondGroup:Count] D -> F",
+        "[input] [repo] C [CondGroup:Get] @ [CondGroup:Count] D -> F",
         "[output] [CondGroup:Count] C @ D -> F",
 
-        "[input] [repo] C @ [CondGroup:ElementCount] No. B of D -> F",
+        "[input] [repo] C [CondGroup:Get] @ [CondGroup:ElementCount] No. B of D -> F",
         "[output] [CondGroup:ElementCount] C @ No. B of D -> F"
       ]
     }

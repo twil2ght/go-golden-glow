@@ -60,6 +60,14 @@ func (d *DefaultQueue[T]) Len() int {
 	return len(d.items)
 }
 
+func (d *DefaultQueue[T]) Snapshot() []T {
+	d.cond.L.Lock()
+	defer d.cond.L.Unlock()
+	out := make([]T, len(d.items))
+	copy(out, d.items)
+	return out
+}
+
 // Shutdown unblocks all waiting Get() calls
 func (d *DefaultQueue[T]) Shutdown() {
 	d.cond.L.Lock()

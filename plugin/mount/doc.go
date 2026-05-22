@@ -10,6 +10,7 @@ import (
 	_ "goldenglow/plugin/builtin/speaker"
 	_ "goldenglow/plugin/builtin/templateaddon"
 	_ "goldenglow/plugin/builtin/timer"
+	_ "goldenglow/plugin/builtin/todo"
 	_ "goldenglow/plugin/builtin/tracer"
 	_ "goldenglow/plugin/builtin/word"
 )

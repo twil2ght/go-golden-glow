@@ -25,19 +25,19 @@ var (
 
 func main() {
 	Run(
-		//"src/pkg/Executor/utils.json",
-		//"src/pkg/Executor/util_test.json",
-		//"src/Grammar/template_test.json",
-		//"src/pkg/Cond/utils.json",
-		//"src/pkg/Cond/utils_test.json",
-		//"src/Grammar/Object_repo.json",
-		//"src/Grammar/Verb_Phrase.json",
-		//"src/Grammar/Verb_Phrase_test.json",
-		//"src/interaction/Cond.json",
-		//"src/test/2.json",
-		//"src/interaction/Res.json",
-		//"src/Grammar/Object_IO+DO_to.json",
-		"src/test/1.json",
+	//"src/pkg/Executor/utils.json",
+	//"src/pkg/Executor/util_test.json",
+	//"src/Grammar/template_test.json",
+	//"src/pkg/Cond/utils.json",
+	//"src/pkg/Cond/utils_test.json",
+	//"src/Grammar/Object_repo.json",
+	//"src/Grammar/Verb_Phrase.json",
+	//"src/Grammar/Verb_Phrase_test.json",
+	//"src/interaction/Cond.json",
+	//"src/test/2.json",
+	//"src/interaction/Res.json",
+	//"src/Grammar/Object_IO+DO_to.json",
+	//"src/test/1.json",
 	)
 }
 func Run(dataDir ...string) {

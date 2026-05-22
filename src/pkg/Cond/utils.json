@@ -16,7 +16,7 @@
         "[output] [Cond:Count++] @Caller C [Add] A",
 
         "[input] [Cond:Count] C [Add] A @ -> B",
-        "[output] [repo] [SET] No. B -> A"
+        "[output] [repo] [SET] No. B [Cond] -> A"
       ]
     },
     {

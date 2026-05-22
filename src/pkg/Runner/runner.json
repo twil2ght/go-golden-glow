@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] C @ A",
+        "[output] [repo] [GET] [Then] A @Caller C",
+
+        "[input] [repo] C @ [Then] A -> B",
+        "[output] C A @ B"
+      ]
+    }
+  ]
+}

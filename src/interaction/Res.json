@@ -3,7 +3,8 @@
     "teach_mode",
     "../pkg/Executor/utils",
     "../Grammar/Verb_Phrase",
-    "../pkg/Cond/utils"
+    "../pkg/Cond/utils",
+    "../pkg/CondGroup/Gen"
   ],
   "description": "set methods(by imperative sentence)",
   "data": [

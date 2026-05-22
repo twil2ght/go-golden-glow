@@ -1,9 +1,21 @@
 {
-  "No. 1": {
-    "step 1 of Susie [Execute] welcome someone": "0001-01-01T00:00:00Z"
+  "No. 1 [Cond]": {
+    "step 2 of Susie [Execute] welcome someone": "0001-01-01T00:00:00Z"
   },
   "[Cond:Count]": {
     "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] Susie [Execute] say hello to them": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] No. 1 of Susie [Execute] say hello to them": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] Susie [Execute] say hello to them of step 1 of Susie [Execute] welcome someone": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] No. 1 of No. 1 of Susie [Execute] say hello to them": {
+    "step 1 of Susie [Execute] welcome someone": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Object] hello": {
     "yes": "0001-01-01T00:00:00Z"
@@ -22,5 +34,8 @@
   },
   "[TeachMode] Teacher dev": {
     "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 1 of Susie [Execute] welcome someone": {
+    "[CondGroup:Done] No. 1 of Susie [Execute] say hello to them @Caller step 1 of Susie [Execute] welcome someone": "0001-01-01T00:00:00Z"
   }
 }

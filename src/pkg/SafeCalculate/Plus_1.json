@@ -11,7 +11,7 @@
       "commands": [
         "[input] [safe++] A @Caller C",
         "[input] [repo] C @ A -> B",
-        "[input] [compute] C @ B + 1 -> B1",
+        "[input] [compute] C [SafeCompute] @ B + 1 -> B1",
         "[output] [repo] [SSET] A -> B1",
         "[output] [repo] C @ [Latest] A -> B1"
       ]
@@ -24,7 +24,7 @@
 
         "[input] [safe++] A @Caller C",
         "[input] [repo] C @ A -> B",
-        "[output] [compute] [GET] B + 1 @Caller C"
+        "[output] [compute] [GET] B + 1 @Caller C [SafeCompute]"
       ]
     },
     {

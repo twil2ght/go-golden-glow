@@ -18,13 +18,15 @@
       "description": "main",
       "commands": [
         "[input] [repo] No. F @ No. F1 [Cond] -> A",
+        "[input] [CondGroup:Count] [Res] @ D -> B",
         "[output] [Cond:Used] No. F1 -> A",
         "[output] [CondGroup:ElementCount++] No. B of D @Caller No. F1 [Cond]",
         "[output] [repo] [SET] [Then] A -> [CondGroup:Done] No. B of D @Caller A",
 
-        "[input] [CondGroup:ElementCount] No. B1 [Cond] @ No. B of D -> F",
-        "[output] [repo] [SET] [CondGroup:Index] D of A -> B | F",
-        "[output] [repo] [SET] [CondGroup] No. F of No. B of D -> A"
+        "[input] [repo] No. F @ No. F1 [Cond] -> A",
+        "[input] [CondGroup:ElementCount] No. F1 [Cond] @ No. B of D -> B1",
+        "[output] [repo] [SET] [CondGroup:Index] D of A -> B | B1",
+        "[output] [repo] [SET] [CondGroup] No. B1 of No. B of D -> A"
       ]
     },
     {
