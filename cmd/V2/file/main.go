@@ -38,6 +38,10 @@ func main() {
 	//"src/interaction/Res.json",
 	//"src/Grammar/Object_IO+DO_to.json",
 	//"src/test/1.json",
+	//"src/pkg/Executor/Executor_Iterator_Queued.json",
+	//"src/pkg/Executor/executor_test.json",
+	//"src/pkg/Runner/runner.json",
+	//"src/pkg/Runner/runner_test.json",
 	)
 }
 func Run(dataDir ...string) {

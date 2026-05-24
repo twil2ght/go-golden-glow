@@ -1,6 +1,6 @@
 {
   "dependencies": [
-    "../SafeCalculate"
+    "../SafeCalculate/Minus_1"
   ],
   "API": [
     "[CondGroup:Done] No. {B} of {D} [BY] A @Caller {C}",
@@ -30,7 +30,18 @@
         "[input] [CondGroup:Done] No. B of D [BY] A @Caller C",
         "[input] [repo] [CondGroup:DoneState] of A for No. B of D -> no",
         "[output] [safe--] Count of No. B [CondGroup] of D @Caller C [BY] A",
-        "[output] [repo] [SET] [CondGroup:DoneState] of A for No. B of D -> yes"
+        "[output] [repo] [SSET] [CondGroup:DoneState] of A for No. B of D -> yes"
+      ],
+      "tip": "you haven't initialize the condGroup count,so you can't use [safe--]"
+    },
+    {
+      "commands": [
+        "[input] [repo] C [BY] A @ Count of No. B [CondGroup] of D ->",
+        "[output] [repo] [GET] [CondGroup:ElementCount] No. B of D @Caller C [BY] A",
+        
+        "[input] [repo] C [BY] A @ Count of No. B [CondGroup] of D ->",
+        "[input] [repo] C [BY] A @ [CondGroup:ElementCount] No. B of D -> F",
+        "[output] [repo] C [BY] A @ Count of No. B [CondGroup] of D -> F"
       ]
     },
     {
@@ -51,7 +62,7 @@
       "description": "Mark CondGroup as Done Automatically",
       "commands": [
         "[input] [CondGroup:DoneAuto] D [BY] A @Caller C",
-        "[input] [repo] [CondGroup:Index] of D for A -> B",
+        "[input] [repo] [CondGroup:Index] D of A -> B | F",
         "[output] [CondGroup:Done] No. B of D [BY] A @Caller C"
       ]
     },
@@ -59,14 +70,14 @@
       "description": "Get CondGroup Done Index",
       "commands": [
         "[input] [CondGroup:DoneAuto] D [BY] A @Caller C",
-        "[output] [repo] [GET] [CondGroup:Index] of D for A"
+        "[output] [repo] [GET] [CondGroup:Index] D of A"
       ]
     },
     {
       "description": "Mark CondGroup as Undone Automatically",
       "commands": [
         "[input] [CondGroup:UndoneAuto] D [BY] A @Caller C",
-        "[input] [repo] [CondGroup:Index] of D for A -> B",
+        "[input] [repo] [CondGroup:Index] D of A -> B | F",
         "[output] [CondGroup:Undone] No. B of D [BY] A @Caller C"
       ]
     },
@@ -74,7 +85,7 @@
       "description": "Get CondGroup Index",
       "commands": [
         "[input] [CondGroup:UndoneAuto] D [BY] A @Caller C",
-        "[output] [repo] [GET] [CondGroup:Index] of D for A"
+        "[output] [repo] [GET] [CondGroup:Index] D of A"
       ]
     },
     {

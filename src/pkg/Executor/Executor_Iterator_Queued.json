@@ -1,6 +1,7 @@
 {
   "dependencies": [
-    "../CondGroup/Static_Activate"
+    "../CondGroup/Static_Activate",
+    "../CondGroup/MarkDone"
   ],
   "description": "Executor_Iterator_Queued",
   "API": [
@@ -29,7 +30,7 @@
     {
       "description": "init",
       "commands": [
-        "[input] D [Execute] A @Caller C",
+        "[input] [Executor] D [Execute] A @Caller C",
         "[output] [repo] [GET] step 1 of D [Execute] A @Caller C"
       ]
     },

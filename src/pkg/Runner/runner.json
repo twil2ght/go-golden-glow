@@ -2,12 +2,19 @@
   "data": [
     {
       "commands": [
-        "[input] C @ A",
-        "[output] [repo] [GET] [Then] A @Caller C",
+        "[input] [Common] A",
+        "[output] [repo] [GET] [Then] A",
 
-        "[input] [repo] C @ [Then] A -> B",
-        "[output] C A @ B"
-      ]
+        "[input] [repo] [Then] A -> B",
+        "[output] B"
+      ],
+      "tip": "only used for common if-then group",
+      "demo": [
+        "if I am here",
+        "then you dead",
+        "[repo] [SET] [Then] I am here -> [cond:done] [Common] you dead"
+      ],
+      "tip2": "add [Common] prefix when created"
     }
   ]
 }

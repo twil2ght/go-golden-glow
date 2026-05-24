@@ -1,4 +1,7 @@
 {
+  "Count of No. 1 [CondGroup] of Susie [Execute] say hello to them": {
+    "0": "0001-01-01T00:00:00Z"
+  },
   "No. 1 [Cond]": {
     "step 2 of Susie [Execute] welcome someone": "0001-01-01T00:00:00Z"
   },
@@ -7,6 +10,9 @@
   },
   "[CondGroup:Count] Susie [Execute] say hello to them": {
     "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:DoneState] of step 1 of Susie [Execute] welcome someone for No. 1 of Susie [Execute] say hello to them": {
+    "yes": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:ElementCount] No. 1 of Susie [Execute] say hello to them": {
     "1": "0001-01-01T00:00:00Z"
@@ -37,5 +43,8 @@
   },
   "[Then] step 1 of Susie [Execute] welcome someone": {
     "[CondGroup:Done] No. 1 of Susie [Execute] say hello to them @Caller step 1 of Susie [Execute] welcome someone": "0001-01-01T00:00:00Z"
+  },
+  "step 1 of Susie [Execute] welcome someone": {
+    "say hello to them": "0001-01-01T00:00:00Z"
   }
 }
