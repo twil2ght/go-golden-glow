@@ -1,0 +1,53 @@
+{
+  "templates": [
+    "[template:Run] [O+OC:adj] @Args $attr @Caller C",
+    "[template:Run] [O+OC:do_sth] @Args $verb @Caller C",
+    "[template:Run] [O+OC:doing_sth] @Args $verb-ing @Caller C",
+    "[template:Run] [IO+DO] @Args $attr @Caller C",
+    "[template:Run] [IO+DO:OBJ] @Args $OBJ @Caller C",
+    "[template:Run] [object] @Args $attr @Caller C",
+    "[template:Run] [V+IO+DO] @Args $verb @Caller C",
+    "[template:Run] [V+O+OC] @Args $verb @Caller C",
+    "[template:Run] [V+O] @Args $verb @Caller C"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Usage] A -> A something to someone",
+        "[output] [template:Run] V+IO+DO @Args A @Caller test",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Usage] A -> A someone do sth",
+        "[output] [template:Run] V+O+OC @Args A @Caller test",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Usage] A -> A someone to do sth",
+        "[output] [template:Run] V+O+OC @Args A @Caller test",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Usage] A -> A someone doing sth",
+        "[output] [template:Run] V+O+OC @Args A @Caller test",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Usage] A -> A someone adjective",
+        "[output] [template:Run] V+O+OC @Args A @Caller test",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Transitive] A -> yes",
+        "[output] [template:Run] V+O @Args A @Caller C",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb] A -> yes",
+        "[output] [template:Run] O+OC:do_sth @Args A @Caller C",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Gerund] A -> A1",
+        "[output] [template:Run] O+OC:doing_sth @Args A1 @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [SSET] [Grammar:Property:Word:Adjective] A -> yes",
+        "[output] [template:Run] O+OC:adj @Args A @Caller C ",
+        "[output] [template:Run] IO+DO @Args A @Caller C",
+        "[output] [template:Run] object @Args A @Caller C",
+
+        "[input] [repo] [SSET] [Grammar:Object] A -> yes",
+        "[output] [template:Run] IO+DO:OBJ @Args A @Caller C"
+      ]
+    }
+  ]
+}

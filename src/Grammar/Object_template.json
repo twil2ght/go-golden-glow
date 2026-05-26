@@ -5,7 +5,7 @@
     "$attr"
   ],
   "API":"[Grammar:Verify:Object] B @Caller C",
-  "template_API": "[template:Generate] [object] @Args A @Caller C",
+  "template_API": "[template:Run] [object] @Args A @Caller C",
   "callback": [
     "[Grammar:Verify:Object] C @ B -> yes",
     "[Grammar:Object:Noun] C @ B -> F"
