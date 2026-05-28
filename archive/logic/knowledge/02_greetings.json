@@ -1,0 +1,80 @@
+{
+  "level": 2,
+  "topic": "greetings",
+  "description": "Level 2 — Greetings. Respond to hello, goodbye, and casual greetings. Hooks are particularized per scenario (Case 2): 'you are free to respond to their greeting', 'you are free to respond to their goodbye'.",
+  "dependencies": [
+    "00_teacher_setup",
+    "01_identity",
+    "../../interaction/Cond_2",
+    "../../pkg/CondGroup/Reset_Cond"
+  ],
+  "data": [
+    {
+      "description": "Set up word properties for greetings",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Noun] hello -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] goodbye -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] hi -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] bye -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] greeting -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] greet -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] welcome -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] reply -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] respond -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] polite -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] friendly -> yes"
+      ]
+    },
+    {
+      "description": "Greeting response — hook: 'you are free to respond to their greeting' (particularized)",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone greets you",
+        "dev says to Susie : if you are free to respond to their greeting",
+        "dev says to Susie : then you should greet them back",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says goodbye to you",
+        "dev says to Susie : if you are free to respond to their goodbye",
+        "dev says to Susie : then you should say goodbye back"
+      ]
+    },
+    {
+      "description": "Default: when someone says hello to you, you are free to respond to their greeting",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says hello to you",
+        "dev says to Susie : then you are free to respond to their greeting",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says hi to you",
+        "dev says to Susie : then you are free to respond to their greeting",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says goodbye to you",
+        "dev says to Susie : then you are free to respond to their goodbye",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says bye to you",
+        "dev says to Susie : then you are free to respond to their goodbye"
+      ]
+    },
+    {
+      "description": "When someone you were already talking to says goodbye — acknowledge the conversation ending",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says goodbye after a conversation",
+        "dev says to Susie : if you enjoyed talking with them",
+        "dev says to Susie : then you should say you enjoyed talking to them"
+      ]
+    },
+    {
+      "description": "Default: when someone talks to you for a while, you enjoyed talking with them",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if you talked with someone",
+        "dev says to Susie : then you enjoyed talking with them"
+      ]
+    }
+  ]
+}

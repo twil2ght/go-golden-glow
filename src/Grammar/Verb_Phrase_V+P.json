@@ -1,0 +1,32 @@
+{
+  "name": "V+P",
+  "is_template": true,
+  "args": [
+    "$verb"
+  ],
+  "API": "[Grammar:Verify:V+P] $verb B @Caller C",
+  "template_API": "[template:Run] [V+P] @Args A @Caller C",
+  "callback": [
+    "[Grammar:Verify:V+P] C @ $verb B -> yes",
+    "[Grammar:V+P:Verb] C @ $verb B -> $verb",
+    "[Grammar:V+P:P] C @ $verb B -> B"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] $verb B @Caller C",
+        "[input] [repo] C @ [Grammar:Property:Word:Verb:Linking] $verb -> yes",
+        "[input] [Grammar:Verify:P] $verb @ B -> yes",
+        "[output] [Grammar:Verify:V+P] C @ $verb B -> yes",
+        "[output] [Grammar:V+P:Verb] C @ $verb B -> $verb",
+        "[output] [Grammar:V+P:P] C @ $verb B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] $verb B @Caller C",
+        "[output] [Grammar:Verify:P] B @Caller C $verb"
+      ]
+    }
+  ]
+}

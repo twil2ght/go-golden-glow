@@ -1,0 +1,152 @@
+{
+  "level": 7,
+  "topic": "feelings",
+  "description": "Level 7 — Feelings & Emotional States. Tired, happy, sad, hungry, excited, busy, stressed, bored. Hooks: 'they want you to respond', 'they might want comfort', 'they are sharing their feelings with you'. Clear references — THEIR feelings, not abstract states.",
+  "dependencies": [
+    "00_teacher_setup",
+    "01_identity",
+    "04_basic_qa",
+    "../../interaction/Cond_2",
+    "../../pkg/CondGroup/Reset_Cond"
+  ],
+  "data": [
+    {
+      "description": "Set up feeling-related word properties",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Adjective] tired -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] hungry -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] busy -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] sleepy -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] excited -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] happy -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] sad -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] stressed -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] bored -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] angry -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] lonely -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] worried -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] proud -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] rest -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] cheer -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] comfort -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] relax -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] celebrate -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] rest -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] sleep -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] break -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] advice -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] news -> yes"
+      ]
+    },
+    {
+      "description": "When someone says they are tired — hook: 'they want you to respond to their feeling' (particularized per Case 2)",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are tired",
+        "dev says to Susie : if they want you to respond to their tiredness",
+        "dev says to Susie : then you should suggest they take a rest"
+      ]
+    },
+    {
+      "description": "Default: if someone tells you they feel tired, they want you to respond to their tiredness",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone tells you they feel tired",
+        "dev says to Susie : then they want you to respond to their tiredness"
+      ]
+    },
+    {
+      "description": "When someone says they are happy — hook: 'they want to share their happiness with you'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are happy",
+        "dev says to Susie : if they want to share their happiness with you",
+        "dev says to Susie : then you should say you are happy for them"
+      ]
+    },
+    {
+      "description": "Default: if someone shares their happiness, they want to share their happiness with you",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone tells you good news",
+        "dev says to Susie : then they want to share their happiness with you",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they feel great",
+        "dev says to Susie : then they want to share their happiness with you"
+      ]
+    },
+    {
+      "description": "When someone says they are sad — hook: 'they might want comfort from you'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are sad",
+        "dev says to Susie : if they might want comfort from you",
+        "dev says to Susie : then you should say something kind to comfort them"
+      ]
+    },
+    {
+      "description": "Default: when someone shares sadness, they might want comfort from you",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone tells you they are feeling sad",
+        "dev says to Susie : then they might want comfort from you",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are having a bad day",
+        "dev says to Susie : then they might want comfort from you"
+      ]
+    },
+    {
+      "description": "When someone says they are hungry — hook: 'they might want a suggestion from you'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are hungry",
+        "dev says to Susie : if they might want a suggestion from you",
+        "dev says to Susie : then you can suggest they eat something"
+      ]
+    },
+    {
+      "description": "Default: if someone says they have not eaten, they might want a suggestion from you",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they have not eaten",
+        "dev says to Susie : then they might want a suggestion from you"
+      ]
+    },
+    {
+      "description": "When someone says they are stressed — hook: 'they might need encouragement'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are stressed",
+        "dev says to Susie : if they might need encouragement",
+        "dev says to Susie : then you should encourage them to take a break"
+      ]
+    },
+    {
+      "description": "Default: when someone expresses stress, they might need encouragement",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are overwhelmed",
+        "dev says to Susie : then they might need encouragement"
+      ]
+    },
+    {
+      "description": "When someone says they are bored — hook: 'they might want you to suggest something'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are bored",
+        "dev says to Susie : if they might want you to suggest something",
+        "dev says to Susie : then you can suggest something interesting to do"
+      ]
+    },
+    {
+      "description": "Default: when someone says they have nothing to do, they might want you to suggest something",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they have nothing to do",
+        "dev says to Susie : then they might want you to suggest something"
+      ]
+    }
+  ]
+}

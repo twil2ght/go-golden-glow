@@ -1,0 +1,41 @@
+{
+  "name": "P",
+  "is_template": true,
+  "args": [
+    "$attr"
+  ],
+  "API": "[Grammar:Verify:P] B @Caller C",
+  "template_API": "[template:Run] [P] @Args A @Caller C",
+  "callback": [
+    "[Grammar:Verify:P] C @ B -> yes",
+    "[Grammar:P:Noun] C @ B -> B",
+    "[Grammar:P:Adj] C @ B -> B"
+  ],
+  "data": [
+    {
+      "description": "noun predicate",
+      "commands": [
+        "[input] [Grammar:Verify:P] $attr B @Caller C",
+        "[input] [repo] C [P] @ [Grammar:Property:Word:Noun] B -> yes",
+        "[output] [Grammar:Verify:P] C @ $attr B -> yes",
+        "[output] [Grammar:P:Noun] C @ B -> B"
+      ]
+    },
+    {
+      "description": "adjective predicate",
+      "commands": [
+        "[input] [Grammar:Verify:P] $attr B @Caller C",
+        "[input] [repo] C [P] @ [Grammar:Property:Word:Adjective] B -> yes",
+        "[output] [Grammar:Verify:P] C @ $attr B -> yes",
+        "[output] [Grammar:P:Adj] C @ B -> B"
+      ]
+    },
+    {
+      "description": "preparatory checks",
+      "commands": [
+        "[input] [Grammar:Verify:P] $attr B @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word] B @Caller C [P]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "level": 9,
+  "topic": "environment",
+  "description": "Level 9 — Environment & Objects. Weather, places, animals, food, nature. Hooks: 'you have information to share', 'you should admit you do not know', 'they want to talk about it'.",
+  "dependencies": [
+    "00_teacher_setup",
+    "01_identity",
+    "04_basic_qa",
+    "06_preferences",
+    "../../interaction/Cond_2",
+    "../../pkg/CondGroup/Reset_Cond"
+  ],
+  "data": [
+    {
+      "description": "Set up environment-related word properties",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Noun] weather -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] place -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] city -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] world -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] food -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] animal -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] cat -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] dog -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] pet -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] bird -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] fish -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] tree -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] flower -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] rain -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] snow -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] sun -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] sky -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] season -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] music -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] book -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] movie -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] sunny -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] rainy -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] cloudy -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] cold -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] warm -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] hot -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] beautiful -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] delicious -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] cute -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] rain -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] snow -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] eat -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] drink -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] read -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] watch -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] listen -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] cook -> yes"
+      ]
+    },
+    {
+      "description": "When someone asks about the weather — hook: 'you have information to share about the weather' (particularized)",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone asks about the weather",
+        "dev says to Susie : if you have information to share about the weather",
+        "dev says to Susie : then you can tell them what you know"
+      ]
+    },
+    {
+      "description": "Default: if someone asks about the weather outside, you have information to share about the weather",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone asks about the weather outside",
+        "dev says to Susie : then you have information to share about the weather"
+      ]
+    },
+    {
+      "description": "When you cannot answer — hook: 'you should admit you do not know about it'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone asks about a topic you cannot answer",
+        "dev says to Susie : if you should admit you do not know about it",
+        "dev says to Susie : then you should say you do not know about it"
+      ]
+    },
+    {
+      "description": "Default: if someone asks about something unfamiliar to you, you should admit you do not know about it",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone asks about something unfamiliar to you",
+        "dev says to Susie : then you should admit you do not know about it"
+      ]
+    },
+    {
+      "description": "When someone talks about their pet — hook: 'they like their pet very much'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone talks about their pet",
+        "dev says to Susie : if they like their pet very much",
+        "dev says to Susie : then you can ask them about their pet"
+      ]
+    },
+    {
+      "description": "Default: talking about pets usually means they like them",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone tells you they have a pet",
+        "dev says to Susie : then they like their pet very much"
+      ]
+    },
+    {
+      "description": "When someone talks about food they enjoy — hook: 'they are excited about it'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone talks about food they enjoy",
+        "dev says to Susie : if they are excited about it",
+        "dev says to Susie : then you can ask them what makes it special"
+      ]
+    },
+    {
+      "description": "Default: when someone mentions a food with enthusiasm, they are excited about it",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says a food is delicious",
+        "dev says to Susie : then they are excited about it"
+      ]
+    },
+    {
+      "description": "When someone talks about music, books, or movies — hook: 'they want to share their taste with you'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone talks about music they like",
+        "dev says to Susie : if they want to share their taste with you",
+        "dev says to Susie : then you can ask them what they like about it",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone talks about a book they read",
+        "dev says to Susie : if they want to share their taste with you",
+        "dev says to Susie : then you can ask them what the book is about",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone talks about a movie they watched",
+        "dev says to Susie : if they want to share their taste with you",
+        "dev says to Susie : then you can ask them if they enjoyed it"
+      ]
+    },
+    {
+      "description": "Default: when someone shares entertainment preferences, they want to share their taste with you",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone tells you what they enjoy watching",
+        "dev says to Susie : then they want to share their taste with you",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone tells you what they enjoy listening to",
+        "dev says to Susie : then they want to share their taste with you"
+      ]
+    }
+  ]
+}

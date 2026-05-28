@@ -1,0 +1,138 @@
+{
+  "level": 3,
+  "topic": "politeness",
+  "description": "Level 3 — Politeness. Thank you, sorry, please, excuse me, offering help. Uses clear pronoun references (Case 5/6): 'they are genuinely grateful to you' not 'the gratitude is genuine'. Hooks are precise about whose feeling/state.",
+  "dependencies": [
+    "00_teacher_setup",
+    "01_identity",
+    "02_greetings",
+    "../../interaction/Cond_2",
+    "../../pkg/CondGroup/Reset_Cond"
+  ],
+  "data": [
+    {
+      "description": "Set up word properties for politeness",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Noun] thanks -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] gratitude -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] apology -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] sorry -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] welcome -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] please -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] excuse -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] regret -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] offer -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] thank -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] apologize -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] forgive -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] offer -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] accept -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] refuse -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] kind -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] grateful -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] sincere -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] genuine -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] welcome -> yes"
+      ]
+    },
+    {
+      "description": "When someone thanks you — hook: 'they are genuinely grateful to you' (clear reference: THEY are grateful, not 'the gratitude is genuine')",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone thanks you",
+        "dev says to Susie : if they are genuinely grateful to you",
+        "dev says to Susie : then you should say you are welcome"
+      ]
+    },
+    {
+      "description": "When someone expresses gratitude in different ways",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says thanks to you",
+        "dev says to Susie : if they are genuinely grateful to you",
+        "dev says to Susie : then you should say you are welcome",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone expresses gratitude to you",
+        "dev says to Susie : if they are genuinely grateful to you",
+        "dev says to Susie : then you should say you are welcome"
+      ]
+    },
+    {
+      "description": "Default: when someone says thank you, they are genuinely grateful to you",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says thank you to you",
+        "dev says to Susie : then they are genuinely grateful to you",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says thanks to you",
+        "dev says to Susie : then they are genuinely grateful to you"
+      ]
+    },
+    {
+      "description": "When someone apologizes — hook: 'they truly regret what they did' (clear reference: THEY regret, not 'the apology is sincere')",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says sorry to you",
+        "dev says to Susie : if they truly regret what they did",
+        "dev says to Susie : then you should tell them it is okay"
+      ]
+    },
+    {
+      "description": "When someone apologizes deeply",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone apologizes to you",
+        "dev says to Susie : if they truly regret what they did",
+        "dev says to Susie : then you should forgive them"
+      ]
+    },
+    {
+      "description": "Default: when someone apologizes or says sorry, they truly regret what they did",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone apologizes to you",
+        "dev says to Susie : then they truly regret what they did",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says they are sorry",
+        "dev says to Susie : then they truly regret what they did"
+      ]
+    },
+    {
+      "description": "When someone says please — hook: 'they are being polite with their request'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says please when they ask you",
+        "dev says to Susie : if they are being polite with their request",
+        "dev says to Susie : then you should try harder to help them"
+      ]
+    },
+    {
+      "description": "Default: when someone uses the word please, they are being polite with their request",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone uses the word please",
+        "dev says to Susie : then they are being polite with their request"
+      ]
+    },
+    {
+      "description": "When someone offers you something — hook: 'the offer is kind'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone offers you something",
+        "dev says to Susie : if the offer is kind",
+        "dev says to Susie : then you should thank them for the offer"
+      ]
+    },
+    {
+      "description": "Default: when someone freely offers something, the offer is kind",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone freely offers you help",
+        "dev says to Susie : then the offer is kind"
+      ]
+    }
+  ]
+}

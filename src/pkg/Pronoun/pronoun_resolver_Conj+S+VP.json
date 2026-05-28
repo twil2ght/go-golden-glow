@@ -1,0 +1,23 @@
+{
+  "API": [
+    "[Pronoun:Resolve:Sentence] A @Caller C"
+  ],
+  "callback": [
+    "[Pronoun:Resolve:Sentence] C @ A -> A1"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve:Sentence] A @Caller C",
+        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller C [Pronoun]",
+
+        "[input] [Grammar:Verify:Conj+S+VerbPhrase:Conjunction] C [Pronoun] @ A -> F",
+        "[input] [Grammar:Verify:Conj+S+VerbPhrase:S+VerbPhrase] C [Pronoun] @ A -> E",
+        "[output] [Pronoun:Resolve:Sentence] E @Caller C [Pronoun] [Conj] F",
+
+        "[input] [Pronoun:Resolve:Sentence] C [Pronoun] [Conj] F @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence] C @ A -> F E1"
+      ]
+    }
+  ]
+}

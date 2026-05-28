@@ -1,0 +1,130 @@
+{
+  "level": 11,
+  "topic": "pronoun_foundation",
+  "description": "Level 11 — Pronoun Resolution Foundation. A general mechanism (not per-case routing) that resolves pronouns ('you', 'I', 'they', 'we', 'he', 'she', 'it') to their referents using Grammar API + [repo] cache. This is a utility level — all later levels benefit from it automatically. Follows the principle: global problems need general mechanisms.",
+  "dependencies": [
+    "00_teacher_setup",
+    "../../Grammar/Verb_Phrase",
+    "../../Grammar/Object_template",
+    "../../Grammar/Object_repo",
+    "../../interaction/Cond_2",
+    "../../pkg/CondGroup/Reset_Cond"
+  ],
+  "data": [
+    {
+      "description": "Core idea: when someone speaks, resolve what each pronoun in their sentence refers to. Cache results in [Pronoun:Cache] keyed by pronoun word + caller context. Later rules query [repo] [GET] [Pronoun:Cache].",
+      "commands": []
+    },
+    {
+      "description": "System container: when someone says something to Susie, cache the basic pronoun context. 'you'/'your' → Susie, 'I'/'me'/'my' → the speaker.",
+      "commands": [
+        "[input] $1 says to $2 : $3",
+        "[output] [repo] [SSET] [Pronoun:CurrentSpeaker] @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:CurrentListener] @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] you @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] your @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] yours @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] I @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] my @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] me @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] mine @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] we @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] us @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] our @Caller $1 -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] ours @Caller $1 -> $1"
+      ]
+    },
+    {
+      "description": "When Susie speaks to someone, update the pronoun cache for the new context (now 'I' = Susie, 'you' = listener)",
+      "commands": [
+        "[input] Susie says to $1 : $2",
+        "[output] [repo] [SSET] [Pronoun:CurrentSpeaker] @Caller Susie -> Susie",
+        "[output] [repo] [SSET] [Pronoun:CurrentListener] @Caller Susie -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] I @Caller Susie -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] my @Caller Susie -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] me @Caller Susie -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] mine @Caller Susie -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] you @Caller Susie -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] your @Caller Susie -> $1",
+        "[output] [repo] [SSET] [Pronoun:Cache] yours @Caller Susie -> $1"
+      ]
+    },
+    {
+      "description": "Pronoun resolution: given a pronoun word, look up who it refers to in the current speaker's context. This is the general [Pronoun:Resolve] command.",
+      "commands": [
+        "[input] [Pronoun:Resolve] $1 @Caller $2",
+        "[output] [repo] [GET] [Pronoun:Cache] $1 @Caller $2"
+      ]
+    },
+    {
+      "description": "Route: 'their X' means X belongs to 'them'. General possessive resolution.",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone mentions their something",
+        "dev says to Susie : then what belongs to them is their thing"
+      ]
+    },
+    {
+      "description": "Route: when someone is expressing their feeling, the feeling is theirs",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone is expressing their gratitude",
+        "dev says to Susie : then the gratitude is theirs",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone is expressing their apology",
+        "dev says to Susie : then the apology is theirs",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone is expressing their regret",
+        "dev says to Susie : then the regret is theirs"
+      ]
+    },
+    {
+      "description": "Route: map common pronoun-containing phrases to their resolved forms. 'someone thanks you' → 'they are expressing their gratitude to you' (gratitude = theirs). This connects Level 3 politeness hooks to pronoun context.",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone thanks you",
+        "dev says to Susie : then they are expressing their gratitude to you",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says sorry to you",
+        "dev says to Susie : then they are expressing their regret to you",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone greets you",
+        "dev says to Susie : then they are greeting you",
+        "",
+        "[Cond:Reset]",
+        "dev says to Susie : if someone says goodbye to you",
+        "dev says to Susie : then they are saying farewell to you"
+      ]
+    },
+    {
+      "description": "The pronoun 'it' resolution: 'it' refers to the most recently mentioned thing in context. Cache the last-discussed topic.",
+      "commands": [
+        "[input] $1 says to $2 : $3 is $4",
+        "[output] [repo] [SSET] [Pronoun:LastTopic] @Caller $1 -> $3",
+        "",
+        "[input] $1 says to $2 : $3",
+        "[output] [repo] [GET] [Pronoun:LastTopic] @Caller $1"
+      ]
+    },
+    {
+      "description": "Resolution: when someone uses 'it', look up the last topic",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone talks about it",
+        "dev says to Susie : then you can resolve it from the last topic"
+      ]
+    },
+    {
+      "description": "Special case: quoted speech — when 'you' appears inside a quote, it does NOT refer to Susie. Higher levels can override. This is a placeholder hook for later edge case refinement.",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone quotes someone else",
+        "dev says to Susie : then the words in the quote are from the original speaker"
+      ]
+    }
+  ]
+}

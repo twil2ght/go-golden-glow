@@ -1,0 +1,120 @@
+{
+  "level": 5,
+  "topic": "time_routines",
+  "description": "Level 5 — Time & Routines. Time-of-day detection via clock extractor, appropriate time-based greetings, telling time when asked. Hook: 'the time of day is clear'.",
+  "dependencies": [
+    "00_teacher_setup",
+    "02_greetings",
+    "../../interaction/Cond_2",
+    "../../pkg/CondGroup/Reset_Cond",
+    "../../pkg/CondGroup/Gen",
+    "../../plugin/builtin/timer"
+  ],
+  "data": [
+    {
+      "description": "Set up time-related word properties",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Noun] hour -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] minute -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] morning -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] afternoon -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] evening -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] night -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] clock -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] midnight -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] noon -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] today -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] tomorrow -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] yesterday -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] check -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] early -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] late -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] bright -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] dark -> yes"
+      ]
+    },
+    {
+      "description": "Determine time of day using the clock (system-level containers using builder syntax)",
+      "commands": [
+        "[input] [time] hour -> A",
+        "[input] [compute] [CHECK] A > 4 @Caller morning_check",
+        "[input] [compute] [CHECK] A < 12 @Caller morning_check",
+        "[output] [repo] [SSET] time of day -> morning",
+
+        "[input] [time] hour -> A",
+        "[input] [compute] [CHECK] A > 11 @Caller afternoon_check",
+        "[input] [compute] [CHECK] A < 18 @Caller afternoon_check",
+        "[output] [repo] [SSET] time of day -> afternoon",
+
+        "[input] [time] hour -> A",
+        "[input] [compute] [CHECK] A > 17 @Caller evening_check",
+        "[input] [compute] [CHECK] A < 22 @Caller evening_check",
+        "[output] [repo] [SSET] time of day -> evening",
+
+        "[input] [time] hour -> A",
+        "[input] [compute] [CHECK] A > 21 @Caller night_check",
+        "[output] [repo] [SSET] time of day -> night",
+
+        "[input] [compute] [CHECK] A < 5 @Caller night_check",
+        "[output] [repo] [SSET] time of day -> night"
+      ]
+    },
+    {
+      "description": "Use time of day to pick the right greeting — hook: 'the time of day is clear'. Particularized per time period.",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if it is in the morning",
+        "dev says to Susie : if the time of day is clear",
+        "dev says to Susie : then you should say good morning",
+
+        "[Cond:Reset]",
+        "dev says to Susie : if it is in the afternoon",
+        "dev says to Susie : if the time of day is clear",
+        "dev says to Susie : then you should say good afternoon",
+
+        "[Cond:Reset]",
+        "dev says to Susie : if it is in the evening",
+        "dev says to Susie : if the time of day is clear",
+        "dev says to Susie : then you should say good evening",
+
+        "[Cond:Reset]",
+        "dev says to Susie : if it is at night",
+        "dev says to Susie : if the time of day is clear",
+        "dev says to Susie : then you should say good night"
+      ]
+    },
+    {
+      "description": "Default: when the clock tells you the time, the time of day is clear",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if you know what time it is",
+        "dev says to Susie : then the time of day is clear"
+      ]
+    },
+    {
+      "description": "When someone asks what time it is — hook: 'you can check the time'",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone asks what time it is",
+        "dev says to Susie : if you can check the time",
+        "dev says to Susie : then you should tell them the time"
+      ]
+    },
+    {
+      "description": "Default: when someone asks about time, you can check the time",
+      "commands": [
+        "[Cond:Reset]",
+        "dev says to Susie : if someone asks you the time",
+        "dev says to Susie : then you can check the time"
+      ]
+    },
+    {
+      "description": "System container: tell someone the current time",
+      "commands": [
+        "[input] [time] get time",
+        "[input] [repo] [GET] [Pronoun:Speaker] @Caller time_context",
+        "[output] [speak] the time is $1 -> $2"
+      ]
+    }
+  ]
+}

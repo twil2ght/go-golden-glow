@@ -42,6 +42,10 @@
         "[input] [TeachMode] [say] @ Teacher C -> yes",
         "[output] [repo] [SSET] [Grammar:Property:Word:Verb:Transitive] A -> yes",
 
+        "[input] C says to Susie : the word A is a linking verb",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Verb:Linking] A -> yes",
+
         "[input] C says to Susie : the gerund of the verb A is A1",
         "[input] [TeachMode] [say] @ Teacher C -> yes",
         "[output] [repo] [SSET] [Grammar:Property:Word:Verb:Gerund] A -> A1",
@@ -54,6 +58,9 @@
         "[output] [repo] [SSET] [Grammar:Property:Word:Verb] A -> yes",
 
         "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Intransitive] A -> yes",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Verb] A -> yes",
+
+        "[input] [repo] [SSET] [Grammar:Property:Word:Verb:Linking] A -> yes",
         "[output] [repo] [SSET] [Grammar:Property:Word:Verb] A -> yes"
       ]
     }

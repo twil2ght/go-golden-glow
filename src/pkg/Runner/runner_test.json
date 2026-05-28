@@ -1,8 +1,8 @@
 {
   "data": [
     {
-      "commands": [
-        ""
+      "commands:done": [
+        "[TODO:Add] say hello to them @Caller welcome someone"
       ]
     }
   ]

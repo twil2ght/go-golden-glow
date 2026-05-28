@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "demo": [
+        "dev says to Susie : if someone asks what your name is",
+        "dev says to Susie : if you are ready to introduce yourself",
+        "dev says to Susie : then you should tell them your name"
+      ],
+      "commands": [
+        "[input] C says to Susie : if A",
+        "[output] [repo] [SET] [Grammar:Property:pronoun:Candidate] they -> someone",
+
+        "[input] C says to Susie : A",
+        "[output] [Pronoun:Resolve:Sentence] A @Caller C [say]",
+
+        "[input] [Grammar:Verify:S+VerbPhrase] C [Pronoun:Decompose] @ A -> yes",
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun:Decompose] @ A -> someone",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun:Decompose] @ A -> D",
+        "[output] [repo] [SET] [Grammar:Property:pronoun:Candidate] they -> someone"
+      ]
+    },
+    {
+      "description": "If there is only one candidate for 'they', then use it",
+      "commands": [
+        "[input] [repo] [Grammar:Property:pronoun:Candidate:Len] they -> 1",
+        "[input] [repo] [Grammar:Property:pronoun:Candidate] No. 1 of they -> B",
+        "[output] [repo] [SSET] they -> B"
+      ]
+    }
+  ]
+}

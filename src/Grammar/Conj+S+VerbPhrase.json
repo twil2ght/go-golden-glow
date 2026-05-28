@@ -1,0 +1,32 @@
+{
+  "name": "Conj+S+VerbPhrase",
+  "is_template": true,
+  "args": [
+    "$conj"
+  ],
+  "API": "[Grammar:Verify:Conj+S+VerbPhrase] $conj B @Caller C",
+  "template_API": "[template:Run] Conj+S+VerbPhrase @Args A @Caller C",
+  "callback": [
+    "[Grammar:Verify:Conj+S+VerbPhrase] C @ $conj B -> yes",
+    "[Grammar:Conj+S+VerbPhrase:Conjunction] C @ $conj B -> $conj",
+    "[Grammar:Conj+S+VerbPhrase:VerbPhrase] C @ $conj B -> B"
+  ],
+  "Caller": "[Conj] $conj",
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Conj+S+VerbPhrase] $conj B @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] B @Caller C [Conj] $conj"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Conj+S+VerbPhrase] $conj B @Caller C",
+        "[input] [Grammar:Verify:S+VerbPhrase] C [Conj] $conj @ B -> yes",
+        "[output] [Grammar:Verify:Conj+S+VerbPhrase] C @ $conj B -> yes",
+        "[output] [Grammar:Conj+S+VerbPhrase:Conjunction] C @ $conj B -> $conj",
+        "[output] [Grammar:Conj+S+VerbPhrase:S+VerbPhrase] C @ $conj B -> B"
+      ]
+    }
+  ]
+}

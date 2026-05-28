@@ -1,0 +1,171 @@
+{
+  "level": 0,
+  "topic": "prerequisite",
+  "description": "Foundation: register teachers, set up core word properties, pronoun cache, and speaker tracking. Must load before all other levels.",
+  "dependencies": [
+    "../../interaction/teach_mode",
+    "../../interaction/Cond_2",
+    "../../pkg/Cond/utils",
+    "../../pkg/CondGroup/Reset_Cond",
+    "../../pkg/CondGroup/Gen",
+    "../../pkg/CondGroup/utils",
+    "../../pkg/CondGroup/Static_Activate"
+  ],
+  "data": [
+    {
+      "description": "Register 'dev' as a teacher",
+      "commands": [
+        "[repo] [SET] [TeachMode] Teacher dev -> yes"
+      ]
+    },
+    {
+      "description": "Core pronouns — words that refer to people in context",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] someone -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] you -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] your -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] yours -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] they -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] them -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] their -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] theirs -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] I -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] my -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] me -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] mine -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] we -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] us -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] our -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] ours -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] he -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] him -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] his -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] she -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] her -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] hers -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] it -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] its -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] this -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] that -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] who -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Pronoun] what -> yes"
+      ]
+    },
+    {
+      "description": "Common nouns needed across all levels",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Noun] name -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] someone -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] thing -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] person -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] people -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] way -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] time -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] day -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Noun] word -> yes"
+      ]
+    },
+    {
+      "description": "Core verbs that appear in nearly all conversation",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Verb] be -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] have -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] do -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] say -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] go -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] get -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] make -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] know -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] think -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] see -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] come -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] want -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] give -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] take -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] tell -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] ask -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] talk -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] mean -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] call -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Verb] let -> yes"
+      ]
+    },
+    {
+      "description": "Common adjectives",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Adjective] good -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] nice -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] happy -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] ready -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] sure -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] able -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] right -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] wrong -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] new -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adjective] old -> yes"
+      ]
+    },
+    {
+      "description": "Common prepositions",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Preposition] to -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Preposition] for -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Preposition] with -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Preposition] about -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Preposition] from -> yes"
+      ]
+    },
+    {
+      "description": "Common conjunctions",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Conjunction] and -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Conjunction] but -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Conjunction] or -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Conjunction] if -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Conjunction] because -> yes"
+      ]
+    },
+    {
+      "description": "Common adverbs",
+      "commands": [
+        "[repo] [SET] [Grammar:Property:Word:Adverb] how -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adverb] very -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adverb] really -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adverb] not -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adverb] always -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adverb] never -> yes",
+        "[repo] [SET] [Grammar:Property:Word:Adverb] sometimes -> yes"
+      ]
+    },
+    {
+      "description": "System containers: when someone speaks, cache the speaker context for pronoun resolution",
+      "commands": [
+        "[input] $1 says to $2 : $3",
+        "[output] [repo] [SSET] [Pronoun:Speaker] @Caller $1 -> $1",
+        "",
+        "[input] $1 says : $2",
+        "[output] [repo] [SSET] [Pronoun:Speaker] @Caller $1 -> $1"
+      ]
+    },
+    {
+      "description": "System containers: pronoun cache defaults — resolve 'you' and 'I' in conversational context",
+      "commands": [
+        "[input] [repo] [Pronoun:Speaker] @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] you @Caller $1 -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] your @Caller $1 -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] yours @Caller $1 -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] I @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] my @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] me @Caller $1 -> $2",
+        "[output] [repo] [SSET] [Pronoun:Cache] mine @Caller $1 -> $2"
+      ]
+    },
+    {
+      "description": "System container: resolve a pronoun by looking up the cache",
+      "commands": [
+        "[input] [Pronoun:Resolve] $1 @Caller $2",
+        "[output] [repo] [GET] [Pronoun:Cache] $1 @Caller $2"
+      ]
+    }
+  ]
+}

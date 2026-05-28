@@ -20,7 +20,10 @@
         "[output] [Grammar:V+IO+DO:Verb] C @ $verb B -> $verb",
 
         "[input] [Grammar:IO+DO:IndirectObject] C $verb @ B -> F",
-        "[output] [Grammar:V+IO+DO:Object] C @ $verb B -> F"
+        "[output] [Grammar:V+IO+DO:Object] C @ $verb B -> F",
+
+        "[input] [Grammar:IO+DO:DirectObject] C $verb @ B -> F1",
+        "[output] [Grammar:V+IO+DO:DirectObject] C @ $verb B -> F1"
       ]
     },
     {

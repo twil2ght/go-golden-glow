@@ -1,0 +1,32 @@
+{
+  "name": "S+VerbPhrase",
+  "is_template": true,
+  "args": [
+    "$subject"
+  ],
+  "API":"[Grammar:Verify:S+VerbPhrase] B @Caller C",
+  "template_API": "[template:Run] S+VerbPhrase @Args A @Caller C",
+  "callback": [
+    "[Grammar:Verify:S+VerbPhrase] C @ $subject B -> yes",
+    "[Grammar:S+VerbPhrase:VerbPhrase] C @ $subject B -> B",
+    "[Grammar:S+VerbPhrase:Subject] C @ $subject B -> $subject"
+  ],
+  "Caller": "C [Subject] $subject",
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:S+VerbPhrase] $subject B @Caller C",
+        "[input] [Grammar:Verify:VerbPhrase] C [Subject] $subject @ B -> yes",
+        "[output] [Grammar:Verify:S+VerbPhrase] C @ $subject B -> yes",
+        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ $subject B -> B",
+        "[output] [Grammar:S+VerbPhrase:Subject] C @ $subject B -> $subject"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:S+VerbPhrase] $subject B @Caller C",
+        "[output] [Grammar:Verify:VerbPhrase] B @Caller C [Subject] $subject"
+      ]
+    }
+  ]
+}

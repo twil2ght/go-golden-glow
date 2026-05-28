@@ -1,0 +1,23 @@
+{
+  "name": "someone_category",
+  "is_template": true,
+  "args": [
+    "$category"
+  ],
+  "template_API": "[template:Run] [someone_category] @Args A @Caller C",
+  "API": [],
+  "callback": [],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] A @Caller C",
+        "[input] [Grammar:Verify:S+VerbPhrase] C [Common] @ A -> yes",
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] @ A -> B",
+        "[input] [repo] C [Resolve:Someone] @ B -> $category",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] @ A -> D",
+        "[output] [Common] a $category D @Caller C [Common] A",
+        "[output] [repo] [SSET] the $category -> B"
+      ]
+    }
+  ]
+}

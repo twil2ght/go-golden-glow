@@ -1,10 +1,26 @@
 {
-  "description": "",
-  "override": [],
+  "description": "If-then teaching interface with pronoun resolution. 'if A' calls [Pronoun:ResolveCondition] to clean pronouns before [Cond:Add] stores the condition.",
+  "dependencies": [
+    "../../pkg/Pronoun/pronoun"
+  ],
   "data": [
     {
       "commands": [
-        "[input] C says to Susie : if A"
+        "[input] C says to Susie : if A",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[output] [Pronoun:Resolve:Sentence] A @Caller C",
+
+        "[input] [Pronoun:Resolved:Sentence] C @ A -> B",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[output] [Cond:Add] B @Caller [say]",
+
+        "[input] C says to Susie : then A",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[output] [Res] [Common] A",
+
+        "[input] [Common] A @Caller C",
+        "[output] [repo] [GET] B @Caller C [Resolve:Someone]",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common]"
       ]
     }
   ]
