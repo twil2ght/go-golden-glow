@@ -12,11 +12,11 @@
       "description": "cache filler: when C speaks to Susie, save base pronoun → entity mappings in repo",
       "commands": [
         "[input] C says to D : A",
-        "[output] [repo] [SET] [Pronoun:Cache] you @Caller C -> D",
-        "[output] [repo] [SET] [Pronoun:Cache] your @Caller C -> D",
-        "[output] [repo] [SET] [Pronoun:Cache] I @Caller C -> C",
-        "[output] [repo] [SET] [Pronoun:Cache] my @Caller C -> C",
-        "[output] [repo] [SET] [Pronoun:Cache] me @Caller C -> C"
+        "[output] [repo] [SSET] [Pronoun:Cache] you -> D",
+        "[output] [repo] [SSET] [Pronoun:Cache] your -> D",
+        "[output] [repo] [SSET] [Pronoun:Cache] I -> C",
+        "[output] [repo] [SSET] [Pronoun:Cache] my -> C",
+        "[output] [repo] [SSET] [Pronoun:Cache] me -> C"
       ]
     },
     {

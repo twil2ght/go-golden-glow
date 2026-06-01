@@ -11,12 +11,22 @@
     {
       "commands": [
         "[input] [Common] A @Caller C",
-        "[input] [Grammar:Verify:S+VerbPhrase] C [Common] @ A -> yes",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Common] @ A -> B",
-        "[input] [repo] C [Resolve:Someone] @ B -> $category",
+        "[input] [repo] C [Common] [Resolve:Pronoun-like] @ B -> $category",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] @ A -> D",
         "[output] [Common] a $category D @Caller C [Common] A",
-        "[output] [repo] [SSET] the $category -> B"
+        "[output] [repo] [SSET] the $category -> B",
+        "[output] [repo] [SSET] the $category that D -> B",
+        "[output] [repo] [SSET] [State] the $category -> busy"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Common] A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] @ A -> B",
+        "[output] [repo] [GET] B @Caller C [Common] [Resolve:Pronoun-like]"
       ]
     }
   ]

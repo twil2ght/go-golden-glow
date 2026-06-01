@@ -1,0 +1,39 @@
+{
+  "name": "V+P:adj_to_do",
+  "is_template": true,
+  "args": [
+    "$verb"
+  ],
+  "API": "[Grammar:Verify:V+P] B @Caller C",
+  "template_API": "[template:Run] V+P:adj_to_do @Args A @Caller C",
+  "callback": [
+    "[output] [Grammar:Verify:V+P] C @ $verb B to E -> yes",
+    "[output] [Grammar:Verify:V+P:Type] C @ $verb B to E -> adj_to_do",
+    "[output] [Grammar:Verify:V+P:AdjectivePhrase] C @ $verb B to E -> B",
+    "[output] [Grammar:Verify:V+P:TODO] C @ $verb B to E -> to E",
+    "[output] [Grammar:V+P:Verb] C @ $verb B to E -> $verb",
+    "[output] [Grammar:V+P:P] C @ $verb B to E -> B to E"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] $verb B to E @Caller C",
+        "[input] [Grammar:Verify:AdjectivePhrase] C [VP] $verb @ B -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] C [VP] $verb @ E -> yes",
+        "[output] [Grammar:Verify:V+P] C @ $verb B to E -> yes",
+        "[output] [Grammar:V+P:Type] C @ $verb B to E -> adj_to_do",
+        "[output] [Grammar:V+P:AdjectivePhrase] C @ $verb B to E -> B",
+        "[output] [Grammar:V+P:TODO] C @ $verb B to E -> to E",
+        "[output] [Grammar:V+P:Verb] C @ $verb B to E -> $verb",
+        "[output] [Grammar:V+P:P] C @ $verb B to E -> B to E"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] $verb B @Caller C",
+        "[output] [Grammar:Verify:AdjectivePhrase] B @Caller C [VP] $verb",
+        "[output] [Grammar:Verify:VerbPhrase] E @Caller C [VP] $verb"
+      ]
+    }
+  ]
+}

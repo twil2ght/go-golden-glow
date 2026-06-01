@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:V+IO+DO:IndirectObject] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [IO]",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:DirectObject] C [Pronoun] @ A -> E",
+        "[output] [Pronoun:Resolve:Sentence:Object] E @Caller C [Pronoun] A [DO]",
+
+        "[input] [Grammar:VerbPhrase:V+IO+DO:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [IO] @ D -> D1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [DO] @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E1"
+      ]
+    }
+  ]
+}

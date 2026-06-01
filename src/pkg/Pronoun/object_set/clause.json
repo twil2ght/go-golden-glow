@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Object:Clause:Wh+S+V:Subject] C [Pronoun] @ A -> B",
+        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun] A [Clause]",
+
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Clause] @ B -> B1",
+        "[input] [Grammar:Object:Clause:Wh+S+V:Wh] C [Pronoun] @ A -> D",
+        "[input] [Grammar:Object:Clause:Wh+S+V:Verb] C [Pronoun] @ A -> F",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D B1 F",
+        "",
+
+
+        "[input] [Grammar:Object:Clause:Wh+S+V+O:Subject] C [Pronoun] @ A -> B",
+        "[input] [Grammar:Object:Clause:Wh+S+V+O:Object] C [Pronoun] @ A -> A1",
+        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun] A [Clause] [Subject]",
+        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun] A [Clause] [Object]",
+
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Clause] [Subject] @ B -> B1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Clause] [Object] @ A1 -> D1",
+        "[input] [Grammar:Object:Clause:Wh+S+V:Wh] C [Pronoun] @ A -> D",
+        "[input] [Grammar:Object:Clause:Wh+S+V:Verb] C [Pronoun] @ A -> F",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D B1 F D1",
+        ""
+      ]
+    }
+  ]
+}

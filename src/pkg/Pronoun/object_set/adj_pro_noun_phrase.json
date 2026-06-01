@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve:Sentence:Object] A @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [Pronoun]",
+
+        "[input] [Grammar:Object:AdjProNounPhrase:AdjPro] C [Pronoun] @ A -> B",
+        "[input] [Grammar:Object:AdjProNounPhrase:NounPhrase] C [Pronoun] @ A -> D",
+        "[input] [Pronoun:Resolve] C [Pronoun] @ B -> B1",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> B1 D",
+        ""
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Object:AdjProNounPhrase:AdjPro] C [Pronoun] A -> B",
+        "[output] [Pronoun:Resolve] B @Caller C [Pronoun]"
+      ]
+    }
+  ]
+}

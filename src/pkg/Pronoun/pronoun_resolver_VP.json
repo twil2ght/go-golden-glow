@@ -1,28 +1,16 @@
 {
   "API": [
-    "[Pronoun:Resolve] A @Caller C",
-    "[Pronoun:ResolveCondition] A @Caller C"
+    "[Pronoun:Resolve] A @Caller C"
   ],
   "callback": [
-    "[Pronoun:Resolved] B @Caller C",
-    "[Pronoun:ConditionResolved] B @Caller C"
+    "[Pronoun:Resolved] B @Caller C"
   ],
   "data": [
     {
-      "description": "sentence resolver: clean pronouns in condition sentence A. Uses Grammar API interfaces for decomposition (even if unimplemented — interface-first). Falls through to return A unchanged if resolution unavailable.",
-      "commands": [
-        "[input] [Pronoun:Resolve:Sentence] A @Caller C",
-        "[output] [Grammar:Verify:VerbPhrase] A @Caller C [Pronoun]",
-
-        "[input] [Grammar:Verify:VerbPhrase] C [Pronoun] [Conj] F [Subject] F1 @ A -> yes"
-
-
-      ]
-    },
-    {
       "description": "",
       "commands": [
-
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller C",
+        "[output] [Grammar:Verify:VerbPhrase] A @Caller C [Pronoun]"
       ]
     }
   ]

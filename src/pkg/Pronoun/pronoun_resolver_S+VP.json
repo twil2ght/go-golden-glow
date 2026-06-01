@@ -11,32 +11,17 @@
     {
       "description": "two cases: subject is pronoun; subject is not pronoun",
       "commands": [
-        "[input] [Pronoun:Resolve:Sentence] A @Caller C",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller C",
         "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Pronoun]",
 
         "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolved:Sentence] E @caller C [Pronoun] [Subject] B",
+        "[output] [Grammar:Resolved:Sentence:Object] B @Caller C [Pronoun] A",
+        "[output] [Pronoun:Resolved:Sentence:VerbPhrase] E @caller C [Pronoun] A [Subject] B",
 
-        "case 1: subject is pronoun",
-        "[input] [Pronoun:Resolved:Sentence] C [Pronoun] [Subject] B @ E -> E1",
-        "[input] [Pronoun:Resolve] C [Pronoun] [Subject] @ B -> B1",
-        "[output] [Pronoun:Resolved:Sentence] C @ A -> B1 E1",
-
-        "case 2: subject is not pronoun",
-        "[input] [Pronoun:Resolved:Sentence] C [Pronoun] [Subject] B @ E -> E1",
-        "[input] [Grammar:Property:Word:Pronoun] C [Pronoun] [Subject] @ B ->",
-        "[output] [Pronoun:Resolved:Sentence] C @ A -> B E1"
-      ]
-    },
-    {
-      "description": "condition resolver: clean pronouns in condition sentence A. Uses Grammar API interfaces for decomposition (even if unimplemented — interface-first). Falls through to return A unchanged if resolution unavailable.",
-      "commands": [
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
-        "[output] [repo] [GET] [Grammar:Property:Word:Pronoun] B @Caller C [Pronoun] [Subject]",
-
-        "[input] [Grammar:Property:Word:Pronoun] C [Pronoun] [Subject] @ B -> yes",
-        "[output] [Pronoun:Resolve] B @Caller C [Pronoun] [Subject]"
+        "[input] [Pronoun:Resolved:Sentence:Object] C [Pronoun] A [Subject] B @ E -> E1",
+        "[input] [Pronoun:Resolved:Sentence:VerbPhrase] C [Pronoun] A @ B -> B1",
+        "[output] [Pronoun:Resolved:Sentence:S+VerbPhrase] C @ A -> B1 E1"
       ]
     }
   ]

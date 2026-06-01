@@ -1,0 +1,35 @@
+{
+  "name": "V+P:preposition",
+  "is_template": true,
+  "args": [
+    "$verb"
+  ],
+  "API": "[Grammar:Verify:V+P] B @Caller C",
+  "template_API": "[template:Run] V+P:preposition @Args A @Caller C",
+  "callback": [
+    "[output] [Grammar:V+P] C @ $verb B -> yes",
+    "[output] [Grammar:V+P:Type] C @ $verb B -> preposition",
+    "[output] [Grammar:V+P:PrepositionPhrase] C @ $verb B -> B",
+    "[output] [Grammar:V+P:Verb] C @ $verb B -> $verb",
+    "[output] [Grammar:V+P:P] C @ $verb B -> B"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] $verb B @Caller C",
+        "[input] [Grammar:Verify:PrepositionPhrase] C [VP] $verb @ B -> yes",
+        "[output] [Grammar:Verify:V+P] C @ $verb B -> yes",
+        "[output] [Grammar:V+P:Type] C @ $verb B -> preposition",
+        "[output] [Grammar:V+P:PrepositionPhrase] C @ $verb B -> B",
+        "[output] [Grammar:V+P:Verb] C @ $verb B -> $verb",
+        "[output] [Grammar:V+P:P] C @ $verb B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] $verb B @Caller C",
+        "[output] [Grammar:Verify:PrepositionPhrase] B @Caller C [VP] $verb"
+      ]
+    }
+  ]
+}

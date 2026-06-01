@@ -1,0 +1,38 @@
+{
+  "name": "V+P:adj_preposition",
+  "is_template": true,
+  "args": [
+    "$prep"
+  ],
+  "API": "[Grammar:Verify:V+P] B @Caller C",
+  "template_API": "[template:Run] V+P:adj_preposition @Args A @Caller C",
+  "callback": [
+    "[output] [Grammar:Verify:V+P] C @ B $prep E -> yes",
+    "[output] [Grammar:V+P:Type] C @ B $prep E -> adj_preposition",
+    "[output] [Grammar:V+P:PrepositionPhrase] C @ B $prep E -> $prep E",
+    "[output] [Grammar:V+P:AdjectivePhrase] C @ B -> F",
+    "[output] [Grammar:V+P:Verb] C @ B -> F1"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] B $prep E @Caller C",
+        "[input] [Grammar:V+P:AdjectivePhrase] C [VPP] $prep @ B -> F",
+        "[input] [Grammar:V+P:Verb] C [VPP] $prep @ B -> F1",
+        "[input] [Grammar:Verify:PrepositionPhrase] C [VPP] $prep @ $prep E -> yes",
+        "[output] [Grammar:Verify:V+P] C @ B $prep E -> yes",
+        "[output] [Grammar:V+P:Type] C @ B $prep E -> adj_preposition",
+        "[output] [Grammar:V+P:PrepositionPhrase] C @ B $prep E -> $prep E",
+        "[output] [Grammar:V+P:AdjectivePhrase] C @ B -> F",
+        "[output] [Grammar:V+P:Verb] C @ B -> F1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+P] B $prep E @Caller C",
+        "[output] [Grammar:Verify:V+P] B @Caller C [VPP] $prep",
+        "[output] [Grammar:Verify:PrepositionPhrase] $prep E @Caller C [VPP] $prep"
+      ]
+    }
+  ]
+}

@@ -2,10 +2,10 @@
   "data": [
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Pronoun] @ A -> D",
+        "[input] [Grammar:VerbPhrase:V+P:P:Object] C [Pronoun] @ A -> D",
         "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
 
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Pronoun] @ A -> B",
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] @ A -> B",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Object] @ D -> D1",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1"
       ]
