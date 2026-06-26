@@ -1,4 +1,8 @@
 {
+  "dependencies": [
+    "pronoun_resolver_S+VP",
+    "pronoun_resolver"
+  ],
   "API": [
     "[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C"
   ],
@@ -11,12 +15,12 @@
         "[input] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C",
         "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller C [Pronoun]",
 
-        "[input] [Grammar:Verify:Conj+S+VerbPhrase:Conjunction] C [Pronoun] @ A -> F",
-        "[input] [Grammar:Verify:Conj+S+VerbPhrase:S+VerbPhrase] C [Pronoun] @ A -> E",
+        "[input] [Grammar:Conj+S+VerbPhrase:Conjunction] C [Pronoun] @ A -> F",
+        "[input] [Grammar:Conj+S+VerbPhrase:S+VerbPhrase] C [Pronoun] @ A -> E",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] E @Caller C [Pronoun] [Conj] F",
 
         "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C [Pronoun] [Conj] F @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C @ A -> F E1"
+        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C @ F E -> F E1"
       ]
     }
   ]

@@ -2,17 +2,14 @@
   "templates": [
     "[template:Run] [O+OC:adj] @Args $attr @Caller C",
     "[template:Run] [O+OC:do_sth] @Args $verb @Caller C",
-    "[template:Run] [O+OC:doing_sth] @Args $verb-ing @Caller C",
+    "[template:Run] [O+OC:doing_sth] @Args $gerund @Caller C",
     "[template:Run] [IO+DO] @Args $attr @Caller C",
     "[template:Run] [IO+DO:OBJ] @Args $OBJ @Caller C",
-    "[template:Run] [object] @Args $attr @Caller C",
+    "[template:Run] Conj+S+VerbPhrase @Args $conj @Caller C",
     "[template:Run] [V+IO+DO] @Args $verb @Caller C",
     "[template:Run] [V+O+OC] @Args $verb @Caller C",
     "[template:Run] [V+O] @Args $verb @Caller C",
-    "[template:Run] [V+P] @Args $verb @Caller C",
-    "[template:Run] [P] @Args $attr @Caller C",
-    "[template:Run] [P:adj_doing] @Args $gerund @Caller C",
-    "[template:Run] [P:adj_to_do] @Args $verb @Caller C"
+    "[template:Run] [P] @Args $attr @Caller C"
   ],
   "data": [
     {
@@ -47,7 +44,6 @@
         "[input] [repo] [SSET] [Grammar:Property:Word:Adjective] A -> yes",
         "[output] [template:Run] O+OC:adj @Args A @Caller C ",
         "[output] [template:Run] IO+DO @Args A @Caller C",
-        "[output] [template:Run] object @Args A @Caller C",
         "[output] [template:Run] [P] @Args A @Caller C",
 
         "[input] [repo] [SSET] [Grammar:Object] A -> yes",

@@ -4,28 +4,22 @@
   "args": [
     "$noun"
   ],
-  "API":"[Grammar:Verify:Object] B @Caller C",
-  "template_API": "[template:Run] object:noun @Args A @Caller C",
-  "callback": [
-    "[output] [Grammar:Verify:Object] C @ B $noun -> yes",
-    "[output] [Grammar:Object:Noun] C @ B $noun -> $noun",
-    "[output] [Grammar:Object:Attribute] C @ B $noun -> B"
-  ],
   "data": [
     {
       "description": "",
       "commands": [
         "[input] [Grammar:Verify:Object] B $noun @Caller C",
-        "[input] [Grammar:Verify:Attribute] C [object] $noun @ B -> yes",
+        "[input] [Grammar:Verify:AdjectivePhrase] C [object] $noun @ B -> yes",
         "[output] [Grammar:Verify:Object] C @ B $noun -> yes",
+        "[output] [Grammar:Object:Type] C @ B $noun -> NounPhrase",
         "[output] [Grammar:Object:Noun] C @ B $noun -> $noun",
-        "[output] [Grammar:Object:Attribute] C @ B $noun -> B"
+        "[output] [Grammar:Object:AdjectivePhrase] C @ B $noun -> B"
       ]
     },
     {
       "commands": [
         "[input] [Grammar:Verify:Object] B $noun @Caller C",
-        "[output] [Grammar:Verify:Attribute] B @Caller C [Object] $noun"
+        "[output] [Grammar:Verify:AdjectivePhrase] B @Caller C [Object] $noun"
       ]
     }
   ]

@@ -1,0 +1,23 @@
+{
+  "dependencies": [
+    "key_value_verification/key/object",
+    "key_value_verification/value/repo"
+  ],
+  "data":[
+    {
+      "commands": [
+        "[input] [repo] C @ [No.] D [Cond] -> A is B",
+        "[input] [System:Verify:Key] C @ A -> yes",
+        "[input] [System:Verify:Value] C @ B -> yes",
+        "[output] [template:Run] variable_toolkit @Args A , B @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C @ [No.] D [Cond] -> A is B",
+        "[output] [System:Verify:Key] A @Caller C",
+        "[output] [System:Verify:Value] B @Caller C"
+      ]
+    }
+  ]
+}

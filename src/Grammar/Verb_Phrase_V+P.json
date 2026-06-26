@@ -4,18 +4,11 @@
   "args": [
     "$verb"
   ],
-  "API": "[Grammar:Verify:V+P] $verb B @Caller C",
-  "template_API": "[template:Run] [V+P] @Args A @Caller C",
-  "callback": [
-    "[Grammar:Verify:V+P] C @ $verb B -> yes",
-    "[Grammar:V+P:Verb] C @ $verb B -> $verb",
-    "[Grammar:V+P:P] C @ $verb B -> B"
-  ],
   "data": [
     {
       "commands": [
         "[input] [Grammar:Verify:V+P] $verb B @Caller C",
-        "[input] [Grammar:Verify:P] $verb @ B -> yes",
+        "[input] [Grammar:Verify:P] C $verb @ B -> yes",
         "[output] [Grammar:Verify:V+P] C @ $verb B -> yes",
         "[output] [Grammar:V+P:Verb] C @ $verb B -> $verb",
         "[output] [Grammar:V+P:P] C @ $verb B -> B"
@@ -25,6 +18,54 @@
       "commands": [
         "[input] [Grammar:Verify:V+P] $verb B @Caller C",
         "[output] [Grammar:Verify:P] B @Caller C $verb"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:P:Type] C $verb @ B -> object",
+        "[input] [Grammar:P:Object] C $verb @ B -> A",
+        "[output] [Grammar:V+P:P:Object] C @ $verb B -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:P:Type] C $verb @ B -> adj",
+        "[input] [Grammar:P:AdjectivePhrase] C $verb @ B -> A",
+        "[output] [Grammar:V+P:P:AdjectivePhrase] C @ $verb B -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:P:Type] C $verb @ B -> preposition",
+        "[input] [Grammar:P:PrepositionPhrase] C $verb @ B -> A",
+        "[output] [Grammar:V+P:P:PrepositionPhrase] C @ $verb B -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:P:Type] C $verb @ B -> adj_preposition",
+        "[input] [Grammar:P:AdjectivePhrase] C $verb @ B -> A",
+        "[input] [Grammar:P:PrepositionPhrase] C $verb @ B -> D",
+        "[output] [Grammar:V+P:P:AdjectivePhrase] C @ $verb B -> A",
+        "[output] [Grammar:V+P:P:PrepositionPhrase] C @ $verb B -> D"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:P:Type] C $verb @ B -> adj_to_do",
+        "[input] [Grammar:P:AdjectivePhrase] C $verb @ B -> A",
+        "[input] [Grammar:P:TODO] C $verb @ B -> to D",
+        "[output] [Grammar:V+P:P:AdjectivePhrase] C @ $verb B -> A",
+        "[output] [Grammar:V+P:P:TODO] C @ $verb B -> to D"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:P:Type] C $verb @ B -> adj_doing",
+        "[input] [Grammar:P:AdjectivePhrase] C $verb @ B -> A",
+        "[input] [Grammar:P:Doing] C $verb @ B -> D",
+        "[output] [Grammar:V+P:P:AdjectivePhrase] C @ $verb B -> A",
+        "[output] [Grammar:V+P:P:Doing] C @ $verb B -> D"
       ]
     }
   ]

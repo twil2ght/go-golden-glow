@@ -47,15 +47,15 @@ func (s *addon) Reset()    { s.cache = registry.New[bool]() }
 func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	providerFail := datagen.NewProvider()
-	provider.Add("get_value", datagen.NewData(
-		[]string{"[repo] [GET] $1"},
-		[]string{"[repo] $1 -> $2"},
-		map[string]string{
-			keyKey:  "$1",
-			keyDist: "$2",
-		},
-		datagen.AsExtractor,
-	))
+	//provider.Add("get_value", datagen.NewData(
+	//	[]string{"[repo] [GET] $1"},
+	//	[]string{"[repo] $1 -> $2"},
+	//	map[string]string{
+	//		keyKey:  "$1",
+	//		keyDist: "$2",
+	//	},
+	//	datagen.AsExtractor,
+	//))
 	provider.Add("get_value_with_cond", datagen.NewData(
 		[]string{"[repo] [GET] $1 @Caller $4"},
 		[]string{"[repo] $4 @ $1 -> $2"},
@@ -111,15 +111,15 @@ func (s *addon) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsChecker,
 	))
-	providerFail.Add("get_value_not_exists", datagen.NewData(
-		[]string{"[repo] [GET] $1"},
-		[]string{"[repo] $1 ->"},
-		map[string]string{
-			keyKey:  "$1",
-			keyDist: "$2",
-		},
-		datagen.AsChecker,
-	))
+	//providerFail.Add("get_value_not_exists", datagen.NewData(
+	//	[]string{"[repo] [GET] $1"},
+	//	[]string{"[repo] $1 ->"},
+	//	map[string]string{
+	//		keyKey:  "$1",
+	//		keyDist: "$2",
+	//	},
+	//	datagen.AsChecker,
+	//))
 	providerFail.Add("check_value_not_exists", datagen.NewData(
 		[]string{"[repo] [CHECK] $1 -> $2"},
 		[]string{"[repo] $1 !-> $2"},
@@ -204,14 +204,9 @@ func (s *addon) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 		)
 		valueMap, err := s.repo.HGet(key)
 		for val := range valueMap {
-			//log.Default().Debug("[repo] get", key, val)
-			if e, _ := s.cache.Get(fmt.Sprintf("%s->%s", key, val)); e {
-				delete(valueMap, val)
-			} else {
-				s.cache.Register(fmt.Sprintf("%s->%s", key, val), true)
-				s.cache.Register(fmt.Sprintf("check %s->%s", key, val), true)
-				s.cache.Register(fmt.Sprintf("check %s!->%s", key, val), true)
-			}
+			log.Default().Debug("[repo] get", key, val)
+			s.cache.Register(fmt.Sprintf("check %s->%s", key, val), true)
+			s.cache.Register(fmt.Sprintf("check %s!->%s", key, val), true)
 		}
 		if err != nil {
 			return nil

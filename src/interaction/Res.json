@@ -27,8 +27,8 @@
       "description": "[Executor] bonus",
       "commands": [
         "[input] [Res] D [Execute] E",
-        "[input] [repo] No. F @ No. F1 [Cond] -> step B of D [Execute] A",
-        "[output] [repo] [SET] step B of D [Execute] A -> E"
+        "[input] [repo] [No.] F @ [No.] F1 [Cond] -> step B [of] D [Execute] A",
+        "[output] [repo] [SET] step B [of] D [Execute] A -> E"
       ]
     }
   ]

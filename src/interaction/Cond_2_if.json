@@ -1,0 +1,23 @@
+{
+  "dependencies": [
+    "../pkg/Pronoun/pronoun_resolver",
+    "../pkg/Pronoun/pronoun_resolver_Conj+S+VP"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] C says to Susie : if A",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [say] @ A -> B",
+        "[output] [Cond:Add] B @Caller [say]"
+      ]
+    },
+    {
+      "commands":[
+        "[input] C says to Susie : if A",
+        "[output] [TeachMode:Check] Teacher C @Caller [say]",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [say]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "variable_toolkit",
+  "is_template": true,
+  "args": [
+    "$keyOfKey",
+    "$keyOfValue"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] $keyOfKey is A ",
+        "[input] [System:Verify:Value] C $keyOfKey is A @ A -> yes",
+        "[output] [Common] $keyOfKey is $keyOfValue",
+        "[output] [repo] [SSET] [Pronoun:Cache] $keyOfValue -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Common] $keyOfKey is A",
+        "[output] [System:Verify:Value] A @Caller C $keyOfKey is A"
+      ]
+    }
+  ],
+  "TODO": [
+    {
+      "commands:todo": [
+        "[input] [Common] C @ $keyOfKey is A ",
+        "[input] [System:Verify:Value] C $keyOfKey is A @ A -> yes",
+        "[output] [Common] C @ $keyOfKey is $keyOfValue",
+        "[output] [repo] [SSET] [Pronoun:Cache] $keyOfValue -> A"
+      ]
+    },
+    {
+      "commands:todo": [
+        "[input] [Common] C @ $keyOfKey is A",
+        "[output] [System:Verify:Value] A @Caller C $keyOfKey is A"
+      ]
+    }
+  ]
+}

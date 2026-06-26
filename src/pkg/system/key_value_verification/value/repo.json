@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [System:Verify:Value] A @Caller C",
+        "[input] [repo] C @ [System:Value] A -> yes",
+        "[output] [System:Verify:Value] C @ A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [System:Verify:Value] A @Caller C",
+        "[output] [repo] [GET] [System:Value] A @ C"
+      ]
+    }
+  ]
+}

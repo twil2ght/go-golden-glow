@@ -16,7 +16,7 @@
         "[output] [Cond:Count++] @Caller C [Add] A",
 
         "[input] [Cond:Count] C [Add] A @ -> B",
-        "[output] [repo] [SET] No. B [Cond] -> A"
+        "[output] [repo] [SET] [No.] B [Cond] -> A"
       ]
     },
     {
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "description": "callback of [Cond:Count] Operator",
+      "description": "callback [of] [Cond:Count] Operator",
       "commands": [
         "[input] [repo] C @ [Latest] [Cond:Count] -> F",
         "[output] [Cond:Count] C @ -> F"

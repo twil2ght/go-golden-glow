@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "description": "for object-like SPronoun",
+      "commands": [
+        "[input] [repo] [SSET] [System:Property:SPronoun:Object-like] A -> yes",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Pronoun] A -> yes"
+      ]
+    }
+  ]
+}

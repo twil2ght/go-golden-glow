@@ -1,0 +1,25 @@
+{
+  "name": "object:adj_pro",
+  "is_template": true,
+  "args": [
+    "$ap"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $ap B @Caller C",
+        "[input] [Grammar:Object:Type] C [AP] $ap @ B -> NounPhrase",
+        "[output] [Grammar:Verify:Object] C @ $ap B -> yes",
+        "[output] [Grammar:Object:Type] C @ $ap B -> AdjProNounPhrase",
+        "[output] [Grammar:Object:AdjProNounPhrase:AdjPro] C @ $ap B -> $ap",
+        "[output] [Grammar:Object:AdjProNounPhrase:NounPhrase] C @ $ap B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $ap B @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [AP] $ap"
+      ]
+    }
+  ]
+}

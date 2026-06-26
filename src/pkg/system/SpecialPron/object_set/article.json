@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Object:Article] C [Pronoun] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> A",
+        ""
+      ]
+    },
+    {
+      "commands": [
+
+      ]
+    }
+  ]
+}

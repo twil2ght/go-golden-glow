@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    "pkg/system/SpecialPron/util",
+    "pkg/system/Key_value_usage"
+  ],
+  "data": []
+}

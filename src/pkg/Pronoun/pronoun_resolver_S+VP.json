@@ -1,4 +1,7 @@
 {
+  "dependencies": [
+    "pronoun_resolver_VP"
+  ],
   "API": [
     "[Pronoun:Resolve] A @Caller C",
     "[Pronoun:ResolveCondition] A @Caller C"
@@ -16,12 +19,12 @@
 
         "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] @ A -> E",
-        "[output] [Grammar:Resolved:Sentence:Object] B @Caller C [Pronoun] A",
-        "[output] [Pronoun:Resolved:Sentence:VerbPhrase] E @caller C [Pronoun] A [Subject] B",
+        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun] [S+VerbPhrase] A",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] [S+VerbPhrase] A [Subject] B",
 
-        "[input] [Pronoun:Resolved:Sentence:Object] C [Pronoun] A [Subject] B @ E -> E1",
-        "[input] [Pronoun:Resolved:Sentence:VerbPhrase] C [Pronoun] A @ B -> B1",
-        "[output] [Pronoun:Resolved:Sentence:S+VerbPhrase] C @ A -> B1 E1"
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ A -> B1 E1"
       ]
     }
   ]

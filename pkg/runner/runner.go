@@ -27,6 +27,7 @@ type Queue[T any] interface {
 }
 type Runner interface {
 	Run(ctx context.Context)
+	IsFinished() bool
 }
 type runner struct {
 	workerNum     int
@@ -223,6 +224,7 @@ func (r *runner) handler(k knot.Interface) error {
 			for nv, rn := range R {
 				for _, s := range S[nv] {
 					key := knotKey(rn.Value(), s)
+					//log.Default().Debug("R", "value", rn.ToTextWithNoVars(s), "raw", rn.Value())
 					if _, loaded := r.knotParents.LoadOrStore(key, knotSeq); loaded {
 						continue
 					}

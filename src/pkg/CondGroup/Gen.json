@@ -8,36 +8,36 @@
   ],
   "callback": [
     "[Res:Done] D",
-    "[Cond:Used] No. F1 -> A",
-    "[repo] [SET] [CondGroup:Index] of D for A -> B | F",
-    "[repo] [SET] [CondGroup] No. F of No. B of D -> A",
-    "[repo] [SET] [Then] A -> [CondGroup:Done] No. B of D @Caller A"
+    "[Cond:Used] [No.] F1 -> A",
+    "[repo] [SET] [CondGroup:Index] [of] D for A -> B | F",
+    "[repo] [SET] [CondGroup] [No.] F [of] [No.] B [of] D -> A",
+    "[repo] [SET] [Then] A -> [CondGroup:Done] [No.] B [of] D @Caller A"
   ],
   "data": [
     {
       "description": "main",
       "commands": [
-        "[input] [repo] No. F @ No. F1 [Cond] -> A",
+        "[input] [repo] [No.] F @ [No.] F1 [Cond] -> A",
         "[input] [CondGroup:Count] [Res] @ D -> B",
-        "[output] [Cond:Used] No. F1 -> A",
-        "[output] [CondGroup:ElementCount++] No. B of D @Caller No. F1 [Cond]",
-        "[output] [repo] [SET] [Then] A -> [CondGroup:Done] No. B of D @Caller A",
+        "[output] [Cond:Used] [No.] F1 -> A",
+        "[output] [CondGroup:ElementCount++] [No.] B [of] D @Caller [No.] F1 [Cond]",
+        "[output] [repo] [SET] [Then] A -> [CondGroup:Done] [No.] B [of] D @Caller A",
 
-        "[input] [repo] No. F @ No. F1 [Cond] -> A",
-        "[input] [CondGroup:ElementCount] No. F1 [Cond] @ No. B of D -> B1",
-        "[output] [repo] [SET] [CondGroup:Index] D of A -> B | B1",
-        "[output] [repo] [SET] [CondGroup] No. B1 of No. B of D -> A"
+        "[input] [repo] [No.] F @ [No.] F1 [Cond] -> A",
+        "[input] [CondGroup:ElementCount] [No.] F1 [Cond] @ [No.] B [of] D -> B1",
+        "[output] [repo] [SET] [CondGroup:Index] D [of] A -> B | B1",
+        "[output] [repo] [SET] [CondGroup] [No.] B1 [of] [No.] B [of] D -> A"
       ]
     },
     {
       "description": "iterate",
       "commands": [
-        "[input] [CondGroup:ElementCount] No. B1 [Cond] @ No. B of D -> F",
-        "[output] [compute] [GET] B1 + 1 @Caller No. B1 [Cond]",
+        "[input] [CondGroup:ElementCount] [No.] B1 [Cond] @ [No.] B [of] D -> F",
+        "[output] [compute] [GET] B1 + 1 @Caller [No.] B1 [Cond]",
 
-        "[input] [CondGroup:ElementCount] No. B1 [Cond] @ No. B of D -> F",
-        "[input] [compute] No. B1 [Cond] @ B1 + 1 -> F1",
-        "[output] [repo] [GET] No. F1 [Cond] @Caller No. B1"
+        "[input] [CondGroup:ElementCount] [No.] B1 [Cond] @ [No.] B [of] D -> F",
+        "[input] [compute] [No.] B1 [Cond] @ B1 + 1 -> F1",
+        "[output] [repo] [GET] [No.] F1 [Cond] @Caller [No.] B1"
       ]
     },
     {
@@ -47,13 +47,13 @@
         "[output] [CondGroup:Count++] D @Caller [Res]",
 
         "[input] [CondGroup:Count] [Res] @ D -> B",
-        "[output] [repo] [GET] No. 1 [Cond] @Caller No. 0"
+        "[output] [repo] [GET] [No.] 1 [Cond] @Caller [No.] 0"
       ]
     },
     {
       "description": "shutdown",
       "commands": [
-        "[input] [repo] No. F @ No. F1 [Cond] ->",
+        "[input] [repo] [No.] F @ [No.] F1 [Cond] ->",
         "[output] [Res:Done] D"
       ]
     }

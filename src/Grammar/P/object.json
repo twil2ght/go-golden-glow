@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B @Caller C",
+        "[input] [Grammar:Verify:Object] C [P] @ B -> yes",
+        "[output] [Grammar:Verify:P] C @ B -> yes",
+        "[output] [Grammar:P:Type] C @ B -> object",
+        "[output] [Grammar:P:Object] C @ B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [P]"
+      ]
+    }
+  ]
+}

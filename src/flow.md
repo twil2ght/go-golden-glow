@@ -43,5 +43,25 @@ how to verify if you know a person:
                 a person's name in Susie's database
             Susie knows a person's name
         Susie knows a person   
-           
+
+Normal verison:           
+    how to tell a person your name:
+        check what your name is
+        if your name is Susie(varible:Susie)
+        then say "I am Susie"(check all Susie then to $Susie)
+Easy version:
+    how to tell a person your name:
+        check what your name is
+        if your name is $Susie          -> [input] Susie's name is A;[output] [repo] [SSET] $Susie -> A
+        then say "I am $Susie" 
+    real-use: check what Susie's name is 
+                -> Susie's name is Susie
+                -> [repo] [SSET] $Susie -> Susie
+                -> $trigger: your name is $Susie
+              say "I am $Susie"(check all variables and replace,this step can only be done at the low level api)   
+```
+```
+first the "Susie" here is a placeholder;I have to check my name and the value is
+Susie then I say I am Susie because I have to replace the placeholder with its true value
+
 ```

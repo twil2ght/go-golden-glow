@@ -1,0 +1,24 @@
+{
+  "name": "P:preposition",
+  "is_template": true,
+  "args": [
+    "$verb"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B @Caller C",
+        "[input] [Grammar:Verify:PrepositionPhrase] C [P] @ B -> yes",
+        "[output] [Grammar:Verify:P] C @ B -> yes",
+        "[output] [Grammar:P:Type] C @ B -> preposition",
+        "[output] [Grammar:P:PrepositionPhrase] C @ B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B @Caller C",
+        "[output] [Grammar:Verify:PrepositionPhrase] B @Caller C [P]"
+      ]
+    }
+  ]
+}

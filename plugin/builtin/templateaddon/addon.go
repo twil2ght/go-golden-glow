@@ -55,12 +55,6 @@ func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
 			}
 		}
 	}
-	mgr.Register("[repo] C @ [Then] A ->", func(origin node.Interface, tplSet template.Set) {
-		delete(tplSet, "C @ A")
-	})
-	mgr.Register("[repo] C @ [Then] A -> B", func(origin node.Interface, tplSet template.Set) {
-		delete(tplSet, "C @ A")
-	})
 }
 func loadAllTplToAvoid() []string {
 	var tplToAvoid []string

@@ -63,6 +63,9 @@ func (t *template) GetTemplate(n node.Interface, state string) Set {
 		if ok, vars := MatchTemplate(raw, e.Value()); ok {
 			e.VarSetRegistry().Register(raw, vars)
 			matches[key] = e
+			//if n.Value() == "[repo] [GET] [Grammar:Property:Word:Noun] $2 @Caller $3 [Verify:Object]" {
+			//	log.Default().Debug("match template", "node", n.Value(), "template", e.Value())
+			//}
 		}
 	}
 	return PostFilter(matches)

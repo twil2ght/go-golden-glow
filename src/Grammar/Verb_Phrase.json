@@ -1,6 +1,9 @@
 {
   "dependencies": [
-    "Verb_Phrase_V"
+    "Verb_Phrase_V",
+    "IO+DO_to",
+    "Object",
+    "P/object"
   ],
   "API": [
     {
@@ -59,7 +62,7 @@
       "description": "re-emit V+IO+DO object",
       "commands": [
         "[input] [Grammar:V+IO+DO:Object] C [VerbPhrase] @ A -> E",
-        "[output] [Grammar:VerbPhrase:V+IO+DO:Object] C @ A -> E"
+        "[output] [Grammar:VerbPhrase:V+IO+DO:IndirectObject] C @ A -> E"
       ]
     },
     {
@@ -98,13 +101,47 @@
       ]
     },
     {
+      "description": "re-emit V+P P Object",
+      "commands": [
+        "[input] [Grammar:V+P:P:Object] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+P:P:Object] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+P P AdjectivePhrase",
+      "commands": [
+        "[input] [Grammar:V+P:P:AdjectivePhrase] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+P:P:AdjectivePhrase] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+P P PrepositionPhrase",
+      "commands": [
+        "[input] [Grammar:V+P:P:PrepositionPhrase] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+P:P:PrepositionPhrase] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+P P TODO",
+      "commands": [
+        "[input] [Grammar:V+P:P:TODO] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+P:P:TODO] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+P P Doing",
+      "commands": [
+        "[input] [Grammar:V+P:P:Doing] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+P:P:Doing] C @ A -> E"
+      ]
+    },
+    {
       "commands": [
         "[input] [Grammar:Verify:VerbPhrase] A @Caller C",
         "[output] [Grammar:Verify:V] A @Caller C [VerbPhrase]",
         "[output] [Grammar:Verify:V+O] A @Caller C [VerbPhrase]",
         "[output] [Grammar:Verify:V+IO+DO] A @Caller C [VerbPhrase]",
         "[output] [Grammar:Verify:V+O+OC] A @Caller C [VerbPhrase]",
-
         "[output] [Grammar:Verify:V+P] A @Caller C [VerbPhrase]"
       ]
     },

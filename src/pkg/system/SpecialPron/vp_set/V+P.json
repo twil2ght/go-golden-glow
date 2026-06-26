@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "commands:todo": [
+        "[input] [Grammar:VerbPhrase:V+P:P:Object] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Object] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1",
+
+        "[input] [Grammar:VerbPhrase:V+P:P:Doing] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Object] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1",
+
+        "[input] [Grammar:VerbPhrase:V+P:P:TODO] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Object] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1",
+
+        "[input] [Grammar:VerbPhrase:V+P:P:Adj_preposition] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Object] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1",
+
+        "[input] [Grammar:VerbPhrase:V+P:P:Preposition] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Object] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1"
+
+      ]
+    }
+  ]
+}

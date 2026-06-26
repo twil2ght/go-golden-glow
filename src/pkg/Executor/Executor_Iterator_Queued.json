@@ -11,19 +11,19 @@
     "[repo] C @ [Execute:Done] D [Execute] A -> yes"
   ],
   "hook": [
-    "[Executor:Hook:OnStepSkipped] No. B1 of D [Execute] E @Caller C step B of D [Execute] A",
-    "[Executor:Hook:OnExecutionFailed] D [Execute] E @Caller C step B of D [Execute] A",
+    "[Executor:Hook:OnStepSkipped] [No.] B1 [of] D [Execute] E @Caller C step B [of] D [Execute] A",
+    "[Executor:Hook:OnExecutionFailed] D [Execute] E @Caller C step B [of] D [Execute] A",
     "[Executor:Hook:OnExecutionSuccess] D [Execute] A @Caller C",
     "[Executor:Hook:OnExecutionInit] D [Execute] A @Caller C"
   ],
   "override": [
     {
-      "source": "[repo] C @ [Latest] Count of No. B [CondGroup] of D -> 0",
-      "target": "[repo] step F of D [Execute] A @ [Latest] Count of No. B [CondGroup] of D [Execute] E -> 0"
+      "source": "[repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> 0",
+      "target": "[repo] step F [of] D [Execute] A @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D [Execute] E -> 0"
     },
     {
-      "source": "[repo] step F of D [Execute] A @ [Latest] Count of No. B [CondGroup] of D [Execute] E -> F",
-      "target": "[repo] step F of D [Execute] A @ [Latest] Count of No. B [CondGroup] of D [Execute] E -> 0"
+      "source": "[repo] step F [of] D [Execute] A @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D [Execute] E -> F",
+      "target": "[repo] step F [of] D [Execute] A @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D [Execute] E -> 0"
     }
   ],
   "data": [
@@ -31,50 +31,50 @@
       "description": "init",
       "commands": [
         "[input] [Executor] D [Execute] A @Caller C",
-        "[output] [repo] [GET] step 1 of D [Execute] A @Caller C"
+        "[output] [repo] [GET] step 1 [of] D [Execute] A @Caller C"
       ]
     },
     {
       "description": "main",
       "tip1": "here must be the controller that fires the `D [Execute] E`;if not,then lock the controller again",
-      "tip2": "for a step of `D [Execute] A`,whether it has extra conditions,it should not lead the whole execution to fail when firing it",
+      "tip2": "for a step [of] `D [Execute] A`,whether it has extra conditions,it should not lead the whole execution to fail when firing it",
       "tip3": "it(the step) should lead the whole execution to fail(after firing it) when the step failed to run successfully",
       "commands": [
-        "[input] [repo] C @ step B of D [Execute] A -> E",
-        "[output] [CondGroup:DoneAuto] D [Execute] E [BY] step B of D [Execute] A @Caller C",
+        "[input] [repo] C @ step B [of] D [Execute] A -> E",
+        "[output] [CondGroup:DoneAuto] D [Execute] E [BY] step B [of] D [Execute] A @Caller C",
 
-        "[input] [repo] C @ [CondGroup:MarkDone:NewCount] No. B1 of D [Execute] E [BY] step B of D [Execute] A -> 0",
-        "[output] [TODO:Add] D [Execute] E @Caller C step B of D [Execute] A",
+        "[input] [repo] C @ [CondGroup:MarkDone:NewCount] [No.] B1 [of] D [Execute] E [BY] step B [of] D [Execute] A -> 0",
+        "[output] [TODO:Add] D [Execute] E @Caller C step B [of] D [Execute] A",
 
-        "[input] [repo] C @ [CondGroup:MarkDone:NewCount] No. B1 of D [Execute] E [BY] step B of D [Execute] A -> F",
-        "[output] [CondGroup:Undone] No. B1 of D [Execute] E [BY] step B of D [Execute] A @Caller C",
-        "[output] [repo] C step B of D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
-        "[output] [CondGroup:Get:Locked] No. B1 of D [Execute] E @Caller C step B of D [Execute] A",
+        "[input] [repo] C @ [CondGroup:MarkDone:NewCount] [No.] B1 [of] D [Execute] E [BY] step B [of] D [Execute] A -> F",
+        "[output] [CondGroup:Undone] [No.] B1 [of] D [Execute] E [BY] step B [of] D [Execute] A @Caller C",
+        "[output] [repo] C step B [of] D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
+        "[output] [CondGroup:Get:Locked] [No.] B1 [of] D [Execute] E @Caller C step B [of] D [Execute] A",
 
-        "[input] [CondGroup:Get:Locked:Done] No. B1 of D [Execute] E @Caller C step B of D [Execute] A",
-        "[output] [Executor:Hook:OnStepSkipped] No. B1 of D [Execute] E @Caller C step B of D [Execute] A"
+        "[input] [CondGroup:Get:Locked:Done] [No.] B1 [of] D [Execute] E @Caller C step B [of] D [Execute] A",
+        "[output] [Executor:Hook:OnStepSkipped] [No.] B1 [of] D [Execute] E @Caller C step B [of] D [Execute] A"
       ]
     },
     {
       "description": "iterate",
       "commands": [
-        "[input] [repo] C step B of D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
-        "[output] [compute] B + 1 @Caller C step B of D [Execute] A",
-        "[input] [repo] C step B of D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
-        "[input] [compute] C step B of D [Execute] A @ B + 1 -> B1",
-        "[output] [repo] [GET] step B1 of D [Execute] A @Caller C"
+        "[input] [repo] C step B [of] D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
+        "[output] [compute] B + 1 @Caller C step B [of] D [Execute] A",
+        "[input] [repo] C step B [of] D [Execute] A @ [Execute:Done] D [Execute] E -> yes",
+        "[input] [compute] C step B [of] D [Execute] A @ B + 1 -> B1",
+        "[output] [repo] [GET] step B1 [of] D [Execute] A @Caller C"
       ]
     },
     {
       "description": "shutdown:no next step or one step failed",
       "commands": [
-        "[input] [repo] C @ step B of D [Execute] A ->",
+        "[input] [repo] C @ step B [of] D [Execute] A ->",
         "[output] [repo] C @ [Execute:Done] D [Execute] A -> yes",
         "[output] [Executor:Hook:OnExecutionSuccess] D [Execute] A @Caller C",
 
-        "[input] [repo] C step B of D [Execute] A @ [Execute:Done] D [Execute] E -> no",
+        "[input] [repo] C step B [of] D [Execute] A @ [Execute:Done] D [Execute] E -> no",
         "[output] [repo] C @ [Execute:Done] D [Execute] A -> no",
-        "[output] [Executor:Hook:OnExecutionFailed] D [Execute] E @Caller C step B of D [Execute] A"
+        "[output] [Executor:Hook:OnExecutionFailed] D [Execute] E @Caller C step B [of] D [Execute] A"
       ]
     }
   ]

@@ -1,0 +1,35 @@
+{
+  "name": "IO+DO",
+  "is_template": true,
+  "args": [
+    "$attr"
+  ],
+  "API":"[Grammar:Verify:O+OC] B @Caller C",
+  "template_API": "[template:Run] [IO+DO] @Args A @Caller C",
+  "callback": [
+    "[Grammar:Verify:IO+DO] C @ B -> yes",
+    "[Grammar:IO+DO:IndirectObject] C @ B -> A",
+    "[Grammar:IO+DO:DirectObject] C @ B -> F"
+  ],
+  "data": [
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] B $attr A @Caller C",
+        "[input] [Grammar:Verify:Object] C [IO] @ B -> yes",
+        "[input] [Grammar:Verify:Object] C [DO] @ A -> yes",
+        "[output] [Grammar:Verify:IO+DO] C @ B $attr A -> yes",
+        "[output] [Grammar:IO+DO:IndirectObject] C @ B $attr A -> B",
+        "[output] [Grammar:IO+DO:DirectObject] C @ B $attr A -> $attr A"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] B $attr A @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [IO]",
+        "[output] [Grammar:Verify:Object] A @Caller C [DO]"
+      ]
+    }
+  ]
+}

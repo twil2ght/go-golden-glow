@@ -25,23 +25,13 @@ var (
 
 func main() {
 	Run(
-	//"src/pkg/Executor/utils.json",
-	//"src/pkg/Executor/util_test.json",
-	//"src/Grammar/template_test.json",
-	//"src/pkg/Cond/utils.json",
-	//"src/pkg/Cond/utils_test.json",
-	//"src/Grammar/Object_repo.json",
-	//"src/Grammar/Verb_Phrase.json",
-	//"src/Grammar/Verb_Phrase_test.json",
-	//"src/interaction/Cond.json",
-	//"src/test/2.json",
-	//"src/interaction/Res.json",
-	//"src/Grammar/Object_IO+DO_to.json",
-	//"src/test/1.json",
-	//"src/pkg/Executor/Executor_Iterator_Queued.json",
-	//"src/pkg/Executor/executor_test.json",
-	//"src/pkg/Runner/runner.json",
-	//"src/pkg/Runner/runner_test.json",
+		//"src/Global.json",
+		//"src/interaction/Cond.json",
+		//"src/interaction/Cond_2_if.json",
+		//"src/interaction/Res.json",
+		//"src/interaction/Res_2_say.json",
+		//
+		"src/test/3_to_tell_name.json",
 	)
 }
 func Run(dataDir ...string) {
@@ -51,7 +41,7 @@ func Run(dataDir ...string) {
 			file.Run(dir)
 		}
 		for {
-			if msgQueue.Len() == 0 {
+			if msgQueue.Len() == 0 && consumer.IsFinished() {
 				cancel()
 				return
 			}

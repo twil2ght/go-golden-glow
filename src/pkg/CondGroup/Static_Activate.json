@@ -5,7 +5,7 @@
     {
       "description": "CondGroup Activated",
       "commands": [
-        "[input] [repo] C @ [Latest] Count of No. B [CondGroup] of D -> 0",
+        "[input] [repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> 0",
         "[output] D @Caller C"
       ]
     }

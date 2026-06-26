@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [System:Verify:Key] A @Caller C",
+        "[input] [Grammar:Verify:Object] C [SVK] @ A -> yes",
+        "[output] [System:Verify:Key] C @ A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [System:Verify:Key] A @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [SVK]"
+      ]
+    }
+  ]
+}

@@ -1,21 +1,21 @@
 {
   "API": [
-    "[CondGroup:Reset] No. B of D @Caller C"
+    "[CondGroup:Reset] [No.] B [of] D @Caller C"
   ],
   "data": [
     {
-      "description": "Reset Count of CondGroup:main",
+      "description": "Reset [Count] [of] CondGroup:main",
       "commands": [
-        "[input] [CondGroup:Reset] No. B of D @Caller C",
-        "[input] [repo] C [Reset] @ Len of No. B [CondGroup] of D -> F",
-        "[output] [repo] [SSET] Count of No. B [CondGroup] of D -> F"
+        "[input] [CondGroup:Reset] [No.] B [of] D @Caller C",
+        "[input] [repo] C [Reset] @ [Len] [of] [No.] B [CondGroup] [of] D -> F",
+        "[output] [repo] [SSET] [Count] [of] [No.] B [CondGroup] [of] D -> F"
       ]
     },
     {
-      "description": "Reset Count of CondGroup:gets",
+      "description": "Reset [Count] [of] CondGroup:gets",
       "commands": [
-        "[input] [CondGroup:Reset] No. B of D @Caller C",
-        "[output] [repo] [GET] Len of No. B [CondGroup] of D @Caller C [Reset]"
+        "[input] [CondGroup:Reset] [No.] B [of] D @Caller C",
+        "[output] [repo] [GET] [Len] [of] [No.] B [CondGroup] [of] D @Caller C [Reset]"
       ]
     }
   ]

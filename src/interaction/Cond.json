@@ -19,7 +19,7 @@
         "[input] [TeachMode] [say] @ Teacher C -> yes",
         "[input] [Grammar:Verify:VerbPhrase] [say] @ A -> yes",
         "[input] [Executor:Steps:Count] [say] @ Susie [Execute] A -> 0",
-        "[output] [Cond:Add] step 1 of Susie [Execute] A @Caller C",
+        "[output] [Cond:Add] step 1 [of] Susie [Execute] A @Caller C",
 
         "[input] C says to Susie : to A",
         "[input] [TeachMode] [say] @ Teacher C -> yes",
@@ -37,14 +37,14 @@
       ]
     },
     {
-      "description": "update step of Susie [Execute] A",
+      "description": "update step [of] Susie [Execute] A",
       "commands": [
-        "[input] [Cond:Used] No. F -> step B of Susie [Execute] A",
+        "[input] [Cond:Used] [No.] F -> step B [of] Susie [Execute] A",
         "[output] [compute] [GET] B + 1 @Caller [Cond:Used] step F",
 
-        "[input] [Cond:Used] No. F -> step B of Susie [Execute] A",
+        "[input] [Cond:Used] [No.] F -> step B [of] Susie [Execute] A",
         "[input] [compute] [Cond:Used] step F @ B + 1 -> B1",
-        "[output] [repo] [SSET] No. F [Cond] -> step B1 of Susie [Execute] A"
+        "[output] [repo] [SSET] [No.] F [Cond] -> step B1 [of] Susie [Execute] A"
       ]
     }
   ]

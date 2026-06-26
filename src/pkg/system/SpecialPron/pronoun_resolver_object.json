@@ -1,0 +1,17 @@
+{
+  "dependencies": [
+    "object_set/clause",
+    "object_set/adj_pro_noun_phrase",
+    "object_set/article",
+    "object_set/pronoun",
+    "../../Grammar/object/repo"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve:Sentence:Object] A @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [Pronoun]"
+      ]
+    }
+  ]
+}

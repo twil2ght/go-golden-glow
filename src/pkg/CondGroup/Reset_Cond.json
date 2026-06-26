@@ -10,23 +10,23 @@
       "description": "Reset [Cond]:main",
       "commands": [
         "[input] [Cond:Reset] @Caller C",
-        "[output] [repo] [GET] No. 1 [Cond] @Caller C [Cond:Reset] No. 0",
+        "[output] [repo] [GET] [No.] 1 [Cond] @Caller C [Cond:Reset] [No.] 0",
 
-        "[input] [repo] C [Cond:Reset] No. F @ No. F1 [Cond] -> A",
-        "[output] [repo] [DEL] No. F1 [Cond]",
+        "[input] [repo] C [Cond:Reset] [No.] F @ [No.] F1 [Cond] -> A",
+        "[output] [repo] [DEL] [No.] F1 [Cond]",
 
         "[input] [Cond:Reset] @Caller C",
-        "[input] [repo] [DEL] No. F [Cond]",
-        "[output] [compute] [GET] F + 1 @Caller C [Cond:Reset] No. F",
+        "[input] [repo] [DEL] [No.] F [Cond]",
+        "[output] [compute] [GET] F + 1 @Caller C [Cond:Reset] [No.] F",
 
-        "[input] [compute] C [Cond:Reset] No. F @ F + 1 -> F1",
-        "[output] [repo] [GET] No. F1 [Cond] @Caller [Cond:Reset] No. F"
+        "[input] [compute] C [Cond:Reset] [No.] F @ F + 1 -> F1",
+        "[output] [repo] [GET] [No.] F1 [Cond] @Caller [Cond:Reset] [No.] F"
       ]
     },
     {
       "description": "shutdown",
       "commands": [
-        "[input] [repo] C [Cond:Reset] No. F @ No. F1 [Cond] ->",
+        "[input] [repo] C [Cond:Reset] [No.] F @ [No.] F1 [Cond] ->",
         "[output] [Cond:Reset:Done] @Caller C"
       ]
     }

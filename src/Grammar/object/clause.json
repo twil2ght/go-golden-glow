@@ -4,29 +4,24 @@
   "args": [
     "$what"
   ],
-  "API": "[Grammar:Verify:Clause] B @Caller C",
-  "template_API": "[template:Run] object:clause @Args A @Caller C",
-  "callback": [
-    "[output] [Grammar:Verify:Clause] C @ B $clause -> yes",
-    "[output] [Grammar:Clause] C @ B $clause -> $clause"
-  ],
   "data": [
     {
       "description": "",
       "commands": [
-        "[input] [Grammar:Verify:Clause] $what B @Caller C",
+        "[input] [Grammar:Verify:Object] $what B @Caller C",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [clause] $what @ B -> E",
         "[input] [Grammar:VerbPhrase:Type] C [clause] $what [Subject] A @ E -> V",
-        "[output] [Grammar:Verify:Clause] C @ $what B -> yes",
-        "[output] [Grammar:Clause:Type] C @ $what B -> Wh+S+V",
-        "[output] [Grammar:Clause:Wh+S+V:Wh] C @ $what B -> $what",
-        "[output] [Grammar:Clause:Wh+S+V:Subject] C @ $what B -> A",
-        "[output] [Grammar:Clause:Wh+S+V:Verb] C @ $what B -> E"
+        "[output] [Grammar:Verify:Object] C @ $what B -> yes",
+        "[output] [Grammar:Object:Type] C @ $what B -> Wh+S+V",
+        "[output] [Grammar:Object:Wh+S+V:Wh] C @ $what B -> $what",
+        "[output] [Grammar:Object:Wh+S+V:Subject] C @ $what B -> A",
+        "[output] [Grammar:Object:Wh+S+V:Verb] C @ $what B -> E"
       ]
     },
     {
       "commands": [
-
+        "[input] [Grammar:Verify:Object] $what B @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] B @Caller C [clause] $what"
       ]
     }
   ]

@@ -1,0 +1,27 @@
+{
+  "name": "P:adj_doing",
+  "is_template": true,
+  "args": [
+    "$gerund"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B $gerund E @Caller C",
+        "[input] [Grammar:Verify:AdjectivePhrase] C [P] $gerund @ B -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] C [P] @ $gerund E -> yes",
+        "[output] [Grammar:Verify:P] C @ B $gerund E -> yes",
+        "[output] [Grammar:P:Type] C @ B $gerund E -> adj_doing",
+        "[output] [Grammar:P:Doing] C @ B $gerund E -> $gerund E",
+        "[output] [Grammar:P:AdjectivePhrase] C @ B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B $gerund E @Caller C",
+        "[output] [Grammar:Verify:AdjectivePhrase] B @Caller C [P] $gerund",
+        "[output] [Grammar:Verify:VerbPhrase] $gerund E @Caller C [P]"
+      ]
+    }
+  ]
+}

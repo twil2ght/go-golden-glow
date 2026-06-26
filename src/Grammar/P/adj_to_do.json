@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B to E @Caller C",
+        "[input] [Grammar:Verify:AdjectivePhrase] C [P] @ B -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] C [P] @ E -> yes",
+        "[output] [Grammar:Verify:P] C @ B to E -> yes",
+        "[output] [Grammar:P:Type] C @ B to E -> adj_to_do",
+        "[output] [Grammar:P:AdjectivePhrase] C @ B to E -> B",
+        "[output] [Grammar:P:TODO] C @ B to E -> to E"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:P] B @Caller C",
+        "[output] [Grammar:Verify:AdjectivePhrase] B @Caller C [P]",
+        "[output] [Grammar:Verify:VerbPhrase] E @Caller C [P]"
+      ]
+    }
+  ]
+}

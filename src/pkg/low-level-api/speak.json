@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "description": "speak:parse variables($Susie)",
+      "commands": [
+        "[input] Susie [Execute] say to A : B"
+      ]
+    },
+    {
+      "description": "speak:parse variables($Susie)",
+      "commands": [
+        "[input] Susie [Execute] say : A",
+        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller [Susie says] A",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [Susie says] A",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [Susie says] A",
+
+        "[input] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] [Susie says] A @ A -> B",
+        "[output] Susie [SayTruly] : B",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [Susie says] A @ A -> B",
+        "[output] Susie [SayTruly] : B",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [Susie says] A @ A -> B",
+        "[output] Susie [SayTruly] : B"
+      ]
+    }
+  ]
+}

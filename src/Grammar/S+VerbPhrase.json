@@ -2,30 +2,40 @@
   "name": "S+VerbPhrase",
   "is_template": true,
   "args": [
-    "$subject"
+    "$verb"
   ],
-  "API":"[Grammar:Verify:S+VerbPhrase] B @Caller C",
-  "template_API": "[template:Run] S+VerbPhrase @Args A @Caller C",
-  "callback": [
-    "[Grammar:Verify:S+VerbPhrase] C @ $subject B -> yes",
-    "[Grammar:S+VerbPhrase:VerbPhrase] C @ $subject B -> B",
-    "[Grammar:S+VerbPhrase:Subject] C @ $subject B -> $subject"
-  ],
-  "Caller": "C [Subject] $subject",
   "data": [
     {
       "commands": [
-        "[input] [Grammar:Verify:S+VerbPhrase] $subject B @Caller C",
-        "[input] [Grammar:Verify:VerbPhrase] C [Subject] $subject @ B -> yes",
-        "[output] [Grammar:Verify:S+VerbPhrase] C @ $subject B -> yes",
-        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ $subject B -> B",
-        "[output] [Grammar:S+VerbPhrase:Subject] C @ $subject B -> $subject"
+        "[input] [Grammar:Verify:S+VerbPhrase] A $verb B @Caller C",
+        "[input] [Grammar:Verify:Object] C [Subject] $verb @ A -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] C [Subject] A @ $verb B -> yes",
+        "[output] [Grammar:Verify:S+VerbPhrase] C @ A $verb B -> yes",
+        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ A $verb B -> $verb B",
+        "[output] [Grammar:S+VerbPhrase:Subject] C @ A $verb B -> A"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:Verify:S+VerbPhrase] $subject B @Caller C",
-        "[output] [Grammar:Verify:VerbPhrase] B @Caller C [Subject] $subject"
+        "[input] [Grammar:Verify:S+VerbPhrase] A $verb B @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [Subject] $verb",
+        "[output] [Grammar:Verify:VerbPhrase] $verb B @Caller C [Subject] A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:S+VerbPhrase] A $verb @Caller C",
+        "[input] [Grammar:Verify:Object] C [Subject] $verb @ A -> yes",
+        "[output] [Grammar:Verify:S+VerbPhrase] C @ A $verb -> yes",
+        "[output] [Grammar:VerbPhrase:Type] C [Subject] A @ $verb -> V",
+        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ A $verb -> $verb",
+        "[output] [Grammar:S+VerbPhrase:Subject] C @ A $verb -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:S+VerbPhrase] A $verb @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [Subject] $verb"
       ]
     }
   ]

@@ -1,0 +1,31 @@
+{
+  "dependencies": [
+    "pronoun_resolver_VP"
+  ],
+  "API": [
+    "[Pronoun:Resolve] A @Caller C",
+    "[Pronoun:ResolveCondition] A @Caller C"
+  ],
+  "callback": [
+    "[Pronoun:Resolved] B @Caller C",
+    "[Pronoun:ConditionResolved] B @Caller C"
+  ],
+  "data": [
+    {
+      "description": "two cases: subject is pronoun; subject is not pronoun",
+      "commands": [
+        "[input] [SPronoun:Resolve:Sentence:S+VerbPhrase] A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [SPronoun]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] C [SPronoun] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [SPronoun] @ A -> E",
+        "[output] [SPronoun:Resolve:Sentence:Object] B @Caller C [SPronoun] [S+VerbPhrase] A",
+        "[output] [SPronoun:Resolve:Sentence:VerbPhrase] E @Caller C [SPronoun] [S+VerbPhrase] A [Subject] B",
+
+        "[input] [SPronoun:Resolve:Sentence:VerbPhrase] C [SPronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
+        "[input] [SPronoun:Resolve:Sentence:Object] C [SPronoun] [S+VerbPhrase] A @ B -> B1",
+        "[output] [SPronoun:Resolve:Sentence:S+VerbPhrase] C @ A -> B1 E1"
+      ]
+    }
+  ]
+}

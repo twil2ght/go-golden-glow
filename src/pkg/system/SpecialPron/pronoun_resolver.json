@@ -1,0 +1,36 @@
+{
+  "API": [
+    "[Pronoun:Resolve] A @Caller C",
+    "[Pronoun:ResolveCondition] A @Caller C"
+  ],
+  "callback": [
+    "[Pronoun:Resolved] B @Caller C",
+    "[Pronoun:ConditionResolved] B @Caller C"
+  ],
+  "data": [
+    {
+      "description": "cache filler: when C speaks to Susie, save base pronoun → entity mappings in repo",
+      "commands:todo": [
+        "[input] C says to D : A",
+        "[output] [repo] [SSET] [Pronoun:Cache] you -> D",
+        "[output] [repo] [SSET] [Pronoun:Cache] your -> D",
+        "[output] [repo] [SSET] [Pronoun:Cache] I -> C",
+        "[output] [repo] [SSET] [Pronoun:Cache] my -> C",
+        "[output] [repo] [SSET] [Pronoun:Cache] me -> C"
+      ]
+    },
+    {
+      "description": "word resolver: look up pronoun A in caller C's context, return B if cached, else return A as fallback",
+      "commands": [
+        "[input] [Pronoun:Resolve] A @Caller C",
+        "[output] [repo] [GET] [Pronoun:Cache] A @Caller C",
+
+        "[input] [repo] C @ [Pronoun:Cache] A -> B",
+        "[output] [Pronoun:Resolve] C @ A -> B",
+
+        "[input] [repo] C @ [Pronoun:Cache] A ->",
+        "[output] [Pronoun:Resolve] C @ A ->"
+      ]
+    }
+  ]
+}

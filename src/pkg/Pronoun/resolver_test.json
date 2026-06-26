@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "!commands": [
+        "if a person asks what your name is",
+        "[template:Run] Conj+S+VerbPhrase @Args if @Caller test",
+        "[template:Run] S+VerbPhrase @Args asks @Caller test",
+        "[template:Run] S+VerbPhrase @Args is @Caller test",
+        "[template:Run] V+O @Args asks @Caller test",
+        "[template:Run] object:clause @Args what @Caller test",
+        "[template:Run] object:adj_pro @Args your @Caller test",
+        "[template:Run] object:article @Args a @Caller test",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] name -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] person -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Verb] is -> yes",
+        "[repo] [SSET] [Pronoun:Cache] your -> dev 's",
+        "[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] if a person asks what your name is @Caller test"
+      ]
+    },
+    {
+      "commands": [
+        "tell them your name",
+        "adv+V+IO+DO",
+        "[template:Run] V+IO+DO @Args tell @Caller test",
+        "[template:Run] object:adj_pro @Args your @Caller test",
+        "[template:Run] IO+DO @Args your @Caller test",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] name -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Pronoun] them -> yes",
+        "[repo] [SSET] [Pronoun:Cache] your -> Susie 's",
+        "[repo] [SSET] [Pronoun:Cache] them -> a person",
+        "[Pronoun:Resolve:Sentence:VerbPhrase] tell them your name @Caller test"
+      ]
+    }
+  ]
+}

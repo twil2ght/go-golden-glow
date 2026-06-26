@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "description": "object that cached in [repo]",
+      "commands": [
+        "[input] [Grammar:Verify:Object] B @Caller C",
+        "[input] [repo] C @ [Grammar:Object] B -> yes",
+        "[output] [Grammar:Verify:Object] C @ B -> yes",
+
+        "[input] [Grammar:Verify:Object] B @Caller C",
+        "[output] [repo] [GET] [Grammar:Object] B @Caller C"
+      ]
+    },
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:Object] B @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Noun] B @Caller C [Verify:Object]",
+
+        "[input] [repo] C [Verify:Object] @ [Grammar:Property:Word:Noun] B -> yes",
+        "[output] [Grammar:Verify:Object] C @ B -> yes",
+        "[output] [Grammar:Object:Type] C @ B -> NounPhrase",
+        "[output] [Grammar:Object:NounOnly] C @ B -> B"
+      ]
+    },
+    {
+      "description": "pronoun only",
+      "commands": [
+        "[input] [Grammar:Verify:Object] B @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Pronoun] B @Caller C [Verify:Object]",
+
+        "[input] [repo] C [Verify:Object] @ [Grammar:Property:Word:Pronoun] B -> yes",
+        "[output] [Grammar:Verify:Object] C @ B -> yes",
+        "[output] [Grammar:Object:Type] C @ B -> Pronoun",
+        "[output] [Grammar:Object:Pronoun] C @ B -> B"
+      ]
+    }
+  ]
+}
