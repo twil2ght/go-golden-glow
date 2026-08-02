@@ -1,7 +1,16 @@
 {
   "dependencies": [
     "pkg/system/SpecialPron/util",
-    "pkg/system/Key_value_usage"
+    "pkg/system/Key_value_usage",
+    "pkg/CondGroup/Reset",
+    "pkg/CondGroup/Reset_Cond",
+    "pkg/low-level-api/repo",
+    "pkg/low-level-api/speak",
+    "pkg/Executor/Executor_Iterator_Queued",
+    "pkg/Runner/runner",
+    "pkg/Cond/reset",
+    "pkg/Pronoun/pronoun_cacher",
+    "/Grammar/Say_exclusive"
   ],
   "data": []
 }

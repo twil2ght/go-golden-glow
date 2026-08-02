@@ -18,6 +18,20 @@
         "[output] [System:Verify:Key] A @Caller C",
         "[output] [System:Verify:Value] B @Caller C"
       ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C @ [No.] D [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Variety] [Cond]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Variety] [Cond] @ A -> a B",
+        "[output] [repo] [GET] [Variety] B @Caller C [Variety] [Cond]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Variety] [Cond] @ A -> a B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Variety] [Cond] @ A -> E",
+        "[input] [repo] C [Variety] [Cond] @ [Variety] B -> yes",
+        "[output] [template:Run] variable_toolkit_2 @Args B , E @Caller C"
+      ]
     }
   ]
 }

@@ -2,6 +2,7 @@ package messageQueue
 
 import (
 	"context"
+	"fmt"
 	"goldenglow/pkg/registry"
 )
 
@@ -34,6 +35,7 @@ func (m *manager) Start(msgQueue Interface, ctx context.Context) {
 					if m.onMsg != nil {
 						m.onMsg(msg)
 					}
+					fmt.Printf("MsgQueue: from %s -> msg: %s\n", key, msg)
 					msgQueue.Add(msg)
 				}
 			}

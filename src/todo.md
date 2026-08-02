@@ -85,3 +85,4 @@
 
 - some words can be tricky like (.. of ..),because those words can be used in real sentence,
 how can you distinguish whether it is keyword or a normal word?
+- cond会在count归零时自动执行，但是executor的cond归零时只是加入TODO并不执行，也就是说两者冲突，应该让cond本身的机制在executor上失效

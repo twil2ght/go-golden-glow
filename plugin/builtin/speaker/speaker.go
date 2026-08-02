@@ -53,11 +53,20 @@ func (m *speaker) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler
 func (m *speaker) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	provider.Add("speak", datagen.NewData(
-		[]string{"[speak] $1 -> $2"},
+		[]string{"[Speak] $1 -> $2"},
 		[]string{},
 		map[string]string{
 			KeyMsg: "$1",
 			KeyTo:  "$2",
+		},
+		datagen.AsExecutor,
+	))
+	provider.Add("speakWithoutTarget", datagen.NewData(
+		[]string{"[Speak] $1"},
+		[]string{},
+		map[string]string{
+			KeyMsg: "$1",
+			KeyTo:  "",
 		},
 		datagen.AsExecutor,
 	))

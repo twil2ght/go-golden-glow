@@ -1,6 +1,7 @@
 {
   "dependencies": [
-    "object/repo"
+    "object/repo",
+    "object/belonging_s"
   ],
   "data": [
     {

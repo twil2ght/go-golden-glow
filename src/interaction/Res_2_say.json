@@ -1,13 +1,11 @@
 {
-
-  "description": "set methods(by imperative sentence)",
   "data": [
     {
       "description": "actually,you can be told to say anything even it is crazy and against the grammar",
       "commands": [
         "[input] C says to Susie : say : A",
         "[input] [TeachMode] [say] @ Teacher C -> yes",
-        "[output] [Res] Susie [Execute] say : A"
+        "[output] [Res] [Executor] Susie [Execute] say : A"
       ]
     },
     {

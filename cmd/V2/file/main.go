@@ -25,14 +25,18 @@ var (
 
 func main() {
 	Run(
-		//"src/Global.json",
-		//"src/interaction/Cond.json",
-		//"src/interaction/Cond_2_if.json",
-		//"src/interaction/Res.json",
-		//"src/interaction/Res_2_say.json",
-		//
-		"src/test/3_to_tell_name.json",
+	//"src/Global.json",
+	//"src/interaction/Cond.json",
+	//"src/interaction/Cond_2_if.json",
+	//"src/interaction/Res.json",
+	//"src/interaction/Res_2_say.json",
+	//"src/test/3_to_tell_name.json",
+	//"src/test/6_person_wants_your_name.json",
+	//"src/test/4_to_check_what.json",
 	)
+	//RunWithMsgMgr(
+	//	"src/test/5_test_TODO",
+	//)
 }
 func Run(dataDir ...string) {
 	go consumer.Run(ctx)
@@ -64,7 +68,7 @@ func RunWithMsgMgr(dataDir ...string) {
 			file.Run(dir)
 		}
 	}()
-	time.Sleep(1 * time.Second)
+	time.Sleep(2 * time.Second)
 	cancel()
 	_ = database.DefaultJSONRepo().Shutdown()
 	_ = database.DefaultRedisRepo().Shutdown()

@@ -1,0 +1,15 @@
+{
+  "description": "set methods(by imperative sentence)",
+  "data": [
+    {
+      "commands": [
+        "YOU HAVE TO CHECK IF THERE IS SOME `[COND]` BEFORE USING THIS PATTERN",
+
+        "[input] C says to Susie : A",
+        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [say] @ A -> B",
+        "[output] [Res] B"
+      ]
+    }
+  ]
+}

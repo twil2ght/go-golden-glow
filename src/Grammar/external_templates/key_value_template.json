@@ -8,31 +8,18 @@
   "data": [
     {
       "commands": [
-        "[input] [Common] $keyOfKey is A ",
+        "[input] [Common] $keyOfKey is A @Caller C",
         "[input] [System:Verify:Value] C $keyOfKey is A @ A -> yes",
-        "[output] [Common] $keyOfKey is $keyOfValue",
+        "[input] [compute] C $keyOfKey is A @ A != $keyOfValue -> yes",
+        "[output] [Print] [System] $keyOfKey is $keyOfValue @Caller C",
+        "[output] [Common] $keyOfKey is $keyOfValue @Caller C",
         "[output] [repo] [SSET] [Pronoun:Cache] $keyOfValue -> A"
       ]
     },
     {
       "commands": [
-        "[input] [Common] $keyOfKey is A",
-        "[output] [System:Verify:Value] A @Caller C $keyOfKey is A"
-      ]
-    }
-  ],
-  "TODO": [
-    {
-      "commands:todo": [
-        "[input] [Common] C @ $keyOfKey is A ",
-        "[input] [System:Verify:Value] C $keyOfKey is A @ A -> yes",
-        "[output] [Common] C @ $keyOfKey is $keyOfValue",
-        "[output] [repo] [SSET] [Pronoun:Cache] $keyOfValue -> A"
-      ]
-    },
-    {
-      "commands:todo": [
-        "[input] [Common] C @ $keyOfKey is A",
+        "[input] [Common] $keyOfKey is A @Caller C",
+        "[output] [compute] [CHECK] A != $keyOfValue @Caller C $keyOfKey is A",
         "[output] [System:Verify:Value] A @Caller C $keyOfKey is A"
       ]
     }

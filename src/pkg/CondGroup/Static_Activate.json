@@ -4,9 +4,26 @@
   "data": [
     {
       "description": "CondGroup Activated",
-      "commands": [
+      "commands:Dead": [
         "[input] [repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> 0",
+        "[output] [Print] We Use Static Activation For D @Caller C",
         "[output] D @Caller C"
+      ]
+    },
+    {
+      "description": "CondGroup Activated",
+      "commands": [
+        "[input] [repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> A",
+        "[input] [Compute] C [Activate] @ A = 0 -> yes",
+        "[output] [Print] We Use Static Activation For D @Caller C",
+        "[output] D @Caller C"
+      ]
+    },
+    {
+      "description": "CondGroup Activated",
+      "commands": [
+        "[input] [repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> A",
+        "[output] [Compute] [CHECK] A = 0 @Caller C [Activate]"
       ]
     }
   ]

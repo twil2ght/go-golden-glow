@@ -3,13 +3,13 @@
     "../SafeCalculate/Minus_1"
   ],
   "API": [
-    "[CondGroup:Done] [No.] {B} [of] {D} [BY] A @Caller {C}",
-    "[CondGroup:Undone] [No.] {B} [of] {D} [BY] A @Caller {C}",
-    "[CondGroup:DoneAuto] {D} [BY] A @Caller {C}",
-    "[CondGroup:UndoneAuto] {D} [BY] A @Caller {C}"
+    "[CondGroup:Done] [No.] {B} [of] {D} @@ A @Caller {C}",
+    "[CondGroup:Undone] [No.] {B} [of] {D} @@ A @Caller {C}",
+    "[CondGroup:DoneAuto] {D} @@ A @Caller {C}",
+    "[CondGroup:UndoneAuto] {D} @@ A @Caller {C}"
   ],
   "callback": [
-    "[CondGroup:MarkDone:NewCount] C @ [No.] B [of] D [BY] A -> F"
+    "[CondGroup:MarkDone:NewCount] C @ [No.] B [of] D @@ A -> F"
   ],
   "args": {
     "B": "the index [of] the groups [of] D",
@@ -20,88 +20,81 @@
     {
       "description": "Callback",
       "commands": [
-        "[input] [repo] C [BY] A @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> F",
-        "[output] [CondGroup:MarkDone:NewCount] C @ [No.] B [of] D [BY] A"
+        "[input] [repo] C @@ A @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> F",
+        "[output] [CondGroup:MarkDone:NewCount] C @ [No.] B [of] D @@ A -> F"
       ]
     },
     {
       "description": "Mark CondGroup as Done",
       "commands": [
-        "[input] [CondGroup:Done] [No.] B [of] D [BY] A @Caller C",
-        "[input] [repo] [CondGroup:DoneState] [of] A for [No.] B [of] D -> no",
-        "[output] [safe--] [Count] [of] [No.] B [CondGroup] [of] D @Caller C [BY] A",
+        "[input] [CondGroup:Done] [No.] B [of] D @@ A @Caller C",
+        "[input] [repo] C @ [CondGroup:DoneState] [of] A for [No.] B [of] D ->",
+        "[output] [safe--] [Count] [of] [No.] B [CondGroup] [of] D @Caller C @@ A",
         "[output] [repo] [SSET] [CondGroup:DoneState] [of] A for [No.] B [of] D -> yes"
       ],
       "tip": "you haven't initialize the condGroup count,so you can't use [safe--]"
     },
     {
       "commands": [
-        "[input] [repo] C [BY] A @ [Count] [of] [No.] B [CondGroup] [of] D ->",
-        "[output] [repo] [GET] [CondGroup:ElementCount] [No.] B [of] D @Caller C [BY] A",
+        "[input] [repo] C @@ A @ [Count] [of] [No.] B [CondGroup] [of] D ->",
+        "[output] [repo] [GET] [CondGroup:ElementCount] [No.] B [of] D @Caller C @@ A",
 
-        "[input] [repo] C [BY] A @ [Count] [of] [No.] B [CondGroup] [of] D ->",
-        "[input] [repo] C [BY] A @ [CondGroup:ElementCount] [No.] B [of] D -> F",
-        "[output] [repo] C [BY] A @ [Count] [of] [No.] B [CondGroup] [of] D -> F"
+        "[input] [repo] C @@ A @ [Count] [of] [No.] B [CondGroup] [of] D ->",
+        "[input] [repo] C @@ A @ [CondGroup:ElementCount] [No.] B [of] D -> F",
+        "[output] [repo] C @@ A @ [Count] [of] [No.] B [CondGroup] [of] D -> F"
       ]
     },
     {
       "description": "Check if CondGroup is Done",
       "commands": [
-        "[input] [CondGroup:Done] [No.] B [of] D [BY] A @Caller C",
-        "[output] [repo] [GET] [CondGroup:DoneState] [of] A for [No.] B [of] D"
-      ]
-    },
-    {
-      "description": "route:null->no",
-      "commands":[
-        "[input] [repo] [CondGroup:DoneState] [of] A for [No.] B [of] D ->",
-        "[output] [repo] [CondGroup:DoneState] [of] A for [No.] B [of] D -> no"
+        "[input] [CondGroup:Done] [No.] B [of] D @@ A @Caller C",
+        "[output] [repo] [GET] [CondGroup:DoneState] [of] A for [No.] B [of] D @Caller C"
       ]
     },
     {
       "description": "Mark CondGroup as Done Automatically",
       "commands": [
-        "[input] [CondGroup:DoneAuto] D [BY] A @Caller C",
-        "[input] [repo] [CondGroup:Index] D [of] A -> B | F",
-        "[output] [CondGroup:Done] [No.] B [of] D [BY] A @Caller C"
+        "[input] [CondGroup:DoneAuto] D @@ A @Caller C",
+        "[input] [repo] C @ [CondGroup:Index] D [of] A -> B | F",
+        "[output] [CondGroup:Done] [No.] B [of] D @@ A @Caller C"
       ]
     },
     {
       "description": "Get CondGroup Done Index",
       "commands": [
-        "[input] [CondGroup:DoneAuto] D [BY] A @Caller C",
-        "[output] [repo] [GET] [CondGroup:Index] D [of] A"
+        "[input] [CondGroup:DoneAuto] D @@ A @Caller C",
+        "[output] [repo] [GET] [CondGroup:Index] D [of] A @Caller C"
       ]
     },
     {
       "description": "Mark CondGroup as Undone Automatically",
       "commands": [
-        "[input] [CondGroup:UndoneAuto] D [BY] A @Caller C",
-        "[input] [repo] [CondGroup:Index] D [of] A -> B | F",
-        "[output] [CondGroup:Undone] [No.] B [of] D [BY] A @Caller C"
+        "[input] [CondGroup:UndoneAuto] D @@ A @Caller C",
+        "[input] [repo] C @ [CondGroup:Index] D [of] A -> B | F",
+        "[output] [CondGroup:Undone] [No.] B [of] D @@ A @Caller C"
       ]
     },
     {
       "description": "Get CondGroup Index",
       "commands": [
-        "[input] [CondGroup:UndoneAuto] D [BY] A @Caller C",
-        "[output] [repo] [GET] [CondGroup:Index] D [of] A"
+        "[input] [CondGroup:UndoneAuto] D @@ A @Caller C",
+        "[output] [repo] [GET] [CondGroup:Index] D [of] A @Caller C"
       ]
     },
     {
       "description": "Undo CondGroup",
       "commands": [
-        "[input] [CondGroup:Undone] [No.] B [of] D [BY] A @Caller C",
-        "[input] [repo] [CondGroup:DoneState] [of] A for [No.] B [of] D -> yes",
-        "[output] [safe++] [Count] [of] [No.] B [CondGroup] [of] D @Caller C [BY] A",
+        "[input] [CondGroup:Undone] [No.] B [of] D @@ A @Caller C",
+        "[input] [repo] C @ [CondGroup:DoneState] [of] A for [No.] B [of] D -> yes",
+        "[output] [safe++] [Count] [of] [No.] B [CondGroup] [of] D @Caller C @@ A",
         "[output] [repo] [DEL] [CondGroup:DoneState] [of] C for [No.] B [of] D"
       ]
     },
     {
       "description": "Check if CondGroup is done",
       "commands": [
-        "[input] [CondGroup:Undone] [No.] B [of] D [BY] A @Caller C",
-        "[output] [repo] [GET] [CondGroup:DoneState] [of] A for [No.] B [of] D"
+        "[input] [CondGroup:Undone] [No.] B [of] D @@ A @Caller C",
+        "[output] [repo] [GET] [CondGroup:DoneState] [of] A for [No.] B [of] D @Caller C"
       ]
     }
   ]

@@ -21,7 +21,7 @@
         "[input] [CondGroup:Count] [Res] @ D -> B",
         "[output] [Cond:Used] [No.] F1 -> A",
         "[output] [CondGroup:ElementCount++] [No.] B [of] D @Caller [No.] F1 [Cond]",
-        "[output] [repo] [SET] [Then] A -> [CondGroup:Done] [No.] B [of] D @Caller A",
+        "[output] [repo] [SET] [Then] A -> [CondGroup:Done] [No.] B [of] D @@ A @Caller NOTHING",
 
         "[input] [repo] [No.] F @ [No.] F1 [Cond] -> A",
         "[input] [CondGroup:ElementCount] [No.] F1 [Cond] @ [No.] B [of] D -> B1",

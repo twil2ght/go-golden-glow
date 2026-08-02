@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Executor] Susie [Execute] check what A is @Caller C",
+        "[input] [repo] C @ A -> B",
+        "[output] [TODO:Add] [Execute:Done] C @ [Executor] Susie [Execute] check A -> yes",
+        "[output] [Common] A is B @Caller C check",
+
+        "[input] [Executor] Susie [Execute] check what A is @Caller C",
+        "[input] [repo] C @ A ->",
+        "[output] [TODO:Add] [Execute:Done] C @ [Executor] Susie [Execute] check A -> yes",
+        "[output] [Common] A is [Unknown] @Caller C check"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Executor] Susie [Execute] check what A is @Caller C",
+        "[output] [repo] [GET] A @Caller C"
+      ]
+    }
+  ]
+}

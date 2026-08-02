@@ -3,23 +3,23 @@
     {
       "description": "speak:parse variables($Susie)",
       "commands": [
-        "[input] Susie [Execute] say to A : B"
-      ]
-    },
-    {
-      "description": "speak:parse variables($Susie)",
-      "commands": [
-        "[input] Susie [Execute] say : A",
-        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller [Susie says] A",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [Susie says] A",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [Susie says] A",
+        "[input] [Executor] Susie [Execute] say : A @Caller C",
+        "[output] [repo] [SSET] [Pronoun:Cache] my -> my",
+        "[output] [repo] [SSET] [Pronoun:Cache] mine -> mine",
+        "[output] [repo] [SSET] [Pronoun:Cache] I -> I",
+        "[output] [repo] [SSET] [Pronoun:Cache] me -> me",
+        "[output] [repo] [SSET] [Pronoun:Cache] you -> you",
+        "[output] [repo] [SSET] [Pronoun:Cache] your -> your",
+        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C [Susie says]",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller C [Susie says]",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller C [Susie says]",
 
-        "[input] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] [Susie says] A @ A -> B",
-        "[output] Susie [SayTruly] : B",
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [Susie says] A @ A -> B",
-        "[output] Susie [SayTruly] : B",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [Susie says] A @ A -> B",
-        "[output] Susie [SayTruly] : B"
+        "[input] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C [Susie says] @ A -> B",
+        "[output] [Speak] B",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C [Susie says] @ A -> B",
+        "[output] [Speak] B",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Susie says] @ A -> B",
+        "[output] [Speak] B"
       ]
     }
   ]

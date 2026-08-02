@@ -1,0 +1,10 @@
+{
+  "data":[
+    {
+      "commamds":[
+        "[input] [3rd-Singular:Check] a A @Caller C",
+        "[output] [3rd-Singular:Check] C @ a A -> yes"
+      ]
+    }
+  ]
+}

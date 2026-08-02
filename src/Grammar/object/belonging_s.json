@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A 's B @Caller C",
+        "[input] [Grammar:Verify:Object] C [Owner] @ A -> yes",
+        "[input] [Grammar:Verify:Object] C [Item] @ B -> yes",
+        "[output] [Grammar:Verify:Object] C @ A 's B -> yes",
+        "[output] [Grammar:Object:Type] C @ A 's B -> NounPhrase",
+        "[output] [Grammar:Object:NounPhrase:Adjective] C @ A 's B -> A 's",
+        "[output] [Grammar:Object:NounPhrase:Noun] C @ A 's B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A 's B @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [Owner]",
+        "[output] [Grammar:Verify:Object] B @Caller C [Item]"
+      ]
+    }
+  ]
+}

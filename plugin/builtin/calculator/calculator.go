@@ -54,6 +54,12 @@ func (c *calculator) OnRegisterChecker(reg handler.Executor[handler.CheckHandler
 			return false
 		}
 
+		switch operator {
+		case "=", "==", "eq":
+			return left == right
+		case "!=", "ne":
+			return left != right
+		}
 		leftVal, err := strconv.ParseFloat(left, 64)
 		if err != nil {
 			return false
@@ -73,10 +79,6 @@ func (c *calculator) OnRegisterChecker(reg handler.Executor[handler.CheckHandler
 			return leftVal <= rightVal
 		case ">=", "ge":
 			return leftVal >= rightVal
-		case "=", "==", "eq":
-			return leftVal == rightVal
-		case "!=", "ne":
-			return leftVal != rightVal
 		default:
 			return false
 		}
@@ -272,11 +274,22 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 	))
 	provider.Add("compare_eq", datagen.NewData(
 		[]string{"[compute] [CHECK] $1 = $2 @Caller $4"},
-		[]string{"[compute] $4 @ $1 = $2"},
+		[]string{"[compute] $4 @ $1 = $2 -> yes"},
 		map[string]string{
 			keyLeft:     "$1",
 			keyRight:    "$2",
 			keyOperator: "=",
+			keyCaller:   "$4",
+		},
+		datagen.AsChecker,
+	))
+	provider.Add("compare_neq", datagen.NewData(
+		[]string{"[compute] [CHECK] $1 != $2 @Caller $4"},
+		[]string{"[compute] $4 @ $1 != $2 -> yes"},
+		map[string]string{
+			keyLeft:     "$1",
+			keyRight:    "$2",
+			keyOperator: "!=",
 			keyCaller:   "$4",
 		},
 		datagen.AsChecker,

@@ -10,7 +10,7 @@
     {
       "commands": [
         "[input] [System:Verify:Value] A @Caller C",
-        "[output] [repo] [GET] [System:Value] A @ C"
+        "[output] [repo] [GET] [System:Value] A @Caller C"
       ]
     }
   ]

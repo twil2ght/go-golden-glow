@@ -1,8 +1,11 @@
 {
   "data": [
     {
-      "commands": [
+      "commands!": [
         "[Cond:Add] someone enters Susie 's chat room @Caller test"
+      ],
+      "commands": [
+        "[Cond:Reset] @Caller test"
       ]
     }
   ]

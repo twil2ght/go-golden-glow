@@ -22,6 +22,8 @@
         "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun] [S+VerbPhrase] A",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] [S+VerbPhrase] A [Subject] B",
 
+
+        "IF SUBJECT CHANGED TO THIRD_SINGULAR,THEN SO WOULD THE VERB",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ A -> B1 E1"

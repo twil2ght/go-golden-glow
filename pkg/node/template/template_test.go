@@ -147,6 +147,15 @@ func TestCore_Get(t *testing.T) {
 			wantCount:   1,
 		},
 		{
+			name: "Tsett",
+			templates: m.Hash{
+				"[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -> $1": struct{}{},
+			},
+			targetValue: "[repo] $3 @@ $1 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -> $6",
+			wantErr:     false,
+			wantCount:   1,
+		},
+		{
 			name: "real data test v2",
 			templates: m.Hash{
 				"$1 is greater than 18": struct{}{},

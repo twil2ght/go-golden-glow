@@ -12,23 +12,23 @@
       "commands": [
         "[input] C says to Susie : A",
         "[input] [TeachMode] [say] @ Teacher C -> yes",
-        "[input] [Grammar:Verify:VerbPhrase] [say] @ A -> yes",
-        "[output] [Res] Susie [Execute] A"
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [say] @ A -> B",
+        "[output] [Res] [Executor] Susie [Execute] B"
       ]
     },
     {
       "commands": [
         "[input] C says to Susie : A",
-        "[output] [Grammar:Verify:VerbPhrase] A @Caller [say]",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [say]",
         "[output] [TeachMode:Check] Teacher C @Caller [say]"
       ]
     },
     {
       "description": "[Executor] bonus",
       "commands": [
-        "[input] [Res] D [Execute] E",
-        "[input] [repo] [No.] F @ [No.] F1 [Cond] -> step B [of] D [Execute] A",
-        "[output] [repo] [SET] step B [of] D [Execute] A -> E"
+        "[input] [Res] [Executor] D [Execute] E",
+        "[input] [repo] [No.] F @ [No.] F1 [Cond] -> step B [of] [Executor] D [Execute] A",
+        "[output] [repo] [SET] step B [of] [Executor] D [Execute] A -> E"
       ]
     }
   ]

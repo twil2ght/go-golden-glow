@@ -2,19 +2,13 @@
   "data": [
     {
       "commands": [
-        "[input] [Common] A",
-        "[output] [repo] [GET] [Then] A",
+        "[input] [Common] A @Caller C",
+        "[output] [repo] [GET] [Then] A @Caller C",
 
-        "[input] [repo] [Then] A -> B",
+        "[input] [repo] C @ [Then] A -> B",
         "[output] B"
       ],
-      "tip": "only used for common if-then group",
-      "demo": [
-        "if I am here",
-        "then you dead",
-        "[repo] [SET] [Then] I am here -> [cond:done] [Common] you dead"
-      ],
-      "tip2": "add [Common] prefix when created"
+      "tip": "[then]的值(e.g:'B' above)自带[common]和@Caller"
     }
   ]
 }

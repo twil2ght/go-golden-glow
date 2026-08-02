@@ -6,13 +6,16 @@
         "(DONE)dev says to Susie : tell them your name"
       ],
       "commands": [
-        "[input] C says to Susie : A",
-        "[output] [Pronoun:Resolve:Sentence] A @Caller C [say]",
+        "USING A TEMPLATE HERE IS BETTER",
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> a B",
+        "[output] [repo] [GET] [Variety] B @Caller C",
 
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun:Decompose] [Pronoun] [Conj] if @ A -> a person",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun:Decompose] [Pronoun] [Conj] if @ A -> D",
-        "[output] [repo] [SET] [Grammar:Property:pronoun:Candidate] they -> a person",
-        "[output] [repo] [SET] [Grammar:Property:pronoun:Candidate] he -> a person"
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> a B",
+        "[input] [repo] C @ [Variety] B -> yes",
+        "[output] [repo] [SSET] [Pronoun:Cache] they -> a B",
+        "[output] [repo] [SSET] [Pronoun:Cache] them -> a B",
+        "[output] [repo] [SSET] [Grammar:Property:pronoun:Candidate] they -> a B",
+        "[output] [repo] [SSET] [Grammar:Property:pronoun:Candidate] them -> a B"
       ]
     },
     {

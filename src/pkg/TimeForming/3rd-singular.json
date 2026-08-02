@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "description": "Check if 3rd-singular",
+      "commands": [
+        "[input] [3rd-Singular:Check] A @Caller C",
+        "[output] [repo] "
+      ]
+    },
+    {
+      "description": "Get BY origin",
+      "commands": [
+        "[input] [3rd-Singular:GET] A @Caller C",
+        "[output] [repo] [GET] [3rd-Singular] A @Caller C",
+
+        "[input] [repo] C @ [3rd-Singular] A -> B",
+        "[output] [3rd-Singular:GET] C @ A -> B"
+      ]
+    },
+    {
+      "description": "Get BY other formats",
+      "commands": [
+        "[input] [repo] C @ [3rd-Singular] A ->",
+        "[output] [repo] [GET] [Origin] A @Caller C",
+
+        "[input] [repo] C @ [Origin] A -> B",
+        "[output] [3rd-Singular:GET] B @Caller C [Other]",
+
+        "[input] [3rd-Singular:GET] [Other] C @ B -> D",
+        "[output] [3rd-Singular:GET] C @ A -> D"
+      ]
+    }
+  ]
+}

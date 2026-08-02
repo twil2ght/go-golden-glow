@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SSET] [Grammar:Property:Word:Verb] asks -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] person -> yes",
+        "[template:Run] S+VerbPhrase @Args asks @Caller test",
+        "[template:Run] V+O @Args asks @Caller test",
+        "[repo] [SSET] [Grammar:Property:Word:Pronoun] them -> yes",
+        "[repo] [SSET] [Variety] person -> yes",
+        "[repo] [SSET] [Pronoun:Cache] your -> Susie 's",
+        "[Cond:Reset] @Caller test",
+        "dev says to Susie : if a person asks what your name is",
+        "dev says to Susie : tell them your name"
+      ],
+      "candidate": [
+        "[repo] [SSET] [Pronoun:Cache] them -> a person"
+      ],
+      "TODO": "extract pronouns from sentence like: if a person ...(here,`them`->`a person`)"
+    }
+  ]
+}
