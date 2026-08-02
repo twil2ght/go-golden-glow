@@ -1,13 +1,6 @@
 {
   "data": [
     {
-      "description": "Check if 3rd-singular",
-      "commands": [
-        "[input] [3rd-Singular:Check] A @Caller C",
-        "[output] [repo] "
-      ]
-    },
-    {
       "description": "Get BY origin",
       "commands": [
         "[input] [3rd-Singular:GET] A @Caller C",
