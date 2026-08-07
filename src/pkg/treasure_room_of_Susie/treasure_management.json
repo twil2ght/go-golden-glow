@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "description": "GET",
+      "commands": [
+        "[input] [Susie_Owns:GET] A @Caller C",
+        "[output] [repo] [GET] [Susie_Owns] A @Caller C [Susie_Owns:GET]",
+
+        "[input] [repo] C [Susie_Owns:GET] @ [Susie_Owns] A ->",
+        "[output] [Susie_Owns:GET] C @ A ->",
+
+        "[input] [repo] C [Susie_Owns:GET] @ [Susie_Owns] A -> B",
+        "[output] [compute] [CHECK] B != 0 @Caller C [Susie_Owns:GET] A",
+        "[output] [compute] [CHECK] B = 0 @Caller C [Susie_Owns:GET] A",
+
+        "[input] [compute] C [Susie_Owns:GET] A @ B != 0 -> yes",
+        "[output] [Susie_Owns:GET] C @ A -> yes",
+        "[output] [Susie_Owns:GET:Amount] C @ A -> B",
+
+        "[input] [compute] C [Susie_Owns:GET] A @ B = 0 -> yes",
+        "[output] [Susie_Owns:GET] C @ A ->"
+      ]
+    },
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [Susie_Owns:Add] [item] A [Number] B @Caller C",
+        "[output] [repo] [GET] [Susie_Owns] A @Caller C [Susie_Owns:Add] [Number] B",
+
+        "[input] [repo] C [Susie_Owns:Add] [Number] B @ [Susie_Owns] A -> D",
+        "[output] [compute] [GET] B + D @Caller C [Susie_Owns:Add] A",
+
+        "[input] [compute] C [Susie_Owns:Add] A @ B + D -> F",
+        "[output] [repo] [SSET] [Susie_Owns] A -> F",
+        "[output] [Susie_Owns:Add] C @ A -> yes"
+      ]
+    }
+  ]
+}

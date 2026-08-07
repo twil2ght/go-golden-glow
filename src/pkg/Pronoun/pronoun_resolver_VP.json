@@ -14,6 +14,13 @@
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller C",
         "[output] [Grammar:Verify:VerbPhrase] A @Caller C [Pronoun]"
       ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] says : A @Caller C",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ says : A -> says : A"
+      ]
     }
   ]
 }

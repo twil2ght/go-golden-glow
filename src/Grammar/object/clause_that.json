@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A that B @Caller C",
+        "[input] [Grammar:Verify:S+VerbPhrase] C [clause] that @ B -> yes",
+        "[output] [Grammar:Verify:Object] C @ A that B -> yes",
+        "[output] [Grammar:Object:Type] C @ A that B -> That",
+        "[output] [Grammar:Object:That:Post] C @ A that B -> B",
+        "[output] [Grammar:Object:That:Pre] C @ A that B -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A that B @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] B @Caller C [clause] that"
+      ]
+    }
+  ]
+}

@@ -22,11 +22,46 @@
         "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun] [S+VerbPhrase] A",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] [S+VerbPhrase] A [Subject] B",
 
-
-        "IF SUBJECT CHANGED TO THIRD_SINGULAR,THEN SO WOULD THE VERB",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller C",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ A -> B1 E1"
+      ],
+      "experimental":[
+        "IF SUBJECT CHANGED TO THIRD_SINGULAR,THEN SO WOULD THE VERB",
+
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
+        "[output] [3rd-Singular:CHECK] B1 @Caller C [RESOLVE:SUB]",
+
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
+        "[input] [3rd-Singular:CHECK] C [RESOLVE:SUB] @ B1 -> yes",
+        "[input] [Grammar:VerbPhrase:Verb] C [Pronoun] [S+VerbPhrase] A [Subject] B [Pronoun] @ E1 -> D",
+        "[output] [3rd-Singular:GET] D @Caller C [Verb:NeedSingular]",
+
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
+        "[input] [Grammar:VerbPhrase:Verb] C [Pronoun] [S+VerbPhrase] A [Subject] B [Pronoun] @ E1 -> D",
+        "[input] [3rd-Singular:GET] C [Verb:NeedSingular] @ D -> F",
+        "[input] [Grammar:VerbPhrase:OtherPart] C [Pronoun] [S+VerbPhrase] A [Subject] B [Pronoun] @ E1 -> F1",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ A -> B1 F F1"
+      ]
+    },
+    {
+      "description": "the second copy with unique keywords",
+      "commands": [
+        "[input] [Pronoun:Resolve_V2:Sentence:S+VerbPhrase] A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Pronoun]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] @ A -> E",
+        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun:Resolve_V2] [S+VerbPhrase] A",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun:Resolve_V2] [S+VerbPhrase] A [Subject] B",
+
+        "[input] [Pronoun:Resolve_V2:Sentence:S+VerbPhrase] A @Caller C",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun:Resolve_V2] [S+VerbPhrase] A [Subject] B @ E -> E1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun:Resolve_V2] [S+VerbPhrase] A @ B -> B1",
+        "[output] [Pronoun:Resolve_V2:Sentence:S+VerbPhrase] C @ A -> B1 E1"
       ]
     }
   ]

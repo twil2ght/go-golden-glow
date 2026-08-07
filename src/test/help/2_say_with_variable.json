@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[template:Run] S+VerbPhrase @Args need @Caller test",
+        "[template:Run] V+O @Args need @Caller test",
+        "[template:Run] object:article @Args the @Caller test",
+        "[repo] [SSET] [Grammar:Property:Word:Article] the -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Pronoun] I -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] thing -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] $fork -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Verb] need -> yes",
+        "[repo] [SSET] [Variety] $fork -> yes",
+        "[repo] [SSET] [Pronoun:Cache] I -> DEV",
+        "[repo] [SSET] [PronounLike:Cache] person -> person",
+        "[repo] [SSET] [System:Value] $fork -> yes",
+        "[Cond:Reset] @Caller test",
+        "dev says to Susie : if a person says : I need a $fork",
+        "dev says to Susie : the thing that they need is a $fork",
+        "dev says to Susie : they need a $fork"
+      ],
+      "demo": [
+        "这种verb的template得在verb被学习后统一跑，而不是手动一个一个",
+        "BIG PROBLEM: S+VP的检测里套了一层S+VP的检测,这个就不奏效了",
+        "[repo] [SSET] [System:Property:SPronoun:Object-like] $fork -> yes"
+      ]
+    }
+  ]
+}

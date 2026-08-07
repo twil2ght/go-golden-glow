@@ -10,7 +10,10 @@
     "pkg/Runner/runner",
     "pkg/Cond/reset",
     "pkg/Pronoun/pronoun_cacher",
-    "/Grammar/Say_exclusive"
+    "/Grammar/Say_exclusive",
+    "interaction/Res_3_normal",
+    "/Grammar/object/clause_that",
+    "pkg/treasure_room_of_Susie/treasure_management"
   ],
   "data": []
 }

@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "关于check的template",
+        "[template:Run] V+Clause @Args check @Caller test",
+        "[Executor] Susie [Execute] check if Susie have a $fork @Caller C"
+      ],
+      "demo": [
+        "dev says to Susie : if a person need a $fork",
+        "dev says to Susie : check if you have a $fork",
+        "dev says to Susie : if you have a $fork",
+        "dev says to Susie : give it to them"
+      ]
+    }
+  ]
+}

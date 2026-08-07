@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:V+Clause:Clause] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] D @Caller C [Pronoun] [Object] A",
+
+        "[input] [Grammar:VerbPhrase:V+Clause:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C [Pronoun] [Object] A @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,3 @@
 [
-  "[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -> $1"
+  "[CondGroup:MarkDone:NewCount] $3 @ [No.] $2 [of] $4 @@ $1 -> $6"
 ]

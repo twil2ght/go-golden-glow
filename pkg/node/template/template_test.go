@@ -149,9 +149,9 @@ func TestCore_Get(t *testing.T) {
 		{
 			name: "Tsett",
 			templates: m.Hash{
-				"[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -> $1": struct{}{},
+				"[CondGroup:Done] [No.] $2 [of] $4 @@ $1 @Caller $3": struct{}{},
 			},
-			targetValue: "[repo] $3 @@ $1 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -> $6",
+			targetValue: "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] tell a person Susie 's name @@ a person asks what Susie 's name is @Caller NOTHING",
 			wantErr:     false,
 			wantCount:   1,
 		},

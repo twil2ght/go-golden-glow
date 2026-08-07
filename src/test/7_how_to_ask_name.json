@@ -7,6 +7,7 @@
         "[template:Run] S+VerbPhrase @Args asks @Caller test",
         "[template:Run] V+O @Args asks @Caller test",
         "[repo] [SSET] [Grammar:Property:Word:Pronoun] them -> yes",
+        "[repo] [SSET] [Grammar:Property:Word:Pronoun] they -> yes",
         "[repo] [SSET] [Variety] person -> yes",
         "[repo] [SSET] [Pronoun:Cache] your -> Susie 's",
         "[Cond:Reset] @Caller test",
@@ -14,7 +15,7 @@
 
         "BELOW IS NOT ORDER_LIKE",
         "NEED TO TRANSFORM TO THIRD_SINGULAR FORMAT",
-        "dev says to Susie : they ask what your name is"
+        "dev says to Susie : they asks what your name is"
       ]
     }
   ]

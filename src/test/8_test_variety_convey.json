@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SSET] Susie 's name -> Susie",
+        "[repo] [SSET] [System:Value] Susie -> yes",
+        "[repo] [SSET] [Variety:Of] DEV -> person",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] DEV -> yes",
+        "[Common] DEV says : what is your name @Caller test",
+        "TSET"
+      ]
+    }
+  ]
+}

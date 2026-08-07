@@ -14,14 +14,23 @@
   "C-\u003eR:021302e1e422a15913ac01392ec534b9": {
     "[Grammar:VerbPhrase:V+P:P:Doing] $3 @ $1 -\u003e $5": {}
   },
+  "C-\u003eR:02383125c8cb482d9faf055957f361fe": {
+    "[Susie_Owns:GET] $7 @Caller $3": {}
+  },
   "C-\u003eR:033597e58af67a1f11994cc0290846d6": {
     "[Grammar:Verify:Object] $2 @Caller $3 [IO+DO] 1": {}
   },
   "C-\u003eR:036f18320a9e58cfbc076666a3969822": {
     "[Grammar:VerbPhrase:V+IO+DO:IndirectObject] $3 @ $1 -\u003e $5": {}
   },
+  "C-\u003eR:03a8013c6ce462df1a1df78a7f9b3102": {
+    "[template:Run] variable_toolkit_2 @Args $2 @Caller $3": {}
+  },
   "C-\u003eR:041e3f4c8aab9a450f39e05a8074f561": {
     "[compute] $9 + 1 @Caller $3 [CondGroup:Get:Unreleased] [No.] $2 [of] $4": {}
+  },
+  "C-\u003eR:0476a4a619203f7f9804eb1d261206c2": {
+    "[repo] [GET] [Variety] $2 @Caller $3 [Variety] [Cond]": {}
   },
   "C-\u003eR:04b198bd7dc7eceabcf60be4ece2ffa0": {
     "[compute] [CHECK] $4 \u003c $1 @Caller $3 [Cond:Reset]": {}
@@ -55,17 +64,17 @@
   "C-\u003eR:0b48547919a0ad24c8b99c1488a26a77": {
     "[Grammar:Verify:Object] $3 @ $2 -\u003e yes": {}
   },
-  "C-\u003eR:0ff3343a2b6464110a9318123cbd168b": {
-    "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $1": {}
+  "C-\u003eR:0c65439dbaf152f7ee0898e6ca5435b6": {
+    "[Grammar:VerbPhrase:V+Clause:Verb] $3 @ $1 -\u003e $4": {}
+  },
+  "C-\u003eR:0e48d84833a505d9b9e105695a33c584": {
+    "[Grammar:VerbPhrase:Verb] $3 @ $1 -\u003e $4": {}
   },
   "C-\u003eR:100f833f0df3613bb072132b11be7b50": {
     "[repo] $3 @ [Latest] $1 -\u003e $9": {}
   },
   "C-\u003eR:1234cde6cd2c3cfef8e033b7c40636b4": {
     "[node:executor] [namespace:TODO] [action:AddWithPostCaller] [caller:$2] [value:$1]": {}
-  },
-  "C-\u003eR:12733f9ddb8bf1c77c407ce1afd67c5b": {
-    "[Print] We Use Static Activation For $4 @Caller $3": {}
   },
   "C-\u003eR:157cb3bff43e23d82209624a0340ebce": {
     "[Executor:Hook:AlreadyLearned] Susie [Execute] $2": {}
@@ -97,6 +106,9 @@
   "C-\u003eR:180fdf9e086347e1e597660b3964705d": {
     "[Grammar:VerbPhrase:V+P:P:Object] $3 @ $1 -\u003e $5": {}
   },
+  "C-\u003eR:1824810406809ced41be6e9e5fed9ee5": {
+    "[Susie_Owns:GET] $3 @ $1 -\u003e yes": {}
+  },
   "C-\u003eR:18722948c6b84a089698025052a2fe77": {
     "[Grammar:Verify:V] $3 @ $1 -\u003e no": {}
   },
@@ -110,6 +122,9 @@
   },
   "C-\u003eR:1a980f9b47e3e2af4339263d43c6d726": {
     "[Grammar:VerbPhrase:V+IO+DO:DirectObject] $3 @ $1 -\u003e $6": {}
+  },
+  "C-\u003eR:1ae6b6e9a46fb034241a7250e638776e": {
+    "[Grammar:Object:That:Post] $3 @ $1 that $2 -\u003e $2": {}
   },
   "C-\u003eR:1b3b6c21d4447d9065fb6f29fd1a0034": {
     "[Pronoun:Resolve:Sentence:Object] $4 @Caller $3 [Pronoun] [Object] $1": {}
@@ -129,6 +144,12 @@
   },
   "C-\u003eR:1e7736586c1f5c9d0b241065a97ee24e": {
     "[Grammar:Object:NounPhrase:Noun] $3 @ $1 's $2 -\u003e $2": {}
+  },
+  "C-\u003eR:1ee4223aae478e1f6d1cd33dbeb9d5bf": {
+    "[Pronoun:Resolve:Sentence:S+VerbPhrase] $3 @ $1 -\u003e $9 $8": {}
+  },
+  "C-\u003eR:1f845b552b1b6eb06beda3b887fcf271": {
+    "[Grammar:Verify:Object] $1 @Caller $3 [Subject] says": {}
   },
   "C-\u003eR:20788daafb99621781e6bd6a2c6af521": {
     "[System:Verify:Value] $2 @Caller $3": {}
@@ -154,11 +175,11 @@
   "C-\u003eR:23de974f461332eb6ce479d76b8aa664": {
     "[compute] [GET] $9 + 1 @Caller [No.] $9 [Cond]": {}
   },
-  "C-\u003eR:2500ad367b6c50abc4201b5689002af1": {
-    "$4 @Caller $3": {}
-  },
   "C-\u003eR:25628622b50d79cb5a266bbe9611f5f9": {
     "[Common] $1 is [Unknown] @Caller $3 check": {}
+  },
+  "C-\u003eR:259363dd65e8ec07c90e8067907dfcdd": {
+    "[Grammar:Object:That:Pre] $3 @ $1 that $2 -\u003e $1": {}
   },
   "C-\u003eR:2604d89643d31c44ba16dc3cb0fbd030": {
     "[Pronoun:Resolve:Sentence:S+VerbPhrase] $5 @Caller $3 [Pronoun] [Conj] $6": {}
@@ -166,11 +187,17 @@
   "C-\u003eR:2691a4043ded9945a02746a300b11c17": {
     "[TODO:Add] [Execute:Done] $3 @ [Executor] Susie [Execute] check $1 -\u003e yes": {}
   },
+  "C-\u003eR:27007fe84d5465dbf7edfec91a8283eb": {
+    "[compute] [CHECK] $2 != 0 @Caller $3 [Susie_Owns:GET] $1": {}
+  },
   "C-\u003eR:278c40e42fe8f864fb2ec68c3fe50c25": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 $8": {}
   },
   "C-\u003eR:2801c4d52cca4b778571f92303d90c91": {
     "[repo] [GET] [Cond:Count] @Caller $3 [Cond:Reset]": {}
+  },
+  "C-\u003eR:2854158905f954347975f8589466b287": {
+    "[Grammar:Verify:Object] $2 @Caller $3 need": {}
   },
   "C-\u003eR:2923202e8b9946988d3d9efb5749b547": {
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 $9 $6": {}
@@ -184,6 +211,9 @@
   "C-\u003eR:2c7387aa7c92017a16f1f34422cab2cd": {
     "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Subject] $1 [Clause]": {}
   },
+  "C-\u003eR:2cb6ef5cfd4aa5571bdbcee6fd0cb5b4": {
+    "[Grammar:VerbPhrase:V+Clause:Clause] $3 @ $1 -\u003e $5": {}
+  },
   "C-\u003eR:2ce4cbcc9e2881c1becb6b0d9d0aaf59": {
     "[repo] [GET] [Executor:Steps:Count] $4 [Execute] $1 @Caller $3": {}
   },
@@ -196,6 +226,9 @@
   "C-\u003eR:2e88e29595de6e9f9499987141443d25": {
     "[CondGroup:ElementCount] $3 @ [No.] $2 [of] $4 -\u003e $6": {}
   },
+  "C-\u003eR:2eeae38ade7dc8d151ae97eca38c5700": {
+    "[Grammar:VerbPhrase:Verb] $3 @ $1 -\u003e $4": {}
+  },
   "C-\u003eR:2ef11954a0e649b1582922c120d0e7b1": {
     "[repo] [GET] [CondGroup:Index] $4 [of] $1 @Caller $3": {}
   },
@@ -205,8 +238,18 @@
   "C-\u003eR:2f7be7a3691ef74b60180903c45d75b5": {
     "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Subject] $1 [Clause] [Object]": {}
   },
+  "C-\u003eR:3000526ed9c303507ff6190dd1201499": {
+    "[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5": {}
+  },
   "C-\u003eR:308934207a020e3ecbc918f7b9ae4771": {
     "[Pronoun:Resolve] $3 @ $1 -\u003e $2": {}
+  },
+  "C-\u003eR:3117612531948d0a12b927e66e18ae1c": {
+    "[Grammar:Verify:Object] $1 @Caller $3 [Subject] need": {},
+    "[Grammar:Verify:VerbPhrase] need $2 @Caller $3 [Subject] $1": {}
+  },
+  "C-\u003eR:31caac1267113332b4a53e61a49acb19": {
+    "[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller [say]": {}
   },
   "C-\u003eR:320ff06f153d07f2b99f0e730e1e537f": {
     "[Grammar:Verify:Object] $1 @Caller $3 [DO]": {},
@@ -234,16 +277,28 @@
   "C-\u003eR:3785d1fbfa67934fc70639b83193772b": {
     "[Grammar:Verify:Object] $2 @Caller $3 [AP] my": {}
   },
+  "C-\u003eR:37991514afa322080cb06e3c567555aa": {
+    "[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5": {}
+  },
   "C-\u003eR:379ad80a3445c7bd139203c72e54bbcf": {
     "[Grammar:S+VerbPhrase:Subject] $3 @ $1 is $2 -\u003e $1": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 is $2 -\u003e is $2": {},
     "[Grammar:Verify:S+VerbPhrase] $3 @ $1 is $2 -\u003e yes": {}
+  },
+  "C-\u003eR:37a6f81308c4a0fbfe3564b2437d752c": {
+    "[Susie_Owns:Add] $3 @ $1 -\u003e yes": {}
   },
   "C-\u003eR:3be2d058ba4f0d447421e5add966e233": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11": {}
   },
   "C-\u003eR:3be65a2e68e0c3bdb91e3302c2ec7a7e": {
     "[repo] [GET] [CondGroup:DoneState] [of] $1 for [No.] $2 [of] $4 @Caller $3 [CondGroup:Get:Unreleased]": {}
+  },
+  "C-\u003eR:3d0682cb07128786ed9c66109f56b774": {
+    "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1": {}
+  },
+  "C-\u003eR:3efba7593e5486b3e49b01880afd4644": {
+    "[Grammar:Verify:S+VerbPhrase] $3 @ $1 says : $2 -\u003e yes": {}
   },
   "C-\u003eR:3f41eea6deccab2ed7a8df4713bd45f8": {
     "[repo] $3 @ $1 -\u003e 0": {}
@@ -253,6 +308,9 @@
   },
   "C-\u003eR:3fd5e78f4cb6b5b5f14a40117da18a32": {
     "[TODO:Add] [Executor] $4 [Execute] $5 @Caller $3 step $2 [of] [Executor] $4 [Execute] $1": {}
+  },
+  "C-\u003eR:4010d361561f3d653f1f6b4f50ba87a3": {
+    "[Grammar:V+O:Object] $3 @ says : $2 -\u003e : $2": {}
   },
   "C-\u003eR:4012989653df59b1e69633f4d0f2f3b3": {
     "[repo] $1 !-\u003e $2": {}
@@ -265,6 +323,9 @@
   },
   "C-\u003eR:41b58cd47066e5854642e84dacf6280d": {
     "[repo] [GET] [CondGroup:Count:Unreleased] [No.] $2 [of] $4 @Caller $3 [No.] $9": {}
+  },
+  "C-\u003eR:433511b180d149289f5b849892106eda": {
+    "[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [clause] that": {}
   },
   "C-\u003eR:43d1f38950f7b1240820fb567cb52686": {
     "[compute] $4 @ $1 != $2 -\u003e yes": {}
@@ -293,6 +354,12 @@
   "C-\u003eR:470a57dfde6bd250a06500172b2144d0": {
     "[repo] $3 @ [Latest] $1 -\u003e $9": {}
   },
+  "C-\u003eR:495b5d2b9ae9f259434106da3abdbe7a": {
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Common] [Variety] [SAY_EXL]": {}
+  },
+  "C-\u003eR:49b0e8f67905b2d466eaa21294adf0e5": {
+    "[Pronoun:Resolve:Sentence:Object] a $1 @Caller $3": {}
+  },
   "C-\u003eR:4a36e394d0f92a610678029a49e215a2": {
     "[Executor:Hook:OnStepSkipped] [No.] $9 [of] [Executor] $4 [Execute] $5 @Caller $3 step $2 [of] [Executor] $4 [Execute] $1": {}
   },
@@ -304,6 +371,9 @@
   "C-\u003eR:4b065921275a09849498885b27fdb4f2": {
     "[phrase] len $1 -\u003e $2": {}
   },
+  "C-\u003eR:4b23fcea77c632a903ba429789b2fa9b": {
+    "[Susie_Owns:GET] $3 @ $1 -\u003e": {}
+  },
   "C-\u003eR:4b887991c8334f966dd473a62dc59dba": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 $8": {}
   },
@@ -312,6 +382,9 @@
   },
   "C-\u003eR:4be4ea966d4986c417ec3997f78bc01c": {
     "[Grammar:Verify:Object] $2 @Caller $3 [P]": {}
+  },
+  "C-\u003eR:4c0353378848c6a664089379635438b3": {
+    "[Grammar:Verify:V+Clause] $1 @Caller $3 [VerbPhrase]": {}
   },
   "C-\u003eR:4cc7d091044b8a6f5a485c110109b4ef": {
     "[Execute:Done] $3 @ [Executor] $4 [Execute] $1 -\u003e": {}
@@ -335,6 +408,9 @@
     "[Grammar:V+P:Verb] $3 @ is $2 -\u003e is": {},
     "[Grammar:Verify:V+P] $3 @ is $2 -\u003e yes": {}
   },
+  "C-\u003eR:500f9c856b78224659e32669fdd1e585": {
+    "[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5": {}
+  },
   "C-\u003eR:50f838d66180af7dbace8ca9b4d745ac": {
     "[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [clause] what": {}
   },
@@ -347,6 +423,12 @@
   "C-\u003eR:5299668a38ddf1ed506729de6982d14c": {
     "[CondGroup:Get:Unreleased] [No.] $9 [of] [Executor] $4 [Execute] $5 @Caller $3 step $2 [of] [Executor] $4 [Execute] $1": {}
   },
+  "C-\u003eR:537b799f560e6134c0a85c5f3ffeeecd": {
+    "[Grammar:Object:Article] $3 @ the $1 -\u003e the": {},
+    "[Grammar:Object:NounPhrase] $3 @ the $1 -\u003e $1": {},
+    "[Grammar:Object:Type] $3 @ the $1 -\u003e NounPhrase": {},
+    "[Grammar:Verify:Object] $3 @ the $1 -\u003e yes": {}
+  },
   "C-\u003eR:56276b36c89291a161f52dd6e4ae683b": {
     "[Res:Done] $4": {}
   },
@@ -356,17 +438,20 @@
   "C-\u003eR:5a17bb174f8af52f102c8954c6682339": {
     "[Print] [Not Ready] $4 [Execute] $5 [From] step $2 [of] $4 [Execute] $1 @Caller $3": {}
   },
+  "C-\u003eR:5a5a7667de69442bd66d9bab0ab5ee69": {
+    "[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5 $6": {}
+  },
   "C-\u003eR:5a8e9cb9ddb38b3dfd883141586fc661": {
     "[phrase] $1 @ $3 -\u003e $2": {}
   },
   "C-\u003eR:5b260d2a4d8b7cf36fb68b906584385c": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] [S+VerbPhrase] $1 [Subject] $2": {}
   },
-  "C-\u003eR:5bd0238af3d98b85f7e2522d3e067ee5": {
-    "[Compute] [CHECK] $1 = 0 @Caller $3 [Activate]": {}
-  },
   "C-\u003eR:5bd070de2fe2c03967a378d8f315cec9": {
     "[repo] [GET] [No.] $10 [Cond] @Caller [Cond:Reset] [No.] $6": {}
+  },
+  "C-\u003eR:5cf882b00c596699f58329400e215373": {
+    "[Susie_Owns:GET:Amount] $3 @ $1 -\u003e $2": {}
   },
   "C-\u003eR:5d0456c6913730fc25a4e549b42afd40": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {}
@@ -376,6 +461,9 @@
   },
   "C-\u003eR:5dd38cd84dcc85d1f482a753c197a3b0": {
     "[repo] [DEL] [CondGroup:DoneState] [of] $3 for [No.] $2 [of] $4": {}
+  },
+  "C-\u003eR:5eadad2d59a90c67103c4a1669e5a299": {
+    "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 that $9": {}
   },
   "C-\u003eR:5fa8fdff747d2fd910470073b5827061": {
     "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {}
@@ -415,11 +503,17 @@
   "C-\u003eR:6807ffda5e5e877c4cf37e1419976952": {
     "[phrase] LastN $1 # $3 -\u003e $2": {}
   },
+  "C-\u003eR:699cb77727bc795de3cea529a620eab0": {
+    "[Grammar:VerbPhrase:Verb] $3 @ $1 -\u003e $4": {}
+  },
   "C-\u003eR:69ba2874b64c5526c4f000b36ede950c": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] $1 [Doing]": {}
   },
   "C-\u003eR:6be031a28f15aa848e260876e2b244e3": {
     "[repo] [GET] [Grammar:Property:Word:Noun] $2 @Caller $3 [Verify:Object]": {}
+  },
+  "C-\u003eR:6c2b241cdbea7d90fb8c3cba91c4e56c": {
+    "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $2 $6": {}
   },
   "C-\u003eR:6c5f6e667e97cd13f8610dd8893142a9": {
     "[repo] $4 @ $1 -\u003e": {}
@@ -472,6 +566,9 @@
   "C-\u003eR:7567285da0cde15ff66b29d8a4657da0": {
     "[Pronoun:Resolve] $2 @Caller $3 [Pronoun]": {}
   },
+  "C-\u003eR:75f622fd3eb50fc2a747994aadb9d83c": {
+    "[repo] [GET] [Susie_Owns] $1 @Caller $3 [Susie_Owns:Add] [Number] $2": {}
+  },
   "C-\u003eR:7653453a7da3f8aef66a8a38305a114e": {
     "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {}
   },
@@ -487,8 +584,17 @@
   "C-\u003eR:77d81a66df35de5244f85610b1322171": {
     "[word] len $1 -\u003e $2": {}
   },
+  "C-\u003eR:7917bf61ca70e1172f4b29d3d8542f53": {
+    "[Common] Susie don't have a $1 @Caller $3": {}
+  },
+  "C-\u003eR:79533e3a415f68cd2157ae6c6a552e1e": {
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ says : $1 -\u003e says : $1": {}
+  },
   "C-\u003eR:795c9f200d61a542f0137a09e444fa86": {
     "[Grammar:Verify:Object] $1 @Caller $3 [IO+DO] 2": {}
+  },
+  "C-\u003eR:798a8efb9413db44d8a434b740ca1259": {
+    "[Grammar:Verify:Object] $1 @Caller $3 [Subject] need": {}
   },
   "C-\u003eR:798c34e16a1c0e1488b3252aa04103ad": {
     "[Grammar:V+P:P:PrepositionPhrase] $3 @ am $2 -\u003e $1": {}
@@ -513,6 +619,9 @@
   },
   "C-\u003eR:7c551c3b4474429e18430019adf01797": {
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 $9 $6 $11": {}
+  },
+  "C-\u003eR:7ca664abbce64fbb5a7124f03775cd52": {
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Common] [Variety]": {}
   },
   "C-\u003eR:7e2160d0113dc008ce19fd2e3c708264": {
     "[CondGroup:Done] [No.] $2 [of] $4 @@ $1 @Caller $3": {}
@@ -541,6 +650,9 @@
   "C-\u003eR:829dcfb11a9ba4b38123c87adabef56e": {
     "[Cond:Count] $3 @ -\u003e $6": {}
   },
+  "C-\u003eR:83de4f1c7f81d2504f63246c182e9cd4": {
+    "[repo] [GET] [Susie_Owns] $1 @Caller $3 [Susie_Owns:GET]": {}
+  },
   "C-\u003eR:840a16495db602f0c3a285a5ee0a23dd": {
     "[CondGroup:Get:Unreleased:Done] [No.] $2 [of] $4 @Caller $3": {}
   },
@@ -557,6 +669,12 @@
   },
   "C-\u003eR:85ed34f5e95fb2415d638d66e21e389c": {
     "[repo] [DEL] [No.] $10 [Cond]": {}
+  },
+  "C-\u003eR:862f1b8ec0d64972f4694096225e4f55": {
+    "[repo] [SSET] [Susie_Owns] $1 -\u003e $6": {}
+  },
+  "C-\u003eR:869183f3d7d683ba585708209666d3d4": {
+    "[Signal] [Susie_Owns:GET] $1 [FAILED] @Caller $3": {}
   },
   "C-\u003eR:87872f556465c8b23d57aad0d3e003d0": {
     "[repo] [GET] step $9 [of] [Executor] $4 [Execute] $1 @Caller $3": {}
@@ -591,14 +709,20 @@
   "C-\u003eR:8d2ded00757688090875544f46d41d45": {
     "[Cond:Used] [No.] $10 -\u003e $1": {}
   },
+  "C-\u003eR:8d3f113a69209ea55466bf5cc3651dc9": {
+    "[Grammar:Verify:V+O] $3 @ says : $2 -\u003e yes": {}
+  },
   "C-\u003eR:8e5db714db2c2cb9ad1513ca335dd6f5": {
     "[repo] [SSET] [Pronoun:Cache] your -\u003e your": {}
   },
   "C-\u003eR:900924f0a1b4e0a43c4c4a3c9707a481": {
     "[repo] [DEL] [No.] $2 [Cond]": {}
   },
-  "C-\u003eR:90a19eecade608d655f980c91ea3a87f": {
-    "[Pronoun:Resolve:Sentence:S+VerbPhrase] $3 @ $1 -\u003e $9 $8": {}
+  "C-\u003eR:900da1f36fe77ed9573fd940484220ee": {
+    "[repo] [GET] [Variety] $6 @Caller $3 [Variety] [Cond] [SAY] [Subject] $2 [V+O] $5": {}
+  },
+  "C-\u003eR:925a866d55074698b2dfc20a1add7b8d": {
+    "[Res] [Common] $2": {}
   },
   "C-\u003eR:9270213c17f699fb5db4d4c2bcd48872": {
     "[Grammar:Verify:IO+DO] $2 @Caller $3 tell": {}
@@ -621,6 +745,9 @@
   "C-\u003eR:968da73a49be973de8b3af1686c99f1b": {
     "[Grammar:V+P:P:AdjectivePhrase] $3 @ am $2 -\u003e $1": {},
     "[Grammar:V+P:P:PrepositionPhrase] $3 @ am $2 -\u003e $4": {}
+  },
+  "C-\u003eR:977e83ce492349257098918d48a44780": {
+    "[compute] [CHECK] $6 = 0 @Caller $3 [Activate] $4": {}
   },
   "C-\u003eR:9908b735ff26a27bca685ee9910fd542": {
     "[repo] [GET] [CondGroup] [No.] 1 [of] [No.] $2 [of] $4 @Caller $3 [No.] 0": {}
@@ -649,14 +776,23 @@
   "C-\u003eR:9e6edc5495c2a7df33b029a80924a185": {
     "[Grammar:V+P:P:AdjectivePhrase] $3 @ is $2 -\u003e $1": {}
   },
+  "C-\u003eR:9e7cd0c56e84c696cd59841f78b64633": {
+    "[template:Run] variable_toolkit_4 @Args $7 , $2 , $10 , $6 @Caller $3": {}
+  },
   "C-\u003eR:9f50dba65883d2516752bda51346cdfc": {
     "[Grammar:VerbPhrase:V+P:P:PrepositionPhrase] $3 @ $1 -\u003e $5": {}
   },
   "C-\u003eR:9f91804d3ffd275e97278550e3bff21c": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 to $8": {}
   },
+  "C-\u003eR:a0f74ff48077f847dd04a3396744fc2a": {
+    "[Grammar:VerbPhrase:Verb] $3 @ $1 -\u003e $4": {}
+  },
   "C-\u003eR:a10aa33dc631267c668894de7d7876c7": {
     "[Grammar:V+P:P:Object] $3 @ am $2 -\u003e $1": {}
+  },
+  "C-\u003eR:a13ef82225688bb08a981fa2d27d8c1c": {
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $2 @Caller $3 [Pronoun:Subject] $1 [Clause] that": {}
   },
   "C-\u003eR:a215bcf8ce51cd4a5f7f30253da5faab": {
     "[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller [say]": {}
@@ -666,6 +802,9 @@
   },
   "C-\u003eR:a2d76e66dba34a6bf7189f0756d38652": {
     "[repo] [SSET] [Pronoun:Cache] me -\u003e me": {}
+  },
+  "C-\u003eR:a2e07e2de3bbb18975089a8c21b00a6f": {
+    "[repo] [GET] [Variety:Of] $6 @Caller $3 [Common] [Variety] [SAY_EXL] [Subject] I [V+O] $5": {}
   },
   "C-\u003eR:a45c4a339de31718a5ac29096a14f8dd": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:output] [value:$1]": {}
@@ -686,11 +825,21 @@
   "C-\u003eR:a7797ad9cd32e23704002e62c37c334b": {
     "[CondGroup:Undone] [No.] $9 [of] [Executor] $4 [Execute] $5 @@ step $2 [of] [Executor] $4 [Execute] $1 @Caller $3": {}
   },
+  "C-\u003eR:a78a7182ea52f753eeb8483da0e6df68": {
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 says : $2 -\u003e says : $2": {}
+  },
   "C-\u003eR:a7938c798bd3d126eee8f91fe4181ba5": {
     "[Pronoun:Resolve:Sentence:Object] $5 @Caller $3 [Pronoun] $1 [DO] (To)": {}
   },
   "C-\u003eR:a7fd33e96a16002695fea46616a60028": {
     "[repo] [SSET] [Pronoun:Cache] $1 -\u003e $2": {}
+  },
+  "C-\u003eR:a823c45f63b7bade2081fa1bd7f753c3": {
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $3 @ $1 -\u003e $9 $8": {}
+  },
+  "C-\u003eR:a84071c90dadbf07509c46bf46968c6f": {
+    "[Common] a person $6 @Caller $3": {},
+    "[repo] [SSET] [PronounLike:Cache] person -\u003e $2": {}
   },
   "C-\u003eR:a84a02b6b9eeae57eb00daa2f3c930ac": {
     "[Grammar:Verify:Object] $2 @Caller $3 [Item]": {}
@@ -737,6 +886,12 @@
   "C-\u003eR:b12f5db8e0584761498e6a94dc097360": {
     "[compute] [GET] $6 + 1 @Caller $3 [Cond:Reset] [No.] $6": {}
   },
+  "C-\u003eR:b225c2025c449b53d01d3fba257a22f8": {
+    "[compute] [GET] $2 + $4 @Caller $3 [Susie_Owns:Add] $1": {}
+  },
+  "C-\u003eR:b2f64b13501e82fe16d1ddb024f4fbbc": {
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Variety] [Cond] [SAY]": {}
+  },
   "C-\u003eR:b48ddd7a30d86c12c73690d4805ad9ef": {
     "[TeachMode:Check] Teacher $3 @Caller [say]": {}
   },
@@ -755,6 +910,9 @@
   "C-\u003eR:b7c47dc82f48f430fbba6344d635fbc6": {
     "[Grammar:VerbPhrase:Type] $3 @ $1 -\u003e V+O": {}
   },
+  "C-\u003eR:b82ffbc675ac8618313edc29ec0585e2": {
+    "[Common] Susie have a $1 @Caller $3": {}
+  },
   "C-\u003eR:ba42709874b78cd5d8901fa2a43cbd32": {
     "[Grammar:Verify:Object] $1 @Caller $3 [Subject] is": {},
     "[Grammar:Verify:VerbPhrase] is $2 @Caller $3 [Subject] $1": {}
@@ -772,8 +930,26 @@
   "C-\u003eR:be96a57022dc6fbd698213e1e343aee7": {
     "[repo] [GET] $1 @Caller $3": {}
   },
+  "C-\u003eR:bfa6e48e2d8ca144940df16f9017acdb": {
+    "[template:Run] variable_toolkit_3 @Args $6 , $10 , $2 @Caller $3": {}
+  },
+  "C-\u003eR:c01d364412d00193844ad3521325a076": {
+    "[TODO:Add] [Execute:Done] $3 @ [Executor] Susie [Execute] check if Susie have a $1 -\u003e yes": {}
+  },
+  "C-\u003eR:c0241d512888ddecdcb24e580625c954": {
+    "[Susie_Owns:GET] $3 @ $1 -\u003e": {}
+  },
   "C-\u003eR:c17dc9e65f784d3e5118ebd8d0b5ccee": {
     "[Grammar:Object:NounPhrase:Adjective] $3 @ $1 's $2 -\u003e $1 's": {}
+  },
+  "C-\u003eR:c367a1aa032a7f466fafda07826ab5cb": {
+    "[Grammar:VerbPhrase:Verb] $3 @ $1 -\u003e $4": {}
+  },
+  "C-\u003eR:c5479e97b2f6d0f345fd8fcd8e2d63d7": {
+    "[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5 $6": {}
+  },
+  "C-\u003eR:c5c61cc46031a7bc2659a274823a26e6": {
+    "[Grammar:S+VerbPhrase:Subject] $3 @ $1 says : $2 -\u003e $1": {}
   },
   "C-\u003eR:c5cc26e008dc091a63a95957eaa9af02": {
     "[repo] [GET] [CondGroup] [No.] $9 [of] [No.] $2 [of] $4 @Caller $3 [No.] $10": {}
@@ -795,6 +971,9 @@
     "[Grammar:V+P:Verb] $3 @ am $2 -\u003e am": {},
     "[Grammar:Verify:V+P] $3 @ am $2 -\u003e yes": {}
   },
+  "C-\u003eR:c8fc54070cd9335b437e51c0aad4a63a": {
+    "[repo] [GET] [Variety:Of] $2 @Caller $3 [Common] [Variety]": {}
+  },
   "C-\u003eR:c96a9eeece396ed573a44377fb878771": {
     "[repo] [SSET] [CondGroup:Get:Unreleased] [No.] $6 [of] [No.] $2 [of] $4 -\u003e $1": {}
   },
@@ -804,11 +983,24 @@
   "C-\u003eR:ca119db19d9fb9de55bfb3d1f3599272": {
     "[repo] [SET] [CondGroup:Index] $4 [of] $1 -\u003e $2 | $9": {}
   },
+  "C-\u003eR:ca400717b6aa17d08cfffe8932a62702": {
+    "[Grammar:S+VerbPhrase:Subject] $3 @ $1 need -\u003e $1": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 need -\u003e need": {},
+    "[Grammar:VerbPhrase:Type] $3 [Subject] $1 @ need -\u003e V": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 @ $1 need -\u003e yes": {}
+  },
+  "C-\u003eR:ca4dc94766a1ec2f98223a4aa73ce2ff": {
+    "[Print] We Use Static Activation For $4 @Caller $3": {}
+  },
   "C-\u003eR:caf116c76bff1b594f8f52c165ca723e": {
     "[Executor:Hook:OnExecutionSuccess] [Executor] $4 [Execute] $1 @Caller $3": {}
   },
   "C-\u003eR:cc7c0a6ad7807d81d995844246cfc70f": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] $1 [Todo]": {}
+  },
+  "C-\u003eR:cd64832d1f7a5bafe8d9fed5ad8f0eea": {
+    "[Common] a person says : I need a $fork @Caller $3": {},
+    "[repo] [SSET] [PronounLike:Cache] $fork -\u003e $6": {}
   },
   "C-\u003eR:cd8f2688e76832f143bfea08b9827d49": {
     "[word] $1 @ $3 -\u003e $2": {}
@@ -859,6 +1051,11 @@
   "C-\u003eR:d7cd1b43e1e5d2ab531eff29284b9d5a": {
     "[Grammar:Verify:P] $3 @ $2 -\u003e yes": {}
   },
+  "C-\u003eR:d7f7466714b5e51d1648654cfdbe1c89": {
+    "[Grammar:S+VerbPhrase:Subject] $3 @ $1 need $2 -\u003e $1": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 need $2 -\u003e need $2": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 @ $1 need $2 -\u003e yes": {}
+  },
   "C-\u003eR:d8a215f5225078c6ff479380817e876c": {
     "[node:executor] [namespace:builder] [mode:multi_condition] [type:input] [value:$1]": {}
   },
@@ -877,12 +1074,23 @@
   "C-\u003eR:dae91c4a553582742a4812615af1e078": {
     "[Grammar:Verify:Object] $2 @Caller $3 asks": {}
   },
+  "C-\u003eR:db13ef90d4e8a6b3710ddfa8448ad61e": {
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Pronoun]": {}
+  },
   "C-\u003eR:db293924deb8e309c070bdbc4984f2e1": {
     "[Grammar:V+P:P:AdjectivePhrase] $3 @ is $2 -\u003e $1": {},
     "[Grammar:V+P:P:PrepositionPhrase] $3 @ is $2 -\u003e $4": {}
   },
   "C-\u003eR:db64c621eba4e31c61c06d331971c5b7": {
     "[node:executor] [namespace:printer] [msg:$1]": {}
+  },
+  "C-\u003eR:dc84465658c8d8990baeec901ffb3a35": {
+    "[Grammar:V+O:Object] $3 @ need $2 -\u003e $2": {},
+    "[Grammar:V+O:Verb] $3 @ need $2 -\u003e need": {},
+    "[Grammar:Verify:V+O] $3 @ need $2 -\u003e yes": {}
+  },
+  "C-\u003eR:dd26d90b5332334cefdcaf5c1117f6d0": {
+    "[Grammar:V+O:Verb] $3 @ says : $2 -\u003e says": {}
   },
   "C-\u003eR:ddc3f4335d82dc0dd568c3838aa644f3": {
     "[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] $3 @ $6 $5 -\u003e $6 $8": {}
@@ -913,6 +1121,12 @@
   },
   "C-\u003eR:e506dad7d746303a3af7370cbf5b6c1b": {
     "[Grammar:Verify:Object] $3 @ $1 's $2 -\u003e yes": {}
+  },
+  "C-\u003eR:e53f783815af6d7a11ea8aef7c5e08c1": {
+    "[repo] [GET] [PronounLike:Cache] $4 @Caller $3 [Pronoun] [Article] $2": {}
+  },
+  "C-\u003eR:e541b6e7be2695e4a53396e62467b788": {
+    "$4 @Caller $3": {}
   },
   "C-\u003eR:e591afacb794811932a47b0a4aab4932": {
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $9 $4": {}
@@ -947,6 +1161,9 @@
   "C-\u003eR:e90233a853128c2619ecf9db36a915d9": {
     "[repo] [GET] [Grammar:Property:Word:Pronoun] $2 @Caller $3 [Verify:Object]": {}
   },
+  "C-\u003eR:e989c794ae7cb809db7c1597f6498b99": {
+    "[Grammar:Verify:Object] $1 @Caller $3 [Article] the": {}
+  },
   "C-\u003eR:eb6e737441004cd27d059f129f8c6c0b": {
     "[repo] $1 -\u003e $2": {}
   },
@@ -956,14 +1173,26 @@
   "C-\u003eR:ec2af787bde999ae6788bca6aabbf866": {
     "[CondGroup:Count++] $4 @Caller [Res]": {}
   },
+  "C-\u003eR:ecc6cc869c82e85879e70066d0f557bd": {
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 [Subject] $2": {}
+  },
   "C-\u003eR:edf664d274ba305d6713f28a465daa17": {
     "[word] IndexOf $3 # $1 -\u003e $2": {}
   },
   "C-\u003eR:eed0cbcb4a87a6f48f06508a1fea42c4": {
     "[Grammar:V+P:P:PrepositionPhrase] $3 @ is $2 -\u003e $1": {}
   },
+  "C-\u003eR:ef26fee5a69ba34d4818b9154666fd0f": {
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Variety] [Cond]": {}
+  },
+  "C-\u003eR:ef42082c558da0303fd5ac5267fe2f2d": {
+    "[compute] [CHECK] $2 = 0 @Caller $3 [Susie_Owns:GET] $1": {}
+  },
   "C-\u003eR:ef559197960dfc5daa40918118428c20": {
     "[repo] [GET] [Len] [of] [No.] $2 [CondGroup] [of] $4 @Caller $3 [Reset]": {}
+  },
+  "C-\u003eR:ef5da8bf9c9d77460ab5eba201d96f84": {
+    "[Grammar:Verify:Object] $3 @ $1 that $2 -\u003e yes": {}
   },
   "C-\u003eR:f06ce3e5a53ef762424c39065ab77c61": {
     "[TeachMode:Check] Teacher $3 @Caller [say]": {}
@@ -981,6 +1210,9 @@
     "[Print] [System] Susie 's name is $Susie @Caller $3": {},
     "[repo] [SSET] [Pronoun:Cache] $Susie -\u003e $1": {}
   },
+  "C-\u003eR:f220c35039317265bf608adf90195637": {
+    "[repo] [GET] [Variety] $6 @Caller $3 [Variety] [Cond] [Subject] $2 [V+O] $5": {}
+  },
   "C-\u003eR:f3a694e225c03b41829f11a0b4042553": {
     "[repo] [SET] step $2 [of] [Executor] $4 [Execute] $1 -\u003e $5": {}
   },
@@ -992,6 +1224,9 @@
   },
   "C-\u003eR:f5e837103fa04760f0c6643322ffdaff": {
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 to $8": {}
+  },
+  "C-\u003eR:f640e9455b259d840b60d03a31b615da": {
+    "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $1": {}
   },
   "C-\u003eR:f65acf1b11ab887f44b03c30ca9b2a75": {
     "[repo] [SSET] [Grammar:Property:Word:Pronoun] $1 -\u003e yes": {}
@@ -1015,6 +1250,9 @@
   "C-\u003eR:f99ec51c54f0ad9940bd5e370054ce84": {
     "[Grammar:IO+DO:DirectObject(To)] $3 @ $2 to $1 -\u003e $2": {}
   },
+  "C-\u003eR:f9e20cff867578f6ab3028981ab51fa5": {
+    "[Grammar:Object:Type] $3 @ $1 that $2 -\u003e That": {}
+  },
   "C-\u003eR:fa8972986885e587b94e81b1a7b38316": {
     "[Grammar:Object:Pronoun] $3 @ $2 -\u003e $2": {}
   },
@@ -1023,6 +1261,9 @@
   },
   "C-\u003eR:fb2d6c29453420f7972358a85414169a": {
     "[repo] [GET] [No.] 1 [Cond] @Caller $3 [Cond:Reset] [No.] 0": {}
+  },
+  "C-\u003eR:fb2e3d434147eb64ab61d42fdc550e41": {
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $1": {}
   },
   "C-\u003eR:fcf4ed52ec7ff8f5eaae0c1e84c93b12": {
     "[Grammar:VerbPhrase:V+P:P:AdjectivePhrase] $3 @ $1 -\u003e $5": {}
@@ -1053,16 +1294,27 @@
   "C-\u003eT:021302e1e422a15913ac01392ec534b9": {
     "[Grammar:V+P:P:Doing] $3 [VerbPhrase] @ $1 -\u003e $5": {}
   },
+  "C-\u003eT:02383125c8cb482d9faf055957f361fe": {
+    "[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {},
+    "[Pronoun:Resolve:Sentence:Object] $3 @ a $1 -\u003e a $7": {}
+  },
   "C-\u003eT:033597e58af67a1f11994cc0290846d6": {
     "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {}
   },
   "C-\u003eT:036f18320a9e58cfbc076666a3969822": {
     "[Grammar:V+IO+DO:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {}
   },
+  "C-\u003eT:03a8013c6ce462df1a1df78a7f9b3102": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e a $2": {},
+    "[repo] $3 [Variety] [Cond] @ [Variety] $2 -\u003e yes": {}
+  },
   "C-\u003eT:041e3f4c8aab9a450f39e05a8074f561": {
     "[CondGroup:Get:Unreleased] [No.] $2 [of] $4 @Caller $3": {},
     "[repo] $3 [CondGroup:Get:Unreleased] @ [CondGroup:DoneState] [of] $1 for [No.] $2 [of] $4 -\u003e yes": {},
     "[repo] $3 [No.] $10 @ [CondGroup] [No.] $9 [of] [No.] $2 [of] $4 -\u003e $1": {}
+  },
+  "C-\u003eT:0476a4a619203f7f9804eb1d261206c2": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e a $2": {}
   },
   "C-\u003eT:04b198bd7dc7eceabcf60be4ece2ffa0": {
     "[compute] $3 [Cond:Reset] [No.] $2 @ $2 + 1 -\u003e $4": {},
@@ -1100,9 +1352,11 @@
     "[Grammar:Verify:Object] $2 @Caller $3": {},
     "[repo] $3 @ [Grammar:Object] $2 -\u003e yes": {}
   },
-  "C-\u003eT:0ff3343a2b6464110a9318123cbd168b": {
-    "[Grammar:Object:Article] $3 [Pronoun] @ $1 -\u003e $2": {},
-    "[Grammar:Object:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {}
+  "C-\u003eT:0c65439dbaf152f7ee0898e6ca5435b6": {
+    "[Grammar:V+Clause:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {}
+  },
+  "C-\u003eT:0e48d84833a505d9b9e105695a33c584": {
+    "[Grammar:V+Clause:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {}
   },
   "C-\u003eT:100f833f0df3613bb072132b11be7b50": {
     "[compute] $3 [SafeCompute] @ $2 + 1 -\u003e $9": {},
@@ -1111,10 +1365,6 @@
   },
   "C-\u003eT:1234cde6cd2c3cfef8e033b7c40636b4": {
     "[TODO:Add] $1 @ $2": {}
-  },
-  "C-\u003eT:12733f9ddb8bf1c77c407ce1afd67c5b": {
-    "[Compute] $3 [Activate] @ $1 = 0 -\u003e yes": {},
-    "[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $1": {}
   },
   "C-\u003eT:157cb3bff43e23d82209624a0340ebce": {
     "$3 says to Susie : to $1": {},
@@ -1145,6 +1395,9 @@
   "C-\u003eT:180fdf9e086347e1e597660b3964705d": {
     "[Grammar:V+P:P:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {}
   },
+  "C-\u003eT:1824810406809ced41be6e9e5fed9ee5": {
+    "[compute] $3 [Susie_Owns:GET] $1 @ $2 != 0 -\u003e yes": {}
+  },
   "C-\u003eT:18722948c6b84a089698025052a2fe77": {
     "[Grammar:Verify:V] $1 @Caller $3": {},
     "[repo] $3 @ [Grammar:Property:Word:Verb] $1 -\u003e": {}
@@ -1159,6 +1412,10 @@
   },
   "C-\u003eT:1a980f9b47e3e2af4339263d43c6d726": {
     "[Grammar:V+IO+DO:DirectObject] $3 [VerbPhrase] @ $1 -\u003e $6": {}
+  },
+  "C-\u003eT:1ae6b6e9a46fb034241a7250e638776e": {
+    "[Grammar:Verify:Object] $1 that $2 @Caller $3": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 [clause] that @ $2 -\u003e yes": {}
   },
   "C-\u003eT:1b3b6c21d4447d9065fb6f29fd1a0034": {
     "[Grammar:VerbPhrase:V+O:Object] $3 [Pronoun] @ $1 -\u003e $4": {}
@@ -1185,6 +1442,14 @@
     "[Grammar:Verify:Object] $1 's $2 @Caller $3": {},
     "[Grammar:Verify:Object] $3 [Item] @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 [Owner] @ $1 -\u003e yes": {}
+  },
+  "C-\u003eT:1ee4223aae478e1f6d1cd33dbeb9d5bf": {
+    "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] [S+VerbPhrase] $1 @ $2 -\u003e $9": {},
+    "[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller $3": {},
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] [S+VerbPhrase] $1 [Subject] $2 @ $5 -\u003e $8": {}
+  },
+  "C-\u003eT:1f845b552b1b6eb06beda3b887fcf271": {
+    "[Grammar:Verify:S+VerbPhrase] $1 says : $2 @Caller $3": {}
   },
   "C-\u003eT:20788daafb99621781e6bd6a2c6af521": {
     "[repo] $3 @ [No.] $4 [Cond] -\u003e $1 is $2": {}
@@ -1216,13 +1481,13 @@
   "C-\u003eT:23de974f461332eb6ce479d76b8aa664": {
     "[CondGroup:ElementCount] [No.] $9 [Cond] @ [No.] $2 [of] $4 -\u003e $6": {}
   },
-  "C-\u003eT:2500ad367b6c50abc4201b5689002af1": {
-    "[Compute] $3 [Activate] @ $1 = 0 -\u003e yes": {},
-    "[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $1": {}
-  },
   "C-\u003eT:25628622b50d79cb5a266bbe9611f5f9": {
     "[Executor] Susie [Execute] check what $1 is @Caller $3": {},
     "[repo] $3 @ $1 -\u003e": {}
+  },
+  "C-\u003eT:259363dd65e8ec07c90e8067907dfcdd": {
+    "[Grammar:Verify:Object] $1 that $2 @Caller $3": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 [clause] that @ $2 -\u003e yes": {}
   },
   "C-\u003eT:2604d89643d31c44ba16dc3cb0fbd030": {
     "[Grammar:Conj+S+VerbPhrase:Conjunction] $3 [Pronoun] @ $1 -\u003e $6": {},
@@ -1232,6 +1497,9 @@
     "[Executor] Susie [Execute] check what $1 is @Caller $3": {},
     "[repo] $3 @ $1 -\u003e": {}
   },
+  "C-\u003eT:27007fe84d5465dbf7edfec91a8283eb": {
+    "[repo] $3 [Susie_Owns:GET] @ [Susie_Owns] $1 -\u003e $2": {}
+  },
   "C-\u003eT:278c40e42fe8f864fb2ec68c3fe50c25": {
     "[Grammar:VerbPhrase:V+O+OC:Verb] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] $1 [object] @ $4 -\u003e $11": {},
@@ -1239,6 +1507,9 @@
   },
   "C-\u003eT:2801c4d52cca4b778571f92303d90c91": {
     "[Cond:Reset] @Caller $3": {}
+  },
+  "C-\u003eT:2854158905f954347975f8589466b287": {
+    "[Grammar:Verify:V+O] need $2 @Caller $3": {}
   },
   "C-\u003eT:2923202e8b9946988d3d9efb5749b547": {
     "[Grammar:Object:Wh+S+V:Verb] $3 [Pronoun] @ $1 -\u003e $6": {},
@@ -1257,6 +1528,9 @@
   "C-\u003eT:2c7387aa7c92017a16f1f34422cab2cd": {
     "[Grammar:Object:Wh+S+V:Subject] $3 [Pronoun] @ $1 -\u003e $2": {}
   },
+  "C-\u003eT:2cb6ef5cfd4aa5571bdbcee6fd0cb5b4": {
+    "[Grammar:V+Clause:Clause] $3 [VerbPhrase] @ $1 -\u003e $5": {}
+  },
   "C-\u003eT:2ce4cbcc9e2881c1becb6b0d9d0aaf59": {
     "[Executor:Get:Steps:Count] $4 [Execute] $1 @Caller $3": {}
   },
@@ -1270,6 +1544,9 @@
   "C-\u003eT:2e88e29595de6e9f9499987141443d25": {
     "[repo] $3 [CondGroup:Get] @ [CondGroup:ElementCount] [No.] $2 [of] $4 -\u003e $6": {}
   },
+  "C-\u003eT:2eeae38ade7dc8d151ae97eca38c5700": {
+    "[Grammar:V+O+OC:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {}
+  },
   "C-\u003eT:2ef11954a0e649b1582922c120d0e7b1": {
     "[CondGroup:DoneAuto] $4 @@ $1 @Caller $3": {}
   },
@@ -1281,8 +1558,17 @@
     "[Grammar:Object:Wh+S+V+O:Object] $3 [Pronoun] @ $1 -\u003e $7": {},
     "[Grammar:Object:Wh+S+V+O:Subject] $3 [Pronoun] @ $1 -\u003e $2": {}
   },
+  "C-\u003eT:3000526ed9c303507ff6190dd1201499": {
+    "[Grammar:V+P:P] $3 [VerbPhrase] @ $1 -\u003e $5": {}
+  },
   "C-\u003eT:308934207a020e3ecbc918f7b9ae4771": {
     "[repo] $3 @ [Pronoun:Cache] $1 -\u003e $2": {}
+  },
+  "C-\u003eT:3117612531948d0a12b927e66e18ae1c": {
+    "[Grammar:Verify:S+VerbPhrase] $1 need $2 @Caller $3": {}
+  },
+  "C-\u003eT:31caac1267113332b4a53e61a49acb19": {
+    "$3 says to Susie : $1": {}
   },
   "C-\u003eT:320ff06f153d07f2b99f0e730e1e537f": {
     "[Grammar:Verify:IO+DO] $2 your $1 @Caller $3": {}
@@ -1310,10 +1596,16 @@
   "C-\u003eT:3785d1fbfa67934fc70639b83193772b": {
     "[Grammar:Verify:Object] my $2 @Caller $3": {}
   },
+  "C-\u003eT:37991514afa322080cb06e3c567555aa": {
+    "[Grammar:V+Clause:Clause] $3 [VerbPhrase] @ $1 -\u003e $5": {}
+  },
   "C-\u003eT:379ad80a3445c7bd139203c72e54bbcf": {
     "[Grammar:Verify:Object] $3 [Subject] is @ $1 -\u003e yes": {},
     "[Grammar:Verify:S+VerbPhrase] $1 is $2 @Caller $3": {},
     "[Grammar:Verify:VerbPhrase] $3 [Subject] $1 @ is $2 -\u003e yes": {}
+  },
+  "C-\u003eT:37a6f81308c4a0fbfe3564b2437d752c": {
+    "[compute] $3 [Susie_Owns:Add] $1 @ $2 + $4 -\u003e $6": {}
   },
   "C-\u003eT:3be2d058ba4f0d447421e5add966e233": {
     "[Grammar:VerbPhrase:V+P:Verb] $3 [Pronoun] @ $1 -\u003e $2": {},
@@ -1322,6 +1614,14 @@
   "C-\u003eT:3be65a2e68e0c3bdb91e3302c2ec7a7e": {
     "[CondGroup:Get:Unreleased] [No.] $2 [of] $4 @Caller $3": {},
     "[repo] $3 [No.] $10 @ [CondGroup] [No.] $9 [of] [No.] $2 [of] $4 -\u003e $1": {}
+  },
+  "C-\u003eT:3d0682cb07128786ed9c66109f56b774": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Pronoun] @ $1 -\u003e $5": {}
+  },
+  "C-\u003eT:3efba7593e5486b3e49b01880afd4644": {
+    "[Grammar:Verify:Object] $3 [Subject] says @ $1 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 says : $2 @Caller $3": {}
   },
   "C-\u003eT:3f41eea6deccab2ed7a8df4713bd45f8": {
     "[repo] $3 @ $1 -\u003e": {},
@@ -1332,6 +1632,9 @@
   },
   "C-\u003eT:3fd5e78f4cb6b5b5f14a40117da18a32": {
     "[CondGroup:MarkDone:NewCount] $3 @ [No.] $9 [of] [Executor] $4 [Execute] $5 @@ step $2 [of] [Executor] $4 [Execute] $1 -\u003e 0": {}
+  },
+  "C-\u003eT:4010d361561f3d653f1f6b4f50ba87a3": {
+    "[Grammar:Verify:V+O] says : $2 @Caller $3": {}
   },
   "C-\u003eT:4012989653df59b1e69633f4d0f2f3b3": {
     "[node:checker] [namespace:repo_addon_fail] [key:$1] [value:$2]": {},
@@ -1348,6 +1651,9 @@
     "[CondGroup:Get:Unreleased] [No.] $2 [of] $4 @Caller $3": {},
     "[repo] $3 [CondGroup:Get:Unreleased] @ [CondGroup:DoneState] [of] $1 for [No.] $2 [of] $4 -\u003e no": {},
     "[repo] $3 [No.] $10 @ [CondGroup] [No.] $9 [of] [No.] $2 [of] $4 -\u003e $1": {}
+  },
+  "C-\u003eT:433511b180d149289f5b849892106eda": {
+    "[Grammar:Verify:Object] $1 that $2 @Caller $3": {}
   },
   "C-\u003eT:43d1f38950f7b1240820fb567cb52686": {
     "[compute] [CHECK] $1 != $2 @Caller $4": {},
@@ -1381,6 +1687,12 @@
     "[repo] $3 @ $1 -\u003e $2": {},
     "[safe--] $1 @Caller $3": {}
   },
+  "C-\u003eT:495b5d2b9ae9f259434106da3abdbe7a": {
+    "[Common] a person says : $1 @Caller $3": {}
+  },
+  "C-\u003eT:49b0e8f67905b2d466eaa21294adf0e5": {
+    "[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {}
+  },
   "C-\u003eT:4a36e394d0f92a610678029a49e215a2": {
     "[CondGroup:Get:Unreleased:Done] [No.] $9 [of] [Executor] $4 [Execute] $5 @Caller $3 step $2 [of] [Executor] $4 [Execute] $1": {}
   },
@@ -1392,6 +1704,9 @@
     "[node:extractor] [namespace:word] [dist:$2] [mode:length] [phrase:$1]": {},
     "[phrase] len $1": {}
   },
+  "C-\u003eT:4b23fcea77c632a903ba429789b2fa9b": {
+    "[repo] $3 [Susie_Owns:GET] @ [Susie_Owns] $1 -\u003e": {}
+  },
   "C-\u003eT:4b887991c8334f966dd473a62dc59dba": {
     "[Grammar:VerbPhrase:V+IO+DO:Verb] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] $1 [DO] @ $5 -\u003e $8": {},
@@ -1402,6 +1717,9 @@
   },
   "C-\u003eT:4be4ea966d4986c417ec3997f78bc01c": {
     "[Grammar:Verify:P] $2 @Caller $3": {}
+  },
+  "C-\u003eT:4c0353378848c6a664089379635438b3": {
+    "[Grammar:Verify:VerbPhrase] $1 @Caller $3": {}
   },
   "C-\u003eT:4cc7d091044b8a6f5a485c110109b4ef": {
     "[Execute:Done] $3 step $2 [of] [Executor] $4 [Execute] $1 @ [Executor] $4 [Execute] $5 -\u003e": {}
@@ -1427,6 +1745,9 @@
     "[Grammar:Verify:P] $3 is @ $2 -\u003e yes": {},
     "[Grammar:Verify:V+P] is $2 @Caller $3": {}
   },
+  "C-\u003eT:500f9c856b78224659e32669fdd1e585": {
+    "[Grammar:V+O:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {}
+  },
   "C-\u003eT:50f838d66180af7dbace8ca9b4d745ac": {
     "[Grammar:Verify:Object] what $2 @Caller $3": {}
   },
@@ -1441,6 +1762,10 @@
     "[CondGroup:MarkDone:NewCount] $3 @ [No.] $9 [of] [Executor] $4 [Execute] $5 @@ step $2 [of] [Executor] $4 [Execute] $1 -\u003e $6": {},
     "[compute] $3 [MarkDone] @ $6 != 0 -\u003e yes": {}
   },
+  "C-\u003eT:537b799f560e6134c0a85c5f3ffeeecd": {
+    "[Grammar:Object:Type] $3 [Article] the @ $1 -\u003e NounPhrase": {},
+    "[Grammar:Verify:Object] the $1 @Caller $3": {}
+  },
   "C-\u003eT:56276b36c89291a161f52dd6e4ae683b": {
     "[repo] [No.] $6 @ [No.] $10 [Cond] -\u003e": {}
   },
@@ -1453,6 +1778,10 @@
     "[CondGroup:MarkDone:NewCount] $3 @ [No.] $9 [of] [Executor] $4 [Execute] $5 @@ step $2 [of] [Executor] $4 [Execute] $1 -\u003e $6": {},
     "[compute] $3 [MarkDone] @ $6 != 0 -\u003e yes": {}
   },
+  "C-\u003eT:5a5a7667de69442bd66d9bab0ab5ee69": {
+    "[Grammar:V+O+OC:OC] $3 [VerbPhrase] @ $1 -\u003e $6": {},
+    "[Grammar:V+O+OC:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {}
+  },
   "C-\u003eT:5a8e9cb9ddb38b3dfd883141586fc661": {
     "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:word_at] [phrase:$1]": {},
     "[phrase] get $1 @ $3": {}
@@ -1461,11 +1790,11 @@
     "[Grammar:S+VerbPhrase:Subject] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Pronoun] @ $1 -\u003e $5": {}
   },
-  "C-\u003eT:5bd0238af3d98b85f7e2522d3e067ee5": {
-    "[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $1": {}
-  },
   "C-\u003eT:5bd070de2fe2c03967a378d8f315cec9": {
     "[compute] $3 [Cond:Reset] [No.] $6 @ $6 + 1 -\u003e $10": {}
+  },
+  "C-\u003eT:5cf882b00c596699f58329400e215373": {
+    "[compute] $3 [Susie_Owns:GET] $1 @ $2 != 0 -\u003e yes": {}
   },
   "C-\u003eT:5d0456c6913730fc25a4e549b42afd40": {
     "[output] $1": {}
@@ -1476,6 +1805,10 @@
   "C-\u003eT:5dd38cd84dcc85d1f482a753c197a3b0": {
     "[CondGroup:Undone] [No.] $2 [of] $4 @@ $1 @Caller $3": {},
     "[repo] $3 @ [CondGroup:DoneState] [of] $1 for [No.] $2 [of] $4 -\u003e yes": {}
+  },
+  "C-\u003eT:5eadad2d59a90c67103c4a1669e5a299": {
+    "[Grammar:Object:That:Pre] $3 [Pronoun] @ $1 -\u003e $4": {},
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $3 [Pronoun:Subject] $1 [Clause] that @ $2 -\u003e $9": {}
   },
   "C-\u003eT:5fa8fdff747d2fd910470073b5827061": {
     "[Grammar:Verify:V+IO+DO] $3 [VerbPhrase] @ $1 -\u003e yes": {}
@@ -1521,11 +1854,19 @@
     "[node:extractor] [namespace:word] [count:$3] [dist:$2] [mode:truncate_head] [phrase:$1]": {},
     "[phrase] LastN $1 # $3": {}
   },
+  "C-\u003eT:699cb77727bc795de3cea529a620eab0": {
+    "[Grammar:V+P:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {}
+  },
   "C-\u003eT:69ba2874b64c5526c4f000b36ede950c": {
     "[Grammar:VerbPhrase:V+O+OC:Complement:Doing] $3 [Pronoun] @ $1 -\u003e $5": {}
   },
   "C-\u003eT:6be031a28f15aa848e260876e2b244e3": {
     "[Grammar:Verify:Object] $2 @Caller $3": {}
+  },
+  "C-\u003eT:6c2b241cdbea7d90fb8c3cba91c4e56c": {
+    "[Grammar:Object:Article] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:Object:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {},
+    "[repo] $3 [Pronoun] [Article] $2 @ [PronounLike:Cache] $4 -\u003e $6": {}
   },
   "C-\u003eT:6c5f6e667e97cd13f8610dd8893142a9": {
     "[node:checker] [namespace:repo_addon_fail] [dist:$2] [key:$1]": {},
@@ -1579,6 +1920,9 @@
   "C-\u003eT:7567285da0cde15ff66b29d8a4657da0": {
     "[Grammar:Object:AdjProNounPhrase:AdjPro] $3 [Pronoun] @ $1 -\u003e $2": {}
   },
+  "C-\u003eT:75f622fd3eb50fc2a747994aadb9d83c": {
+    "[Susie_Owns:Add] [item] $1 [Number] $2 @Caller $3": {}
+  },
   "C-\u003eT:7653453a7da3f8aef66a8a38305a114e": {
     "[Grammar:Verify:V+O] $3 [VerbPhrase] @ $1 -\u003e yes": {}
   },
@@ -1596,8 +1940,18 @@
     "[node:extractor] [namespace:word] [dist:$2] [mode:char_length] [word:$1]": {},
     "[word] len $1": {}
   },
+  "C-\u003eT:7917bf61ca70e1172f4b29d3d8542f53": {
+    "[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {},
+    "[Susie_Owns:GET] $3 @ $1 -\u003e": {}
+  },
+  "C-\u003eT:79533e3a415f68cd2157ae6c6a552e1e": {
+    "[Pronoun:Resolve:Sentence:VerbPhrase] says : $1 @Caller $3": {}
+  },
   "C-\u003eT:795c9f200d61a542f0137a09e444fa86": {
     "[Grammar:Verify:IO+DO] $2 to $1 @Caller $3": {}
+  },
+  "C-\u003eT:798a8efb9413db44d8a434b740ca1259": {
+    "[Grammar:Verify:S+VerbPhrase] $1 need @Caller $3": {}
   },
   "C-\u003eT:798c34e16a1c0e1488b3252aa04103ad": {
     "[Grammar:P:PrepositionPhrase] $3 am @ $2 -\u003e $1": {},
@@ -1628,6 +1982,9 @@
     "[Grammar:Object:Wh+S+V:Wh] $3 [Pronoun] @ $1 -\u003e $4": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Subject] $1 [Clause] [Object] @ $7 -\u003e $11": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Subject] $1 [Clause] [Subject] @ $2 -\u003e $9": {}
+  },
+  "C-\u003eT:7ca664abbce64fbb5a7124f03775cd52": {
+    "[Common] $1 @Caller $3": {}
   },
   "C-\u003eT:7e2160d0113dc008ce19fd2e3c708264": {
     "[CondGroup:DoneAuto] $4 @@ $1 @Caller $3": {},
@@ -1660,6 +2017,9 @@
   "C-\u003eT:829dcfb11a9ba4b38123c87adabef56e": {
     "[repo] $3 @ [Latest] [Cond:Count] -\u003e $6": {}
   },
+  "C-\u003eT:83de4f1c7f81d2504f63246c182e9cd4": {
+    "[Susie_Owns:GET] $1 @Caller $3": {}
+  },
   "C-\u003eT:840a16495db602f0c3a285a5ee0a23dd": {
     "[CondGroup:Get:Unreleased] [No.] $2 [of] $4 @Caller $3": {},
     "[repo] $3 [No.] $10 @ [CondGroup] [No.] $9 [of] [No.] $2 [of] $4 -\u003e": {}
@@ -1677,6 +2037,13 @@
   },
   "C-\u003eT:85ed34f5e95fb2415d638d66e21e389c": {
     "[repo] $3 [Cond:Reset] [No.] $6 @ [No.] $10 [Cond] -\u003e $1": {}
+  },
+  "C-\u003eT:862f1b8ec0d64972f4694096225e4f55": {
+    "[compute] $3 [Susie_Owns:Add] $1 @ $2 + $4 -\u003e $6": {}
+  },
+  "C-\u003eT:869183f3d7d683ba585708209666d3d4": {
+    "[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {},
+    "[Susie_Owns:GET] $3 @ $1 -\u003e": {}
   },
   "C-\u003eT:87872f556465c8b23d57aad0d3e003d0": {
     "[Execute:Done] $3 step $2 [of] [Executor] $4 [Execute] $1 @ [Executor] $4 [Execute] $5 -\u003e yes": {},
@@ -1717,6 +2084,9 @@
     "[CondGroup:Count] [Res] @ $4 -\u003e $2": {},
     "[repo] [No.] $6 @ [No.] $10 [Cond] -\u003e $1": {}
   },
+  "C-\u003eT:8d3f113a69209ea55466bf5cc3651dc9": {
+    "[Grammar:Verify:V+O] says : $2 @Caller $3": {}
+  },
   "C-\u003eT:8e5db714db2c2cb9ad1513ca335dd6f5": {
     "[Executor] Susie [Execute] say : $1 @Caller $3": {}
   },
@@ -1724,9 +2094,15 @@
     "[compute] $3 [Cond:Reset] @ $2 \u003c $1 -\u003e yes": {},
     "[repo] $3 [Cond:Reset] @ [Cond:Count] -\u003e $1": {}
   },
-  "C-\u003eT:90a19eecade608d655f980c91ea3a87f": {
-    "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] [S+VerbPhrase] $1 @ $2 -\u003e $9": {},
-    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] [S+VerbPhrase] $1 [Subject] $2 @ $5 -\u003e $8": {}
+  "C-\u003eT:900da1f36fe77ed9573fd940484220ee": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [SAY] [Subject] $2 @ $5 -\u003e a $6": {}
+  },
+  "C-\u003eT:925a866d55074698b2dfc20a1add7b8d": {
+    "$3 says to Susie : $1": {},
+    "[Pronoun:Resolve:Sentence:S+VerbPhrase] [say] @ $1 -\u003e $2": {},
+    "[TeachMode] [say] @ Teacher $3 -\u003e yes": {}
   },
   "C-\u003eT:9270213c17f699fb5db4d4c2bcd48872": {
     "[Grammar:Verify:V+IO+DO] tell $2 @Caller $3": {}
@@ -1754,6 +2130,9 @@
     "[Grammar:P:AdjectivePhrase] $3 am @ $2 -\u003e $1": {},
     "[Grammar:P:PrepositionPhrase] $3 am @ $2 -\u003e $4": {},
     "[Grammar:P:Type] $3 am @ $2 -\u003e adj_preposition": {}
+  },
+  "C-\u003eT:977e83ce492349257098918d48a44780": {
+    "[CondGroup:MarkDone:NewCount] $3 @ [No.] $2 [of] $4 @@ $1 -\u003e $6": {}
   },
   "C-\u003eT:9908b735ff26a27bca685ee9910fd542": {
     "[CondGroup:Get:Unreleased] [No.] $2 [of] $4 @Caller $3": {}
@@ -1786,6 +2165,14 @@
     "[Grammar:P:AdjectivePhrase] $3 is @ $2 -\u003e $1": {},
     "[Grammar:P:Type] $3 is @ $2 -\u003e adj": {}
   },
+  "C-\u003eT:9e7cd0c56e84c696cd59841f78b64633": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [SAY] [Subject] $2 @ $5 -\u003e a $6": {},
+    "[Grammar:VerbPhrase:V+O:Verb] $3 [Variety] [Cond] [SAY] [Subject] $2 @ $5 -\u003e $10": {},
+    "[repo] $3 @ [No.] $4 [Cond] -\u003e $7 says : $1": {},
+    "[repo] $3 [Variety] [Cond] [SAY] [Subject] $2 [V+O] $5 @ [Variety] $6 -\u003e yes": {}
+  },
   "C-\u003eT:9f50dba65883d2516752bda51346cdfc": {
     "[Grammar:V+P:P:PrepositionPhrase] $3 [VerbPhrase] @ $1 -\u003e $5": {}
   },
@@ -1794,9 +2181,15 @@
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] $1 [DO] (To) @ $5 -\u003e $8": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] $1 [IO] @ $4 -\u003e $11": {}
   },
+  "C-\u003eT:a0f74ff48077f847dd04a3396744fc2a": {
+    "[Grammar:V+IO+DO:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {}
+  },
   "C-\u003eT:a10aa33dc631267c668894de7d7876c7": {
     "[Grammar:P:Object] $3 am @ $2 -\u003e $1": {},
     "[Grammar:P:Type] $3 am @ $2 -\u003e object": {}
+  },
+  "C-\u003eT:a13ef82225688bb08a981fa2d27d8c1c": {
+    "[Grammar:Object:That:Post] $3 [Pronoun] @ $1 -\u003e $2": {}
   },
   "C-\u003eT:a215bcf8ce51cd4a5f7f30253da5faab": {
     "$3 says to Susie : if $1": {}
@@ -1806,6 +2199,11 @@
   },
   "C-\u003eT:a2d76e66dba34a6bf7189f0756d38652": {
     "[Executor] Susie [Execute] say : $1 @Caller $3": {}
+  },
+  "C-\u003eT:a2e07e2de3bbb18975089a8c21b00a6f": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Common] [Variety] [SAY_EXL] @ $1 -\u003e I": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Common] [Variety] [SAY_EXL] @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Common] [Variety] [SAY_EXL] [Subject] I @ $5 -\u003e a $6": {}
   },
   "C-\u003eT:a45c4a339de31718a5ac29096a14f8dd": {
     "Zero says to Susie : [output] $1": {}
@@ -1830,12 +2228,26 @@
     "[CondGroup:MarkDone:NewCount] $3 @ [No.] $9 [of] [Executor] $4 [Execute] $5 @@ step $2 [of] [Executor] $4 [Execute] $1 -\u003e $6": {},
     "[compute] $3 [MarkDone] @ $6 != 0 -\u003e yes": {}
   },
+  "C-\u003eT:a78a7182ea52f753eeb8483da0e6df68": {
+    "[Grammar:Verify:Object] $3 [Subject] says @ $1 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 says : $2 @Caller $3": {}
+  },
   "C-\u003eT:a7938c798bd3d126eee8f91fe4181ba5": {
     "[Grammar:VerbPhrase:V+IO+DO:DirectObject(To)] $3 [Pronoun] @ $1 -\u003e $5": {}
   },
   "C-\u003eT:a7fd33e96a16002695fea46616a60028": {
     "[repo] $3 @ [Grammar:Property:pronoun:Candidate:Len] $1 -\u003e 1": {},
     "[repo] $3 @ [Grammar:Property:pronoun:Candidate] [No.] 1 [of] $1 -\u003e $2": {}
+  },
+  "C-\u003eT:a823c45f63b7bade2081fa1bd7f753c3": {
+    "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 @ $2 -\u003e $9": {},
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 [Subject] $2 @ $5 -\u003e $8": {},
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $1 @Caller $3": {}
+  },
+  "C-\u003eT:a84071c90dadbf07509c46bf46968c6f": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Common] [Variety] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Common] [Variety] @ $1 -\u003e $6": {},
+    "[repo] $3 [Common] [Variety] @ [Variety:Of] $2 -\u003e person": {}
   },
   "C-\u003eT:a84a02b6b9eeae57eb00daa2f3c930ac": {
     "[Grammar:Verify:Object] $1 's $2 @Caller $3": {}
@@ -1888,6 +2300,12 @@
     "[Cond:Reset] @Caller $3": {},
     "[repo] [DEL] [No.] $6 [Cond]": {}
   },
+  "C-\u003eT:b225c2025c449b53d01d3fba257a22f8": {
+    "[repo] $3 [Susie_Owns:Add] [Number] $2 @ [Susie_Owns] $1 -\u003e $4": {}
+  },
+  "C-\u003eT:b2f64b13501e82fe16d1ddb024f4fbbc": {
+    "[repo] $3 @ [No.] $4 [Cond] -\u003e $7 says : $1": {}
+  },
   "C-\u003eT:b48ddd7a30d86c12c73690d4805ad9ef": {
     "$3 says to Susie : if $1": {}
   },
@@ -1909,6 +2327,11 @@
   "C-\u003eT:b7c47dc82f48f430fbba6344d635fbc6": {
     "[Grammar:Verify:V+O] $3 [VerbPhrase] @ $1 -\u003e yes": {}
   },
+  "C-\u003eT:b82ffbc675ac8618313edc29ec0585e2": {
+    "[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {},
+    "[Pronoun:Resolve:Sentence:Object] $3 @ a $1 -\u003e a $7": {},
+    "[Susie_Owns:GET] $3 @ $7 -\u003e yes": {}
+  },
   "C-\u003eT:ba42709874b78cd5d8901fa2a43cbd32": {
     "[Grammar:Verify:S+VerbPhrase] $1 is $2 @Caller $3": {}
   },
@@ -1927,10 +2350,36 @@
   "C-\u003eT:be96a57022dc6fbd698213e1e343aee7": {
     "[safe--] $1 @Caller $3": {}
   },
+  "C-\u003eT:bfa6e48e2d8ca144940df16f9017acdb": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [Subject] $2 @ $5 -\u003e $6": {},
+    "[Grammar:VerbPhrase:V+O:Verb] $3 [Variety] [Cond] [Subject] $2 @ $5 -\u003e $10": {},
+    "[repo] $3 [Variety] [Cond] [Subject] $2 [V+O] $5 @ [Variety] $6 -\u003e yes": {}
+  },
+  "C-\u003eT:c01d364412d00193844ad3521325a076": {
+    "[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {},
+    "[Pronoun:Resolve:Sentence:Object] $3 @ a $1 -\u003e a $7": {},
+    "[Susie_Owns:GET] $3 @ $7 -\u003e yes": {}
+  },
+  "C-\u003eT:c0241d512888ddecdcb24e580625c954": {
+    "[compute] $3 [Susie_Owns:GET] $1 @ $2 = 0 -\u003e yes": {}
+  },
   "C-\u003eT:c17dc9e65f784d3e5118ebd8d0b5ccee": {
     "[Grammar:Verify:Object] $1 's $2 @Caller $3": {},
     "[Grammar:Verify:Object] $3 [Item] @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 [Owner] @ $1 -\u003e yes": {}
+  },
+  "C-\u003eT:c367a1aa032a7f466fafda07826ab5cb": {
+    "[Grammar:V+O:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {}
+  },
+  "C-\u003eT:c5479e97b2f6d0f345fd8fcd8e2d63d7": {
+    "[Grammar:V+IO+DO:DirectObject] $3 [VerbPhrase] @ $1 -\u003e $6": {},
+    "[Grammar:V+IO+DO:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {}
+  },
+  "C-\u003eT:c5c61cc46031a7bc2659a274823a26e6": {
+    "[Grammar:Verify:Object] $3 [Subject] says @ $1 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 says : $2 @Caller $3": {}
   },
   "C-\u003eT:c5cc26e008dc091a63a95957eaa9af02": {
     "$3 [CondGroup:Get:Unreleased] [No.] $2 [of] $4 @ [compute] $10 + 1 -\u003e $9": {}
@@ -1954,6 +2403,9 @@
     "[Grammar:Verify:P] $3 am @ $2 -\u003e yes": {},
     "[Grammar:Verify:V+P] am $2 @Caller $3": {}
   },
+  "C-\u003eT:c8fc54070cd9335b437e51c0aad4a63a": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Common] [Variety] @ $1 -\u003e $2": {}
+  },
   "C-\u003eT:c96a9eeece396ed573a44377fb878771": {
     "[CondGroup:Get:Unreleased] [No.] $2 [of] $4 @Caller $3": {},
     "[repo] $3 [CondGroup:Get:Unreleased] @ [CondGroup:DoneState] [of] $1 for [No.] $2 [of] $4 -\u003e yes": {},
@@ -1967,6 +2419,13 @@
     "[CondGroup:ElementCount] [No.] $10 [Cond] @ [No.] $2 [of] $4 -\u003e $9": {},
     "[repo] [No.] $6 @ [No.] $10 [Cond] -\u003e $1": {}
   },
+  "C-\u003eT:ca400717b6aa17d08cfffe8932a62702": {
+    "[Grammar:Verify:Object] $3 [Subject] need @ $1 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 need @Caller $3": {}
+  },
+  "C-\u003eT:ca4dc94766a1ec2f98223a4aa73ce2ff": {
+    "[CondGroup:MarkDone:NewCount] $3 @ [No.] $2 [of] $4 @@ $1 -\u003e $6": {}
+  },
   "C-\u003eT:caf116c76bff1b594f8f52c165ca723e": {
     "[Execute:Done] $3 step $2 [of] [Executor] $4 [Execute] $1 @ [Executor] $4 [Execute] $5 -\u003e yes": {},
     "[compute] $3 step $2 [of] [Executor] $4 [Execute] $1 @ $2 + 1 -\u003e $9": {},
@@ -1974,6 +2433,11 @@
   },
   "C-\u003eT:cc7c0a6ad7807d81d995844246cfc70f": {
     "[Grammar:VerbPhrase:V+O+OC:Complement:Todo] $3 [Pronoun] @ $1 -\u003e to $5": {}
+  },
+  "C-\u003eT:cd64832d1f7a5bafe8d9fed5ad8f0eea": {
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Common] [Variety] [SAY_EXL] @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+O:Verb] $3 [Common] [Variety] [SAY_EXL] [Subject] I @ $5 -\u003e need": {},
+    "[repo] $3 [Common] [Variety] [SAY_EXL] [Subject] I [V+O] $5 @ [Variety:Of] $6 -\u003e $fork": {}
   },
   "C-\u003eT:cd8f2688e76832f143bfea08b9827d49": {
     "[node:extractor] [namespace:word] [dist:$2] [index:$3] [mode:char_at] [word:$1]": {},
@@ -2032,6 +2496,11 @@
     "[Grammar:Verify:Object] $3 [P] @ $2 -\u003e yes": {},
     "[Grammar:Verify:P] $2 @Caller $3": {}
   },
+  "C-\u003eT:d7f7466714b5e51d1648654cfdbe1c89": {
+    "[Grammar:Verify:Object] $3 [Subject] need @ $1 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 need $2 @Caller $3": {},
+    "[Grammar:Verify:VerbPhrase] $3 [Subject] $1 @ need $2 -\u003e yes": {}
+  },
   "C-\u003eT:d8a215f5225078c6ff479380817e876c": {
     "[input] $1": {}
   },
@@ -2050,6 +2519,9 @@
   "C-\u003eT:dae91c4a553582742a4812615af1e078": {
     "[Grammar:Verify:V+O] asks $2 @Caller $3": {}
   },
+  "C-\u003eT:db13ef90d4e8a6b3710ddfa8448ad61e": {
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $1 @Caller $3": {}
+  },
   "C-\u003eT:db293924deb8e309c070bdbc4984f2e1": {
     "[Grammar:P:AdjectivePhrase] $3 is @ $2 -\u003e $1": {},
     "[Grammar:P:PrepositionPhrase] $3 is @ $2 -\u003e $4": {},
@@ -2057,6 +2529,13 @@
   },
   "C-\u003eT:db64c621eba4e31c61c06d331971c5b7": {
     "[Print] $1 @Caller $2": {}
+  },
+  "C-\u003eT:dc84465658c8d8990baeec901ffb3a35": {
+    "[Grammar:Verify:Object] $3 need @ $2 -\u003e yes": {},
+    "[Grammar:Verify:V+O] need $2 @Caller $3": {}
+  },
+  "C-\u003eT:dd26d90b5332334cefdcaf5c1117f6d0": {
+    "[Grammar:Verify:V+O] says : $2 @Caller $3": {}
   },
   "C-\u003eT:ddc3f4335d82dc0dd568c3838aa644f3": {
     "[Pronoun:Resolve:Sentence:S+VerbPhrase] $3 [Pronoun] [Conj] $6 @ $5 -\u003e $8": {}
@@ -2094,6 +2573,14 @@
     "[Grammar:Verify:Object] $3 [Item] @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 [Owner] @ $1 -\u003e yes": {}
   },
+  "C-\u003eT:e53f783815af6d7a11ea8aef7c5e08c1": {
+    "[Grammar:Object:Article] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:Object:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {}
+  },
+  "C-\u003eT:e541b6e7be2695e4a53396e62467b788": {
+    "[CondGroup:MarkDone:NewCount] $3 @ [No.] $2 [of] $4 @@ $1 -\u003e $6": {},
+    "[compute] $3 [Activate] $4 @ $6 = 0 -\u003e yes": {}
+  },
   "C-\u003eT:e591afacb794811932a47b0a4aab4932": {
     "[Grammar:Object:AdjProNounPhrase:AdjPro] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Grammar:Object:AdjProNounPhrase:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {},
@@ -2130,6 +2617,9 @@
   "C-\u003eT:e90233a853128c2619ecf9db36a915d9": {
     "[Grammar:Verify:Object] $2 @Caller $3": {}
   },
+  "C-\u003eT:e989c794ae7cb809db7c1597f6498b99": {
+    "[Grammar:Verify:Object] the $1 @Caller $3": {}
+  },
   "C-\u003eT:eb6e737441004cd27d059f129f8c6c0b": {
     "[node:checker] [namespace:repo_addon] [key:$1] [value:$2]": {},
     "[repo] [CHECK] $1 -\u003e $2": {}
@@ -2140,6 +2630,10 @@
   "C-\u003eT:ec2af787bde999ae6788bca6aabbf866": {
     "[Res] $4": {}
   },
+  "C-\u003eT:ecc6cc869c82e85879e70066d0f557bd": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Pronoun] @ $1 -\u003e $5": {}
+  },
   "C-\u003eT:edf664d274ba305d6713f28a465daa17": {
     "[node:extractor] [namespace:word] [dist:$2] [mode:char_index_of] [target:$3] [word:$1]": {},
     "[word] IndexOf $1 # $3": {}
@@ -2148,8 +2642,18 @@
     "[Grammar:P:PrepositionPhrase] $3 is @ $2 -\u003e $1": {},
     "[Grammar:P:Type] $3 is @ $2 -\u003e preposition": {}
   },
+  "C-\u003eT:ef26fee5a69ba34d4818b9154666fd0f": {
+    "[repo] $3 @ [No.] $4 [Cond] -\u003e $1": {}
+  },
+  "C-\u003eT:ef42082c558da0303fd5ac5267fe2f2d": {
+    "[repo] $3 [Susie_Owns:GET] @ [Susie_Owns] $1 -\u003e $2": {}
+  },
   "C-\u003eT:ef559197960dfc5daa40918118428c20": {
     "[CondGroup:Reset] [No.] $2 [of] $4 @Caller $3": {}
+  },
+  "C-\u003eT:ef5da8bf9c9d77460ab5eba201d96f84": {
+    "[Grammar:Verify:Object] $1 that $2 @Caller $3": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 [clause] that @ $2 -\u003e yes": {}
   },
   "C-\u003eT:f06ce3e5a53ef762424c39065ab77c61": {
     "$3 says to Susie : to $1": {}
@@ -2165,6 +2669,11 @@
     "[Common] Susie 's name is $1 @Caller $3": {},
     "[System:Verify:Value] $3 Susie 's name is $1 @ $1 -\u003e yes": {},
     "[compute] $3 Susie 's name is $1 @ $1 != $Susie -\u003e yes": {}
+  },
+  "C-\u003eT:f220c35039317265bf608adf90195637": {
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [Subject] $2 @ $5 -\u003e $6": {}
   },
   "C-\u003eT:f3a694e225c03b41829f11a0b4042553": {
     "[Res] [Executor] $4 [Execute] $5": {},
@@ -2182,6 +2691,11 @@
     "[Grammar:VerbPhrase:V+O+OC:Verb] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] $1 [object] @ $4 -\u003e $11": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] $1 [Todo] @ $5 -\u003e $8": {}
+  },
+  "C-\u003eT:f640e9455b259d840b60d03a31b615da": {
+    "[Grammar:Object:Article] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:Object:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {},
+    "[repo] $3 [Pronoun] [Article] $2 @ [PronounLike:Cache] $4 -\u003e": {}
   },
   "C-\u003eT:f65acf1b11ab887f44b03c30ca9b2a75": {
     "[repo] [SSET] [System:Property:SPronoun:Object-like] $1 -\u003e yes": {}
@@ -2207,6 +2721,10 @@
     "[Grammar:Verify:Object] $3 [IO+DO] 1 @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 [IO+DO] 2 @ $1 -\u003e yes": {}
   },
+  "C-\u003eT:f9e20cff867578f6ab3028981ab51fa5": {
+    "[Grammar:Verify:Object] $1 that $2 @Caller $3": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 [clause] that @ $2 -\u003e yes": {}
+  },
   "C-\u003eT:fa8972986885e587b94e81b1a7b38316": {
     "[repo] $3 [Verify:Object] @ [Grammar:Property:Word:Pronoun] $2 -\u003e yes": {}
   },
@@ -2216,6 +2734,9 @@
   },
   "C-\u003eT:fb2d6c29453420f7972358a85414169a": {
     "[Cond:Reset] @Caller $3": {}
+  },
+  "C-\u003eT:fb2e3d434147eb64ab61d42fdc550e41": {
+    "[Grammar:VerbPhrase:Type] $3 [Pronoun] @ $1 -\u003e V": {}
   },
   "C-\u003eT:fcf4ed52ec7ff8f5eaae0c1e84c93b12": {
     "[Grammar:V+P:P:AdjectivePhrase] $3 [VerbPhrase] @ $1 -\u003e $5": {}
@@ -2238,7 +2759,7 @@
     "d9bf3151d02157fa7bd0e34b568d8b4f": {}
   },
   "R-\u003eC:$4 @Caller $3": {
-    "2500ad367b6c50abc4201b5689002af1": {}
+    "e541b6e7be2695e4a53396e62467b788": {}
   },
   "R-\u003eC:Susie is enabled to ask Zero questions": {
     "2dbcaeae947728d09b97a39fc57d3e86": {}
@@ -2255,8 +2776,17 @@
   "R-\u003eC:[Common] Susie 's name is $Susie @Caller $3": {
     "f1951edf858e7ea96a62ab9d9d2cede7": {}
   },
-  "R-\u003eC:[Compute] [CHECK] $1 = 0 @Caller $3 [Activate]": {
-    "5bd0238af3d98b85f7e2522d3e067ee5": {}
+  "R-\u003eC:[Common] Susie don't have a $1 @Caller $3": {
+    "7917bf61ca70e1172f4b29d3d8542f53": {}
+  },
+  "R-\u003eC:[Common] Susie have a $1 @Caller $3": {
+    "b82ffbc675ac8618313edc29ec0585e2": {}
+  },
+  "R-\u003eC:[Common] a person $6 @Caller $3": {
+    "a84071c90dadbf07509c46bf46968c6f": {}
+  },
+  "R-\u003eC:[Common] a person says : I need a $fork @Caller $3": {
+    "cd64832d1f7a5bafe8d9fed5ad8f0eea": {}
   },
   "R-\u003eC:[Cond:Add] $2 @Caller [say]": {
     "9deb6447809707c445e9c3f53fcba9ea": {}
@@ -2380,6 +2910,9 @@
   "R-\u003eC:[Grammar:Object:Article] $3 @ a $1 -\u003e a": {
     "179972d37ada4c6209fc980ebaf191c1": {}
   },
+  "R-\u003eC:[Grammar:Object:Article] $3 @ the $1 -\u003e the": {
+    "537b799f560e6134c0a85c5f3ffeeecd": {}
+  },
   "R-\u003eC:[Grammar:Object:NounOnly] $3 @ $2 -\u003e $2": {
     "7015d8be54ec96fe66f81c085a1d95f9": {}
   },
@@ -2392,11 +2925,23 @@
   "R-\u003eC:[Grammar:Object:NounPhrase] $3 @ a $1 -\u003e $1": {
     "179972d37ada4c6209fc980ebaf191c1": {}
   },
+  "R-\u003eC:[Grammar:Object:NounPhrase] $3 @ the $1 -\u003e $1": {
+    "537b799f560e6134c0a85c5f3ffeeecd": {}
+  },
   "R-\u003eC:[Grammar:Object:Pronoun] $3 @ $2 -\u003e $2": {
     "fa8972986885e587b94e81b1a7b38316": {}
   },
+  "R-\u003eC:[Grammar:Object:That:Post] $3 @ $1 that $2 -\u003e $2": {
+    "1ae6b6e9a46fb034241a7250e638776e": {}
+  },
+  "R-\u003eC:[Grammar:Object:That:Pre] $3 @ $1 that $2 -\u003e $1": {
+    "259363dd65e8ec07c90e8067907dfcdd": {}
+  },
   "R-\u003eC:[Grammar:Object:Type] $3 @ $1 's $2 -\u003e NounPhrase": {
     "632ade93aecb45c2016a88f93725eb6f": {}
+  },
+  "R-\u003eC:[Grammar:Object:Type] $3 @ $1 that $2 -\u003e That": {
+    "f9e20cff867578f6ab3028981ab51fa5": {}
   },
   "R-\u003eC:[Grammar:Object:Type] $3 @ $2 -\u003e NounPhrase": {
     "ec023fa426c82ad54b6af77a7fb2c016": {}
@@ -2409,6 +2954,9 @@
   },
   "R-\u003eC:[Grammar:Object:Type] $3 @ my $2 -\u003e AdjProNounPhrase": {
     "01cb0901443c9186390535cedbaa85d1": {}
+  },
+  "R-\u003eC:[Grammar:Object:Type] $3 @ the $1 -\u003e NounPhrase": {
+    "537b799f560e6134c0a85c5f3ffeeecd": {}
   },
   "R-\u003eC:[Grammar:Object:Type] $3 @ what $2 -\u003e Wh+S+V": {
     "f9638f57720e83d99ce76b1335eb63fa": {}
@@ -2443,6 +2991,15 @@
   "R-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 @ $1 is -\u003e $1": {
     "74c6d22959caa2371845e18a9e044c19": {}
   },
+  "R-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 @ $1 need $2 -\u003e $1": {
+    "d7f7466714b5e51d1648654cfdbe1c89": {}
+  },
+  "R-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 @ $1 need -\u003e $1": {
+    "ca400717b6aa17d08cfffe8932a62702": {}
+  },
+  "R-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 @ $1 says : $2 -\u003e $1": {
+    "c5c61cc46031a7bc2659a274823a26e6": {}
+  },
   "R-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 asks $2 -\u003e asks $2": {
     "4dc3a7c2c032aecfd4b83c7062ad4f95": {}
   },
@@ -2454,6 +3011,15 @@
   },
   "R-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 is -\u003e is": {
     "74c6d22959caa2371845e18a9e044c19": {}
+  },
+  "R-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 need $2 -\u003e need $2": {
+    "d7f7466714b5e51d1648654cfdbe1c89": {}
+  },
+  "R-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 need -\u003e need": {
+    "ca400717b6aa17d08cfffe8932a62702": {}
+  },
+  "R-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 says : $2 -\u003e says : $2": {
+    "a78a7182ea52f753eeb8483da0e6df68": {}
   },
   "R-\u003eC:[Grammar:V+IO+DO:DirectObject] $3 @ say $2 -\u003e $10": {
     "d3551add14826d39349007869c931caa": {}
@@ -2479,11 +3045,23 @@
   "R-\u003eC:[Grammar:V+O:Object] $3 @ check $2 -\u003e $2": {
     "636ca4cb3785c535189b2cdaaa8890f6": {}
   },
+  "R-\u003eC:[Grammar:V+O:Object] $3 @ need $2 -\u003e $2": {
+    "dc84465658c8d8990baeec901ffb3a35": {}
+  },
+  "R-\u003eC:[Grammar:V+O:Object] $3 @ says : $2 -\u003e : $2": {
+    "4010d361561f3d653f1f6b4f50ba87a3": {}
+  },
   "R-\u003eC:[Grammar:V+O:Verb] $3 @ asks $2 -\u003e asks": {
     "f18182e704726a0be235910925ea3913": {}
   },
   "R-\u003eC:[Grammar:V+O:Verb] $3 @ check $2 -\u003e check": {
     "636ca4cb3785c535189b2cdaaa8890f6": {}
+  },
+  "R-\u003eC:[Grammar:V+O:Verb] $3 @ need $2 -\u003e need": {
+    "dc84465658c8d8990baeec901ffb3a35": {}
+  },
+  "R-\u003eC:[Grammar:V+O:Verb] $3 @ says : $2 -\u003e says": {
+    "dd26d90b5332334cefdcaf5c1117f6d0": {}
   },
   "R-\u003eC:[Grammar:V+P:P:AdjectivePhrase] $3 @ am $2 -\u003e $1": {
     "64069932a7405ec6c3195f42e9734bce": {},
@@ -2539,6 +3117,15 @@
   "R-\u003eC:[Grammar:V+P:Verb] $3 @ is $2 -\u003e is": {
     "4fcb65fa87de059dc7815c803390e468": {}
   },
+  "R-\u003eC:[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5": {
+    "3000526ed9c303507ff6190dd1201499": {},
+    "37991514afa322080cb06e3c567555aa": {},
+    "500f9c856b78224659e32669fdd1e585": {}
+  },
+  "R-\u003eC:[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5 $6": {
+    "5a5a7667de69442bd66d9bab0ab5ee69": {},
+    "c5479e97b2f6d0f345fd8fcd8e2d63d7": {}
+  },
   "R-\u003eC:[Grammar:VerbPhrase:Type] $3 @ $1 -\u003e V": {
     "d9e80059a24b97d197b4893baf335fd4": {}
   },
@@ -2559,6 +3146,15 @@
   },
   "R-\u003eC:[Grammar:VerbPhrase:Type] $3 [Subject] $1 @ is -\u003e V": {
     "74c6d22959caa2371845e18a9e044c19": {}
+  },
+  "R-\u003eC:[Grammar:VerbPhrase:Type] $3 [Subject] $1 @ need -\u003e V": {
+    "ca400717b6aa17d08cfffe8932a62702": {}
+  },
+  "R-\u003eC:[Grammar:VerbPhrase:V+Clause:Clause] $3 @ $1 -\u003e $5": {
+    "2cb6ef5cfd4aa5571bdbcee6fd0cb5b4": {}
+  },
+  "R-\u003eC:[Grammar:VerbPhrase:V+Clause:Verb] $3 @ $1 -\u003e $4": {
+    "0c65439dbaf152f7ee0898e6ca5435b6": {}
   },
   "R-\u003eC:[Grammar:VerbPhrase:V+IO+DO:DirectObject] $3 @ $1 -\u003e $6": {
     "1a980f9b47e3e2af4339263d43c6d726": {}
@@ -2602,6 +3198,13 @@
   "R-\u003eC:[Grammar:VerbPhrase:V+P:Verb] $3 @ $1 -\u003e $4": {
     "e374f302603506bdc5b4ac3d675534d4": {}
   },
+  "R-\u003eC:[Grammar:VerbPhrase:Verb] $3 @ $1 -\u003e $4": {
+    "0e48d84833a505d9b9e105695a33c584": {},
+    "2eeae38ade7dc8d151ae97eca38c5700": {},
+    "699cb77727bc795de3cea529a620eab0": {},
+    "a0f74ff48077f847dd04a3396744fc2a": {},
+    "c367a1aa032a7f466fafda07826ab5cb": {}
+  },
   "R-\u003eC:[Grammar:Verify:Conj+S+VerbPhrase] $1 @Caller $3 [Pronoun]": {
     "46d397c601c34ef4f7e18065e3af8a36": {}
   },
@@ -2626,6 +3229,9 @@
   "R-\u003eC:[Grammar:Verify:Object] $1 @Caller $3 [Article] a": {
     "238b5fdb804825e16bd7a52dd8227d91": {}
   },
+  "R-\u003eC:[Grammar:Verify:Object] $1 @Caller $3 [Article] the": {
+    "e989c794ae7cb809db7c1597f6498b99": {}
+  },
   "R-\u003eC:[Grammar:Verify:Object] $1 @Caller $3 [DO]": {
     "320ff06f153d07f2b99f0e730e1e537f": {},
     "d6fbb5be179bf6d88bf1668f00664b46": {}
@@ -2649,6 +3255,13 @@
   "R-\u003eC:[Grammar:Verify:Object] $1 @Caller $3 [Subject] is": {
     "06300da590abb3fd42e2474788fcd0d3": {},
     "ba42709874b78cd5d8901fa2a43cbd32": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $1 @Caller $3 [Subject] need": {
+    "3117612531948d0a12b927e66e18ae1c": {},
+    "798a8efb9413db44d8a434b740ca1259": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $1 @Caller $3 [Subject] says": {
+    "1f845b552b1b6eb06beda3b887fcf271": {}
   },
   "R-\u003eC:[Grammar:Verify:Object] $2 @Caller $3 [AP] my": {
     "3785d1fbfa67934fc70639b83193772b": {}
@@ -2675,8 +3288,14 @@
   "R-\u003eC:[Grammar:Verify:Object] $2 @Caller $3 check": {
     "8b712bdf382481aa26222b8226a8f51d": {}
   },
+  "R-\u003eC:[Grammar:Verify:Object] $2 @Caller $3 need": {
+    "2854158905f954347975f8589466b287": {}
+  },
   "R-\u003eC:[Grammar:Verify:Object] $3 @ $1 's $2 -\u003e yes": {
     "e506dad7d746303a3af7370cbf5b6c1b": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $3 @ $1 that $2 -\u003e yes": {
+    "ef5da8bf9c9d77460ab5eba201d96f84": {}
   },
   "R-\u003eC:[Grammar:Verify:Object] $3 @ $2 -\u003e yes": {
     "0b48547919a0ad24c8b99c1488a26a77": {},
@@ -2688,6 +3307,9 @@
   },
   "R-\u003eC:[Grammar:Verify:Object] $3 @ my $2 -\u003e yes": {
     "01cb0901443c9186390535cedbaa85d1": {}
+  },
+  "R-\u003eC:[Grammar:Verify:Object] $3 @ the $1 -\u003e yes": {
+    "537b799f560e6134c0a85c5f3ffeeecd": {}
   },
   "R-\u003eC:[Grammar:Verify:Object] $3 @ what $2 -\u003e yes": {
     "f9638f57720e83d99ce76b1335eb63fa": {}
@@ -2704,11 +3326,27 @@
   "R-\u003eC:[Grammar:Verify:P] $3 @ $2 -\u003e yes": {
     "d7cd1b43e1e5d2ab531eff29284b9d5a": {}
   },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Common] [Variety]": {
+    "7ca664abbce64fbb5a7124f03775cd52": {}
+  },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Common] [Variety] [SAY_EXL]": {
+    "495b5d2b9ae9f259434106da3abdbe7a": {}
+  },
   "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Pronoun]": {
-    "16e4cf59ba1e84800b5a4cf997c7dcae": {}
+    "16e4cf59ba1e84800b5a4cf997c7dcae": {},
+    "db13ef90d4e8a6b3710ddfa8448ad61e": {}
+  },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Variety] [Cond]": {
+    "ef26fee5a69ba34d4818b9154666fd0f": {}
+  },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Variety] [Cond] [SAY]": {
+    "b2f64b13501e82fe16d1ddb024f4fbbc": {}
   },
   "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [Conj] if": {
     "4bd27ba1fac27329c3d37880eb936a67": {}
+  },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [clause] that": {
+    "433511b180d149289f5b849892106eda": {}
   },
   "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [clause] what": {
     "50f838d66180af7dbace8ca9b4d745ac": {}
@@ -2724,6 +3362,18 @@
   },
   "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $3 @ $1 is -\u003e yes": {
     "74c6d22959caa2371845e18a9e044c19": {}
+  },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $3 @ $1 need $2 -\u003e yes": {
+    "d7f7466714b5e51d1648654cfdbe1c89": {}
+  },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $3 @ $1 need -\u003e yes": {
+    "ca400717b6aa17d08cfffe8932a62702": {}
+  },
+  "R-\u003eC:[Grammar:Verify:S+VerbPhrase] $3 @ $1 says : $2 -\u003e yes": {
+    "3efba7593e5486b3e49b01880afd4644": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+Clause] $1 @Caller $3 [VerbPhrase]": {
+    "4c0353378848c6a664089379635438b3": {}
   },
   "R-\u003eC:[Grammar:Verify:V+IO+DO] $1 @Caller $3 [VerbPhrase]": {
     "c97ddfa721046a86059edbfb169d1019": {}
@@ -2745,6 +3395,12 @@
   },
   "R-\u003eC:[Grammar:Verify:V+O] $3 @ check $2 -\u003e yes": {
     "636ca4cb3785c535189b2cdaaa8890f6": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+O] $3 @ need $2 -\u003e yes": {
+    "dc84465658c8d8990baeec901ffb3a35": {}
+  },
+  "R-\u003eC:[Grammar:Verify:V+O] $3 @ says : $2 -\u003e yes": {
+    "8d3f113a69209ea55466bf5cc3651dc9": {}
   },
   "R-\u003eC:[Grammar:Verify:V+P] $1 @Caller $3 [VerbPhrase]": {
     "9cfab7a2bc285744a67eaedfcd7f25c3": {}
@@ -2780,8 +3436,11 @@
   "R-\u003eC:[Grammar:Verify:VerbPhrase] is $2 @Caller $3 [Subject] $1": {
     "ba42709874b78cd5d8901fa2a43cbd32": {}
   },
+  "R-\u003eC:[Grammar:Verify:VerbPhrase] need $2 @Caller $3 [Subject] $1": {
+    "3117612531948d0a12b927e66e18ae1c": {}
+  },
   "R-\u003eC:[Print] We Use Static Activation For $4 @Caller $3": {
-    "12733f9ddb8bf1c77c407ce1afd67c5b": {}
+    "ca4dc94766a1ec2f98223a4aa73ce2ff": {}
   },
   "R-\u003eC:[Print] [Not Ready] $4 [Execute] $5 [From] step $2 [of] $4 [Execute] $1 @Caller $3": {
     "5a17bb174f8af52f102c8954c6682339": {}
@@ -2794,6 +3453,9 @@
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] $3 @ $6 $5 -\u003e $6 $8": {
     "ddc3f4335d82dc0dd568c3838aa644f3": {}
+  },
+  "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1": {
+    "3d0682cb07128786ed9c66109f56b774": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Subject] $1 [Clause]": {
     "2c7387aa7c92017a16f1f34422cab2cd": {}
@@ -2808,13 +3470,19 @@
     "d4400b5b6bf848fbac27e4a3ddfd31fb": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $1": {
-    "0ff3343a2b6464110a9318123cbd168b": {}
+    "f640e9455b259d840b60d03a31b615da": {}
+  },
+  "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $2 $6": {
+    "6c2b241cdbea7d90fb8c3cba91c4e56c": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 $9 $6": {
     "2923202e8b9946988d3d9efb5749b547": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 $9 $6 $11": {
     "7c551c3b4474429e18430019adf01797": {}
+  },
+  "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 that $9": {
+    "5eadad2d59a90c67103c4a1669e5a299": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $9": {
     "367c783087aa5d320410623ede106f8a": {}
@@ -2838,14 +3506,18 @@
   "R-\u003eC:[Pronoun:Resolve:Sentence:Object] $5 @Caller $3 [Pronoun] $1 [DO] (To)": {
     "a7938c798bd3d126eee8f91fe4181ba5": {}
   },
+  "R-\u003eC:[Pronoun:Resolve:Sentence:Object] a $1 @Caller $3": {
+    "49b0e8f67905b2d466eaa21294adf0e5": {}
+  },
   "R-\u003eC:[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller $3 [Susie says]": {
     "81827bf1f250caf45ea85b5b07651767": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller [say]": {
+    "31caac1267113332b4a53e61a49acb19": {},
     "a215bcf8ce51cd4a5f7f30253da5faab": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:S+VerbPhrase] $3 @ $1 -\u003e $9 $8": {
-    "90a19eecade608d655f980c91ea3a87f": {}
+    "1ee4223aae478e1f6d1cd33dbeb9d5bf": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:S+VerbPhrase] $5 @Caller $3 [Pronoun] [Conj] $6": {
     "2604d89643d31c44ba16dc3cb0fbd030": {}
@@ -2856,6 +3528,9 @@
   "R-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $1 @Caller [say]": {
     "b5b1002e142a5ccd9cdce521ccc88342": {},
     "df1ef228074a80993ab189f71991f781": {}
+  },
+  "R-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $1": {
+    "fb2e3d434147eb64ab61d42fdc550e41": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11": {
     "3be2d058ba4f0d447421e5add966e233": {},
@@ -2872,6 +3547,12 @@
   "R-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 to $8": {
     "9f91804d3ffd275e97278550e3bff21c": {},
     "f5e837103fa04760f0c6643322ffdaff": {}
+  },
+  "R-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ says : $1 -\u003e says : $1": {
+    "79533e3a415f68cd2157ae6c6a552e1e": {}
+  },
+  "R-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 [Subject] $2": {
+    "ecc6cc869c82e85879e70066d0f557bd": {}
   },
   "R-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] $1 [Do]": {
     "776c855c4a3f27dc31f36eaf144424ca": {}
@@ -2895,8 +3576,17 @@
   "R-\u003eC:[Pronoun:Resolve] $3 @ $1 -\u003e $2": {
     "308934207a020e3ecbc918f7b9ae4771": {}
   },
+  "R-\u003eC:[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $2 @Caller $3 [Pronoun:Subject] $1 [Clause] that": {
+    "a13ef82225688bb08a981fa2d27d8c1c": {}
+  },
+  "R-\u003eC:[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $3 @ $1 -\u003e $9 $8": {
+    "a823c45f63b7bade2081fa1bd7f753c3": {}
+  },
   "R-\u003eC:[Res:Done] $4": {
     "56276b36c89291a161f52dd6e4ae683b": {}
+  },
+  "R-\u003eC:[Res] [Common] $2": {
+    "925a866d55074698b2dfc20a1add7b8d": {}
   },
   "R-\u003eC:[Res] [Executor] Susie [Execute] $2": {
     "b6462100022f6b9dec4970da7ac3bd9a": {}
@@ -2904,10 +3594,29 @@
   "R-\u003eC:[Res] [Executor] Susie [Execute] say : $1": {
     "7af9c48b003d591b81e44ce63d725783": {}
   },
+  "R-\u003eC:[Signal] [Susie_Owns:GET] $1 [FAILED] @Caller $3": {
+    "869183f3d7d683ba585708209666d3d4": {}
+  },
   "R-\u003eC:[Speak] $2": {
     "46e3bc9457419178438385d04555026e": {},
     "674671aca8647c24550e9147c1663f4e": {},
     "7236ba59a7e5b13c5a5ef9a23deebb80": {}
+  },
+  "R-\u003eC:[Susie_Owns:Add] $3 @ $1 -\u003e yes": {
+    "37a6f81308c4a0fbfe3564b2437d752c": {}
+  },
+  "R-\u003eC:[Susie_Owns:GET:Amount] $3 @ $1 -\u003e $2": {
+    "5cf882b00c596699f58329400e215373": {}
+  },
+  "R-\u003eC:[Susie_Owns:GET] $3 @ $1 -\u003e": {
+    "4b23fcea77c632a903ba429789b2fa9b": {},
+    "c0241d512888ddecdcb24e580625c954": {}
+  },
+  "R-\u003eC:[Susie_Owns:GET] $3 @ $1 -\u003e yes": {
+    "1824810406809ced41be6e9e5fed9ee5": {}
+  },
+  "R-\u003eC:[Susie_Owns:GET] $7 @Caller $3": {
+    "02383125c8cb482d9faf055957f361fe": {}
   },
   "R-\u003eC:[System:Verify:Key] $1 @Caller $3": {
     "73244caf7ea5c958e9caa8a402025f47": {}
@@ -2927,6 +3636,9 @@
   "R-\u003eC:[TODO:Add] [Execute:Done] $3 @ [Executor] Susie [Execute] check $1 -\u003e yes": {
     "2691a4043ded9945a02746a300b11c17": {},
     "faf7a9590ecd6dddd6c95d813c6597b1": {}
+  },
+  "R-\u003eC:[TODO:Add] [Execute:Done] $3 @ [Executor] Susie [Execute] check if Susie have a $1 -\u003e yes": {
+    "c01d364412d00193844ad3521325a076": {}
   },
   "R-\u003eC:[TODO:Add] [Executor] $4 [Execute] $5 @Caller $3 step $2 [of] [Executor] $4 [Execute] $1": {
     "3fd5e78f4cb6b5b5f14a40117da18a32": {}
@@ -2968,11 +3680,23 @@
   "R-\u003eC:[compute] [CHECK] $1 != $Susie @Caller $3 Susie 's name is $1": {
     "3342ee1128ef3a8737e7df7c578ce40b": {}
   },
+  "R-\u003eC:[compute] [CHECK] $2 != 0 @Caller $3 [Susie_Owns:GET] $1": {
+    "27007fe84d5465dbf7edfec91a8283eb": {}
+  },
+  "R-\u003eC:[compute] [CHECK] $2 = 0 @Caller $3 [Susie_Owns:GET] $1": {
+    "ef42082c558da0303fd5ac5267fe2f2d": {}
+  },
   "R-\u003eC:[compute] [CHECK] $4 \u003c $1 @Caller $3 [Cond:Reset]": {
     "04b198bd7dc7eceabcf60be4ece2ffa0": {}
   },
   "R-\u003eC:[compute] [CHECK] $6 != 0 @Caller $3 [MarkDone]": {
     "80dbdb4218efe2b7ca17441641c8ad7f": {}
+  },
+  "R-\u003eC:[compute] [CHECK] $6 = 0 @Caller $3 [Activate] $4": {
+    "977e83ce492349257098918d48a44780": {}
+  },
+  "R-\u003eC:[compute] [GET] $2 + $4 @Caller $3 [Susie_Owns:Add] $1": {
+    "b225c2025c449b53d01d3fba257a22f8": {}
   },
   "R-\u003eC:[compute] [GET] $2 + 1 @Caller $3 [Cond:Reset] [No.] $2": {
     "21accb97bfea71376784e86f32d729f3": {}
@@ -3158,6 +3882,15 @@
   "R-\u003eC:[repo] [GET] [Pronoun:Cache] $1 @Caller $3": {
     "e0ff4edca53c03f06bab1e030ddb2dc1": {}
   },
+  "R-\u003eC:[repo] [GET] [PronounLike:Cache] $4 @Caller $3 [Pronoun] [Article] $2": {
+    "e53f783815af6d7a11ea8aef7c5e08c1": {}
+  },
+  "R-\u003eC:[repo] [GET] [Susie_Owns] $1 @Caller $3 [Susie_Owns:Add] [Number] $2": {
+    "75f622fd3eb50fc2a747994aadb9d83c": {}
+  },
+  "R-\u003eC:[repo] [GET] [Susie_Owns] $1 @Caller $3 [Susie_Owns:GET]": {
+    "83de4f1c7f81d2504f63246c182e9cd4": {}
+  },
   "R-\u003eC:[repo] [GET] [System:Value] $1 @Caller $3": {
     "17b06a081b1e6af9faf12b185e142b19": {}
   },
@@ -3167,8 +3900,23 @@
   "R-\u003eC:[repo] [GET] [Then] $1 @Caller $3": {
     "7a48033f3abd50b78f4c69149d989b9b": {}
   },
+  "R-\u003eC:[repo] [GET] [Variety:Of] $2 @Caller $3 [Common] [Variety]": {
+    "c8fc54070cd9335b437e51c0aad4a63a": {}
+  },
+  "R-\u003eC:[repo] [GET] [Variety:Of] $6 @Caller $3 [Common] [Variety] [SAY_EXL] [Subject] I [V+O] $5": {
+    "a2e07e2de3bbb18975089a8c21b00a6f": {}
+  },
   "R-\u003eC:[repo] [GET] [Variety] $2 @Caller $3": {
     "8ac2288901b88e9fd42472c5c818a018": {}
+  },
+  "R-\u003eC:[repo] [GET] [Variety] $2 @Caller $3 [Variety] [Cond]": {
+    "0476a4a619203f7f9804eb1d261206c2": {}
+  },
+  "R-\u003eC:[repo] [GET] [Variety] $6 @Caller $3 [Variety] [Cond] [SAY] [Subject] $2 [V+O] $5": {
+    "900da1f36fe77ed9573fd940484220ee": {}
+  },
+  "R-\u003eC:[repo] [GET] [Variety] $6 @Caller $3 [Variety] [Cond] [Subject] $2 [V+O] $5": {
+    "f220c35039317265bf608adf90195637": {}
   },
   "R-\u003eC:[repo] [GET] step $9 [of] [Executor] $4 [Execute] $1 @Caller $3": {
     "87872f556465c8b23d57aad0d3e003d0": {}
@@ -3252,6 +4000,15 @@
   "R-\u003eC:[repo] [SSET] [Pronoun:Cache] your -\u003e your": {
     "8e5db714db2c2cb9ad1513ca335dd6f5": {}
   },
+  "R-\u003eC:[repo] [SSET] [PronounLike:Cache] $fork -\u003e $6": {
+    "cd64832d1f7a5bafe8d9fed5ad8f0eea": {}
+  },
+  "R-\u003eC:[repo] [SSET] [PronounLike:Cache] person -\u003e $2": {
+    "a84071c90dadbf07509c46bf46968c6f": {}
+  },
+  "R-\u003eC:[repo] [SSET] [Susie_Owns] $1 -\u003e $6": {
+    "862f1b8ec0d64972f4694096225e4f55": {}
+  },
   "R-\u003eC:[safe++] [Cond:Count] @Caller $3": {
     "44411fab9b2e3c6cc08482d537c503e5": {}
   },
@@ -3272,6 +4029,15 @@
   },
   "R-\u003eC:[template:Run] variable_toolkit @Args $1 , $2 @Caller $3": {
     "89e6b4a2febe0bac050daf1b2dc9d87a": {}
+  },
+  "R-\u003eC:[template:Run] variable_toolkit_2 @Args $2 @Caller $3": {
+    "03a8013c6ce462df1a1df78a7f9b3102": {}
+  },
+  "R-\u003eC:[template:Run] variable_toolkit_3 @Args $6 , $10 , $2 @Caller $3": {
+    "bfa6e48e2d8ca144940df16f9017acdb": {}
+  },
+  "R-\u003eC:[template:Run] variable_toolkit_4 @Args $7 , $2 , $10 , $6 @Caller $3": {
+    "9e7cd0c56e84c696cd59841f78b64633": {}
   },
   "R-\u003eC:[time] date -\u003e $1": {
     "07dbc119b34346b1190ccb9fc7d2e5fe": {}
@@ -3315,6 +4081,8 @@
   },
   "T-\u003eC:$3 says to Susie : $1": {
     "0564abe62392678930da860510e0a6ff": {},
+    "31caac1267113332b4a53e61a49acb19": {},
+    "925a866d55074698b2dfc20a1add7b8d": {},
     "b5b1002e142a5ccd9cdce521ccc88342": {},
     "b6462100022f6b9dec4970da7ac3bd9a": {}
   },
@@ -3344,15 +4112,15 @@
     "a45c4a339de31718a5ac29096a14f8dd": {}
   },
   "T-\u003eC:[Common] $1 @Caller $3": {
-    "7a48033f3abd50b78f4c69149d989b9b": {}
+    "7a48033f3abd50b78f4c69149d989b9b": {},
+    "7ca664abbce64fbb5a7124f03775cd52": {}
   },
   "T-\u003eC:[Common] Susie 's name is $1 @Caller $3": {
     "3342ee1128ef3a8737e7df7c578ce40b": {},
     "f1951edf858e7ea96a62ab9d9d2cede7": {}
   },
-  "T-\u003eC:[Compute] $3 [Activate] @ $1 = 0 -\u003e yes": {
-    "12733f9ddb8bf1c77c407ce1afd67c5b": {},
-    "2500ad367b6c50abc4201b5689002af1": {}
+  "T-\u003eC:[Common] a person says : $1 @Caller $3": {
+    "495b5d2b9ae9f259434106da3abdbe7a": {}
   },
   "T-\u003eC:[Cond:Add] $1 @Caller $3": {
     "61641771dc7bc3fdde5122f5e29b699b": {}
@@ -3420,6 +4188,11 @@
     "c96a9eeece396ed573a44377fb878771": {},
     "d297c7573e052edc79010598d8af2ecb": {}
   },
+  "T-\u003eC:[CondGroup:MarkDone:NewCount] $3 @ [No.] $2 [of] $4 @@ $1 -\u003e $6": {
+    "977e83ce492349257098918d48a44780": {},
+    "ca4dc94766a1ec2f98223a4aa73ce2ff": {},
+    "e541b6e7be2695e4a53396e62467b788": {}
+  },
   "T-\u003eC:[CondGroup:MarkDone:NewCount] $3 @ [No.] $9 [of] [Executor] $4 [Execute] $5 @@ step $2 [of] [Executor] $4 [Execute] $1 -\u003e $6": {
     "225de77413ec26dcf9780e2364f12c1f": {},
     "5299668a38ddf1ed506729de6982d14c": {},
@@ -3465,6 +4238,14 @@
   "T-\u003eC:[Executor] $4 [Execute] $1 @Caller $3": {
     "00896d97caa6745d13da6998d4852521": {}
   },
+  "T-\u003eC:[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {
+    "02383125c8cb482d9faf055957f361fe": {},
+    "49b0e8f67905b2d466eaa21294adf0e5": {},
+    "7917bf61ca70e1172f4b29d3d8542f53": {},
+    "869183f3d7d683ba585708209666d3d4": {},
+    "b82ffbc675ac8618313edc29ec0585e2": {},
+    "c01d364412d00193844ad3521325a076": {}
+  },
   "T-\u003eC:[Executor] Susie [Execute] check what $1 is @Caller $3": {
     "25628622b50d79cb5a266bbe9611f5f9": {},
     "2691a4043ded9945a02746a300b11c17": {},
@@ -3509,14 +4290,24 @@
     "e591afacb794811932a47b0a4aab4932": {}
   },
   "T-\u003eC:[Grammar:Object:Article] $3 [Pronoun] @ $1 -\u003e $2": {
-    "0ff3343a2b6464110a9318123cbd168b": {}
+    "6c2b241cdbea7d90fb8c3cba91c4e56c": {},
+    "e53f783815af6d7a11ea8aef7c5e08c1": {},
+    "f640e9455b259d840b60d03a31b615da": {}
   },
   "T-\u003eC:[Grammar:Object:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {
-    "0ff3343a2b6464110a9318123cbd168b": {}
+    "6c2b241cdbea7d90fb8c3cba91c4e56c": {},
+    "e53f783815af6d7a11ea8aef7c5e08c1": {},
+    "f640e9455b259d840b60d03a31b615da": {}
   },
   "T-\u003eC:[Grammar:Object:Pronoun] $3 [Pronoun] @ $1 -\u003e $2": {
     "367c783087aa5d320410623ede106f8a": {},
     "451d9d4b0d19234fd1ab43897497cbff": {}
+  },
+  "T-\u003eC:[Grammar:Object:That:Post] $3 [Pronoun] @ $1 -\u003e $2": {
+    "a13ef82225688bb08a981fa2d27d8c1c": {}
+  },
+  "T-\u003eC:[Grammar:Object:That:Pre] $3 [Pronoun] @ $1 -\u003e $4": {
+    "5eadad2d59a90c67103c4a1669e5a299": {}
   },
   "T-\u003eC:[Grammar:Object:Type] $3 [AP] my @ $2 -\u003e NounPhrase": {
     "01cb0901443c9186390535cedbaa85d1": {}
@@ -3526,6 +4317,9 @@
   },
   "T-\u003eC:[Grammar:Object:Type] $3 [Article] a @ $1 -\u003e NounPhrase": {
     "179972d37ada4c6209fc980ebaf191c1": {}
+  },
+  "T-\u003eC:[Grammar:Object:Type] $3 [Article] the @ $1 -\u003e NounPhrase": {
+    "537b799f560e6134c0a85c5f3ffeeecd": {}
   },
   "T-\u003eC:[Grammar:Object:Wh+S+V+O:Object] $3 [Pronoun] @ $1 -\u003e $7": {
     "2f7be7a3691ef74b60180903c45d75b5": {},
@@ -3624,9 +4418,18 @@
   "T-\u003eC:[Grammar:P:Type] $3 is @ $2 -\u003e preposition": {
     "eed0cbcb4a87a6f48f06508a1fea42c4": {}
   },
+  "T-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 [Common] [Variety] @ $1 -\u003e $2": {
+    "a84071c90dadbf07509c46bf46968c6f": {},
+    "c8fc54070cd9335b437e51c0aad4a63a": {}
+  },
+  "T-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 [Common] [Variety] [SAY_EXL] @ $1 -\u003e I": {
+    "a2e07e2de3bbb18975089a8c21b00a6f": {}
+  },
   "T-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 [Pronoun] @ $1 -\u003e $2": {
+    "3d0682cb07128786ed9c66109f56b774": {},
     "5b260d2a4d8b7cf36fb68b906584385c": {},
-    "d4400b5b6bf848fbac27e4a3ddfd31fb": {}
+    "d4400b5b6bf848fbac27e4a3ddfd31fb": {},
+    "ecc6cc869c82e85879e70066d0f557bd": {}
   },
   "T-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 [Pronoun] @ $1 -\u003e a $2": {
     "465e3a523378e650525b2c60696dff7c": {},
@@ -3635,33 +4438,80 @@
     "93314cf4e15f77258a4a262ec378805f": {},
     "f522e58690f49566df8f68dc38848662": {}
   },
+  "T-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e $2": {
+    "bfa6e48e2d8ca144940df16f9017acdb": {},
+    "f220c35039317265bf608adf90195637": {}
+  },
+  "T-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e a $2": {
+    "03a8013c6ce462df1a1df78a7f9b3102": {},
+    "0476a4a619203f7f9804eb1d261206c2": {}
+  },
+  "T-\u003eC:[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $2": {
+    "900da1f36fe77ed9573fd940484220ee": {},
+    "9e7cd0c56e84c696cd59841f78b64633": {}
+  },
+  "T-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 [Common] [Variety] @ $1 -\u003e $6": {
+    "a84071c90dadbf07509c46bf46968c6f": {}
+  },
+  "T-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 [Common] [Variety] [SAY_EXL] @ $1 -\u003e $5": {
+    "a2e07e2de3bbb18975089a8c21b00a6f": {},
+    "cd64832d1f7a5bafe8d9fed5ad8f0eea": {}
+  },
   "T-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 [Pronoun] @ $1 -\u003e $5": {
+    "3d0682cb07128786ed9c66109f56b774": {},
     "5b260d2a4d8b7cf36fb68b906584385c": {},
-    "d4400b5b6bf848fbac27e4a3ddfd31fb": {}
+    "d4400b5b6bf848fbac27e4a3ddfd31fb": {},
+    "ecc6cc869c82e85879e70066d0f557bd": {}
+  },
+  "T-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] @ $1 -\u003e $5": {
+    "bfa6e48e2d8ca144940df16f9017acdb": {},
+    "f220c35039317265bf608adf90195637": {}
+  },
+  "T-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $5": {
+    "900da1f36fe77ed9573fd940484220ee": {},
+    "9e7cd0c56e84c696cd59841f78b64633": {}
   },
   "T-\u003eC:[Grammar:S+VerbPhrase:VerbPhrase] $3 [clause] what @ $2 -\u003e $5": {
     "f9638f57720e83d99ce76b1335eb63fa": {}
   },
+  "T-\u003eC:[Grammar:V+Clause:Clause] $3 [VerbPhrase] @ $1 -\u003e $5": {
+    "2cb6ef5cfd4aa5571bdbcee6fd0cb5b4": {},
+    "37991514afa322080cb06e3c567555aa": {}
+  },
+  "T-\u003eC:[Grammar:V+Clause:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {
+    "0c65439dbaf152f7ee0898e6ca5435b6": {},
+    "0e48d84833a505d9b9e105695a33c584": {}
+  },
   "T-\u003eC:[Grammar:V+IO+DO:DirectObject] $3 [VerbPhrase] @ $1 -\u003e $6": {
-    "1a980f9b47e3e2af4339263d43c6d726": {}
+    "1a980f9b47e3e2af4339263d43c6d726": {},
+    "c5479e97b2f6d0f345fd8fcd8e2d63d7": {}
   },
   "T-\u003eC:[Grammar:V+IO+DO:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {
-    "036f18320a9e58cfbc076666a3969822": {}
+    "036f18320a9e58cfbc076666a3969822": {},
+    "c5479e97b2f6d0f345fd8fcd8e2d63d7": {}
   },
   "T-\u003eC:[Grammar:V+IO+DO:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {
+    "a0f74ff48077f847dd04a3396744fc2a": {},
     "c6f69432831ccb3f014ab7c60755f8b1": {}
   },
+  "T-\u003eC:[Grammar:V+O+OC:OC] $3 [VerbPhrase] @ $1 -\u003e $6": {
+    "5a5a7667de69442bd66d9bab0ab5ee69": {}
+  },
   "T-\u003eC:[Grammar:V+O+OC:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {
+    "5a5a7667de69442bd66d9bab0ab5ee69": {},
     "ab7b3f212dc52df08b100b02de6113e1": {}
   },
   "T-\u003eC:[Grammar:V+O+OC:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {
+    "2eeae38ade7dc8d151ae97eca38c5700": {},
     "f75fc2206ccb75fbda19f11319ae3904": {}
   },
   "T-\u003eC:[Grammar:V+O:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {
+    "500f9c856b78224659e32669fdd1e585": {},
     "7c0ace9268542bb044389383d0de7aa5": {}
   },
   "T-\u003eC:[Grammar:V+O:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {
-    "32f949151cb47f8ce16a9ffc8c2a2a6b": {}
+    "32f949151cb47f8ce16a9ffc8c2a2a6b": {},
+    "c367a1aa032a7f466fafda07826ab5cb": {}
   },
   "T-\u003eC:[Grammar:V+P:P:AdjectivePhrase] $3 [VerbPhrase] @ $1 -\u003e $5": {
     "fcf4ed52ec7ff8f5eaae0c1e84c93b12": {}
@@ -3679,10 +4529,15 @@
     "06394392638185fcba40a877e6b3dfc1": {}
   },
   "T-\u003eC:[Grammar:V+P:P] $3 [VerbPhrase] @ $1 -\u003e $5": {
+    "3000526ed9c303507ff6190dd1201499": {},
     "9b1d7fb55300c1d1d4383eada304ae41": {}
   },
   "T-\u003eC:[Grammar:V+P:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {
+    "699cb77727bc795de3cea529a620eab0": {},
     "e374f302603506bdc5b4ac3d675534d4": {}
+  },
+  "T-\u003eC:[Grammar:VerbPhrase:Type] $3 [Pronoun] @ $1 -\u003e V": {
+    "fb2e3d434147eb64ab61d42fdc550e41": {}
   },
   "T-\u003eC:[Grammar:VerbPhrase:Type] $3 [clause] what [Subject] $1 @ $5 -\u003e V": {
     "f9638f57720e83d99ce76b1335eb63fa": {}
@@ -3721,11 +4576,31 @@
     "c65bbdc31009c4c3cbe383fe62a194f6": {},
     "f5e837103fa04760f0c6643322ffdaff": {}
   },
+  "T-\u003eC:[Grammar:VerbPhrase:V+O:Object] $3 [Common] [Variety] [SAY_EXL] [Subject] I @ $5 -\u003e a $6": {
+    "a2e07e2de3bbb18975089a8c21b00a6f": {}
+  },
   "T-\u003eC:[Grammar:VerbPhrase:V+O:Object] $3 [Pronoun] @ $1 -\u003e $4": {
     "1b3b6c21d4447d9065fb6f29fd1a0034": {}
   },
+  "T-\u003eC:[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [SAY] [Subject] $2 @ $5 -\u003e a $6": {
+    "900da1f36fe77ed9573fd940484220ee": {},
+    "9e7cd0c56e84c696cd59841f78b64633": {}
+  },
+  "T-\u003eC:[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [Subject] $2 @ $5 -\u003e $6": {
+    "bfa6e48e2d8ca144940df16f9017acdb": {},
+    "f220c35039317265bf608adf90195637": {}
+  },
+  "T-\u003eC:[Grammar:VerbPhrase:V+O:Verb] $3 [Common] [Variety] [SAY_EXL] [Subject] I @ $5 -\u003e need": {
+    "cd64832d1f7a5bafe8d9fed5ad8f0eea": {}
+  },
   "T-\u003eC:[Grammar:VerbPhrase:V+O:Verb] $3 [Pronoun] @ $1 -\u003e $2": {
     "e500daa09947afaaa26cd59940e11147": {}
+  },
+  "T-\u003eC:[Grammar:VerbPhrase:V+O:Verb] $3 [Variety] [Cond] [SAY] [Subject] $2 @ $5 -\u003e $10": {
+    "9e7cd0c56e84c696cd59841f78b64633": {}
+  },
+  "T-\u003eC:[Grammar:VerbPhrase:V+O:Verb] $3 [Variety] [Cond] [Subject] $2 @ $5 -\u003e $10": {
+    "bfa6e48e2d8ca144940df16f9017acdb": {}
   },
   "T-\u003eC:[Grammar:VerbPhrase:V+P:P:Object] $3 [Pronoun] @ $1 -\u003e $4": {
     "71f3026b7fd6db7801d665291b1663b8": {}
@@ -3765,6 +4640,13 @@
     "a84a02b6b9eeae57eb00daa2f3c930ac": {},
     "c17dc9e65f784d3e5118ebd8d0b5ccee": {},
     "e506dad7d746303a3af7370cbf5b6c1b": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] $1 that $2 @Caller $3": {
+    "1ae6b6e9a46fb034241a7250e638776e": {},
+    "259363dd65e8ec07c90e8067907dfcdd": {},
+    "433511b180d149289f5b849892106eda": {},
+    "ef5da8bf9c9d77460ab5eba201d96f84": {},
+    "f9e20cff867578f6ab3028981ab51fa5": {}
   },
   "T-\u003eC:[Grammar:Verify:Object] $2 @Caller $3": {
     "0b48547919a0ad24c8b99c1488a26a77": {},
@@ -3818,11 +4700,23 @@
     "379ad80a3445c7bd139203c72e54bbcf": {},
     "74c6d22959caa2371845e18a9e044c19": {}
   },
+  "T-\u003eC:[Grammar:Verify:Object] $3 [Subject] need @ $1 -\u003e yes": {
+    "ca400717b6aa17d08cfffe8932a62702": {},
+    "d7f7466714b5e51d1648654cfdbe1c89": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] $3 [Subject] says @ $1 -\u003e yes": {
+    "3efba7593e5486b3e49b01880afd4644": {},
+    "a78a7182ea52f753eeb8483da0e6df68": {},
+    "c5c61cc46031a7bc2659a274823a26e6": {}
+  },
   "T-\u003eC:[Grammar:Verify:Object] $3 asks @ $2 -\u003e yes": {
     "f18182e704726a0be235910925ea3913": {}
   },
   "T-\u003eC:[Grammar:Verify:Object] $3 check @ $2 -\u003e yes": {
     "636ca4cb3785c535189b2cdaaa8890f6": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] $3 need @ $2 -\u003e yes": {
+    "dc84465658c8d8990baeec901ffb3a35": {}
   },
   "T-\u003eC:[Grammar:Verify:Object] a $1 @Caller $3": {
     "179972d37ada4c6209fc980ebaf191c1": {},
@@ -3831,6 +4725,10 @@
   "T-\u003eC:[Grammar:Verify:Object] my $2 @Caller $3": {
     "01cb0901443c9186390535cedbaa85d1": {},
     "3785d1fbfa67934fc70639b83193772b": {}
+  },
+  "T-\u003eC:[Grammar:Verify:Object] the $1 @Caller $3": {
+    "537b799f560e6134c0a85c5f3ffeeecd": {},
+    "e989c794ae7cb809db7c1597f6498b99": {}
   },
   "T-\u003eC:[Grammar:Verify:Object] what $2 @Caller $3": {
     "50f838d66180af7dbace8ca9b4d745ac": {},
@@ -3868,8 +4766,28 @@
     "06300da590abb3fd42e2474788fcd0d3": {},
     "74c6d22959caa2371845e18a9e044c19": {}
   },
+  "T-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 need $2 @Caller $3": {
+    "3117612531948d0a12b927e66e18ae1c": {},
+    "d7f7466714b5e51d1648654cfdbe1c89": {}
+  },
+  "T-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 need @Caller $3": {
+    "798a8efb9413db44d8a434b740ca1259": {},
+    "ca400717b6aa17d08cfffe8932a62702": {}
+  },
+  "T-\u003eC:[Grammar:Verify:S+VerbPhrase] $1 says : $2 @Caller $3": {
+    "1f845b552b1b6eb06beda3b887fcf271": {},
+    "3efba7593e5486b3e49b01880afd4644": {},
+    "a78a7182ea52f753eeb8483da0e6df68": {},
+    "c5c61cc46031a7bc2659a274823a26e6": {}
+  },
   "T-\u003eC:[Grammar:Verify:S+VerbPhrase] $3 [Conj] if @ $2 -\u003e yes": {
     "4ac64f99820e101ae4c40016781bd08c": {}
+  },
+  "T-\u003eC:[Grammar:Verify:S+VerbPhrase] $3 [clause] that @ $2 -\u003e yes": {
+    "1ae6b6e9a46fb034241a7250e638776e": {},
+    "259363dd65e8ec07c90e8067907dfcdd": {},
+    "ef5da8bf9c9d77460ab5eba201d96f84": {},
+    "f9e20cff867578f6ab3028981ab51fa5": {}
   },
   "T-\u003eC:[Grammar:Verify:V+IO+DO] $3 [VerbPhrase] @ $1 -\u003e yes": {
     "46dae27d43513419bc2d5709677225bf": {},
@@ -3899,6 +4817,15 @@
     "636ca4cb3785c535189b2cdaaa8890f6": {},
     "8b712bdf382481aa26222b8226a8f51d": {}
   },
+  "T-\u003eC:[Grammar:Verify:V+O] need $2 @Caller $3": {
+    "2854158905f954347975f8589466b287": {},
+    "dc84465658c8d8990baeec901ffb3a35": {}
+  },
+  "T-\u003eC:[Grammar:Verify:V+O] says : $2 @Caller $3": {
+    "4010d361561f3d653f1f6b4f50ba87a3": {},
+    "8d3f113a69209ea55466bf5cc3651dc9": {},
+    "dd26d90b5332334cefdcaf5c1117f6d0": {}
+  },
   "T-\u003eC:[Grammar:Verify:V+P] $3 [VerbPhrase] @ $1 -\u003e yes": {
     "34e77f57a25e726b3a5d9e0177a192ca": {},
     "a6ecfd810017432f4fa1fafc622367d9": {}
@@ -3921,6 +4848,7 @@
     "d9e80059a24b97d197b4893baf335fd4": {}
   },
   "T-\u003eC:[Grammar:Verify:VerbPhrase] $1 @Caller $3": {
+    "4c0353378848c6a664089379635438b3": {},
     "6dd5524f3ab576ba2e73b782b467bc5b": {},
     "8aa1409248eb5a828487eff501733471": {},
     "9cfab7a2bc285744a67eaedfcd7f25c3": {},
@@ -3933,6 +4861,9 @@
   "T-\u003eC:[Grammar:Verify:VerbPhrase] $3 [Subject] $1 @ is $2 -\u003e yes": {
     "379ad80a3445c7bd139203c72e54bbcf": {}
   },
+  "T-\u003eC:[Grammar:Verify:VerbPhrase] $3 [Subject] $1 @ need $2 -\u003e yes": {
+    "d7f7466714b5e51d1648654cfdbe1c89": {}
+  },
   "T-\u003eC:[Print] $1 @Caller $2": {
     "db64c621eba4e31c61c06d331971c5b7": {}
   },
@@ -3944,6 +4875,14 @@
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:Object] $1 @Caller $3": {
     "b0c1eaded1fb6c5ca15f8be44422050b": {}
+  },
+  "T-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 @ a $1 -\u003e a $7": {
+    "02383125c8cb482d9faf055957f361fe": {},
+    "b82ffbc675ac8618313edc29ec0585e2": {},
+    "c01d364412d00193844ad3521325a076": {}
+  },
+  "T-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 @ $2 -\u003e $9": {
+    "a823c45f63b7bade2081fa1bd7f753c3": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Subject] $1 [Clause] @ $2 -\u003e $9": {
     "2923202e8b9946988d3d9efb5749b547": {}
@@ -3975,10 +4914,11 @@
     "e500daa09947afaaa26cd59940e11147": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:Object] $3 [Pronoun] [S+VerbPhrase] $1 @ $2 -\u003e $9": {
-    "90a19eecade608d655f980c91ea3a87f": {}
+    "1ee4223aae478e1f6d1cd33dbeb9d5bf": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller $3": {
-    "16e4cf59ba1e84800b5a4cf997c7dcae": {}
+    "16e4cf59ba1e84800b5a4cf997c7dcae": {},
+    "1ee4223aae478e1f6d1cd33dbeb9d5bf": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:S+VerbPhrase] $3 [Pronoun] [Conj] $6 @ $5 -\u003e $8": {
     "ddc3f4335d82dc0dd568c3838aa644f3": {}
@@ -3987,10 +4927,14 @@
     "7236ba59a7e5b13c5a5ef9a23deebb80": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:S+VerbPhrase] [say] @ $1 -\u003e $2": {
+    "925a866d55074698b2dfc20a1add7b8d": {},
     "9deb6447809707c445e9c3f53fcba9ea": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $1 @Caller $3": {
     "ce591267e7e783fffaff5ba292d9cc29": {}
+  },
+  "T-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 [Subject] $2 @ $5 -\u003e $8": {
+    "a823c45f63b7bade2081fa1bd7f753c3": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] $1 [Do] @ $5 -\u003e $8": {
     "94a51ffb83a99f288a148bfe9d2d4f3d": {}
@@ -4002,7 +4946,7 @@
     "f5e837103fa04760f0c6643322ffdaff": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] [S+VerbPhrase] $1 [Subject] $2 @ $5 -\u003e $8": {
-    "90a19eecade608d655f980c91ea3a87f": {}
+    "1ee4223aae478e1f6d1cd33dbeb9d5bf": {}
   },
   "T-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Susie says] @ $1 -\u003e $2": {
     "46e3bc9457419178438385d04555026e": {}
@@ -4012,12 +4956,22 @@
     "209690d4dce3f4d3c83c4f1b88681562": {},
     "b6462100022f6b9dec4970da7ac3bd9a": {}
   },
+  "T-\u003eC:[Pronoun:Resolve:Sentence:VerbPhrase] says : $1 @Caller $3": {
+    "79533e3a415f68cd2157ae6c6a552e1e": {}
+  },
   "T-\u003eC:[Pronoun:Resolve] $1 @Caller $3": {
     "e0ff4edca53c03f06bab1e030ddb2dc1": {}
   },
   "T-\u003eC:[Pronoun:Resolve] $3 [Pronoun] @ $2 -\u003e $9": {
     "367c783087aa5d320410623ede106f8a": {},
     "e591afacb794811932a47b0a4aab4932": {}
+  },
+  "T-\u003eC:[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $1 @Caller $3": {
+    "a823c45f63b7bade2081fa1bd7f753c3": {},
+    "db13ef90d4e8a6b3710ddfa8448ad61e": {}
+  },
+  "T-\u003eC:[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $3 [Pronoun:Subject] $1 [Clause] that @ $2 -\u003e $9": {
+    "5eadad2d59a90c67103c4a1669e5a299": {}
   },
   "T-\u003eC:[Res] $4": {
     "ec2af787bde999ae6788bca6aabbf866": {}
@@ -4033,6 +4987,20 @@
   },
   "T-\u003eC:[Speak] $1 -\u003e $2": {
     "2225c86a0138be758cd7d480dae9169d": {}
+  },
+  "T-\u003eC:[Susie_Owns:Add] [item] $1 [Number] $2 @Caller $3": {
+    "75f622fd3eb50fc2a747994aadb9d83c": {}
+  },
+  "T-\u003eC:[Susie_Owns:GET] $1 @Caller $3": {
+    "83de4f1c7f81d2504f63246c182e9cd4": {}
+  },
+  "T-\u003eC:[Susie_Owns:GET] $3 @ $1 -\u003e": {
+    "7917bf61ca70e1172f4b29d3d8542f53": {},
+    "869183f3d7d683ba585708209666d3d4": {}
+  },
+  "T-\u003eC:[Susie_Owns:GET] $3 @ $7 -\u003e yes": {
+    "b82ffbc675ac8618313edc29ec0585e2": {},
+    "c01d364412d00193844ad3521325a076": {}
   },
   "T-\u003eC:[System:Verify:Key] $1 @Caller $3": {
     "1cf90e9053241232aabfc2ecb14fa84e": {},
@@ -4064,6 +5032,7 @@
     "157cb3bff43e23d82209624a0340ebce": {},
     "209690d4dce3f4d3c83c4f1b88681562": {},
     "7af9c48b003d591b81e44ce63d725783": {},
+    "925a866d55074698b2dfc20a1add7b8d": {},
     "9deb6447809707c445e9c3f53fcba9ea": {},
     "b6462100022f6b9dec4970da7ac3bd9a": {}
   },
@@ -4073,6 +5042,9 @@
   },
   "T-\u003eC:[compute] $3 Susie 's name is $1 @ $1 != $Susie -\u003e yes": {
     "f1951edf858e7ea96a62ab9d9d2cede7": {}
+  },
+  "T-\u003eC:[compute] $3 [Activate] $4 @ $6 = 0 -\u003e yes": {
+    "e541b6e7be2695e4a53396e62467b788": {}
   },
   "T-\u003eC:[compute] $3 [Cond:Reset] @ $2 \u003c $1 -\u003e yes": {
     "21accb97bfea71376784e86f32d729f3": {},
@@ -4097,6 +5069,17 @@
   "T-\u003eC:[compute] $3 [SafeCompute] @ $2 + 1 -\u003e $9": {
     "100f833f0df3613bb072132b11be7b50": {},
     "f8262b8cf6a476ffbb0d10f18cc1664a": {}
+  },
+  "T-\u003eC:[compute] $3 [Susie_Owns:Add] $1 @ $2 + $4 -\u003e $6": {
+    "37a6f81308c4a0fbfe3564b2437d752c": {},
+    "862f1b8ec0d64972f4694096225e4f55": {}
+  },
+  "T-\u003eC:[compute] $3 [Susie_Owns:GET] $1 @ $2 != 0 -\u003e yes": {
+    "1824810406809ced41be6e9e5fed9ee5": {},
+    "5cf882b00c596699f58329400e215373": {}
+  },
+  "T-\u003eC:[compute] $3 [Susie_Owns:GET] $1 @ $2 = 0 -\u003e yes": {
+    "c0241d512888ddecdcb24e580625c954": {}
   },
   "T-\u003eC:[compute] $3 step $2 [of] [Executor] $4 [Execute] $1 @ $2 + 1 -\u003e $9": {
     "87872f556465c8b23d57aad0d3e003d0": {},
@@ -4301,15 +5284,17 @@
   "T-\u003eC:[repo] $3 @ [Latest] [CondGroup:ElementCount] [No.] $2 [of] $4 -\u003e $6": {
     "79f0127e338219cd646215f96a09e63c": {}
   },
-  "T-\u003eC:[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $1": {
-    "12733f9ddb8bf1c77c407ce1afd67c5b": {},
-    "2500ad367b6c50abc4201b5689002af1": {},
-    "5bd0238af3d98b85f7e2522d3e067ee5": {}
+  "T-\u003eC:[repo] $3 @ [No.] $4 [Cond] -\u003e $1": {
+    "ef26fee5a69ba34d4818b9154666fd0f": {}
   },
   "T-\u003eC:[repo] $3 @ [No.] $4 [Cond] -\u003e $1 is $2": {
     "20788daafb99621781e6bd6a2c6af521": {},
     "73244caf7ea5c958e9caa8a402025f47": {},
     "89e6b4a2febe0bac050daf1b2dc9d87a": {}
+  },
+  "T-\u003eC:[repo] $3 @ [No.] $4 [Cond] -\u003e $7 says : $1": {
+    "9e7cd0c56e84c696cd59841f78b64633": {},
+    "b2f64b13501e82fe16d1ddb024f4fbbc": {}
   },
   "T-\u003eC:[repo] $3 @ [Pronoun:Cache] $1 -\u003e": {
     "19271b5076cbc885270088bd6961ba3e": {}
@@ -4345,6 +5330,12 @@
   },
   "T-\u003eC:[repo] $3 @@ $1 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $6": {
     "d28a741db166add8e0e882c7e5134fae": {}
+  },
+  "T-\u003eC:[repo] $3 [Common] [Variety] @ [Variety:Of] $2 -\u003e person": {
+    "a84071c90dadbf07509c46bf46968c6f": {}
+  },
+  "T-\u003eC:[repo] $3 [Common] [Variety] [SAY_EXL] [Subject] I [V+O] $5 @ [Variety:Of] $6 -\u003e $fork": {
+    "cd64832d1f7a5bafe8d9fed5ad8f0eea": {}
   },
   "T-\u003eC:[repo] $3 [Cond:Reset] @ [Cond:Count] -\u003e $1": {
     "04b198bd7dc7eceabcf60be4ece2ffa0": {},
@@ -4391,14 +5382,39 @@
   "T-\u003eC:[repo] $3 [No.] $9 @ [Latest] [CondGroup:Count:Unreleased] [No.] $2 [of] $4 -\u003e $6": {
     "d297c7573e052edc79010598d8af2ecb": {}
   },
+  "T-\u003eC:[repo] $3 [Pronoun] [Article] $2 @ [PronounLike:Cache] $4 -\u003e": {
+    "f640e9455b259d840b60d03a31b615da": {}
+  },
+  "T-\u003eC:[repo] $3 [Pronoun] [Article] $2 @ [PronounLike:Cache] $4 -\u003e $6": {
+    "6c2b241cdbea7d90fb8c3cba91c4e56c": {}
+  },
   "T-\u003eC:[repo] $3 [Reset] @ [Len] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $6": {
     "5201df3af700b2152f87bb011ee5999e": {}
+  },
+  "T-\u003eC:[repo] $3 [Susie_Owns:Add] [Number] $2 @ [Susie_Owns] $1 -\u003e $4": {
+    "b225c2025c449b53d01d3fba257a22f8": {}
+  },
+  "T-\u003eC:[repo] $3 [Susie_Owns:GET] @ [Susie_Owns] $1 -\u003e": {
+    "4b23fcea77c632a903ba429789b2fa9b": {}
+  },
+  "T-\u003eC:[repo] $3 [Susie_Owns:GET] @ [Susie_Owns] $1 -\u003e $2": {
+    "27007fe84d5465dbf7edfec91a8283eb": {},
+    "ef42082c558da0303fd5ac5267fe2f2d": {}
   },
   "T-\u003eC:[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e": {
     "d4fd341a0182fc0c683e123bab5ec0ae": {}
   },
   "T-\u003eC:[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e yes": {
     "d44c4852e513a0286b193c4acbe28c46": {}
+  },
+  "T-\u003eC:[repo] $3 [Variety] [Cond] @ [Variety] $2 -\u003e yes": {
+    "03a8013c6ce462df1a1df78a7f9b3102": {}
+  },
+  "T-\u003eC:[repo] $3 [Variety] [Cond] [SAY] [Subject] $2 [V+O] $5 @ [Variety] $6 -\u003e yes": {
+    "9e7cd0c56e84c696cd59841f78b64633": {}
+  },
+  "T-\u003eC:[repo] $3 [Variety] [Cond] [Subject] $2 [V+O] $5 @ [Variety] $6 -\u003e yes": {
+    "bfa6e48e2d8ca144940df16f9017acdb": {}
   },
   "T-\u003eC:[repo] $3 [Verify:Object] @ [Grammar:Property:Word:Noun] $2 -\u003e yes": {
     "7015d8be54ec96fe66f81c085a1d95f9": {},
@@ -4524,8 +5540,11 @@
     "[Common] $1 is [Unknown] @Caller $3 check": {},
     "[Common] Susie 's name is $1 @Caller $3": {},
     "[Common] Susie 's name is $Susie @Caller $3": {},
-    "[Compute] $3 [Activate] @ $1 = 0 -\u003e yes": {},
-    "[Compute] [CHECK] $1 = 0 @Caller $3 [Activate]": {},
+    "[Common] Susie don't have a $1 @Caller $3": {},
+    "[Common] Susie have a $1 @Caller $3": {},
+    "[Common] a person $6 @Caller $3": {},
+    "[Common] a person says : $1 @Caller $3": {},
+    "[Common] a person says : I need a $fork @Caller $3": {},
     "[Cond:Add] $1 @Caller $3": {},
     "[Cond:Add] $2 @Caller [say]": {},
     "[Cond:Add] step 1 [of] [Executor] Susie [Execute] $2 @Caller $3": {},
@@ -4577,6 +5596,7 @@
     "[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e $6": {},
     "[Executor:Steps:Count] [say] @ Susie [Execute] $1 -\u003e 0": {},
     "[Executor] $4 [Execute] $1 @Caller $3": {},
+    "[Executor] Susie [Execute] check if Susie have a $1 @Caller $3": {},
     "[Executor] Susie [Execute] check what $1 is @Caller $3": {},
     "[Executor] Susie [Execute] say : $1 @Caller $3": {},
     "[Grammar:Conj+S+VerbPhrase:Conjunction] $3 @ if $2 -\u003e if": {},
@@ -4600,24 +5620,33 @@
     "[Grammar:Object:AdjProNounPhrase:NounPhrase] $3 @ your $2 -\u003e $2": {},
     "[Grammar:Object:AdjProNounPhrase:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {},
     "[Grammar:Object:Article] $3 @ a $1 -\u003e a": {},
+    "[Grammar:Object:Article] $3 @ the $1 -\u003e the": {},
     "[Grammar:Object:Article] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Grammar:Object:NounOnly] $3 @ $2 -\u003e $2": {},
     "[Grammar:Object:NounPhrase:Adjective] $3 @ $1 's $2 -\u003e $1 's": {},
     "[Grammar:Object:NounPhrase:Noun] $3 @ $1 's $2 -\u003e $2": {},
     "[Grammar:Object:NounPhrase] $3 @ a $1 -\u003e $1": {},
+    "[Grammar:Object:NounPhrase] $3 @ the $1 -\u003e $1": {},
     "[Grammar:Object:NounPhrase] $3 [Pronoun] @ $1 -\u003e $4": {},
     "[Grammar:Object:Pronoun] $3 @ $2 -\u003e $2": {},
     "[Grammar:Object:Pronoun] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:Object:That:Post] $3 @ $1 that $2 -\u003e $2": {},
+    "[Grammar:Object:That:Post] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:Object:That:Pre] $3 @ $1 that $2 -\u003e $1": {},
+    "[Grammar:Object:That:Pre] $3 [Pronoun] @ $1 -\u003e $4": {},
     "[Grammar:Object:Type] $3 @ $1 's $2 -\u003e NounPhrase": {},
+    "[Grammar:Object:Type] $3 @ $1 that $2 -\u003e That": {},
     "[Grammar:Object:Type] $3 @ $2 -\u003e NounPhrase": {},
     "[Grammar:Object:Type] $3 @ $2 -\u003e Pronoun": {},
     "[Grammar:Object:Type] $3 @ a $1 -\u003e NounPhrase": {},
     "[Grammar:Object:Type] $3 @ my $2 -\u003e AdjProNounPhrase": {},
+    "[Grammar:Object:Type] $3 @ the $1 -\u003e NounPhrase": {},
     "[Grammar:Object:Type] $3 @ what $2 -\u003e Wh+S+V": {},
     "[Grammar:Object:Type] $3 @ your $2 -\u003e AdjProNounPhrase": {},
     "[Grammar:Object:Type] $3 [AP] my @ $2 -\u003e NounPhrase": {},
     "[Grammar:Object:Type] $3 [AP] your @ $2 -\u003e NounPhrase": {},
     "[Grammar:Object:Type] $3 [Article] a @ $1 -\u003e NounPhrase": {},
+    "[Grammar:Object:Type] $3 [Article] the @ $1 -\u003e NounPhrase": {},
     "[Grammar:Object:Wh+S+V+O:Object] $3 [Pronoun] @ $1 -\u003e $7": {},
     "[Grammar:Object:Wh+S+V+O:Subject] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Grammar:Object:Wh+S+V:Subject] $3 @ what $2 -\u003e $1": {},
@@ -4656,14 +5685,31 @@
     "[Grammar:S+VerbPhrase:Subject] $3 @ $1 asks -\u003e $1": {},
     "[Grammar:S+VerbPhrase:Subject] $3 @ $1 is $2 -\u003e $1": {},
     "[Grammar:S+VerbPhrase:Subject] $3 @ $1 is -\u003e $1": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 @ $1 need $2 -\u003e $1": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 @ $1 need -\u003e $1": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 @ $1 says : $2 -\u003e $1": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 [Common] [Variety] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 [Common] [Variety] [SAY_EXL] @ $1 -\u003e I": {},
     "[Grammar:S+VerbPhrase:Subject] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Grammar:S+VerbPhrase:Subject] $3 [Pronoun] @ $1 -\u003e a $2": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e $2": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] @ $1 -\u003e a $2": {},
+    "[Grammar:S+VerbPhrase:Subject] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $2": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 asks $2 -\u003e asks $2": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 asks -\u003e asks": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 is $2 -\u003e is $2": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 is -\u003e is": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 need $2 -\u003e need $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 need -\u003e need": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 @ $1 says : $2 -\u003e says : $2": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Common] [Variety] @ $1 -\u003e $6": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Common] [Variety] [SAY_EXL] @ $1 -\u003e $5": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Pronoun] @ $1 -\u003e $5": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] @ $1 -\u003e $5": {},
+    "[Grammar:S+VerbPhrase:VerbPhrase] $3 [Variety] [Cond] [SAY] @ $1 -\u003e $5": {},
     "[Grammar:S+VerbPhrase:VerbPhrase] $3 [clause] what @ $2 -\u003e $5": {},
+    "[Grammar:V+Clause:Clause] $3 [VerbPhrase] @ $1 -\u003e $5": {},
+    "[Grammar:V+Clause:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {},
     "[Grammar:V+IO+DO:DirectObject] $3 @ say $2 -\u003e $10": {},
     "[Grammar:V+IO+DO:DirectObject] $3 @ tell $2 -\u003e $10": {},
     "[Grammar:V+IO+DO:DirectObject] $3 [VerbPhrase] @ $1 -\u003e $6": {},
@@ -4673,13 +5719,18 @@
     "[Grammar:V+IO+DO:Verb] $3 @ say $2 -\u003e say": {},
     "[Grammar:V+IO+DO:Verb] $3 @ tell $2 -\u003e tell": {},
     "[Grammar:V+IO+DO:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {},
+    "[Grammar:V+O+OC:OC] $3 [VerbPhrase] @ $1 -\u003e $6": {},
     "[Grammar:V+O+OC:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {},
     "[Grammar:V+O+OC:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {},
     "[Grammar:V+O:Object] $3 @ asks $2 -\u003e $2": {},
     "[Grammar:V+O:Object] $3 @ check $2 -\u003e $2": {},
+    "[Grammar:V+O:Object] $3 @ need $2 -\u003e $2": {},
+    "[Grammar:V+O:Object] $3 @ says : $2 -\u003e : $2": {},
     "[Grammar:V+O:Object] $3 [VerbPhrase] @ $1 -\u003e $5": {},
     "[Grammar:V+O:Verb] $3 @ asks $2 -\u003e asks": {},
     "[Grammar:V+O:Verb] $3 @ check $2 -\u003e check": {},
+    "[Grammar:V+O:Verb] $3 @ need $2 -\u003e need": {},
+    "[Grammar:V+O:Verb] $3 @ says : $2 -\u003e says": {},
     "[Grammar:V+O:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {},
     "[Grammar:V+P:P:AdjectivePhrase] $3 @ am $2 -\u003e $1": {},
     "[Grammar:V+P:P:AdjectivePhrase] $3 @ is $2 -\u003e $1": {},
@@ -4704,14 +5755,20 @@
     "[Grammar:V+P:Verb] $3 @ am $2 -\u003e am": {},
     "[Grammar:V+P:Verb] $3 @ is $2 -\u003e is": {},
     "[Grammar:V+P:Verb] $3 [VerbPhrase] @ $1 -\u003e $4": {},
+    "[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:OtherPart] $3 @ $1 -\u003e $5 $6": {},
     "[Grammar:VerbPhrase:Type] $3 @ $1 -\u003e V": {},
     "[Grammar:VerbPhrase:Type] $3 @ $1 -\u003e V+IO+DO": {},
     "[Grammar:VerbPhrase:Type] $3 @ $1 -\u003e V+O": {},
     "[Grammar:VerbPhrase:Type] $3 @ $1 -\u003e V+O+OC": {},
     "[Grammar:VerbPhrase:Type] $3 @ $1 -\u003e V+P": {},
+    "[Grammar:VerbPhrase:Type] $3 [Pronoun] @ $1 -\u003e V": {},
     "[Grammar:VerbPhrase:Type] $3 [Subject] $1 @ asks -\u003e V": {},
     "[Grammar:VerbPhrase:Type] $3 [Subject] $1 @ is -\u003e V": {},
+    "[Grammar:VerbPhrase:Type] $3 [Subject] $1 @ need -\u003e V": {},
     "[Grammar:VerbPhrase:Type] $3 [clause] what [Subject] $1 @ $5 -\u003e V": {},
+    "[Grammar:VerbPhrase:V+Clause:Clause] $3 @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+Clause:Verb] $3 @ $1 -\u003e $4": {},
     "[Grammar:VerbPhrase:V+IO+DO:DirectObject(To)] $3 [Pronoun] @ $1 -\u003e $5": {},
     "[Grammar:VerbPhrase:V+IO+DO:DirectObject] $3 @ $1 -\u003e $6": {},
     "[Grammar:VerbPhrase:V+IO+DO:DirectObject] $3 [Pronoun] @ $1 -\u003e $5": {},
@@ -4728,9 +5785,15 @@
     "[Grammar:VerbPhrase:V+O+OC:Verb] $3 @ $1 -\u003e $4": {},
     "[Grammar:VerbPhrase:V+O+OC:Verb] $3 [Pronoun] @ $1 -\u003e $2": {},
     "[Grammar:VerbPhrase:V+O:Object] $3 @ $1 -\u003e $5": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Common] [Variety] [SAY_EXL] [Subject] I @ $5 -\u003e a $6": {},
     "[Grammar:VerbPhrase:V+O:Object] $3 [Pronoun] @ $1 -\u003e $4": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [SAY] [Subject] $2 @ $5 -\u003e a $6": {},
+    "[Grammar:VerbPhrase:V+O:Object] $3 [Variety] [Cond] [Subject] $2 @ $5 -\u003e $6": {},
     "[Grammar:VerbPhrase:V+O:Verb] $3 @ $1 -\u003e $4": {},
+    "[Grammar:VerbPhrase:V+O:Verb] $3 [Common] [Variety] [SAY_EXL] [Subject] I @ $5 -\u003e need": {},
     "[Grammar:VerbPhrase:V+O:Verb] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:VerbPhrase:V+O:Verb] $3 [Variety] [Cond] [SAY] [Subject] $2 @ $5 -\u003e $10": {},
+    "[Grammar:VerbPhrase:V+O:Verb] $3 [Variety] [Cond] [Subject] $2 @ $5 -\u003e $10": {},
     "[Grammar:VerbPhrase:V+P:P:AdjectivePhrase] $3 @ $1 -\u003e $5": {},
     "[Grammar:VerbPhrase:V+P:P:Doing] $3 @ $1 -\u003e $5": {},
     "[Grammar:VerbPhrase:V+P:P:Object] $3 @ $1 -\u003e $5": {},
@@ -4740,6 +5803,7 @@
     "[Grammar:VerbPhrase:V+P:P] $3 @ $1 -\u003e $5": {},
     "[Grammar:VerbPhrase:V+P:Verb] $3 @ $1 -\u003e $4": {},
     "[Grammar:VerbPhrase:V+P:Verb] $3 [Pronoun] @ $1 -\u003e $2": {},
+    "[Grammar:VerbPhrase:Verb] $3 @ $1 -\u003e $4": {},
     "[Grammar:Verify:Conj+S+VerbPhrase] $1 @Caller $3 [Pronoun]": {},
     "[Grammar:Verify:Conj+S+VerbPhrase] $3 @ if $2 -\u003e yes": {},
     "[Grammar:Verify:Conj+S+VerbPhrase] if $2 @Caller $3": {},
@@ -4755,6 +5819,7 @@
     "[Grammar:Verify:IO+DO] $3 tell @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $1 's $2 @Caller $3": {},
     "[Grammar:Verify:Object] $1 @Caller $3 [Article] a": {},
+    "[Grammar:Verify:Object] $1 @Caller $3 [Article] the": {},
     "[Grammar:Verify:Object] $1 @Caller $3 [DO]": {},
     "[Grammar:Verify:Object] $1 @Caller $3 [IO+DO] 2": {},
     "[Grammar:Verify:Object] $1 @Caller $3 [Owner]": {},
@@ -4762,6 +5827,9 @@
     "[Grammar:Verify:Object] $1 @Caller $3 [SVK]": {},
     "[Grammar:Verify:Object] $1 @Caller $3 [Subject] asks": {},
     "[Grammar:Verify:Object] $1 @Caller $3 [Subject] is": {},
+    "[Grammar:Verify:Object] $1 @Caller $3 [Subject] need": {},
+    "[Grammar:Verify:Object] $1 @Caller $3 [Subject] says": {},
+    "[Grammar:Verify:Object] $1 that $2 @Caller $3": {},
     "[Grammar:Verify:Object] $2 @Caller $3": {},
     "[Grammar:Verify:Object] $2 @Caller $3 [AP] my": {},
     "[Grammar:Verify:Object] $2 @Caller $3 [AP] your": {},
@@ -4771,10 +5839,13 @@
     "[Grammar:Verify:Object] $2 @Caller $3 [P]": {},
     "[Grammar:Verify:Object] $2 @Caller $3 asks": {},
     "[Grammar:Verify:Object] $2 @Caller $3 check": {},
+    "[Grammar:Verify:Object] $2 @Caller $3 need": {},
     "[Grammar:Verify:Object] $3 @ $1 's $2 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 @ $1 that $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 @ a $1 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 @ my $2 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 @ the $1 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 @ what $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 @ your $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 [DO] @ $1 -\u003e yes": {},
@@ -4787,10 +5858,14 @@
     "[Grammar:Verify:Object] $3 [SVK] @ $1 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 [Subject] asks @ $1 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 [Subject] is @ $1 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 [Subject] need @ $1 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 [Subject] says @ $1 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 asks @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] $3 check @ $2 -\u003e yes": {},
+    "[Grammar:Verify:Object] $3 need @ $2 -\u003e yes": {},
     "[Grammar:Verify:Object] a $1 @Caller $3": {},
     "[Grammar:Verify:Object] my $2 @Caller $3": {},
+    "[Grammar:Verify:Object] the $1 @Caller $3": {},
     "[Grammar:Verify:Object] what $2 @Caller $3": {},
     "[Grammar:Verify:Object] your $2 @Caller $3": {},
     "[Grammar:Verify:P] $2 @Caller $3": {},
@@ -4799,18 +5874,31 @@
     "[Grammar:Verify:P] $3 @ $2 -\u003e yes": {},
     "[Grammar:Verify:P] $3 am @ $2 -\u003e yes": {},
     "[Grammar:Verify:P] $3 is @ $2 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Common] [Variety]": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Common] [Variety] [SAY_EXL]": {},
     "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Pronoun]": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Variety] [Cond]": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 @Caller $3 [Variety] [Cond] [SAY]": {},
     "[Grammar:Verify:S+VerbPhrase] $1 asks $2 @Caller $3": {},
     "[Grammar:Verify:S+VerbPhrase] $1 asks @Caller $3": {},
     "[Grammar:Verify:S+VerbPhrase] $1 is $2 @Caller $3": {},
     "[Grammar:Verify:S+VerbPhrase] $1 is @Caller $3": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 need $2 @Caller $3": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 need @Caller $3": {},
+    "[Grammar:Verify:S+VerbPhrase] $1 says : $2 @Caller $3": {},
     "[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [Conj] if": {},
+    "[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [clause] that": {},
     "[Grammar:Verify:S+VerbPhrase] $2 @Caller $3 [clause] what": {},
     "[Grammar:Verify:S+VerbPhrase] $3 @ $1 asks $2 -\u003e yes": {},
     "[Grammar:Verify:S+VerbPhrase] $3 @ $1 asks -\u003e yes": {},
     "[Grammar:Verify:S+VerbPhrase] $3 @ $1 is $2 -\u003e yes": {},
     "[Grammar:Verify:S+VerbPhrase] $3 @ $1 is -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 @ $1 need $2 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 @ $1 need -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 @ $1 says : $2 -\u003e yes": {},
     "[Grammar:Verify:S+VerbPhrase] $3 [Conj] if @ $2 -\u003e yes": {},
+    "[Grammar:Verify:S+VerbPhrase] $3 [clause] that @ $2 -\u003e yes": {},
+    "[Grammar:Verify:V+Clause] $1 @Caller $3 [VerbPhrase]": {},
     "[Grammar:Verify:V+IO+DO] $1 @Caller $3 [VerbPhrase]": {},
     "[Grammar:Verify:V+IO+DO] $3 @ say $2 -\u003e yes": {},
     "[Grammar:Verify:V+IO+DO] $3 @ tell $2 -\u003e yes": {},
@@ -4822,9 +5910,13 @@
     "[Grammar:Verify:V+O] $1 @Caller $3 [VerbPhrase]": {},
     "[Grammar:Verify:V+O] $3 @ asks $2 -\u003e yes": {},
     "[Grammar:Verify:V+O] $3 @ check $2 -\u003e yes": {},
+    "[Grammar:Verify:V+O] $3 @ need $2 -\u003e yes": {},
+    "[Grammar:Verify:V+O] $3 @ says : $2 -\u003e yes": {},
     "[Grammar:Verify:V+O] $3 [VerbPhrase] @ $1 -\u003e yes": {},
     "[Grammar:Verify:V+O] asks $2 @Caller $3": {},
     "[Grammar:Verify:V+O] check $2 @Caller $3": {},
+    "[Grammar:Verify:V+O] need $2 @Caller $3": {},
+    "[Grammar:Verify:V+O] says : $2 @Caller $3": {},
     "[Grammar:Verify:V+P] $1 @Caller $3 [VerbPhrase]": {},
     "[Grammar:Verify:V+P] $3 @ am $2 -\u003e yes": {},
     "[Grammar:Verify:V+P] $3 @ is $2 -\u003e yes": {},
@@ -4841,8 +5933,10 @@
     "[Grammar:Verify:VerbPhrase] $3 @ $1 -\u003e yes": {},
     "[Grammar:Verify:VerbPhrase] $3 [Subject] $1 @ asks $2 -\u003e yes": {},
     "[Grammar:Verify:VerbPhrase] $3 [Subject] $1 @ is $2 -\u003e yes": {},
+    "[Grammar:Verify:VerbPhrase] $3 [Subject] $1 @ need $2 -\u003e yes": {},
     "[Grammar:Verify:VerbPhrase] asks $2 @Caller $3 [Subject] $1": {},
     "[Grammar:Verify:VerbPhrase] is $2 @Caller $3 [Subject] $1": {},
+    "[Grammar:Verify:VerbPhrase] need $2 @Caller $3 [Subject] $1": {},
     "[Print] $1 @Caller $2": {},
     "[Print] We Use Static Activation For $4 @Caller $3": {},
     "[Print] [Not Ready] $4 [Execute] $5 [From] step $2 [of] $4 [Execute] $1 @Caller $3": {},
@@ -4852,15 +5946,20 @@
     "[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] $3 @ $6 $5 -\u003e $6 $8": {},
     "[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] $3 [Susie says] @ $1 -\u003e $2": {},
     "[Pronoun:Resolve:Sentence:Object] $1 @Caller $3": {},
+    "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1": {},
     "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Subject] $1 [Clause]": {},
     "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Subject] $1 [Clause] [Object]": {},
     "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun:Subject] $1 [Clause] [Subject]": {},
     "[Pronoun:Resolve:Sentence:Object] $2 @Caller $3 [Pronoun] [S+VerbPhrase] $1": {},
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $1": {},
+    "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $2 $6": {},
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 $9 $6": {},
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 $9 $6 $11": {},
+    "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $4 that $9": {},
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $9": {},
     "[Pronoun:Resolve:Sentence:Object] $3 @ $1 -\u003e $9 $4": {},
+    "[Pronoun:Resolve:Sentence:Object] $3 @ a $1 -\u003e a $7": {},
+    "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 @ $2 -\u003e $9": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Subject] $1 [Clause] @ $2 -\u003e $9": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Subject] $1 [Clause] [Object] @ $7 -\u003e $11": {},
     "[Pronoun:Resolve:Sentence:Object] $3 [Pronoun:Subject] $1 [Clause] [Subject] @ $2 -\u003e $9": {},
@@ -4875,6 +5974,7 @@
     "[Pronoun:Resolve:Sentence:Object] $4 @Caller $3 [Pronoun] [Object] $1": {},
     "[Pronoun:Resolve:Sentence:Object] $5 @Caller $3 [Pronoun] $1 [DO]": {},
     "[Pronoun:Resolve:Sentence:Object] $5 @Caller $3 [Pronoun] $1 [DO] (To)": {},
+    "[Pronoun:Resolve:Sentence:Object] a $1 @Caller $3": {},
     "[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller $3": {},
     "[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller $3 [Susie says]": {},
     "[Pronoun:Resolve:Sentence:S+VerbPhrase] $1 @Caller [say]": {},
@@ -4886,34 +5986,53 @@
     "[Pronoun:Resolve:Sentence:VerbPhrase] $1 @Caller $3": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $1 @Caller $3 [Susie says]": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $1 @Caller [say]": {},
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $1": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 $5": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 $8": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ $1 -\u003e $2 $11 to $8": {},
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 @ says : $1 -\u003e says : $1": {},
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 [Subject] $2 @ $5 -\u003e $8": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] $1 [Do] @ $5 -\u003e $8": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] $1 [Doing] @ $5 -\u003e $8": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] $1 [Todo] @ $5 -\u003e $8": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Pronoun] [S+VerbPhrase] $1 [Subject] $2 @ $5 -\u003e $8": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $3 [Susie says] @ $1 -\u003e $2": {},
+    "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun:Resolve_V2] [S+VerbPhrase] $1 [Subject] $2": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] $1 [Do]": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] $1 [Doing]": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] $1 [Todo]": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] $5 @Caller $3 [Pronoun] [S+VerbPhrase] $1 [Subject] $2": {},
     "[Pronoun:Resolve:Sentence:VerbPhrase] [say] @ $1 -\u003e $2": {},
+    "[Pronoun:Resolve:Sentence:VerbPhrase] says : $1 @Caller $3": {},
     "[Pronoun:Resolve] $1 @Caller $3": {},
     "[Pronoun:Resolve] $2 @Caller $3 [Pronoun]": {},
     "[Pronoun:Resolve] $3 @ $1 -\u003e": {},
     "[Pronoun:Resolve] $3 @ $1 -\u003e $2": {},
     "[Pronoun:Resolve] $3 [Pronoun] @ $2 -\u003e $9": {},
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $1 @Caller $3": {},
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $2 @Caller $3 [Pronoun:Subject] $1 [Clause] that": {},
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $3 @ $1 -\u003e $9 $8": {},
+    "[Pronoun:Resolve_V2:Sentence:S+VerbPhrase] $3 [Pronoun:Subject] $1 [Clause] that @ $2 -\u003e $9": {},
     "[Res:Done] $4": {},
     "[Res] $4": {},
+    "[Res] [Common] $2": {},
     "[Res] [Executor] $4 [Execute] $5": {},
     "[Res] [Executor] Susie [Execute] $2": {},
     "[Res] [Executor] Susie [Execute] say : $1": {},
     "[ST] $1 -\u003e $2": {},
+    "[Signal] [Susie_Owns:GET] $1 [FAILED] @Caller $3": {},
     "[Speak] $1": {},
     "[Speak] $1 -\u003e $2": {},
     "[Speak] $2": {},
+    "[Susie_Owns:Add] $3 @ $1 -\u003e yes": {},
+    "[Susie_Owns:Add] [item] $1 [Number] $2 @Caller $3": {},
+    "[Susie_Owns:GET:Amount] $3 @ $1 -\u003e $2": {},
+    "[Susie_Owns:GET] $1 @Caller $3": {},
+    "[Susie_Owns:GET] $3 @ $1 -\u003e": {},
+    "[Susie_Owns:GET] $3 @ $1 -\u003e yes": {},
+    "[Susie_Owns:GET] $3 @ $7 -\u003e yes": {},
+    "[Susie_Owns:GET] $7 @Caller $3": {},
     "[System:Verify:Key] $1 @Caller $3": {},
     "[System:Verify:Key] $3 @ $1 -\u003e yes": {},
     "[System:Verify:Value] $1 @Caller $3": {},
@@ -4925,6 +6044,7 @@
     "[TODO:Add] $1 @ $2": {},
     "[TODO:Add] $1 @Caller $2": {},
     "[TODO:Add] [Execute:Done] $3 @ [Executor] Susie [Execute] check $1 -\u003e yes": {},
+    "[TODO:Add] [Execute:Done] $3 @ [Executor] Susie [Execute] check if Susie have a $1 -\u003e yes": {},
     "[TODO:Add] [Executor] $4 [Execute] $5 @Caller $3 step $2 [of] [Executor] $4 [Execute] $1": {},
     "[TeachMode:Check] Teacher $1 @Caller $3": {},
     "[TeachMode:Check] Teacher $3 @Caller [say]": {},
@@ -4932,12 +6052,16 @@
     "[TeachMode] [say] @ Teacher $3 -\u003e yes": {},
     "[compute] $3 @ $2 - 1 -\u003e $9": {},
     "[compute] $3 Susie 's name is $1 @ $1 != $Susie -\u003e yes": {},
+    "[compute] $3 [Activate] $4 @ $6 = 0 -\u003e yes": {},
     "[compute] $3 [Cond:Reset] @ $2 \u003c $1 -\u003e yes": {},
     "[compute] $3 [Cond:Reset] [No.] $2 @ $2 + 1 -\u003e $1": {},
     "[compute] $3 [Cond:Reset] [No.] $2 @ $2 + 1 -\u003e $4": {},
     "[compute] $3 [Cond:Reset] [No.] $6 @ $6 + 1 -\u003e $10": {},
     "[compute] $3 [MarkDone] @ $6 != 0 -\u003e yes": {},
     "[compute] $3 [SafeCompute] @ $2 + 1 -\u003e $9": {},
+    "[compute] $3 [Susie_Owns:Add] $1 @ $2 + $4 -\u003e $6": {},
+    "[compute] $3 [Susie_Owns:GET] $1 @ $2 != 0 -\u003e yes": {},
+    "[compute] $3 [Susie_Owns:GET] $1 @ $2 = 0 -\u003e yes": {},
     "[compute] $3 step $2 [of] [Executor] $4 [Execute] $1 @ $2 + 1 -\u003e $9": {},
     "[compute] $4 @ $1 != $2 -\u003e yes": {},
     "[compute] $4 @ $1 * $2 -\u003e $3": {},
@@ -4952,12 +6076,16 @@
     "[compute] [CHECK] $1 \u003c $2 @Caller $4": {},
     "[compute] [CHECK] $1 = $2 @Caller $4": {},
     "[compute] [CHECK] $1 \u003e $2 @Caller $4": {},
+    "[compute] [CHECK] $2 != 0 @Caller $3 [Susie_Owns:GET] $1": {},
+    "[compute] [CHECK] $2 = 0 @Caller $3 [Susie_Owns:GET] $1": {},
     "[compute] [CHECK] $4 \u003c $1 @Caller $3 [Cond:Reset]": {},
     "[compute] [CHECK] $6 != 0 @Caller $3 [MarkDone]": {},
+    "[compute] [CHECK] $6 = 0 @Caller $3 [Activate] $4": {},
     "[compute] [Cond:Used] step $6 @ $2 + 1 -\u003e $9": {},
     "[compute] [GET] $1 * $2 @Caller $4": {},
     "[compute] [GET] $1 + $2 @Caller $4": {},
     "[compute] [GET] $1 - $2 @Caller $4": {},
+    "[compute] [GET] $2 + $4 @Caller $3 [Susie_Owns:Add] $1": {},
     "[compute] [GET] $2 + 1 @Caller $3 [Cond:Reset] [No.] $2": {},
     "[compute] [GET] $2 + 1 @Caller $3 [SafeCompute]": {},
     "[compute] [GET] $2 + 1 @Caller $3 step $2 [of] [Executor] $4 [Execute] $1": {},
@@ -5042,8 +6170,9 @@
     "[repo] $3 @ [Latest] [Cond:Count] -\u003e $6": {},
     "[repo] $3 @ [Latest] [CondGroup:Count] $4 -\u003e $6": {},
     "[repo] $3 @ [Latest] [CondGroup:ElementCount] [No.] $2 [of] $4 -\u003e $6": {},
-    "[repo] $3 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $1": {},
+    "[repo] $3 @ [No.] $4 [Cond] -\u003e $1": {},
     "[repo] $3 @ [No.] $4 [Cond] -\u003e $1 is $2": {},
+    "[repo] $3 @ [No.] $4 [Cond] -\u003e $7 says : $1": {},
     "[repo] $3 @ [Pronoun:Cache] $1 -\u003e": {},
     "[repo] $3 @ [Pronoun:Cache] $1 -\u003e $2": {},
     "[repo] $3 @ [System:Value] $1 -\u003e yes": {},
@@ -5055,6 +6184,8 @@
     "[repo] $3 @@ $1 @ [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e": {},
     "[repo] $3 @@ $1 @ [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $6": {},
     "[repo] $3 @@ $1 @ [Latest] [Count] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $6": {},
+    "[repo] $3 [Common] [Variety] @ [Variety:Of] $2 -\u003e person": {},
+    "[repo] $3 [Common] [Variety] [SAY_EXL] [Subject] I [V+O] $5 @ [Variety:Of] $6 -\u003e $fork": {},
     "[repo] $3 [Cond:Reset] @ [Cond:Count] -\u003e $1": {},
     "[repo] $3 [Cond:Reset] [No.] $6 @ [No.] $10 [Cond] -\u003e": {},
     "[repo] $3 [Cond:Reset] [No.] $6 @ [No.] $10 [Cond] -\u003e $1": {},
@@ -5066,9 +6197,17 @@
     "[repo] $3 [No.] $10 @ [CondGroup] [No.] $9 [of] [No.] $2 [of] $4 -\u003e $1": {},
     "[repo] $3 [No.] $9 @ [CondGroup:Count:Unreleased] [No.] $2 [of] $4 -\u003e $6": {},
     "[repo] $3 [No.] $9 @ [Latest] [CondGroup:Count:Unreleased] [No.] $2 [of] $4 -\u003e $6": {},
+    "[repo] $3 [Pronoun] [Article] $2 @ [PronounLike:Cache] $4 -\u003e": {},
+    "[repo] $3 [Pronoun] [Article] $2 @ [PronounLike:Cache] $4 -\u003e $6": {},
     "[repo] $3 [Reset] @ [Len] [of] [No.] $2 [CondGroup] [of] $4 -\u003e $6": {},
+    "[repo] $3 [Susie_Owns:Add] [Number] $2 @ [Susie_Owns] $1 -\u003e $4": {},
+    "[repo] $3 [Susie_Owns:GET] @ [Susie_Owns] $1 -\u003e": {},
+    "[repo] $3 [Susie_Owns:GET] @ [Susie_Owns] $1 -\u003e $2": {},
     "[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e": {},
     "[repo] $3 [TeachMode:Check] @ [TeachMode] Teacher $1 -\u003e yes": {},
+    "[repo] $3 [Variety] [Cond] @ [Variety] $2 -\u003e yes": {},
+    "[repo] $3 [Variety] [Cond] [SAY] [Subject] $2 [V+O] $5 @ [Variety] $6 -\u003e yes": {},
+    "[repo] $3 [Variety] [Cond] [Subject] $2 [V+O] $5 @ [Variety] $6 -\u003e yes": {},
     "[repo] $3 [Verify:Object] @ [Grammar:Property:Word:Noun] $2 -\u003e yes": {},
     "[repo] $3 [Verify:Object] @ [Grammar:Property:Word:Pronoun] $2 -\u003e yes": {},
     "[repo] $4 @ $1 -\u003e": {},
@@ -5103,10 +6242,18 @@
     "[repo] [GET] [No.] 1 [Cond] @Caller $3 [Cond:Reset] [No.] 0": {},
     "[repo] [GET] [No.] 1 [Cond] @Caller [No.] 0": {},
     "[repo] [GET] [Pronoun:Cache] $1 @Caller $3": {},
+    "[repo] [GET] [PronounLike:Cache] $4 @Caller $3 [Pronoun] [Article] $2": {},
+    "[repo] [GET] [Susie_Owns] $1 @Caller $3 [Susie_Owns:Add] [Number] $2": {},
+    "[repo] [GET] [Susie_Owns] $1 @Caller $3 [Susie_Owns:GET]": {},
     "[repo] [GET] [System:Value] $1 @Caller $3": {},
     "[repo] [GET] [TeachMode] Teacher $1 @Caller $3 [TeachMode:Check]": {},
     "[repo] [GET] [Then] $1 @Caller $3": {},
+    "[repo] [GET] [Variety:Of] $2 @Caller $3 [Common] [Variety]": {},
+    "[repo] [GET] [Variety:Of] $6 @Caller $3 [Common] [Variety] [SAY_EXL] [Subject] I [V+O] $5": {},
     "[repo] [GET] [Variety] $2 @Caller $3": {},
+    "[repo] [GET] [Variety] $2 @Caller $3 [Variety] [Cond]": {},
+    "[repo] [GET] [Variety] $6 @Caller $3 [Variety] [Cond] [SAY] [Subject] $2 [V+O] $5": {},
+    "[repo] [GET] [Variety] $6 @Caller $3 [Variety] [Cond] [Subject] $2 [V+O] $5": {},
     "[repo] [GET] step $9 [of] [Executor] $4 [Execute] $1 @Caller $3": {},
     "[repo] [GET] step 1 [of] [Executor] $4 [Execute] $1 @Caller $3": {},
     "[repo] [No.] $6 @ [No.] $10 [Cond] -\u003e": {},
@@ -5139,6 +6286,9 @@
     "[repo] [SSET] [Pronoun:Cache] they -\u003e a $2": {},
     "[repo] [SSET] [Pronoun:Cache] you -\u003e you": {},
     "[repo] [SSET] [Pronoun:Cache] your -\u003e your": {},
+    "[repo] [SSET] [PronounLike:Cache] $fork -\u003e $6": {},
+    "[repo] [SSET] [PronounLike:Cache] person -\u003e $2": {},
+    "[repo] [SSET] [Susie_Owns] $1 -\u003e $6": {},
     "[repo] [SSET] [System:Property:SPronoun:Object-like] $1 -\u003e yes": {},
     "[repo] trust $1 -\u003e yes": {},
     "[safe++] $1 @Caller $3": {},
@@ -5151,6 +6301,9 @@
     "[safe--] [Count] [of] [No.] $2 [CondGroup] [of] $4 @Caller $3 @@ $1": {},
     "[template:Run] $1 @Args $2 @Caller $3": {},
     "[template:Run] variable_toolkit @Args $1 , $2 @Caller $3": {},
+    "[template:Run] variable_toolkit_2 @Args $2 @Caller $3": {},
+    "[template:Run] variable_toolkit_3 @Args $6 , $10 , $2 @Caller $3": {},
+    "[template:Run] variable_toolkit_4 @Args $7 , $2 , $10 , $6 @Caller $3": {},
     "[time] date -\u003e $1": {},
     "[time] get date": {},
     "[time] get hour": {},

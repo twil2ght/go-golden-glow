@@ -4,13 +4,21 @@
       "commands": [
         "[input] [Grammar:Object:Article] C [Pronoun] @ A -> B",
         "[input] [Grammar:Object:NounPhrase] C [Pronoun] @ A -> D",
+        "[input] [repo] C [Pronoun] [Article] B @ [PronounLike:Cache] D ->",
         "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> A",
         ""
       ]
     },
     {
       "commands": [
+        "[input] [Grammar:Object:Article] C [Pronoun] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase] C [Pronoun] @ A -> D",
+        "[output] [repo] [GET] [PronounLike:Cache] D @Caller C [Pronoun] [Article] B",
 
+        "[input] [Grammar:Object:Article] C [Pronoun] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase] C [Pronoun] @ A -> D",
+        "[input] [repo] C [Pronoun] [Article] B @ [PronounLike:Cache] D -> F",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> B F"
       ]
     }
   ]

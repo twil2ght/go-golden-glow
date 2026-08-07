@@ -4,26 +4,18 @@
   "data": [
     {
       "description": "CondGroup Activated",
-      "commands:Dead": [
-        "[input] [repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> 0",
-        "[output] [Print] We Use Static Activation For D @Caller C",
+      "commands": [
+        "[input] [CondGroup:MarkDone:NewCount] C @ [No.] B [of] D @@ A -> F",
+        "[input] [compute] C [Activate] D @ F = 0 -> yes",
         "[output] D @Caller C"
       ]
     },
     {
       "description": "CondGroup Activated",
       "commands": [
-        "[input] [repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> A",
-        "[input] [Compute] C [Activate] @ A = 0 -> yes",
-        "[output] [Print] We Use Static Activation For D @Caller C",
-        "[output] D @Caller C"
-      ]
-    },
-    {
-      "description": "CondGroup Activated",
-      "commands": [
-        "[input] [repo] C @ [Latest] [Count] [of] [No.] B [CondGroup] [of] D -> A",
-        "[output] [Compute] [CHECK] A = 0 @Caller C [Activate]"
+        "[input] [CondGroup:MarkDone:NewCount] C @ [No.] B [of] D @@ A -> F",
+        "[output] [compute] [CHECK] F = 0 @Caller C [Activate] D",
+        "[output] [Print] We Use Static Activation For D @Caller C"
       ]
     }
   ]

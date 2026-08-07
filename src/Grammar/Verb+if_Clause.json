@@ -1,0 +1,20 @@
+{
+  "name": "V+Clause",
+  "is_template": true,
+  "args": [
+    "$verb"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+Clause] $verb A @Caller C",
+        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller C [V+Clause] $verb",
+
+        "[input] [Grammar:Verify:Conj+S+VerbPhrase] C [V+Clause] $verb @ A -> yes",
+        "[output] [Grammar:Verify:V+Clause] C @ $verb A -> yes",
+        "[output] [Grammar:V+Clause:Verb] C @ $verb A -> $verb",
+        "[output] [Grammar:V+Clause:Clause] C @ $verb A -> A"
+      ]
+    }
+  ]
+}

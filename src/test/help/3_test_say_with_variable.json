@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SSET] [Variety:Of] DEV -> person",
+        "[repo] [SSET] [Variety:Of] friend -> $fork",
+        "[repo] [SSET] [Grammar:Property:Word:Noun] friend -> yes",
+        "[Common] DEV says : I need a friend @Caller test"
+      ]
+    }
+  ]
+}

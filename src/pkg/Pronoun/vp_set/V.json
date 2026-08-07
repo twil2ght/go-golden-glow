@@ -1,0 +1,10 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:Type] C [Pronoun] @ A -> V",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> A"
+      ]
+    }
+  ]
+}

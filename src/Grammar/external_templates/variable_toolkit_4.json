@@ -1,0 +1,36 @@
+{
+  "name": "variable_toolkit_4",
+  "is_template": true,
+  "args": [
+    "$Head",
+    "$Subject",
+    "$Verb",
+    "$Variety"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] $Head says : A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] [Variety] [SAY_EXL]"
+      ]
+    },
+    {
+      "description": "HERE,ATTR IS NOT TAKEN INTO CONSIDERATION",
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] [SAY_EXL] @ A -> $Subject",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] [SAY_EXL] @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [SAY_EXL] [Subject] $Subject @ E -> a F",
+        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] [Variety] [SAY_EXL] [Subject] $Subject [V+O] E"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] [SAY_EXL] @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [SAY_EXL] [Subject] $Subject @ E -> $Verb",
+        "[input] [repo] C [Common] [Variety] [SAY_EXL] [Subject] $Subject [V+O] E @ [Variety:Of] F -> $Variety",
+        "[output] [Common] $Head says : $Subject $Verb a $Variety @Caller C",
+        "[output] [repo] [SSET] [PronounLike:Cache] $Variety -> F"
+      ]
+    }
+  ]
+}

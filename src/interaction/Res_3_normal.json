@@ -3,12 +3,17 @@
   "data": [
     {
       "commands": [
-        "YOU HAVE TO CHECK IF THERE IS SOME `[COND]` BEFORE USING THIS PATTERN",
-
         "[input] C says to Susie : A",
         "[input] [TeachMode] [say] @ Teacher C -> yes",
         "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [say] @ A -> B",
-        "[output] [Res] B"
+        "[output] [Res] [Common] B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] C says to Susie : A",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [say]",
+        "[output] [TeachMode:Check] Teacher C @Caller [say]"
       ]
     }
   ]

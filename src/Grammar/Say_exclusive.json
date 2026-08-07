@@ -8,18 +8,18 @@
 
         "[input] [Grammar:Verify:S+VerbPhrase] A says : B @Caller C",
         "[input] [Grammar:Verify:Object] C [Subject] says @ A -> yes",
-        "[output] [Grammar:Verify:S+VerbPhrase] C @ A says B -> yes",
-        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ A says B -> says : B",
-        "[output] [Grammar:S+VerbPhrase:Subject] C @ A says B -> A"
+        "[output] [Grammar:Verify:S+VerbPhrase] C @ A says : B -> yes",
+        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ A says : B -> says : B",
+        "[output] [Grammar:S+VerbPhrase:Subject] C @ A says : B -> A"
       ]
     },
     {
       "description": "VP",
       "commands": [
         "[input] [Grammar:Verify:V+O] says : B @Caller C",
-        "[output] [Grammar:Verify:V+O] C @ says B -> yes",
-        "[output] [Grammar:V+O:Verb] C @ says B -> says",
-        "[output] [Grammar:V+O:Object] C @ says B -> : B"
+        "[output] [Grammar:Verify:V+O] C @ says : B -> yes",
+        "[output] [Grammar:V+O:Verb] C @ says : B -> says",
+        "[output] [Grammar:V+O:Object] C @ says : B -> : B"
       ]
     }
   ]

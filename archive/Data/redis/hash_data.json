@@ -1,5 +1,17 @@
 {
+  "Susie 's name": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
   "[Cond:Count]": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] a person asks what Susie 's name is": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] a person need a $fork": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] the thing that a person need is a $fork": {
     "1": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:Count] [Executor] Susie [Execute] check what Susie 's name is": {
@@ -11,6 +23,33 @@
   "[CondGroup:Count] [Executor] Susie [Execute] tell a person Susie 's name": {
     "1": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup:DoneState] [of] Susie 's name is $Susie for [No.] 1 [of] [Executor] Susie [Execute] say : my name is $Susie": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:DoneState] [of] a person asks what Susie 's name is for [No.] 1 [of] [Executor] Susie [Execute] tell a person Susie 's name": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:DoneState] [of] a person says : I need a $fork for [No.] 1 [of] [Common] a person need a $fork": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:DoneState] [of] a person says : I need a $fork for [No.] 1 [of] [Common] the thing that a person need is a $fork": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:DoneState] [of] a person says : what is your name for [No.] 1 [of] [Common] a person asks what Susie 's name is": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:DoneState] [of] step 1 [of] [Executor] Susie [Execute] tell a person Susie 's name for [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's name is": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] a person asks what Susie 's name is": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] a person need a $fork": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] the thing that a person need is a $fork": {
+    "1": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's name is": {
     "1": "0001-01-01T00:00:00Z"
   },
@@ -19,6 +58,15 @@
   },
   "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] tell a person Susie 's name": {
     "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] a person asks what Susie 's name is [of] a person says : what is your name": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] a person need a $fork [of] a person says : I need a $fork": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] the thing that a person need is a $fork [of] a person says : I need a $fork": {
+    "1 | 1": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:Index] [Executor] Susie [Execute] check what Susie 's name is [of] step 1 [of] [Executor] Susie [Execute] tell a person Susie 's name": {
     "1 | 1": "0001-01-01T00:00:00Z"
@@ -32,6 +80,15 @@
   "[CondGroup:Index] [Executor] Susie [Execute] tell a person Susie 's name [of] a person asks what Susie 's name is": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] a person asks what Susie 's name is": {
+    "a person says : what is your name": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] a person need a $fork": {
+    "a person says : I need a $fork": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] the thing that a person need is a $fork": {
+    "a person says : I need a $fork": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's name is": {
     "step 1 [of] [Executor] Susie [Execute] tell a person Susie 's name": "0001-01-01T00:00:00Z"
   },
@@ -44,10 +101,37 @@
   "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] say : my name is $Susie": {
     "Susie 's name is $Susie": "0001-01-01T00:00:00Z"
   },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] a person asks what Susie 's name is": {
+    "0": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] a person need a $fork": {
+    "0": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] check what Susie 's name is": {
+    "0": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] say : my name is $Susie": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] tell a person Susie 's name": {
+    "0": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Article] a": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Article] the": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] $fork": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] DEV": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] Susie": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] friend": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] name": {
@@ -56,10 +140,19 @@
   "[Grammar:Property:Word:Noun] person": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] thing": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Pronoun] $Susie": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Pronoun] I": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Pronoun] them": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Pronoun] they": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] am": {
@@ -72,6 +165,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] is": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] need": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] say": {
@@ -87,10 +183,13 @@
     "a person": "0001-01-01T00:00:00Z"
   },
   "[No.] 1 [Cond]": {
-    "a person asks what Susie 's name is": "0001-01-01T00:00:00Z"
+    "a person says : I need a $fork": "0001-01-01T00:00:00Z"
   },
   "[Pronoun:Cache] $Susie": {
-    "$Susie": "0001-01-01T00:00:00Z"
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] I": {
+    "DEV": "0001-01-01T00:00:00Z"
   },
   "[Pronoun:Cache] them": {
     "a person": "0001-01-01T00:00:00Z"
@@ -101,10 +200,22 @@
   "[Pronoun:Cache] your": {
     "Susie 's": "0001-01-01T00:00:00Z"
   },
+  "[PronounLike:Cache] $fork": {
+    "friend": "0001-01-01T00:00:00Z"
+  },
+  "[PronounLike:Cache] person": {
+    "DEV": "0001-01-01T00:00:00Z"
+  },
   "[System:Property:SPronoun:Object-like] $Susie": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[System:Value] $Susie": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[System:Value] $fork": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[System:Value] Susie": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[TeachMode] Teacher dev": {
@@ -116,11 +227,27 @@
   "[Then] a person asks what Susie 's name is": {
     "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] tell a person Susie 's name @@ a person asks what Susie 's name is @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
+  "[Then] a person says : I need a $fork": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] a person need a $fork @@ a person says : I need a $fork @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 1 [of] [Common] the thing that a person need is a $fork @@ a person says : I need a $fork @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] a person says : what is your name": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] a person asks what Susie 's name is @@ a person says : what is your name @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
   "[Then] step 1 [of] [Executor] Susie [Execute] tell a person Susie 's name": {
     "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's name is @@ step 1 [of] [Executor] Susie [Execute] tell a person Susie 's name @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
   "[Then] step 2 [of] [Executor] Susie [Execute] tell a person Susie 's name": {
     "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : my name is $Susie @@ step 2 [of] [Executor] Susie [Execute] tell a person Susie 's name @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Variety:Of] DEV": {
+    "person": "0001-01-01T00:00:00Z"
+  },
+  "[Variety:Of] friend": {
+    "$fork": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $fork": {
+    "yes": "0001-01-01T00:00:00Z"
   },
   "[Variety] person": {
     "yes": "0001-01-01T00:00:00Z"

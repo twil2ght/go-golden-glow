@@ -2,20 +2,6 @@
   "dependencies": [
     "../SafeCalculate/Minus_1"
   ],
-  "API": [
-    "[CondGroup:Done] [No.] {B} [of] {D} @@ A @Caller {C}",
-    "[CondGroup:Undone] [No.] {B} [of] {D} @@ A @Caller {C}",
-    "[CondGroup:DoneAuto] {D} @@ A @Caller {C}",
-    "[CondGroup:UndoneAuto] {D} @@ A @Caller {C}"
-  ],
-  "callback": [
-    "[CondGroup:MarkDone:NewCount] C @ [No.] B [of] D @@ A -> F"
-  ],
-  "args": {
-    "B": "the index [of] the groups [of] D",
-    "D": "the result [of] the group(also the group itself)",
-    "A": "the controller(appear as the caller)"
-  },
   "data": [
     {
       "description": "Callback",

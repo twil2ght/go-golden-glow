@@ -1,0 +1,34 @@
+{
+  "name": "variable_toolkit_3",
+  "is_template": true,
+  "args": [
+    "$Variety",
+    "$Verb",
+    "$Subject"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] [Variety]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> $Subject",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [Subject] $Subject @ E -> F",
+        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] [Variety] [Subject] $Subject [V+O] E"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [Subject] $Subject @ E -> $Verb",
+        "[input] [repo] C [Common] [Variety] [Subject] $Subject [V+O] E @ [Variety:Of] F -> $Variety",
+        "[output] [Common] $Subject $Verb $Variety @Caller C",
+        "[output] [repo] [SSET] [PronounLike:Cache] $Variety -> F"
+      ]
+    }
+  ]
+}

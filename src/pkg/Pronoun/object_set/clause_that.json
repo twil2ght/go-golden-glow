@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Object:That:Post] C [Pronoun] @ A -> B",
+        "[output] [Pronoun:Resolve_V2:Sentence:S+VerbPhrase] B @Caller C [Pronoun:Subject] A [Clause] that",
+
+        "[input] [Pronoun:Resolve_V2:Sentence:S+VerbPhrase] C [Pronoun:Subject] A [Clause] that @ B -> B1",
+        "[input] [Grammar:Object:That:Pre] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D that B1"
+      ]
+    }
+  ]
+}

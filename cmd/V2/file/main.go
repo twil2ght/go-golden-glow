@@ -25,14 +25,19 @@ var (
 
 func main() {
 	Run(
-	//"src/Global.json",
-	//"src/interaction/Cond.json",
-	//"src/interaction/Cond_2_if.json",
-	//"src/interaction/Res.json",
-	//"src/interaction/Res_2_say.json",
-	//"src/test/3_to_tell_name.json",
-	//"src/test/6_person_wants_your_name.json",
-	//"src/test/4_to_check_what.json",
+		//"src/Global.json",
+		//"src/interaction/Cond.json",
+		//"src/interaction/Cond_2_if.json",
+		//"src/interaction/Res.json",
+		//"src/interaction/Res_2_say.json",
+		//
+		//"src/test/3_to_tell_name.json",
+		//"src/test/6_person_wants_your_name.json",
+		//"src/test/7_how_to_ask_name.json",
+		//"src/test/8_test_variety_convey.json",
+		//"src/test/help/2_say_with_variable.json",
+		"src/test/help/3_test_say_with_variable.json",
+		//"src/test/help/4_check_if.json",
 	)
 	//RunWithMsgMgr(
 	//	"src/test/5_test_TODO",

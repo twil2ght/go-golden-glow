@@ -1,0 +1,10 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Variety:Match] A [in] $fork @Caller C [Object:Verified]",
+        "[output] [Variety:Match] C [Object:Verified] @ A [in] $fork -> yes"
+      ]
+    }
+  ]
+}

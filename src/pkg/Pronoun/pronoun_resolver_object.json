@@ -1,6 +1,7 @@
 {
   "dependencies": [
     "object_set/clause",
+    "object_set/clause_that",
     "object_set/adj_pro_noun_phrase",
     "object_set/article",
     "object_set/pronoun",
