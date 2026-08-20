@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[VarietyLearning] @Caller Test"
+      ],
+      "a": [
+        "[Raw] dev says to Susie : if a person say : apple is a noun",
+        "[Raw] dev says to Susie : apple is a noun",
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ]
+    }
+  ]
+}

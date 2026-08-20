@@ -1,0 +1,10 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SSET] [Var:Cache] friend -> $Friend",
+        "[Var:Resolve:S+VerbPhrase] Susie need a friend @Caller TEST"
+      ]
+    }
+  ]
+}

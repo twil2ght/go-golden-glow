@@ -4,13 +4,6 @@
   "args": [
     "$verb"
   ],
-  "API": "[Grammar:Verify:V+O+OC] $verb B @Caller C",
-  "template_API": "[template:Run] [V+O+OC] @Args A @Caller C",
-  "callback": [
-    "[Grammar:Verify:V+O+OC] C @ $verb B -> yes",
-    "[Grammar:V+O+OC:Verb] C @ $verb B -> $verb",
-    "[Grammar:V+O+OC:Object] C @ $verb B -> F"
-  ],
   "data": [
     {
       "commands": [

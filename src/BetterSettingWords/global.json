@@ -1,0 +1,21 @@
+{
+  "dependencies": [
+    "/AboutAdjective/learn_new_adjective",
+    "/AboutNoun/learn_new_noun",
+    "/AboutPreposition/learn_new_preposition",
+    "/AboutWhat/learn_new_what",
+    "/AboutArticle/learn_new_article",
+    "/AboutPronoun/learn_new_pronoun",
+    "/AboutVerb/about_verb_template",
+    "/AboutVerb/learn_new_be",
+    "/AboutVerb/learn_new_verb",
+    "/AboutCanDo/learn_new_cando",
+    "/AboutConjunction/learn_new_conj",
+    "/AboutUnknown/learn_unknown"
+  ],
+  "data": [
+    {
+      "commands": []
+    }
+  ]
+}

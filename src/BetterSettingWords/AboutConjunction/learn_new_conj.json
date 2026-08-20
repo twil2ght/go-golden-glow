@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:Conjunction] A @Caller C",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Conjunction] A -> yes",
+        "[output] [template:Run] Conj+S+VerbPhrase @Args A @Caller C",
+        "[output] [repo] [SSET] [Units] A -> yes"
+      ]
+    }
+  ]
+}

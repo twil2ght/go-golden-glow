@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "commands": [
+      "commands:D": [
         "[input] [Grammar:Verify:P] B @Caller C",
         "[input] [Grammar:Verify:Object] C [P] @ B -> yes",
         "[output] [Grammar:Verify:P] C @ B -> yes",
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "commands": [
+      "commands:D": [
         "[input] [Grammar:Verify:P] B @Caller C",
         "[output] [Grammar:Verify:Object] B @Caller C [P]"
       ]

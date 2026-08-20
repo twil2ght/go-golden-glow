@@ -1,9 +1,4 @@
 {
-  "name": "P:preposition",
-  "is_template": true,
-  "args": [
-    "$verb"
-  ],
   "data": [
     {
       "commands": [

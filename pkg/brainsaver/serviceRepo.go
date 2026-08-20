@@ -22,12 +22,18 @@ var (
 
 type Service interface {
 	Save(t, r m.Hash)
+	Delete(t, r m.Hash)
 }
 
 type service struct {
 	repo database.Repository
 }
 
+func (s *service) Delete(t, r m.Hash) {
+	var hash = genHashForTR(t, r)
+	fmt.Printf("Deleting Hash: %s...\n", hash)
+	s.delContainerByHash(hash)
+}
 func (s *service) Save(tv, rv m.Hash) {
 	hashKey := genHashForTR(tv, rv)
 
@@ -92,6 +98,35 @@ func (s *service) nodeRegister(value, kind string, hashValue string) error {
 	}
 
 	return nil
+}
+func (s *service) delContainerByHash(hash string) {
+	tNodes, err := s.repo.HGet(prefixC2T + hash)
+	if err != nil {
+		tNodes = nil
+	}
+	rNodes, err := s.repo.HGet(prefixC2R + hash)
+	if err != nil {
+		rNodes = nil
+	}
+
+	if len(tNodes) == 0 && len(rNodes) == 0 {
+		fmt.Printf("container %q not found\n", hash)
+		return
+	}
+
+	// Remove this container from each T-node's reverse index
+	for tVal := range tNodes {
+		s.repo.HDel(prefixT2C+tVal, hash)
+	}
+
+	// Remove this container from each R-node's reverse index
+	for rVal := range rNodes {
+		s.repo.HDel(prefixR2C+rVal, hash)
+	}
+
+	// Delete the container's T and R entries
+	s.repo.HDel(prefixC2T + hash)
+	s.repo.HDel(prefixC2R + hash)
 }
 
 func genHashForTR(tv, rv m.Hash) string {

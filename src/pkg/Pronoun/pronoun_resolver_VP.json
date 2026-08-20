@@ -19,7 +19,16 @@
       "description": "Special Case:SAY",
       "commands": [
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] says : A @Caller C",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWord]",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ says : A -> says : A"
+      ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] say : A @Caller C",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWord]",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ say : A -> say : A"
       ]
     }
   ]

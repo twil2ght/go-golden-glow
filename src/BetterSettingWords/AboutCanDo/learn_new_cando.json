@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:CanDo] A @Caller C",
+        "[output] [repo] [SSET] [Grammar:Property:Word:CanDo] A -> yes",
+        "[output] [template:Run] S+VerbPhrase(CANDO) @Args A @Caller C",
+        "[output] [repo] [SSET] [Units] A -> yes"
+      ]
+    }
+  ]
+}

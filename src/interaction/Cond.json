@@ -5,32 +5,20 @@
     "../Grammar/Verb_Phrase",
     "../pkg/Cond/utils"
   ],
-  "description": "set target(by to...)",
-  "override": [
-    {
-      "source":"[Executor:Steps:Count] Susie [Execute] A -> F",
-      "target":"[Executor:Steps:Count] Susie [Execute] A -> 0"
-    }
-  ],
   "data": [
     {
       "commands": [
-        "[input] C says to Susie : to A",
+        "[input] [Legal] C says to Susie : to A",
         "[input] [TeachMode] [say] @ Teacher C -> yes",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [say] @ A -> B",
         "[input] [Executor:Steps:Count] [say] @ Susie [Execute] A -> 0",
         "[output] [Cond:Add] step 1 [of] [Executor] Susie [Execute] B @Caller C",
-
-        "[input] C says to Susie : to A",
-        "[input] [TeachMode] [say] @ Teacher C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [say] @ A -> B",
-        "[input] [Executor:Steps:Count] [say] @ Susie [Execute] A -> F",
-        "[output] [Executor:Hook:AlreadyLearned] Susie [Execute] B"
+        "[output] [Cond&Res:Add] step 1 [of] [Executor] Susie [Execute] B # [Cond:Executor] @Caller [say]"
       ]
     },
     {
       "commands": [
-        "[input] C says to Susie : to A",
+        "[input] [Legal] C says to Susie : to A",
         "[output] [TeachMode:Check] Teacher C @Caller [say]",
         "[output] [Executor:Get:Steps:Count] Susie [Execute] A @Caller [say]",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [say]"

@@ -2,12 +2,6 @@
   "dependencies": [
     "../SafeCalculate/Plus_1"
   ],
-  "API": [
-    {
-      "caller": "[Cond:Add] A @Caller C",
-      "callback": "[Cond:Count] C [Add] A @ -> F"
-    }
-  ],
   "data": [
     {
       "description": "[Cond:Add]",

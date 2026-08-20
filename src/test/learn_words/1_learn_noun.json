@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "Case:What is your favourite actor",
+        "Susie: Well,I was just matching that sentence with format:Wh+V+O,but failed cuz the word actor is not a noun"
+      ],
+      "one_solution": [
+        "before feeding words to Susie,check if every word is learned,for those unlearned,make them own every property",
+        "after match some format,save that property（让没见过的词获得所有词性，匹配到的句式如果十分合理，就保存对应的词性"
+      ]
+    }
+  ]
+}

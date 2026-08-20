@@ -2,37 +2,83 @@
   "data": [
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:V+O+OC:Object] C [Pronoun] @ A -> D",
-        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Object] C [Var] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] A [Object]",
 
         "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Do] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [Do]",
+        "[output] [Var:Resolve:VerbPhrase] E @Caller C [Var] A [Do]",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Doing] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [Doing]",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Doing] C [Var] @ A -> E",
+        "[output] [Var:Resolve:VerbPhrase] E @Caller C [Var] A [Doing]",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Todo] C [Pronoun] @ A -> to E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [Todo]",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Todo] C [Var] @ A -> to E",
+        "[output] [Var:Resolve:VerbPhrase] E @Caller C [Var] A [Todo]",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Adjective] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Adjective] C [Var] @ A -> E",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1 E",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Do] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Var:Resolve:VerbPhrase] C [Var] A [Do] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1 E1",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Doing] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Var:Resolve:VerbPhrase] C [Var] A [Doing] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1 E1",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Todo] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 to E1"
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Var:Resolve:VerbPhrase] C [Var] A [Todo] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1 to E1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Object] C [Var] [Subject] B @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] A [Object]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Do] C [Var] [Subject] B @ A -> E",
+        "[output] [Var:Resolve_Simplified:VerbPhrase] E @Caller C [Var] A [Do]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Doing]C [Var] [Subject] B @ A -> E",
+        "[output] [Var:Resolve_Simplified:VerbPhrase] E @Caller C [Var] A [Doing]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Todo] C [Var] [Subject] B @ A -> to E",
+        "[output] [Var:Resolve:VerbPhrase] E @Caller C [Var] A [Todo]",
+
+
+
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Adjective] C [Var] [Subject] F @ A -> E",
+        "[output] [Pronoun:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] G [Subject] F @ A -> B D1 E",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Var:Resolve:VerbPhrase] C [Var] A [Do] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] G [Subject] F @ A -> B D1 E1",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Var:Resolve:VerbPhrase] C [Var] A [Doing] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] G [Subject] F @ A -> B D1 E1",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [object] @ D -> D1",
+        "[input] [Var:Resolve:VerbPhrase] C [Var] A [Todo] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] G [Subject] F @ A -> B D1 to E1"
       ]
     }
   ]

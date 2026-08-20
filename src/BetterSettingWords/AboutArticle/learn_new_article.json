@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:Article] A @Caller C",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Article] A -> yes",
+        "[output] [template:Run] object:article @Args A @Caller C",
+        "[output] [repo] [SSET] [Units] A -> yes"
+      ]
+    }
+  ]
+}

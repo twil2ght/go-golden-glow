@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [Cond&Res:Add] A # F @Caller C",
+        "[output] [repo] [GET] [Cond&Res:Count] @Caller C [Cond&Res:Add] A # F",
+
+        "[input] [repo] C [Cond&Res:Add] A # F @ [Cond&Res:Count] ->",
+        "[output] [repo] [SSET] [Cond&Res:Count] -> 1",
+        "[output] [repo] [SSET] [Cond&Res] [No.] 1 -> A",
+        "[output] [repo] [SSET] [Cond&Res:Type] [No.] 1 -> F",
+
+        "[input] [repo] C [Cond&Res:Add] A # F @ [Cond&Res:Count] -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [Cond&Res:Add] A # F",
+
+        "[input] [compute] C [Cond&Res:Add] A # F @ B + 1 -> D",
+        "[output] [repo] [SSET] [Cond&Res:Count] -> D",
+        "[output] [repo] [SSET] [Cond&Res] [No.] D -> A",
+        "[output] [repo] [SSET] [Cond&Res:Type] [No.] D -> F"
+      ]
+    },
+    {
+      "description": "Get",
+      "commands": [
+        "[input] [Cond&Res:Get] [No.] A @Caller C",
+        "[output] [repo] [GET] [Cond&Res] [No.] A @Caller C [Cond&Res:Get]",
+        "[output] [repo] [GET] [Cond&Res:Type] [No.] A @Caller C [Cond&Res:Get]",
+
+        "[input] [repo] C [Cond&Res:Get] @ [Cond&Res] [No.] A  -> B",
+        "[input] [repo] C [Cond&Res:Get] @ [Cond&Res:Type] [No.] A  -> D",
+        "[output] [Cond&Res] C @ [No.] A -> B",
+        "[output] [Cond&Res:Type] C @ [No.] A -> D"
+      ]
+    },
+    {
+      "description": "reset",
+      "commands": [
+        "[input] [Cond&Res:Reset] @Caller C",
+        "[output] [repo] [GET] [Cond&Res] [No.] 1 @Caller C [Cond&Res][Reset] [No.] 0",
+
+        "[input] [repo] C [Cond&Res][Reset] [No.] D @ [Cond&Res] [No.] B -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [Cond&Res][Reset] [No.] B",
+        "[output] [repo] [DEL] [Cond&Res] [No.] B",
+        "[output] [repo] [DEL] [Cond&Res:Type] [No.] B",
+
+        "[input] [compute] C [Cond&Res][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [Cond&Res] [No.] F @Caller C [Cond&Res][Reset] [No.] B"
+      ]
+    }
+  ]
+}

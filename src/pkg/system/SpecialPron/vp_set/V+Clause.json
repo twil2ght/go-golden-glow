@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:V+Clause:Clause] C [Var] @ A -> D",
+        "[output] [Var:Resolve:Conj+S+VerbPhrase] D @Caller C [Var] [Object] A",
+
+        "[input] [Grammar:VerbPhrase:V+Clause:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Conj+S+VerbPhrase] C [Var] [Object] A @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] B A [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+Clause:Clause] C [Var] [Subject] B @ A -> D",
+        "[output] [Var:Resolve:Conj+S+VerbPhrase] D @Caller C [Var] [Object] A",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] F A [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+Clause:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Conj+S+VerbPhrase] C [Var] [Object] A @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] F A [Subject] F @ A -> B D1"
+      ]
+    }
+  ]
+}

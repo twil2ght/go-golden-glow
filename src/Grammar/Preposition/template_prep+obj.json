@@ -1,0 +1,21 @@
+{
+  "name": "Prep+Obj",
+  "is_template": true,
+  "args": [
+    "$prep"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:PrepositionPhrase] $prep B @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [Prep]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] C [Prep] @ B -> yes",
+        "[output] [Grammar:Verify:PrepositionPhrase] C @ $prep B -> yes"
+      ]
+    }
+  ]
+}

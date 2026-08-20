@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:Be] A @Caller C",
+        "[output] [Learn:Verb] A @Caller C",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Be] A -> yes",
+        "[output] [template:Run] V+O @Args A @Caller test"
+      ]
+    }
+  ]
+}

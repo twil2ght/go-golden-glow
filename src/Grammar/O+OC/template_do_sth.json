@@ -1,0 +1,49 @@
+{
+  "name": "O+OC:do_sth",
+  "is_template": true,
+  "args": ["$verb"],
+  "data": [
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $verb A @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] $verb @ B -> yes",
+        "[input] [Grammar:Verify:VerbPhrase] C [O+OC] $verb @ $verb A -> yes",
+        "[output] [Grammar:Verify:O+OC] C @ B $verb A -> yes",
+        "[output] [Grammar:O+OC:Object] C @ B $verb A -> B",
+        "[output] [Grammar:O+OC:OC] C @ B $verb A -> $verb A"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $verb A @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [O+OC] $verb"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $verb A @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] $verb @ B -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] $verb A @Caller C [O+OC] $verb"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $verb @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] $verb @ B -> yes",
+        "[output] [Grammar:Verify:O+OC] C @ B $verb -> yes",
+        "[output] [Grammar:O+OC:Object] C @ B $verb -> B",
+        "[output] [Grammar:O+OC:OC] C @ B $verb -> $verb"
+      ]
+    },
+    {
+      "description": "preparatory checks:1",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $verb @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [O+OC] $verb"
+      ]
+    }
+  ]
+}

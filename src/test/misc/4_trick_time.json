@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "commands": [
+      ],
+      "a": [
+        "[TempLearn] SSSuSSSie @Caller awa",
+        "[mark] SSSuSSSie oi @Caller test",
+        "[Unlearn:Noun] SSSuSSSie @Caller awa",
+        "[template:Del] noun_phrase @Args SSSuSSSie @Caller awa",
+        "When one round of Variety Learning is over,wait for a certain time",
+        "then ask if this round of learning is over,",
+        "If OVER:RESET [Cond&Res] and [Cond]",
+        "ESSENTIAL:FINE-TUNE the TIME for WAITING based on HUMAN's REACTION",
+        "E.G: Come on!ask me a little later next time,Okay?"
+
+      ]
+    }
+  ]
+}

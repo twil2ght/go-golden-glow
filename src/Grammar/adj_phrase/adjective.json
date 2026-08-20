@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:AdjectivePhrase] B @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Adjective] B @Caller C [Verify:Adjective]",
+
+        "[input] [repo] C [Verify:Adjective] @ [Grammar:Property:Word:Adjective] B -> yes",
+        "[output] [Grammar:Verify:AdjectivePhrase] C @ B -> yes",
+        "[output] [Grammar:AdjectivePhrase:PlainAdjective] C @ B -> B"
+      ]
+    }
+  ]
+}

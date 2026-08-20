@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:Preposition] A @Caller C",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Preposition] A -> yes",
+        "[output] [template:Run] Prep+Obj @Args A @Caller C",
+        "[output] [template:Run] P:adj+preposition @Args A @Caller C",
+        "[output] [repo] [SSET] [Units] A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Unlearn:Preposition] A @Caller C",
+        "[output] [repo] [Del] [Grammar:Property:Word:Preposition] A",
+        "[output] [template:Del] Prep+Obj @Args A @Caller C",
+        "[output] [template:Del] P:adj+preposition @Args A @Caller C"
+      ]
+    }
+  ]
+}

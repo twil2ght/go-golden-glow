@@ -6,17 +6,18 @@
   "data": [
     {
       "commands": [
-        "[input] C says to Susie : if A",
-        "[input] [TeachMode] [say] @ Teacher C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [say] @ A -> B",
-        "[output] [Cond:Add] B @Caller [say]"
+        "[input] [Legal] C says to Susie : if A",
+        "[input] [TeachMode] [if+] @ Teacher C -> yes",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [if+] @ A -> B",
+        "[output] [Cond:Add] B @Caller [if+]",
+        "[output] [Cond&Res:Add] B # [Cond:If] @Caller [if+]"
       ]
     },
     {
       "commands":[
-        "[input] C says to Susie : if A",
-        "[output] [TeachMode:Check] Teacher C @Caller [say]",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [say]"
+        "[input] [Legal] C says to Susie : if A",
+        "[output] [TeachMode:Check] Teacher C @Caller [if+]",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [if+]"
       ]
     }
   ]

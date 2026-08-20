@@ -3,26 +3,26 @@
     {
       "warning": "the key word [Pronoun] is tricky,make it more specific to adapt to the context(E.g, [Pronoun:Subject])",
       "commands": [
-        "[input] [Grammar:Object:Wh+S+V:Subject] C [Pronoun] @ A -> B",
-        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun:Subject] A [Clause]",
+        "[input] [Grammar:Object:Wh+S+V:Subject] C [Var] @ A -> B",
+        "[output] [Var:Resolve:Object] B @Caller C [Var:Subject] A [Clause]",
 
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun:Subject] A [Clause] @ B -> B1",
-        "[input] [Grammar:Object:Wh+S+V:Wh] C [Pronoun] @ A -> D",
-        "[input] [Grammar:Object:Wh+S+V:Verb] C [Pronoun] @ A -> F",
-        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D B1 F",
+        "[input] [Var:Resolve:Object] C [Var:Subject] A [Clause] @ B -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Wh] C [Var] @ A -> D",
+        "[input] [Grammar:Object:Wh+S+V:Verb] C [Var] @ A -> F",
+        "[output] [Var:Resolve:Object] C @ A -> D B1 F",
         "",
 
 
-        "[input] [Grammar:Object:Wh+S+V+O:Subject] C [Pronoun] @ A -> B",
-        "[input] [Grammar:Object:Wh+S+V+O:Object] C [Pronoun] @ A -> A1",
-        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun:Subject] A [Clause] [Subject]",
-        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun:Subject] A [Clause] [Object]",
+        "[input] [Grammar:Object:Wh+S+V+O:Subject] C [Var] @ A -> B",
+        "[input] [Grammar:Object:Wh+S+V+O:Object] C [Var] @ A -> A1",
+        "[output] [Var:Resolve:Object] B @Caller C [Var:Subject] A [Clause] [Subject]",
+        "[output] [Var:Resolve:Object] B @Caller C [Var:Subject] A [Clause] [Object]",
 
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun:Subject] A [Clause] [Subject] @ B -> B1",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun:Subject] A [Clause] [Object] @ A1 -> D1",
-        "[input] [Grammar:Object:Wh+S+V:Wh] C [Pronoun] @ A -> D",
-        "[input] [Grammar:Object:Wh+S+V:Verb] C [Pronoun] @ A -> F",
-        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D B1 F D1",
+        "[input] [Var:Resolve:Object] C [Var:Subject] A [Clause] [Subject] @ B -> B1",
+        "[input] [Var:Resolve:Object] C [Var:Subject] A [Clause] [Object] @ A1 -> D1",
+        "[input] [Grammar:Object:Wh+S+V:Wh] C [Var] @ A -> D",
+        "[input] [Grammar:Object:Wh+S+V:Verb] C [Var] @ A -> F",
+        "[output] [Var:Resolve:Object] C @ A -> D B1 F D1",
         ""
       ]
     }

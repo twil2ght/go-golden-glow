@@ -2,6 +2,7 @@ package builder
 
 import (
 	"encoding/json"
+	"goldenglow/pkg/database"
 	"os"
 	"path/filepath"
 	"testing"
@@ -13,6 +14,11 @@ import (
 
 type mockSaver struct {
 	saves []struct{ t, r m.Hash }
+}
+
+func (ms *mockSaver) GetRepo() database.database {
+	//TODO implement me
+	panic("implement me")
 }
 
 func (ms *mockSaver) Save(t, r m.Hash) {

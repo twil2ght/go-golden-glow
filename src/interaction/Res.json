@@ -10,17 +10,18 @@
   "data": [
     {
       "commands": [
-        "[input] C says to Susie : A",
-        "[input] [TeachMode] [say] @ Teacher C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [say] @ A -> B",
-        "[output] [Res] [Executor] Susie [Execute] B"
+        "[input] [Legal] C says to Susie : A",
+        "[input] [TeachMode] [VPRES] @ Teacher C -> yes",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [VPRES] @ A -> B",
+        "[output] [Res] [Executor] Susie [Execute] B",
+        "[output] [Cond&Res:Add] [Executor] Susie [Execute] B # [Res:VP] @Caller [VPRES]"
       ]
     },
     {
       "commands": [
-        "[input] C says to Susie : A",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [say]",
-        "[output] [TeachMode:Check] Teacher C @Caller [say]"
+        "[input] [Legal] C says to Susie : A",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
+        "[output] [TeachMode:Check] Teacher C @Caller [VPRES]"
       ]
     },
     {

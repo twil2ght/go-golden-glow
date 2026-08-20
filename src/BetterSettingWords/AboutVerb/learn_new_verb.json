@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:Verb] A @Caller C",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Verb] A -> yes",
+        "[output] [template:Run] S+VerbPhrase @Args A @Caller C",
+        "[output] [template:Run] O+OC:do_sth @Args A @Caller C",
+        "[output] [Grammar:Verb:Template] A -> Unknown @Caller C",
+        "[output] [repo] [SSET] [Units] A -> yes",
+
+        "[input] [repo] [SSET] [Verb:Template] A [No.] D -> B",
+        "[output] [template:Run] B @Args A @Caller Learn"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Unlearn:Verb] A @Caller C",
+        "[output] [repo] [Del] [Grammar:Property:Word:Verb] A",
+        "[output] [template:Del] S+VerbPhrase @Args A @Caller C",
+        "[output] [template:Del] O+OC:do_sth @Args A @Caller C"
+      ]
+    }
+  ]
+}

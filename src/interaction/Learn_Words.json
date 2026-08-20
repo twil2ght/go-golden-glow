@@ -1,0 +1,101 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] B is a D @Caller C",
+        "[output] [Var:Resolve:Object] B @Caller C",
+        "[output] [Var:Resolve:Object] D @Caller C [Learn:Words:Variety]",
+
+        "[input] [Common] B is an D @Caller C",
+        "[output] [Var:Resolve:Object] B @Caller C",
+        "[output] [Var:Resolve:Object] D @Caller C [Learn:Words:Variety]",
+
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> noun",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[output] [repo] [GET] [Units] A @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Unknown] A @Caller C",
+
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> verb",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[output] [repo] [GET] [Units] A @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Unknown] A @Caller C",
+
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> preposition",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[output] [repo] [GET] [Units] A @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Unknown] A @Caller C",
+
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> conjunction",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[output] [repo] [GET] [Units] A @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Unknown] A @Caller C",
+
+
+        "[input] [Common] B is an D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> adjective",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[output] [repo] [GET] [Units] A @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Unknown] A @Caller C",
+
+        "[input] [Common] B is an D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> adverb",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[output] [repo] [GET] [Units] A @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Unknown] A @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> noun",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Units] A -> yes",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A ->",
+        "[output] [Learn:Noun] A @Caller C",
+
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> noun",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A -> yes",
+        "[output] [2ndLearn:Noun] A @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> verb",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Units] A -> yes",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A ->",
+        "[output] [Learn:Verb] A @Caller C",
+
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> verb",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A -> yes",
+        "[output] [2ndLearn:Verb] A @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Common] B is an D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> adjective",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Units] A -> yes",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A ->",
+        "[output] [Learn:Adjective] A @Caller C",
+
+        "[input] [Common] B is an D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> adjective",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A -> yes",
+        "[output] [2ndLearn:Adjective] A @Caller C"
+      ]
+    }
+
+  ]
+}

@@ -1,14 +1,31 @@
 {
   "data": [
     {
+      "description": "object as predicate(P)",
+      "commands": [
+        "[input] [Grammar:VerbPhrase:V+P:P:Object] C [Var] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] [Object] A",
+
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] [Object] A @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1"
+      ]
+    },
+    {
+      "description": "object as predicate(P)",
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] E [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+P:P:Object] C [Var] [Subject] B @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] [Object] A",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] E [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] [Object] A @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] E [Subject] F @ A -> B D1"
+      ]
+    },
+    {
       "commands:todo": [
-        "[input] [Grammar:VerbPhrase:V+P:P:Object] C [Pronoun] @ A -> D",
-        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
-
-        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [Object] @ D -> D1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1",
-
         "[input] [Grammar:VerbPhrase:V+P:P:Doing] C [Pronoun] @ A -> D",
         "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
 

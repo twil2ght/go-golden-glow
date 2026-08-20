@@ -42,6 +42,19 @@
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [Object] A @ D -> D1",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1"
       ]
+    },
+    {
+      "description": "object as predicate(P)",
+      "commands": [
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] E [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+P:P:Object] C [Pronoun] [Subject] B @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] [Object] A",
+
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] E [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+P:Verb] C [Pronoun] [Subject] F @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [Object] A @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] E [Subject] F @ A -> B D1"
+      ]
     }
   ]
 }

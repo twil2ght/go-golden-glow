@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Object:Type] C [Pronoun] @ A -> Noun",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> A",
+        "[output] [Word:Counter:Add] A @Caller C"
+      ]
+    }
+  ]
+}

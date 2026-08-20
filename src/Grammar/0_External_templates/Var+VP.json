@@ -1,0 +1,35 @@
+{
+  "name": "variable:Var+VP",
+  "is_template": true,
+  "args": [
+    "$Variety"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] [Variety]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] C [Common] [Variety] [Subject] B @ E -> D",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] [Variety] [Subject] D @ B -> B",
+        "[output] [repo] [GET] [Variety] B @Caller C [Common] [Variety]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] C [Common] [Variety] [Subject] B @ E -> D",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] [Variety] [Subject] D @ B -> B",
+        "[input] [repo] C [Common] [Variety] @ [Variety:Of] B -> $Variety",
+        "[output] [Common] $Variety E @Caller C",
+        "[output] [repo] [SSET] [Var:Cache] $Variety -> B"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "noun_phrase",
+  "is_template": true,
+  "args": [
+    "$noun"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:NounPhrase] B $noun @Caller C",
+        "[input] [Grammar:Verify:AdjectivePhrase] C [NounPhrase] $noun @ B -> yes",
+        "[output] [Grammar:Verify:NounPhrase] C @ B $noun -> yes",
+        "[output] [Grammar:NounPhrase:Noun] C @ B $noun -> $noun",
+        "[output] [Grammar:NounPhrase:AdjectivePhrase] C @ B $noun -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:NounPhrase] B $noun @Caller C",
+        "[output] [Grammar:Verify:AdjectivePhrase] B @Caller C [NounPhrase] $noun"
+      ]
+    }
+  ]
+}

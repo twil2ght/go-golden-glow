@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:AdjectivePhrase] B 's @Caller C",
+        "[output] [Grammar:Verify:NounPhrase] B @Caller C [Owner]",
+
+        "[input] [Grammar:Verify:AdjectivePhrase] B 's @Caller C",
+        "[input] [Grammar:Verify:NounPhrase] C [Owner] @ B -> yes",
+        "[output] [Grammar:Verify:AdjectivePhrase] C @ B 's -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:AdjectivePhrase] B 's A @Caller C",
+        "[output] [Grammar:Verify:NounPhrase] B @Caller C [Owner]",
+        "[output] [Grammar:Verify:AdjectivePhrase] A @Caller C [Owner]",
+
+        "[input] [Grammar:Verify:AdjectivePhrase] B 's A @Caller C",
+        "[input] [Grammar:Verify:NounPhrase] C [Owner] @ B -> yes",
+        "[input] [Grammar:Verify:AdjectivePhrase] C [Owner] @ A -> yes",
+        "[output] [Grammar:Verify:AdjectivePhrase] C @ B 's A -> yes"
+      ]
+    }
+  ]
+}

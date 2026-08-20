@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SSET] [Variety] color -> yes",
+        "[repo] [SSET] [Variety:Of] aqua -> color",
+        "[Learn:Noun] person @Caller Test",
+        "[Learn:Noun] color @Caller Test",
+        "[Learn:Noun] aqua @Caller Test",
+        "[Learn:Adjective] favourite @Caller Test",
+        "[Learn:Verb] ask @Caller Test",
+        "[Learn:Verb] say @Caller Test",
+        "[Verb:Template:Add] ask -> V+O @Caller Test",
+        "[Verb:Template:Add] say -> V+O @Caller Test"
+      ]
+    }
+  ]
+}

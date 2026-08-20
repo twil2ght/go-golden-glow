@@ -3,15 +3,17 @@
     {
       "description": "actually,you can be told to say anything even it is crazy and against the grammar",
       "commands": [
-        "[input] C says to Susie : say : A",
+        "[input] [Legal] C says to Susie : say : A",
         "[input] [TeachMode] [say] @ Teacher C -> yes",
-        "[output] [Res] [Executor] Susie [Execute] say : A"
+        "[output] [Res] [Executor] Susie [Execute] say : A",
+        "[output] [Cond&Res:Add] [Executor] Susie [Execute] say : A # [Res:VP] @Caller [say]"
       ]
     },
     {
       "commands": [
-        "[input] C says to Susie : A",
-        "[output] [TeachMode:Check] Teacher C @Caller [say]"
+        "[input] [Legal] C says to Susie : say : A",
+        "[output] [TeachMode:Check] Teacher C @Caller [say]",
+        "[output] [Pronoun:Resolve:Sentence:Object] A @Caller [say]"
       ]
     }
   ]

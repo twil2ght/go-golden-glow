@@ -1,0 +1,46 @@
+{
+  "name": "variable:S+V+Wh+Var+V2",
+  "is_template": true,
+  "args": [
+    "$Verb",
+    "$Wh",
+    "$Variety",
+    "$V2"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] [Variety]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> A1",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [Subject] A1 @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [Subject] A1 @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $Wh",
+        "[input] [Grammar:Object:Wh+S+V:Subject] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> B",
+        "[input] [Grammar:Object:Wh+S+V:Verb] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $V2",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb [clause] $Wh [Subject] $V2 @ B -> B",
+        "[output] [repo] [GET] [Variety:Of] B @Caller C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb [Wh] $Wh"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> A1",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [Subject] A1 @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [Subject] A1 @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $Wh",
+        "[input] [Grammar:Object:Wh+S+V:Subject] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> B",
+        "[input] [Grammar:Object:Wh+S+V:Verb] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $V2",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb [clause] $Wh [Subject] $V2 @ B -> B",
+        "[input] [repo] C [Common] [Variety] [Subject] A1 [VerbPhrase] [Verb] $Verb [Wh] $Wh @ [Variety:Of] B -> $Variety",
+        "[output] [Common] A1 $Verb $Wh $Variety $V2 @Caller C",
+        "[output] [repo] [SSET] [Var:Cache] $Variety -> B"
+      ]
+    }
+  ]
+}

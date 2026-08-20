@@ -252,7 +252,7 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
 	provider.Add("compare_lt", datagen.NewData(
 		[]string{"[compute] [CHECK] $1 < $2 @Caller $4"},
-		[]string{"[compute] $4 @ $1 < $2"},
+		[]string{"[compute] $4 @ $1 < $2 -> yes"},
 		map[string]string{
 			keyLeft:     "$1",
 			keyRight:    "$2",
@@ -263,7 +263,7 @@ func (c *calculator) OnRegisterDataGen(gen datagen.Generator) {
 	))
 	provider.Add("compare_gt", datagen.NewData(
 		[]string{"[compute] [CHECK] $1 > $2 @Caller $4"},
-		[]string{"[compute] $4 @ $1 > $2"},
+		[]string{"[compute] $4 @ $1 > $2 -> yes"},
 		map[string]string{
 			keyLeft:     "$1",
 			keyRight:    "$2",

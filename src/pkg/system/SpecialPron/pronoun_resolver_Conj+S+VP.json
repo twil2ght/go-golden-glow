@@ -1,26 +1,19 @@
 {
   "dependencies": [
-    "pronoun_resolver_S+VP",
-    "pronoun_resolver"
-  ],
-  "API": [
-    "[SPronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C"
-  ],
-  "callback": [
-    "[SPronoun:Resolve:Sentence:Conj+S+VerbPhrase] C @ A -> A1"
+    "pronoun_resolver_S+VP"
   ],
   "data": [
     {
       "commands": [
-        "[input] [SPronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C",
-        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller C [SPronoun]",
+        "[input] [Var:Resolve:Conj+S+VerbPhrase] A @Caller C",
+        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller C [Var]",
 
-        "[input] [Grammar:Conj+S+VerbPhrase:Conjunction] C [SPronoun] @ A -> F",
-        "[input] [Grammar:Conj+S+VerbPhrase:S+VerbPhrase] C [SPronoun] @ A -> E",
-        "[output] [SPronoun:Resolve:Sentence:S+VerbPhrase] E @Caller C [SPronoun] [Conj] F",
+        "[input] [Grammar:Conj+S+VerbPhrase:Conjunction] C [Var] @ A -> F",
+        "[input] [Grammar:Conj+S+VerbPhrase:S+VerbPhrase] C [Var] @ A -> E",
+        "[output] [Var:Resolve_Simplified:S+VerbPhrase] E @Caller C [Var] [Conj] F",
 
-        "[input] [SPronoun:Resolve:Sentence:S+VerbPhrase] C [SPronoun] [Conj] F @ E -> E1",
-        "[output] [SPronoun:Resolve:Sentence:Conj+S+VerbPhrase] C @ F E -> F E1"
+        "[input] [Var:Resolve:S+VerbPhrase] C [Var] [Conj] F @ E -> E1",
+        "[output] [Var:Resolve:Conj+S+VerbPhrase] C @ F E -> F E1"
       ]
     }
   ]

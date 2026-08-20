@@ -1,12 +1,4 @@
 {
-  "API": [
-    {
-      "caller": "[Grammar:Verify:V] A @Caller C",
-      "callback": [
-        "[Grammar:Verify:V] A -> yes"
-      ]
-    }
-  ],
   "data": [
     {
       "commands": [

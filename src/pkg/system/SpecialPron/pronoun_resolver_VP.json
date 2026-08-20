@@ -5,14 +5,56 @@
     "vp_set/V+O+OC",
     "vp_set/V+O",
     "vp_set/V+P",
-    "vp_set/V",
-    "../../Grammar/Verb_Phrase"
+    "vp_set/V"
   ],
   "data": [
     {
       "commands": [
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller C",
-        "[output] [Grammar:Verify:VerbPhrase] A @Caller C [Pronoun]"
+        "[input] [Var:Resolve:VerbPhrase] A @Caller C",
+        "[output] [Grammar:Verify:VerbPhrase] A @Caller C [Var]"
+      ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Var:Resolve:VerbPhrase] say : A @Caller C",
+        "[output] [Var:Resolve:Object] A @Caller C [Var:Say]",
+
+        "[input] [Var:Resolve:Object] C [Var:Say] @ A -> B",
+        "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
+      ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Var:Resolve:VerbPhrase] say : A @Caller C",
+        "[output] [Var:Resolve:S+VerbPhrase] A @Caller C [Var:Say]",
+
+        "[input] [Var:Resolve:VerbPhrase] say : A @Caller C",
+        "[input] [Var:Resolve:S+VerbPhrase] C [Var:Say] @ A -> B",
+        "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
+      ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] say : A @Caller C",
+        "[output] [Var:Resolve:Object] A @Caller C [Var:Say]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] say : A @Caller C",
+        "[input] [Var:Resolve:Object] C [Var:Say] @ A -> B",
+        "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
+      ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] say : A @Caller C",
+        "[output] [Var:Resolve_V2:S+VerbPhrase] A @Caller C [Var:Say]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] say : A @Caller C",
+        "[input] [Var:Resolve_V2:S+VerbPhrase] C [Var:Say] @ A -> B",
+        "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
       ]
     }
   ]

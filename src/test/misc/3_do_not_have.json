@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SSET] [Pronoun:Cache] you -> Susie",
+        "[Learn:Noun] [Unknown] @Caller Test",
+        "[Learn:Verb] have @Caller Test",
+        "[Verb:Template:Add] have -> V+O @Caller Test",
+        "dev says to Susie : if your favourite color is [Unknown]",
+        "dev says to Susie : you don't have your favourite color",
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ]
+    }
+  ]
+}

@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
-
 	"goldenglow/pkg/database"
+	"os"
 )
 
 var (

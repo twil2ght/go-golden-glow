@@ -5,7 +5,7 @@
     "object_set/adj_pro_noun_phrase",
     "object_set/article",
     "object_set/pronoun",
-    "../../Grammar/object/repo"
+    "object_set/plain_noun"
   ],
   "data": [
     {

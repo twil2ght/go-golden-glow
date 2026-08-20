@@ -2,12 +2,36 @@
   "data": [
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Pronoun] @ A -> D",
-        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] [Object] A",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Var] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] [Object] A",
 
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [Object] A @ D -> D1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1"
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] [Object] A @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Var] [Subject] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] [Object] A",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Var] [Subject] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] [Object] A @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] E @ A -> B D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var_V2] [S+VerbPhrase_V2] E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Var_V2] [Subject] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var_V2] [Object] A",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var_V2] [S+VerbPhrase_V2] E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Var_V2] [Subject] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var_V2] [Object] A @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var_V2] [S+VerbPhrase_V2] E @ A -> B D1"
       ]
     }
   ]

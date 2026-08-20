@@ -2,11 +2,11 @@
 package mount
 
 import (
+	_ "goldenglow/plugin/builtin/MarkUnknown"
 	_ "goldenglow/plugin/builtin/builder"
 	_ "goldenglow/plugin/builtin/calculator"
 	_ "goldenglow/plugin/builtin/printer"
 	_ "goldenglow/plugin/builtin/repoaddon"
-	_ "goldenglow/plugin/builtin/safeteach"
 	_ "goldenglow/plugin/builtin/speaker"
 	_ "goldenglow/plugin/builtin/templateaddon"
 	_ "goldenglow/plugin/builtin/timer"

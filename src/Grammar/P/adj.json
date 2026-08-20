@@ -1,23 +1,17 @@
 {
-  "name": "P:adj",
-  "is_template": true,
-  "args": [
-    "$verb"
-  ],
   "data": [
     {
       "commands": [
         "[input] [Grammar:Verify:P] B @Caller C",
-        "[input] [Grammar:Verify:AdjectivePhrase] C [AdjectivePhrase] @ B -> yes",
+        "[input] [Grammar:Verify:AdjectivePhrase] C [Verify:P] @ B -> yes",
         "[output] [Grammar:Verify:P] C @ B -> yes",
-        "[output] [Grammar:P:Type] C @ B -> adj",
-        "[output] [Grammar:P:AdjectivePhrase] C @ B -> B"
+        "[output] [Grammar:P:Type] C @ B -> adj"
       ]
     },
     {
       "commands": [
         "[input] [Grammar:Verify:P] B @Caller C",
-        "[output] [Grammar:Verify:AdjectivePhrase] B @Caller C [AdjectivePhrase]"
+        "[output] [Grammar:Verify:AdjectivePhrase] B @Caller C [Verify:P]"
       ]
     }
   ]

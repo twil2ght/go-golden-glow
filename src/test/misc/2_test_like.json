@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[repo] [SSET] [Variety] color -> yes",
+        "[repo] [SSET] [Variety:Of] aqua -> color",
+        "[Learn:Noun] person @Caller Test",
+        "[Learn:Noun] color @Caller Test",
+        "[Learn:Noun] aqua @Caller Test",
+        "[Learn:Noun] Susie @Caller Test",
+        "[Learn:Adjective] favourite @Caller Test",
+        "[Learn:Verb] ask @Caller Test",
+        "[Learn:Verb] say @Caller Test",
+        "[Learn:Verb] check @Caller Test",
+        "[Verb:Template:Add] check -> V+O @Caller Test",
+        "[Verb:Template:Add] ask -> V+O @Caller Test",
+        "[Verb:Template:Add] say -> V+O @Caller Test",
+        "[repo] [SSET] [Pronoun:Cache] your -> Susie 's",
+        "[Legal] dev says to Susie : if a person ask what your favourite color is",
+        "[Legal] dev says to Susie : check what your favourite color is",
+        "[Legal] dev says to Susie : if your favourite color is aqua",
+        "[Legal] dev says to Susie : say : aqua",
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ],
+      "demo": [
+
+      ]
+    }
+  ]
+}

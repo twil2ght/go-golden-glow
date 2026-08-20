@@ -1,0 +1,41 @@
+{
+  "name": "IO+DO",
+  "is_template": true,
+  "args": [
+    "$obj"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] B $obj A @Caller C",
+        "[input] [Grammar:Verify:Object] C [IO] @ B $obj -> yes",
+        "[input] [Grammar:Verify:Object] C [DO] @ A -> yes",
+        "[output] [Grammar:Verify:IO+DO] C @ B $obj A -> yes",
+        "[output] [Grammar:IO+DO:IndirectObject] C @ B $obj A -> B $obj",
+        "[output] [Grammar:IO+DO:DirectObject] C @ B $obj A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] B $obj A @Caller C",
+        "[output] [Grammar:Verify:Object] B $obj @Caller C [IO]",
+        "[output] [Grammar:Verify:Object] A @Caller C [DO]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] $obj A @Caller C",
+        "[input] [Grammar:Verify:Object] C [DO] @ A -> yes",
+        "[output] [Grammar:Verify:IO+DO] C @ $obj A -> yes",
+        "[output] [Grammar:IO+DO:IndirectObject] C @ $obj A -> $obj",
+        "[output] [Grammar:IO+DO:DirectObject] C @ $obj A ->A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] $obj A @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [DO]"
+      ]
+    }
+  ]
+}

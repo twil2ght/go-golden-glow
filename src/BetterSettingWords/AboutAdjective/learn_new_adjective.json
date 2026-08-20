@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:Adjective] A @Caller C",
+        "[output] [repo] [SSET] [Grammar:Property:Word:Adjective] A -> yes",
+        "[output] [template:Run] O+OC:adj @Args A @Caller C",
+        "[output] [repo] [SSET] [Units] A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Unlearn:Adjective] A @Caller C",
+        "[output] [repo] [DEL] [Grammar:Property:Word:Adjective] A",
+        "[output] [template:Del] O+OC:adj @Args A @Caller C"
+      ]
+    }
+  ]
+}

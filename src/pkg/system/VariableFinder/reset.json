@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Var:Learning:Reset] @Caller C",
+        "[output] [repo] [DEL] [Cond&Res:LastProcessedIndex]",
+        "[output] [repo] [DEL] [Cond&Res:Count]",
+        "[output] [Cond&Res:Reset] @Caller C",
+        "[output] [Cond:Reset] @Caller C",
+        "[output] [Word:Counter:Reset] @Caller C",
+        "[output] [Var:Candidate:Reset] @Caller C"
+      ]
+    }
+  ]
+}

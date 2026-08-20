@@ -6,7 +6,16 @@
         "[input] [Grammar:Object:AdjProNounPhrase:NounPhrase] C [Pronoun] @ A -> D",
         "[input] [Pronoun:Resolve] C [Pronoun] @ B -> B1",
         "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> B1 D",
-        ""
+
+        "[input] [Grammar:Object:AdjProNounPhrase:AdjPro] C [Pronoun] @ A -> B",
+        "[input] [Grammar:Object:AdjProNounPhrase:NounPhrase] C [Pronoun] @ A -> D",
+        "[input] [Grammar:NounPhrase:PlainNoun] C [Pronoun] [AP] B @ D -> D",
+        "[output] [Word:Counter:Add] D @Caller C",
+
+        "[input] [Grammar:Object:AdjProNounPhrase:AdjPro] C [Pronoun] @ A -> B",
+        "[input] [Grammar:Object:AdjProNounPhrase:NounPhrase] C [Pronoun] @ A -> D",
+        "[input] [Grammar:NounPhrase:Noun] C [Pronoun] [AP] B @ D -> F",
+        "[output] [Word:Counter:Add] F @Caller C"
       ]
     },
     {

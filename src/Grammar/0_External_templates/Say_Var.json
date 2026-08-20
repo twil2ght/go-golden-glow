@@ -1,0 +1,29 @@
+{
+  "name": "variable:Say:Var",
+  "is_template": true,
+  "args": [
+    "$Variety"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] G say : A @Caller C",
+        "[output] [Grammar:Verify:S+Object] A @Caller C [Common] G say A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] G say A @ A -> A",
+        "[output] [repo] [GET] [Variety] A @Caller C [Common] G say A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] G say A @ A -> A",
+        "[input] [repo] C [Common] G say A @ [Variety:Of] A -> $Variety",
+        "[output] [Common] G say : $Variety @Caller C",
+        "[output] [repo] [SSET] [Var:Cache] $Variety -> A"
+      ]
+    }
+  ]
+}

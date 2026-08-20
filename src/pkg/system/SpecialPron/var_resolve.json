@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Var:Resolve] A @Caller C",
+        "[output] [repo] [GET] [Var:Cache] A @Caller C",
+
+        "[input] [repo] C @ [Var:Cache] A -> B",
+        "[output] [Var:Resolve] C @ A -> B",
+
+        "[input] [repo] C @ [Var:Cache] A ->",
+        "[output] [Var:Resolve] C @ A ->"
+      ]
+    }
+  ]
+}

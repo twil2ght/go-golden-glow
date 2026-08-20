@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VarietyLearning] @Caller C",
+        "[output] [Word:Counter:Get] [No.] 1 @Caller C [LearnVar] [No.] 0",
+
+        "[input] [Word:Counter:Get] C [LearnVar] [No.] B @ [No.] B1 -> F",
+        "[input] [Word:Counter:Get:Amount] C [LearnVar] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [CHECK] F1 > 1 @Caller C [LearnVar] [No.] B1",
+        "[output] [compute] [CHECK] F1 < 2 @Caller C [LearnVar] [No.] B1",
+
+        "[input] [Word:Counter:Get] C [LearnVar] [No.] B @ [No.] B1 -> F",
+        "[input] [Word:Counter:Get:Amount] C [LearnVar] [No.] B @ [No.] B1 -> F1",
+        "[input] [compute] C [LearnVar] [No.] B1 @ F1 > 1 -> yes",
+        "[output] [compute] [GET] B1 + 1 @Caller C [LearnVar] [No.] B1",
+        "[output] [Var:Candidate:Add] F @Caller C [LearnVar]",
+
+        "[input] [Word:Counter:Get] C [LearnVar] [No.] B @ [No.] B1 -> F",
+        "[input] [Word:Counter:Get:Amount] C [LearnVar] [No.] B @ [No.] B1 -> F1",
+        "[input] [compute] C [LearnVar] [No.] B1 @ F1 < 2 -> yes",
+        "[output] [compute] [GET] B1 + 1 @Caller C [LearnVar] [No.] B1",
+
+        "[input] [compute] C [LearnVar] [No.] B1 @ B1 + 1 -> F",
+        "[output] [Word:Counter:Get] [No.] F @Caller C [LearnVar] [No.] B1",
+
+        "[input] [Word:Counter:Get] C [LearnVar] [No.] B @ [No.] B1 ->",
+        "[output] [Var:Candidate:Find:Done] @Caller C [LearnVar]"
+      ]
+    }
+  ]
+}

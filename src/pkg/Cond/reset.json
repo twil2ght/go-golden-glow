@@ -1,26 +1,21 @@
 {
   "data": [
     {
+      "description": "reset",
       "commands": [
         "[input] [Cond:Reset] @Caller C",
-        "[output] [repo] [GET] [Cond:Count] @Caller C [Cond:Reset]",
+        "[output] [repo] [GET] [No.] 1 [Cond] @Caller C [Cond][Reset] [No.] 0",
 
-        "[input] [repo] C [Cond:Reset] @ [Cond:Count] -> A",
-        "[output] [compute] [GET] 0 + 1 @Caller C [Cond:Reset] [No.] 0",
-
-        "[input] [repo] C [Cond:Reset] @ [Cond:Count] -> A",
-        "[input] [compute] C [Cond:Reset] @ B < A -> yes",
+        "[input] [repo] C [Cond][Reset] [No.] D @ [No.] B [Cond] -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [Cond][Reset] [No.] B",
         "[output] [repo] [DEL] [No.] B [Cond]",
-        "[output] [compute] [GET] B + 1 @Caller C [Cond:Reset] [No.] B",
 
-        "[input] [repo] C [Cond:Reset] @ [Cond:Count] -> A",
-        "[input] [compute] C [Cond:Reset] [No.] B @ B + 1 -> D",
-        "[output] [compute] [CHECK] D < A @Caller C [Cond:Reset]",
+        "[input] [compute] C [Cond][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [No.] F [Cond]  @Caller C [Cond][Reset] [No.] B",
 
-        "[input] [repo] C [Cond:Reset] @ [Cond:Count] -> A",
-        "[input] [compute] C [Cond:Reset] [No.] B @ B + 1 -> A",
-        "[output] [repo] [DEL] [No.] A [Cond]",
-        "[output] [repo] [SSET] [Cond:Count] -> 0"
+        "[input] [repo] C [Cond][Reset] [No.] D @ [No.] B [Cond] ->",
+        "[output] [repo] [DEL] [Cond:Count]",
+        "[output] [Cond:Reset:Done] @Caller C"
       ]
     }
   ]

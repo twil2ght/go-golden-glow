@@ -1,0 +1,72 @@
+{
+  "data": [
+    {
+      "description": "Get",
+      "commands": [
+        "[input] [Word:Counter:Get] [No.] A @Caller C",
+        "[output] [repo] [GET] [Word:Counter] [No.] A @Caller C [Word:Counter:Get]",
+
+        "[input] [repo] C [Word:Counter:Get] @ [Word:Counter] [No.] A -> B",
+        "[output] [repo] [GET] [Word:Counter:CountOf] B @Caller C [Word:Counter:Get]",
+
+        "[input] [repo] C [Word:Counter:Get] @ [Word:Counter] [No.] A ->",
+        "[output] [Word:Counter:Get] C @ [No.] A ->",
+
+        "[input] [repo] C [Word:Counter:Get] @ [Word:Counter] [No.] A -> B",
+        "[input] [repo] C [Word:Counter:Get] @ [Word:Counter:CountOf] B -> F",
+        "[output] [Word:Counter:Get] C @ [No.] A -> B",
+        "[output] [Word:Counter:Get:Amount] C @ [No.] A -> F"
+      ]
+    },
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [Word:Counter:Add] A @Caller C",
+        "[output] [repo] [GET] [Word:Counter:CountOf] A @Caller C [Add]",
+
+        "[input] [repo] C [Add] @ [Word:Counter:CountOf] A ->",
+        "[output] [repo] [SSET] [Word:Counter:CountOf] A -> 1",
+        "[output] [repo] [GET] [Word:Counter:Count] @Caller C [Word:Counter:Add] A",
+
+        "[input] [Word:Counter:Add] A @Caller C",
+        "[input] [repo] C [Add] @ [Word:Counter:CountOf] A -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [Add]",
+
+        "[input] [Word:Counter:Add] A @Caller C",
+        "[input] [compute] C [Add] @ B + 1 -> F",
+        "[output] [repo] [SSET] [Word:Counter:CountOf] A -> F"
+      ]
+    },
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [repo] C [Word:Counter:Add] A @ [Word:Counter:Count] ->",
+        "[output] [repo] [SSET] [Word:Counter:Count] -> 1",
+        "[output] [repo] [SSET] [Word:Counter] [No.] 1 -> A",
+
+        "[input] [repo] C [Word:Counter:Add] A @ [Word:Counter:Count] -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [Word:Counter:Add] A",
+
+        "[input] [compute] C [Word:Counter:Add] A @ B + 1 -> D",
+        "[output] [repo] [SSET] [Word:Counter] [No.] D -> A",
+        "[output] [repo] [SSET] [Word:Counter:Count] -> D"
+      ]
+    },
+    {
+      "description": "reset",
+      "commands": [
+        "[input] [Word:Counter:Reset] @Caller C",
+        "[output] [repo] [DEL] [Word:Counter:Count]",
+        "[output] [repo] [GET] [Word:Counter] [No.] 1 @Caller C [Word:Counter][Reset] [No.] 0",
+
+        "[input] [repo] C [Word:Counter][Reset] [No.] D @ [Word:Counter] [No.] B -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [Word:Counter][Reset] [No.] B",
+        "[output] [repo] [DEL] [Word:Counter] [No.] B",
+        "[output] [repo] [DEL] [Word:Counter:CountOf] A",
+
+        "[input] [compute] C [Word:Counter][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [Word:Counter] [No.] F @Caller C [Word:Counter][Reset] [No.] B"
+      ]
+    }
+  ]
+}

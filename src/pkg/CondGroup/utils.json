@@ -1,6 +1,23 @@
 {
+  "API": [
+    {
+      "call":[
+        "[CondGroup:Count++] D @Caller C",
+        "[CondGroup:Get:Count] D @Caller C"
+      ],
+      "callback":"[CondGroup:Count] C @ D -> F"
+    },
+    {
+      "call":[
+        "[CondGroup:ElementCount++] [No.] B [of] D @Caller C",
+        "[CondGroup:Get:ElementCount] [No.] B [of] D @Caller C"
+      ],
+      "callback":"[CondGroup:ElementCount] C @ [No.] B [of] D -> F"
+    }
+  ],
   "data": [
     {
+      "description": "",
       "commands": [
         "[input] [CondGroup:Count++] D @Caller C",
         "[output] [safe++] [CondGroup:Count] D @Caller C",
@@ -10,6 +27,7 @@
       ]
     },
     {
+      "description": "",
       "commands": [
         "[input] [repo] C @ [Latest] [CondGroup:Count] D -> F",
         "[output] [CondGroup:Count] C @ D -> F",
@@ -18,7 +36,8 @@
         "[output] [CondGroup:ElementCount] C @ [No.] B [of] D -> F"
       ]
     },
-
+    {
+      "description": "",
       "commands": [
         "[input] [CondGroup:Get:Count] D @Caller C",
         "[output] [repo] [GET] [CondGroup:Count] D @Caller C [CondGroup:Get]",
@@ -28,6 +47,7 @@
       ]
     },
     {
+      "description": "",
       "commands": [
         "[input] [repo] C [CondGroup:Get] @ [CondGroup:Count] D -> F",
         "[output] [CondGroup:Count] C @ D -> F",

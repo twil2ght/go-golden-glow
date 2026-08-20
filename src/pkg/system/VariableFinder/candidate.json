@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [Var:Candidate:Add] A @Caller C",
+        "[output] [repo] [GET] [Var:Candidate:Count] @Caller C [Var:Candidate:Add] A",
+
+        "[input] [repo] C [Var:Candidate:Add] A @ [Var:Candidate:Count] ->",
+        "[output] [repo] [SSET] [Var:Candidate:Count] -> 1",
+        "[output] [repo] [SSET] [Var:Candidate] [No.] 1 -> A",
+
+        "[input] [repo] C [Var:Candidate:Add] A @ [Var:Candidate:Count] -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [Var:Candidate:Add] A",
+
+        "[input] [compute] C [Var:Candidate:Add] A @ B + 1 -> D",
+        "[output] [repo] [SSET] [Var:Candidate] [No.] D -> A",
+        "[output] [repo] [SSET] [Var:Candidate:Count] -> D"
+      ]
+    },
+    {
+      "description": "reset",
+      "commands": [
+        "[input] [Var:Candidate:Reset] @Caller C",
+        "[output] [repo] [GET] [Var:Candidate] [No.] 1 @Caller C [Var:Candidate][Reset] [No.] 0",
+
+        "[input] [repo] C [Var:Candidate][Reset] [No.] D @ [Var:Candidate] [No.] B -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [Var:Candidate][Reset] [No.] B",
+        "[output] [repo] [DEL] [Var:Candidate] [No.] B",
+        "[output] [repo] [DEL] [Var:Cache] A",
+
+        "[input] [compute] C [Var:Candidate][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [Var:Candidate] [No.] F @Caller C [Var:Candidate][Reset] [No.] B",
+
+        "[input] [repo] C [Var:Candidate][Reset] [No.] D @ [Var:Candidate] [No.] B ->",
+        "[output] [repo] [DEL] [Var:Candidate:Count]"
+      ]
+    }
+  ]
+}

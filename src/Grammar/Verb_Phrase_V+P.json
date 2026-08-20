@@ -21,7 +21,7 @@
       ]
     },
     {
-      "commands": [
+      "commands:D": [
         "[input] [Grammar:P:Type] C $verb @ B -> object",
         "[input] [Grammar:P:Object] C $verb @ B -> A",
         "[output] [Grammar:V+P:P:Object] C @ $verb B -> A"

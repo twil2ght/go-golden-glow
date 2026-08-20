@@ -1,0 +1,49 @@
+{
+  "name": "variable:S+V+Wh+Adj+Var+V2",
+  "is_template": true,
+  "args": [
+    "$Verb",
+    "$Wh",
+    "$Adj",
+    "$Variety",
+    "$V2"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] [Variety] A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] A @ A -> A1",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] A [Subject] A1 @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] A [Subject] A1 @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $Wh",
+        "[input] [Grammar:Object:Wh+S+V:Subject] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> B",
+        "[input] [Grammar:Object:Wh+S+V:Verb] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $V2",
+        "[input] [Grammar:Object:NounPhrase:Noun] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb [clause] $Wh [Subject] $V2 @ B -> D",
+        "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb [clause] $Wh [Subject] $V2 @ B -> $Adj",
+        "[output] [repo] [GET] [Variety:Of] D @Caller C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb [Wh] $Wh"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] A @ A -> A1",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] A [Subject] A1 @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] A [Subject] A1 @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $Wh",
+        "[input] [Grammar:Object:Wh+S+V:Subject] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> B",
+        "[input] [Grammar:Object:Wh+S+V:Verb] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb @ F -> $V2",
+        "[input] [Grammar:Object:NounPhrase:Noun] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb [clause] $Wh [Subject] $V2 @ B -> D",
+        "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb [clause] $Wh [Subject] $V2 @ B -> $Adj",
+        "[input] [repo] C [Common] [Variety] A [Subject] A1 [VerbPhrase] [Verb] $Verb [Wh] $Wh @ [Variety:Of] D -> $Variety",
+        "[output] [Common] A1 $Verb $Wh $Adj $Variety $V2 @Caller C",
+        "[output] [repo] [SSET] [Var:Cache] $Variety -> D"
+      ]
+    }
+  ]
+}

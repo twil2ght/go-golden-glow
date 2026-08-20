@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "commands": [
+        "",
+        "[input] [Var:Candidate:Find:Done] @Caller C [LearnVar]",
+        "[output] [repo] [GET] [Var:Candidate] [No.] 1 @Caller C [LearnVar] [No.] 0",
+
+        "[input] [repo] C [LearnVar] [No.] D @ [Var:Candidate] [No.] B -> A",
+        "[output] [word] [AddPrefix] A # $ @Caller C [LearnVar] [No.] B",
+
+        "[input] [repo] C [LearnVar] [No.] D @ [Var:Candidate] [No.] B -> A",
+        "[input] [word] [AddPrefix] C [LearnVar] [No.] B @ A # $ -> A1",
+        "[output] [repo] [SSET] [Var:Cache] A -> A1",
+        "[output] [repo] [SSET] [Variety] A1 -> yes",
+        "[output] [Learn:Noun] A1 @Caller C",
+        "[output] [compute] [GET] B + 1 @Caller C [Var:Candidate] [No.] B",
+
+        "[input] [compute] C [Var:Candidate] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [Var:Candidate] [No.] F @Caller C [LearnVar] [No.] B",
+
+        "[input] [repo] C [LearnVar] [No.] D @ [Var:Candidate] [No.] B ->",
+        "[output] [Var:Candidate:Handle:Done] @Caller C [LearnVar]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "object:article",
+  "is_template": true,
+  "args": [
+    "$article"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $article A @Caller C",
+        "[input] [Grammar:Verify:NounPhrase] C [Article] $article @ A -> yes",
+        "[output] [Grammar:Verify:Object] C @ $article A -> yes",
+        "[output] [Grammar:Object:Type] C @ $article A -> ArticleNounPhrase",
+        "[output] [Grammar:Object:Article] C @ $article A -> $article",
+        "[output] [Grammar:Object:NounPhrase] C @ $article A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $article A @Caller C",
+        "[input] [Grammar:NounPhrase:PlainNoun] C [Article] $article @ A -> A",
+        "[output] [Grammar:Object:Article:PlainNoun] C @ $article A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $article A @Caller C",
+        "[input] [Grammar:NounPhrase:Noun] C [Article] $article @ A -> B",
+        "[input] [Grammar:NounPhrase:AdjectivePhrase] C [Article] $article @ A -> D",
+        "[output] [Grammar:Object:Article:Noun] C @ $article A -> B",
+        "[output] [Grammar:Object:Article:AdjectivePhrase] C @ $article A -> D"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $article A @Caller C",
+        "[output] [Grammar:Verify:NounPhrase] A @Caller C [Article] $article"
+      ]
+    }
+  ]
+}

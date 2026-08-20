@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"goldenglow/m"
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/datagen"
 	"os"
 	"path/filepath"
@@ -14,6 +15,11 @@ import (
 // mockRepo implements the Repo interface for testing
 type mockRepo struct {
 	savedData []savedItem
+}
+
+func (mr *mockRepo) GetRepo() database.database {
+	//TODO implement me
+	panic("implement me")
 }
 
 type savedItem struct {

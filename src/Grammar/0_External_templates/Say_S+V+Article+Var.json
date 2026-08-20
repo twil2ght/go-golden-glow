@@ -1,0 +1,41 @@
+{
+  "name": "variable:Say:S+V+Article+Var",
+  "is_template": true,
+  "args": [
+    "$Verb",
+    "$Article",
+    "$Variety"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] G say : A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] G say"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] G say @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] G say @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] B @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Article] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> F",
+        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] G say @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] G say @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] B @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Article] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> F",
+        "[input] [repo] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ [Variety:Of] F -> $Variety",
+        "[output] [Common] G say : B $Verb $Article $Variety @Caller C",
+        "[output] [repo] [SSET] [Var:Cache] $Variety -> F"
+      ]
+    }
+  ]
+}

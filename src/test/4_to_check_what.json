@@ -3,7 +3,6 @@
     {
       "commands": [
         "[repo] [SSET] Susie 's name -> Susie",
-        "[repo] [SSET] [System:Value] Susie -> yes",
         "[Executor] Susie [Execute] tell a person Susie 's name @Caller test"
       ]
     }

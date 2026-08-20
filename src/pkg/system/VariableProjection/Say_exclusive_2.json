@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "description": "S+CanDo+V+O(AdjPro+NounPhrase as Object)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> G say : A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller G say",
+
+        "[input] [Grammar:S+VerbPhrase:CDSubject] G say @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] G say @ A -> E",
+        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] G say @ A -> D1",
+        "[input] [Grammar:VerbPhrase:Verb] G say [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] G say [Subject] B @ E -> F",
+        "[input] [Grammar:Object:AdjPro:Noun] G say [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:AdjPro:AdjectivePhrase] G say [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[output] [repo] [GET] [Variety] B1 @Caller G say [Subject] B [VerbPhrase] [Verb] F1",
+
+        "[input] [Grammar:S+VerbPhrase:CDSubject] G say @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] G say @ A -> E",
+        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] G say @ A -> D1",
+        "[input] [Grammar:VerbPhrase:Verb] G say [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] G say [Subject] B @ E -> F",
+        "[input] [Grammar:Object:AdjPro] G say [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:AdjPro:Noun] G say [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:AdjPro:AdjectivePhrase] G say [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [repo] G say [Subject] B [VerbPhrase] [Verb] F1 @ [Variety] B1 -> yes",
+        "[output] [template:Run] variable:Say:S+CanDo+V+AdjPro+Adj+Var @Args D1 , F1 , A1 , C1 , B1 @Caller [CondGroup:Gen]"
+      ]
+    }
+  ]
+}

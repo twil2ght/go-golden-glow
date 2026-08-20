@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "description": "the second method to check IO+DO",
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] B to A @Caller C",
+        "[input] [Grammar:Verify:Object] C [IO+DO] 1 @ B -> yes",
+        "[input] [Grammar:Verify:Object] C [IO+DO] 2 @ A -> yes",
+        "[output] [Grammar:Verify:IO+DO] C @ B to A -> yes",
+        "[output] [Grammar:IO+DO:IndirectObject] C @ B to A -> A",
+        "[output] [Grammar:IO+DO:DirectObject(To)] C @ B to A -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] B to A @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [IO+DO] 1",
+        "[output] [Grammar:Verify:Object] A @Caller C [IO+DO] 2"
+      ]
+    }
+  ]
+}

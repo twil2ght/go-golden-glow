@@ -39,6 +39,7 @@ var (
 	modeMultiCondition = "multi_condition"
 	modeSingleInput    = "single_input"
 	modeTemplate       = "template"
+	modeTemplateDel    = "template_del"
 
 	// types
 	typeInput  = "input"
@@ -109,6 +110,16 @@ func (b *builder) OnRegisterDataGen(gen datagen.Generator) {
 		},
 		datagen.AsExecutor,
 	))
+	provider.Add("template_del", datagen.NewData(
+		[]string{"[template:Del] $1 @Args $2 @Caller $3"},
+		[]string{},
+		map[string]string{
+			KeyName: "$1",
+			KeyArgs: "$2",
+			keyMode: modeTemplateDel,
+		},
+		datagen.AsExecutor,
+	))
 	gen.AddProvider(pluginName, provider)
 }
 
@@ -124,7 +135,14 @@ func (b *builder) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler
 				name, _ = parameters.Get(KeyName)
 				args, _ = parameters.Get(KeyArgs)
 			)
-			b.RunTemplate(name, args)
+			b.RunTemplate(name, args, true)
+			return
+		} else if mode == modeTemplateDel {
+			var (
+				name, _ = parameters.Get(KeyName)
+				args, _ = parameters.Get(KeyArgs)
+			)
+			b.RunTemplate(name, args, false)
 			return
 		}
 		_ = b.add(value, valueType, mode)
@@ -199,7 +217,7 @@ func (b *builder) mapToPlaceholder(value string) string {
 	}
 	return strings.Join(parts, " ")
 }
-func (b *builder) ParseTpl(tpl *template, arg m.Map[string]) {
+func (b *builder) ParseTpl(tpl *template, arg m.Map[string], IsSaving bool) {
 	for _, item := range tpl.Data {
 		var inputs, outputs []string
 		for _, cmd := range item.Commands {
@@ -212,13 +230,25 @@ func (b *builder) ParseTpl(tpl *template, arg m.Map[string]) {
 			}
 		}
 		if len(inputs) > 0 && len(outputs) > 0 {
-			b.saver.Save(m.ToHash(inputs), m.ToHash(outputs))
-			logger.Debug("templateGen: saved container",
-				"template", tpl.Name, "inputs", inputs, "outputs", outputs)
+			if !IsSaving {
+				fmt.Printf("Trying to Del template...\n")
+				for _, input := range inputs {
+					fmt.Printf("\t%s\n", input)
+				}
+				fmt.Printf("\n")
+				for _, output := range outputs {
+					fmt.Printf("\t%s\n", output)
+				}
+				b.saver.Delete(m.ToHash(inputs), m.ToHash(outputs))
+			} else {
+				b.saver.Save(m.ToHash(inputs), m.ToHash(outputs))
+				logger.Debug("templateGen: saved container",
+					"template", tpl.Name, "inputs", inputs, "outputs", outputs)
+			}
 		}
 	}
 }
-func (b *builder) RunTemplate(name, stringArgs string) {
+func (b *builder) RunTemplate(name, stringArgs string, IsSaving bool) {
 	tpl := b.templates[name]
 	if tpl == nil {
 		logger.Error("template not found", "name", name)
@@ -229,7 +259,7 @@ func (b *builder) RunTemplate(name, stringArgs string) {
 		logger.Error("parse template args error", "name", name, "err", err)
 		return
 	}
-	b.ParseTpl(tpl, args)
+	b.ParseTpl(tpl, args, IsSaving)
 }
 func (b *builder) Setup() error {
 	mappingData, err := os.ReadFile(mappingPath)

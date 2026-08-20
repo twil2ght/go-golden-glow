@@ -3,23 +3,23 @@
     {
       "description": "S+VP",
       "commands": [
-        "[input] [Grammar:Verify:S+VerbPhrase] A says : B @Caller C",
-        "[output] [Grammar:Verify:Object] A @Caller C [Subject] says",
+        "[input] [Grammar:Verify:S+VerbPhrase] A say : B @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [Subject] say",
 
-        "[input] [Grammar:Verify:S+VerbPhrase] A says : B @Caller C",
-        "[input] [Grammar:Verify:Object] C [Subject] says @ A -> yes",
-        "[output] [Grammar:Verify:S+VerbPhrase] C @ A says : B -> yes",
-        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ A says : B -> says : B",
-        "[output] [Grammar:S+VerbPhrase:Subject] C @ A says : B -> A"
+        "[input] [Grammar:Verify:S+VerbPhrase] A say : B @Caller C",
+        "[input] [Grammar:Verify:Object] C [Subject] say @ A -> yes",
+        "[output] [Grammar:Verify:S+VerbPhrase] C @ A say : B -> yes",
+        "[output] [Grammar:S+VerbPhrase:VerbPhrase] C @ A say : B -> say : B",
+        "[output] [Grammar:S+VerbPhrase:Subject] C @ A say : B -> A"
       ]
     },
     {
       "description": "VP",
       "commands": [
-        "[input] [Grammar:Verify:V+O] says : B @Caller C",
-        "[output] [Grammar:Verify:V+O] C @ says : B -> yes",
-        "[output] [Grammar:V+O:Verb] C @ says : B -> says",
-        "[output] [Grammar:V+O:Object] C @ says : B -> : B"
+        "[input] [Grammar:Verify:V+O] say : B @Caller C",
+        "[output] [Grammar:Verify:V+O] C @ say : B -> yes",
+        "[output] [Grammar:V+O:Verb] C @ say : B -> say",
+        "[output] [Grammar:V+O:Object] C @ say : B -> : B"
       ]
     }
   ]

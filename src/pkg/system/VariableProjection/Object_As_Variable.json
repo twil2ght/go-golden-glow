@@ -1,0 +1,220 @@
+{
+  "data": [
+    {
+      "description": "S+V+O(PlainNoun as Object)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A [S+V+O]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A [S+V+O] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A [S+V+O] @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [S+V+O] [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [S+V+O] [Subject] B @ E -> F",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] [CondGroup:Gen][Variety] A [S+V+O] [Subject] B [VerbPhrase] [Verb] F1 @ F -> F",
+        "[output] [repo] [GET] [Variety] F @Caller [CondGroup:Gen][Variety] A [S+V+O] [Subject] B [VerbPhrase] [Verb] F1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A [S+V+O] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A [S+V+O] @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [S+V+O] [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [S+V+O] [Subject] B @ E -> F",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] [CondGroup:Gen][Variety] A [S+V+O] [Subject] B [VerbPhrase] [Verb] F1 @ F -> F",
+        "[input] [repo] [CondGroup:Gen][Variety] A [S+V+O] [Subject] B [VerbPhrase] [Verb] F1 @ [Variety] F -> yes",
+        "[output] [template:Run] variable:S+V+Var @Args F1 , F @Caller [CondGroup:Gen] A [S+V+O]"
+      ]
+    },
+    {
+      "description": "S+V+O(NounPhrase as Object)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] D @ [No.] C [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:NounPhrase:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> D",
+        "[output] [repo] [GET] [Variety] A1 @Caller [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:NounPhrase:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> D",
+        "[input] [repo] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ [Variety] A1 -> yes",
+        "[output] [template:Run] variable:S+V+Adj+Var @Args F1 , D , A1 @Caller [CondGroup:Gen] A"
+      ]
+    },
+    {
+      "description": "S+V+O(Article+NounPhrase as Object)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] D @ [No.] C [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Article:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Article:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> D",
+        "[output] [repo] [GET] [Variety] A1 @Caller [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Article:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Article:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> D",
+        "[input] [repo] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ [Variety] A1 -> yes",
+        "[output] [template:Run] variable:S+V+Article+Adj+Var @Args F1 , B1 , D , A1 @Caller [CondGroup:Gen] A"
+      ]
+    },
+    {
+      "description": "S+V+O(Article+PlainNoun as Object)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] D @ [No.] C [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Article:PlainNoun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[output] [repo] [GET] [Variety] A1 @Caller [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Article:PlainNoun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [repo] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ [Variety] A1 -> yes",
+        "[output] [template:Run] variable:S+V+Article+Var @Args F1 , B1 , A1 @Caller [CondGroup:Gen] A"
+      ]
+    },
+    {
+      "description": "S+V+Wh+S+V(PlainNoun)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> B1",
+        "[output] [repo] [GET] [Variety] B1 @Caller [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> B1",
+        "[input] [repo] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1 @ [Variety] B1 -> yes",
+        "[output] [template:Run] variable:S+V+Wh+Var+V2 @Args F1 , A1 , B1 , C1 @Caller [CondGroup:Gen] A"
+      ]
+    },
+    {
+      "description": "S+V+Wh+S+V(NounPhrase)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:NounPhrase:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> D1",
+        "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> E1",
+        "[output] [repo] [GET] [Variety] D1 @Caller [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:NounPhrase:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> D1",
+        "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> E1",
+        "[input] [repo] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1 @ [Variety] D1 -> yes",
+        "[output] [template:Run] variable:S+V+Wh+Adj+Var+V2 @Args F1 , A1 , E1 , D1 , C1 @Caller [CondGroup:Gen] A"
+      ]
+    },
+    {
+      "description": "S+V+Wh+S+V(Article+PlainNoun)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> D1",
+        "[input] [Grammar:Object:Article:PlainNoun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> E1",
+        "[output] [repo] [GET] [Variety] E1 @Caller [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> D1",
+        "[input] [Grammar:Object:Article:PlainNoun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> E1",
+        "[input] [repo] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1 @ [Variety] E1 -> yes",
+        "[output] [template:Run] variable:S+V+Wh+Article+Var+V2 @Args F1 , A1 , D1 , E1 , C1 @Caller [CondGroup:Gen] A"
+      ]
+    },
+    {
+      "description": "S+V+Wh+S+V(Article+NounPhrase)",
+      "commands": [
+        "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> G",
+        "[input] [Grammar:Object:Article:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> D1",
+        "[input] [Grammar:Object:Article:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> E1",
+        "[output] [repo] [GET] [Variety] D1 @Caller [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [CondGroup:Gen][Variety] A [Subject] B @ E -> F",
+        "[input] [Grammar:Object:Wh+S+V:Wh] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Wh+S+V:Subject] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [Grammar:Object:Wh+S+V:Verb] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 @ F -> C1",
+        "[input] [Grammar:Object:Article] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> G",
+        "[input] [Grammar:Object:Article:Noun] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> D1",
+        "[input] [Grammar:Object:Article:AdjectivePhrase] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [clause] A1 [Subject] C1 @ B1 -> E1",
+        "[input] [repo] [CondGroup:Gen][Variety] A [Subject] B [VerbPhrase] [Verb] F1 [Wh] A1 @ [Variety] D1 -> yes",
+        "[output] [template:Run] variable:S+V+Wh+Article+Adj+Var+V2 @Args F1 , A1 , G , E1 , D1 , C1 @Caller [CondGroup:Gen] A"
+      ]
+    }
+  ]
+}

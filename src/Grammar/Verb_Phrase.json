@@ -1,9 +1,6 @@
 {
   "dependencies": [
-    "Verb_Phrase_V",
-    "IO+DO_to",
-    "Object",
-    "P/object"
+    "Verb_Phrase_V"
   ],
   "API": [
     {
@@ -134,7 +131,7 @@
     },
     {
       "description": "re-emit V+P P Object",
-      "commands": [
+      "commands:D": [
         "[input] [Grammar:V+P:P:Object] C [VerbPhrase] @ A -> E",
         "[output] [Grammar:VerbPhrase:V+P:P:Object] C @ A -> E"
       ]

@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "commands": [
+        "if a person asks what $fork do you like",
+        "check what $fork do you like",
+        "if the $fork you like is $fork2",
+        "say : $fork2",
+
+        "if a person asks what do you like",
+        "if you like something",
+        "say it out",
+        "for example, if a person asks what color you like",
+        "and if the color you like is aqua",
+        "then say : aqua"
+      ],
+      "ABOUT VARIABLE CHECK": [
+        "when",
+        "1. when learning",
+        "2. ask me to make sure",
+
+        "how",
+        "1. it is a noun",
+        "2. it appears at least twice",
+        "3. ask me to make sure"
+      ]
+    }
+  ]
+}

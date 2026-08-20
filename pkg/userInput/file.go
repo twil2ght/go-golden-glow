@@ -17,6 +17,7 @@ var (
 type File struct {
 	queue  messageQueue.Interface
 	loaded map[string]bool
+	Count  int
 }
 
 type ValidFormat struct {
@@ -64,6 +65,7 @@ func (f *File) loadFile(jsonFile string) {
 	for _, item := range ff.Data {
 		for _, command := range item.Commands {
 			f.queue.Add(command)
+			f.Count++
 		}
 	}
 

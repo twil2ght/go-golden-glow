@@ -5,6 +5,13 @@
         "[input] [Grammar:VerbPhrase:Type] C [Pronoun] @ A -> V",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> A"
       ]
+    },
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:Type] C [Pronoun] [Subject] B @ A -> V",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G [Subject] B @ A -> A"
+      ]
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:Type] C [Var] @ A -> V",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:Type] C [Var] [Subject] B @ A -> V",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] G [Subject] B @ A -> A"
+      ]
+    }
+  ]
+}

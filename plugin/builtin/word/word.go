@@ -226,8 +226,8 @@ func (w *word) OnRegisterDataGen(gen datagen.Generator) {
 
 	// Phrase-level extractors
 	provider.Add("get_length", datagen.NewData(
-		[]string{"[phrase] len $1"},
-		[]string{"[phrase] len $1 -> $2"},
+		[]string{"[phrase] [len] $1 @Caller $3"},
+		[]string{"[phrase] [len] $3 @ $1 -> $2"},
 		map[string]string{
 			keyDist:   "$2",
 			keyPhrase: "$1",
@@ -346,8 +346,8 @@ func (w *word) OnRegisterDataGen(gen datagen.Generator) {
 	))
 
 	provider.Add("add_prefix", datagen.NewData(
-		[]string{"[word] AddPrefix $1 # $2"},
-		[]string{"[word] AddPrefix $1 # $2 -> $3"},
+		[]string{"[word] [AddPrefix] $1 # $2 @Caller $4"},
+		[]string{"[word] [AddPrefix] $4 @ $1 # $2 -> $3"},
 		map[string]string{
 			keyDist:   "$3",
 			keyWord:   "$1",
@@ -357,8 +357,8 @@ func (w *word) OnRegisterDataGen(gen datagen.Generator) {
 		datagen.AsExtractor,
 	))
 	provider.Add("add_suffix", datagen.NewData(
-		[]string{"[word] AddSuffix $1 # $2"},
-		[]string{"[word] AddSuffix $1 # $2 -> $3"},
+		[]string{"[word] [AddSuffix] $1 # $2 @Caller $4"},
+		[]string{"[word] [AddSuffix] $4 @ $1 # $2 -> $3"},
 		map[string]string{
 			keyDist:   "$3",
 			keyWord:   "$1",

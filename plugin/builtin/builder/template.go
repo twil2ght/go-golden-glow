@@ -39,7 +39,6 @@ func loadTemplates(templateDir string) (m.Map[*template], error) {
 		var tpl *template
 		if err := json.Unmarshal(data, &tpl); err != nil {
 			logger.Warn("templateGen: failed to parse", "file", path, "err", err)
-			return err
 		}
 		if tpl.IsTemplate && tpl.Name != "" {
 			templates[tpl.Name] = tpl

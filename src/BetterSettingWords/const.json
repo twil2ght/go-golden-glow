@@ -1,0 +1,62 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Learn:Conjunction] if @Caller test",
+
+        "[Learn:CanDo] do @Caller test",
+        "[Learn:CanDo] can @Caller test",
+        "[Learn:CanDo] don't @Caller test",
+        "[Learn:CanDo] can't @Caller test",
+
+        "[Learn:Wh] what @Caller test",
+        "[Learn:Wh] where @Caller test",
+        "[Learn:Wh] why @Caller test",
+        "[Learn:Wh] how @Caller test",
+        "[Learn:Wh] when @Caller test",
+        "[Learn:Wh] who @Caller test",
+
+        "[Learn:AdjPro] your @Caller test",
+        "[Learn:AdjPro] my @Caller test",
+        "[Learn:AdjPro] his @Caller test",
+        "[Learn:AdjPro] her @Caller test",
+        "[Learn:AdjPro] their @Caller test",
+        "[Learn:AdjPro] our @Caller test",
+        "[Learn:AdjPro] its @Caller test",
+
+        "[Learn:ObjPro] me @Caller test",
+        "[Learn:ObjPro] you @Caller test",
+        "[Learn:ObjPro] it @Caller test",
+        "[Learn:ObjPro] him @Caller test",
+        "[Learn:ObjPro] her @Caller test",
+        "[Learn:ObjPro] them @Caller test",
+        "[Learn:ObjPro] us @Caller test",
+
+        "[Learn:SubPro] I @Caller test",
+        "[Learn:SubPro] you @Caller test",
+        "[Learn:SubPro] it @Caller test",
+        "[Learn:SubPro] he @Caller test",
+        "[Learn:SubPro] she @Caller test",
+        "[Learn:SubPro] they @Caller test",
+        "[Learn:SubPro] we @Caller test",
+
+        "[Learn:Article] a @Caller test",
+        "[Learn:Article] an @Caller test",
+        "[Learn:Article] the @Caller test",
+
+        "[Learn:Be] am @Caller test",
+        "[Learn:Be] is @Caller test",
+        "[Learn:Be] are @Caller test",
+
+        "[Learn:Preposition] in @Caller test",
+        "[Learn:Preposition] on @Caller test",
+        "[Learn:Preposition] at @Caller test",
+        "[Learn:Preposition] under @Caller test",
+
+        "[repo] [SSET] [TeachMode] Teacher dev -> yes",
+
+        "[repo] [SSET] [Units] : -> yes"
+      ]
+    }
+  ]
+}

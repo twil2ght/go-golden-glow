@@ -3,12 +3,6 @@
     "pronoun_resolver_S+VP",
     "pronoun_resolver"
   ],
-  "API": [
-    "[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C"
-  ],
-  "callback": [
-    "[Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C @ A -> A1"
-  ],
   "data": [
     {
       "commands": [
@@ -17,10 +11,10 @@
 
         "[input] [Grammar:Conj+S+VerbPhrase:Conjunction] C [Pronoun] @ A -> F",
         "[input] [Grammar:Conj+S+VerbPhrase:S+VerbPhrase] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] E @Caller C [Pronoun] [Conj] F",
+        "[output] [Pronoun:Resolve_Simplified:S+VerbPhrase] E @Caller C [Pronoun] [Conj] F",
 
         "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C [Pronoun] [Conj] F @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C @ F E -> F E1"
+        "[output] [Pronoun:Resolve:Sentence:Sentence:Conj+S+VerbPhrase] C @ F E -> F E1"
       ]
     }
   ]

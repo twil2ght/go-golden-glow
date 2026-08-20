@@ -3,12 +3,9 @@
     {
       "commands": [
         "[repo] [SET] [Grammar:Property:Word:Verb] say -> yes",
-        "[repo] [SET] [Grammar:Object] hello -> yes",
-        "[repo] [SET] [Grammar:Object] them -> yes",
         "[template:Run] V+IO+DO @Args say @Caller test",
-        "[repo] [SET] [TeachMode] Teacher dev -> yes",
-        "dev says to Susie : say hello to them",
-        ""
+        "[repo] [SET] [Grammar:Property:Word:Noun] hello -> yes",
+        "dev says to Susie : say hello to them"
       ]
     }
   ]

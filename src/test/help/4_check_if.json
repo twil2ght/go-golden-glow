@@ -4,7 +4,7 @@
       "commands": [
         "关于check的template",
         "[template:Run] V+Clause @Args check @Caller test",
-        "[Executor] Susie [Execute] check if Susie have a $fork @Caller C"
+        "[Executor] Susie [Execute] check if Susie have a $fork @Caller test"
       ],
       "demo": [
         "dev says to Susie : if a person need a $fork",

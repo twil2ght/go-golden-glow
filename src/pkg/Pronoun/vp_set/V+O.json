@@ -9,6 +9,18 @@
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [Object] A @ D -> D1",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1"
       ]
+    },
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Pronoun] [Subject] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] [Object] A",
+
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Pronoun] [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [Object] A @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] E @ A -> B D1"
+      ]
     }
   ]
 }

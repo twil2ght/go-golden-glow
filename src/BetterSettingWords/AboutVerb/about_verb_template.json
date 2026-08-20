@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [Verb:Template:Add] F -> A @Caller C",
+        "[output] [repo] [GET] [Verb:Template:Count] F @Caller C [Verb:Template:Add] A",
+
+        "[input] [repo] C [Verb:Template:Add] A @ [Verb:Template:Count] F ->",
+        "[output] [repo] [SSET] [Verb:Template:Count] F -> 1",
+        "[output] [repo] [SSET] [Verb:Template] F [No.] 1 -> A",
+
+        "[input] [repo] C [Verb:Template:Add] A @ [Verb:Template:Count] F -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [Verb:Template:Add] F A",
+
+        "[input] [compute] C [Verb:Template:Add] F A @ B + 1 -> D",
+        "[output] [repo] [SSET] [Verb:Template] F [No.] D -> A",
+        "[output] [repo] [SSET] [Verb:Template:Count] F -> D"
+      ]
+    },
+    {
+      "description": "del",
+      "commands": [
+
+      ]
+    }
+  ]
+}

@@ -2,22 +2,49 @@
   "data": [
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:V+IO+DO:IndirectObject] C [Pronoun] @ A -> D",
-        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [IO]",
-        "[input] [Grammar:VerbPhrase:V+IO+DO:DirectObject] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:Object] E @Caller C [Pronoun] A [DO]",
-        "[input] [Grammar:VerbPhrase:V+IO+DO:DirectObject(To)] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:Object] E @Caller C [Pronoun] A [DO] (To)",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:IndirectObject] C [Var] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] A [IO]",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:DirectObject] C [Var] @ A -> E",
+        "[output] [Var:Resolve:Object] E @Caller C [Var] A [DO]",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:DirectObject(To)] C [Var] @ A -> E",
+        "[output] [Var:Resolve:Object] E @Caller C [Var] A [DO] (To)",
 
-        "[input] [Grammar:VerbPhrase:V+IO+DO:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [IO] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [DO] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E1",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [IO] @ D -> D1",
+        "[input] [Var:Resolve:Object] C [Var] A [DO] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1 E1",
 
-        "[input] [Grammar:VerbPhrase:V+IO+DO:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [IO] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [DO] (To) @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 to E1"
+        "[input] [Grammar:VerbPhrase:V+IO+DO:Verb] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [IO] @ D -> D1",
+        "[input] [Var:Resolve:Object] C [Var] A [DO] (To) @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1 to E1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:IndirectObject] C [Var] [Subject] B @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] A [IO]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:DirectObject] C [Var] [Subject] B @ A -> E",
+        "[output] [Var:Resolve:Object] E @Caller C [Var] A [DO]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] B",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:DirectObject(To)] C [Var] [Subject] B @ A -> E",
+        "[output] [Var:Resolve_Simplified:Object] E @Caller C [Var] A [DO] (To)",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [IO] @ D -> D1",
+        "[input] [Var:Resolve:Object] C [Var] A [DO] @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] G [Subject] F @ A -> B D1 E1",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var] [S+VerbPhrase] G [Subject] F",
+        "[input] [Grammar:VerbPhrase:V+IO+DO:Verb] C [Var] [Subject] F @ A -> B",
+        "[input] [Var:Resolve:Object] C [Var] A [IO] @ D -> D1",
+        "[input] [Var:Resolve:Object] C [Var] A [DO] (To) @ E -> E1",
+        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] G [Subject] F @ A -> B D1 to E1"
       ]
     }
   ]

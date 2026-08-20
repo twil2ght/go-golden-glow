@@ -1,9 +1,0 @@
-{
-  "data": [
-    {
-      "commands": [
-        "[template:Run] V+IO+DO @Args say @Caller test"
-      ]
-    }
-  ]
-}

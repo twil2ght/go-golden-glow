@@ -203,11 +203,6 @@ func (s *addon) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 			key, _ = parameters.Get(keyKey)
 		)
 		valueMap, err := s.repo.HGet(key)
-		for val := range valueMap {
-			log.Default().Debug("[repo] get", key, val)
-			//s.cache.Register(fmt.Sprintf("check %s->%s", key, val), true)
-			//s.cache.Register(fmt.Sprintf("check %s!->%s", key, val), true)
-		}
 		if err != nil {
 			return nil
 		}

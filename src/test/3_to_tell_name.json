@@ -3,44 +3,21 @@
     {
       "commands": [
         "[repo] [SSET] [Grammar:Property:Word:Verb] say -> yes",
+        "[template:Run] V+IO+DO @Args say @Caller test",
         "[repo] [SSET] [Grammar:Property:Word:Verb] check -> yes",
+        "[template:Run] V+O @Args check @Caller test",
         "[repo] [SSET] [Grammar:Property:Word:Verb] tell -> yes",
-        "[repo] [SSET] [Grammar:Property:Word:Article] a -> yes",
+        "[template:Run] V+IO+DO @Args tell @Caller test",
         "[repo] [SSET] [Grammar:Property:Word:Noun] name -> yes",
         "[repo] [SSET] [Grammar:Property:Word:Noun] person -> yes",
-        "[repo] [SSET] [Grammar:Property:Word:Verb] is -> yes",
-        "[repo] [SSET] [Grammar:Property:Word:Verb] am -> yes",
         "[repo] [SSET] [Grammar:Property:Word:Noun] Susie -> yes",
-        "[template:Run] Conj+S+VerbPhrase @Args if @Caller test",
-        "[template:Run] S+VerbPhrase @Args is @Caller test",
-        "[template:Run] V+IO+DO @Args tell @Caller test",
-        "[template:Run] V+O @Args check @Caller test",
-        "[template:Run] V+P @Args is @Caller test",
-        "[template:Run] V+P @Args am @Caller test",
-        "[template:Run] object:clause @Args what @Caller test",
-        "[template:Run] object:adj_pro @Args your @Caller test",
-        "[template:Run] IO+DO @Args your @Caller test",
-        "[template:Run] object:adj_pro @Args my @Caller test",
-        "[template:Run] IO+DO @Args my @Caller test",
-        "[template:Run] object:article @Args a @Caller test",
-        "[template:Run] V+IO+DO @Args say @Caller test",
-        "[repo] [SSET] [TeachMode] Teacher dev -> yes",
-        "[repo] [SSET] [System:Property:SPronoun:Object-like] $Susie -> yes",
-        "[repo] [SSET] [Pronoun:Cache] $Susie -> $Susie",
-        "[repo] [SSET] [System:Value] $Susie -> yes",
+        "[repo] [SSET] [Var:Cache] $Susie -> $Susie",
         "[repo] [SSET] [Pronoun:Cache] your -> Susie 's",
         "dev says to Susie : to tell a person your name",
         "dev says to Susie : check what your name is",
         "dev says to Susie : if your name is $Susie",
         "dev says to Susie : say : my name is $Susie",
         ""
-      ],
-      "demo": [
-
-      ],
-      "experimental": [
-        "dev says to Susie : if your name is $Susie",  "<- here you need to learn to how to catch the value of $Susie",
-        "dev says to Susie : say : I'm $Susie"
       ]
     }
   ]

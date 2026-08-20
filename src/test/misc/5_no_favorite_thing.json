@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "commands": [
+        "dev says to Susie : if a person ask what your favourite color is",
+        "dev says to Susie : check what your favourite color is",
+        "dev says to Susie : if you don't have your favourite color",
+        "dev says to Susie : say : I don't have my favourite color",
+        "[VarietyLearning] @Caller Test"
+      ],
+      "a": [
+
+      ]
+    }
+  ]
+}

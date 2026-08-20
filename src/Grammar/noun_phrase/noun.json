@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:NounPhrase] B @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Noun] B @Caller C [Verify:NounPhrase]",
+
+        "[input] [repo] C [Verify:NounPhrase] @ [Grammar:Property:Word:Noun] B -> yes",
+        "[output] [Grammar:Verify:NounPhrase] C @ B -> yes",
+        "[output] [Grammar:NounPhrase:PlainNoun] C @ B -> B"
+      ]
+    }
+  ]
+}
