@@ -5,10 +5,7 @@
         "[input] [Grammar:Verify:V] A @Caller C",
         "[input] [repo] C @ [Grammar:Property:Word:Verb] A -> yes",
         "[output] [Grammar:Verify:V] C @ A -> yes",
-
-        "[input] [Grammar:Verify:V] A @Caller C",
-        "[input] [repo] C @ [Grammar:Property:Word:Verb] A ->",
-        "[output] [Grammar:Verify:V] C @ A -> no"
+        "[output] [Grammar:V:PlainVerb] C @ A -> A"
       ]
     },
     {

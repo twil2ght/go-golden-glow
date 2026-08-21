@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Raw] user_1 says to Susie : if I say : I am going to teach you",
+        "[Raw] user_1 says to Susie : then I start to teach you"
+      ]
+    },
+    {
+      "commands": [
+        "[Raw] user_1 says to Susie : if I say : teaching is over",
+        "[Raw] user_1 says to Susie : then your learning time is over"
+      ]
+    }
+  ]
+}

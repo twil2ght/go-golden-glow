@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "commands": [
+        "user_1 says to Susie : Susie",
+        "user_1 says to Susie : I am going to teach you",
+
+        "user_1 says to Susie : to ask a person what the domain that they talk about is",
+        "user_1 says to Susie : say : what domain are you talking about"
+      ]
+    },
+    {
+      "commands": [
+        "user_1 says to Susie : Susie",
+        "user_1 says to Susie : I am going to teach you",
+
+        "user_1 says to Susie : if a person ask what you like",
+        "user_1 says to Susie : check what the domain that they talk about is",
+        "user_1 says to Susie : if you don't know",
+        "user_1 says to Susie : ask them what domain that they talk about is",
+        "user_1 says to Susie : if the domain that they talk about is food",
+        "user_1 says to Susie : tell them what your favourite food is"
+      ]
+    }
+  ]
+}

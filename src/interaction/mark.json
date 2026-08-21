@@ -2,7 +2,7 @@
   "data": [
     {
       "commands": [
-        "[input] [Raw] A says to Susie : B",
+        "[input] [Raw] A say : B",
         "[output] [mark] B @Caller [No.] 0",
         "[output] [phrase] [len] B @Caller A [Raw]",
 
@@ -10,27 +10,27 @@
         "[output] [TempLearn] D @Caller B",
         "[output] [compute] [GET] C + 1 @Caller B [Raw]",
 
-        "[input] [Raw] A says to Susie : B",
+        "[input] [Raw] A say : B",
         "[input] [mark] [No.] C @ B -> D",
         "[input] [compute] B [Raw] @ C + 1 -> F",
         "[input] [phrase] [len] A [Raw] @ B -> E",
         "[output] [compute] [CHECK] F < E @Caller B [limit]",
 
-        "[input] [Raw] A says to Susie : B",
+        "[input] [Raw] A say : B",
         "[input] [phrase] [len] A @ B -> E",
         "[input] [mark] [No.] C @ B -> D",
         "[input] [compute] B [Raw] @ C + 1 -> F",
         "[input] [compute] B [limit] @ F < E -> yes",
         "[output] [mark] B @Caller [No.] F",
 
-        "[input] [Raw] A says to Susie : B",
+        "[input] [Raw] A say : B",
         "[input] [mark] [No.] C @ B ->",
-        "[output] [Legal] A says to Susie : B",
+        "[output] [Legal] A say : B",
 
-        "[input] [Raw] A says to Susie : B",
+        "[input] [Raw] A say : B",
         "[input] [compute] B [Raw] @ C + 1 -> F",
         "[input] [phrase] [len] A [Raw] @ B -> F",
-        "[output] [Legal] A says to Susie : B"
+        "[output] [Legal] A say : B"
       ]
     }
   ]

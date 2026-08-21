@@ -246,3 +246,94 @@ func varNames(s variable.Set) []string {
 	}
 	return names
 }
+func TestMatchTemplateAll(t *testing.T) {
+	tests := []struct {
+		name     string
+		template string
+		target   string
+		wantCnt  int // 预期解数量
+	}{
+		{
+			name:     "基础双解用例 $1 Alice $2",
+			template: "$1 Alice $2",
+			target:   "User Alice And Alice No.2",
+			wantCnt:  2,
+		},
+		{
+			name:     "模板纯字面，完全相等",
+			template: "hello world",
+			target:   "hello world",
+			wantCnt:  1,
+		},
+		{
+			name:     "模板纯字面，不匹配",
+			template: "hello world",
+			target:   "hello go",
+			wantCnt:  0,
+		},
+		{
+			name:     "无解场景，分隔符不存在",
+			template: "$1 Bob $2",
+			target:   "User Alice And Alice No.2",
+			wantCnt:  0,
+		},
+		{
+			name:     "三解场景演示（分隔符出现3次）",
+			template: "$1 | $2",
+			target:   "a | b | c | d",
+			wantCnt:  3,
+		},
+		{
+			name:     "空模板直接返回nil",
+			template: "",
+			target:   "abc",
+			wantCnt:  0,
+		},
+		{
+			name:     "连续变量无分隔（$1$2），无解",
+			template: "$1$2",
+			target:   "abc",
+			wantCnt:  0,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			res := MatchTemplateAll(tt.target, tt.template)
+			// ===== 打印匹配结果 =====
+			t.Logf("Template: %q", tt.template)
+			t.Logf("Target:   %q", tt.target)
+			t.Logf("Total solutions found: %d", len(res))
+			for sid, sol := range res {
+				t.Logf("  Solution #%d", sid+1)
+				for k, v := range sol {
+					t.Logf("    %s = %q", k, v.Value())
+				}
+			}
+			// ========================
+
+			if len(res) != tt.wantCnt {
+				t.Fatalf("got %d solutions, want %d", len(res), tt.wantCnt)
+			}
+		})
+	}
+}
+
+// 可选：性能基准测试 go test -bench=.
+func BenchmarkMatchTemplateAll(b *testing.B) {
+	tpl := "$1 Alice $2"
+	target := "User Alice And Alice No.2"
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = MatchTemplateAll(target, tpl)
+	}
+}
+
+func BenchmarkMatchTemplateOld(b *testing.B) {
+	tpl := "$1 Alice $2"
+	target := "User Alice And Alice No.2"
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_, _ = MatchTemplate(target, tpl)
+	}
+}

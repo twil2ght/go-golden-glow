@@ -10,8 +10,8 @@
   "data": [
     {
       "commands": [
-        "[input] [Legal] C says to Susie : A",
-        "[input] [TeachMode] [VPRES] @ Teacher C -> yes",
+        "[input] [Legal] C say : A",
+        "[input] [TeachMode] [VPRES] @ C -> yes",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [VPRES] @ A -> B",
         "[output] [Res] [Executor] Susie [Execute] B",
         "[output] [Cond&Res:Add] [Executor] Susie [Execute] B # [Res:VP] @Caller [VPRES]"
@@ -19,9 +19,25 @@
     },
     {
       "commands": [
-        "[input] [Legal] C says to Susie : A",
+        "[input] [Legal] C say : A",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
-        "[output] [TeachMode:Check] Teacher C @Caller [VPRES]"
+        "[output] [TeachMode:Check] C @Caller [VPRES]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Legal] C say : then A",
+        "[input] [TeachMode] [VPRES] @ C -> yes",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [VPRES] @ A -> B",
+        "[output] [Res] [Executor] Susie [Execute] B",
+        "[output] [Cond&Res:Add] [Executor] Susie [Execute] B # [Res:VP] @Caller [VPRES]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Legal] C say : then A",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
+        "[output] [TeachMode:Check] C @Caller [VPRES]"
       ]
     },
     {

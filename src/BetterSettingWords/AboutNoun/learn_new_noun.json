@@ -5,6 +5,7 @@
         "[input] [Learn:Noun] A @Caller C",
         "[output] [repo] [SSET] [Grammar:Property:Word:Noun] A -> yes",
         "[output] [template:Run] noun_phrase @Args A @Caller C",
+        "[output] [template:Run] double_noun @Args A @Caller C",
         "[output] [repo] [SSET] [Units] A -> yes"
       ]
     },

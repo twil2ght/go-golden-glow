@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "e.g": "go+to do sth/try+to do sth",
+      "description": "V+to-infinitive",
+      "commands": [
+        "[input] [Grammar:Verify:Object] to A @Caller C",
+        "[output] [Grammar:Verify:VerbPhrase] A @Caller C [Object:infinitive]",
+
+        "[input] [Grammar:Verify:VerbPhrase] C [Object:infinitive] @ A -> yes",
+        "[output] [Grammar:Verify:Object] C @ to A -> yes",
+        "[output] [Grammar:Object:Type] C @ to A -> to-infinitive",
+        "[output] [Grammar:Object:to-infinitive] C @ to A -> A"
+      ]
+    }
+  ]
+}

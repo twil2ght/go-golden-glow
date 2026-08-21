@@ -15,24 +15,23 @@
     },
     {
       "commands": [
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [Subject] B @ E -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [Subject] B @ E -> F",
-        "[input] [Grammar:Object:Article] C [Common] [Variety] [Subject] B [VerbPhrase] [Verb] $Verb @ F -> $Article",
-        "[input] [Grammar:Object:Article:PlainNoun] C [Common] [Variety] [Subject] B [VerbPhrase] [Verb] $Verb @ F -> F",
-        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] [Variety] [Subject] B [VerbPhrase] [Verb] $Verb"
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article] C [Common] [Variety] [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Common] [Variety] [Subject] [VerbPhrase] [Verb] $Verb @ F -> F",
+        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] [Variety] $Verb"
       ]
     },
     {
       "commands": [
         "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [Subject] B @ E -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [Subject] B @ E -> F",
-        "[input] [Grammar:Object:Article] C [Common] [Variety] [Subject] B [VerbPhrase] [Verb] $Verb @ F -> $Article",
-        "[input] [Grammar:Object:Article:PlainNoun] C [Common] [Variety] [Subject] B [VerbPhrase] [Verb] $Verb @ F -> F",
-        "[input] [repo] C [Common] [Variety] [Subject] B [VerbPhrase] [Verb] $Verb @ [Variety:Of] F -> $Variety",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] [Variety] [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] [Variety] [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article] C [Common] [Variety] [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Common] [Variety] [Subject] [VerbPhrase] [Verb] $Verb @ F -> F",
+        "[input] [repo] C [Common] [Variety] $Verb @ [Variety:Of] F -> $Variety",
         "[output] [Common] B $Verb $Article $Variety @Caller C",
         "[output] [repo] [SSET] [Var:Cache] $Variety -> F"
       ]

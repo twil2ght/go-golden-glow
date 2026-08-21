@@ -3,20 +3,28 @@
     {
       "commands": [
         "[input] [Executor] Susie [Execute] check what A is @Caller C",
-        "[output] [repo] [GET] A @Caller C"
+        "[output] [Var:Resolve:Object] A @Caller C [Low-Level-api]",
+
+        "[input] [Executor] Susie [Execute] check what A is @Caller C",
+        "[input] [Var:Resolve:Object] C [Low-Level-api] @ A -> D",
+        "[output] [repo] [GET] D @Caller C"
       ]
     },
     {
       "commands": [
         "[input] [Executor] Susie [Execute] check what A is @Caller C",
-        "[input] [repo] C @ A -> B",
+        "[input] [Var:Resolve:Object] C [Low-Level-api] @ A -> D",
+        "[input] [repo] C @ D -> B",
         "[output] [TODO:Add] [Execute:Done] C @ [Executor] Susie [Execute] check A -> yes",
-        "[output] [Common] A is B @Caller C check",
+        "[output] [Common] D is B @Caller C check",
 
         "[input] [Executor] Susie [Execute] check what A is @Caller C",
-        "[input] [repo] C @ A ->",
+        "[input] [Var:Resolve:Object] C [Low-Level-api] @ A -> D ",
+        "[input] [repo] C @ B ->",
         "[output] [TODO:Add] [Execute:Done] C @ [Executor] Susie [Execute] check A -> yes",
-        "[output] [Common] A is [Unknown] @Caller C check"
+        "[output] [Common] Susie don't know what B is @Caller C check",
+        "[output] [Common] Susie don't know @Caller C check",
+        "[output] [repo] [SSET] the thing that Susie don't know -> what B is"
       ]
     },
     {

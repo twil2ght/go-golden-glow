@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:VerbGroup] A @Caller C",
+        "[output] [template:Run] S+VerbPhrase @Args A @Caller C",
+        "[output] [template:Run] O+OC:do_sth @Args A @Caller C",
+        "[output] [repo] [SSET] [Units] A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Unlearn:Verb] A @Caller C",
+        "[output] [repo] [Del] [Grammar:Property:Word:Verb] A",
+        "[output] [template:Del] S+VerbPhrase @Args A @Caller C",
+        "[output] [template:Del] O+OC:do_sth @Args A @Caller C"
+      ]
+    }
+  ]
+}

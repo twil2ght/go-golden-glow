@@ -15,7 +15,7 @@
         "[input] [Learn:SubPro] A @Caller C",
         "[output] [repo] [SSET] [Grammar:Property:Word:Pronoun] A -> yes",
         "[output] [repo] [SSET] [Grammar:Property:Word:SubjectPronoun] A -> yes",
-        "[repo] [SSET] [Units] A -> yes"
+        "[output] [repo] [SSET] [Units] A -> yes"
       ]
     },
     {
@@ -23,7 +23,7 @@
         "[input] [Learn:ObjPro] A @Caller C",
         "[output] [repo] [SSET] [Grammar:Property:Word:Pronoun] A -> yes",
         "[output] [repo] [SSET] [Grammar:Property:Word:ObjectPronoun] A -> yes",
-        "[repo] [SSET] [Units] A -> yes"
+        "[output] [repo] [SSET] [Units] A -> yes"
       ]
     }
   ]

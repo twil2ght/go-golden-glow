@@ -6,8 +6,14 @@
         "[output] [repo] [SSET] [Grammar:Property:Word:Verb] A -> yes",
         "[output] [template:Run] S+VerbPhrase @Args A @Caller C",
         "[output] [template:Run] O+OC:do_sth @Args A @Caller C",
+        "[output] [template:Run] V+Prep @Args A @Caller C",
         "[output] [Grammar:Verb:Template] A -> Unknown @Caller C",
         "[output] [repo] [SSET] [Units] A -> yes",
+        "[output] [AddSuffix] A # ing @Caller C [LearnNewVerb]",
+
+        "[input] [AddSuffix] C [LearnNewVerb] @ A # ing -> B",
+        "[output] [repo] [SSET] [Verb:ing] A -> B",
+        "[output] [template:Run] object:doing @Args B , A @Caller C",
 
         "[input] [repo] [SSET] [Verb:Template] A [No.] D -> B",
         "[output] [template:Run] B @Args A @Caller Learn"

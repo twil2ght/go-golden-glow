@@ -68,23 +68,92 @@ func MatchTemplate(target, template string) (bool, variable.Set) {
 	return true, phs
 }
 
-//func migrateVarSet(varFrom, varTo variable.Set) error {
-//	if varTo == nil {
-//		return fmt.Errorf("clean variables: varTo is nil")
-//	}
-//	if varFrom == nil {
-//		return fmt.Errorf("clean variables: varFrom is nil")
-//	}
-//	for key, e := range varTo {
-//		val, err := variable.ToRawText(e.Value(), varFrom, false)
-//		if err != nil {
-//			return fmt.Errorf("clean variables: %w", err)
-//		}
-//		err = e.Set(val)
-//		if err != nil {
-//			return fmt.Errorf("clean variables: %w", err)
-//		}
-//		varTo[key] = e
-//	}
-//	return nil
-//}
+const (
+	maxSolutions        = 3
+	maxCandidatesPerVar = 10
+)
+
+func MatchTemplateAll(target, template string) []variable.Set {
+	if template == "" {
+		return nil
+	}
+	segments := segment(template)
+	if len(segments) == 0 {
+		if target == template {
+			return []variable.Set{{}}
+		}
+		return nil
+	}
+
+	var result []variable.Set
+	resPtr := &result
+
+	var backtrack func(pos int, segIdx int, bind variable.Set)
+	backtrack = func(pos int, segIdx int, bind variable.Set) {
+		if len(*resPtr) >= maxSolutions {
+			return
+		}
+		if segIdx >= len(segments) {
+			if pos == len(target) {
+				*resPtr = append(*resPtr, bind.Clone())
+			}
+			return
+		}
+
+		seg := segments[segIdx]
+		if variable.VarReg.MatchString(seg) {
+			var stopLit string
+			nextSegIdx := segIdx + 1
+			if nextSegIdx < len(segments) {
+				stopLit = segments[nextSegIdx]
+			}
+
+			rem := target[pos:]
+			var takeCandidates []int
+
+			if stopLit == "" {
+				if len(rem) >= 1 {
+					takeCandidates = append(takeCandidates, len(rem))
+				}
+			} else {
+				searchStart := 0
+				for {
+					off := strings.Index(rem[searchStart:], stopLit)
+					if off == -1 {
+						break
+					}
+					absInRem := searchStart + off
+					if absInRem >= 1 {
+						takeCandidates = append(takeCandidates, absInRem)
+						if len(takeCandidates) >= maxCandidatesPerVar {
+							break
+						}
+					}
+					searchStart = absInRem + len(stopLit)
+				}
+			}
+
+			for _, takeLen := range takeCandidates {
+				val := rem[:takeLen]
+				newBind := bind.Clone()
+				newBind[seg] = variable.New(seg, val)
+
+				nextPos := pos + takeLen + len(stopLit)
+				backtrack(nextPos, segIdx+2, newBind)
+
+				if len(*resPtr) >= maxSolutions {
+					break
+				}
+			}
+		} else {
+			lit := seg
+			if !strings.HasPrefix(target[pos:], lit) {
+				return
+			}
+			backtrack(pos+len(lit), segIdx+1, bind)
+		}
+	}
+
+	backtrack(0, 0, make(variable.Set))
+	return *resPtr
+}

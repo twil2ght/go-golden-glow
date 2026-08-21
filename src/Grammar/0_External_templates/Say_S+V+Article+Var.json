@@ -17,22 +17,22 @@
       "commands": [
         "[input] [Grammar:S+VerbPhrase:Subject] C [Common] G say @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] G say @ A -> E",
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] B @ E -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] B @ E -> F",
-        "[input] [Grammar:Object:Article] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> $Article",
-        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> F",
-        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb"
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> F",
+        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] G say $Verb"
       ]
     },
     {
       "commands": [
         "[input] [Grammar:S+VerbPhrase:Subject] C [Common] G say @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] G say @ A -> E",
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] B @ E -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] B @ E -> F",
-        "[input] [Grammar:Object:Article] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> $Article",
-        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ F -> F",
-        "[input] [repo] C [Common] G say [Subject] B [VerbPhrase] [Verb] $Verb @ [Variety:Of] F -> $Variety",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> F",
+        "[input] [repo] C [Common] G say $Verb @ [Variety:Of] F -> $Variety",
         "[output] [Common] G say : B $Verb $Article $Variety @Caller C",
         "[output] [repo] [SSET] [Var:Cache] $Variety -> F"
       ]

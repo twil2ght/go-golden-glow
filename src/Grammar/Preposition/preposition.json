@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:PrepositionPhrase] B @Caller C",
+        "[output] [repo] [GET] [Grammar:Property:Word:Preposition] B @Caller C [Verify:PrepositionPhrase]",
+
+        "[input] [repo] C [Verify:PrepositionPhrase] @ [Grammar:Property:Word:Preposition] B -> yes",
+        "[output] [Grammar:Verify:PrepositionPhrase] C @ B -> yes",
+        "[output] [Grammar:PrepositionPhrase:PlainPreposition] C @ B -> B"
+      ]
+    }
+  ]
+}

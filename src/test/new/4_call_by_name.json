@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "commands": [
+        "user_1 says to Susie : if a person call you by name",
+        "user_1 says to Susie : say : I am here"
+      ]
+    },
+    {
+      "commands": [
+        "user_1 says to Susie : if a person say : Susie",
+        "user_1 says to Susie : check what your name is",
+        "user_1 says to Susie : if your name is Susie",
+        "user_1 says to Susie : then they call you by name"
+      ]
+    }
+  ]
+}

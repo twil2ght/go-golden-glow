@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "commands": [
+        "user_1 says to Susie : your name is Susie",
+        "user_1 says to Susie : Susie",
+        "user_1 says to Susie : I am going to teach you",
+
+        "user_1 says to Susie : talk is a verb",
+        "user_1 says to Susie : about is a preposition",
+        "user_1 says to Susie : person is a noun",
+        "user_1 says to Susie : domain is a noun",
+        "user_1 says to Susie : food is a noun",
+        "user_1 says to Susie : like is a verb",
+        "user_1 says to Susie : check is a verb",
+        "user_1 says to Susie : know is a verb",
+        "user_1 says to Susie : ask is a verb",
+        "user_1 says to Susie : tell is a verb",
+        "user_1 says to Susie : start is a verb",
+        "user_1 says to Susie : teach is a verb",
+        "user_1 says to Susie : understand is a verb",
+        "user_1 says to Susie : go is a verb",
+        "user_1 says to Susie : noun is a variety",
+        "user_1 says to Susie : favourite is an adjective"
+      ]
+    }
+  ]
+}

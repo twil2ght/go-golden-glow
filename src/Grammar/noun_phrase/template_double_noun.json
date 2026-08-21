@@ -1,0 +1,24 @@
+{
+  "name": "double_noun",
+  "is_template": true,
+  "args": [
+    "$noun"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:NounPhrase] B $noun @Caller C",
+        "[input] [Grammar:Verify:NounPhrase] C [DoubleNoun] $noun @ B -> yes",
+        "[output] [Grammar:Verify:NounPhrase] C @ B $noun -> yes",
+        "[output] [Grammar:NounPhrase:BackNoun] C @ B $noun -> $noun",
+        "[output] [Grammar:NounPhrase:PreNounPhrase] C @ B $noun -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:NounPhrase] B $noun @Caller C",
+        "[output] [Grammar:Verify:NounPhrase] B @Caller C [DoubleNoun] $noun"
+      ]
+    }
+  ]
+}

@@ -60,12 +60,14 @@ func (t *template) GetTemplate(n node.Interface, state string) Set {
 	t.templates = MidFilter(n, t.templates)
 	raw := n.ToTextWithNoVars(state)
 	for key, e := range t.templates {
-		if ok, vars := MatchTemplate(raw, e.Value()); ok {
-			e.VarSetRegistry().Register(raw, vars)
+		//if ok, vars := MatchTemplate(raw, e.Value()); ok {
+		//	e.VarSetRegistry().Register(raw, vars)
+		//	matches[key] = e
+		//}
+		vars := MatchTemplateAll(raw, e.Value())
+		for _, v := range vars {
+			e.VarSetRegistry().Register(raw, v)
 			matches[key] = e
-			//if n.Value() == "[repo] [GET] [Grammar:Property:Word:Noun] $2 @Caller $3 [Verify:Object]" {
-			//	log.Default().Debug("match template", "node", n.Value(), "template", e.Value())
-			//}
 		}
 	}
 	return PostFilter(matches)

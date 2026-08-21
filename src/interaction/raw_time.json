@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Raw] A say : B",
+        "[output] [Learn:Noun] A @Caller test",
+        "[output] [repo] [SSET] [Pronoun:Cache] I -> A",
+        "[output] [repo] [SSET] [Pronoun:Cache] me -> A",
+        "[output] [repo] [SSET] [Pronoun:Cache] mine -> A 's",
+        "[output] [repo] [SSET] [Pronoun:Cache] my -> A 's",
+        "[output] [repo] [SSET] [Pronoun:Cache] you -> Susie",
+        "[output] [repo] [SSET] [Pronoun:Cache] your -> Susie 's",
+        "[output] [repo] [SSET] [Pronoun:Cache] yours -> Susie 's"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Learn:Variety] A @Caller C",
+        "[output] [repo] [SSET] [Variety] A -> yes",
+        "[output] [Learn:Noun] A @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Unlearn:Variety] A @Caller C",
+        "[output] [repo] [Del] [Variety] A",
+        "[output] [Unlearn:Noun] A @Caller C"
+      ]
+    }
+  ]
+}

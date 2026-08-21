@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "description": "subject(PlainNoun)",
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] G say A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] G say A @ A -> D",
+        "[input] [Grammar:VerbPhrase:Verb] G say A [Subject] @ D -> E",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] G say A [Subject] E @ B -> B",
+        "[output] [repo] [GET] [Variety] B @Caller G say A [Sub]",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] G say A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] G say A @ A -> D",
+        "[input] [Grammar:VerbPhrase:Verb] G say A [Subject] @ D -> E",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] G say A [Subject] E @ B -> B",
+        "[input] [repo] G say A [Sub] @ [Variety] B -> yes",
+        "[output] [template:Run] variable:Say:Var+VP @Args B @Caller G say : A"
+      ]
+    }
+  ]
+}

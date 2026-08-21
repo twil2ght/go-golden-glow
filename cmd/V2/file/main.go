@@ -28,20 +28,7 @@ func main() {
 	Run(
 		//"src/Global.json",
 		//"src/BetterSettingWords/const.json",
-		//
-		//"src/test/misc/2_test_like.json",
-		//"src/test/misc/3_do_not_have.json",
-		//"src/test/misc/4_trick_time.json",
-		//"src/test/misc/5_no_favorite_thing.json",
-		"src/test/misc/6_learn_noun.json",
-
-		//"src/test/3_to_tell_name.json",
-		//"src/test/6_person_wants_your_name.json",
-		//"src/test/7_how_to_ask_name.json",
-		//"src/test/8_test_variety_convey.json",
-		//"src/test/help/2_say_with_variable.json",
-		//"src/test/help/3_test_say_with_variable.json",
-		//"src/test/help/4_check_if.json",
+		"src/test/new/0_learn_word.json",
 	)
 	//RunWithMsgMgr(
 	//	"src/test/5_test_TODO",

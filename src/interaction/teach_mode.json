@@ -1,30 +1,19 @@
 {
-  "API": [
-    {
-      "caller": "[TeachMode:Check] Teacher A @Caller C",
-      "callback": "[TeachMode] C @ Teacher A -> yes"
-    }
-  ],
   "data": [
     {
-      "description": "if cached in REPO then just get;else check",
       "commands": [
-        "[input] [TeachMode:Check] Teacher A @Caller C",
-        "[output] [repo] [GET] [TeachMode] Teacher A @Caller C [TeachMode:Check]",
+        "[input] [TeachMode:Check] A @Caller C",
+        "[output] [repo] [GET] [TeachMode] A @Caller C [TeachMode:Check]",
 
-        "[input] [repo] C [TeachMode:Check] @ [TeachMode] Teacher A -> yes",
-        "[output] [TeachMode] C @ Teacher A -> yes",
-
-        "[input] [repo] C [TeachMode:Check] @ [TeachMode] Teacher A ->",
-        "[input] [repo] trust A -> yes",
-        "[input] A means to teach",
-        "[input] Susie means to learn",
-        "[output] [TeachMode] C @ Teacher A -> yes",
-
-        "[input] [repo] trust A -> yes",
-        "[input] A means to teach",
-        "[input] Susie means to learn",
-        "[output] [repo] [SET] [TeachMode] Teacher A -> yes"
+        "[input] [repo] C [TeachMode:Check] @ [TeachMode] A -> yes",
+        "[output] [TeachMode] C @ A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Common] Susie's learning time is over @Caller C",
+        "[output] [TODO:Add] [VarietyLearning] @Caller C",
+        "[output] [TODO:Add] [Var:Learning:Reset] @Caller C"
       ]
     }
   ]

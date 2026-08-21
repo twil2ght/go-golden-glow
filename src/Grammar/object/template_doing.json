@@ -1,0 +1,24 @@
+{
+  "name": "object:doing",
+  "is_template": true,
+  "args": [
+    "$doing",
+    "$verb"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $doing B @Caller C",
+        "[input] [Grammar:Verify:VerbPhrase] C [+doing] $doing @ $verb B -> yes",
+        "[output] [Grammar:Verify:Object] C @ $doing B -> yes",
+        "[output] [Grammar:Object:Type] C @ $doing B -> doing_sth"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $doing B @Caller C",
+        "[output] [Grammar:Verify:VerbPhrase] $verb B @Caller C [+doing] $doing"
+      ]
+    }
+  ]
+}

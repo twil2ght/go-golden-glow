@@ -1,0 +1,10 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] user_1 start to teach Susie @Caller C",
+        "[output] [repo] [SSET] [TeachMode] user_1 -> yes"
+      ]
+    }
+  ]
+}

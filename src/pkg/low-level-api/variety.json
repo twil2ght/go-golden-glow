@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] A is a variety @Caller C",
+        "[output] [Var:Resolve:Object] A @Caller C [NewVariety]",
+
+        "[input] [Common] A is a variety @Caller C",
+        "[input] [Var:Resovle:Object] C [NewVariety] @ A -> B",
+        "[output] [Learn:Variety] B @Caller C"
+      ]
+    }
+  ]
+}

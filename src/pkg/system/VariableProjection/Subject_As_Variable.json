@@ -1,20 +1,24 @@
 {
   "data":[
     {
-      "description": "subject(PlainNoun)",
+      "description": "main",
       "commands": [
         "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> A",
-        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A",
-
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller [CondGroup:Gen][Variety] A"
+      ]
+    },
+    {
+      "description": "subject(PlainNoun)",
+      "commands": [
         "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> D",
-        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ D -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] @ D -> E",
         "[input] [Grammar:Object:NounPhrase:PlainNoun] [CondGroup:Gen][Variety] A [Subject] E @ B -> B",
         "[output] [repo] [GET] [Variety] B @Caller [CondGroup:Gen][Variety] A [Sub]",
 
         "[input] [Grammar:S+VerbPhrase:Subject] [CondGroup:Gen][Variety] A @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] [CondGroup:Gen][Variety] A @ A -> D",
-        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] B @ D -> E",
+        "[input] [Grammar:VerbPhrase:Verb] [CondGroup:Gen][Variety] A [Subject] @ D -> E",
         "[input] [Grammar:Object:NounPhrase:PlainNoun] [CondGroup:Gen][Variety] A [Subject] E @ B -> B",
         "[input] [repo] [CondGroup:Gen][Variety] A [Sub] @ [Variety] B -> yes",
         "[output] [template:Run] variable:Var+VP @Args B @Caller [CondGroup:Gen] A"

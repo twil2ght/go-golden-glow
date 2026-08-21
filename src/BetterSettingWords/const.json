@@ -3,6 +3,7 @@
     {
       "commands": [
         "[Learn:Conjunction] if @Caller test",
+        "[Learn:Conjunction] then @Caller test",
 
         "[Learn:CanDo] do @Caller test",
         "[Learn:CanDo] can @Caller test",
@@ -53,7 +54,7 @@
         "[Learn:Preposition] at @Caller test",
         "[Learn:Preposition] under @Caller test",
 
-        "[repo] [SSET] [TeachMode] Teacher dev -> yes",
+        "[repo] [SSET] [TeachMode] user_1 -> yes",
 
         "[repo] [SSET] [Units] : -> yes"
       ]

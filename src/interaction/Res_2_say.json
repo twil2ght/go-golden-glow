@@ -3,16 +3,32 @@
     {
       "description": "actually,you can be told to say anything even it is crazy and against the grammar",
       "commands": [
-        "[input] [Legal] C says to Susie : say : A",
-        "[input] [TeachMode] [say] @ Teacher C -> yes",
+        "[input] [Legal] C say : say : A",
+        "[input] [TeachMode] [say] @ C -> yes",
         "[output] [Res] [Executor] Susie [Execute] say : A",
         "[output] [Cond&Res:Add] [Executor] Susie [Execute] say : A # [Res:VP] @Caller [say]"
       ]
     },
     {
       "commands": [
-        "[input] [Legal] C says to Susie : say : A",
-        "[output] [TeachMode:Check] Teacher C @Caller [say]",
+        "[input] [Legal] C say : say : A",
+        "[output] [TeachMode:Check] C @Caller [say]",
+        "[output] [Pronoun:Resolve:Sentence:Object] A @Caller [say]"
+      ]
+    },
+    {
+      "description": "actually,you can be told to say anything even it is crazy and against the grammar",
+      "commands": [
+        "[input] [Legal] C say : then say : A",
+        "[input] [TeachMode] [say] @ C -> yes",
+        "[output] [Res] [Executor] Susie [Execute] say : A",
+        "[output] [Cond&Res:Add] [Executor] Susie [Execute] say : A # [Res:VP] @Caller [say]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Legal] C say : then say : A",
+        "[output] [TeachMode:Check] C @Caller [say]",
         "[output] [Pronoun:Resolve:Sentence:Object] A @Caller [say]"
       ]
     }

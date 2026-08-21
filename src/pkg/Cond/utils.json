@@ -10,7 +10,16 @@
         "[output] [Cond:Count++] @Caller C [Add] A",
 
         "[input] [Cond:Count] C [Add] A @ -> B",
-        "[output] [repo] [SET] [No.] B [Cond] -> A"
+        "[output] [repo] [SSET] [No.] B [Cond] -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Cond:OverrideLast] A @Caller C",
+        "[output] [repo] [GET] [Cond:Count] @Caller C [OverrideLast] A",
+
+        "[input] [repo] C [OverrideLast] A @ [Cond:Count] -> B",
+        "[output] [repo] [SSET] [No.] B [Cond] -> A"
       ]
     },
     {

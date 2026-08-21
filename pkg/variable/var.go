@@ -35,6 +35,14 @@ type Parser func(strWithVariables string, variables Set, strict bool) (string, e
 // Set is a map of variable
 type Set map[string]Item
 
+func (s Set) Clone() Set {
+	ns := make(Set, len(s))
+	for k, v := range s {
+		ns[k] = New(v.Name(), v.Value())
+	}
+	return ns
+}
+
 // Base is a base struct for variable
 type Base struct {
 	name  string

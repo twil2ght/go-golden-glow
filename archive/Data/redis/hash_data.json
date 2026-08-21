@@ -1,25 +1,4 @@
 {
-  "[Cond\u0026Res:Count]": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[Cond\u0026Res:LastProcessedIndex]": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[Cond\u0026Res:Type] [No.] 1": {
-    "[Cond:If]": "0001-01-01T00:00:00Z"
-  },
-  "[Cond\u0026Res:Type] [No.] 2": {
-    "[Res:Normal]": "0001-01-01T00:00:00Z"
-  },
-  "[Cond\u0026Res] [No.] 1": {
-    "a person say : $apple is a $noun": "0001-01-01T00:00:00Z"
-  },
-  "[Cond\u0026Res] [No.] 2": {
-    "[Common] $apple is a $noun": "0001-01-01T00:00:00Z"
-  },
-  "[Cond:Count]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
   "[CondGroup:Count] [Common] $apple is a $noun": {
     "1": "0001-01-01T00:00:00Z"
   },
@@ -32,17 +11,17 @@
   "[CondGroup:ElementCount] [No.] 1 [of] [Common] apple is a noun": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Common] $apple is a $noun [of] a person say : $apple is a $noun": {
+  "[CondGroup:Index] [Common] $apple is a $noun [of] user_1 say : $apple is a $noun": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Common] apple is a noun [of] a person say : apple is a noun": {
+  "[CondGroup:Index] [Common] apple is a noun [of] user_1 say : apple is a noun": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
   "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple is a $noun": {
-    "a person say : $apple is a $noun": "0001-01-01T00:00:00Z"
+    "user_1 say : $apple is a $noun": "0001-01-01T00:00:00Z"
   },
   "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] apple is a noun": {
-    "a person say : apple is a noun": "0001-01-01T00:00:00Z"
+    "user_1 say : apple is a noun": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] her": {
     "yes": "0001-01-01T00:00:00Z"
@@ -69,9 +48,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Adjective] noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Adjective] person": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Adjective] say": {
@@ -110,6 +86,9 @@
   "[Grammar:Property:Word:Conjunction] if": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Conjunction] then": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -122,10 +101,10 @@
   "[Grammar:Property:Word:Noun] noun": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] person": {
+  "[Grammar:Property:Word:Noun] say": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] say": {
+  "[Grammar:Property:Word:Noun] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:ObjectPronoun] her": {
@@ -162,9 +141,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] on": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Preposition] person": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] say": {
@@ -254,9 +230,6 @@
   "[Grammar:Property:Word:Unknown] noun": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Unknown] person": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Unknown] say": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -273,9 +246,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] person": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] say": {
@@ -299,17 +269,35 @@
   "[Grammar:Property:Word:Wh] why": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[No.] 1 [Cond]": {
-    "a person say : $apple is a $noun": "0001-01-01T00:00:00Z"
+  "[Pronoun:Cache] I": {
+    "user_1": "0001-01-01T00:00:00Z"
   },
-  "[TeachMode] Teacher dev": {
+  "[Pronoun:Cache] me": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] mine": {
+    "user_1 's": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] my": {
+    "user_1 's": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] you": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] your": {
+    "Susie 's": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] yours": {
+    "Susie 's": "0001-01-01T00:00:00Z"
+  },
+  "[TeachMode] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Then] a person say : $apple is a $noun": {
-    "[CondGroup:Done] [No.] 1 [of] [Common] $apple is a $noun @@ a person say : $apple is a $noun @Caller NOTHING": "0001-01-01T00:00:00Z"
+  "[Then] user_1 say : $apple is a $noun": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] $apple is a $noun @@ user_1 say : $apple is a $noun @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
-  "[Then] a person say : apple is a noun": {
-    "[CondGroup:Done] [No.] 1 [of] [Common] apple is a noun @@ a person say : apple is a noun @Caller NOTHING": "0001-01-01T00:00:00Z"
+  "[Then] user_1 say : apple is a noun": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] apple is a noun @@ user_1 say : apple is a noun @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
   "[Units] $apple": {
     "yes": "0001-01-01T00:00:00Z"
@@ -320,7 +308,7 @@
   "[Units] :": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] A": {
+  "[Units] I": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] a": {
@@ -353,7 +341,13 @@
   "[Units] don't": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] he": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] her": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] him": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] his": {
@@ -371,7 +365,13 @@
   "[Units] is": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] it": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] its": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] me": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] my": {
@@ -386,10 +386,10 @@
   "[Units] our": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] person": {
+  "[Units] say": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] say": {
+  "[Units] she": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] the": {
@@ -398,7 +398,25 @@
   "[Units] their": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] them": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] then": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] they": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] under": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] us": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] user_1": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] we": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] what": {
@@ -416,49 +434,16 @@
   "[Units] why": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] your": {
+  "[Units] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Var:Cache] apple": {
-    "$apple": "0001-01-01T00:00:00Z"
-  },
-  "[Var:Cache] noun": {
-    "$noun": "0001-01-01T00:00:00Z"
-  },
-  "[Var:Candidate:Count]": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[Var:Candidate] [No.] 1": {
-    "apple": "0001-01-01T00:00:00Z"
-  },
-  "[Var:Candidate] [No.] 2": {
-    "noun": "0001-01-01T00:00:00Z"
+  "[Units] your": {
+    "yes": "0001-01-01T00:00:00Z"
   },
   "[Variety] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Variety] $noun": {
     "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Word:Counter:CountOf] apple": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[Word:Counter:CountOf] noun": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[Word:Counter:CountOf] person": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Word:Counter:Count]": {
-    "3": "0001-01-01T00:00:00Z"
-  },
-  "[Word:Counter] [No.] 1": {
-    "person": "0001-01-01T00:00:00Z"
-  },
-  "[Word:Counter] [No.] 2": {
-    "apple": "0001-01-01T00:00:00Z"
-  },
-  "[Word:Counter] [No.] 3": {
-    "noun": "0001-01-01T00:00:00Z"
   }
 }

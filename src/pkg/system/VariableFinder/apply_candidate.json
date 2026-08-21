@@ -31,6 +31,16 @@
         "[output] [Cond:Add] E @Caller C [LearnVar]",
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
 
+        "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> A",
+        "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Cond:OverrideIf]",
+        "[output] [Var:Resolve:S+VerbPhrase] A @Caller C [LearnVar] [No.] B [Cond:OverrideIf]",
+
+        "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> A",
+        "[input] [Var:Resolve:S+VerbPhrase] C [LearnVar] [No.] B [Cond:OverrideIf] @ A -> E",
+        "[output] [repo] [SSET] [Cond&Res] [No.] B -> E",
+        "[output] [Cond:OverrideLast] E @Caller C [LearnVar]",
+        "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
+
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
         "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Cond:Executor]",
