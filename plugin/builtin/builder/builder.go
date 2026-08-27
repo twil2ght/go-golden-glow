@@ -18,6 +18,7 @@ import (
 
 func init() {
 	plugin.DefaultManager.Register(pluginName, NewBuilderPlugin(brainsaver.DefaultService()))
+	Inst.Setup()
 }
 
 const (
@@ -29,11 +30,13 @@ const (
 
 	KeyName = "name"
 	KeyArgs = "args"
-
-	isTesting = false
 )
 
 var logger = log.Default()
+var Inst = &builder{
+	saver:   brainsaver.DefaultService(),
+	mapping: make(map[string]string),
+}
 var (
 	// modes
 	modeMultiCondition = "multi_condition"
@@ -193,9 +196,7 @@ func (b *builder) build(output string) error {
 	if len(b.input) == 0 {
 		return fmt.Errorf("no input")
 	}
-	if !isTesting {
-		b.saver.Save(m.ToHash(b.input), m.ToHash([]string{output}))
-	}
+	b.saver.Save(m.ToHash(b.input), m.ToHash([]string{output}))
 	logger.Debug("Builder:start build", "inputs", b.input, "output", output)
 	return nil
 }
@@ -276,4 +277,7 @@ func (b *builder) Setup() error {
 		return fmt.Errorf("unmarshal mapping file: %v", err)
 	}
 	return nil
+}
+func MapToPlaceholder(value string) string {
+	return Inst.mapToPlaceholder(value)
 }

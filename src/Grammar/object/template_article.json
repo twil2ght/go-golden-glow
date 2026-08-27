@@ -34,6 +34,15 @@
     {
       "commands": [
         "[input] [Grammar:Verify:Object] $article A @Caller C",
+        "[input] [Grammar:NounPhrase:BackNoun] C [Article] $article @ A -> B",
+        "[input] [Grammar:NounPhrase:PreNounPhrase] C [Article] $article @ A -> D",
+        "[output] [Grammar:Object:Article:BackNoun] C @ $article A -> B",
+        "[output] [Grammar:Object:Article:PreNounPhrase] C @ $article A -> D"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] $article A @Caller C",
         "[output] [Grammar:Verify:NounPhrase] A @Caller C [Article] $article"
       ]
     }

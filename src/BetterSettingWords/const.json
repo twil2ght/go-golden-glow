@@ -2,8 +2,18 @@
   "data": [
     {
       "commands": [
+        "[Learn:Noun] Susie @Caller test",
+
         "[Learn:Conjunction] if @Caller test",
+        "[Learn:Conjunction] or @Caller test",
         "[Learn:Conjunction] then @Caller test",
+
+        "[Learn:Noun] noun @Caller test",
+        "[Learn:Noun] verb @Caller test",
+        "[Learn:Noun] adjective @Caller test",
+        "[Learn:Noun] preposition @Caller test",
+        "[Learn:Noun] conjunction @Caller test",
+        "[Learn:Noun] adverb @Caller test",
 
         "[Learn:CanDo] do @Caller test",
         "[Learn:CanDo] can @Caller test",
@@ -50,6 +60,7 @@
         "[Learn:Be] are @Caller test",
 
         "[Learn:Preposition] in @Caller test",
+        "[Learn:Preposition] to @Caller test",
         "[Learn:Preposition] on @Caller test",
         "[Learn:Preposition] at @Caller test",
         "[Learn:Preposition] under @Caller test",

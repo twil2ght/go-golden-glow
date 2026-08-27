@@ -2,8 +2,11 @@ package userInput
 
 import (
 	"encoding/json"
+	"goldenglow/m"
+	"goldenglow/pkg/brainsaver"
 	"goldenglow/pkg/log"
 	"goldenglow/pkg/messageQueue"
+	"goldenglow/plugin/builtin/builder"
 	"goldenglow/utils"
 	"os"
 	"path/filepath"
@@ -63,9 +66,34 @@ func (f *File) loadFile(jsonFile string) {
 	}
 
 	for _, item := range ff.Data {
-		for _, command := range item.Commands {
-			f.queue.Add(command)
-			f.Count++
+		var inputs []string
+		var used = false
+		for _, cmd := range item.Commands {
+			var cmd = builder.MapToPlaceholder(cmd)
+			switch {
+			case strings.HasPrefix(cmd, "[input] "):
+				{
+					if used {
+						inputs = []string{}
+						used = false
+					}
+					inputs = append(inputs, strings.TrimPrefix(cmd, "[input] "))
+				}
+			case strings.HasPrefix(cmd, "[output] "):
+				{
+					brainsaver.DefaultService().Save(
+						m.ToHash(inputs),
+						m.ToHash([]string{strings.TrimPrefix(cmd, "[output] ")}),
+					)
+					logger.Debug("Builder:", "input", inputs, "output", cmd)
+					used = true
+				}
+			default:
+				{
+					f.queue.Add(cmd)
+					f.Count++
+				}
+			}
 		}
 	}
 

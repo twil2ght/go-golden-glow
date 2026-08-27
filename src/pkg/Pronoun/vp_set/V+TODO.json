@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:V+TODO:TODO] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] D @Caller A [TO-Infinitive]",
+
+        "[input] [Grammar:VerbPhrase:V+TODO:Verb] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] A [TO-Infinitive] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B to D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+TODO:TODO] C [Subject] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] D @Caller A [TO-Infinitive]",
+
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+TODO:Verb] C [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] A [TO-Infinitive] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [S+VerbPhrase] E @ A -> B to D1"
+      ]
+    }
+  ]
+}

@@ -3,24 +3,21 @@
     {
       "commands": [
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
-        "[input] [Grammar:NounPhrase:PlainNoun] C [Var] [Article] B @ D -> D",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Var] @ A -> D",
         "[output] [Var:Resolve] D @Caller C [Var] [Article] B"
       ]
     },
     {
       "commands": [
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
-        "[input] [Grammar:NounPhrase:PlainNoun] C [Var] [Article] B @ D -> D",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Var] @ A -> D",
         "[input] [Var:Resolve] C [Var] [Article] B @ D ->",
         "[output] [Var:Resolve:Object] C @ A -> A",
 
 
 
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
-        "[input] [Grammar:NounPhrase:PlainNoun] C [Var] [Article] B @ D -> D",
+        "[input] [Grammar:Object:Article:PlainNoun] C [Var] @ A -> D",
         "[input] [Var:Resolve] C [Var] [Article] B @ D -> F",
         "[output] [Var:Resolve:Object] C @ A -> B F"
       ]
@@ -28,27 +25,49 @@
     {
       "commands": [
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
-        "[input] [Grammar:NounPhrase:Noun] C [Var] [Article] B @ D -> E",
-        "[input] [Grammar:NounPhrase:Adjective] C [Var] [Article] B @ D -> F",
+        "[input] [Grammar:Object:Article:Noun] C [Var] @ A -> E",
+        "[input] [Grammar:Object:Article:AdjectivePhrase] C [Var] @ A -> F",
         "[output] [Var:Resolve] E @Caller C [Var] [Article] B"
       ]
     },
     {
       "commands": [
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
-        "[input] [Grammar:NounPhrase:Noun] C [Var] [Article] B @ D -> E",
-        "[input] [Grammar:NounPhrase:Adjective] C [Var] [Article] B @ D -> F",
+        "[input] [Grammar:Object:Article:Noun] C [Var] @ A -> E",
+        "[input] [Grammar:Object:Article:AdjectivePhrase] C [Var] @ A -> F",
         "[input] [Var:Resolve] C [Var] [Article] B @ E ->",
         "[output] [Var:Resolve:Object] C @ A -> A",
 
 
 
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
-        "[input] [Grammar:NounPhrase:Noun] C [Var] [Article] B @ D -> E",
-        "[input] [Grammar:NounPhrase:Adjective] C [Var] [Article] B @ D -> F",
+        "[input] [Grammar:Object:Article:Noun] C [Var] @ A -> E",
+        "[input] [Grammar:Object:Article:AdjectivePhrase] C [Var] @ A -> F",
+        "[input] [Var:Resolve] C [Var] [Article] B @ E -> E1",
+        "[output] [Var:Resolve:Object] C @ A -> B F E1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Object:Article] C [Var] @ A -> B",
+        "[input] [Grammar:Object:Article:BackNoun] C [Var] @ A -> E",
+        "[input] [Grammar:Object:Article:PreNounPhrase] C [Var] @ A -> F",
+        "[output] [Var:Resolve] E @Caller C [Var] [Article] B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Object:Article] C [Var] @ A -> B",
+        "[input] [Grammar:Object:Article:BackNoun] C [Var] @ A -> E",
+        "[input] [Grammar:Object:Article:PreNounPhrase] C [Var] @ A -> F",
+        "[input] [Var:Resolve] C [Var] [Article] B @ E ->",
+        "[output] [Var:Resolve:Object] C @ A -> A",
+
+
+
+        "[input] [Grammar:Object:Article] C [Var] @ A -> B",
+        "[input] [Grammar:Object:Article:BackNoun] C [Var] @ A -> E",
+        "[input] [Grammar:Object:Article:PreNounPhrase] C [Var] @ A -> F",
         "[input] [Var:Resolve] C [Var] [Article] B @ E -> E1",
         "[output] [Var:Resolve:Object] C @ A -> B F E1"
       ]

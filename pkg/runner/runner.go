@@ -13,6 +13,7 @@ import (
 	"goldenglow/pkg/registry"
 	"goldenglow/pkg/tracer"
 	"goldenglow/pkg/workqueue"
+	"runtime"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -122,8 +123,38 @@ func (r *runner) worker(_ int) {
 			return
 		}
 		r.pending.Add(1)
+
+		task := e
+
 		func() {
 			defer func() {
+				if panicErr := recover(); panicErr != nil {
+					logger.Error("runner panic recovered", "error", panicErr)
+					buf := make([]byte, 4096)
+					n := runtime.Stack(buf, false)
+					logger.Error("panic stack trace", "stack", string(buf[:n]))
+
+					errMsg := fmt.Sprintf("%v", panicErr)
+					if strings.Contains(errMsg, "concurrent map read and map write") {
+						key := knotKey(task.Trigger().Value(), task.State())
+						retryCountIface, ok := r.knotParents.Load(key)
+						retryCount := 0
+						if ok {
+							retryCount = retryCountIface.(int)
+						}
+						const maxRetry = 3
+						if retryCount < maxRetry {
+							retryCount++
+							r.knotParents.Store(key, retryCount)
+							logger.Info("map‑race detected, re‑enqueue knot for retry",
+								"key", key, "retry", retryCount)
+							r.knotQueue.Add(task)
+						} else {
+							logger.Error("knot hit max retry limit, discarded", "key", key)
+							r.knotParents.Delete(key)
+						}
+					}
+				}
 				if r.pending.Add(^uint64(0)) == 0 && r.knotQueue.Len() == 0 {
 					select {
 					case r.idleNotify <- struct{}{}:

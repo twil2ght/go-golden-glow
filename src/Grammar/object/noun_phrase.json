@@ -15,7 +15,14 @@
         "[input] [Grammar:NounPhrase:PlainNoun] C [Object:NounPhrase] @ A -> A",
         "[output] [Grammar:Verify:Object] C @ A -> yes",
         "[output] [Grammar:Object:Type] C @ A -> Noun",
-        "[output] [Grammar:Object:NounPhrase:PlainNoun] C @ A -> A"
+        "[output] [Grammar:Object:NounPhrase:PlainNoun] C @ A -> A",
+
+        "[input] [Grammar:NounPhrase:BackNoun] C [Object:NounPhrase] @ A -> B",
+        "[input] [Grammar:NounPhrase:PreNounPhrase] C [Object:NounPhrase] @ A -> D",
+        "[output] [Grammar:Verify:Object] C @ A -> yes",
+        "[output] [Grammar:Object:Type] C @ A -> NounPhrase",
+        "[output] [Grammar:Object:NounPhrase:BackNoun] C @ A -> B",
+        "[output] [Grammar:Object:NounPhrase:PreNounPhrase] C @ A -> D"
       ]
     }
   ]

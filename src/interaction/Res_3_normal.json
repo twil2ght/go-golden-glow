@@ -13,6 +13,7 @@
     {
       "commands": [
         "[input] [Legal] C say : A",
+        "[input] [repo] [Res] C say : A @ [Cond:Count] -> B",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [NORES]",
         "[output] [TeachMode:Check] C @Caller [NORES]"
       ]

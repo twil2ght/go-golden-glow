@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Raw] user_1 say : if I say : happy is an adjective",
+        "[Raw] user_1 say : then happy is an adjective",
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ]
+    }
+  ]
+}

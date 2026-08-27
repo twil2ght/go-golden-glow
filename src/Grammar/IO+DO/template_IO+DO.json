@@ -18,8 +18,14 @@
     {
       "commands": [
         "[input] [Grammar:Verify:IO+DO] B $obj A @Caller C",
-        "[output] [Grammar:Verify:Object] B $obj @Caller C [IO]",
+        "[input] [Grammar:Verify:Object] C [IO] @ B $obj -> yes",
         "[output] [Grammar:Verify:Object] A @Caller C [DO]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:IO+DO] B $obj A @Caller C",
+        "[output] [Grammar:Verify:Object] B $obj @Caller C [IO]"
       ]
     },
     {

@@ -20,6 +20,13 @@
     {
       "commands": [
         "[input] [Legal] C say : A",
+        "[output] [repo] [GET] [Cond:Count] @Caller [Res] C say : A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Legal] C say : A",
+        "[input] [repo] [Res] C say : A @ [Cond:Count] -> B",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
         "[output] [TeachMode:Check] C @Caller [VPRES]"
       ]

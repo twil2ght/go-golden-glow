@@ -1,27 +1,237 @@
 {
+  "[Cond\u0026Res:Count]": {
+    "7": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:LastProcessedIndex]": {
+    "7": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:Type] [No.] 1": {
+    "[Cond:Executor]": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:Type] [No.] 2": {
+    "[Res:VP]": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:Type] [No.] 3": {
+    "[Cond:If]": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:Type] [No.] 4": {
+    "[Res:VP]": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:Type] [No.] 5": {
+    "[Cond:OverrideIf]": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:Type] [No.] 6": {
+    "[Res:VP]": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res:Type] [No.] 7": {
+    "[Res:VP]": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res] [No.] 1": {
+    "step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res] [No.] 2": {
+    "[Executor] Susie [Execute] check what Susie 's favourite $food is": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res] [No.] 3": {
+    "Susie 's favourite $food is $chocolate": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res] [No.] 4": {
+    "[Executor] Susie [Execute] say : $chocolate": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res] [No.] 5": {
+    "Susie don't have Susie 's favourite $food": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res] [No.] 6": {
+    "[Executor] Susie [Execute] say : sorry": "0001-01-01T00:00:00Z"
+  },
+  "[Cond\u0026Res] [No.] 7": {
+    "[Executor] Susie [Execute] say : I don't have my favourite $food": "0001-01-01T00:00:00Z"
+  },
+  "[Cond:Count]": {
+    "2": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup:Count] [Common] $apple is a $noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] $happy is an $adjective": {
     "1": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:Count] [Common] apple is a noun": {
     "1": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup:Count] [Common] happy is an adjective": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] check what Susie 's favourite $food is": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] check what Susie 's favourite food is": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] say : $chocolate": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] say : I don't have my favourite $food": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] say : I don't have my favourite food": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] say : chocolate": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] say : sorry": {
+    "2": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup:ElementCount] [No.] 1 [of] [Common] $apple is a $noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] $happy is an $adjective": {
     "1": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:ElementCount] [No.] 1 [of] [Common] apple is a noun": {
     "1": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] happy is an adjective": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's favourite $food is": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's favourite food is": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : $chocolate": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite $food": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite food": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : chocolate": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : sorry": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 2 [of] [Executor] Susie [Execute] say : sorry": {
+    "2": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup:Index] [Common] $apple is a $noun [of] user_1 say : $apple is a $noun": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] $happy is an $adjective [of] user_1 say : $happy is an $adjective": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:Index] [Common] apple is a noun [of] user_1 say : apple is a noun": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup:Index] [Common] happy is an adjective [of] user_1 say : happy is an adjective": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] check what Susie 's favourite $food is [of] step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] check what Susie 's favourite food is [of] step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : $chocolate [of] Susie 's favourite $food is $chocolate": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : $chocolate [of] step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : I don't have my favourite $food [of] Susie don't have Susie 's favourite $food": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : I don't have my favourite $food [of] step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : I don't have my favourite food [of] Susie don't have Susie 's favourite food": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : I don't have my favourite food [of] step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : chocolate [of] Susie 's favourite food is chocolate": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : chocolate [of] step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : sorry [of] Susie don't have Susie 's favourite $food": {
+    "2 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : sorry [of] Susie don't have Susie 's favourite food": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : sorry [of] step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "2 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] say : sorry [of] step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple is a $noun": {
     "user_1 say : $apple is a $noun": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $happy is an $adjective": {
+    "user_1 say : $happy is an $adjective": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] apple is a noun": {
     "user_1 say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] happy is an adjective": {
+    "user_1 say : happy is an adjective": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's favourite $food is": {
+    "step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's favourite food is": {
+    "step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : $chocolate": {
+    "step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite $food": {
+    "step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite food": {
+    "step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : chocolate": {
+    "step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : sorry": {
+    "step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 2 [of] [Executor] Susie [Execute] say : sorry": {
+    "step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] say : $chocolate": {
+    "Susie 's favourite $food is $chocolate": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite $food": {
+    "Susie don't have Susie 's favourite $food": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite food": {
+    "Susie don't have Susie 's favourite food": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] say : chocolate": {
+    "Susie 's favourite food is chocolate": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] say : sorry": {
+    "Susie don't have Susie 's favourite food": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 2 [of] [Executor] Susie [Execute] say : sorry": {
+    "Susie don't have Susie 's favourite $food": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $apple is a $noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $happy is an $adjective": {
+    "1": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] her": {
     "yes": "0001-01-01T00:00:00Z"
@@ -47,10 +257,16 @@
   "[Grammar:Property:Word:Adjective] apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Adjective] noun": {
+  "[Grammar:Property:Word:Adjective] favourite": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Adjective] say": {
+  "[Grammar:Property:Word:Adjective] happy": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Adjective] have": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Adjective] sorry": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Article] a": {
@@ -86,25 +302,115 @@
   "[Grammar:Property:Word:Conjunction] if": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Conjunction] or": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Conjunction] then": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] $adjective": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] $chocolate": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] $food": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] $happy": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] $noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] Susie": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] about": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] adjective": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] adverb": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] ask": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] check": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] chocolate": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] conjunction": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] domain": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] favourite": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] food": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] go": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] happy": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] have": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] know": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] like": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] person": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] preposition": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] say": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] sorry": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] start": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] talk": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] teach": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] tell": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] understand": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] user_1": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] verb": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:ObjectPronoun] her": {
@@ -128,25 +434,82 @@
   "[Grammar:Property:Word:ObjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Preposition] about": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Preposition] apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] ask": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] at": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Preposition] check": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] chocolate": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] domain": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] favourite": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] food": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] go": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] happy": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] have": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Preposition] in": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Preposition] noun": {
+  "[Grammar:Property:Word:Preposition] know": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] like": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] on": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Preposition] person": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Preposition] say": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Preposition] sorry": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] start": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] talk": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] teach": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] tell": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] to": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Preposition] under": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] understand": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Pronoun] I": {
@@ -227,10 +590,16 @@
   "[Grammar:Property:Word:Unknown] apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Unknown] noun": {
+  "[Grammar:Property:Word:Unknown] happy": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Unknown] say": {
+  "[Grammar:Property:Word:Unknown] have": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Unknown] sorry": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] about": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] am": {
@@ -242,13 +611,64 @@
   "[Grammar:Property:Word:Verb] are": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Verb] ask": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] check": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] chocolate": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] domain": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] favourite": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] food": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] go": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] happy": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] have": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Verb] is": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Verb] noun": {
+  "[Grammar:Property:Word:Verb] know": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] like": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] person": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] say": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] sorry": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] start": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] talk": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] teach": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] tell": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] understand": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Wh] how": {
@@ -268,6 +688,12 @@
   },
   "[Grammar:Property:Word:Wh] why": {
     "yes": "0001-01-01T00:00:00Z"
+  },
+  "[No.] 1 [Cond]": {
+    "step 5 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": "0001-01-01T00:00:00Z"
+  },
+  "[No.] 2 [Cond]": {
+    "Susie don't have Susie 's favourite $food": "0001-01-01T00:00:00Z"
   },
   "[Pronoun:Cache] I": {
     "user_1": "0001-01-01T00:00:00Z"
@@ -293,13 +719,69 @@
   "[TeachMode] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Then] Susie 's favourite $food is $chocolate": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : $chocolate @@ Susie 's favourite $food is $chocolate @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] Susie 's favourite food is chocolate": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : chocolate @@ Susie 's favourite food is chocolate @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] Susie don't have Susie 's favourite $food": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite $food @@ Susie don't have Susie 's favourite $food @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 2 [of] [Executor] Susie [Execute] say : sorry @@ Susie don't have Susie 's favourite $food @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] Susie don't have Susie 's favourite food": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite food @@ Susie don't have Susie 's favourite food @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : sorry @@ Susie don't have Susie 's favourite food @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's favourite $food is @@ step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] check what Susie 's favourite food is @@ step 1 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : $chocolate @@ step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : chocolate @@ step 2 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "[CondGroup:Done] [No.] 2 [of] [Executor] Susie [Execute] say : sorry @@ step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : sorry @@ step 3 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite $food @@ step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite $food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : I don't have my favourite food @@ step 4 [of] [Executor] Susie [Execute] tell a person what Susie 's favourite food is @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
   "[Then] user_1 say : $apple is a $noun": {
     "[CondGroup:Done] [No.] 1 [of] [Common] $apple is a $noun @@ user_1 say : $apple is a $noun @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] user_1 say : $happy is an $adjective": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] $happy is an $adjective @@ user_1 say : $happy is an $adjective @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
   "[Then] user_1 say : apple is a noun": {
     "[CondGroup:Done] [No.] 1 [of] [Common] apple is a noun @@ user_1 say : apple is a noun @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
+  "[Then] user_1 say : happy is an adjective": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] happy is an adjective @@ user_1 say : happy is an adjective @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Units] $adjective": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] $apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] $chocolate": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] $food": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] $happy": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] $noun": {
@@ -311,10 +793,28 @@
   "[Units] I": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] Susie": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] a": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] about": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] abouting": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] adjective": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] adverb": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] am": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] aming": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] an": {
@@ -323,7 +823,19 @@
   "[Units] apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] appleing": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] are": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] areing": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] ask": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] asking": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] at": {
@@ -335,10 +847,61 @@
   "[Units] can't": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] check": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] checking": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] chocolate": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] chocolateing": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] conjunction": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] do": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] domain": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] domaining": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] don't": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] favourite": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] favouriteing": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] food": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] fooding": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] go": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] going": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] happy": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] happying": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] have": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] haveing": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] he": {
@@ -365,10 +928,25 @@
   "[Units] is": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] ising": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] it": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] its": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] know": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] knowing": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] like": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] likeing": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] me": {
@@ -383,13 +961,58 @@
   "[Units] on": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] or": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] our": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] person": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] personing": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] preposition": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] say": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] saying": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] she": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] sorry": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] sorrying": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] start": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] starting": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] talk": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] talking": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] teach": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] teaching": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] tell": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] telling": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] the": {
@@ -407,13 +1030,25 @@
   "[Units] they": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] to": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] under": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] understand": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] understanding": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] us": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] user_1": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] verb": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] we": {
@@ -440,10 +1075,148 @@
   "[Units] your": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Var:Cache] $adjective": {
+    "adjective": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $apple": {
+    "favourite": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $happy": {
+    "favourite": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $noun": {
+    "verb": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] chocolate": {
+    "$chocolate": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] food": {
+    "$food": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Candidate:Count]": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Candidate] [No.] 1": {
+    "food": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Candidate] [No.] 2": {
+    "chocolate": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $adjective": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Variety] $apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $chocolate": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $food": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $happy": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Variety] $noun": {
     "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] about": {
+    "abouting": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] am": {
+    "aming": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] apple": {
+    "appleing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] are": {
+    "areing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] ask": {
+    "asking": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] check": {
+    "checking": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] chocolate": {
+    "chocolateing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] domain": {
+    "domaining": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] favourite": {
+    "favouriteing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] food": {
+    "fooding": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] go": {
+    "going": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] happy": {
+    "happying": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] have": {
+    "haveing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] is": {
+    "ising": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] know": {
+    "knowing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] like": {
+    "likeing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] person": {
+    "personing": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] say": {
+    "saying": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] sorry": {
+    "sorrying": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] start": {
+    "starting": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] talk": {
+    "talking": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] teach": {
+    "teaching": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] tell": {
+    "telling": "0001-01-01T00:00:00Z"
+  },
+  "[Verb:ing] understand": {
+    "understanding": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter:CountOf] chocolate": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter:CountOf] food": {
+    "5": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter:CountOf] person": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter:CountOf] sorry": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter:Count]": {
+    "4": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter] [No.] 1": {
+    "person": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter] [No.] 2": {
+    "food": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter] [No.] 3": {
+    "chocolate": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter] [No.] 4": {
+    "sorry": "0001-01-01T00:00:00Z"
   }
 }

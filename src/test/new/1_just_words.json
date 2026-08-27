@@ -2,26 +2,47 @@
   "data": [
     {
       "commands": [
-        "user_1 says to Susie : your name is Susie",
-        "user_1 says to Susie : Susie",
-        "user_1 says to Susie : I am going to teach you",
+        "[Raw] user_1 say : talk is a verb",
+        "[Raw] user_1 say : about is a preposition",
+        "[Raw] user_1 say : person is a noun",
+        "[Raw] user_1 say : domain is a noun",
+        "[Raw] user_1 say : food is a noun",
+        "[Raw] user_1 say : chocolate is a noun",
+        "[Raw] user_1 say : like is a verb",
+        "[Raw] user_1 say : check is a verb",
+        "[Raw] user_1 say : know is a verb",
+        "[Raw] user_1 say : ask is a verb",
+        "[Raw] user_1 say : tell is a verb",
+        "[Raw] user_1 say : start is a verb",
+        "[Raw] user_1 say : teach is a verb",
+        "[Raw] user_1 say : understand is a verb",
+        "[Raw] user_1 say : go is a verb",
+        "[Raw] user_1 say : say is a verb",
+        "[Raw] user_1 say : favourite is an adjective"
 
-        "user_1 says to Susie : talk is a verb",
-        "user_1 says to Susie : about is a preposition",
-        "user_1 says to Susie : person is a noun",
-        "user_1 says to Susie : domain is a noun",
-        "user_1 says to Susie : food is a noun",
-        "user_1 says to Susie : like is a verb",
-        "user_1 says to Susie : check is a verb",
-        "user_1 says to Susie : know is a verb",
-        "user_1 says to Susie : ask is a verb",
-        "user_1 says to Susie : tell is a verb",
-        "user_1 says to Susie : start is a verb",
-        "user_1 says to Susie : teach is a verb",
-        "user_1 says to Susie : understand is a verb",
-        "user_1 says to Susie : go is a verb",
-        "user_1 says to Susie : noun is a variety",
-        "user_1 says to Susie : favourite is an adjective"
+      ],
+      "a": [
+        "[CondGroup:Reset] [No.] 1 [of] [Common] $apple is a $noun @Caller Test",
+        "[Raw] user_1 say : your name is Susie",
+        "[Raw] user_1 say : Susie",
+        "[Raw] user_1 say : I am going to teach you",
+
+        "[Raw] user_1 say : talk is a verb",
+        "[Raw] user_1 say : about is a preposition",
+        "[Raw] user_1 say : person is a noun",
+        "[Raw] user_1 say : domain is a noun",
+        "[Raw] user_1 say : food is a noun",
+        "[Raw] user_1 say : like is a verb",
+        "[Raw] user_1 say : check is a verb",
+        "[Raw] user_1 say : know is a verb",
+        "[Raw] user_1 say : ask is a verb",
+        "[Raw] user_1 say : tell is a verb",
+        "[Raw] user_1 say : start is a verb",
+        "[Raw] user_1 say : teach is a verb",
+        "[Raw] user_1 say : understand is a verb",
+        "[Raw] user_1 say : go is a verb",
+        "[Raw] user_1 say : say is a verb",
+        "[Raw] user_1 say : favourite is an adjective"
       ]
     }
   ]

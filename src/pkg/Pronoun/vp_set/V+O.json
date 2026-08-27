@@ -3,15 +3,15 @@
     {
       "commands": [
         "[input] [Grammar:VerbPhrase:V+O:Object] C [Pronoun] @ A -> D",
-        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] [Object] A",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] [V+O:Object]",
 
         "[input] [Grammar:VerbPhrase:V+O:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [Object] A @ D -> D1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [V+O:Object] @ D -> D1",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1"
       ]
     },
     {
-      "commands": [
+      "commands:D": [
         "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] E",
         "[input] [Grammar:VerbPhrase:V+O:Object] C [Pronoun] [Subject] @ A -> D",
         "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] [Object] A",
@@ -20,6 +20,18 @@
         "[input] [Grammar:VerbPhrase:V+O:Verb] C [Pronoun] [Subject] @ A -> B",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [Object] A @ D -> D1",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] E @ A -> B D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Subject] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Object] A",
+
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Object] A @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [S+VerbPhrase] E @ A -> B D1"
       ]
     }
   ]

@@ -14,23 +14,21 @@
     {
       "commands": [
         "[input] [2ndLearn:Noun] A @Caller C",
-        "[output] [Learn:Noun] A @Caller C",
         "[output] [Unlearn:Adjective] A @Caller C",
         "[output] [Unlearn:Adverb] A @Caller C",
         "[output] [Unlearn:Preposition] A @Caller C",
         "[output] [Unlearn:Verb] A @Caller C",
-        "[output] [repo] [Del] [Grammar:Property:Word:Unknown] A"
+        "[output] [repo] [DEL] [Grammar:Property:Word:Unknown] A"
       ]
     },
     {
       "commands": [
         "[input] [2ndLearn:Adjective] A @Caller C",
         "[output] [Unlearn:Noun] A @Caller C",
-        "[output] [Learn:Adjective] A @Caller C",
         "[output] [Unlearn:Adverb] A @Caller C",
         "[output] [Unlearn:Preposition] A @Caller C",
         "[output] [Unlearn:Verb] A @Caller C",
-        "[output] [repo] [Del] [Grammar:Property:Word:Unknown] A"
+        "[output] [repo] [DEL] [Grammar:Property:Word:Unknown] A"
       ]
     },
     {
@@ -38,10 +36,9 @@
         "[input] [2ndLearn:Adverb] A @Caller C",
         "[output] [Unlearn:Noun] A @Caller C",
         "[output] [Unlearn:Adjective] A @Caller C",
-        "[output] [Learn:Adverb] A @Caller C",
         "[output] [Unlearn:Preposition] A @Caller C",
         "[output] [Unlearn:Verb] A @Caller C",
-        "[output] [repo] [Del] [Grammar:Property:Word:Unknown] A"
+        "[output] [repo] [DEL] [Grammar:Property:Word:Unknown] A"
       ]
     },
     {
@@ -50,9 +47,8 @@
         "[output] [Unlearn:Noun] A @Caller C",
         "[output] [Unlearn:Adjective] A @Caller C",
         "[output] [Unlearn:Adverb] A @Caller C",
-        "[output] [Learn:Preposition] A @Caller C",
         "[output] [Unlearn:Verb] A @Caller C",
-        "[output] [repo] [Del] [Grammar:Property:Word:Unknown] A"
+        "[output] [repo] [DEL] [Grammar:Property:Word:Unknown] A"
       ]
     },
     {
@@ -62,8 +58,7 @@
         "[output] [Unlearn:Adjective] A @Caller C",
         "[output] [Unlearn:Adverb] A @Caller C",
         "[output] [Unlearn:Preposition] A @Caller C",
-        "[output] [Learn:Verb] A @Caller C",
-        "[output] [repo] [Del] [Grammar:Property:Word:Unknown] A"
+        "[output] [repo] [DEL] [Grammar:Property:Word:Unknown] A"
       ]
     }
 

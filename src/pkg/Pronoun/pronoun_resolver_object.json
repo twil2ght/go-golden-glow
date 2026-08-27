@@ -5,7 +5,8 @@
     "object_set/adj_pro_noun_phrase",
     "object_set/article",
     "object_set/pronoun",
-    "object_set/plain_noun"
+    "object_set/plain_noun",
+    "object_set/to_do"
   ],
   "data": [
     {

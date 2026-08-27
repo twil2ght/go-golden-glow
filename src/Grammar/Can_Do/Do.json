@@ -8,8 +8,8 @@
     {
       "commands": [
         "[input] [Grammar:Verify:S+VerbPhrase] A $CanDo B @Caller C",
-        "[input] [Grammar:Verify:Object] C [CanDo] A $CanDo B @ A -> yes",
-        "[input] [Grammar:Verify:VerbPhrase] C [Subject] A @ B -> yes",
+        "[input] [Grammar:Verify:Object] C [Subject] D @ A -> yes",
+        "[input] [Grammar:VerbPhrase:Verb] C [Subject] @ B -> D",
         "[output] [Grammar:Verify:S+VerbPhrase] C @ A $CanDo B -> yes",
         "[output] [Grammar:S+VerbPhrase:CDVerbPhrase] C @ A $CanDo B -> B",
         "[output] [Grammar:S+VerbPhrase:CanDo] C @ A $CanDo B -> $CanDo",
@@ -19,8 +19,14 @@
     {
       "commands": [
         "[input] [Grammar:Verify:S+VerbPhrase] A $CanDo B @Caller C",
-        "[output] [Grammar:Verify:Object] A @Caller C [CanDo] A $CanDo B",
-        "[output] [Grammar:Verify:VerbPhrase] B @Caller C [Subject] A"
+        "[output] [Grammar:Verify:VerbPhrase] B @Caller C [Subject]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:S+VerbPhrase] A $CanDo B @Caller C",
+        "[input] [Grammar:VerbPhrase:Verb] C [Subject] @ B -> D",
+        "[output] [Grammar:Verify:Object] A @Caller C [Subject] D"
       ]
     }
   ]

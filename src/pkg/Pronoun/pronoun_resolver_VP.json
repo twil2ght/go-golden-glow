@@ -6,6 +6,8 @@
     "vp_set/V+O",
     "vp_set/V+P",
     "vp_set/V",
+    "vp_set/V+Clause",
+    "vp_set/V+TODO",
     "../../Grammar/Verb_Phrase"
   ],
   "data": [
@@ -18,16 +20,16 @@
     {
       "description": "Special Case:SAY",
       "commands": [
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] says : A @Caller C",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWord]",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ says : A -> says : A"
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] say : A @Caller C",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWordCountAdd]",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ say : A -> say : A"
       ]
     },
     {
       "description": "Special Case:SAY",
       "commands": [
         "[input] [Pronoun:Resolve_Simplified:VerbPhrase] say : A @Caller C",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWord]",
+        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWordCountAdd]",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ say : A -> say : A"
       ]
     }

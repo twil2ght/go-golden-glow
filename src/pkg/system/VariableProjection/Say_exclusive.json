@@ -4,7 +4,7 @@
       "description": "Main",
       "commands": [
         "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> G say : A",
-        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller G say A"
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller G say A [Object]"
       ]
     },
     {
@@ -64,20 +64,20 @@
     {
       "description": "S+V+O(Article+PlainNoun as Object)",
       "commands": [
-        "[input] [Grammar:S+VerbPhrase:Subject] G say A @ A -> B",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] G say A @ A -> E",
-        "[input] [Grammar:VerbPhrase:Verb] G say A [Subject] @ E -> F1",
-        "[input] [Grammar:VerbPhrase:V+O:Object] G say A [Subject] @ E -> F",
-        "[input] [Grammar:Object:Article:PlainNoun] G say A [Subject] [VerbPhrase] [Verb] F1 @ F -> B1",
-        "[output] [repo] [GET] [Variety] B1 @Caller G say A [Subject] [VerbPhrase] [Verb] F1",
+        "[input] [Grammar:S+VerbPhrase:Subject] G say A [Object] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] G say A [Object] @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] G say A [Object] [Subject] @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] G say A [Object] [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article:PlainNoun] G say A [Object] [Subject] [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[output] [repo] [GET] [Variety] B1 @Caller G say A [Object] [Subject] [VerbPhrase] [Verb] F1",
 
-        "[input] [Grammar:S+VerbPhrase:Subject] G say A @ A -> B",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] G say A @ A -> E",
-        "[input] [Grammar:VerbPhrase:Verb] G say A [Subject] @ E -> F1",
-        "[input] [Grammar:VerbPhrase:V+O:Object] G say A [Subject] @ E -> F",
-        "[input] [Grammar:Object:Article] G say A [Subject] [VerbPhrase] [Verb] F1 @ F -> A1",
-        "[input] [Grammar:Object:Article:PlainNoun] G say A [Subject] [VerbPhrase] [Verb] F1 @ F -> B1",
-        "[input] [repo] G say A [Subject] [VerbPhrase] [Verb] F1 @ [Variety] B1 -> yes",
+        "[input] [Grammar:S+VerbPhrase:Subject] G say A [Object] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] G say A [Object] @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] G say A [Object] [Subject] @ E -> F1",
+        "[input] [Grammar:VerbPhrase:V+O:Object] G say A [Object] [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article] G say A [Object] [Subject] [VerbPhrase] [Verb] F1 @ F -> A1",
+        "[input] [Grammar:Object:Article:PlainNoun] G say A [Object] [Subject] [VerbPhrase] [Verb] F1 @ F -> B1",
+        "[input] [repo] G say A [Object] [Subject] [VerbPhrase] [Verb] F1 @ [Variety] B1 -> yes",
         "[output] [template:Run] variable:Say:S+V+Article+Var @Args F1 , A1 , B1 @Caller [CondGroup:Gen] G say : A"
       ]
     },

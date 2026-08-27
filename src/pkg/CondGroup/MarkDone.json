@@ -28,9 +28,9 @@
       "description": "Mark CondGroup as Done",
       "commands": [
         "[input] [CondGroup:Done] [No.] B [of] D @@ A @Caller C",
-        "[input] [repo] C @ [CondGroup:DoneState] [of] A for [No.] B [of] D ->",
+        "[input] [repo] C @ [CondGroup:DoneState] [of] A [for] [No.] B [of] D ->",
         "[output] [safe--] [Count] [of] [No.] B [CondGroup] [of] D @Caller C @@ A",
-        "[output] [repo] [SSET] [CondGroup:DoneState] [of] A for [No.] B [of] D -> yes"
+        "[output] [repo] [SSET] [CondGroup:DoneState] [of] A [for] [No.] B [of] D -> yes"
       ],
       "tip": "you haven't initialize the condGroup count,so you can't use [safe--]"
     },
@@ -48,7 +48,7 @@
       "description": "Check if CondGroup is Done",
       "commands": [
         "[input] [CondGroup:Done] [No.] B [of] D @@ A @Caller C",
-        "[output] [repo] [GET] [CondGroup:DoneState] [of] A for [No.] B [of] D @Caller C"
+        "[output] [repo] [GET] [CondGroup:DoneState] [of] A [for] [No.] B [of] D @Caller C"
       ]
     },
     {
@@ -85,16 +85,16 @@
       "description": "Undo CondGroup",
       "commands": [
         "[input] [CondGroup:Undone] [No.] B [of] D @@ A @Caller C",
-        "[input] [repo] C @ [CondGroup:DoneState] [of] A for [No.] B [of] D -> yes",
+        "[input] [repo] C @ [CondGroup:DoneState] [of] A [for] [No.] B [of] D -> yes",
         "[output] [safe++] [Count] [of] [No.] B [CondGroup] [of] D @Caller C @@ A",
-        "[output] [repo] [DEL] [CondGroup:DoneState] [of] C for [No.] B [of] D"
+        "[output] [repo] [DEL] [CondGroup:DoneState] [of] C [for] [No.] B [of] D"
       ]
     },
     {
       "description": "Check if CondGroup is done",
       "commands": [
         "[input] [CondGroup:Undone] [No.] B [of] D @@ A @Caller C",
-        "[output] [repo] [GET] [CondGroup:DoneState] [of] A for [No.] B [of] D @Caller C"
+        "[output] [repo] [GET] [CondGroup:DoneState] [of] A [for] [No.] B [of] D @Caller C"
       ]
     }
   ]

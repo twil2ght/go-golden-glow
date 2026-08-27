@@ -1,21 +1,30 @@
 {
-  "API": [
-    "[CondGroup:Reset] [No.] B [of] D @Caller C"
-  ],
   "data": [
     {
-      "description": "Reset [Count] [of] CondGroup:main",
       "commands": [
         "[input] [CondGroup:Reset] [No.] B [of] D @Caller C",
-        "[input] [repo] C [Reset] @ [Len] [of] [No.] B [CondGroup] [of] D -> F",
+        "[input] [repo] C [CondGroup:RESET] @ [CondGroup:ElementCount] [No.] B [of] D -> F",
         "[output] [repo] [SSET] [Count] [of] [No.] B [CondGroup] [of] D -> F"
       ]
     },
     {
-      "description": "Reset [Count] [of] CondGroup:gets",
       "commands": [
         "[input] [CondGroup:Reset] [No.] B [of] D @Caller C",
-        "[output] [repo] [GET] [Len] [of] [No.] B [CondGroup] [of] D @Caller C [Reset]"
+        "[output] [repo] [GET] [CondGroup:ElementCount] [No.] B [of] D @Caller C [CondGroup:RESET]",
+        "[output] [repo] [GET] [CondGroup] [No.] 1 [of] [No.] B [of] D @Caller C [CondGroup:RESET] [No.] B [of] D"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [CondGroup:RESET] [No.] B [of] D @ [CondGroup] [No.] E [of] [No.] B [of] D -> A",
+        "[output] [repo] [DEL] [CondGroup:DoneState] [of] A [for] [No.] B [of] D",
+        "[output] [compute] [GET] E + 1 @Caller C [CondGroup:RESET] A [No.] B [of] D",
+
+        "[input] [compute] C [CondGroup:RESET] A [No.] B [of] D @ E + 1 -> F",
+        "[output] [repo] [GET] [CondGroup] [No.] F of [No.] B [of] D @Caller C [CondGroup:RESET] [No.] B [of] D",
+
+        "[input] [repo] C [CondGroup:RESET] [No.] B [of] D @ [CondGroup] [No.] E [of] [No.] B [of] D ->",
+        "[output] [CondGroup:Reset:Done] [No.] B [of] D @Caller C"
       ]
     }
   ]

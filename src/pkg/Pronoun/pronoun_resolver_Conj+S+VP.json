@@ -11,10 +11,10 @@
 
         "[input] [Grammar:Conj+S+VerbPhrase:Conjunction] C [Pronoun] @ A -> F",
         "[input] [Grammar:Conj+S+VerbPhrase:S+VerbPhrase] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve_Simplified:S+VerbPhrase] E @Caller C [Pronoun] [Conj] F",
+        "[output] [Pronoun:Resolve_Simplified:S+VerbPhrase] E @Caller C [Conj] F [Pronoun]",
 
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C [Pronoun] [Conj] F @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:Sentence:Conj+S+VerbPhrase] C @ F E -> F E1"
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C [Conj] F [Pronoun] @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C @ F E -> F E1"
       ]
     }
   ]

@@ -1,0 +1,43 @@
+{
+  "name": "variable:Say:S+CanDo+V+PreNoun+Var",
+  "is_template": true,
+  "args": [
+    "$CanDo",
+    "$Verb",
+    "$PreNoun",
+    "$Variety"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Common] G say : A @Caller C",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] G say A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:CDSubject] C [Common] G say A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] C [Common] G say A @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say A [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say A [Subject] @ E -> F",
+        "[input] [Grammar:Object:NounPhrase:BackNoun] C [Common] G say A [Subject] [VerbPhrase] [Verb] $Verb @ F -> D",
+        "[input] [Grammar:Object:NounPhrase:PreNounPhrase] C [Common] G say A [Subject] [VerbPhrase] [Verb] $Verb @ F -> $PreNoun",
+        "[output] [repo] [GET] [Variety:Of] D @Caller C [Common] G say A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:CDSubject] C [Common] G say A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:CanDo] C [Common] G say A @ A -> $CanDo",
+        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] C [Common] G say A @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say A [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say A [Subject] @ E -> F",
+        "[input] [Grammar:Object:NounPhrase:BackNoun] C [Common] G say A [Subject] [VerbPhrase] [Verb] $Verb @ F -> D",
+        "[input] [Grammar:Object:NounPhrase:PreNounPhrase] C [Common] G say A [Subject] [VerbPhrase] [Verb] $Verb @ F -> $PreNoun",
+        "[input] [repo] C [Common] G say A @ [Variety:Of] D -> $Variety",
+        "[output] [Common] G say : B $CanDo $Verb $PreNoun $Variety @Caller C",
+        "[output] [repo] [SSET] [Var:Cache] $Variety -> D"
+      ]
+    }
+  ]
+}

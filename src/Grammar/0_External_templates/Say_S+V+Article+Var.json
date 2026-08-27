@@ -9,32 +9,32 @@
   "data": [
     {
       "commands": [
-        "[input] [Common] G say : A @Caller C",
-        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] G say"
+        "[input] [Legal] G say : A",
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller CVar [CVar] G say : A"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] G say @ A -> B",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] G say @ A -> E",
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] @ E -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] @ E -> F",
-        "[input] [Grammar:Object:Article] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
-        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> F",
-        "[output] [repo] [GET] [Variety:Of] F @Caller C [Common] G say $Verb"
+        "[input] [Grammar:S+VerbPhrase:Subject] C [CVar] G say : A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [CVar] G say : A @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [CVar] G say : A [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [CVar] G say : A [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article] C [CVar] G say : A [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [CVar] G say : A [Subject] [VerbPhrase] [Verb] $Verb @ F -> F1",
+        "[output] [Variety:Match] F1 [in] $Variety @Caller C [CVar] G say : A [Object:Verified]"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] G say @ A -> B",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] G say @ A -> E",
-        "[input] [Grammar:VerbPhrase:V+O:Verb] C [Common] G say [Subject] @ E -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] C [Common] G say [Subject] @ E -> F",
-        "[input] [Grammar:Object:Article] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
-        "[input] [Grammar:Object:Article:PlainNoun] C [Common] G say [Subject] [VerbPhrase] [Verb] $Verb @ F -> F",
-        "[input] [repo] C [Common] G say $Verb @ [Variety:Of] F -> $Variety",
-        "[output] [Common] G say : B $Verb $Article $Variety @Caller C",
-        "[output] [repo] [SSET] [Var:Cache] $Variety -> F"
+        "[input] [Grammar:S+VerbPhrase:Subject] C [CVar] G say : A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [CVar] G say : A @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Verb] C [CVar] G say : A [Subject] @ E -> $Verb",
+        "[input] [Grammar:VerbPhrase:V+O:Object] C [CVar] G say : A [Subject] @ E -> F",
+        "[input] [Grammar:Object:Article] C [CVar] G say : A [Subject] [VerbPhrase] [Verb] $Verb @ F -> $Article",
+        "[input] [Grammar:Object:Article:PlainNoun] C [CVar] G say : A [Subject] [VerbPhrase] [Verb] $Verb @ F -> F1",
+        "[input] [Variety:Match] C [CVar] G say : A [Object:Verified] @ F1 [in] $Variety -> yes",
+        "[output] [Legal] G say : B $Verb $Article $Variety",
+        "[output] [repo] [SSET] [Var:Cache] $Variety -> F1"
       ]
     }
   ]

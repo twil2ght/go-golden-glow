@@ -28,13 +28,22 @@ func main() {
 	Run(
 		//"src/Global.json",
 		//"src/BetterSettingWords/const.json",
-		"src/test/new/0_learn_word.json",
+		//"src/test/new/0_learn_word.json",
+		//"src/test/new/0_learn_word_V2.json",
+		//"src/test/new/1_just_words.json",
+		//"src/test/new/6_dont_understand_word.json",
+		//"src/test/new/5_teach_mode.json",
+		//"src/test/new/8_a_person_do.json",
+		//"src/test/new/4_call_by_name_V2.json",
+		//"src/test/new/4_call_by_name.json",
+		"src/test/new/3_what_like_v2.json",
 	)
 	//RunWithMsgMgr(
 	//	"src/test/5_test_TODO",
 	//)
 }
 func Run(dataDir ...string) {
+	start := time.Now()
 	go consumer.Run(ctx)
 	go func() {
 		file.Count = 0
@@ -45,6 +54,8 @@ func Run(dataDir ...string) {
 			if msgQueue.Len() == 0 && consumer.IsFinished() {
 				cancel()
 				fmt.Printf("Commands Loaded: %d\n", file.Count)
+				elapsed := time.Since(start)
+				fmt.Printf("Elapsed: %s\n", elapsed)
 				return
 			}
 			time.Sleep(1000 * time.Millisecond)

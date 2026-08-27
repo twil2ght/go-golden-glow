@@ -7,8 +7,16 @@
 
         "[input] [repo] C @ [Then] A -> B",
         "[output] B"
-      ],
-      "tip": "[then]的值(e.g:'B' above)自带[common]和@Caller"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Legal] A say : B",
+        "[output] [repo] [GET] [Then] A say : B @Caller A say : B",
+
+        "[input] [repo] A say : B @ [Then] A say : B -> D",
+        "[output] D"
+      ]
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands:D": [
+        "[input] [Grammar:Object:Type] C [Pronoun] @ to A -> to-infinitive",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller C [to-infinitive] A",
+
+        "[input] [Grammar:Object:Type] C [Pronoun] @ to A -> to-infinitive",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [to-infinitive] A @ A -> B",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ to A -> to B"
+      ]
+    }
+  ]
+}

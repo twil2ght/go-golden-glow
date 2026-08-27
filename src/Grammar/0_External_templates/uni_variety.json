@@ -1,0 +1,26 @@
+{
+  "name": "uni_variable",
+  "is_template": true,
+  "args": [
+    "$Variety"
+  ],
+  "data": [
+    {
+      "tip": "except the word itself",
+      "commands": [
+        "[input] [Variety:Match] A [in] $Variety @Caller C",
+        "[output] [repo] [GET] [Variety] A @Caller C",
+        "[output] [compute] [CHECK] A != $Variety @Caller C"
+      ]
+    },
+    {
+      "tip": "except the word itself",
+      "commands": [
+        "[input] [Variety:Match] A [in] $Variety @Caller C",
+        "[input] [compute] C @ A != $Variety -> yes",
+        "[input] [repo] C @ [Variety] A ->",
+        "[output] [Variety:Match] C @ A [in] $Variety -> yes"
+      ]
+    }
+  ]
+}

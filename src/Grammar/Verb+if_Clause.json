@@ -8,8 +8,11 @@
     {
       "commands": [
         "[input] [Grammar:Verify:V+Clause] $verb A @Caller C",
-        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller C [V+Clause] $verb",
-
+        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller C [V+Clause] $verb"
+      ]
+    },
+    {
+      "commands": [
         "[input] [Grammar:Verify:Conj+S+VerbPhrase] C [V+Clause] $verb @ A -> yes",
         "[output] [Grammar:Verify:V+Clause] C @ $verb A -> yes",
         "[output] [Grammar:V+Clause:Verb] C @ $verb A -> $verb",

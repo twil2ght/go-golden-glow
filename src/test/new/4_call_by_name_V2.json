@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Raw] user_1 say : if I call your name",
+        "[Raw] user_1 say : say : I am here",
+        "[Var:Learning:Reset] @Caller C"
+      ],
+      "a": [
+        "[Raw] user_1 say : if I call your name",
+        "[Raw] user_1 say : say : I am here",
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ]
+    }
+  ]
+}

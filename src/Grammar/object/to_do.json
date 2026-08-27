@@ -3,7 +3,7 @@
     {
       "e.g": "go+to do sth/try+to do sth",
       "description": "V+to-infinitive",
-      "commands": [
+      "commands:D": [
         "[input] [Grammar:Verify:Object] to A @Caller C",
         "[output] [Grammar:Verify:VerbPhrase] A @Caller C [Object:infinitive]",
 

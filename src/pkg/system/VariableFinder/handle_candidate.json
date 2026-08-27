@@ -13,6 +13,7 @@
         "[input] [word] [AddPrefix] C [LearnVar] [No.] B @ A # $ -> A1",
         "[output] [repo] [SSET] [Var:Cache] A -> A1",
         "[output] [repo] [SSET] [Variety] A1 -> yes",
+        "[output] [template:Run] uni_variable @Args A1 @Caller C",
         "[output] [Learn:Noun] A1 @Caller C",
         "[output] [compute] [GET] B + 1 @Caller C [Var:Candidate] [No.] B",
 

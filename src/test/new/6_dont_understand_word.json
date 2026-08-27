@@ -2,8 +2,18 @@
   "data": [
     {
       "commands": [
-        "[Raw] user_1 says to Susie : if you don't understand the word apple",
-        "[Raw] user_1 says to Susie : say : I don't understand the word apple"
+        "[Raw] user_1 say : word is a noun",
+        "[Raw] user_1 say : if you don't understand the word apple",
+        "[Raw] user_1 say : say : I don't understand the word apple",
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ],
+      "a": [
+        "[Raw] user_1 say : word is a noun",
+        "[Raw] user_1 say : if you don't understand the word apple",
+        "[Raw] user_1 say : say : I don't understand the word apple",
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
       ]
     }
   ]

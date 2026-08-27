@@ -1,0 +1,24 @@
+{
+  "name": "V+TODO",
+  "is_template": true,
+  "args": [
+    "$verb"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+TODO] $verb to B @Caller C",
+        "[input] [Grammar:Verify:VerbPhrase] C [Verb] $verb @ B -> yes",
+        "[output] [Grammar:Verify:V+TODO] C @ $verb to B -> yes",
+        "[output] [Grammar:V+TODO:Verb] C @ $verb to B -> $verb",
+        "[output] [Grammar:V+TODO:TODO] C @ $verb to B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V+TODO] $verb to B @Caller C",
+        "[output] [Grammar:Verify:VerbPhrase] B @Caller C [Verb] $verb"
+      ]
+    }
+  ]
+}

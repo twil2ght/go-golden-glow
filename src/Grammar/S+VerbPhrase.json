@@ -18,7 +18,13 @@
     {
       "commands": [
         "[input] [Grammar:Verify:S+VerbPhrase] A $verb B @Caller C",
-        "[output] [Grammar:Verify:Object] A @Caller C [Subject] $verb",
+        "[output] [Grammar:Verify:Object] A @Caller C [Subject] $verb"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:S+VerbPhrase] A $verb B @Caller C",
+        "[input] [Grammar:Verify:Object] C [Subject] $verb @ A -> yes",
         "[output] [Grammar:Verify:VerbPhrase] $verb B @Caller C [Subject]"
       ]
     },

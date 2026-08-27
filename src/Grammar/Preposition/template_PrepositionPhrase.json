@@ -8,12 +8,13 @@
     {
       "commands": [
         "[input] [Grammar:Verify:PrepositionPhrase] $prep B @Caller C",
-        "[output] [Grammar:Verify:Object] B @Caller C [Prep]"
+        "[output] [Grammar:Verify:Object] B @Caller C [Prep] $prep"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:Verify:Object] C [Prep] @ B -> yes",
+        "[input] [Grammar:Verify:PrepositionPhrase] $prep B @Caller C",
+        "[input] [Grammar:Verify:Object] C [Prep] $prep @ B -> yes",
         "[output] [Grammar:Verify:PrepositionPhrase] C @ $prep B -> yes"
       ]
     }

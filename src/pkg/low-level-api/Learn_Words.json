@@ -95,7 +95,22 @@
         "[input] [repo] C @ [Grammar:Property:Word:Unknown] A -> yes",
         "[output] [2ndLearn:Adjective] A @Caller C"
       ]
-    }
+    },
+    {
+      "commands": [
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> preposition",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Units] A -> yes",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A ->",
+        "[output] [Learn:Preposition] A @Caller C",
 
+        "[input] [Common] B is a D @Caller C",
+        "[input] [Var:Resolve:Object] C [Learn:Words:Variety] @ D -> preposition",
+        "[input] [Var:Resolve:Object] C @ B -> A",
+        "[input] [repo] C @ [Grammar:Property:Word:Unknown] A -> yes",
+        "[output] [2ndLearn:Preposition] A @Caller C"
+      ]
+    }
   ]
 }

@@ -8,25 +8,25 @@
     {
       "commands": [
         "[input] [Common] A @Caller C",
-        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [Common] [Variety]"
+        "[output] [Grammar:Verify:S+VerbPhrase] A @Caller C [CV:SUBJECT] A"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> B",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
-        "[input] [Grammar:VerbPhrase:Verb] C [Common] [Variety] [Subject] B @ E -> D",
-        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] [Variety] [Subject] D @ B -> B",
-        "[output] [repo] [GET] [Variety] B @Caller C [Common] [Variety]"
+        "[input] [Grammar:S+VerbPhrase:Subject] C [CV:SUBJECT] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [CV:SUBJECT] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] C [CV:SUBJECT] A [Subject] B @ E -> D",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [CV:SUBJECT] A [Subject] D @ B -> B",
+        "[output] [repo] [GET] [Variety] B @Caller C [CV:SUBJECT] A"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Common] [Variety] @ A -> B",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Common] [Variety] @ A -> E",
-        "[input] [Grammar:VerbPhrase:Verb] C [Common] [Variety] [Subject] B @ E -> D",
-        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [Common] [Variety] [Subject] D @ B -> B",
-        "[input] [repo] C [Common] [Variety] @ [Variety:Of] B -> $Variety",
+        "[input] [Grammar:S+VerbPhrase:Subject] C [CV:SUBJECT] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [CV:SUBJECT] A @ A -> E",
+        "[input] [Grammar:VerbPhrase:Verb] C [CV:SUBJECT] A [Subject] B @ E -> D",
+        "[input] [Grammar:Object:NounPhrase:PlainNoun] C [CV:SUBJECT] A [Subject] D @ B -> B",
+        "[input] [repo] C [CV:SUBJECT] A @ [Variety:Of] B -> $Variety",
         "[output] [Common] $Variety E @Caller C",
         "[output] [repo] [SSET] [Var:Cache] $Variety -> B"
       ]
