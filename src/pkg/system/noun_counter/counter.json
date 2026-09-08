@@ -33,8 +33,12 @@
         "[output] [compute] [GET] B + 1 @Caller C [Add]",
 
         "[input] [Word:Counter:Add] A @Caller C",
+        "[input] [repo] C [Add] @ [Word:Counter:CountOf] A -> B",
         "[input] [compute] C [Add] @ B + 1 -> F",
-        "[output] [repo] [SSET] [Word:Counter:CountOf] A -> F"
+        "[output] [repo] [SSET] [Word:Counter:CountOf] A -> F",
+
+        "[input] [repo] [SSET] [Word:Counter] [No.] D -> A",
+        "[output] [Word:Counter:Add:Done] A @Caller A"
       ]
     },
     {

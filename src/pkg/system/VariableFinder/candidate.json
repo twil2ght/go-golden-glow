@@ -27,6 +27,7 @@
         "[input] [repo] C [Var:Candidate][Reset] [No.] D @ [Var:Candidate] [No.] B -> A",
         "[output] [compute] [GET] B + 1 @Caller C [Var:Candidate][Reset] [No.] B",
         "[output] [repo] [DEL] [Var:Candidate] [No.] B",
+        "[output] [repo] [DEL] [Var:Candidate:Type] A",
         "[output] [repo] [DEL] [Var:Cache] A",
 
         "[input] [compute] C [Var:Candidate][Reset] [No.] B @ B + 1 -> F",

@@ -2,5 +2,5 @@ package config
 
 const (
 	GG   = "Susie"
-	User = "Zero"
+	User = "user_1"
 )

@@ -10,15 +10,15 @@
         "[output] [repo] [SSET] [Pronoun:Cache] me -> me",
         "[output] [repo] [SSET] [Pronoun:Cache] you -> you",
         "[output] [repo] [SSET] [Pronoun:Cache] your -> your",
-        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C [Susie says]",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller C [Susie says]",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller C [Susie says]",
+        "[output] [Var:Resolve:Conj+S+VerbPhrase] A @Caller C [Susie says]",
+        "[output] [Var:Resolve:S+VerbPhrase] A @Caller C [Susie says]",
+        "[output] [Var:Resolve:VerbPhrase] A @Caller C [Susie says]",
 
-        "[input] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C [Susie says] @ A -> B",
+        "[input] [Var:Resolve:Conj+S+VerbPhrase] C [Susie says] @ A -> B",
         "[output] [Speak] B",
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C [Susie says] @ A -> B",
+        "[input] [Var:Resolve:S+VerbPhrase] C [Susie says] @ A -> B",
         "[output] [Speak] B",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Susie says] @ A -> B",
+        "[input] [Var:Resolve:VerbPhrase] C [Susie says] @ A -> B",
         "[output] [Speak] B"
       ]
     }

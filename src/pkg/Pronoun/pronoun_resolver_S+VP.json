@@ -14,9 +14,12 @@
         "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] @ A -> E",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
+        "[output] [Object-Level:Counter:Add] B1 @Caller C",
         "[output] [Pronoun:Resolve_Simplified:VerbPhrase] E @Caller C [Pronoun] [S+VerbPhrase] A",
 
         "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller C",
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] @ A -> E",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] A @ E -> E1",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] [S+VerbPhrase] A @ B -> B1",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ A -> B1 E1"
@@ -32,52 +35,15 @@
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] [Conj] F @ A -> E",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] [Conj] F @ A -> B",
         "[input] [Pronoun:Resolve:Sentence:Object] C [S+VerbPhrase] A @ B -> B1",
+        "[output] [Object-Level:Counter:Add] B1 @Caller C",
         "[output] [Pronoun:Resolve_Simplified:VerbPhrase] E @Caller C [Pronoun] [Conj] F [S+VerbPhrase] A",
 
         "[input] [Pronoun:Resolve_Simplified:S+VerbPhrase] A @Caller C [Conj] F [Pronoun]",
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] [Conj] F @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] [Conj] F @ A -> E",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [Conj] F [S+VerbPhrase] A @ E -> E1",
         "[input] [Pronoun:Resolve:Sentence:Object] C [S+VerbPhrase] A @ B -> B1",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] C [Conj] F [Pronoun] @ A -> B1 E1"
-      ]
-    },
-    {
-      "description": "CanDo",
-      "commands": [
-        "[input] [Grammar:S+VerbPhrase:CDSubject] C [Pronoun] @ A -> B",
-        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [CanDo] [Pronoun] [S+VerbPhrase] A",
-
-        "[input] [Grammar:S+VerbPhrase:CDSubject] C [Pronoun] @ A -> B",
-        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] C [Pronoun] @ A -> E",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [CanDo] [Pronoun] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [CanDo] [Pronoun] [S+VerbPhrase] A [Subject] B",
-
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:CanDo] C [Pronoun] @ A -> G",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [CanDo] [Pronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [CanDo] [Pronoun] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ A -> B1 G E1"
-      ]
-    },
-    {
-      "description": "CanDo",
-      "commands": [
-        "[input] [Pronoun:Resolve_Simplified:S+VerbPhrase] A @Caller C [Conj] F",
-        "[input] [Grammar:S+VerbPhrase:CDSubject] C [Conj] F @ A -> B",
-        "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [CanDo] [Pronoun] [S+VerbPhrase] A",
-
-        "[input] [Pronoun:Resolve_Simplified:S+VerbPhrase] A @Caller C [Conj] F",
-        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] C [Conj] F @ A -> E",
-        "[input] [Grammar:S+VerbPhrase:CDSubject] C [Conj] F @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [CanDo] [Pronoun] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Pronoun:Resolve_Simplified:VerbPhrase] E @Caller C [CanDo] [Pronoun] [S+VerbPhrase] A [Subject] B",
-
-        "[input] [Pronoun:Resolve_Simplified:S+VerbPhrase] A @Caller C [Conj] F",
-        "[input] [Grammar:S+VerbPhrase:CanDo] C [Pronoun] @ A -> G",
-        "[input] [Grammar:S+VerbPhrase:CDVerbPhrase] C [Conj] F @ A -> E",
-        "[input] [Grammar:S+VerbPhrase:CDSubject] C [Conj] F @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [CanDo] [Pronoun] [S+VerbPhrase] A [Subject] B @ E -> E1",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [CanDo] [Pronoun] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Pronoun:Resolve:S+VerbPhrase] C [Conj] F @ A -> B1 G E1"
       ]
     },
     {
@@ -94,10 +60,13 @@
         "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] @ A -> E",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun:Resolve_V2] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun:Resolve_V2] [S+VerbPhrase] A [Subject] B",
+        "[output] [Object-Level:Counter:Add] B1 @Caller C",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun:Resolve_V2] [S+VerbPhrase] A",
 
         "[input] [Pronoun:Resolve_V2:Sentence:S+VerbPhrase] A @Caller C",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun:Resolve_V2] [S+VerbPhrase] A [Subject] B @ E -> E1",
+        "[input] [Grammar:S+VerbPhrase:Subject] C [Pronoun] @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Pronoun] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun:Resolve_V2] [S+VerbPhrase] A @ E -> E1",
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun:Resolve_V2] [S+VerbPhrase] A @ B -> B1",
         "[output] [Pronoun:Resolve_V2:Sentence:S+VerbPhrase] C @ A -> B1 E1"
       ]

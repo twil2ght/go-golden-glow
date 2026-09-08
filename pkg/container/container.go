@@ -6,6 +6,7 @@ import (
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/variable"
 	"goldenglow/utils"
+	"sync"
 )
 
 type Checkable interface {
@@ -21,6 +22,7 @@ type Interface interface {
 	Forward(t node.Interface, state string) bool
 }
 type container struct {
+	mu                  sync.Mutex
 	hash                string
 	t                   m.Map[node.Interface]
 	r                   m.Map[node.Interface]
@@ -38,6 +40,8 @@ func (c *container) R() (m.Map[node.Interface], m.Map[[]string]) {
 	return c.r, c.s
 }
 func (c *container) Forward(t node.Interface, state string) bool {
+	c.mu.Lock()
+	defer c.mu.Unlock()
 	if !c.fetch() {
 		return false
 	}
@@ -59,11 +63,22 @@ func (c *container) fetch() bool {
 	}
 	return true
 }
+
+//	func (c *container) findCompatibleVarSet(t node.Interface, varSet variable.Set) bool {
+//		if varSet != nil {
+//			c.varSet = varSet
+//		}
+//		return mergeVariables(t, c.NormalT(), c.varSet)
+//	}
 func (c *container) findCompatibleVarSet(t node.Interface, varSet variable.Set) bool {
 	if varSet != nil {
-		c.varSet = varSet
+		c.varSet = variable.Copy(varSet)
 	}
-	return mergeVariables(t, c.NormalT(), c.varSet)
+	ok, newVarSet := mergeVariables(t, c.NormalT(), c.varSet)
+	if ok {
+		c.varSet = newVarSet
+	}
+	return ok
 }
 func (c *container) handleSpecialT() bool {
 	for _, t := range c.t {

@@ -2,7 +2,6 @@
   "data": [
     {
       "commands": [
-        "[Raw] user_1 say : word is a noun",
         "[Raw] user_1 say : if you don't understand the word apple",
         "[Raw] user_1 say : say : I don't understand the word apple",
         "[VarietyLearning] @Caller Test",
@@ -14,6 +13,60 @@
         "[Raw] user_1 say : say : I don't understand the word apple",
         "[VarietyLearning] @Caller Test",
         "[Var:Learning:Reset] @Caller C"
+      ],
+      "b": [
+        "if you don't understand some words",
+        "you can ask me one by one or say them all at one time"
+      ],
+      "c": [
+        "if the number of the words that you don't understand is greater than 1",
+        "then you don't understand some words"
+      ],
+      "d": [
+        "to ask me questions one by one",
+        "first you ask me one question", "-> ask me your question",
+        "then wait until I answer that question", "-> wait",
+        "otherwise don't ask another question",
+        "if I answer your question",
+        "then you can ask me your next question","-> ask me your next question"
+      ],
+      "e": [
+        "to say the words that you don't understand all at one time",
+        "say I don't understand the word",
+        "then say out the No. 1 word that you don't understand",
+        "if you say out a word that you don't understand",
+        "say out the next word that you don't understand"
+      ],
+      "e1": [
+        "to say out the next word that you don't understand",
+        "check what the position of the last word that you don't understand is",
+        "if it is No. 2",
+        "then say out the No. 3 word that you don't understand",
+
+        "if you say out the No. 3 word that you don't understand",
+        "then the position of the last word that you don't understand is No. 3"
+      ],
+      "1": [
+        "tell me what if you do not know the word owo",
+        "A: say : I don't know the word owo",
+        "forget about it",
+        "if you do not know the word owo",
+        "then check if you can ask me questions",
+        "if yes",
+        "ask me to know the word owo",
+        "to ask me to know the word owo",
+        "you can say : I don't know the word owo"
+      ],
+      "2": [
+
+        "TWO POINTS:1.verb-phrase-level variable;2.pronoun-resolver:it",
+        "check the r you do not know the word owo",
+        "check the result that you do not know the word owo",
+        "if it is that you say : hello",
+        "say : I will say : hello"
+      ],
+      "2.1": [
+        "what if + S+VerbPhrase is a sentence template"
       ]
     }
   ]

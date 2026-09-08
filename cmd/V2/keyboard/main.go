@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"goldenglow/config"
+	"goldenglow/pkg/database"
 	"goldenglow/pkg/messageQueue"
 	"goldenglow/pkg/node/template"
 	"goldenglow/pkg/runner"
@@ -40,9 +41,12 @@ func main() {
 		// "Susie says to Zero : hello"
 		if ok, varSet := template.MatchTemplate(rawMsg, "$1 says to $2 : $3"); ok {
 			sender, msg = varSet["$1"].Value(), varSet["$3"].Value()
-		} else if ok, varSet := template.MatchTemplate(rawMsg, "$1 says : $2"); ok {
+		} else if ok, varSet := template.MatchTemplate(rawMsg, "$1 say : $2"); ok {
 			// "Susie says : hello"
-			sender, msg = varSet["$1"].Value(), varSet["$2"].Value()
+			sender, msg = varSet["$1"].Value(), fmt.Sprintf("[Raw] %s", msg)
+		}
+		if sender == "Background" {
+			return
 		}
 		chatUI.Display(tui.Message{Sender: sender, Text: msg, Time: time.Now()})
 	})
@@ -60,11 +64,13 @@ func main() {
 	// Run the TUI (blocks until ctx is done)
 	chatUI.Start(ctx)
 
+	_ = database.DefaultJSONRepo().Shutdown()
+	_ = database.DefaultRedisRepo().Shutdown()
 	plugin.DefaultManager.Range(func(_ string, p plugin.Interface) bool {
 		p.Shutdown()
 		return true
 	})
 }
 func WithUserPrefix(user, msg string) string {
-	return fmt.Sprintf("%s says to %s : %s", user, config.GG, msg)
+	return fmt.Sprintf("[Raw] %s say : %s", user, msg)
 }

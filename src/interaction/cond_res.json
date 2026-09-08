@@ -30,7 +30,13 @@
         "[input] [repo] C [Cond&Res:Get] @ [Cond&Res] [No.] A  -> B",
         "[input] [repo] C [Cond&Res:Get] @ [Cond&Res:Type] [No.] A  -> D",
         "[output] [Cond&Res] C @ [No.] A -> B",
-        "[output] [Cond&Res:Type] C @ [No.] A -> D"
+        "[output] [Cond&Res:Type] C @ [No.] A -> D",
+
+        "[input] [repo] C [Cond&Res:Get] @ [Cond&Res] [No.] A  ->",
+        "[output] [Cond&Res] C @ [No.] A ->",
+
+        "[input] [repo] C [Cond&Res:Get] @ [Cond&Res:Type] [No.] A  ->",
+        "[output] [Cond&Res:Type] C @ [No.] A ->"
       ]
     },
     {

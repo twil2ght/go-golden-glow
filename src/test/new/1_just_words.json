@@ -4,10 +4,19 @@
       "commands": [
         "[Raw] user_1 say : talk is a verb",
         "[Raw] user_1 say : about is a preposition",
+        "[Raw] user_1 say : of is a preposition",
+        "[Raw] user_1 say : plus is a preposition",
         "[Raw] user_1 say : person is a noun",
         "[Raw] user_1 say : domain is a noun",
         "[Raw] user_1 say : food is a noun",
+        "[Raw] user_1 say : index is a noun",
+        "[Raw] user_1 say : apple is a noun",
+        "[Raw] user_1 say : something is a noun",
+        "[Raw] user_1 say : mode is a noun",
         "[Raw] user_1 say : chocolate is a noun",
+        "[Raw] user_1 say : placeholder is a noun",
+        "[Raw] user_1 say : time is a noun",
+        "[Raw] user_1 say : word is a noun",
         "[Raw] user_1 say : like is a verb",
         "[Raw] user_1 say : check is a verb",
         "[Raw] user_1 say : know is a verb",
@@ -15,10 +24,16 @@
         "[Raw] user_1 say : tell is a verb",
         "[Raw] user_1 say : start is a verb",
         "[Raw] user_1 say : teach is a verb",
+        "[Raw] user_1 say : have is a verb",
+        "[Raw] user_1 say : use is a verb",
         "[Raw] user_1 say : understand is a verb",
         "[Raw] user_1 say : go is a verb",
         "[Raw] user_1 say : say is a verb",
-        "[Raw] user_1 say : favourite is an adjective"
+        "[Raw] user_1 say : increase is a verb",
+        "[Raw] user_1 say : equal is a verb",
+        "[Raw] user_1 say : favourite is an adjective",
+        "[Raw] user_1 say : new is an adjective",
+        "[Raw] user_1 say : sorry is an adjective"
 
       ],
       "a": [

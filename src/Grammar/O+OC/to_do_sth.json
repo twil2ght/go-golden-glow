@@ -7,7 +7,7 @@
         "[input] [Grammar:Verify:VerbPhrase] C [O+OC] @ A -> yes",
         "[output] [Grammar:Verify:O+OC] C @ B to A -> yes",
         "[output] [Grammar:O+OC:Object] C @ B to A -> B",
-        "[output] [Grammar:O+OC:OC] C @ B to A -> A"
+        "[output] [Grammar:O+OC:OC(to)] C @ B to A -> to A"
       ]
     },
     {

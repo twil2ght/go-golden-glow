@@ -8,9 +8,9 @@
         "[output] [template:Run] O+OC:do_sth @Args A @Caller C",
         "[output] [template:Run] V+Prep @Args A @Caller C",
         "[output] [template:Run] V+O @Args A @Caller C",
+        "[output] [template:Run] V+O+OC @Args A @Caller C",
         "[output] [template:Run] V+IO+DO @Args A @Caller C",
         "[output] [template:Run] V+TODO @Args A @Caller C",
-        "[output] [template:Run] V+Clause @Args A @Caller C",
         "[output] [Grammar:Verb:Template] A -> Unknown @Caller C",
         "[output] [repo] [SSET] [Units] A -> yes",
         "[output] [word] [AddSuffix] A # ing @Caller C [LearnNewVerb]",
@@ -27,12 +27,12 @@
     {
       "commands": [
         "[input] [Unlearn:Verb] A @Caller C",
-        "[output] [repo] [Del] [Grammar:Property:Word:Verb] A",
+        "[output] [repo] [DEL] [Grammar:Property:Word:Verb] A",
         "[output] [template:Del] S+VerbPhrase @Args A @Caller C",
         "[output] [template:Del] O+OC:do_sth @Args A @Caller C",
         "[output] [template:Del] V+Prep @Args A @Caller C",
-        "[output] [template:Del] V+Clause @Args A @Caller C",
         "[output] [template:Del] V+O @Args A @Caller C",
+        "[output] [template:Del] V+O+OC @Args A @Caller C",
         "[output] [template:Del] V+IO+DO @Args A @Caller C",
         "[output] [template:Del] V+TODO @Args A @Caller C"
       ]

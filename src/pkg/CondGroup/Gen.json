@@ -32,6 +32,7 @@
         "[output] [Cond:Used] [No.] F1 -> A",
         "[output] [CondGroup:ElementCount++] [No.] B [of] D @Caller [No.] F1 [Cond]",
         "[output] [repo] [SET] [Then] A -> [CondGroup:Done] [No.] B [of] D @@ A @Caller NOTHING",
+        "[output] [CR:Cache] A -> [No.] B [of] D",
 
         "[input] [repo] D [CondGroup:Gen] [No.] F @ [No.] F1 [Cond] -> A",
         "[input] [CondGroup:ElementCount] [No.] F1 [Cond] @ [No.] B [of] D -> B1",
@@ -54,7 +55,7 @@
       "description": "shutdown",
       "commands": [
         "[input] [repo] D [CondGroup:Gen] [No.] F @ [No.] F1 [Cond] ->",
-        "[output] [Res:Done] D @Caller HaveFun!"
+        "[output] [Res:Gen:Done] D @Caller HaveFun!"
       ]
     }
   ]

@@ -1,0 +1,104 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VarietyLearning] @Caller C",
+        "[output] [VP-Level:Counter:Get] [No.] 1 @Caller C [LearnVP] [No.] 0",
+
+        "[input] [VP-Level:Counter:Get] C [LearnVP] [No.] B @ [No.] B1 -> F",
+        "[input] [VP-Level:Counter:Get:Amount] C [LearnVP] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [CHECK] F1 > 1 @Caller C [LearnVP] [No.] B1",
+        "[output] [compute] [CHECK] F1 < 2 @Caller C [LearnVP] [No.] B1",
+
+        "[input] [VP-Level:Counter:Get] C [LearnVP] [No.] B @ [No.] B1 -> F",
+        "[input] [VP-Level:Counter:Get:Amount] C [LearnVP] [No.] B @ [No.] B1 -> F1",
+        "[input] [compute] C [LearnVP] [No.] B1 @ F1 > 1 -> yes",
+        "[output] [compute] [GET] B1 + 1 @Caller C [LearnVP] [No.] B1",
+        "[output] [Var:Candidate:Add] F @Caller C [LearnVP]",
+        "[output] [repo] [SSET] [Var:Candidate:Type] F -> VP",
+
+        "[input] [VP-Level:Counter:Get] C [LearnVP] [No.] B @ [No.] B1 -> F",
+        "[input] [VP-Level:Counter:Get:Amount] C [LearnVP] [No.] B @ [No.] B1 -> F1",
+        "[input] [compute] C [LearnVP] [No.] B1 @ F1 < 2 -> yes",
+        "[output] [compute] [GET] B1 + 1 @Caller C [LearnVP] [No.] B1",
+
+        "[input] [compute] C [LearnVP] [No.] B1 @ B1 + 1 -> F",
+        "[output] [VP-Level:Counter:Get] [No.] F @Caller C [LearnVP] [No.] B1",
+
+        "[input] [VP-Level:Counter:Get] C [LearnVP] [No.] B @ [No.] B1 ->",
+        "[output] [VP:Candidate:Find:Done] @Caller C [LearnVP]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [BetterVarietyLearning] @Caller C",
+        "[output] [Cond:Reset] @Caller C",
+        "[output] [VP-Level:Counter:Get] [No.] 1 @Caller C [BetterLearnVP] [No.] 0",
+
+        "[input] [VP-Level:Counter:Get] C [BetterLearnVP] [No.] B @ [No.] B1 -> F",
+        "[input] [VP-Level:Counter:Get:Amount] C [BetterLearnVP] [No.] B @ [No.] B1 -> F1",
+        "[output] [repo] [GET] [Var:Candidate:Type] F @Caller C [BetterLearnVP] [No.] B1",
+        "[output] [compute] [CHECK] F1 > 1 @Caller C [BetterLearnVP] [No.] B1",
+
+        "[input] [VP-Level:Counter:Get] C [BetterLearnVP] [No.] B @ [No.] B1 -> F",
+        "[input] [VP-Level:Counter:Get:Amount] C [BetterLearnVP] [No.] B @ [No.] B1 -> F1",
+        "[input] [repo] C [BetterLearnVP] [No.] B1 @ [Var:Candidate:Type] F ->",
+        "[input] [compute] C [BetterLearnVP] [No.] B1 @ F1 > 1 -> yes",
+        "[output] [TODO:Add] [Common] Susie don't know if ` F ` is a placeholder @Caller [Generalize]",
+        "[output] [safe++] [VP:Candidate:Undone] @Caller B1",
+        "[output] [repo] [SSET] [Candidate:Undone:Type] F -> VP",
+
+        "[input] [VP-Level:Counter:Get] C [BetterLearnVP] [No.] B @ [No.] B1 -> F",
+        "[input] [VP-Level:Counter:Get:Amount] C [BetterLearnVP] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [GET] B1 + 1 @Caller C [BetterLearnVP] [No.] B1",
+
+        "[input] [compute] C [BetterLearnVP] [No.] B1 @ B1 + 1 -> F",
+        "[output] [VP-Level:Counter:Get] [No.] F @Caller C [BetterLearnVP] [No.] B1",
+
+        "[input] [VP-Level:Counter:Get] C [BetterLearnVP] [No.] B @ [No.] B1 ->",
+        "[output] [repo] [GET] [VP:Candidate:Undone] @Caller C [BetterLearnVP]",
+
+        "[input] [repo] C [BetterLearnVP] @ [VP:Candidate:Undone] ->",
+        "[output] [TODO:Add] [BetterVP:Candidate:Find:Done] @Caller [BetterLearnVP]",
+
+        "[input] [repo] C [BetterLearnVP] @ [VP:Candidate:Undone] -> B",
+        "[output] [Print] VP-Candidate: B @Caller Hi"
+      ]
+    },
+    {
+      "commands":[
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` is a placeholder",
+        "[output] [repo] [GET] [Candidate:Undone:Type] F @Caller F [--]",
+
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` isn't a placeholder",
+        "[output] [repo] [GET] [Candidate:Undone:Type] F @Caller F [--]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` is a placeholder",
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> VP",
+        "[output] [repo] [GET] [VP:Candidate:Undone] @Caller F [--]",
+        "[output] [Var:Candidate:Add] F @Caller [BetterLearnVP]",
+        "[output] [repo] [SSET] [Var:Candidate:Type] F -> VP",
+
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` isn't a placeholder",
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> VP",
+        "[output] [repo] [GET] [VP:Candidate:Undone] @Caller F [--]",
+
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> VP",
+        "[input] [repo] F [--] @ [VP:Candidate:Undone] -> A",
+        "[output] [Print] [VP:Candidate:Undone] -> A @Caller Hi",
+        "[output] [compute] [GET] A - 1 @Caller [VP:Candidate:Undone]",
+
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> VP",
+        "[input] [repo] F [--] @ [VP:Candidate:Undone] -> A",
+        "[input] [compute] [VP:Candidate:Undone] @ A - 1 -> B",
+        "[output] [repo] [SSET] [VP:Candidate:Undone] -> B",
+
+        "[input] [repo] [SSET] [VP:Candidate:Undone] -> 0",
+        "[output] [TODO:Add] [BetterVP:Candidate:Find:Done] @Caller [BetterLearnVP]"
+      ]
+    }
+  ]
+}

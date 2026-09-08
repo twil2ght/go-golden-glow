@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [CR:Cache] A -> B",
+        "[output] [repo] [GET] [CR:Result:Count] A @Caller [CR:Cache]",
+        "[output] [repo] [GET] [CR:Cond:Count] B @Caller [CR:Cache]",
+
+        "[input] [CR:Cache] A -> B",
+        "[input] [repo] [CR:Cache] @ [CR:Result:Count] A ->",
+        "[output] [repo] [SSET] [CR:Result:Count] A -> 1",
+        "[output] [repo] [SSET] [CR:Result] 1 [at] A -> B",
+        
+        "[input] [repo] [CR:Cache] @ [CR:Result:Count] A -> A1",
+        "[output] [++] A1 @Caller [CR:Cache] A",
+        
+        "[input] [CR:Cache] A -> B",
+        "[input] [repo] [CR:Cache] @ [CR:Result:Count] A -> A1",
+        "[input] [++] [CR:Cache] A @ A1 -> D",
+        "[output] [repo] [SSET] [CR:Result:Count] A -> D",
+        "[output] [repo] [SSET] [CR:Result] D [at] A -> B",
+
+        "[input] [CR:Cache] A -> B",
+        "[input] [repo] [CR:Cache] @ [CR:Cond:Count] B ->",
+        "[output] [repo] [SSET] [CR:Cond:Count] B -> 1",
+        "[output] [repo] [SSET] [CR:Cond] 1 [at] B -> A",
+
+        "[input] [repo] [CR:Cache] @ [CR:Cond:Count] B -> B1",
+        "[output] [++] B1 @Caller [CR:Cache] B",
+
+        "[input] [CR:Cache] A -> B",
+        "[input] [repo] [CR:Cache] @ [CR:Cond:Count] B -> B1",
+        "[input] [++] [CR:Cache] B @ B1 -> D",
+        "[output] [repo] [SSET] [CR:Cond:Count] B -> D",
+        "[output] [repo] [SSET] [CR:Cond] D [at] B -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [++] A @Caller C",
+        "[output] [compute] [GET] A + 1 @Caller C [++]",
+        
+        "[input] [++] A @Caller C",
+        "[input] [compute] C [++] @ A + 1 -> B",
+        "[output] [++] C @ A -> B"
+      ]
+    }
+  ]
+}

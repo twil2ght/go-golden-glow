@@ -3,15 +3,18 @@
   "data": [
     {
       "commands": [
+        "[input] [Raw] C say : A",
         "[input] [Legal] C say : A",
         "[input] [TeachMode] [NORES] @ C -> yes",
         "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [NORES] @ A -> B",
-        "[output] [Res] [Common] B",
-        "[output] [Cond&Res:Add] [Common] B # [Res:Normal] @Caller [NORES]"
+
+        "[output] [Cond&Res:Add] [Common] B # [Res:Normal] @Caller [NORES]",
+        "[output] [Res:Done] A @Caller Hi"
       ]
     },
     {
       "commands": [
+        "[input] [Raw] C say : A",
         "[input] [Legal] C say : A",
         "[input] [repo] [Res] C say : A @ [Cond:Count] -> B",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [NORES]",
@@ -20,16 +23,20 @@
     },
     {
       "commands": [
+        "[input] [Raw] C say : then A",
         "[input] [Legal] C say : then A",
         "[input] [TeachMode] [NORES] @ C -> yes",
         "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [NORES] @ A -> B",
-        "[output] [Res] [Common] B",
-        "[output] [Cond&Res:Add] [Common] B # [Res:Normal] @Caller [NORES]"
+
+        "[output] [Cond&Res:Add] [Common] B # [Res:Normal] @Caller [NORES]",
+        "[output] [Res:Done] A @Caller Hi"
       ]
     },
     {
       "commands": [
+        "[input] [Raw] C say : then A",
         "[input] [Legal] C say : then A",
+        "[input] [repo] [Res] C say : then A @ [Cond:Count] -> B",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [NORES]",
         "[output] [TeachMode:Check] C @Caller [NORES]"
       ]

@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Res:Done] A @Caller C",
+        "[output] [ticker] end_learning -> 30 @Caller Hi",
+        "[output] [Print] [Res:Done] A @Caller C",
+
+        "[input] [ticker:timeout] end_learning",
+        "[output] [TODO:Add] [Common] Susie's learning time is over @Caller Hi"
+      ]
+    }
+  ]
+}

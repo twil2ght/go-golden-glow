@@ -1,8 +1,7 @@
 {
   "data": [
     {
-      "warning": "the key word [Pronoun] is tricky,make it more specific to adapt to the context(E.g, [Pronoun:Subject])",
-      "commands": [
+        "commands": [
         "[input] [Grammar:Object:Wh+S+V:Subject] C [Pronoun] @ A -> B",
         "[output] [Pronoun:Resolve:Sentence:Object] B @Caller C [Pronoun:Subject] A [Clause]",
 
@@ -10,8 +9,6 @@
         "[input] [Grammar:Object:Wh+S+V:Wh] C [Pronoun] @ A -> D",
         "[input] [Grammar:Object:Wh+S+V:Verb] C [Pronoun] @ A -> F",
         "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D B1 F",
-        "",
-
 
         "[input] [Grammar:Object:Wh+S+V+O:Subject] C [Pronoun] @ A -> B",
         "[input] [Grammar:Object:Wh+S+V+O:Object] C [Pronoun] @ A -> A1",
@@ -22,8 +19,17 @@
         "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun:Subject] A [Clause] [Object] @ A1 -> D1",
         "[input] [Grammar:Object:Wh+S+V:Wh] C [Pronoun] @ A -> D",
         "[input] [Grammar:Object:Wh+S+V:Verb] C [Pronoun] @ A -> F",
-        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D B1 F D1",
-        ""
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> D B1 F D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Object:Type] C [Pronoun] @ A -> Clause",
+        "[output] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] A @Caller C [Clause]",
+
+        "[input] [Grammar:Object:Type] C [Pronoun] @ A -> Clause",
+        "[input] [Pronoun:Resolve:Sentence:Conj+S+VerbPhrase] C [Clause] @ A -> B",
+        "[output] [Pronoun:Resolve:Sentence:Object] C @ A -> B"
       ]
     }
   ]

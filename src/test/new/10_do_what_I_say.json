@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Raw] user_1 say : if I say : check something",
+        "[Raw] user_1 say : then check what something is",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ],
+      "A": [
+        "[Raw] user_1 say : if I say : check something",
+        "[Raw] user_1 say : then check what something is",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test"
+      ]
+    }
+  ]
+}

@@ -3,4 +3,14 @@
 3. $apple和$happy本质一样，让$happy在跑一次variable:Var+VP毫无意义,需要记录variable系列的template，
 4. 然后通过把所有的$happy相关的替换为$apple进行简化
 5. 通过varietyLearning泛化过的可以直接删了，因为泛化过的就包括了当前情况
-6. repo 存储语法信息
+6. (method:这节去掉原本的cond:add和[res]，直接走[cond&res]，这样必然能达到目的)
+7. 学习具体动词的具体用法后要删除不对的模板
+8. 说出结果时。默认说No. 1组 补全别的cond:
+9. what is the result that I ask you to check your name?
+10. Susie: say : it is Susie 
+11. Susie: if my name is Susie
+12. 目前认为只有legal句子才需要variableProjection;因为非legal的句子的variable传递都是通过Cond%Res组直接定下的，不用担心匹配不上
+13. 只有legal这种纯粹的外来的话需要特定规则来得到variable
+14. new:反驳上述观点
+15. if也需要重置end_learning
+16. 同样的词但是来自不同的类别，不需要重复提问是否是占位符

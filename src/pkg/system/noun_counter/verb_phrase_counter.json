@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "description": "Get",
+      "commands": [
+        "[input] [VP-Level:Counter:Get] [No.] A @Caller C",
+        "[output] [repo] [GET] [VP-Level:Counter] [No.] A @Caller C [VP-Level:Counter:Get]",
+
+        "[input] [repo] C [VP-Level:Counter:Get] @ [VP-Level:Counter] [No.] A -> B",
+        "[output] [repo] [GET] [VP-Level:Counter:CountOf] B @Caller C [VP-Level:Counter:Get]",
+
+        "[input] [repo] C [VP-Level:Counter:Get] @ [VP-Level:Counter] [No.] A ->",
+        "[output] [VP-Level:Counter:Get] C @ [No.] A ->",
+
+        "[input] [repo] C [VP-Level:Counter:Get] @ [VP-Level:Counter] [No.] A -> B",
+        "[input] [repo] C [VP-Level:Counter:Get] @ [VP-Level:Counter:CountOf] B -> F",
+        "[output] [VP-Level:Counter:Get] C @ [No.] A -> B",
+        "[output] [VP-Level:Counter:Get:Amount] C @ [No.] A -> F"
+      ]
+    },
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [VP-Level:Counter:Add] A @Caller C",
+        "[output] [repo] [GET] [VP-Level:Counter:CountOf] A @Caller C [Add]",
+
+        "[input] [repo] C [Add] @ [VP-Level:Counter:CountOf] A ->",
+        "[output] [repo] [SSET] [VP-Level:Counter:CountOf] A -> 1",
+        "[output] [repo] [GET] [VP-Level:Counter:Count] @Caller C [VP-Level:Counter:Add] A",
+
+        "[input] [VP-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [Add] @ [VP-Level:Counter:CountOf] A -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [Add]",
+
+        "[input] [VP-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [Add] @ [VP-Level:Counter:CountOf] A -> B",
+        "[input] [compute] C [Add] @ B + 1 -> F",
+        "[output] [repo] [SSET] [VP-Level:Counter:CountOf] A -> F"
+      ]
+    },
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [repo] C [VP-Level:Counter:Add] A @ [VP-Level:Counter:Count] ->",
+        "[output] [repo] [SSET] [VP-Level:Counter:Count] -> 1",
+        "[output] [repo] [SSET] [VP-Level:Counter] [No.] 1 -> A",
+
+        "[input] [repo] C [VP-Level:Counter:Add] A @ [VP-Level:Counter:Count] -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [VP-Level:Counter:Add] A",
+
+        "[input] [compute] C [VP-Level:Counter:Add] A @ B + 1 -> D",
+        "[output] [repo] [SSET] [VP-Level:Counter] [No.] D -> A",
+        "[output] [repo] [SSET] [VP-Level:Counter:Count] -> D",
+
+        "[input] [VP-Level:Counter:Add] A @Caller C",
+        "[input] [repo] [SSET] [VP-Level:Counter] [No.] D -> A",
+        "[input] [repo] [SSET] [VP-Level:Counter:Count] -> D",
+        "[output] [VP-Level:Counter:Add:Done] A @Caller C",
+
+        "[input] [repo] C [Add] @ [VP-Level:Counter:CountOf] A -> B",
+        "[output] [VP-Level:Counter:Add:Done] A @Caller C"
+      ]
+    },
+    {
+      "description": "reset",
+      "commands": [
+        "[input] [VP-Level:Counter:Reset] @Caller C",
+        "[output] [repo] [DEL] [VP-Level:Counter:Count]",
+        "[output] [repo] [GET] [VP-Level:Counter] [No.] 1 @Caller C [VP-Level:Counter][Reset] [No.] 0",
+
+        "[input] [repo] C [VP-Level:Counter][Reset] [No.] D @ [VP-Level:Counter] [No.] B -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [VP-Level:Counter][Reset] [No.] B",
+        "[output] [repo] [DEL] [VP-Level:Counter] [No.] B",
+        "[output] [repo] [DEL] [VP-Level:Counter:CountOf] A",
+
+        "[input] [compute] C [VP-Level:Counter][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [VP-Level:Counter] [No.] F @Caller C [VP-Level:Counter][Reset] [No.] B"
+      ]
+    }
+  ]
+}

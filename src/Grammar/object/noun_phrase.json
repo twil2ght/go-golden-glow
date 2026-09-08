@@ -20,9 +20,18 @@
         "[input] [Grammar:NounPhrase:BackNoun] C [Object:NounPhrase] @ A -> B",
         "[input] [Grammar:NounPhrase:PreNounPhrase] C [Object:NounPhrase] @ A -> D",
         "[output] [Grammar:Verify:Object] C @ A -> yes",
-        "[output] [Grammar:Object:Type] C @ A -> NounPhrase",
+        "[output] [Grammar:Object:Type] C @ A -> DoubleNoun",
         "[output] [Grammar:Object:NounPhrase:BackNoun] C @ A -> B",
-        "[output] [Grammar:Object:NounPhrase:PreNounPhrase] C @ A -> D"
+        "[output] [Grammar:Object:NounPhrase:PreNounPhrase] C @ A -> D",
+
+        "[input] [Grammar:NounPhrase:PrepFront] C [Object:NounPhrase] @ A -> B",
+        "[input] [Grammar:NounPhrase:Prep] C [Object:NounPhrase] @ A -> F",
+        "[input] [Grammar:NounPhrase:PrepBack] C [Object:NounPhrase] @ A -> D",
+        "[output] [Grammar:Verify:Object] C @ A -> yes",
+        "[output] [Grammar:Object:Type] C @ A -> Prep",
+        "[output] [Grammar:Object:NounPhrase:PrepFront] C @ A -> B",
+        "[output] [Grammar:Object:NounPhrase:Prep] C @ A -> F",
+        "[output] [Grammar:Object:NounPhrase:PrepBack] C @ A -> D"
       ]
     }
   ]

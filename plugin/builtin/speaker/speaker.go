@@ -31,7 +31,7 @@ func (m *speaker) OnRegisterMsgProvider(reg messageQueue.Manager) {
 
 func (m *speaker) decorate(msg, to string) string {
 	if to == "" {
-		return fmt.Sprintf("%s says : %s", config.GG, msg)
+		return fmt.Sprintf("%s say : %s", config.GG, msg)
 	}
 	return fmt.Sprintf("%s says to %s : %s", config.GG, to, msg)
 }

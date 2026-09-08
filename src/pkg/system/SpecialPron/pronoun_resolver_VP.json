@@ -5,8 +5,7 @@
     "vp_set/V+O+OC",
     "vp_set/V+O",
     "vp_set/V+P",
-    "vp_set/V",
-    "vp_set/V+Clause"
+    "vp_set/V"
   ],
   "data": [
     {
@@ -16,12 +15,76 @@
       ]
     },
     {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:By] C [Var] @ A -> D",
+        "[output] [Var:Resolve] D @Caller C [VP_By]",
+
+        "[input] [Grammar:VerbPhrase:By] C [Var] @ A -> D",
+        "[input] [Var:Resolve] C [VP_By] @ D ->",
+        "[output] [Var:Resolve:Object] D @Caller C [VP_By]",
+
+        "[input] [Grammar:VerbPhrase:By] C [Var] @ A -> D",
+        "[input] [Var:Resolve] C [VP_By] @ D -> D1",
+        "[output] [Var:Resolve:Object] C [VP_By] @ D -> D1",
+
+        "[input] [Grammar:VerbPhrase:By] C [Var] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Var] @ A -> B",
+        "[input] [Var:Resolve:Object] C [VP_By] @ D -> D1",
+        "[output] [Var:Resolve] B @Caller C [VP_By]",
+
+        "[input] [Grammar:VerbPhrase:VP] C [Var] @ A -> B",
+        "[input] [Var:Resolve] C [VP_By] @ B ->",
+        "[output] [Var:Resolve:VerbPhrase] B @Caller C [VP_By]",
+
+        "[input] [Grammar:VerbPhrase:VP] C [Var] @ A -> B",
+        "[input] [Var:Resolve] C [VP_By] @ B -> B1",
+        "[output] [Var:Resolve:VerbPhrase] C [VP_By] @ B -> B1",
+
+        "[input] [Grammar:VerbPhrase:By] C [Var] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Var] @ A -> B",
+        "[input] [Var:Resolve:VerbPhrase] C [VP_By] @ B -> B1",
+        "[input] [Var:Resolve:Object] C [VP_By] @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B1 by D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:By] C [Subject] @ A -> D",
+        "[output] [Var:Resolve] D @Caller C [VP_By]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:By] C [Subject] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Subject] @ A -> B",
+        "[input] [Var:Resolve:Object] C [VP_By] @ D -> D1",
+        "[output] [Var:Resolve] B @Caller C [VP_By]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:By] C [Subject] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Subject] @ A -> B",
+        "[input] [Var:Resolve:VerbPhrase] C [VP_By] @ B -> B1",
+        "[input] [Var:Resolve:Object] C [VP_By] @ D -> D1",
+        "[output] [Var:Resolve:VerbPhrase] C [S+VerbPhrase] E @ A -> B1 by D1"
+      ]
+    },
+    {
       "description": "Special Case:SAY",
       "commands": [
         "[input] [Var:Resolve:VerbPhrase] say : A @Caller C",
         "[output] [Var:Resolve:Object] A @Caller C [Var:Say]",
 
         "[input] [Var:Resolve:Object] C [Var:Say] @ A -> B",
+        "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
+      ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Var:Resolve:VerbPhrase] say : A @Caller C",
+        "[output] [Var:Resolve:VerbPhrase] A @Caller C [Var:Say]",
+
+        "[input] [Var:Resolve:VerbPhrase] say : A @Caller C",
+        "[input] [Var:Resolve:VerbPhrase] C [Var:Say] @ A -> B",
         "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
       ]
     },
@@ -44,6 +107,17 @@
 
         "[input] [Var:Resolve_Simplified:VerbPhrase] say : A @Caller C",
         "[input] [Var:Resolve:Object] C [Var:Say] @ A -> B",
+        "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
+      ]
+    },
+    {
+      "description": "Special Case:SAY",
+      "commands": [
+        "[input] [Var:Resolve_Simplified:VerbPhrase] say : A @Caller C",
+        "[output] [Var:Resolve:VerbPhrase] A @Caller C [Var:Say]",
+
+        "[input] [Var:Resolve_Simplified:VerbPhrase] say : A @Caller C",
+        "[input] [Var:Resolve:VerbPhrase] C [Var:Say] @ A -> B",
         "[output] [Var:Resolve:VerbPhrase] C @ say : A -> say : B"
       ]
     },

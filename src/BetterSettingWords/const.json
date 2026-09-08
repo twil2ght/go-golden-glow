@@ -8,12 +8,27 @@
         "[Learn:Conjunction] or @Caller test",
         "[Learn:Conjunction] then @Caller test",
 
+        "[Learn:Verb] increase @Caller test",
+        "[Learn:Verb] check @Caller test",
+        "[Learn:Verb] calculate @Caller test",
+        "[Learn:Verb] know @Caller test",
+        "[Learn:Verb] say @Caller test",
+        "[Learn:Verb] equal @Caller test",
+
         "[Learn:Noun] noun @Caller test",
         "[Learn:Noun] verb @Caller test",
         "[Learn:Noun] adjective @Caller test",
         "[Learn:Noun] preposition @Caller test",
         "[Learn:Noun] conjunction @Caller test",
         "[Learn:Noun] adverb @Caller test",
+        "",
+        "[Learn:Noun] index @Caller test",
+        "[Learn:Noun] apple @Caller test",
+        "[Learn:Noun] something @Caller test",
+        "[Learn:Noun] one @Caller test",
+        "[Learn:Noun] three @Caller test",
+        "[Learn:Noun] four @Caller test",
+        "[Learn:Noun] placeholder @Caller test",
 
         "[Learn:CanDo] do @Caller test",
         "[Learn:CanDo] can @Caller test",
@@ -58,16 +73,22 @@
         "[Learn:Be] am @Caller test",
         "[Learn:Be] is @Caller test",
         "[Learn:Be] are @Caller test",
+        "[Learn:Be] isn't @Caller test",
+        "[Learn:Be] aren't @Caller test",
 
         "[Learn:Preposition] in @Caller test",
         "[Learn:Preposition] to @Caller test",
         "[Learn:Preposition] on @Caller test",
         "[Learn:Preposition] at @Caller test",
         "[Learn:Preposition] under @Caller test",
+        "[Learn:Preposition] by @Caller test",
+        "[Learn:Preposition] of @Caller test",
+        "[Learn:Preposition] plus @Caller test",
 
         "[repo] [SSET] [TeachMode] user_1 -> yes",
 
-        "[repo] [SSET] [Units] : -> yes"
+        "[repo] [SSET] [Units] : -> yes",
+        "[repo] [SSET] [Units] ` -> yes"
       ]
     }
   ]

@@ -1,0 +1,51 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Raw] user_1 say : if I say : what is something",
+        "[Raw] user_1 say : then I ask you to check something",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ],
+      "A": [
+        "[Raw] user_1 say : if I say : what is something",
+        "[Raw] user_1 say : then I ask you to check something",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ],
+      "B": [
+        "if I ask you to check the result of something",
+        "check the number of the results of it",
+        "if it is 8",
+        "say : there are 8 results",
+        "then tell all the results one by one",
+
+        "to tell all the things one by one",
+        "tell the No. 1 thing",
+        "if you tell a thing",
+        "tell the next thing",
+
+        "to tell the next thing",
+        "increase the index of the last thing that you tell by 1",
+        "if the increased index is 3",
+        "tell the No. 3 thing",
+
+        "if you do tell the No. 1 thing",
+        "then the index of the last thing that you do tell is 1",
+
+        "to increase the index of something by 1",
+        "if the index of something is 3",
+        "calculate 3 plus 1",
+        "if 3 plus 1 equals to 4",
+        "then the increased index of something is 4"
+      ],
+      "C": [
+        "can you increase that number by 1?",
+        "Susie just increased that number in her brain",
+        "what?You should wipe out the old number and write the new one"
+      ]
+    }
+  ]
+}

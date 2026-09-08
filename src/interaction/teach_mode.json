@@ -12,8 +12,7 @@
     {
       "commands": [
         "[input] [Common] Susie's learning time is over @Caller C",
-        "[output] [TODO:Add] [VarietyLearning] @Caller C",
-        "[output] [TODO:Add] [Var:Learning:Reset] @Caller C"
+        "[output] [TODO:Add] [BetterVarietyLearning] @Caller C"
       ]
     }
   ]

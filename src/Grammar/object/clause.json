@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A @Caller C [Verb] B",
+        "[input] [Grammar:Verify:Conj+S+VerbPhrase] [clause] C [Verb] B @ A -> yes",
+        "[output] [Grammar:Verify:Object] C [Verb] B @ A -> yes",
+        "[output] [Grammar:Object:Type] C [Verb] B @ A -> Clause"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A @Caller C [Verb] B",
+        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller [clause] C [Verb] B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A @Caller C [Pronoun]",
+        "[input] [Grammar:Verify:Conj+S+VerbPhrase] [clause][Pronoun] C @ A -> yes",
+        "[output] [Grammar:Verify:Object] C [Pronoun] @ A -> yes",
+        "[output] [Grammar:Object:Type] C [Pronoun] @ A -> Clause"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A @Caller C [Pronoun]",
+        "[output] [Grammar:Verify:Conj+S+VerbPhrase] A @Caller [clause][Pronoun] C"
+      ]
+    }
+  ]
+}

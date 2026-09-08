@@ -33,13 +33,31 @@
         "[output] [Grammar:Verify:VerbPhrase] C @ A -> yes",
         "[output] [Grammar:VerbPhrase:Type] C @ A -> V+P",
 
-        "[input] [Grammar:Verify:V+Clause] C [VerbPhrase] @ A -> yes",
-        "[output] [Grammar:Verify:VerbPhrase] C @ A -> yes",
-        "[output] [Grammar:VerbPhrase:Type] C @ A -> V+Clause",
-
         "[input] [Grammar:Verify:V+TODO] C [VerbPhrase] @ A -> yes",
         "[output] [Grammar:Verify:VerbPhrase] C @ A -> yes",
-        "[output] [Grammar:VerbPhrase:Type] C @ A -> V+TODO"
+        "[output] [Grammar:VerbPhrase:Type] C @ A -> V+TODO",
+
+        "[input] [Grammar:Verify:VP_Can] C [VerbPhrase] @ A -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] C @ A -> yes",
+        "[output] [Grammar:VerbPhrase:Type] C @ A -> VP_Can"
+      ]
+    },
+
+    {
+      "description": "re-emit VP_Can verb",
+      "commands": [
+        "[input] [Grammar:VP_Can:Verb] C [VerbPhrase] @ A -> D",
+        "[output] [Grammar:VerbPhrase:VP_Can:Verb] C @ A -> D",
+        "[output] [Grammar:VerbPhrase:Verb] C @ A -> D"
+      ]
+    },
+    {
+      "description": "re-emit VP_Can verb",
+      "commands": [
+        "[input] [Grammar:VP_Can:VP] C [VerbPhrase] @ A -> D",
+        "[output] [Grammar:VerbPhrase:VP_Can:VP] C @ A -> D",
+        "[input] [Grammar:VP_Can:Can] C [VerbPhrase] @ A -> D",
+        "[output] [Grammar:VerbPhrase:VP_Can:Can] C @ A -> D"
       ]
     },
 
@@ -55,8 +73,7 @@
       "description": "re-emit V+O object",
       "commands": [
         "[input] [Grammar:V+O:Object] C [VerbPhrase] @ A -> E",
-        "[output] [Grammar:VerbPhrase:V+O:Object] C @ A -> E",
-        "[output] [Grammar:VerbPhrase:OtherPart] C @ A -> E"
+        "[output] [Grammar:VerbPhrase:V+O:Object] C @ A -> E"
       ]
     },
 
@@ -71,9 +88,8 @@
     {
       "description": "re-emit V+TODO object",
       "commands": [
-        "[input] [Grammar:V+TODO:Object] C [VerbPhrase] @ A -> E",
-        "[output] [Grammar:VerbPhrase:V+TODO:TODO] C @ A -> E",
-        "[output] [Grammar:VerbPhrase:OtherPart] C @ A -> E"
+        "[input] [Grammar:V+TODO:TODO] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+TODO:TODO] C @ A -> E"
       ]
     },
 
@@ -91,8 +107,7 @@
       "description": "re-emit V+IO+DO Other Part",
       "commands": [
         "[input] [Grammar:V+IO+DO:Object] C [VerbPhrase] @ A -> E",
-        "[input] [Grammar:V+IO+DO:DirectObject] C [VerbPhrase] @ A -> F",
-        "[output] [Grammar:VerbPhrase:OtherPart] C @ A -> E F"
+        "[input] [Grammar:V+IO+DO:DirectObject] C [VerbPhrase] @ A -> F"
       ]
     },
     {
@@ -107,6 +122,13 @@
       "commands": [
         "[input] [Grammar:V+IO+DO:DirectObject] C [VerbPhrase] @ A -> F",
         "[output] [Grammar:VerbPhrase:V+IO+DO:DirectObject] C @ A -> F"
+      ]
+    },
+    {
+      "description": "re-emit V+IO+DO direct object",
+      "commands": [
+        "[input] [Grammar:V+IO+DO:DirectObject(To)] C [VerbPhrase] @ A -> F",
+        "[output] [Grammar:VerbPhrase:V+IO+DO:DirectObject(To)] C @ A -> F"
       ]
     },
 
@@ -124,8 +146,7 @@
       "description": "re-emit V+O+OC Other Part",
       "commands": [
         "[input] [Grammar:V+O+OC:Object] C [VerbPhrase] @ A -> E",
-        "[input] [Grammar:V+O+OC:OC] C [VerbPhrase] @ A -> F",
-        "[output] [Grammar:VerbPhrase:OtherPart] C @ A -> E F"
+        "[input] [Grammar:V+O+OC:OC] C [VerbPhrase] @ A -> F"
       ]
     },
     {
@@ -133,6 +154,34 @@
       "commands": [
         "[input] [Grammar:V+O+OC:Object] C [VerbPhrase] @ A -> E",
         "[output] [Grammar:VerbPhrase:V+O+OC:Object] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC OC(adj)",
+      "commands": [
+        "[input] [Grammar:V+O+OC:OC(adj)] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+O+OC:OC(adj)] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC do",
+      "commands": [
+        "[input] [Grammar:V+O+OC:OC(do)] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+O+OC:OC(do)] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC doing",
+      "commands": [
+        "[input] [Grammar:V+O+OC:OC(doing)] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+O+OC:OC(doing)] C @ A -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC todo",
+      "commands": [
+        "[input] [Grammar:V+O+OC:OC(to)] C [VerbPhrase] @ A -> E",
+        "[output] [Grammar:VerbPhrase:V+O+OC:OC(to)] C @ A -> E"
       ]
     },
 
@@ -150,15 +199,7 @@
       "description": "re-emit V+P predicate",
       "commands": [
         "[input] [Grammar:V+P:P] C [VerbPhrase] @ A -> E",
-        "[output] [Grammar:VerbPhrase:V+P:P] C @ A -> E",
-        "[output] [Grammar:VerbPhrase:OtherPart] C @ A -> E"
-      ]
-    },
-    {
-      "description": "re-emit V+P P Object",
-      "commands:D": [
-        "[input] [Grammar:V+P:P:Object] C [VerbPhrase] @ A -> E",
-        "[output] [Grammar:VerbPhrase:V+P:P:Object] C @ A -> E"
+        "[output] [Grammar:VerbPhrase:V+P:P] C @ A -> E"
       ]
     },
     {
@@ -189,22 +230,6 @@
         "[output] [Grammar:VerbPhrase:V+P:P:Doing] C @ A -> E"
       ]
     },
-    {
-      "description": "re-emit V+Clause verb",
-      "commands": [
-        "[input] [Grammar:V+Clause:Verb] C [VerbPhrase] @ A -> D",
-        "[output] [Grammar:VerbPhrase:V+Clause:Verb] C @ A -> D",
-        "[output] [Grammar:VerbPhrase:Verb] C @ A -> D"
-      ]
-    },
-    {
-      "description": "re-emit V+Clause object",
-      "commands": [
-        "[input] [Grammar:V+Clause:Clause] C [VerbPhrase] @ A -> E",
-        "[output] [Grammar:VerbPhrase:V+Clause:Clause] C @ A -> E",
-        "[output] [Grammar:VerbPhrase:OtherPart] C @ A -> E"
-      ]
-    },
 
 
 
@@ -216,8 +241,8 @@
         "[output] [Grammar:Verify:V+IO+DO] A @Caller C [VerbPhrase]",
         "[output] [Grammar:Verify:V+O+OC] A @Caller C [VerbPhrase]",
         "[output] [Grammar:Verify:V+P] A @Caller C [VerbPhrase]",
-        "[output] [Grammar:Verify:V+Clause] A @Caller C [VerbPhrase]",
-        "[output] [Grammar:Verify:V+TODO] A @Caller C [VerbPhrase]"
+        "[output] [Grammar:Verify:V+TODO] A @Caller C [VerbPhrase]",
+        "[output] [Grammar:Verify:VP_Can] A @Caller C [VerbPhrase]"
       ]
     }
   ]

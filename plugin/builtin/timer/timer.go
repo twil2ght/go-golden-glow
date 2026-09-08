@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"goldenglow/m"
 	"goldenglow/pkg/datagen"
+	"goldenglow/pkg/messageQueue"
 	"goldenglow/pkg/node/handler"
+	"goldenglow/pkg/registry"
 	"goldenglow/pkg/variable"
 	"goldenglow/plugin"
 	"time"
@@ -37,11 +39,54 @@ const (
 	typeMonth  = "month"  //month
 	typeDay    = "day"    //day
 	typeYear   = "year"   //year
+
+	keyDuration = "duration"
+	keyItem     = "item"
 )
 
-type timer struct{}
+type timer struct {
+	tickerManager registry.Interface[*time.Timer]
+	tickerChannel chan string
+	shutdown      chan struct{}
+}
 
-// TODO ticker need to be implemented
+func (t *timer) OnRegisterMsgProvider(reg messageQueue.Manager) {
+	reg.Add(name, t.tickerChannel)
+}
+func (t *timer) tickerProcess(item string, duration int) {
+	d := time.Duration(duration) * time.Second
+
+	oldTimer, err := t.tickerManager.Get(item)
+	if err == nil {
+		oldTimer.Stop()
+		fmt.Printf("[timer] timer stop old timer:%s\n", item)
+	}
+
+	newTimer := time.AfterFunc(d, func() {
+		t.TickerCallback(item)
+	})
+	t.tickerManager.Unregister(item)
+	t.tickerManager.Register(item, newTimer)
+}
+func (t *timer) TickerCallback(item string) {
+	t.tickerManager.Unregister(item)
+	// implement other logic below
+	t.tickerChannel <- fmt.Sprintf("[ticker:timeout] %s", item)
+}
+func (t *timer) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler]) {
+	reg.Handlers().Register(name, func(parameters handler.Parameters) {
+		var (
+			item, _        = parameters.Get(keyItem)
+			rawDuration, _ = parameters.Get(keyDuration)
+			duration       int
+		)
+		_, err := fmt.Sscanf(rawDuration, "%d", &duration)
+		if err != nil {
+			return
+		}
+		t.tickerProcess(item, duration)
+	})
+}
 func (t *timer) process(mode, arg string) (string, error) {
 	switch mode {
 	case modeFetch:
@@ -98,6 +143,15 @@ func (t *timer) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandle
 
 func (t *timer) OnRegisterDataGen(gen datagen.Generator) {
 	provider := datagen.NewProvider()
+	provider.Add("ticker", datagen.NewData(
+		[]string{"[ticker] $1 -> $3 @Caller $2"},
+		[]string{},
+		map[string]string{
+			keyDuration: "$3",
+			keyItem:     "$1",
+		},
+		datagen.AsExecutor,
+	))
 	provider.Add("fetch_time", datagen.NewData(
 		[]string{"[time] get time"},
 		[]string{"[time] time -> $1"},
@@ -146,5 +200,9 @@ func (t *timer) Init() {}
 func (t *timer) Shutdown() {}
 
 func NewTimer() plugin.Interface {
-	return &timer{}
+	return &timer{
+		tickerManager: registry.New[*time.Timer](),
+		tickerChannel: make(chan string, 1000),
+		shutdown:      make(chan struct{}),
+	}
 }

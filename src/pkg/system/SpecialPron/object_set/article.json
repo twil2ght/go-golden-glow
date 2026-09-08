@@ -3,6 +3,19 @@
     {
       "commands": [
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
+        "[output] [Var:Resolve] D @Caller C [Var] [Article] B [NP]",
+
+        "[input] [Grammar:Object:Article] C [Var] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
+        "[input] [Var:Resolve] C [Var] [Article] B [NP] @ D -> D1",
+        "[output] [Var:Resolve:Object] C @ A -> B D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve] C [Var] [Article] B [NP] @ B1 ->",
+        "[input] [Grammar:Object:Article] C [Var] @ A -> B",
         "[input] [Grammar:Object:Article:PlainNoun] C [Var] @ A -> D",
         "[output] [Var:Resolve] D @Caller C [Var] [Article] B"
       ]
@@ -24,6 +37,7 @@
     },
     {
       "commands": [
+        "[input] [Var:Resolve] C [Var] [Article] B [NP] @ B1 ->",
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
         "[input] [Grammar:Object:Article:Noun] C [Var] @ A -> E",
         "[input] [Grammar:Object:Article:AdjectivePhrase] C [Var] @ A -> F",
@@ -49,6 +63,7 @@
     },
     {
       "commands": [
+        "[input] [Var:Resolve] C [Var] [Article] B [NP] @ B1 ->",
         "[input] [Grammar:Object:Article] C [Var] @ A -> B",
         "[input] [Grammar:Object:Article:BackNoun] C [Var] @ A -> E",
         "[input] [Grammar:Object:Article:PreNounPhrase] C [Var] @ A -> F",

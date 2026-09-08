@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VariableTemplateGen] @Caller C",
+        "[output] [repo] [GET] [No.] 1 [Cond] @Caller C [CC] [No.] 0",
+
+        "[input] [repo] C [CC] [No.] A @ [Cond] [No.] B -> D",
+        "[output] [compute] [GET] B + 1 @Caller C [CC] [No.] B",
+
+        "[input] [compute] C [CC] [No.] B @ B + 1 -> E",
+        "[output] [repo] [GET] [No.] E [Cond] @Caller C [CC] [No.] B",
+
+        "[input] [repo] C [CC] [No.] A @ [Cond] [No.] B ->",
+        "[output] [VariableTemplateGen:Done] @Caller C"
+      ]
+    }
+  ]
+}

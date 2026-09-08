@@ -6,10 +6,8 @@ package templateaddon
 
 import (
 	"encoding/json"
-	"fmt"
 	"goldenglow/pkg/brainsaver"
 	"goldenglow/pkg/database"
-	"goldenglow/pkg/log"
 	"goldenglow/pkg/node"
 	"goldenglow/pkg/node/template"
 	"goldenglow/plugin"
@@ -42,11 +40,7 @@ func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
 	if nodeValueSet == nil {
 		return
 	}
-	log.Default().Info("Loading Confliction...")
 	tplToAvoidArray := loadAllTplToAvoid()
-	for _, tplToAvoid := range tplToAvoidArray {
-		fmt.Printf("tplToAvoid: %s\n", tplToAvoid)
-	}
 	for nodeValue := range nodeValueSet {
 		for _, tplToAvoid := range tplToAvoidArray {
 			if tplToAvoid == nodeValue {
@@ -54,7 +48,6 @@ func (a *addon) OnRegisterConflictRule(mgr template.ConflictManager) {
 			}
 			if ok, _ := template.MatchTemplate(nodeValue, tplToAvoid); ok {
 				tplToAvoid := tplToAvoid
-				log.Default().Info("register conflict rule", "origin", nodeValue, "tplToAvoid", tplToAvoid)
 				mgr.Register(nodeValue, func(origin node.Interface, tplSet template.Set) {
 					delete(tplSet, tplToAvoid)
 				})

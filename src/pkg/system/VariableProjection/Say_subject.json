@@ -3,7 +3,7 @@
     {
       "description": "Main",
       "commands": [
-        "[input] [repo] B1 [CondGroup:Gen] [No.] C @ [No.] D [Cond] -> G say : A",
+        "[input] [repo] B1 [CC] [No.] C @ [No.] D [Cond] -> G say : A",
         "[output] [Grammar:Verify:S+VerbPhrase] A @Caller G say A [AsSubject]"
       ]
     },

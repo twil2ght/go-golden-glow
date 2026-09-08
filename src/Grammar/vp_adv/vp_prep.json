@@ -1,0 +1,28 @@
+{
+
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:VerbPhrase] A by B @Caller C",
+        "[output] [Grammar:Verify:VerbPhrase] A @Caller C [by]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:VerbPhrase] A by B @Caller C",
+        "[input] [Grammar:Verify:VerbPhrase] C [by] @ A -> yes",
+        "[output] [Grammar:Verify:NounPhrase] B @Caller C [by]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:VerbPhrase] A by B @Caller C",
+        "[input] [Grammar:Verify:VerbPhrase] C [by] @ A -> yes",
+        "[input] [Grammar:Verify:NounPhrase] C [by] @ B -> yes",
+        "[output] [Grammar:Verify:VerbPhrase] C @ A by B -> yes",
+        "[output] [Grammar:VerbPhrase:By] C @ A by B -> B",
+        "[output] [Grammar:VerbPhrase:VP] C @ A by B -> A"
+      ]
+    }
+  ]
+}

@@ -3,82 +3,94 @@
     {
       "commands": [
         "[input] [Grammar:VerbPhrase:V+O+OC:Object] C [Pronoun] @ A -> D",
-        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [O+OC]",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Do] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [Do]",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(To)] C [Pronoun] @ A -> to E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [O+OC]",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Doing] C [Pronoun] @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [Doing]",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(doing)] C [Pronoun] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase(doing)] E @Caller C [Pronoun] A [O+OC]",
 
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Todo] C [Pronoun] @ A -> to E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [Todo]",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(do)] C [Pronoun] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [O+OC]",
 
         "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Adjective] C [Pronoun] @ A -> E",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(adj)] C [Pronoun] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E",
 
         "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Do] @ E -> E1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(to)] C [Pronoun] @ A -> to E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [O+OC] @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 to E1",
+
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(do)] C [Pronoun] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [O+OC] @ E -> E1",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E1",
 
         "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Doing] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E1",
-
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Todo] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 to E1"
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(doing)] C [Pronoun] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase(doing)] C [Pronoun] A [O+OC] @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B D1 E1"
       ]
     },
     {
       "commands": [
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] B",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Object] C [Pronoun] [Subject] B @ A -> D",
-        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [Object]",
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Object] C [Pronoun] [Subject] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [Pronoun] A [O+OC]",
 
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] B",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Do] C [Pronoun] [Subject] B @ A -> E",
-        "[output] [Pronoun:Resolve_Simplified:VerbPhrase] E @Caller C [Pronoun] A [Do]",
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(do)] C [Pronoun] [Subject] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [O+OC]",
 
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] B",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Doing]C [Pronoun] [Subject] B @ A -> E",
-        "[output] [Pronoun:Resolve_Simplified:VerbPhrase] E @Caller C [Pronoun] A [Doing]",
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(doing)] C [Pronoun] [Subject] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase(doing)] E @Caller C [Pronoun] A [O+OC]",
 
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] B",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Todo] C [Pronoun] [Subject] B @ A -> to E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [Todo]",
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(to)] C [Pronoun] [Subject] @ A -> to E",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] E @Caller C [Pronoun] A [O+OC]",
 
 
 
 
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] F",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] F @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Complement:Adjective] C [Pronoun] [Subject] F @ A -> E",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G [Subject] F @ A -> B D1 E",
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(do)] C [Pronoun] [Subject] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [O+OC] @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G @ A -> B D1 E1",
 
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] F",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] F @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Do] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G [Subject] F @ A -> B D1 E1",
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(doing)] C [Pronoun] [Subject] @ A -> E",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase(doing)] C [Pronoun] A [O+OC] @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G @ A -> B D1 E1",
 
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] F",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] F @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Doing] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G [Subject] F @ A -> B D1 E1",
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(to)] C [Pronoun] [Subject] @ A -> to E",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [O+OC] @ E -> E1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G @ A -> B D1 to E1",
 
-        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G [Subject] F",
-        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] F @ A -> B",
-        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [object] @ D -> D1",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] A [Todo] @ E -> E1",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G [Subject] F @ A -> B D1 to E1"
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [Pronoun] [S+VerbPhrase] G",
+        "[input] [Grammar:VerbPhrase:V+O+OC:Verb] C [Pronoun] [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [Pronoun] A [O+OC] @ D -> D1",
+        "[input] [Grammar:VerbPhrase:V+O+OC:OC(adj)] C [Pronoun] [Subject] @ A -> E",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C [Pronoun] [S+VerbPhrase] G @ A -> B D1 E"
       ]
     }
   ]

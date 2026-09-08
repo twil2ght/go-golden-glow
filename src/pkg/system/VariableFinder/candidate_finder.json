@@ -2,7 +2,7 @@
   "data": [
     {
       "commands": [
-        "[input] [VarietyLearning] @Caller C",
+        "[input] [NounPhrase:Candidate:Find:Done] @Caller C",
         "[output] [Word:Counter:Get] [No.] 1 @Caller C [LearnVar] [No.] 0",
 
         "[input] [Word:Counter:Get] C [LearnVar] [No.] B @ [No.] B1 -> F",
@@ -15,6 +15,7 @@
         "[input] [compute] C [LearnVar] [No.] B1 @ F1 > 1 -> yes",
         "[output] [compute] [GET] B1 + 1 @Caller C [LearnVar] [No.] B1",
         "[output] [Var:Candidate:Add] F @Caller C [LearnVar]",
+        "[output] [repo] [SSET] [Var:Candidate:Type] F -> Word",
 
         "[input] [Word:Counter:Get] C [LearnVar] [No.] B @ [No.] B1 -> F",
         "[input] [Word:Counter:Get:Amount] C [LearnVar] [No.] B @ [No.] B1 -> F1",
@@ -25,7 +26,68 @@
         "[output] [Word:Counter:Get] [No.] F @Caller C [LearnVar] [No.] B1",
 
         "[input] [Word:Counter:Get] C [LearnVar] [No.] B @ [No.] B1 ->",
-        "[output] [Var:Candidate:Find:Done] @Caller C [LearnVar]"
+        "[output] [Word:Candidate:Find:Done] @Caller C [LearnVar]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [BetterNounPhrase:Candidate:Find:Done] @Caller C",
+        "[output] [Word:Counter:Get] [No.] 1 @Caller C [BetterLearnVar] [No.] 0",
+
+        "[input] [Word:Counter:Get] C [BetterLearnVar] [No.] B @ [No.] B1 -> F",
+        "[input] [Word:Counter:Get:Amount] C [BetterLearnVar] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [CHECK] F1 > 1 @Caller C [BetterLearnVar] [No.] B1",
+        "[output] [repo] [GET] [Var:Candidate:Type] F @Caller C [BetterLearnVar] [No.] B1",
+
+        "[input] [Word:Counter:Get] C [BetterLearnVar] [No.] B @ [No.] B1 -> F",
+        "[input] [Word:Counter:Get:Amount] C [BetterLearnVar] [No.] B @ [No.] B1 -> F1",
+        "[input] [compute] C [BetterLearnVar] [No.] B1 @ F1 > 1 -> yes",
+        "[input] [repo] C [BetterLearnVar] [No.] B1 @ [Var:Candidate:Type] F ->",
+        "[output] [TODO:Add] [Common] Susie don't know if ` F ` is a placeholder @Caller [Generalize]",
+        "[output] [safe++] [Word:Candidate:Undone] @Caller B1",
+        "[output] [repo] [SSET] [Candidate:Undone:Type] F -> Word",
+
+        "[input] [Word:Counter:Get] C [BetterLearnVar] [No.] B @ [No.] B1 -> F",
+        "[input] [Word:Counter:Get:Amount] C [BetterLearnVar] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [GET] B1 + 1 @Caller C [BetterLearnVar] [No.] B1",
+
+        "[input] [compute] C [BetterLearnVar] [No.] B1 @ B1 + 1 -> F",
+        "[output] [Word:Counter:Get] [No.] F @Caller C [BetterLearnVar] [No.] B1",
+
+        "[input] [Word:Counter:Get] C [BetterLearnVar] [No.] B @ [No.] B1 ->",
+        "[output] [repo] [GET] [Word:Candidate:Undone] @Caller C [BetterLearnVar]",
+
+        "[input] [repo] C [BetterLearnVar] @ [Word:Candidate:Undone] ->",
+        "[output] [TODO:Add] [BetterWord:Candidate:Find:Done] @Caller [BetterLearnVar]",
+
+        "[input] [repo] C [BetterLearnVar] @ [Word:Candidate:Undone] -> B",
+        "[output] [Print] Word-Candidate: B @Caller Hi"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` is a placeholder",
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Word",
+        "[output] [repo] [GET] [Word:Candidate:Undone] @Caller F [--]",
+        "[output] [Var:Candidate:Add] F @Caller [BetterLearnVar]",
+        "[output] [repo] [SSET] [Var:Candidate:Type] F -> Word",
+
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` isn't a placeholder",
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Word",
+        "[output] [repo] [GET] [Word:Candidate:Undone] @Caller F [--]",
+
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Word",
+        "[input] [repo] F [--] @ [Word:Candidate:Undone] -> A",
+        "[output] [Print] [Word:Candidate:Undone] -> A @Caller Hi",
+        "[output] [compute] [GET] A - 1 @Caller [Word:Candidate:Undone]",
+
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Word",
+        "[input] [repo] F [--] @ [Word:Candidate:Undone] -> A",
+        "[input] [compute] [Word:Candidate:Undone] @ A - 1 -> B",
+        "[output] [repo] [SSET] [Word:Candidate:Undone] -> B",
+
+        "[input] [repo] [SSET] [Word:Candidate:Undone] -> 0",
+        "[output] [TODO:Add] [Word:Candidate:Find:Done] @Caller [BetterLearnVar]"
       ]
     }
   ]

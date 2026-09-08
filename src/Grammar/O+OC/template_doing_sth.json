@@ -11,18 +11,36 @@
         "[input] [Grammar:Verify:VerbPhrase] C [O+OC] @ $gerund A -> yes",
         "[output] [Grammar:Verify:O+OC] C @ B $gerund A -> yes",
         "[output] [Grammar:O+OC:Object] C @ B $gerund A -> B",
-        "[output] [Grammar:O+OC:OC] C @ B $gerund A -> $gerund A"
+        "[output] [Grammar:O+OC:OC(doing)] C @ B $gerund A -> $gerund A"
       ]
     },
     {
-      "description": "preparatory checks:1",
       "commands": [
         "[input] [Grammar:Verify:O+OC] B $gerund A @Caller C",
-        "[output] [Grammar:Verify:Object] B @Caller C [O+OC]",
-
+        "[output] [Grammar:Verify:Object] B @Caller C [O+OC]"
+      ]
+    },
+    {
+      "commands": [
         "[input] [Grammar:Verify:O+OC] B $gerund A @Caller C",
         "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
         "[output] [Grammar:Verify:VerbPhrase] $gerund A @Caller C [O+OC]"
+      ]
+    },
+    {
+      "description": "",
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $gerund @Caller C",
+        "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
+        "[output] [Grammar:Verify:O+OC] C @ B $gerund -> yes",
+        "[output] [Grammar:O+OC:Object] C @ B $gerund -> B",
+        "[output] [Grammar:O+OC:OC(doing)] C @ B $gerund -> $gerund"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:O+OC] B $gerund @Caller C",
+        "[output] [Grammar:Verify:Object] B @Caller C [O+OC]"
       ]
     }
   ]

@@ -13,8 +13,7 @@
       "description": "CondGroup Activated",
       "commands": [
         "[input] [CondGroup:MarkDone:NewCount] C @ [No.] B [of] D @@ A -> F",
-        "[output] [compute] [CHECK] F = 0 @Caller C [Activate] D",
-        "[output] [Print] We Use Static Activation For D @Caller C"
+        "[output] [compute] [CHECK] F = 0 @Caller C [Activate] D"
       ]
     }
   ]

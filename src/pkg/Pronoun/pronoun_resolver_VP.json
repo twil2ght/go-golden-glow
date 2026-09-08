@@ -6,11 +6,17 @@
     "vp_set/V+O",
     "vp_set/V+P",
     "vp_set/V",
-    "vp_set/V+Clause",
     "vp_set/V+TODO",
+    "vp_set/VP_Can",
     "../../Grammar/Verb_Phrase"
   ],
   "data": [
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B",
+        "[output] [VP-Level:Counter:Add] B @Caller C"
+      ]
+    },
     {
       "commands": [
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller C",
@@ -18,10 +24,51 @@
       ]
     },
     {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:By] C [Pronoun] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [VP_By]",
+
+        "[input] [Grammar:VerbPhrase:By] C [Pronoun] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [VP_By] @ D -> D1",
+        "[output] [Object-Level:Counter:Add] D1 @Caller C",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] B @Caller C [VP_By]",
+
+        "[input] [Grammar:VerbPhrase:By] C [Pronoun] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Pronoun] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [VP_By] @ B -> B1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [VP_By] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B1 by D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:By] C [Subject] @ A -> D",
+        "[output] [Pronoun:Resolve:Sentence:Object] D @Caller C [VP_By]",
+
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:By] C [Subject] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [VP_By] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] B @Caller C [VP_By]",
+
+        "[input] [Pronoun:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Grammar:VerbPhrase:By] C [Subject] @ A -> D",
+        "[input] [Grammar:VerbPhrase:VP] C [Subject] @ A -> B",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C [VP_By] @ B -> B1",
+        "[input] [Pronoun:Resolve:Sentence:Object] C [VP_By] @ D -> D1",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ A -> B1 by D1",
+
+        "[output] [Object-Level:Counter:Add] D1 @Caller C"
+      ]
+    },
+    {
       "description": "Special Case:SAY",
       "commands": [
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] say : A @Caller C",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWordCountAdd]",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [@WordCount]",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ say : A -> say : A"
       ]
     },
@@ -30,6 +77,7 @@
       "commands": [
         "[input] [Pronoun:Resolve_Simplified:VerbPhrase] say : A @Caller C",
         "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [ForWordCountAdd]",
+        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [@WordCount]",
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] C @ say : A -> say : A"
       ]
     }

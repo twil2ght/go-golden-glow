@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "commands":[
+        "[input] [Grammar:Verify:Object] ` A ` @Caller C",
+        "[output] [Grammar:Verify:Object] C @ ` A ` -> yes",
+        "[output] [Grammar:Object:Type] C @ ` A ` -> cited"
+      ]
+    }
+  ]
+}

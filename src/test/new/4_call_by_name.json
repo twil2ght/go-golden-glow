@@ -3,8 +3,6 @@
     {
       "commands": [
         "[Raw] user_1 say : if I say : Susie",
-        "[Raw] user_1 say : check what your name is",
-        "[Raw] user_1 say : if your name is Susie",
         "[Raw] user_1 say : then I call your name",
         "[Var:Learning:Reset] @Caller C"
       ],
@@ -14,6 +12,7 @@
         "[Raw] user_1 say : if your name is Susie",
         "[Raw] user_1 say : then I call your name",
         "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
         "[Var:Learning:Reset] @Caller C"
       ]
     }

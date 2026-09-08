@@ -60,11 +60,83 @@ func mergeTwoVarSets(a, b variable.Set) (variable.Set, bool) {
 	return merged, true
 }
 
+// func mergeVariables(
+//
+//	excludeNode node.Interface,
+//	ts m.Map[node.Interface],
+//	varSet variable.Set,
+//
+//	) bool {
+//		var nodes []node.Interface
+//		for _, t := range ts {
+//			if t.Value() != excludeNode.Value() {
+//				nodes = append(nodes, t)
+//			}
+//		}
+//		if len(nodes) == 0 {
+//			return true
+//		}
+//
+//		baseVars := variable.Copy(varSet)
+//
+//		startNode, startSets, hasInvalidItem := findStart(nodes, baseVars)
+//		if hasInvalidItem {
+//			return false
+//		}
+//		if startNode == nil || len(startSets) == 0 {
+//			// no node has varSet ->legal
+//			return true
+//		}
+//
+//		for _, currentNode := range nodes {
+//			if currentNode.Value() == startNode.Value() {
+//				continue
+//			}
+//
+//			cache := make([]variable.Set, 0, len(startSets))
+//			for _, s := range startSets {
+//				compatibleSets, ok := getCompatibleSets(currentNode, s)
+//				//has varSet but incompatible
+//				if !ok {
+//					continue
+//				}
+//				//no varSet but this is legal
+//				if len(compatibleSets) == 0 {
+//					cache = append(cache, s)
+//				}
+//
+//				for _, vSet := range compatibleSets {
+//					merged, ok2 := mergeTwoVarSets(s, vSet)
+//					if ok2 {
+//						cache = append(cache, merged)
+//					}
+//				}
+//			}
+//
+//			if len(cache) == 0 {
+//				break
+//			}
+//
+//			startSets = cache
+//		}
+//
+//		if len(startSets) > 0 {
+//			for k, v := range startSets[0] {
+//				if _, exists := varSet[k]; !exists {
+//					varSet[k] = v
+//				}
+//			}
+//			return true
+//		}
+//		return false
+//	}
+//
+// 返回 (ok bool, finalSet variable.Set)，不再原地修改 varSet
 func mergeVariables(
 	excludeNode node.Interface,
 	ts m.Map[node.Interface],
 	varSet variable.Set,
-) bool {
+) (bool, variable.Set) {
 	var nodes []node.Interface
 	for _, t := range ts {
 		if t.Value() != excludeNode.Value() {
@@ -72,18 +144,18 @@ func mergeVariables(
 		}
 	}
 	if len(nodes) == 0 {
-		return true
+		return true, variable.Copy(varSet)
 	}
 
 	baseVars := variable.Copy(varSet)
 
 	startNode, startSets, hasInvalidItem := findStart(nodes, baseVars)
 	if hasInvalidItem {
-		return false
+		return false, nil
 	}
 	if startNode == nil || len(startSets) == 0 {
 		// no node has varSet ->legal
-		return true
+		return true, variable.Copy(varSet)
 	}
 
 	for _, currentNode := range nodes {
@@ -119,14 +191,15 @@ func mergeVariables(
 	}
 
 	if len(startSets) > 0 {
+		result := variable.Copy(varSet)
 		for k, v := range startSets[0] {
-			if _, exists := varSet[k]; !exists {
-				varSet[k] = v
+			if _, exists := result[k]; !exists {
+				result[k] = v
 			}
 		}
-		return true
+		return true, result
 	}
-	return false
+	return false, nil
 }
 
 // findStart finds the first node that has varSet if it exists

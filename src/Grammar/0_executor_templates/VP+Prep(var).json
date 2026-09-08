@@ -1,0 +1,31 @@
+{
+  "name": "executor:VP+Prep(var)",
+  "is_template": true,
+  "args": [
+    "$Prep"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Executor] Susie [Execute] A",
+        "[output] [TODO:Add] [Grammar:Verify:VerbPhrase] A @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:By] [ExeTemp] @ A -> B",
+        "[input] [Grammar:VerbPhrase:VP] [ExeTemp] @ A -> D",
+        "[output] [repo] [GET] [Variety] B @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:By] [ExeTemp] @ A -> B",
+        "[input] [Grammar:VerbPhrase:VP] [ExeTemp] @ A -> D",
+        "[input] [repo] [ExeTemp] @ [Variety] B ->",
+        "[output] [Executor] Susie [Execute] D $Prep",
+        "[output] [repo] [SSET] [Var:Cache] $Prep -> B"
+      ]
+    }
+  ]
+}

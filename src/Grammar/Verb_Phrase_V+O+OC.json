@@ -8,18 +8,56 @@
     {
       "commands": [
         "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
-        "[input] [Grammar:Verify:O+OC] C $verb @ B -> yes",
+        "[input] [Grammar:Verify:O+OC] C [O+OC] $verb @ B -> yes",
         "[output] [Grammar:Verify:V+O+OC] C @ $verb B -> yes",
         "[output] [Grammar:V+O+OC:Verb] C @ $verb B -> $verb",
-
-        "[input] [Grammar:O+OC:Object] C $verb @ B -> F",
-        "[output] [Grammar:V+O+OC:Object] C @ $verb B -> F"
+        "[output] [Grammar:V+O+OC:O+OC] C @ $verb B -> B"
       ]
     },
     {
       "commands": [
         "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
-        "[output] [Grammar:Verify:O+OC] B @Caller C $verb"
+        "[output] [Grammar:Verify:O+OC] B @Caller C [O+OC] $verb"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC OC(adj)",
+      "commands": [
+        "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
+        "[input] [Grammar:O+OC:Object] C [O+OC] $verb @ B -> E",
+        "[output] [Grammar:V+O+OC:Object] C @ $verb B -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC OC(adj)",
+      "commands": [
+        "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
+        "[input] [Grammar:O+OC:OC(adj)] C [O+OC] $verb @ B -> E",
+        "[output] [Grammar:V+O+OC:OC(adj)] C @ $verb B -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC do",
+      "commands": [
+        "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
+        "[input] [Grammar:O+OC:OC(do)] C [O+OC] $verb @ B -> E",
+        "[output] [Grammar:V+O+OC:OC(do)] C @ $verb B -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC doing",
+      "commands": [
+        "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
+        "[input] [Grammar:O+OC:OC(doing)] C [O+OC] $verb @ B -> E",
+        "[output] [Grammar:V+O+OC:OC(doing)] C @ $verb B -> E"
+      ]
+    },
+    {
+      "description": "re-emit V+O+OC todo",
+      "commands": [
+        "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
+        "[input] [Grammar:O+OC:OC(to)] C [O+OC] $verb @ B -> E",
+        "[output] [Grammar:V+O+OC:OC(to)] C @ $verb B -> E"
       ]
     }
   ]

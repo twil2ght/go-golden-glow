@@ -10,21 +10,13 @@
         "[Var:Learning:Reset] @Caller C"
       ],
       "a": [
+        "每个动词词组都一个一个教，不追求泛化",
         "[Raw] user_1 say : if owo call your name",
         "[Raw] user_1 say : check if owo is a person",
         "[Raw] user_1 say : if owo is a person",
         "[Raw] user_1 say : then a person call your name",
         "[VarietyLearning] @Caller Test",
         "[Var:Learning:Reset] @Caller C"
-      ],
-      "b": [
-        "[Raw] user_1 say : if I say : if a owo call your name",
-        "[Raw] user_1 say : then Learn owo",
-        "Template",
-        "if owo do a thing",
-        "check if owo is a person",
-        "if owo is a person",
-        "then a person do a thing"
       ]
     }
   ]

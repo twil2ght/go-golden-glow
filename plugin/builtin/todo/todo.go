@@ -45,10 +45,7 @@ type todo struct {
 
 func (t *todo) Init() {
 	t.loadFromDisk()
-	if t.workQueue.Len() > 0 {
-		fmt.Printf("Start TODO Queue\n")
-		go t.tickLoop()
-	}
+	go t.tickLoop()
 }
 
 func (t *todo) Shutdown() {
@@ -114,6 +111,7 @@ func (t *todo) OnRegisterDataGen(gen datagen.Generator) {
 }
 
 func (t *todo) tickLoop() {
+	fmt.Printf("[TODO] ticking started\n")
 	for {
 		select {
 		case <-t.shutdown:
@@ -126,7 +124,6 @@ func (t *todo) tickLoop() {
 		}
 		select {
 		case t.msgChannel <- item:
-			fmt.Printf("TODO:Route %s to MsgCH\n", item)
 		case <-t.shutdown:
 			return
 		}
@@ -168,6 +165,10 @@ func (t *todo) loadFromDisk() {
 	for _, item := range items {
 		fmt.Printf("TODO item: %s\n", item)
 		t.workQueue.Add(item)
+	}
+	empty, _ := json.Marshal([]string{})
+	if err := os.WriteFile(persistFile, empty, 0644); err != nil {
+		log.Default().Error("TODO", "write", err)
 	}
 }
 

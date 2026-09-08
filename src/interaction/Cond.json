@@ -12,7 +12,7 @@
         "[input] [TeachMode] [say] @ C -> yes",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [say] @ A -> B",
         "[input] [Executor:Steps:Count] [say] @ Susie [Execute] A -> 0",
-        "[output] [Cond:Add] step 1 [of] [Executor] Susie [Execute] B @Caller C",
+        "[output] [Cond:Count++] @Caller A",
         "[output] [Cond&Res:Add] step 1 [of] [Executor] Susie [Execute] B # [Cond:Executor] @Caller [say]"
       ]
     },

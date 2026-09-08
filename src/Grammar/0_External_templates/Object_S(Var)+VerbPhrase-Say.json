@@ -1,0 +1,30 @@
+{
+  "name": "variable:Say:Object_S+VerbPhrase",
+  "is_template": true,
+  "args": [
+    "$Obj"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Legal] G say : A",
+        "[output] [TODO:Add] [Grammar:Verify:S+VerbPhrase] A @Caller [AOBJ_SAY] G"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] [AOBJ_SAY] G @ A -> B",
+        "[output] [repo] [GET] [Variety] B @Caller [AOBJ_SAY] G"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] [AOBJ_SAY] G @ A -> B",
+        "[input] [repo] [AOBJ_SAY] G @ [Variety] B ->",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [AOBJ_SAY] G @ A -> E",
+        "[output] [Legal] G say : $Obj E",
+        "[output] [repo] [SSET] [Var:Cache] $Obj -> B"
+      ]
+    }
+  ]
+}

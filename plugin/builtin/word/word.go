@@ -129,7 +129,7 @@ func (w *word) OnRegisterExtractor(reg handler.Executor[handler.ExtractorHandler
 				if err != nil {
 					return nil
 				}
-				return variable.NewValueMap(m.Hash{prefix + word: struct{}{}})
+				return variable.NewValueMap(m.Hash{prefix + strings.Join(strings.Fields(word), "-"): struct{}{}})
 
 			case modeAddSuffix:
 				suffix, err := parameters.Get(keySuffix)

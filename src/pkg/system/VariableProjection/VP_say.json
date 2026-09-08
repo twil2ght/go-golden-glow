@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] [VGVP] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [VGVP] A @ A -> say : D",
+        "[input] [repo] [VGVP] A @ [Variety] say : D ->",
+        "[output] [Grammar:Verify:S+VerbPhrase] D @Caller [VGVP_SAY] D",
+        "[output] [Grammar:Verify:VerbPhrase] D @Caller [VGVP_SAY_VP] D"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] [VGVP_SAY] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [VGVP_SAY] A @ A -> D",
+        "[output] [repo] [GET] [Variety] D @Caller [VGVP_SAY] A",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [VGVP_SAY] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [VGVP_SAY] A @ A -> D",
+        "[input] [repo] [VGVP_SAY] A @ [Variety] D -> yes",
+        "[output] [template:Run] variable:Say:VP_S+VerbPhrase @Args D @Caller [VGVP_SAY] A",
+        "[output] [repo] [GET] [Variety] B @Caller [VGVP_SAY] A",
+
+        "[input] [Grammar:S+VerbPhrase:Subject] [VGVP_SAY] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [VGVP_SAY] A @ A -> D",
+        "[input] [repo] [VGVP_SAY] A @ [Variety] B -> yes",
+        "[output] [template:Run] variable:Say:Object_S+VerbPhrase @Args B @Caller [VGVP_SAY] A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:S+VerbPhrase:Subject] [VGVP_SAY] A @ A -> B",
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [VGVP_SAY] A @ A -> D",
+        "[input] [repo] [VGVP_SAY] A @ [Variety] D ->",
+        "[input] [Grammar:VerbPhrase:Verb] [VGVP_SAY] A [Subject] @ D -> E",
+        "[input] [Grammar:VerbPhrase:V+O:O] [VGVP_SAY] A [Subject] @ D -> F",
+        "[output] [repo] [GET] [Variety] F @Caller [V+O] [VGVP_SAY] A",
+
+        "[input] [Grammar:S+VerbPhrase:VerbPhrase] [VGVP_SAY] A @ A -> D",
+        "[input] [Grammar:VerbPhrase:Verb] [VGVP_SAY] A [Subject] @ D -> E",
+        "[input] [Grammar:VerbPhrase:V+O:O] [VGVP_SAY] A [Subject] @ D -> F",
+        "[input] [repo] [V+O] [VGVP_SAY] A @ [Variety] F -> yes",
+        "[output] [template:Run] variable:Say:Object_S+V+O @Args E , F @Caller [VGVP_SAY] A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:VerbPhrase:Verb] [VGVP_SAY_VP] D @ D -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [VGVP_SAY_VP] D @ D -> F",
+        "[output] [repo] [GET] [Variety] F @Caller [V+O] [VGVP_SAY_VP] D",
+
+        "[input] [Grammar:VerbPhrase:Verb] [VGVP_SAY_VP] D @ D -> E",
+        "[input] [Grammar:VerbPhrase:V+O:Object] [VGVP_SAY_VP] D @ D -> F",
+        "[input] [repo] [V+O] [VGVP_SAY_VP] D @ [Variety] F -> yes",
+        "[output] [template:Run] variable:Say:Object_V+O @Args E , F @Caller [VGVP_SAY_VP] D"
+      ]
+    }
+  ]
+}

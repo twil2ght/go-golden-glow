@@ -9,6 +9,7 @@
         "[input] [mark] [No.] C @ B -> D",
         "[output] [TempLearn] D @Caller B",
         "[output] [compute] [GET] C + 1 @Caller B [Raw]",
+        "[output] [TODO:Add] [Common] Susie don't know the word D @Caller [nope]",
 
         "[input] [Raw] A say : B",
         "[input] [mark] [No.] C @ B -> D",
@@ -31,6 +32,19 @@
         "[input] [compute] B [Raw] @ C + 1 -> F",
         "[input] [phrase] [len] A [Raw] @ B -> F",
         "[output] [Legal] A say : B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [mark] [No.] C @ B -> D",
+        "[input] [Common] Susie know the word D @Caller C",
+        "[output] [compute] [GET] C + 1 @Caller B [Raw]"
+      ],
+      "A": [
+        "if you have a question unanswered,wait my answer before you ask another question",
+        "当回答完问题释放hook:[common] Susie is allowed to ask questions",
+        "[common] Susie is allowed to ask questions",
+        "[output] check if there are some questions to ask"
       ]
     }
   ]

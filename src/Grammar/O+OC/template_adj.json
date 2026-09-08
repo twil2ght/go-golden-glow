@@ -12,7 +12,7 @@
         "[input] [Grammar:Verify:Object] C [O+OC] @ B -> yes",
         "[output] [Grammar:Verify:O+OC] C @ B $attr -> yes",
         "[output] [Grammar:O+OC:Object] C @ B $attr -> B",
-        "[output] [Grammar:O+OC:OC] C @ B $attr -> $attr"
+        "[output] [Grammar:O+OC:OC(adj)] C @ B $attr -> $attr"
       ]
     },
     {

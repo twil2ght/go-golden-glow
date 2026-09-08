@@ -9,7 +9,8 @@
         "[Raw] user_1 say : or if you don't have your favourite food",
         "[Raw] user_1 say : say : sorry",
         "[Raw] user_1 say : then say : I don't have my favourite food",
-        "[VarietyLearning] @Caller Test"
+        "[VarietyLearning] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
       ],
       "a": [
         "[Raw] user_1 say : to tell a person what your favourite food is",

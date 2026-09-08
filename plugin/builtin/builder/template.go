@@ -42,7 +42,6 @@ func loadTemplates(templateDir string) (m.Map[*template], error) {
 		}
 		if tpl.IsTemplate && tpl.Name != "" {
 			templates[tpl.Name] = tpl
-			logger.Debug("templateGen: loaded template", "name", tpl.Name, "file", path)
 		}
 		return nil
 	})

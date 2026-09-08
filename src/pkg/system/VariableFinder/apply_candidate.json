@@ -86,8 +86,7 @@
 
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B ->",
-        "[output] [Var:Candidate:Apply:Done] @Caller C [LearnVar]",
-        "Delete All [Var:Cache] saved before"
+        "[output] [Var:Candidate:Apply:Done] @Caller C [LearnVar]"
       ]
     }
   ]

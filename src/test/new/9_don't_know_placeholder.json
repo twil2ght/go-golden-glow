@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Raw] user_1 say : if you don't know if apple is a placeholder",
+        "[Raw] user_1 say : say : I don't know if apple is a placeholder",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
+        "[Var:Learning:Reset] @Caller Test"
+      ],
+      "a":[
+        "[Raw] user_1 say : if you don't know if apple is a placeholder",
+        "[Raw] user_1 say : say : I don't know if apple is a placeholder",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
+        "[Var:Learning:Reset] @Caller Test"
+      ]
+    }
+  ]
+}

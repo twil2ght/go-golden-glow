@@ -147,7 +147,6 @@ func (s *addon) OnRegisterExecutor(reg handler.Executor[handler.ExecuteHandler])
 			s.repo.Del(key)
 			return
 		}
-		log.Default().Info("[repo] set", key, value)
 		//s.cache.Unregister(fmt.Sprintf("check %s!->%s", key, value))
 		if singleValue == "true" {
 			s.repo.Del(key)

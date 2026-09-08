@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[Raw] user_1 say : if I ask you to check something",
+        "[Raw] user_1 say : and if something is apple",
+        "[Raw] user_1 say : say : it is apple",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ],
+      "A": [
+        "[Raw] user_1 say : if I ask you to check something",
+        "[Raw] user_1 say : and if something is apple",
+        "[Raw] user_1 say : say : it is apple",
+        "[VarietyLearning] @Caller Test",
+        "[VariableTemplateGen] @Caller Test",
+        "[Var:Learning:Reset] @Caller C"
+      ]
+    }
+  ]
+}

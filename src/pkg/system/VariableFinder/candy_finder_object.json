@@ -1,0 +1,96 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VP:Candidate:Find:Done] @Caller C",
+        "[output] [Object-Level:Counter:Get] [No.] 1 @Caller C [LearnObject] [No.] 0",
+
+        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 -> F",
+        "[input] [Object-Level:Counter:Get:Amount] C [LearnObject] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [CHECK] F1 > 1 @Caller C [LearnObject] [No.] B1",
+        "[output] [compute] [CHECK] F1 < 2 @Caller C [LearnObject] [No.] B1",
+
+        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 -> F",
+        "[input] [Object-Level:Counter:Get:Amount] C [LearnObject] [No.] B @ [No.] B1 -> F1",
+        "[input] [compute] C [LearnObject] [No.] B1 @ F1 > 1 -> yes",
+        "[output] [compute] [GET] B1 + 1 @Caller C [LearnObject] [No.] B1",
+        "[output] [Var:Candidate:Add] F @Caller C [LearnObject]",
+        "[output] [repo] [SSET] [Var:Candidate:Type] F -> Object",
+
+        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 -> F",
+        "[input] [Object-Level:Counter:Get:Amount] C [LearnObject] [No.] B @ [No.] B1 -> F1",
+        "[input] [compute] C [LearnObject] [No.] B1 @ F1 < 2 -> yes",
+        "[output] [compute] [GET] B1 + 1 @Caller C [LearnObject] [No.] B1",
+
+        "[input] [compute] C [LearnObject] [No.] B1 @ B1 + 1 -> F",
+        "[output] [Object-Level:Counter:Get] [No.] F @Caller C [LearnObject] [No.] B1",
+
+        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 ->",
+        "[output] [Object:Candidate:Find:Done] @Caller C [LearnObject]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [BetterVP:Candidate:Find:Done] @Caller C",
+        "[output] [Object-Level:Counter:Get] [No.] 1 @Caller C [BetterLearnObject] [No.] 0",
+
+        "[input] [Object-Level:Counter:Get] C [BetterLearnObject] [No.] B @ [No.] B1 -> F",
+        "[input] [Object-Level:Counter:Get:Amount] C [BetterLearnObject] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [CHECK] F1 > 1 @Caller C [BetterLearnObject] [No.] B1",
+        "[output] [repo] [GET] [Var:Candidate:Type] F @Caller C [BetterLearnObject] [No.] B1",
+
+        "[input] [Object-Level:Counter:Get] C [BetterLearnObject] [No.] B @ [No.] B1 -> F",
+        "[input] [Object-Level:Counter:Get:Amount] C [BetterLearnObject] [No.] B @ [No.] B1 -> F1",
+        "[input] [repo] C [BetterLearnObject] [No.] B1 @ [Var:Candidate:Type] F ->",
+        "[input] [compute] C [BetterLearnObject] [No.] B1 @ F1 > 1 -> yes",
+        "[output] [TODO:Add] [Common] Susie don't know if ` F ` is a placeholder @Caller [Generalize]",
+        "[output] [safe++] [Object:Candidate:Undone] @Caller B1",
+        "[output] [repo] [SSET] [Candidate:Undone:Type] F -> Object",
+
+        "[input] [Object-Level:Counter:Get] C [BetterLearnObject] [No.] B @ [No.] B1 -> F",
+        "[input] [Object-Level:Counter:Get:Amount] C [BetterLearnObject] [No.] B @ [No.] B1 -> F1",
+        "[output] [compute] [GET] B1 + 1 @Caller C [BetterLearnObject] [No.] B1",
+
+        "[input] [compute] C [BetterLearnObject] [No.] B1 @ B1 + 1 -> F",
+        "[output] [Object-Level:Counter:Get] [No.] F @Caller C [BetterLearnObject] [No.] B1",
+
+        "[input] [Object-Level:Counter:Get] C [BetterLearnObject] [No.] B @ [No.] B1 ->",
+        "[output] [repo] [GET] [Object:Candidate:Undone] @Caller C [BetterLearnObject]",
+
+        "[input] [repo] C [BetterLearnObject] @ [Object:Candidate:Undone] ->",
+        "[output] [TODO:Add] [BetterObject:Candidate:Find:Done] @Caller [BetterLearnObject]",
+
+        "[input] [repo] C [BetterLearnObject] @ [Object:Candidate:Undone] -> B",
+        "[output] [Print] Object-Candidate: B @Caller Hi"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` is a placeholder",
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Object",
+        "[output] [repo] [GET] [Object:Candidate:Undone] @Caller F [--]",
+        "[output] [Var:Candidate:Add] F @Caller [BetterLearnObject]",
+        "[output] [Print] [Var:Candidate:Add] F @Caller Hi",
+        "[output] [repo] [SSET] [Var:Candidate:Type] F -> Object",
+
+        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` isn't a placeholder",
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Object",
+        "[output] [repo] [GET] [Object:Candidate:Undone] @Caller F [--]",
+
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Object",
+        "[input] [repo] F [--] @ [Object:Candidate:Undone] -> D",
+        "[output] [Print] [Object:Candidate:Undone] -> D @Caller Hi",
+        "[output] [compute] [GET] D - 1 @Caller [Object:Candidate:Undone]",
+
+        "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Object",
+        "[input] [repo] F [--] @ [Object:Candidate:Undone] -> D",
+        "[input] [compute] [Object:Candidate:Undone] @ D - 1 -> B",
+        "[output] [repo] [SSET] [Object:Candidate:Undone] -> B",
+        "[output] [repo] [DEL] [Candidate:Undone:Type] F",
+
+        "[input] [repo] [SSET] [Object:Candidate:Undone] -> 0",
+        "[output] [TODO:Add] [BetterObject:Candidate:Find:Done] @Caller [BetterLearnObject]"
+      ]
+    }
+  ]
+}
