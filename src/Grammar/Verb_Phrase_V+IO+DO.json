@@ -4,25 +4,20 @@
   "args": [
     "$verb"
   ],
-  "API": "[Grammar:Verify:V+IO+DO] $verb B @Caller C",
-  "template_API": "[template:Run] [V+IO+DO] @Args A @Caller C",
-  "callback": [
-    "[Grammar:Verify:V+IO+DO] C @ $verb B -> yes",
-    "[Grammar:V+IO+DO:Verb] C @ $verb B -> $verb",
-    "[Grammar:V+IO+DO:Object] C @ $verb B -> F"
-  ],
   "data": [
     {
       "commands": [
         "[input] [Grammar:Verify:V+IO+DO] $verb B @Caller C",
         "[input] [Grammar:Verify:IO+DO] C $verb @ B -> yes",
         "[output] [Grammar:Verify:V+IO+DO] C @ $verb B -> yes",
-        "[output] [Grammar:V+IO+DO:Verb] C @ $verb B -> $verb",
-
+        "[output] [Grammar:V+IO+DO:Verb] C @ $verb B -> $verb"
+      ]
+    },
+    {
+      "commands": [
         "[input] [Grammar:IO+DO:IndirectObject] C $verb @ B -> F",
-        "[output] [Grammar:V+IO+DO:Object] C @ $verb B -> F",
-
         "[input] [Grammar:IO+DO:DirectObject] C $verb @ B -> F1",
+        "[output] [Grammar:V+IO+DO:Object] C @ $verb B -> F",
         "[output] [Grammar:V+IO+DO:DirectObject] C @ $verb B -> F1"
       ]
     },

@@ -16,7 +16,10 @@
         "[input] [Grammar:VerbPhrase:V+O:Verb] C [Var] @ A -> B",
         "[input] [Grammar:VerbPhrase:V+O:Object] C [Var] @ A -> D",
         "[input] [Var:Resolve:Object] C [Var] [Object] A @ D -> D1",
-        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1"
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [V+O:V] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [V+O:O] B D1 -> D1",
+        "[output] [repo] [SSET] [GSave] [Type] B D1 -> V+O"
       ]
     },
     {
@@ -39,7 +42,10 @@
         "[input] [Grammar:VerbPhrase:V+O:Object] C [Subject] @ A -> D",
         "[input] [Grammar:VerbPhrase:V+O:Verb] C [Subject] @ A -> B",
         "[input] [Var:Resolve:Object] C [Var] [Object] A @ D -> D1",
-        "[output] [Var:Resolve:VerbPhrase] C [S+VerbPhrase] E @ A -> B D1"
+        "[output] [Var:Resolve:VerbPhrase] C [S+VerbPhrase] E @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [V+O:V] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [V+O:O] B D1 -> D1",
+        "[output] [repo] [SSET] [GSave] [Type] B D1 -> V+O"
       ]
     },
     {
@@ -51,7 +57,10 @@
         "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [Var_V2] [S+VerbPhrase_V2] E",
         "[input] [Grammar:VerbPhrase:V+O:Verb] C [Var_V2] [Subject] @ A -> B",
         "[input] [Var:Resolve:Object] C [Var_V2] [Object] A @ D -> D1",
-        "[output] [Var:Resolve:VerbPhrase] C [Var_V2] [S+VerbPhrase_V2] E @ A -> B D1"
+        "[output] [Var:Resolve:VerbPhrase] C [Var_V2] [S+VerbPhrase_V2] E @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [V+O:V] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [V+O:O] B D1 -> D1",
+        "[output] [repo] [SSET] [GSave] [Type] B D1 -> V+O"
       ]
     }
   ]

@@ -1,0 +1,24 @@
+{
+  "dependencies": [
+    "object_set/clause",
+    "object_set/article_and_adjpro",
+    "object_set/pronoun",
+    "object_set/noun"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Resolve:O] A @Caller C",
+        "[output] [Var:Resolve] A @Caller C [R]",
+
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [Var:Resolve] C [R] @ A -> B",
+        "[output] [Resolve:O] C @ A -> B",
+
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [Var:Resolve] C [R] @ A ->",
+        "[output] [repo] [GET] [GSave] [O:Type] A @Caller C [R]"
+      ]
+    }
+  ]
+}

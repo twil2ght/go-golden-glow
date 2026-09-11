@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Object:Article] C [Var] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] [Article]",
+
+        "[input] [Grammar:Object:Article] C [Var] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase] C [Var] @ A -> D",
+        "[input] [Var:Resolve:Object] C [Var] [Article] @ D -> D1",
+        "[output] [Var:Resolve:Object] C @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [O:Type] B D1 -> Article",
+        "[output] [repo] [SSET] [GSave] [A:A] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [A:N] B D1 -> D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Object:AdjProNounPhrase:AdjPro] C [Var] @ A -> B",
+        "[input] [Grammar:Object:AdjProNounPhrase:NounPhrase] C [Var] @ A -> D",
+        "[output] [Var:Resolve:Object] D @Caller C [Var] [AdjPro]",
+
+        "[input] [Grammar:Object:AdjProNounPhrase:AdjPro] C [Var] @ A -> B",
+        "[input] [Grammar:Object:AdjProNounPhrase:NounPhrase] C [Var] @ A -> D",
+        "[input] [Var:Resolve:Object] C [Var] [AdjPro] @ D -> D1",
+        "[output] [Var:Resolve:Object] C @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [O:Type] B D1 -> AdjPro",
+        "[output] [repo] [SSET] [GSave] [A:A] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [A:N] B D1 -> D1"
+      ]
+    }
+  ]
+}

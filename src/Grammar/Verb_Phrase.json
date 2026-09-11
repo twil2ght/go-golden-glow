@@ -2,14 +2,6 @@
   "dependencies": [
     "Verb_Phrase_V"
   ],
-  "API": [
-    {
-      "caller": "[Grammar:Verify:VerbPhrase] A @Caller C",
-      "callback": [
-        "[Grammar:Verify:VerbPhrase] A -> yes"
-      ]
-    }
-  ],
   "data": [
     {
       "commands": [

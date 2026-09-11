@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [repo] [TE] @ [GSave] [S+VP:S] A -> B",
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [TE] @ [GSave] [V+O:V] D -> E",
+        "[input] [repo] [TE] @ [GSave] [V+O:O] D -> F",
+        "[input] [repo] [TE] @ [Variety] F -> yes",
+        "[output] [template:Run] if:S+V+O(var) @Args B , E , F @Caller A"
+      ]
+    }
+  ]
+}

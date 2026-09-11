@@ -2,29 +2,39 @@
   "name": "executor:VP+Prep(var)",
   "is_template": true,
   "args": [
-    "$Prep"
+    "$Prep",
+    "$By"
   ],
   "data": [
     {
       "commands": [
         "[input] [Executor] Susie [Execute] A",
-        "[output] [TODO:Add] [Grammar:Verify:VerbPhrase] A @Caller [ExeTemp]"
+        "[output] [TODO:Add] [repo] [GET] [GSave] [By] A @Caller [ExeTemp]"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:By] [ExeTemp] @ A -> B",
-        "[input] [Grammar:VerbPhrase:VP] [ExeTemp] @ A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [By] A -> B",
+        "[output] [repo] [GET] [GSave] [VP] A @Caller [ExeTemp]",
+        "[output] [repo] [GET] [GSave] [Prep] A @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [By] A -> B",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [Prep] A -> $Prep",
         "[output] [repo] [GET] [Variety] B @Caller [ExeTemp]"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:By] [ExeTemp] @ A -> B",
-        "[input] [Grammar:VerbPhrase:VP] [ExeTemp] @ A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [By] A -> B",
+        "[input] [repo] [ExeTemp] @ [GSave] [Prep] A -> $Prep",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP] A -> D",
         "[input] [repo] [ExeTemp] @ [Variety] B ->",
-        "[output] [Executor] Susie [Execute] D $Prep",
-        "[output] [repo] [SSET] [Var:Cache] $Prep -> B"
+        "[output] [Executor] Susie [Execute] D $Prep $By",
+        "[output] [repo] [SSET] [Var:Cache] $By -> B"
       ]
     }
   ]

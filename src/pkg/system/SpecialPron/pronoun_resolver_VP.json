@@ -5,7 +5,8 @@
     "vp_set/V+O+OC",
     "vp_set/V+O",
     "vp_set/V+P",
-    "vp_set/V"
+    "vp_set/V",
+    "vp_set/VP_Can"
   ],
   "data": [
     {
@@ -44,7 +45,10 @@
         "[input] [Grammar:VerbPhrase:VP] C [Var] @ A -> B",
         "[input] [Var:Resolve:VerbPhrase] C [VP_By] @ B -> B1",
         "[input] [Var:Resolve:Object] C [VP_By] @ D -> D1",
-        "[output] [Var:Resolve:VerbPhrase] C @ A -> B1 by D1"
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B1 by D1",
+        "[output] [repo] [SSET] [GSave] [VP] B1 by D1 -> B1",
+        "[output] [repo] [SSET] [GSave] [By] B1 by D1 -> D1",
+        "[output] [repo] [SSET] [GSave] [Prep] B1 by D1 -> by"
       ]
     },
     {
@@ -64,7 +68,10 @@
         "[input] [Grammar:VerbPhrase:VP] C [Subject] @ A -> B",
         "[input] [Var:Resolve:VerbPhrase] C [VP_By] @ B -> B1",
         "[input] [Var:Resolve:Object] C [VP_By] @ D -> D1",
-        "[output] [Var:Resolve:VerbPhrase] C [S+VerbPhrase] E @ A -> B1 by D1"
+        "[output] [Var:Resolve:VerbPhrase] C [S+VerbPhrase] E @ A -> B1 by D1",
+        "[output] [repo] [SSET] [GSave] [VP] B1 by D1 -> B1",
+        "[output] [repo] [SSET] [GSave] [By] B1 by D1 -> D1",
+        "[output] [repo] [SSET] [GSave] [Prep] B1 by D1 -> by"
       ]
     },
     {

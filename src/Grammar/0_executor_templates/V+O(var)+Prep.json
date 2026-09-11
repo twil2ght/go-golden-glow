@@ -10,24 +10,38 @@
     {
       "commands": [
         "[input] [Executor] Susie [Execute] A",
-        "[output] [TODO:Add] [Grammar:Verify:VerbPhrase] A @Caller [ExeTemp]"
+        "[output] [TODO:Add] [repo] [GET] [GSave] [By] A @Caller [ExeTemp]"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:By] [ExeTemp] @ A -> $Prep",
-        "[input] [Grammar:VerbPhrase:VP] [ExeTemp] @ A -> D",
-        "[input] [Grammar:VerbPhrase:Verb] [ExeTemp] [by] @ D -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] [ExeTemp] [by] @ D -> E",
+        "[input] [repo] [ExeTemp] @ [GSave] [By] A -> $Prep",
+        "[output] [repo] [GET] [GSave] [VP] A @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [By] A -> $Prep",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP] A -> D",
+        "[output] [repo] [GET] [GSave] [V+O:V] D @Caller [ExeTemp]",
+        "[output] [repo] [GET] [GSave] [V+O:O] D @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [By] A -> $Prep",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:V] D -> $Verb",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:O] D -> E",
         "[output] [repo] [GET] [Variety] E @Caller [ExeTemp]"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:VerbPhrase:By] [ExeTemp] @ A -> $Prep",
-        "[input] [Grammar:VerbPhrase:VP] [ExeTemp] @ A -> D",
-        "[input] [Grammar:VerbPhrase:Verb] [ExeTemp] [by] @ D -> $Verb",
-        "[input] [Grammar:VerbPhrase:V+O:Object] [ExeTemp] [by] @ D -> E",
+        "[input] [repo] [ExeTemp] @ [GSave] [By] A -> $Prep",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:V] D -> $Verb",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:O] D -> E",
         "[input] [repo] [ExeTemp] @ [Variety] E ->",
         "[output] [Executor] Susie [Execute] $Verb $Obj $Prep",
         "[output] [repo] [SSET] [Var:Cache] $Obj -> E"

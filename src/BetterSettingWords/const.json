@@ -14,6 +14,7 @@
         "[Learn:Verb] know @Caller test",
         "[Learn:Verb] say @Caller test",
         "[Learn:Verb] equal @Caller test",
+        "[Learn:Verb] ensure @Caller test",
 
         "[Learn:Noun] noun @Caller test",
         "[Learn:Noun] verb @Caller test",
@@ -88,6 +89,7 @@
         "[repo] [SSET] [TeachMode] user_1 -> yes",
 
         "[repo] [SSET] [Units] : -> yes",
+        "[repo] [SSET] [Units] [Common] -> yes",
         "[repo] [SSET] [Units] ` -> yes"
       ]
     }

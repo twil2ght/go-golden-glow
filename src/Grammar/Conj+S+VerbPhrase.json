@@ -4,14 +4,6 @@
   "args": [
     "$conj"
   ],
-  "API": "[Grammar:Verify:Conj+S+VerbPhrase] $conj B @Caller C",
-  "template_API": "[template:Run] Conj+S+VerbPhrase @Args A @Caller C",
-  "callback": [
-    "[Grammar:Verify:Conj+S+VerbPhrase] C @ $conj B -> yes",
-    "[Grammar:Conj+S+VerbPhrase:Conjunction] C @ $conj B -> $conj",
-    "[Grammar:Conj+S+VerbPhrase:VerbPhrase] C @ $conj B -> B"
-  ],
-  "Caller": "[Conj] $conj",
   "data": [
     {
       "commands": [

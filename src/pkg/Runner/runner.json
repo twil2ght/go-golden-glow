@@ -17,6 +17,12 @@
         "[input] [repo] A say : B @ [Then] A say : B -> D",
         "[output] D"
       ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C @ [Then] A -> [Common] B @Caller C",
+        "[output] [Resolve:S+VP] B @Caller [H]"
+      ]
     }
   ]
 }

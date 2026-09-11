@@ -1,0 +1,100 @@
+{
+  "data": [
+    {
+      "tips": [
+        "不会出现do/can,因为[execute]只能是指示性句子"
+      ],
+      "commands": [
+        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
+        "[input] [Cond&Res:Type] C [CC] [No.] D @ [No.] B -> [Cond:Executor]",
+        "[output] [TODO:Add] [repo] [GET] [GSave] [By] A @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [By] A -> D",
+        "[output] [repo] [GET] [Variety] D @Caller [ET]",
+        "[output] [repo] [GET] [GSave] [VP] A @Caller [ET]",
+        "[output] [repo] [GET] [GSave] [Prep] A @Caller [ET]",
+
+
+        "[input] [repo] [ET] @ [GSave] [By] A -> D",
+        "[input] [repo] [ET] @ [GSave] [Prep] A -> F",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[output] [template:Run] executor:VP+Prep+O(var) @Args F , D @Caller [Executor] Susie [Execute] A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ET] @ [GSave] [VP] A -> B",
+        "[output] [repo] [GET] [Variety] B @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [By] A -> F",
+        "[input] [repo] [ET] @ [GSave] [Prep] A -> G",
+        "[input] [repo] [ET] @ [GSave] [VP] A -> B",
+        "[input] [repo] [ET] @ [Variety] B -> yes",
+        "[output] [template:Run] executor:VP(var)+Prep+O @Args B , G , F @Caller [Executor] Susie [Execute] A",
+
+        "[input] [repo] [ET] @ [GSave] [VP] A -> B",
+        "[input] [repo] [ET] @ [Variety] B ->",
+        "[output] [repo] [GET] [GSave] [Type] B @Caller [ET]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ET] @ [GSave] [Type] B -> V+O",
+        "[output] [repo] [GET] [GSave] [V+O:O] B @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [V+O:O] B -> D",
+        "[output] [repo] [GET] [Variety] D @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [V+O:O] B -> D",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[output] [repo] [GET] [GSave] [V+O:V] B @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [By] A -> F",
+        "[input] [repo] [ET] @ [GSave] [Prep] A -> G",
+        "[input] [repo] [ET] @ [GSave] [VP] A -> B",
+        "[input] [repo] [ET] @ [GSave] [V+O:O] B -> D",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[input] [repo] [ET] @ [GSave] [V+O:V] B -> E",
+        "[output] [template:Run] executor:V+O(var)+Prep+O @Args E , D , G , F @Caller [Executor] Susie [Execute] [VP] B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ET] @ [GSave] [Type] B -> V+IO+DO",
+        "[output] [repo] [GET] [GSave] [V+IO+DO:IO] B @Caller [ET]",
+        "[output] [repo] [GET] [GSave] [V+IO+DO:DO] B @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:IO] B -> D",
+        "[output] [repo] [GET] [Variety] D @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:IO] B -> D",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[output] [repo] [GET] [GSave] [V+IO+DO:V] B @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [By] A -> F",
+        "[input] [repo] [ET] @ [GSave] [Prep] A -> G",
+        "[input] [repo] [ET] @ [GSave] [VP] A -> B",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:IO] B -> D",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:V] B -> E",
+        "[output] [template:Run] executor:V+IO(var)+DO+Prep+O @Args E , D , G , F @Caller [Executor] Susie [Execute] [VP] B",
+
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:DO] B -> F",
+        "[output] [repo] [GET] [Variety] D @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:DO] B -> F",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[output] [repo] [GET] [GSave] [V+IO+DO:V] B @Caller [ET]",
+
+        "[input] [repo] [ET] @ [GSave] [By] A -> F",
+        "[input] [repo] [ET] @ [GSave] [Prep] A -> G",
+        "[input] [repo] [ET] @ [GSave] [VP] A -> B",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:IO] B -> D",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:DO] B -> F",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:V] B -> E",
+        "[output] [template:Run] executor:V+IO+DO(var)+Prep+O @Args E , D , F , G , F @Caller [Executor] Susie [Execute] [VP] B"
+      ]
+    }
+  ]
+}

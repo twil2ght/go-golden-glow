@@ -13,4 +13,5 @@
 13. 只有legal这种纯粹的外来的话需要特定规则来得到variable
 14. new:反驳上述观点
 15. if也需要重置end_learning
-16. 同样的词但是来自不同的类别，不需要重复提问是否是占位符
+16. 不需要给res加variableprojection:因为这些不过是对应函数的入口，本身无意义，应该给cond里的[executor]加才对,这些才是货真价实的可以调用的函数
+17. double_noun:让前面的noun具有adj词性

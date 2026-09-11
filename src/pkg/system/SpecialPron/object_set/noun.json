@@ -2,86 +2,45 @@
   "data": [
     {
       "commands": [
+        "[input] [Var:Resolve] C @ A ->",
         "[input] [Grammar:Object:Type] C [Var] @ A -> Noun",
-        "[output] [Var:Resolve] A @Caller C [Var] [PlainNoun]",
+        "[output] [Var:Resolve:Object] C @ A -> A",
+        "[output] [repo] [SSET] [GSave] [O:Type] A -> PlainNoun",
 
-        "[input] [Var:Resolve] C [Var] [PlainNoun] @ A -> B",
-        "[output] [Var:Resolve:Object] C @ A -> B",
+        "[input] [Var:Resolve] C @ A ->",
+        "[input] [Grammar:Object:Type] C [Var] @ A -> Pronoun",
+        "[output] [Var:Resolve:Object] C @ A -> A",
+        "[output] [repo] [SSET] [GSave] [O:Type] A -> Pronoun",
 
-        "[input] [Var:Resolve] C [Var] [PlainNoun] @ A ->",
-        "[output] [Var:Resolve:Object] C @ A -> A"
+        "[input] [Var:Resolve] C @ A ->",
+        "[input] [Grammar:Object:Type] C [Var] @ A -> cited",
+        "[output] [Var:Resolve:Object] C @ A -> A",
+        "[output] [repo] [SSET] [GSave] [O:Type] F E1 -> Cited"
       ]
     },
     {
       "commands": [
+        "[input] [Var:Resolve] C @ A ->",
         "[input] [Grammar:Object:NounPhrase:Noun] C [Var] @ A -> B",
         "[output] [Var:Resolve] B @Caller C [Var] [NounPhrase]",
 
+        "[input] [Var:Resolve] C @ A ->",
         "[input] [Grammar:Object:NounPhrase:Noun] C [Var] @ A -> B",
         "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] C [Var] @ A -> F",
         "[input] [Var:Resolve] C [Var] [NounPhrase] @ B -> D",
         "[output] [Var:Resolve:Object] C @ A -> F D",
+        "[output] [repo] [SSET] [GSave] [O:Type] F D -> AdjNoun",
+        "[output] [repo] [SSET] [GSave] [Adj:A] F D -> F",
+        "[output] [repo] [SSET] [GSave] [Adj:N] F D -> D",
 
+        "[input] [Var:Resolve] C @ A ->",
         "[input] [Grammar:Object:NounPhrase:Noun] C [Var] @ A -> B",
+        "[input] [Grammar:Object:NounPhrase:AdjectivePhrase] C [Var] @ A -> F",
         "[input] [Var:Resolve] C [Var] [NounPhrase] @ B ->",
-        "[output] [Var:Resolve:Object] C @ A -> A"
-      ]
-    },
-    {
-      "commands": [
-        "[input] [Grammar:Object:NounPhrase:PrepFront] C [Var] @ A -> B",
-        "[output] [Var:Resolve] B @Caller B [Var] [PrepFront]",
-
-        "[input] [Grammar:Object:NounPhrase:PrepFront] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase:PrepBack] C [Var] @ A -> F",
-        "[input] [Var:Resolve] B [Var] [PrepFront] @ B -> B1",
-        "[output] [Var:Resolve] F @Caller F [Var] [PrepBack]",
-
-        "[input] [Grammar:Object:NounPhrase:PrepFront] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase:PrepBack] C [Var] @ A -> F",
-        "[input] [Var:Resolve] B [Var] [PrepFront] @ B ->",
-        "[output] [Var:Resolve] F @Caller F [Var] [PrepBack]",
-
-        "[input] [Grammar:Object:NounPhrase:PrepFront] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase:PrepBack] C [Var] @ A -> F",
-        "[input] [Var:Resolve] B [Var] [PrepFront] @ B ->",
-        "[input] [Var:Resolve] F [Var] [PrepBack] @ F ->",
         "[output] [Var:Resolve:Object] C @ A -> A",
-
-        "[input] [Grammar:Object:NounPhrase:PrepFront] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase:Prep] C [Var] @ A -> G",
-        "[input] [Grammar:Object:NounPhrase:PrepBack] C [Var] @ A -> F",
-        "[input] [Var:Resolve] B [Var] [PrepFront] @ B -> B1",
-        "[input] [Var:Resolve] F [Var] [PrepBack] @ F ->",
-        "[output] [Var:Resolve:Object] C @ A -> B1 G F",
-
-        "[input] [Grammar:Object:NounPhrase:PrepFront] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase:Prep] C [Var] @ A -> G",
-        "[input] [Grammar:Object:NounPhrase:PrepBack] C [Var] @ A -> F",
-        "[input] [Var:Resolve] B [Var] [PrepFront] @ B ->",
-        "[input] [Var:Resolve] F [Var] [PrepBack] @ F -> F1",
-        "[output] [Var:Resolve:Object] C @ A -> B G F1",
-
-        "[input] [Grammar:Object:NounPhrase:PrepFront] C [Var] @ A -> B",
-        "[input] [Grammar:Object:NounPhrase:Prep] C [Var] @ A -> G",
-        "[input] [Grammar:Object:NounPhrase:PrepBack] C [Var] @ A -> F",
-        "[input] [Var:Resolve] B [Var] [PrepFront] @ B -> B1",
-        "[input] [Var:Resolve] F [Var] [PrepBack] @ F -> F1",
-        "[output] [Var:Resolve:Object] C @ A -> B1 G F1"
-      ]
-    },
-    {
-      "commands": [
-        "[input] [Grammar:Object:Type] C [Var] @ A -> Pronoun",
-        "[output] [Var:Resolve] A @Caller C [Var] [PlainPronoun]",
-
-        "[input] [Grammar:Object:Type] C [Var] @ A -> Pronoun",
-        "[input] [Var:Resolve] C [Var] [PlainPronoun] @ A -> B",
-        "[output] [Var:Resolve:Object] C @ A -> B",
-
-        "[input] [Grammar:Object:Type] C [Var] @ A -> Pronoun",
-        "[input] [Var:Resolve] C [Var] [PlainPronoun] @ A ->",
-        "[output] [Var:Resolve:Object] C @ A -> A"
+        "[output] [repo] [SSET] [GSave] [O:Type] F B -> AdjNoun",
+        "[output] [repo] [SSET] [GSave] [Adj:A] F B -> F",
+        "[output] [repo] [SSET] [GSave] [Adj:N] F B -> B"
       ]
     }
   ]

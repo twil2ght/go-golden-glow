@@ -1,0 +1,33 @@
+{
+  "name": "Noun+Prep+Noun",
+  "is_template": true,
+  "args": [
+    "$prep"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A $prep B @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C [PrepFront] $prep"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A $prep B @Caller C",
+        "[input] [Grammar:Verify:Object] C [PrepFront] $prep @ A -> yes",
+        "[output] [Grammar:Verify:Object] B @Caller C [PrepBack] $prep"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] A $prep B @Caller C",
+        "[input] [Grammar:Verify:Object] C [PrepFront] $prep @ A -> yes",
+        "[input] [Grammar:Verify:Object] C [PrepBack] $prep @ B -> yes",
+        "[output] [Grammar:Verify:Object] C @ A $prep B -> yes",
+        "[output] [Grammar:Object:PrepFront] C @ A $prep B -> A",
+        "[output] [Grammar:Object:Prep] C @ A $prep B -> $prep",
+        "[output] [Grammar:Object:PrepBack] C @ A $prep B -> B"
+      ]
+    }
+  ]
+}

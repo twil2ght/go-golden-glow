@@ -3,7 +3,7 @@
     {
       "commands": [
         "[input] [Var:Candidate:Apply:Done] @Caller C [LearnVar]",
-        "[output] [TODO:Add] [Var:Learning:Reset] @Caller C"
+        "[output] [TODO:Add] [VariableTemplateGen] @Caller Test"
       ]
     },
     {
@@ -13,6 +13,7 @@
         "[output] [repo] [DEL] [Cond&Res:Count]",
         "[output] [Cond&Res:Reset] @Caller C",
         "[output] [Cond:Reset] @Caller C",
+        "[output] [Res:Reset] @Caller C",
         "[output] [Word:Counter:Reset] @Caller C",
         "[output] [VP-Level:Counter:Reset] @Caller C",
         "[output] [NounPhrase-Level:Counter:Reset] @Caller C",

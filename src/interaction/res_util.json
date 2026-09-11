@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "description": "Add",
+      "commands": [
+        "[input] [Res:Add] A @Caller C",
+        "[output] [repo] [GET] [Res:Count] @Caller C [Res:Add] A",
+
+        "[input] [repo] C [Res:Add] A @ [Res:Count] ->",
+        "[output] [repo] [SSET] [Res:Count] -> 1",
+        "[output] [repo] [SSET] [Res] [No.] 1 -> A",
+
+        "[input] [repo] C [Res:Add] A @ [Res:Count] -> B",
+        "[output] [compute] [GET] B + 1 @Caller C [Res:Add] A",
+
+        "[input] [compute] C [Res:Add] A @ B + 1 -> D",
+        "[output] [repo] [SSET] [Res:Count] -> D",
+        "[output] [repo] [SSET] [Res] [No.] D -> A"
+      ]
+    },
+    {
+      "description": "Get",
+      "commands": [
+        "[input] [Res:Get] [No.] A @Caller C",
+        "[output] [repo] [GET] [Res] [No.] A @Caller C [Res:Get]",
+
+        "[input] [repo] C [Res:Get] @ [Res] [No.] A -> B",
+        "[output] [Res] C @ [No.] A -> B",
+
+        "[input] [repo] C [Res:Get] @ [Res] [No.] A ->",
+        "[output] [Res] C @ [No.] A ->"
+      ]
+    },
+    {
+      "description": "reset",
+      "commands": [
+        "[input] [Res:Reset] @Caller C",
+        "[output] [repo] [GET] [Res] [No.] 1 @Caller C [Res][Reset] [No.] 0",
+        "[output] [repo] [DEL] [Res:Count]",
+
+        "[input] [repo] C [Res][Reset] [No.] D @ [Res] [No.] B -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [Res][Reset] [No.] B",
+        "[output] [repo] [DEL] [Res] [No.] B",
+
+        "[input] [compute] C [Res][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [Res] [No.] F @Caller C [Res][Reset] [No.] B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Res:Gen:Done] [Executor] Susie [Execute] D @Caller C",
+        "[output] [Res:Add] [Executor] Susie [Execute] D @Caller C"
+      ]
+    }
+  ]
+}

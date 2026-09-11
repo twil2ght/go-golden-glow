@@ -1,0 +1,93 @@
+{
+  "name": "if:S+Can+V+O(var)",
+  "is_template": true,
+  "args": [
+    "$Subject",
+    "$Can",
+    "$Verb",
+    "$Obj"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Executor] Susie [Execute] A",
+        "[output] [TODO:Add] [repo] [GET] [GSave] [S+VP:S] A @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[output] [repo] [GET] [GSave] [S+VP:VP] A @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:VP] A -> D",
+        "[output] [repo] [GET] [GSave] [VP_Can:Can] D @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:Can] D -> $Can",
+        "[output] [repo] [GET] [GSave] [VP_Can:VP] D @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:Can] D -> $Can",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:VP] D -> E",
+        "[output] [repo] [GET] [GSave] [Type] E @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:Can] D -> $Can",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:VP] D -> E",
+        "[input] [repo] [ExeTemp] @ [GSave] [Type] E -> V+O",
+        "[output] [repo] [GET] [GSave] [V+O:V] E @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:Can] D -> $Can",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:VP] D -> E",
+        "[input] [repo] [ExeTemp] @ [GSave] [Type] E -> V+O",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:V] E -> F",
+        "[output] [repo] [GET] [GSave] [V+O:O] E @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:Can] D -> $Can",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:VP] D -> E",
+        "[input] [repo] [ExeTemp] @ [GSave] [Type] E -> V+O",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:V] E -> F",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:O] E -> G",
+        "[output] [repo] [GET] [GSave] [V+O:O] E @Caller [ExeTemp]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:S] A -> $Subject",
+        "[input] [repo] [ExeTemp] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [ExeTemp] @ [GSave] [VP_Can:Can] D -> $Can",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:V] D -> $Verb",
+        "[input] [repo] [ExeTemp] @ [GSave] [V+O:O] A -> D",
+        "[input] [repo] [ExeTemp] @ [Variety] D ->",
+        "[output] [Executor] Susie [Execute] $Verb $Obj",
+        "[output] [repo] [SSET] [Var:Cache] $Obj -> D"
+      ]
+    }
+  ]
+}

@@ -43,7 +43,7 @@
         "[input] [Object-Level:Counter:Get:Amount] C [BetterLearnObject] [No.] B @ [No.] B1 -> F1",
         "[input] [repo] C [BetterLearnObject] [No.] B1 @ [Var:Candidate:Type] F ->",
         "[input] [compute] C [BetterLearnObject] [No.] B1 @ F1 > 1 -> yes",
-        "[output] [TODO:Add] [Common] Susie don't know if ` F ` is a placeholder @Caller [Generalize]",
+        "[output] [TODO:Add] [Common] Susie don't ensure ` F ` @Caller [Generalize]",
         "[output] [safe++] [Object:Candidate:Undone] @Caller B1",
         "[output] [repo] [SSET] [Candidate:Undone:Type] F -> Object",
 

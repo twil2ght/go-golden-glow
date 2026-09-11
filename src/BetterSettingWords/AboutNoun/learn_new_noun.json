@@ -5,7 +5,6 @@
         "[input] [Learn:Noun] A @Caller C",
         "[output] [repo] [SSET] [Grammar:Property:Word:Noun] A -> yes",
         "[output] [template:Run] noun_phrase @Args A @Caller C",
-        "[output] [template:Run] double_noun @Args A @Caller C",
         "[output] [template:Run] IO+DO @Args A @Caller C",
         "[output] [repo] [SSET] [Units] A -> yes"
       ]
@@ -15,7 +14,6 @@
         "[input] [Unlearn:Noun] A @Caller C",
         "[output] [repo] [DEL] [Grammar:Property:Word:Noun] A",
         "[output] [template:Del] noun_phrase @Args A @Caller C",
-        "[output] [template:Del] double_noun @Args A @Caller C",
         "[output] [template:Del] IO+DO @Args A @Caller C"
       ]
     }

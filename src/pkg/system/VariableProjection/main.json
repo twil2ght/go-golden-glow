@@ -3,16 +3,22 @@
     {
       "commands": [
         "[input] [VariableTemplateGen] @Caller C",
-        "[output] [repo] [GET] [No.] 1 [Cond] @Caller C [CC] [No.] 0",
+        "[output] [Cond&Res:Get] [No.] 1 @Caller C [CC] [No.] 0",
 
-        "[input] [repo] C [CC] [No.] A @ [Cond] [No.] B -> D",
+        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> A",
         "[output] [compute] [GET] B + 1 @Caller C [CC] [No.] B",
 
-        "[input] [compute] C [CC] [No.] B @ B + 1 -> E",
-        "[output] [repo] [GET] [No.] E [Cond] @Caller C [CC] [No.] B",
+        "[input] [compute] C [CC] [No.] B @ B + 1 -> F",
+        "[output] [Cond&Res:Get] [No.] F @Caller C [CC] [No.] B",
 
-        "[input] [repo] C [CC] [No.] A @ [Cond] [No.] B ->",
+        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B ->",
         "[output] [VariableTemplateGen:Done] @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VariableTemplateGen:Done] @Caller C",
+        "[output] [TODO:Add] [Var:Learning:Reset] @Caller C"
       ]
     }
   ]

@@ -9,6 +9,7 @@
         "[input] [repo] C [Cond][Reset] [No.] D @ [No.] B [Cond] -> A",
         "[output] [compute] [GET] B + 1 @Caller C [Cond][Reset] [No.] B",
         "[output] [repo] [DEL] [No.] B [Cond]",
+        "[output] [repo] [DEL] [Cond:Type] A",
 
         "[input] [compute] C [Cond][Reset] [No.] B @ B + 1 -> F",
         "[output] [repo] [GET] [No.] F [Cond]  @Caller C [Cond][Reset] [No.] B",

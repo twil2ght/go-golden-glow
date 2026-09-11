@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Resolve:VP] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Type] A -> V+O",
+        "[output] [repo] [GET] [GSave] [V+O:O] A @Caller C [R]",
+
+        "[input] [Resolve:VP] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [V+O:O] A -> D",
+        "[output] [Var:Resolve] D @Caller C [R] [O] A",
+        "[output] [repo] [GET] [GSave] [V+O:V] A @Caller C [R]",
+
+        "[input] [Resolve:VP] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [V+O:O] A -> D",
+        "[input] [Var:Resolve] C [R] [O] A @ D -> D1",
+        "[output] [Resolve:O] C [R] [O] A @ D -> D1",
+
+        "[input] [Resolve:VP] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [V+O:O] A -> D",
+        "[input] [Var:Resolve] C [R] [O] A @ D ->",
+        "[output] [Resolve:O] D @Caller C [R] [O] A",
+
+        "[input] [Resolve:VP] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [V+O:V] A -> B",
+        "[input] [repo] C [R] @ [GSave] [V+O:O] A -> D",
+        "[input] [Resolve:O] C [R] [O] A @ D -> D1",
+        "[output] [Resolve:VP] C @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [V+O:V] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [V+O:O] B D1 -> D1",
+        "[output] [repo] [SSET] [GSave] [Type] B D1 -> V+O"
+      ]
+    }
+  ]
+}

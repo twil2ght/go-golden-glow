@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [repo] [ET] @ [GSave] [By] A ->",
+        "[output] [repo] [GET] [Variety] A @Caller [ET]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ET] @ [GSave] [By] A ->",
+        "[input] [repo] [ET] @ [Variety] A -> yes",
+        "[output] [template:Run] executor:VP(var) @Args A @Caller [Executor] Susie [Execute] A",
+
+        "[input] [repo] [ET] @ [GSave] [By] A ->",
+        "[input] [repo] [ET] @ [Variety] A ->",
+        "[output] [repo] [GET] [GSave] [Type] A @Caller [ET]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ET] @ [GSave] [By] A ->",
+        "[input] [repo] [ET] @ [GSave] [V+O:O] A -> D",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[input] [repo] [ET] @ [GSave] [V+O:V] A -> E",
+        "[output] [template:Run] executor:V+O(var) @Args E , D @Caller [Executor] Susie [Execute] A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [ET] @ [GSave] [By] A ->",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:IO] A -> D",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:V] A -> E",
+        "[output] [template:Run] executor:V+IO(var)+DO @Args E , D @Caller [Executor] Susie [Execute] A",
+
+        "[input] [repo] [ET] @ [GSave] [By] A ->",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:IO] A -> D",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:DO] A -> F",
+        "[input] [repo] [ET] @ [Variety] D -> yes",
+        "[input] [repo] [ET] @ [GSave] [V+IO+DO:V] A -> E",
+        "[output] [template:Run] executor:V+IO+DO(var) @Args E , D , F @Caller [Executor] Susie [Execute] A"
+      ]
+    }
+  ]
+}

@@ -6,6 +6,7 @@
   ],
   "data": [
     {
+      "eg": "decide to do sth",
       "commands": [
         "[input] [Grammar:Verify:V+TODO] $verb to B @Caller C",
         "[input] [Grammar:Verify:VerbPhrase] C [Verb] $verb @ B -> yes",

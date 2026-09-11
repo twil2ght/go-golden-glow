@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> Of",
+        "[output] [repo] [GET] [GSave] [Of:Pre] A @Caller C [R]",
+
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Pre] A -> B",
+        "[output] [Resolve:O] B @Caller C [R] [Pre]",
+        "[output] [repo] [GET] [GSave] [Of:Post] A @Caller C [R]",
+
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Pre] A -> B",
+        "[input] [repo] C [R] @ [GSave] [Of:Post] A -> D",
+        "[input] [Resolve:O] C [R] [Pre] @ B -> B1",
+        "[output] [Resolve:O] D @Caller C [R] [Post]",
+        "[output] [repo] [GET] [GSave] [Of:Of] A @Caller C [R]",
+
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Pre] A -> B",
+        "[input] [repo] C [R] @ [GSave] [Of:Post] A -> D",
+        "[input] [repo] C [R] @ [GSave] [Of:Of] A -> E",
+        "[input] [Resolve:O] C [R] [Pre] @ B -> B1",
+        "[input] [Resolve:O] C [R] [Post] @ D -> D1",
+        "[output] [Resolve:O] C @ A -> B1 E D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> cited",
+        "[output] [Resolve:O] C @ A -> A"
+      ]
+    }
+  ]
+}

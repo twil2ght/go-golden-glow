@@ -1,15 +1,22 @@
 {
   "dependencies": [
     "object_set/clause",
-    "object_set/adj_pro_noun_phrase",
-    "object_set/article",
-    "object_set/pronoun",
+    "object_set/article_and_adjpro",
+    "object_set/prep",
     "object_set/noun"
   ],
   "data": [
     {
       "commands": [
         "[input] [Var:Resolve:Object] A @Caller C",
+        "[output] [Var:Resolve] A @Caller C",
+
+        "[input] [Var:Resolve:Object] A @Caller C",
+        "[input] [Var:Resolve] C @ A -> A1",
+        "[output] [Var:Resolve:Object] C @ A -> A1",
+
+        "[input] [Var:Resolve:Object] A @Caller C",
+        "[input] [Var:Resolve] C @ A ->",
         "[output] [Grammar:Verify:Object] A @Caller C [Var]"
       ]
     }

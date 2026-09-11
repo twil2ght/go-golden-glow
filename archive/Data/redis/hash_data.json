@@ -1,159 +1,159 @@
 {
-  "[CR:Cond:Count] [No.] 1 [of] [Common] $apple $is-a-noun": {
+  "[CR:Cond:Count] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CR:Cond:Count] [No.] 1 [of] [Common] $the-index-of-something is $four": {
+  "[CR:Cond] 1 [at] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
+    "Susie don't ensure $apple": "0001-01-01T00:00:00Z"
+  },
+  "[CR:Result:Count] Susie don't ensure $apple": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CR:Cond:Count] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
+  "[CR:Result] 1 [at] Susie don't ensure $apple": {
+    "[No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": "0001-01-01T00:00:00Z"
+  },
+  "[Candidate:Undone:Type] don't ensure apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[Candidate:Undone:Type] ensure apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] say : I don't ensure $apple": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CR:Cond:Count] [No.] 1 [of] [Executor] Susie [Execute] check $the-index-of-something": {
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CR:Cond:Count] [No.] 1 [of] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Common] $apple $is-a-noun": {
-    "user_1 say : $apple $is-a-noun": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Common] $the-index-of-something is $four": {
-    "$three plus $one equal $four": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
-    "$the-index-of-something is $three": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Executor] Susie [Execute] check $the-index-of-something": {
-    "step 1 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder": {
-    "Susie $don't-know-if-apple-is-a-placeholder": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] $the-index-of-something is $three": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] $three plus $one equal $four": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] Susie $don't-know-if-apple-is-a-placeholder": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] step 1 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] step 2 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] step 3 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] user_1 say : $apple $is-a-noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] $the-index-of-something is $three": {
-    "[No.] 1 [of] [Common] $the-index-of-something is $four": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] $three plus $one equal $four": {
-    "[No.] 1 [of] [Common] $the-index-of-something is $four": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] Susie $don't-know-if-apple-is-a-placeholder": {
-    "[No.] 1 [of] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] step 1 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "[No.] 1 [of] [Executor] Susie [Execute] check $the-index-of-something": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] step 2 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "[No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] step 3 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "[No.] 1 [of] [Common] $the-index-of-something is $four": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] user_1 say : $apple $is-a-noun": {
-    "[No.] 1 [of] [Common] $apple $is-a-noun": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Count] [Common] $apple $is-a-noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Count] [Common] $the-index-of-something is $four": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Count] [Executor] Susie [Execute] calculate $three plus $one": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Count] [Executor] Susie [Execute] check $the-index-of-something": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Count] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:ElementCount] [No.] 1 [of] [Common] $apple $is-a-noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:ElementCount] [No.] 1 [of] [Common] $the-index-of-something is $four": {
-    "3": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] check $the-index-of-something": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Index] [Common] $apple $is-a-noun [of] user_1 say : $apple $is-a-noun": {
+  "[CondGroup:Index] [Executor] Susie [Execute] say : I don't ensure $apple [of] Susie don't ensure $apple": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Common] $the-index-of-something is $four [of] $the-index-of-something is $three": {
-    "1 | 2": "0001-01-01T00:00:00Z"
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
+    "Susie don't ensure $apple": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Common] $the-index-of-something is $four [of] $three plus $one equal $four": {
-    "1 | 3": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] I don't ensure $apple": {
+    "I": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Common] $the-index-of-something is $four [of] step 3 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "1 | 1": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] Susie don't ensure $apple": {
+    "Susie": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Executor] Susie [Execute] calculate $three plus $one [of] $the-index-of-something is $three": {
-    "1 | 2": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] Susie don't ensure ` apple `": {
+    "Susie": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Executor] Susie [Execute] calculate $three plus $one [of] step 2 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "1 | 1": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] Susie don't ensure ` don't ensure apple `": {
+    "Susie": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Executor] Susie [Execute] check $the-index-of-something [of] step 1 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "1 | 1": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] Susie don't ensure ` ensure apple `": {
+    "Susie": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder [of] Susie $don't-know-if-apple-is-a-placeholder": {
-    "1 | 1": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` apple ` is a placeholder": {
+    "` apple `": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple $is-a-noun": {
-    "user_1 say : $apple $is-a-noun": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` don't ensure apple ` isn't a placeholder": {
+    "` don't ensure apple `": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $the-index-of-something is $four": {
-    "step 3 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` ensure apple ` isn't a placeholder": {
+    "` ensure apple `": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
-    "step 2 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] I don't ensure $apple": {
+    "don't ensure $apple": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] check $the-index-of-something": {
-    "step 1 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] Susie don't ensure $apple": {
+    "don't ensure $apple": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder": {
-    "Susie $don't-know-if-apple-is-a-placeholder": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] Susie don't ensure ` apple `": {
+    "don't ensure ` apple `": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Common] $the-index-of-something is $four": {
-    "$the-index-of-something is $three": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] Susie don't ensure ` don't ensure apple `": {
+    "don't ensure ` don't ensure apple `": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
-    "$the-index-of-something is $three": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] Susie don't ensure ` ensure apple `": {
+    "don't ensure ` ensure apple `": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 3 [of] [No.] 1 [of] [Common] $the-index-of-something is $four": {
-    "$three plus $one equal $four": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] ` apple ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
   },
-  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $apple $is-a-noun": {
-    "1": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] ` don't ensure apple ` isn't a placeholder": {
+    "isn't a placeholder": "0001-01-01T00:00:00Z"
   },
-  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder": {
-    "1": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] ` ensure apple ` isn't a placeholder": {
+    "isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure $apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure ` apple `": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure ` don't ensure apple `": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure ` ensure apple `": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] isn't a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] ensure $apple": {
+    "$apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] ensure ` apple `": {
+    "` apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] ensure ` don't ensure apple `": {
+    "` don't ensure apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] ensure ` ensure apple `": {
+    "` ensure apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] is a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] isn't a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure $apple": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure ` apple `": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure ` don't ensure apple `": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure ` ensure apple `": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is a placeholder": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] isn't a placeholder": {
+    "isn't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] don't ensure $apple": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] don't ensure ` apple `": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] don't ensure ` don't ensure apple `": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] don't ensure ` ensure apple `": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure $apple": {
+    "ensure $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure ` apple `": {
+    "ensure ` apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure ` don't ensure apple `": {
+    "ensure ` don't ensure apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure ` ensure apple `": {
+    "ensure ` ensure apple `": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] her": {
     "yes": "0001-01-01T00:00:00Z"
@@ -221,31 +221,7 @@
   "[Grammar:Property:Word:Conjunction] then": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] $a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Noun] $apple": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] $four": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] $if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] $noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] $one": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] $placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] $the-index-of-something": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] $three": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] Susie": {
@@ -413,18 +389,6 @@
   "[Grammar:Property:Word:SubjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Verb] $don't-know-if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] $is-a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] $is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] $know-if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Verb] am": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -438,6 +402,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] check": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] ensure": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] equal": {
@@ -476,9 +443,6 @@
   "[Grammar:Property:Word:Wh] why": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Object-Level:Counter:CountOf] a placeholder": {
-    "2": "0001-01-01T00:00:00Z"
-  },
   "[Object:Candidate:Undone]": {
     "0": "0001-01-01T00:00:00Z"
   },
@@ -506,77 +470,10 @@
   "[TeachMode] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Then] $the-index-of-something is $three": {
-    "[CondGroup:Done] [No.] 1 [of] [Common] $the-index-of-something is $four @@ $the-index-of-something is $three @Caller NOTHING": "0001-01-01T00:00:00Z",
-    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one @@ $the-index-of-something is $three @Caller NOTHING": "0001-01-01T00:00:00Z"
-  },
-  "[Then] $three plus $one equal $four": {
-    "[CondGroup:Done] [No.] 1 [of] [Common] $the-index-of-something is $four @@ $three plus $one equal $four @Caller NOTHING": "0001-01-01T00:00:00Z"
-  },
-  "[Then] Susie $don't-know-if-apple-is-a-placeholder": {
-    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : I $don't-know-if-apple-is-a-placeholder @@ Susie $don't-know-if-apple-is-a-placeholder @Caller NOTHING": "0001-01-01T00:00:00Z"
-  },
-  "[Then] step 1 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] check $the-index-of-something @@ step 1 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one @Caller NOTHING": "0001-01-01T00:00:00Z"
-  },
-  "[Then] step 2 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one @@ step 2 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one @Caller NOTHING": "0001-01-01T00:00:00Z"
-  },
-  "[Then] step 3 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one": {
-    "[CondGroup:Done] [No.] 1 [of] [Common] $the-index-of-something is $four @@ step 3 [of] [Executor] Susie [Execute] increase $the-index-of-something by $one @Caller NOTHING": "0001-01-01T00:00:00Z"
-  },
-  "[Then] user_1 say : $apple $is-a-noun": {
-    "[CondGroup:Done] [No.] 1 [of] [Common] $apple $is-a-noun @@ user_1 say : $apple $is-a-noun @Caller NOTHING": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
+  "[Then] Susie don't ensure $apple": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple @@ Susie don't ensure $apple @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
   "[Units] $apple": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $don't-know-if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $don't-know-if-apple-is-a-placeholdering": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $four": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $is-a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $is-a-nouning": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $is-a-placeholdering": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $know-if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $know-if-apple-is-a-placeholdering": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $one": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $the-index-of-something": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] $three": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] :": {
@@ -586,6 +483,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] Susie": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] [Common]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] `": {
@@ -603,9 +503,6 @@
   "[Units] am": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] aming": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] an": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -615,13 +512,7 @@
   "[Units] are": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] areing": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] aren't": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] aren'ting": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] at": {
@@ -633,9 +524,6 @@
   "[Units] calculate": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] calculateing": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] can": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -643,9 +531,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] check": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] checking": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] conjunction": {
@@ -657,10 +542,10 @@
   "[Units] don't": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] equal": {
+  "[Units] ensure": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] equaling": {
+  "[Units] equal": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] four": {
@@ -690,22 +575,13 @@
   "[Units] increase": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] increaseing": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] index": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] is": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] ising": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] isn't": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] isn'ting": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] it": {
@@ -715,9 +591,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] know": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] knowing": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] me": {
@@ -754,9 +627,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] say": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] saying": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] she": {
@@ -822,97 +692,10 @@
   "[Units] your": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Var:Cache] $apple": {
-    "` four `": "0001-01-01T00:00:00Z"
-  },
-  "[Var:Cache] $don't-know-if-apple-is-a-placeholder": {
-    "don't know if ` four ` is a placeholder": "0001-01-01T00:00:00Z"
-  },
-  "[Var:Cache] $is-a-noun": {
-    "is a placeholder": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
+  "[VP:Candidate:Undone]": {
+    "0": "0001-01-01T00:00:00Z"
   },
   "[Variety] $apple": {
     "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $don't-know-if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $four": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $is-a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $know-if-apple-is-a-placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $one": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $placeholder": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $the-index-of-something": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Variety] $three": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] $don't-know-if-apple-is-a-placeholder": {
-    "$don't-know-if-apple-is-a-placeholdering": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] $is-a-noun": {
-    "$is-a-nouning": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] $is-a-placeholder": {
-    "$is-a-placeholdering": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] $know-if-apple-is-a-placeholder": {
-    "$know-if-apple-is-a-placeholdering": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] am": {
-    "aming": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] are": {
-    "areing": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] aren't": {
-    "aren'ting": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] calculate": {
-    "calculateing": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] check": {
-    "checking": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] equal": {
-    "equaling": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] increase": {
-    "increaseing": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] is": {
-    "ising": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] isn't": {
-    "isn'ting": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] know": {
-    "knowing": "0001-01-01T00:00:00Z"
-  },
-  "[Verb:ing] say": {
-    "saying": "0001-01-01T00:00:00Z"
   }
 }

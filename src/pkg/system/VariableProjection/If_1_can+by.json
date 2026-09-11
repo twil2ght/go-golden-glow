@@ -1,0 +1,119 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> A",
+        "[input] [Cond&Res:Type] C [CC] [No.] D @ [No.] B -> [Cond:If]",
+        "[output] [TODO:Add] [repo] [GET] [GSave] [S+VP:S] A @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [S+VP:S] A -> B",
+        "[output] [repo] [GET] [Variety] B @Caller [TE]",
+        "[output] [repo] [GET] [GSave] [S+VP:VP] A @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [S+VP:S] A -> B",
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [TE] @ [Variety] B -> yes",
+        "[output] [template:Run] if:S(var)+VP @Args D @Caller A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A -> D",
+        "[output] [repo] [GET] [Variety] D @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [TE] @ [Variety] D -> yes",
+        "[output] [template:Run] if:S+VP(var) @Args D @Caller A",
+
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [TE] @ [Variety] D ->",
+        "[output] [repo] [GET] [GSave] [VP_Can:Can] D @Caller [TE]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [TE] @ [GSave] [VP_Can:Can] A -> B",
+        "[output] [repo] [GET] [GSave] [VP_Can:VP] A @Caller [TE]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [TE] @ [GSave] [VP_Can:VP] A -> D",
+        "[output] [repo] [GET] [Variety] D @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [S+VP:S] A1 -> B1",
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A1 -> A",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:Can] A -> B",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:VP] A -> D",
+        "[input] [repo] [TE] @ [Variety] D -> yes",
+        "[output] [template:Run] if:S+Can+VP(var) @Args B1 , B , D @Caller A",
+
+        "[input] [repo] [TE] @ [GSave] [VP_Can:VP] A -> D",
+        "[input] [repo] [TE] @ [Variety] D ->",
+        "[output] [repo] [GET] [GSave] [By] D @Caller [TE]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [TE] @ [GSave] [By] D -> D1",
+        "[output] [repo] [GET] [Variety] D1 @Caller [TE]",
+        "[output] [repo] [GET] [GSave] [VP] D @Caller [TE]",
+        "[output] [repo] [GET] [GSave] [Prep] D @Caller [TE]",
+        
+        "[input] [repo] [TE] @ [GSave] [S+VP:S] A1 -> B1",
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A1 -> A",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:Can] A -> B",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:VP] A -> D",
+        "[input] [repo] [TE] @ [GSave] [By] D -> D1",
+        "[input] [repo] [TE] @ [GSave] [Prep] D -> F1",
+        "[input] [repo] [TE] @ [Variety] D1 -> yes",
+        "[output] [template:Run] if:S+Can+VP+Prep+O(var) @Args B1 , B , F1 , D1 @Caller A1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [TE] @ [GSave] [VP] A -> B",
+        "[output] [repo] [GET] [Variety] B @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [S+VP:S] A1 -> B1",
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A1 -> A",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:Can] A -> B",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:VP] A -> D",
+        "[input] [repo] [TE] @ [GSave] [By] D -> D1",
+        "[input] [repo] [TE] @ [GSave] [Prep] D -> F1",
+        "[input] [repo] [TE] @ [GSave] [VP] D -> G",
+        "[input] [repo] [TE] @ [Variety] G -> yes",
+        "[output] [template:Run] if:S+Can+VP(var)+Prep+O @Args B1 , B , G , F1 , D1 @Caller A1",
+
+        "[input] [repo] [TE] @ [GSave] [VP] A -> B",
+        "[input] [repo] [TE] @ [Variety] B ->",
+        "[output] [repo] [GET] [GSave] [Type] B @Caller [TE]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] [TE] @ [GSave] [Type] B -> V+O",
+        "[output] [repo] [GET] [GSave] [V+O:O] B @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [V+O:O] B -> D",
+        "[output] [repo] [GET] [Variety] D @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [V+O:O] B -> D",
+        "[input] [repo] [TE] @ [Variety] D -> yes",
+        "[output] [repo] [GET] [GSave] [V+O:V] B @Caller [TE]",
+
+        "[input] [repo] [TE] @ [GSave] [S+VP:S] A1 -> B1",
+        "[input] [repo] [TE] @ [GSave] [S+VP:VP] A1 -> A",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:Can] A -> B",
+        "[input] [repo] [TE] @ [GSave] [VP_Can:VP] A -> D",
+        "[input] [repo] [TE] @ [GSave] [By] D -> D1",
+        "[input] [repo] [TE] @ [GSave] [Prep] D -> F1",
+        "[input] [repo] [TE] @ [GSave] [VP] D -> G",
+        "[input] [repo] [TE] @ [GSave] [V+O:O] G -> C1",
+        "[input] [repo] [TE] @ [Variety] C1 -> yes",
+        "[input] [repo] [TE] @ [GSave] [V+O:V] G -> E1",
+        "[output] [template:Run] if:S+Can+V+O(var)+Prep+O @Args B1 , B , E1 , C1 , F1 , D1 @Caller A1"
+      ]
+    }
+  ]
+}

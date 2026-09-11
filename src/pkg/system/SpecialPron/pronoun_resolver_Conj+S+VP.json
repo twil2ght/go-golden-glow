@@ -13,7 +13,9 @@
         "[output] [Var:Resolve_Simplified:S+VerbPhrase] E @Caller C [Var] [Conj] F",
 
         "[input] [Var:Resolve:S+VerbPhrase] C [Var] [Conj] F @ E -> E1",
-        "[output] [Var:Resolve:Conj+S+VerbPhrase] C @ F E -> F E1"
+        "[output] [Var:Resolve:Conj+S+VerbPhrase] C @ F E -> F E1",
+        "[output] [repo] [SSET] [GSave] [Conj] F E1 -> F",
+        "[output] [repo] [SSET] [GSave] [S+VP] F E1 -> E1"
       ]
     }
   ]
