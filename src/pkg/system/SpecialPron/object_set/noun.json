@@ -32,6 +32,7 @@
         "[output] [repo] [SSET] [GSave] [O:Type] F D -> AdjNoun",
         "[output] [repo] [SSET] [GSave] [Adj:A] F D -> F",
         "[output] [repo] [SSET] [GSave] [Adj:N] F D -> D",
+        "[output] [repo] [SSET] [GSave] [O:Type] D -> PlainNoun",
 
         "[input] [Var:Resolve] C @ A ->",
         "[input] [Grammar:Object:NounPhrase:Noun] C [Var] @ A -> B",
@@ -40,7 +41,8 @@
         "[output] [Var:Resolve:Object] C @ A -> A",
         "[output] [repo] [SSET] [GSave] [O:Type] F B -> AdjNoun",
         "[output] [repo] [SSET] [GSave] [Adj:A] F B -> F",
-        "[output] [repo] [SSET] [GSave] [Adj:N] F B -> B"
+        "[output] [repo] [SSET] [GSave] [Adj:N] F B -> B",
+        "[output] [repo] [SSET] [GSave] [O:Type] B -> PlainNoun"
       ]
     }
   ]

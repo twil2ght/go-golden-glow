@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Var:Resolve] C @ : A ->",
+        "[input] [Grammar:Object:Type] C [Var] @ : A -> cited_said",
+        "[output] [Var:Resolve:S+VerbPhrase] A @Caller [cited_said]",
+        "[output] [Var:Resolve:VerbPhrase] A @Caller [cited_said]",
+        "[output] [Var:Resolve:Object] A @Caller [cited_said]",
+
+        "[input] [Var:Resolve] C @ : A ->",
+        "[input] [Grammar:Object:Type] C [Var] @ : A -> cited_said",
+        "[input] [Var:Resolve:S+VerbPhrase] [cited_said] @ A -> A1",
+        "[output] [Var:Resolve:Object] C @ : A -> : A1",
+        "[output] [repo] [SSET] [GSave] [Cited:Type] : A1 -> SVP",
+
+        "[input] [Var:Resolve] C @ : A ->",
+        "[input] [Grammar:Object:Type] C [Var] @ : A -> cited_said",
+        "[input] [Var:Resolve:VerbPhrase] [cited_said] @ A -> A1",
+        "[output] [Var:Resolve:Object] C @ : A -> : A1",
+        "[output] [repo] [SSET] [GSave] [Cited:Type] : A1 -> VP",
+
+        "[input] [Var:Resolve] C @ : A ->",
+        "[input] [Grammar:Object:Type] C [Var] @ : A -> cited_said",
+        "[input] [Var:Resolve:Object] [cited_said] @ A -> A1",
+        "[output] [Var:Resolve:Object] C @ : A -> : A1",
+        "[output] [repo] [SSET] [GSave] [Cited:Type] : A1 -> O"
+      ]
+    }
+  ]
+}

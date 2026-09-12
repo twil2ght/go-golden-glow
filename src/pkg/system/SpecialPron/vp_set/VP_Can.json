@@ -16,10 +16,12 @@
     {
       "commands": [
         "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Var:Resolve] C [S+VerbPhrase] E @ A ->",
         "[input] [Grammar:VerbPhrase:VP_Can:VP] C [Subject] @ A -> D",
         "[output] [Var:Resolve:VerbPhrase] D @Caller C [VP_Can] A",
 
         "[input] [Var:Resolve_Simplified:VerbPhrase] A @Caller C [S+VerbPhrase] E",
+        "[input] [Var:Resolve] C [S+VerbPhrase] E @ A ->",
         "[input] [Grammar:VerbPhrase:VP_Can:Can] C [Subject] @ A -> B",
         "[input] [Grammar:VerbPhrase:VP_Can:VP] C [Subject] @ A -> D",
         "[input] [Var:Resolve:VerbPhrase] C [VP_Can] A @ D -> D1",

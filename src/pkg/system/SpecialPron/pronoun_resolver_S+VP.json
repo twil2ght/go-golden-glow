@@ -10,32 +10,12 @@
 
         "[input] [Var:Resolve:S+VerbPhrase] A @Caller C",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Var] @ A -> B",
-        "[output] [Var:Resolve] B @Caller C [Var] [S+VerbPhrase] A",
-
-        "[input] [Var:Resolve:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Var] @ A -> B",
-        "[input] [Var:Resolve] C [Var] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Var:Resolve:Object] C [Var] [S+VerbPhrase] A @ B -> B1",
-
-        "[input] [Var:Resolve:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Var] @ A -> B",
-        "[input] [Var:Resolve] C [Var] [S+VerbPhrase] A @ B ->",
         "[output] [Var:Resolve:Object] B @Caller C [Var] [S+VerbPhrase] A",
 
         "[input] [Var:Resolve:S+VerbPhrase] A @Caller C",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Var] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Var] @ A -> E",
         "[input] [Var:Resolve:Object] C [Var] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Var:Resolve] E @Caller C [Var] [S+VerbPhrase] A",
-
-        "[input] [Var:Resolve:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Var] @ A -> E",
-        "[input] [Var:Resolve] C [Var] [S+VerbPhrase] A @ E -> E1",
-        "[output] [Var:Resolve:VerbPhrase] C [Var] [S+VerbPhrase] A @ E -> E1",
-
-        "[input] [Var:Resolve:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Var] @ A -> E",
-        "[input] [Var:Resolve] C [Var] [S+VerbPhrase] A @ E ->",
         "[output] [Var:Resolve_Simplified:VerbPhrase] E @Caller C [Var] [S+VerbPhrase] A",
 
         "[input] [Var:Resolve:S+VerbPhrase] A @Caller C",
@@ -52,13 +32,13 @@
       "commands": [
         "[input] [Var:Resolve_Simplified:S+VerbPhrase] A @Caller C [Conj] F",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Conj] F @ A -> B",
-        "[output] [Var:Resolve] B @Caller C [Var] [S+VerbPhrase] A",
+        "[output] [Var:Resolve:Object] B @Caller C [Var] [S+VerbPhrase] A",
 
         "[input] [Var:Resolve_Simplified:S+VerbPhrase] A @Caller C [Conj] F",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Conj] F @ A -> E",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Conj] F @ A -> B",
         "[input] [Var:Resolve:Object] C [Var] [S+VerbPhrase] A @ B -> B1",
-        "[output] [Var:Resolve] E @Caller C [Var] [S+VerbPhrase] A",
+        "[output] [Var:Resolve:VerbPhrase] E @Caller C [Var] [S+VerbPhrase] A",
 
         "[input] [Var:Resolve_Simplified:S+VerbPhrase] A @Caller C [Conj] F",
         "[input] [Var:Resolve:VerbPhrase] C [Conj] F [S+VerbPhrase] A @ E -> E1",
@@ -75,32 +55,12 @@
 
         "[input] [Var:Resolve_V2:S+VerbPhrase] A @Caller C",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Var_V2] @ A -> B",
-        "[output] [Var:Resolve] B @Caller C [Var:Resolve_V2] [S+VerbPhrase_V2] A",
-
-        "[input] [Var:Resolve_V2:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Var_V2] @ A -> B",
-        "[input] [Var:Resolve] C [Var:Resolve_V2] [S+VerbPhrase_V2] A @ B -> B1",
-        "[output] [Var:Resolve:Object] C [Var:Resolve_V2] [S+VerbPhrase_V2] A @ B -> B1",
-
-        "[input] [Var:Resolve_V2:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:Subject] C [Var_V2] @ A -> B",
-        "[input] [Var:Resolve] C [Var:Resolve_V2] [S+VerbPhrase_V2] A @ B ->",
         "[output] [Var:Resolve:Object] B @Caller C [Var:Resolve_V2] [S+VerbPhrase_V2] A",
 
         "[input] [Var:Resolve_V2:S+VerbPhrase] A @Caller C",
         "[input] [Grammar:S+VerbPhrase:Subject] C [Var_V2] @ A -> B",
         "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Var_V2] @ A -> E",
         "[input] [Var:Resolve:Object] C [Var:Resolve_V2] [S+VerbPhrase_V2] A @ B -> B1",
-        "[output] [Var:Resolve] E @Caller C [Var_V2] [S+VerbPhrase_V2] A",
-
-        "[input] [Var:Resolve_V2:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Var_V2] @ A -> E",
-        "[input] [Var:Resolve] C [Var_V2] [S+VerbPhrase_V2] A @ E -> E1",
-        "[output] [Var:Resolve:VerbPhrase] C [Var_V2] [S+VerbPhrase_V2] A @ E -> E1",
-
-        "[input] [Var:Resolve_V2:S+VerbPhrase] A @Caller C",
-        "[input] [Grammar:S+VerbPhrase:VerbPhrase] C [Var_V2] @ A -> E",
-        "[input] [Var:Resolve] C [Var_V2] [S+VerbPhrase_V2] A @ E ->",
         "[output] [Var:Resolve_Simplified:VerbPhrase] E @Caller C [Var_V2] [S+VerbPhrase_V2] A",
 
         "[input] [Var:Resolve_V2:S+VerbPhrase] A @Caller C",
