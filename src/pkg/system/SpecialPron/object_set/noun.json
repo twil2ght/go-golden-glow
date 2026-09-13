@@ -15,7 +15,7 @@
         "[input] [Var:Resolve] C @ A ->",
         "[input] [Grammar:Object:Type] C [Var] @ A -> cited",
         "[output] [Var:Resolve:Object] C @ A -> A",
-        "[output] [repo] [SSET] [GSave] [O:Type] F E1 -> Cited"
+        "[output] [repo] [SSET] [GSave] [O:Type] F E1 -> cited"
       ]
     },
     {

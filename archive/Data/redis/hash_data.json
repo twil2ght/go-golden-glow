@@ -1,30 +1,237 @@
 {
+  "[CR:Cond:Count] [No.] 1 [of] [Common] $apple is $a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CR:Cond] 1 [at] [No.] 1 [of] [Common] $apple is $a-noun": {
+    "user_1 say : $apple is $a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[CR:Result:Count] user_1 say : $apple is $a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CR:Result] 1 [at] user_1 say : $apple is $a-noun": {
+    "[No.] 1 [of] [Common] $apple is $a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[Candidate:Undone:Type] is a noun": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[Candidate:Undone:Type] noun": {
+    "NounPhrase": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] $apple is $a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] $apple is $a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] $apple is $a-noun [of] user_1 say : $apple is $a-noun": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple is $a-noun": {
+    "user_1 say : $apple is $a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $apple is $a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:A] a noun": {
+    "a": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:N] a noun": {
+    "noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : $apple is $a-noun": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : pear is a noun": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [O:Type] $apple": {
     "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : $apple is $a-noun": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : pear is a noun": {
+    "cited_said": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] Susie": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [O:Type] a noun": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] noun": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] pear": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] user_1": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] $apple is $a-noun": {
+    "$apple": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [S+VP:S] Susie don't ensure $apple": {
     "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] Susie don't ensure ` a noun `": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] Susie don't ensure ` apple `": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] Susie don't ensure ` is a noun `": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] Susie don't ensure ` noun `": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] pear is a noun": {
+    "pear": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : $apple is $a-noun": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : pear is a noun": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] $apple is $a-noun": {
+    "is $a-noun": "0001-01-01T00:00:00Z"
   },
   "[GSave] [S+VP:VP] Susie don't ensure $apple": {
     "don't ensure $apple": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [S+VP:VP] Susie don't ensure ` a noun `": {
+    "don't ensure ` a noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] Susie don't ensure ` apple `": {
+    "don't ensure ` apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] Susie don't ensure ` is a noun `": {
+    "don't ensure ` is a noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] Susie don't ensure ` noun `": {
+    "don't ensure ` noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] pear is a noun": {
+    "is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : $apple is $a-noun": {
+    "say : $apple is $a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : pear is a noun": {
+    "say : pear is a noun": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [Type] ensure $apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure ` a noun `": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure ` apple `": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure ` is a noun `": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] ensure ` noun `": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is $a-noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : $apple is $a-noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : pear is a noun": {
     "V+O": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:O] ensure $apple": {
     "$apple": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [V+O:O] ensure ` a noun `": {
+    "` a noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] ensure ` apple `": {
+    "` apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] ensure ` is a noun `": {
+    "` is a noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] ensure ` noun `": {
+    "` noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] is $a-noun": {
+    "$a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] is a noun": {
+    "a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : $apple is $a-noun": {
+    ": $apple is $a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : pear is a noun": {
+    ": pear is a noun": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [V+O:V] ensure $apple": {
     "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure ` a noun `": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure ` apple `": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure ` is a noun `": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] ensure ` noun `": {
+    "ensure": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is $a-noun": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is a noun": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] say : $apple is $a-noun": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] say : pear is a noun": {
+    "say": "0001-01-01T00:00:00Z"
   },
   "[GSave] [VP_Can:Can] don't ensure $apple": {
     "don't": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [VP_Can:Can] don't ensure ` a noun `": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] don't ensure ` apple `": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] don't ensure ` is a noun `": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] don't ensure ` noun `": {
+    "don't": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [VP_Can:VP] don't ensure $apple": {
     "ensure $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure ` a noun `": {
+    "ensure ` a noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure ` apple `": {
+    "ensure ` apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure ` is a noun `": {
+    "ensure ` is a noun `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] don't ensure ` noun `": {
+    "ensure ` noun `": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] her": {
     "yes": "0001-01-01T00:00:00Z"
@@ -45,6 +252,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] your": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Adjective] [Resolve:S+VP]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Article] a": {
@@ -92,10 +302,16 @@
   "[Grammar:Property:Word:Conjunction] then": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] $a-noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] Susie": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] [Resolve:S+VP]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] adjective": {
@@ -122,6 +338,9 @@
   "[Grammar:Property:Word:Noun] one": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] pear": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] placeholder": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -132,6 +351,12 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] three": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] user_1": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] user_1 say : pear": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] verb": {
@@ -156,6 +381,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:ObjectPronoun] you": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] [Resolve:S+VP]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] at": {
@@ -257,6 +485,12 @@
   "[Grammar:Property:Word:SubjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Unknown] [Resolve:S+VP]": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] [Resolve:S+VP]": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Verb] calculate": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -296,7 +530,64 @@
   "[Grammar:Property:Word:Wh] why": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[NounPhrase-Level:Counter:CountOf] noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[NounPhrase-Level:Counter:Count]": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[NounPhrase-Level:Counter] [No.] 1": {
+    "noun": "0001-01-01T00:00:00Z"
+  },
+  "[NounPhrase:Candidate:Undone]": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Object-Level:Counter:CountOf] a noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Object-Level:Counter:CountOf] pear": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Object-Level:Counter:Count]": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[Object-Level:Counter] [No.] 1": {
+    "pear": "0001-01-01T00:00:00Z"
+  },
+  "[Object-Level:Counter] [No.] 2": {
+    "a noun": "0001-01-01T00:00:00Z"
+  },
+  "[Object:Candidate:Undone]": {
+    "0": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] I": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] me": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] mine": {
+    "user_1 's": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] my": {
+    "user_1 's": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] you": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] your": {
+    "Susie 's": "0001-01-01T00:00:00Z"
+  },
+  "[Pronoun:Cache] yours": {
+    "Susie 's": "0001-01-01T00:00:00Z"
+  },
   "[TeachMode] user_1": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Then] user_1 say : $apple is $a-noun": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] $apple is $a-noun @@ user_1 say : $apple is $a-noun @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Units] $a-noun": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] $apple": {
@@ -312,6 +603,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] [Common]": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] [Resolve:S+VP]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] `": {
@@ -443,6 +737,9 @@
   "[Units] our": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] pear": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] placeholder": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -488,6 +785,12 @@
   "[Units] us": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] user_1": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] user_1 say : pear": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] verb": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -515,7 +818,37 @@
   "[Units] your": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[VP-Level:Counter:CountOf] is a noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[VP-Level:Counter:Count]": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[VP-Level:Counter] [No.] 1": {
+    "is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[VP:Candidate:Undone]": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $a-noun": {
+    "a noun": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $apple": {
+    "pear": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $a-noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Variety] $apple": {
     "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter:CountOf] pear": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter:Count]": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Word:Counter] [No.] 1": {
+    "pear": "0001-01-01T00:00:00Z"
   }
 }

@@ -3,7 +3,8 @@
     "object_set/clause",
     "object_set/article_and_adjpro",
     "object_set/pronoun",
-    "object_set/noun"
+    "object_set/noun",
+    "object_set/cited"
   ],
   "data": [
     {

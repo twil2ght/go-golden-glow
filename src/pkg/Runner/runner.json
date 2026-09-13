@@ -13,35 +13,32 @@
       "commands": [
         "[input] [Legal] A say : B",
         "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ B -> B",
-        "[output] [Var:Resolve:S+VerbPhrase] B @Caller A say [Legal]",
-
-        "[input] [Var:Resolve:S+VerbPhrase] A say [Legal] @ B -> B1",
-        "[output] [TODO:Add] [Resolve:S+VP] A say : B1 @Caller [H]",
+        "[output] [TODO:Add] [Var:Resolve:S+VerbPhrase] A say : B @Caller A say [Legal]",
 
         "[input] [Legal] A say : B",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C @ B -> B",
-        "[output] [Var:Resolve:VerbPhrase] B @Caller A say [Legal]",
+        "[output] [TODO:Add] [Var:Resolve:S+VerbPhrase] A say : B @Caller A say [Legal]",
 
-        "[input] [Var:Resolve:VerbPhrase] A say [Legal] @ B -> B1",
-        "[output] [TODO:Add] [Resolve:S+VP] A say : B1 @Caller [H]"
+        "[input] [Var:Resolve:S+VerbPhrase] A say [Legal] @ A say : B -> A say : B1",
+        "[output] [TODO:Add] [Resolve:S+VP] [H] @ A say : B -> A say : B1"
       ]
     },
     {
       "commands": [
-        "[input] [repo] C @ [Then] A -> [Common] B @Caller C",
+        "[input] [Common] B @Caller NOTHING",
         "[output] [Resolve:S+VP] B @Caller [H]",
 
         "[input] [Resolve:S+VP] [H] @ B -> B1",
-        "[output] [Resolved:SVP] B1 @Caller C"
+        "[output] [Resolved:SVP] B1 @Caller [H]"
       ]
     },
     {
       "commands": [
-        "[input] [repo] C @ [Then] A -> [Executor] Susie [Execute] B @Caller C",
+        "[input] [Executor] Susie [Execute] B @Caller NOTHING",
         "[output] [Resolve:VP] B @Caller [H]",
 
         "[input] [Resolve:VP] [H] @ B -> B1",
-        "[output] [Resolved:EXE] B1 @Caller C"
+        "[output] [Resolved:EXE] B1 @Caller [H]"
       ]
     },
     {
