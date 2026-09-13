@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [repo] C [PR:Object] @ [GV] [Object:Type] A -> doing",
+        "[output] [Pronoun:Resolve:VerbPhrase(doing)] A @Caller A [PR:Object:Doing]",
+
+        "[input] [Pronoun:Resolve:VerbPhrase(doing)] A [PR:Object:Doing] @ A -> A1",
+        "[output] [Pronoun:Resolve:Object] C @ A -> A1",
+        "[output] [repo] [SSET] [GV] [Object] A1 -> yes",
+        "[output] [repo] [SSET] [GV] [Object:Type] A1 -> doing",
+        "[output] [repo] [SSET] [GV] [Object:Doing] A1 -> A1"
+      ]
+    }
+  ]
+}
