@@ -1,0 +1,34 @@
+{
+  "tip": [
+    "can $eat-an-apple"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [TR] @ [Variety] B ->",
+        "[input] [repo] C [R] @ [GSave] [VP_Can:Can] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [VP_Can:Can] B -> D",
+        "[output] [repo] [GET] [GSave] [VP_Can:VP] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [VP_Can:VP] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [TR] @ [Variety] B ->",
+        "[input] [repo] C [R] @ [GSave] [VP_Can:Can] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [VP_Can:Can] B -> D",
+        "[input] [repo] C [R] @ [GSave] [VP_Can:VP] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [VP_Can:VP] B -> E1",
+        "[output] [TResolve:VP] E # E1 @Caller C [R] [VP_Can]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [TR] @ [Variety] B ->",
+        "[input] [repo] C [R] @ [GSave] [VP_Can:Can] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [VP_Can:Can] B -> D",
+        "[input] [repo] C [R] @ [GSave] [VP_Can:VP] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [VP_Can:VP] B -> E1",
+        "[input] [TResolve:VP] C [R] [VP_Can] @ E # E1 -> F",
+        "[output] [TResolve:VP] C @ A # B -> D F"
+      ]
+    }
+  ]
+}

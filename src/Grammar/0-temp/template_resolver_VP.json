@@ -1,0 +1,21 @@
+{
+  "name": "TemplateResolver:VP",
+  "is_template": true,
+  "args": [
+    "$VP"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Resolved:EXE] A @Caller C",
+        "[output] [TODO:Add] [TResolve:VP] A # $VP @Caller C [Resolved:EXE]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:VP] C [Resolved:EXE] @ A # $VP -> $VP",
+        "[output] [TODO:Add] [Executor] Susie [Execute] $VP @Caller C"
+      ]
+    }
+  ]
+}

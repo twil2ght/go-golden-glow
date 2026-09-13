@@ -14,7 +14,7 @@
         "[input] [Legal] C say : A",
         "[input] [TeachMode] [VPRES] @ C -> yes",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [VPRES] @ A -> B",
-
+        "[input] [repo] [Res] C say : A @ [Cond:Count] -> G",
         "[output] [Cond&Res:Add] [Executor] Susie [Execute] B # [Res:VP] @Caller [VPRES]",
         "[output] [Res:Done] A @Caller Hi"
       ]
@@ -30,7 +30,7 @@
       "commands": [
         "[input] [Raw] C say : A",
         "[input] [Legal] C say : A",
-        "[input] [repo] [Res] C say : A @ [Cond:Count] -> B",
+
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
         "[output] [TeachMode:Check] C @Caller [VPRES]"
       ]
@@ -41,7 +41,7 @@
         "[input] [Legal] C say : then A",
         "[input] [TeachMode] [VPRES] @ C -> yes",
         "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [VPRES] @ A -> B",
-
+        "[input] [repo] [Res] C say : then A @ [Cond:Count] -> G",
         "[output] [Cond&Res:Add] [Executor] Susie [Execute] B # [Res:VP] @Caller [VPRES]",
         "[output] [Res:Done] A @Caller Hi"
       ]
@@ -57,7 +57,7 @@
       "commands": [
         "[input] [Raw] C say : then A",
         "[input] [Legal] C say : then A",
-        "[input] [repo] [Res] C say : then A @ [Cond:Count] -> B",
+
         "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
         "[output] [TeachMode:Check] C @Caller [VPRES]"
       ]

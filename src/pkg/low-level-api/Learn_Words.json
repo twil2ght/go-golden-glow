@@ -1,62 +1,55 @@
 {
   "data": [
     {
-
       "commands": [
-        "[input] [Common] A @Caller C",
-        "[output] [Var:Resolve:S+VerbPhrase] A @Caller [LW]"
-      ]
-    },
-    {
-      "commands": [
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is D",
+        "[input] [Resolve:S+VP] [H] @ A -> B is D",
         "[output] [repo] [GET] [Units] B @Caller [LW]",
         "[output] [repo] [GET] [Grammar:Property:Word:Unknown] B @Caller [LW]"
       ]
     },
     {
       "commands": [
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is a noun",
+        "[input] [Resolve:S+VP] [H] @ A -> B is a noun",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B ->",
         "[output] [Learn:Noun] B @Caller [LW]",
 
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is a noun",
+        "[input] [Resolve:S+VP] [H] @ A -> B is a noun",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B -> yes",
         "[output] [2ndLearn:Noun] B @Caller [LW]"
       ]
     },
     {
       "commands": [
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is a verb",
+        "[input] [Resolve:S+VP] [H] @ A -> B is a verb",
         "[input] [repo] [LW] @ [Units] B -> yes",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B ->",
         "[output] [Learn:Verb] B @Caller [LW]",
 
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is a verb",
+        "[input] [Resolve:S+VP] [H] @ A -> B is a verb",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B -> yes",
         "[output] [2ndLearn:Verb] B @Caller [LW]"
       ]
     },
     {
       "commands": [
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is an adjective",
+        "[input] [Resolve:S+VP] [H] @ A -> B is an adjective",
         "[input] [repo] [LW] @ [Units] B -> yes",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B ->",
         "[output] [Learn:Adjective] B @Caller [LW]",
 
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is an adjective",
+        "[input] [Resolve:S+VP] [H] @ A -> B is an adjective",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B -> yes",
         "[output] [2ndLearn:Adjective] B @Caller [LW]"
       ]
     },
     {
       "commands": [
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is a preposition",
+        "[input] [Resolve:S+VP] [H] @ A -> B is a preposition",
         "[input] [repo] [LW] @ [Units] B -> yes",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B ->",
         "[output] [Learn:Preposition] B @Caller [LW]",
 
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> B is a preposition",
+        "[input] [Resolve:S+VP] [H] @ A -> B is a preposition",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B -> yes",
         "[output] [2ndLearn:Preposition] B @Caller [LW]"
       ]

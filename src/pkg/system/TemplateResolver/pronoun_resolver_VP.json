@@ -1,0 +1,87 @@
+{
+  "dependencies": [
+    "pronoun_TResolver_object",
+    "vp_set/V+IO+DO",
+    "vp_set/V+O+OC",
+    "vp_set/V+O",
+    "vp_set/V+P",
+    "vp_set/V",
+    "vp_set/VP_Can"
+  ],
+  "tip": [
+    "$is-a-noun",
+    "can $eat-an-apple",
+    "$eat-an-apple by $the-street",
+    "get a $apple from $user_1"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[output] [repo] [GET] [Variety] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [TR] @ [Variety] B -> yes",
+        "[output] [TResolve:VP] C @ A # B -> B",
+        "[output] [repo] [SSET] [Var:Cache] B -> A",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [TR] @ [Variety] B ->",
+        "[output] [repo] [GET] [GSave] [VP_Can:Can] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [VP_Can:Can] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [VP_Can:Can] A ->",
+        "[input] [repo] C [TR] @ [GSave] [VP_Can:Can] B ->",
+        "[output] [repo] [GET] [GSave] [Prep] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Prep] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Prep] A ->",
+        "[input] [repo] C [TR] @ [GSave] [Prep] B ->",
+        "[output] [repo] [GET] [GSave] [Type] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Type] B @Caller C [TR]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Prep] A -> G",
+        "[input] [repo] C [TR] @ [GSave] [Prep] B -> G",
+        "[output] [repo] [GET] [GSave] [By] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [By] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [By] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [By] B -> D1",
+        "[output] [TResolve:O] D # D1 @Caller C [By]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [By] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [By] B -> D1",
+        "[input] [TResolve:O] C [By] @ D # D1 -> F",
+        "[output] [repo] [GET] [GSave] [VP] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [VP] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [By] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [By] B -> D1",
+        "[input] [TResolve:O] C [By] @ D # D1 -> F",
+        "[input] [repo] C [R] @ [GSave] [VP] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [VP] B -> E1",
+        "[output] [TResolve:VP] E # E1 @Caller C [By]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Prep] A -> G",
+        "[input] [repo] C [TR] @ [GSave] [Prep] B -> G",
+        "[input] [repo] C [R] @ [GSave] [By] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [By] B -> D1",
+        "[input] [TResolve:O] C [By] @ D # D1 -> F",
+        "[input] [repo] C [R] @ [GSave] [VP] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [VP] B -> E1",
+        "[input] [TResolve:VP] C [By] @ E # E1 -> F1",
+        "[output] [TResolve:VP] C @ A # B -> F1 G F"
+      ]
+    }
+  ]
+}

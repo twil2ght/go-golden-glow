@@ -12,16 +12,46 @@
     {
       "commands": [
         "[input] [Legal] A say : B",
-        "[output] [repo] [GET] [Then] A say : B @Caller A say : B",
+        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ B -> B",
+        "[output] [Var:Resolve:S+VerbPhrase] B @Caller A say [Legal]",
 
-        "[input] [repo] A say : B @ [Then] A say : B -> D",
-        "[output] D"
+        "[input] [Var:Resolve:S+VerbPhrase] A say [Legal] @ B -> B1",
+        "[output] [TODO:Add] [Resolve:S+VP] A say : B1 @Caller [H]",
+
+        "[input] [Legal] A say : B",
+        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C @ B -> B",
+        "[output] [Var:Resolve:VerbPhrase] B @Caller A say [Legal]",
+
+        "[input] [Var:Resolve:VerbPhrase] A say [Legal] @ B -> B1",
+        "[output] [TODO:Add] [Resolve:S+VP] A say : B1 @Caller [H]"
       ]
     },
     {
       "commands": [
         "[input] [repo] C @ [Then] A -> [Common] B @Caller C",
-        "[output] [Resolve:S+VP] B @Caller [H]"
+        "[output] [Resolve:S+VP] B @Caller [H]",
+
+        "[input] [Resolve:S+VP] [H] @ B -> B1",
+        "[output] [Resolved:SVP] B1 @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C @ [Then] A -> [Executor] Susie [Execute] B @Caller C",
+        "[output] [Resolve:VP] B @Caller [H]",
+
+        "[input] [Resolve:VP] [H] @ B -> B1",
+        "[output] [Resolved:EXE] B1 @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Pack] Susie don't ensure $apple @Caller F",
+        "[output] [repo] [SSET] [Var:Cache] $apple -> ` F `",
+
+        "[input] [Pack] Susie don't ensure $apple @Caller F",
+        "[input] [repo] [SSET] [Var:Cache] $apple -> ` F `",
+        "[output] [Resolve:S+VP] Susie don't ensure $apple @Caller [H]"
       ]
     }
   ]

@@ -6,7 +6,9 @@
     "object_set/article",
     "object_set/pronoun",
     "object_set/plain_noun",
-    "object_set/to_do"
+    "object_set/to_do",
+    "object_set/cited",
+    "object_set/prep"
   ],
   "data": [
     {

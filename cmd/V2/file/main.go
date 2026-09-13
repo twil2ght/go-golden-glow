@@ -28,8 +28,8 @@ func main() {
 	Run(
 		"src/Global.json",
 		"src/BetterSettingWords/const.json",
+		"src/test/new/9_don't_know_placeholder.json",
 		//"src/test/new/0_learn_word.json",
-		//"src/test/new/9_don't_know_placeholder.json",
 		//"src/test/new/12_index_increase.json",
 		//"src/test/new/11_get_result.json",
 		//"src/test/new/10_do_what_I_say.json",

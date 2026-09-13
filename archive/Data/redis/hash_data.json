@@ -1,159 +1,30 @@
 {
-  "[CR:Cond:Count] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
-    "1": "0001-01-01T00:00:00Z"
+  "[GSave] [O:Type] $apple": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
   },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
-    "Susie don't ensure $apple": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] Susie don't ensure $apple": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result] 1 [at] Susie don't ensure $apple": {
-    "[No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": "0001-01-01T00:00:00Z"
-  },
-  "[Candidate:Undone:Type] don't ensure apple": {
-    "VP": "0001-01-01T00:00:00Z"
-  },
-  "[Candidate:Undone:Type] ensure apple": {
-    "VP": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Count] [Executor] Susie [Execute] say : I don't ensure $apple": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Index] [Executor] Susie [Execute] say : I don't ensure $apple [of] Susie don't ensure $apple": {
-    "1 | 1": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple": {
-    "Susie don't ensure $apple": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:S] I don't ensure $apple": {
-    "I": "0001-01-01T00:00:00Z"
+  "[GSave] [O:Type] Susie": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
   },
   "[GSave] [S+VP:S] Susie don't ensure $apple": {
     "Susie": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` apple `": {
-    "Susie": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:S] Susie don't ensure ` don't ensure apple `": {
-    "Susie": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:S] Susie don't ensure ` ensure apple `": {
-    "Susie": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:S] ` apple ` is a placeholder": {
-    "` apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:S] ` don't ensure apple ` isn't a placeholder": {
-    "` don't ensure apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:S] ` ensure apple ` isn't a placeholder": {
-    "` ensure apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] I don't ensure $apple": {
-    "don't ensure $apple": "0001-01-01T00:00:00Z"
-  },
   "[GSave] [S+VP:VP] Susie don't ensure $apple": {
     "don't ensure $apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure ` apple `": {
-    "don't ensure ` apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] Susie don't ensure ` don't ensure apple `": {
-    "don't ensure ` don't ensure apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] Susie don't ensure ` ensure apple `": {
-    "don't ensure ` ensure apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] ` apple ` is a placeholder": {
-    "is a placeholder": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] ` don't ensure apple ` isn't a placeholder": {
-    "isn't a placeholder": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] ` ensure apple ` isn't a placeholder": {
-    "isn't a placeholder": "0001-01-01T00:00:00Z"
-  },
   "[GSave] [Type] ensure $apple": {
-    "V+O": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [Type] ensure ` apple `": {
-    "V+O": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [Type] ensure ` don't ensure apple `": {
-    "V+O": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [Type] ensure ` ensure apple `": {
-    "V+O": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [Type] is a placeholder": {
-    "V+O": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [Type] isn't a placeholder": {
     "V+O": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:O] ensure $apple": {
     "$apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` apple `": {
-    "` apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:O] ensure ` don't ensure apple `": {
-    "` don't ensure apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:O] ensure ` ensure apple `": {
-    "` ensure apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:O] is a placeholder": {
-    "a placeholder": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:O] isn't a placeholder": {
-    "a placeholder": "0001-01-01T00:00:00Z"
-  },
   "[GSave] [V+O:V] ensure $apple": {
     "ensure": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:V] ensure ` apple `": {
-    "ensure": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:V] ensure ` don't ensure apple `": {
-    "ensure": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:V] ensure ` ensure apple `": {
-    "ensure": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:V] is a placeholder": {
-    "is": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:V] isn't a placeholder": {
-    "isn't": "0001-01-01T00:00:00Z"
   },
   "[GSave] [VP_Can:Can] don't ensure $apple": {
     "don't": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` apple `": {
-    "don't": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [VP_Can:Can] don't ensure ` don't ensure apple `": {
-    "don't": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [VP_Can:Can] don't ensure ` ensure apple `": {
-    "don't": "0001-01-01T00:00:00Z"
-  },
   "[GSave] [VP_Can:VP] don't ensure $apple": {
     "ensure $apple": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [VP_Can:VP] don't ensure ` apple `": {
-    "ensure ` apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [VP_Can:VP] don't ensure ` don't ensure apple `": {
-    "ensure ` don't ensure apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [VP_Can:VP] don't ensure ` ensure apple `": {
-    "ensure ` ensure apple `": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] her": {
     "yes": "0001-01-01T00:00:00Z"
@@ -261,9 +132,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] three": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] verb": {
@@ -389,15 +257,6 @@
   "[Grammar:Property:Word:SubjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Verb] am": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] are": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] aren't": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Verb] calculate": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -411,12 +270,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] increase": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] is": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] isn't": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] know": {
@@ -443,35 +296,8 @@
   "[Grammar:Property:Word:Wh] why": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Object:Candidate:Undone]": {
-    "0": "0001-01-01T00:00:00Z"
-  },
-  "[Pronoun:Cache] I": {
-    "user_1": "0001-01-01T00:00:00Z"
-  },
-  "[Pronoun:Cache] me": {
-    "user_1": "0001-01-01T00:00:00Z"
-  },
-  "[Pronoun:Cache] mine": {
-    "user_1 's": "0001-01-01T00:00:00Z"
-  },
-  "[Pronoun:Cache] my": {
-    "user_1 's": "0001-01-01T00:00:00Z"
-  },
-  "[Pronoun:Cache] you": {
-    "Susie": "0001-01-01T00:00:00Z"
-  },
-  "[Pronoun:Cache] your": {
-    "Susie 's": "0001-01-01T00:00:00Z"
-  },
-  "[Pronoun:Cache] yours": {
-    "Susie 's": "0001-01-01T00:00:00Z"
-  },
   "[TeachMode] user_1": {
     "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Then] Susie don't ensure $apple": {
-    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] say : I don't ensure $apple @@ Susie don't ensure $apple @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
   "[Units] $apple": {
     "yes": "0001-01-01T00:00:00Z"
@@ -662,9 +488,6 @@
   "[Units] us": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] user_1": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] verb": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -691,9 +514,6 @@
   },
   "[Units] your": {
     "yes": "0001-01-01T00:00:00Z"
-  },
-  "[VP:Candidate:Undone]": {
-    "0": "0001-01-01T00:00:00Z"
   },
   "[Variety] $apple": {
     "yes": "0001-01-01T00:00:00Z"

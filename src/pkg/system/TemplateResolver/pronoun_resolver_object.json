@@ -1,0 +1,29 @@
+{
+  "dependencies": [
+    "object_set/clause",
+    "object_set/article_and_adjpro",
+    "object_set/pronoun",
+    "object_set/noun"
+  ],
+  "tips": [
+    "$a-cake"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [TResolve:O] A # B @Caller C",
+        "[output] [repo] [GET] [Variety] B @Caller C [TR]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [TR] @ [Variety] B -> yes",
+        "[output] [TResolve:O] C @ A # B -> B",
+        "[output] [repo] [SSET] [Var:Cache] B -> A",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [TR] @ [Variety] B ->",
+        "[output] [repo] [GET] [GSave] [O:Type] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [O:Type] B @Caller C [TR]"
+      ]
+    }
+  ]
+}

@@ -83,6 +83,7 @@
         "[Learn:Preposition] at @Caller test",
         "[Learn:Preposition] under @Caller test",
         "[Learn:Preposition] by @Caller test",
+        "[template:Run] VP+Prep @Args by @Caller test",
         "[Learn:Preposition] of @Caller test",
         "[Learn:Preposition] plus @Caller test",
 

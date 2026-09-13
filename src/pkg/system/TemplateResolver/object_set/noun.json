@@ -1,0 +1,91 @@
+{
+  "tips": [
+    "$a-cake on $the-table",
+    "$cake",
+    "nice $cake"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> Of",
+        "[input] [repo] C [TR] @ [GSave] [O:Type] B -> Of",
+        "[output] [repo] [GET] [GSave] [Of:Of] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Of:Of] B @Caller C [TR]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Of] A -> G",
+        "[input] [repo] C [TR] @ [GSave] [Of:Of] B -> G",
+        "[output] [repo] [GET] [GSave] [Of:Pre] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Of:Pre] B @Caller C [TR]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Pre] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [Of:Pre] B -> D1",
+        "[output] [TResolve:O] D # D1 @Caller C [R] [Pre]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Pre] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [Of:Pre] B -> D1",
+        "[input] [TResolve:O] C [R] [Pre] @ D # D1 -> B1",
+        "[output] [repo] [GET] [GSave] [Of:Post] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Of:Post] B @Caller C [TR]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Pre] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [Of:Pre] B -> D1",
+        "[input] [TResolve:O] C [R] [Pre] @ D # D1 -> B1",
+        "[input] [repo] C [R] @ [GSave] [Of:Post] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [Of:Post] B -> E1",
+        "[output] [TResolve:O] E # E1 @Caller C [R] [Post]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Of:Of] A -> G",
+        "[input] [repo] C [TR] @ [GSave] [Of:Of] B -> G",
+        "[input] [repo] C [R] @ [GSave] [Of:Pre] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [Of:Pre] B -> D1",
+        "[input] [TResolve:O] C [R] [Pre] @ D # D1 -> B1",
+        "[input] [repo] C [R] @ [GSave] [Of:Post] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [Of:Post] B -> E1",
+        "[input] [TResolve:O] C [R] [Post] @ E # E1 -> F",
+        "[output] [TResolve:O] C @ A # B -> B1 G F"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:O] A # A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> PlainNoun",
+        "[input] [repo] C [TR] @ [GSave] [O:Type] A -> PlainNoun",
+        "[output] [TResolve:O] C @ A # A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> AdjNoun",
+        "[input] [repo] C [TR] @ [GSave] [O:Type] B -> AdjNoun",
+        "[output] [repo] [GET] [GSave] [Adj:A] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Adj:A] B @Caller C [TR]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Adj:A] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [Adj:A] B -> D",
+        "[output] [repo] [GET] [GSave] [Adj:N] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Adj:N] B @Caller C [TR]",
+
+        "[input] [TResolve:O] A # AB @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Adj:N] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [Adj:N] B -> E1",
+        "[output] [TResolve:O] E # E1 @Caller C [R] [Adj]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Adj:A] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [Adj:A] B -> D",
+        "[input] [repo] C [R] @ [GSave] [Adj:N] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [Adj:N] B -> E1",
+        "[input] [TResolve:O] C [R] [Adj] @ E # E1 -> F",
+        "[output] [TResolve:O] C @ A # B -> D F"
+      ]
+    }
+  ]
+}

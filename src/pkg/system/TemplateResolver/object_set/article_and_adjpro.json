@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> Article",
+        "[input] [repo] C [TR] @ [GSave] [O:Type] B -> Article",
+        "[output] [repo] [Get] [GSave] [A:A] A @Caller C [R]",
+        "[output] [repo] [Get] [GSave] [A:A] A @Caller C [R]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [A:A] A -> G",
+        "[input] [repo] C [TR] @ [GSave] [A:A] B -> G",
+        "[output] [repo] [Get] [GSave] [A:N] A @Caller C [R]",
+        "[output] [repo] [Get] [GSave] [A:N] B @Caller C [TR]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [A:N] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [A:N] B -> D1",
+        "[output] [TResolve:O] D # D1 @Caller C [R] [A:N]",
+
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [A:A] A -> G",
+        "[input] [repo] C [TR] @ [GSave] [A:A] B -> G",
+        "[input] [repo] C [R] @ [GSave] [A:N] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [A:N] B -> D1",
+        "[input] [TResolve:O] C [R] [A:N] @ D # D1 -> F",
+        "[output] [TResolve:O] C @ A # B -> G F"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> AdjPro",
+        "[input] [repo] C [TR] @ [GSave] [O:Type] B -> AdjPro",
+        "[output] [repo] [Get] [GSave] [A:A] A @Caller C [R]",
+        "[output] [repo] [Get] [GSave] [A:A] A @Caller C [R]"
+      ]
+    }
+  ]
+}

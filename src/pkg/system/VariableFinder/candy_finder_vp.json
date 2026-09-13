@@ -45,7 +45,7 @@
         "[input] [VP-Level:Counter:Get:Amount] C [BetterLearnVP] [No.] B @ [No.] B1 -> F1",
         "[input] [repo] C [BetterLearnVP] [No.] B1 @ [Var:Candidate:Type] F ->",
         "[input] [compute] C [BetterLearnVP] [No.] B1 @ F1 > 1 -> yes",
-        "[output] [TODO:Add] [Common] Susie don't ensure ` F ` @Caller [Generalize]",
+        "[output] [TODO:Add] [Pack] Susie don't ensure $apple @Caller F",
         "[output] [safe++] [VP:Candidate:Undone] @Caller B1",
         "[output] [repo] [SSET] [Candidate:Undone:Type] F -> VP",
 
@@ -68,22 +68,22 @@
     },
     {
       "commands":[
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` is a placeholder",
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` is a placeholder",
         "[output] [repo] [GET] [Candidate:Undone:Type] F @Caller F [--]",
 
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` isn't a placeholder",
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` isn't a placeholder",
         "[output] [repo] [GET] [Candidate:Undone:Type] F @Caller F [--]"
       ]
     },
     {
       "commands": [
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` is a placeholder",
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` is a placeholder",
         "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> VP",
         "[output] [repo] [GET] [VP:Candidate:Undone] @Caller F [--]",
         "[output] [Var:Candidate:Add] F @Caller [BetterLearnVP]",
         "[output] [repo] [SSET] [Var:Candidate:Type] F -> VP",
 
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` isn't a placeholder",
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` isn't a placeholder",
         "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> VP",
         "[output] [repo] [GET] [VP:Candidate:Undone] @Caller F [--]",
 

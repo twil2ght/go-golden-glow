@@ -2,7 +2,9 @@
   "data": [
     {
       "commands": [
-        "[VariableTemplateGen] @Caller Test"
+        "[Learn:Noun] $apple @Caller test",
+        "[repo] [SSET] [Variety] $apple -> yes",
+        "[Var:Resolve:S+VerbPhrase] Susie don't ensure $apple @Caller test"
       ],
       "a":[
         "[Raw] user_1 say : if you don't ensure apple",

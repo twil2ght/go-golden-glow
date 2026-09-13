@@ -4,6 +4,8 @@
     "pkg/CondGroup/cache_group",
     "pkg/system/SpecialPron/pronoun_resolver_Conj+S+VP",
     "pkg/system/Resolver/pronoun_resolver_S+VP",
+    "pkg/system/TemplateResolver/pronoun_resolver_S+VP",
+    "pkg/system/TemplateResolver/pronoun_resolver_VP",
     "pkg/system/SpecialPron/var_resolve",
     "pkg/system/VariableFinder/apply_candidate",
     "pkg/system/VariableFinder/candidate",

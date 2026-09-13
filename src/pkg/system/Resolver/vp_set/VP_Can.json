@@ -3,6 +3,10 @@
     {
       "commands": [
         "[input] [Resolve:VP] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [VP_Can:Can] A -> B",
+        "[output] [repo] [GET] [GSave] [VP_Can:VP] A @Caller C [R]",
+
+        "[input] [Resolve:VP] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [VP_Can:VP] A -> D",
         "[output] [Resolve:VP] D @Caller C [R] [VP_Can]",
 

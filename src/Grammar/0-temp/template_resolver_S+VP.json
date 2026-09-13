@@ -1,0 +1,21 @@
+{
+  "name": "TemplateResolver:SVP",
+  "is_template": true,
+  "args": [
+    "$SVP"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [Resolved:S+VP] A @Caller C",
+        "[output] [TODO:Add] [TResolve:S+VP] A # $SVP @Caller C [Resolved:S+VP]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:S+VP] C [Resolved:S+VP] @ A # $SVP -> $SVP",
+        "[output] [TODO:Add] [Common] $SVP @Caller C"
+      ]
+    }
+  ]
+}

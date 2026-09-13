@@ -29,8 +29,34 @@
     },
     {
       "commands": [
+        "[input] [Resolve:O] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [O:Type] A -> cited",
         "[output] [Resolve:O] C @ A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> PlainNoun",
+        "[output] [Resolve:O] C @ A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> AdjNoun",
+        "[output] [repo] [GET] [GSave] [Adj:N] A @Caller C [R]",
+
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Adj:N] A -> B",
+        "[output] [Resolve:O] B @Caller C [R] [Adj:N]",
+        "[output] [repo] [GET] [GSave] [Adj:A] A @Caller C [R]",
+
+        "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Adj:N] A -> B",
+        "[input] [repo] C [R] @ [GSave] [Adj:A] A -> D",
+        "[input] [Resolve:O] C [R] [Adj:N] @ B -> B1",
+        "[output] [Resolve:O] C @ A -> D B1"
       ]
     }
   ]

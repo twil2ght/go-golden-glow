@@ -43,7 +43,7 @@
         "[input] [Word:Counter:Get:Amount] C [BetterLearnVar] [No.] B @ [No.] B1 -> F1",
         "[input] [compute] C [BetterLearnVar] [No.] B1 @ F1 > 1 -> yes",
         "[input] [repo] C [BetterLearnVar] [No.] B1 @ [Var:Candidate:Type] F ->",
-        "[output] [TODO:Add] [Common] Susie don't ensure ` F ` @Caller [Generalize]",
+        "[output] [TODO:Add] [Pack] Susie don't ensure $apple @Caller F",
         "[output] [safe++] [Word:Candidate:Undone] @Caller B1",
         "[output] [repo] [SSET] [Candidate:Undone:Type] F -> Word",
 
@@ -66,13 +66,13 @@
     },
     {
       "commands": [
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` is a placeholder",
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` is a placeholder",
         "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Word",
         "[output] [repo] [GET] [Word:Candidate:Undone] @Caller F [--]",
         "[output] [Var:Candidate:Add] F @Caller [BetterLearnVar]",
         "[output] [repo] [SSET] [Var:Candidate:Type] F -> Word",
 
-        "[input] [Var:Resolve:S+VerbPhrase] [LW] @ A -> ` F ` isn't a placeholder",
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` isn't a placeholder",
         "[input] [repo] F [--] @ [Candidate:Undone:Type] F -> Word",
         "[output] [repo] [GET] [Word:Candidate:Undone] @Caller F [--]",
 

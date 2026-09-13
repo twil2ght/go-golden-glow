@@ -1,0 +1,35 @@
+{
+  "tips":[
+    "get $a-cake"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Type] A -> V+O",
+        "[input] [repo] C [TR] @ [GSave] [Type] B -> V+O",
+        "[output] [repo] [GET] [GSave] [V+O:V] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [V+O:V] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [V+O:V] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [V+O:V] B -> D",
+        "[output] [repo] [GET] [GSave] [V+O:O] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [V+O:O] B @Caller C [TR]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [V+O:O] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [V+O:O] B -> E1",
+        "[output] [TResolve:O] E # E1 @Caller C [R] [V+O]",
+
+        "[input] [TResolve:VP] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [V+O:V] A -> D",
+        "[input] [repo] C [TR] @ [GSave] [V+O:V] B -> D",
+        "[input] [repo] C [R] @ [GSave] [V+O:O] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [V+O:O] B -> E1",
+        "[input] [TResolve:O] C [R] [V+O] @ E # E1 -> F",
+        "[output] [TResolve:VP] C @ A # B -> D F"
+      ]
+    }
+  ]
+}

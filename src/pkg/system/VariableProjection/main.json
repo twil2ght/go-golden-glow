@@ -20,6 +20,17 @@
         "[input] [VariableTemplateGen:Done] @Caller C",
         "[output] [TODO:Add] [Var:Learning:Reset] @Caller C"
       ]
+    },
+    {
+      "commands": [
+        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
+        "[input] [Cond&Res:Type] C [CC] [No.] D @ [No.] B -> [Cond:Executor]",
+        "[output] [template:Run] TemplateResolver:VP @Args A @Caller HI",
+
+        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> A",
+        "[input] [Cond&Res:Type] C [CC] [No.] D @ [No.] B -> [Cond:If]",
+        "[output] [template:Run] TemplateResolver:SVP @Args A @Caller HI"
+      ]
     }
   ]
 }

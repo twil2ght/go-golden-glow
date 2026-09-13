@@ -12,8 +12,8 @@
     },
     {
       "commands": [
-        "[input] [Legal] user_1 say : [Common] A",
-        "[output] [Common] A @Caller user_1"
+        "[input] [Legal] user_1 say : [Resolve:S+VP] A",
+        "[output] [Resolve:S+VP] [H] @ A -> A"
       ]
     }
   ]
