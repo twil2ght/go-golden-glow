@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [repo] C [VR:VP] @ [GV] [VerbPhrase:Type] A -> V+TODO",
+        "[output] [repo] [GET] [GV] [V+TODO:V] A @Caller C [VR:V+TODO]",
+        "[output] [repo] [GET] [GV] [V+TODO:TODO] A @Caller C [VR:V+TODO]",
+
+        "[input] [repo] C [VR:V+TODO] @ [GV] [V+TODO:TODO] A -> to D",
+        "[output] [Var:Resolve:VerbPhrase] D @Caller A [VR:TODO]",
+
+        "[input] [Var:Resolve:VerbPhrase] A [VR:TODO] @ D -> D1",
+        "[input] [repo] C [VR:V+TODO] @ [GV] [V+TODO:V] A -> B",
+        "[output] [Var:Resolve:VerbPhrase] C @ A -> B to D1"
+      ]
+    }
+  ]
+}
