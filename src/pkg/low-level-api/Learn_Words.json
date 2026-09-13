@@ -10,6 +10,7 @@
     {
       "commands": [
         "[input] [Resolve:S+VP] [H] @ A -> B is a noun",
+        "[input] [repo] [LW] @ [Units] B -> yes",
         "[input] [repo] [LW] @ [Grammar:Property:Word:Unknown] B ->",
         "[output] [Learn:Noun] B @Caller [LW]",
 
