@@ -5,14 +5,14 @@
       "commands": [
         "[input] [TResolve:S+VP] A # A1 @Caller C",
         "[output] [repo] [GET] [GSave] [S+VP:S] A @Caller C [R]",
-        "[output] [repo] [GET] [GSave] [S+VP:S] A1 @Caller C [R]"
+        "[output] [repo] [GET] [GSave] [S+VP:S] A1 @Caller C [TR]"
       ]
     },
     {
       "commands": [
         "[input] [TResolve:S+VP] A # A1 @Caller C",
         "[input] [repo] C [R] @ [GSave] [S+VP:S] A -> B",
-        "[input] [repo] C [R] @ [GSave] [S+VP:S] A1 -> G",
+        "[input] [repo] C [TR] @ [GSave] [S+VP:S] A1 -> G",
         "[output] [TResolve:O] B # G @Caller C [R] [S+VP] A"
       ]
     },
@@ -20,19 +20,20 @@
       "commands": [
         "[input] [TResolve:S+VP] A # A1 @Caller C",
         "[input] [repo] C [R] @ [GSave] [S+VP:S] A -> B",
+        "[input] [repo] C [TR] @ [GSave] [S+VP:S] A1 -> G",
         "[input] [TResolve:O] C [R] [S+VP] A @ B # G -> B1",
         "[output] [repo] [GET] [GSave] [S+VP:VP] A @Caller C [R]",
-        "[output] [repo] [GET] [GSave] [S+VP:VP] A1 @Caller C [R]"
+        "[output] [repo] [GET] [GSave] [S+VP:VP] A1 @Caller C [TR]"
       ]
     },
     {
       "commands": [
         "[input] [TResolve:S+VP] A # A1 @Caller C",
         "[input] [repo] C [R] @ [GSave] [S+VP:S] A -> B",
-        "[input] [repo] C [R] @ [GSave] [S+VP:S] A1 -> G",
+        "[input] [repo] C [TR] @ [GSave] [S+VP:S] A1 -> G",
         "[input] [TResolve:O] C [R] [S+VP] A @ B # G -> B1",
         "[input] [repo] C [R] @ [GSave] [S+VP:VP] A -> E",
-        "[input] [repo] C [R] @ [GSave] [S+VP:VP] A1 -> F",
+        "[input] [repo] C [TR] @ [GSave] [S+VP:VP] A1 -> F",
         "[output] [TResolve:VP] E # F @Caller C [R] [S+VP] A"
       ]
     },
@@ -40,9 +41,9 @@
       "commands": [
         "[input] [TResolve:S+VP] A # A1 @Caller C",
         "[input] [repo] C [R] @ [GSave] [S+VP:S] A -> B",
-        "[input] [repo] C [R] @ [GSave] [S+VP:S] A1 -> G",
-        "[input] [repo] C [R] @ [GSave] [S+VP:VP] -> E",
-        "[input] [repo] C [R] @ [GSave] [S+VP:VP] A1 -> F",
+        "[input] [repo] C [TR] @ [GSave] [S+VP:S] A1 -> G",
+        "[input] [repo] C [R] @ [GSave] [S+VP:VP] A -> E",
+        "[input] [repo] C [TR] @ [GSave] [S+VP:VP] A1 -> F",
         "[input] [TResolve:VP] C [R] [S+VP] A @ E # F -> E1",
         "[input] [TResolve:O] C [R] [S+VP] A @ B # G -> B1",
         "[output] [TResolve:S+VP] C @ A # A1 -> B1 E1"

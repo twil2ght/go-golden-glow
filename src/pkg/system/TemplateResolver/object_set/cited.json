@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [TResolve:O] A # B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> cited_said",
+        "[input] [repo] C [TR] @ [GSave] [O:Type] B -> cited_said",
+        "[output] [repo] [GET] [GSave] [Cited:Type] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [Cited:Type] B @Caller C [TR]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:O] : A # : B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Cited:Type] : A -> SVP",
+        "[input] [repo] C [TR] @ [GSave] [Cited:Type] : B -> SVP",
+        "[output] [TResolve:S+VP] A # B @Caller [cited_said_SVP]",
+
+        "[input] [TResolve:O] : A # : B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Cited:Type] : A -> SVP",
+        "[input] [repo] C [TR] @ [GSave] [Cited:Type] : B -> SVP",
+        "[input] [TResolve:S+VP] [cited_said_SVP] @ A # B -> A1",
+        "[output] [TResolve:O] C @ : A # : B -> : A1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:O] : A # : B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Cited:Type] : A -> VP",
+        "[input] [repo] C [TR] @ [GSave] [Cited:Type] : B -> VP",
+        "[output] [TResolve:VP] A # B @Caller [cited_said_VP]",
+
+        "[input] [TResolve:O] : A # : B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Cited:Type] : A -> VP",
+        "[input] [repo] C [TR] @ [GSave] [Cited:Type] : B -> VP",
+        "[input] [TResolve:VP] [cited_said_VP] @ A # B -> A1",
+        "[output] [TResolve:O] C @ : A # : B -> : A1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [TResolve:O] : A # : B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Cited:Type] : A -> O",
+        "[input] [repo] C [TR] @ [GSave] [Cited:Type] : B -> O",
+        "[output] [TResolve:O] A # B @Caller [cited_said_O]",
+
+        "[input] [TResolve:O] : A # : B @Caller C",
+        "[input] [repo] C [R] @ [GSave] [Cited:Type] : A -> O",
+        "[input] [repo] C [TR] @ [GSave] [Cited:Type] : B -> O",
+        "[input] [TResolve:O] [cited_said_O] @ A # B -> A1",
+        "[output] [TResolve:O] C @ : A # : B -> : A1"
+      ]
+    }
+  ]
+}

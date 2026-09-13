@@ -7,7 +7,7 @@
   "data": [
     {
       "commands": [
-        "[input] [Resolved:S+VP] A @Caller C",
+        "[input] [Resolved:SVP] A @Caller C",
         "[output] [TODO:Add] [TResolve:S+VP] A # $SVP @Caller C [Resolved:S+VP]"
       ]
     },
