@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [Type] A -> V+O",
+        "[output] [repo] [GET] [GA] [V+O:O] A @Caller C [P]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [V+O:O] A -> D",
+        "[output] [PResolve:O] D @Caller C [P] [O] A",
+        "[output] [repo] [GET] [GA] [V+O:V] A @Caller C [P]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [V+O:V] A -> B",
+        "[input] [repo] C [P] @ [GA] [V+O:O] A -> D",
+        "[input] [PResolve:O] C [P] [O] A @ D -> D1",
+        "[output] [PResolve:VP] C @ A -> B D1"
+      ]
+    }
+  ]
+}

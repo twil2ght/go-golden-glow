@@ -1,0 +1,27 @@
+{
+  "dependencies": [
+    "object_set/clause",
+    "object_set/clause_that",
+    "object_set/adj_pro_noun_phrase",
+    "object_set/article",
+    "object_set/pronoun",
+    "object_set/plain_noun",
+    "object_set/to_do",
+    "object_set/cited",
+    "object_set/prep"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:O] A @Caller C",
+        "[output] [repo] [GET] [GA] [O:Type] A @Caller C [P]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [PResolve:O] C @ A -> A1",
+        "[output] [Object-Level:Counter:Add] A1 @Caller C"
+      ]
+    }
+  ]
+}

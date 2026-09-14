@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [O:Type] A -> Pronoun",
+        "[output] [Pronoun:Resolve] A @Caller C [Pronoun]",
+
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [O:Type] A -> Pronoun",
+        "[input] [Pronoun:Resolve] C [Pronoun] @ A -> A1",
+        "[output] [PResolve:O] C @ A -> A1"
+      ]
+    }
+  ]
+}
