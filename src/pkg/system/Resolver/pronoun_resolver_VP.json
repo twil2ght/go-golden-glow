@@ -35,35 +35,15 @@
       "commands": [
         "[input] [Resolve:VP] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [By] A -> D",
-        "[output] [Var:Resolve] D @Caller C [VP_By]",
+        "[output] [Resolve:O] D @Caller C [VP_By]",
         "[output] [repo] [GET] [GSave] [VP] A @Caller C [R]",
         "[output] [repo] [GET] [GSave] [Prep] A @Caller C [R]",
 
         "[input] [Resolve:VP] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [By] A -> D",
-        "[input] [Var:Resolve] C [VP_By] @ D ->",
-        "[output] [Resolve:O] D @Caller C [VP_By]",
-
-        "[input] [Resolve:VP] A @Caller C",
-        "[input] [repo] C [R] @ [GSave] [By] A -> D",
-        "[input] [Var:Resolve] C [VP_By] @ D -> D1",
-        "[output] [Resolve:O] C [VP_By] @ D -> D1",
-
-        "[input] [Resolve:VP] A @Caller C",
-        "[input] [repo] C [R] @ [GSave] [By] A -> D",
         "[input] [repo] C [R] @ [GSave] [VP] A -> B",
         "[input] [Resolve:O] C [VP_By] @ D -> D1",
-        "[output] [Var:Resolve] B @Caller C [VP_By]",
-
-        "[input] [Resolve:VP] A @Caller C",
-        "[input] [repo] C [R] @ [GSave] [VP] A -> B",
-        "[input] [Var:Resolve] C [VP_By] @ B ->",
         "[output] [Resolve:VP] B @Caller C [VP_By]",
-
-        "[input] [Resolve:VP] A @Caller C",
-        "[input] [repo] C [R] @ [GSave] [VP] A -> B",
-        "[input] [Var:Resolve] C [VP_By] @ B -> B1",
-        "[output] [Resolve:VP] C [VP_By] @ B -> B1",
 
         "[input] [Resolve:VP] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [By] A -> D",
