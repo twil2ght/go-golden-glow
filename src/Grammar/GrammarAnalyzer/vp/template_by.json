@@ -1,0 +1,59 @@
+{
+  "name": "VP+Prep",
+  "is_template": true,
+  "args": [
+    "$Prep"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:VP_By] A $Prep B @Caller C",
+        "[output] [repo] [SSET] [GA] [Match:By] A $Prep B -> yes",
+        "[output] [GA:O] B @Caller C [GA:VP_By]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_By] A $Prep B @Caller C",
+        "[input] [GA:O] C [GA:VP_By] @ B -> yes",
+        "[output] [repo] [SSET] [GA] [Target] A -> A $Prep B",
+        "[output] [GA:VP_Default] A @Caller C [GA:VP_By] B $Prep",
+        "[output] [TODO:Add] [repo] [GET] [GA] [Match:Default] A @Caller C [GA:VP_By] B $Prep"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [GA:VP_By] B $Prep @ [GA] [Match:Default] A ->",
+        "[output] [GA:VP_By] C @ A $Prep B ->"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_Default] C [GA:VP_By] B $Prep @ A ->",
+        "[output] [GA:VP_By] C @ A $Prep B ->"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_Default] C [GA:VP_By] B $Prep @ A -> yes",
+        "[output] [repo] [GET] [GA] [Target] A @Caller C"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_Default] C [GA:VP_By] B $Prep @ A -> yes",
+        "[input] [repo] C @ [GA] [Target] A -> A1",
+        "[output] [GA:VP_By] C @ A1 -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_Default] C [GA:VP_By] B $Prep @ A -> yes",
+        "[input] [GA:VP_By] C @ A $Prep B -> yes",
+        "[output] [repo] [SSET] [GA] [VP] A $Prep B -> A",
+        "[output] [repo] [SSET] [GA] [Prep] A $Prep B -> $Prep",
+        "[output] [repo] [SSET] [GA] [By] A $Prep B -> B"
+      ]
+    }
+  ]
+}

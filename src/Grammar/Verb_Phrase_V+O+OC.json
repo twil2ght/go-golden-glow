@@ -25,7 +25,10 @@
       "commands": [
         "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
         "[input] [Grammar:O+OC:Object] C [O+OC] $verb @ B -> E",
-        "[output] [Grammar:V+O+OC:Object] C @ $verb B -> E"
+        "[output] [Grammar:V+O+OC:Object] C @ $verb B -> E",
+        "[output] [repo] [SSET] [GA] [Type] $verb B -> V+O+OC",
+        "[output] [repo] [SSET] [GA] [V+O+OC:V] $verb B -> $verb",
+        "[output] [repo] [SSET] [GA] [V+O+OC:O] $verb B -> E"
       ]
     },
     {
@@ -33,7 +36,8 @@
       "commands": [
         "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
         "[input] [Grammar:O+OC:OC(adj)] C [O+OC] $verb @ B -> E",
-        "[output] [Grammar:V+O+OC:OC(adj)] C @ $verb B -> E"
+        "[output] [Grammar:V+O+OC:OC(adj)] C @ $verb B -> E",
+        "[output] [repo] [SSET] [GA] [V+O+OC:OC(adj)] $verb B -> E"
       ]
     },
     {
@@ -41,7 +45,8 @@
       "commands": [
         "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
         "[input] [Grammar:O+OC:OC(do)] C [O+OC] $verb @ B -> E",
-        "[output] [Grammar:V+O+OC:OC(do)] C @ $verb B -> E"
+        "[output] [Grammar:V+O+OC:OC(do)] C @ $verb B -> E",
+        "[output] [repo] [SSET] [GA] [V+O+OC:OC(do)] $verb B -> E"
       ]
     },
     {
@@ -49,7 +54,8 @@
       "commands": [
         "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
         "[input] [Grammar:O+OC:OC(doing)] C [O+OC] $verb @ B -> E",
-        "[output] [Grammar:V+O+OC:OC(doing)] C @ $verb B -> E"
+        "[output] [Grammar:V+O+OC:OC(doing)] C @ $verb B -> E",
+        "[output] [repo] [SSET] [GA] [V+O+OC:OC(doing)] $verb B -> E"
       ]
     },
     {
@@ -57,7 +63,8 @@
       "commands": [
         "[input] [Grammar:Verify:V+O+OC] $verb B @Caller C",
         "[input] [Grammar:O+OC:OC(to)] C [O+OC] $verb @ B -> E",
-        "[output] [Grammar:V+O+OC:OC(to)] C @ $verb B -> E"
+        "[output] [Grammar:V+O+OC:OC(to)] C @ $verb B -> E",
+        "[output] [repo] [SSET] [GA] [V+O+OC:OC(to)] $verb B -> E"
       ]
     }
   ]

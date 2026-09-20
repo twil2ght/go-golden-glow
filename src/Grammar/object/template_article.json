@@ -12,7 +12,10 @@
         "[output] [Grammar:Verify:Object] C @ $article A -> yes",
         "[output] [Grammar:Object:Type] C @ $article A -> ArticleNounPhrase",
         "[output] [Grammar:Object:Article] C @ $article A -> $article",
-        "[output] [Grammar:Object:NounPhrase] C @ $article A -> A"
+        "[output] [Grammar:Object:NounPhrase] C @ $article A -> A",
+        "[output] [repo] [SSET] [GA] [O:Type] $article A -> Article",
+        "[output] [repo] [SSET] [GA] [A:A] $article A -> $article",
+        "[output] [repo] [SSET] [GA] [A:N] $article A -> A"
       ]
     },
     {

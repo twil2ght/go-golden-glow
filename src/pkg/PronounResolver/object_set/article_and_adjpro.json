@@ -4,26 +4,30 @@
       "commands": [
         "[input] [PResolve:O] A @Caller C",
         "[input] [repo] C [P] @ [GA] [O:Type] A -> Article",
-        "[output] [repo] [Get] [GA] [A:N] A @Caller C [P]",
+        "[output] [repo] [GET] [GA] [A:N] A @Caller C [P]",
 
         "[input] [PResolve:O] A @Caller C",
         "[input] [repo] C [P] @ [GA] [A:N] A -> D",
         "[output] [PResolve:O] D @Caller C [P] [A:N]",
-        "[output] [repo] [Get] [GA] [A:A] A @Caller C [P]",
+        "[output] [repo] [GET] [GA] [A:A] A @Caller C [P]",
 
         "[input] [PResolve:O] A @Caller C",
         "[input] [repo] C [P] @ [GA] [O:Type] A -> Article",
         "[input] [repo] C [P] @ [GA] [A:A] A -> B",
         "[input] [repo] C [P] @ [GA] [A:N] A -> D",
         "[input] [PResolve:O] C [P] [A:N] @ D -> D1",
-        "[output] [PResolve:O] C @ A -> B D1"
+        "[input] [Object-Level:Counter:Add:Done] D1 @Caller C [P] [A:N]",
+        "[output] [PResolve:O] C @ A -> B D1",
+        "[output] [repo] [SSET] [GA] [O:Type] B D1 -> Article",
+        "[output] [repo] [SSET] [GA] [A:A] B D1 -> B",
+        "[output] [repo] [SSET] [GA] [A:N] B D1 -> D1"
       ]
     },
     {
       "commands": [
         "[input] [PResolve:O] A @Caller C",
         "[input] [repo] C [P] @ [GA] [O:Type] A -> AdjPro",
-        "[output] [repo] [Get] [GA] [A:N] A @Caller C [P]",
+        "[output] [repo] [GET] [GA] [A:N] A @Caller C [P]",
 
         "[input] [PResolve:O] A @Caller C",
         "[input] [repo] C [P] @ [GA] [O:Type] A -> AdjPro",
@@ -37,8 +41,12 @@
         "[input] [repo] C [P] @ [GA] [A:A] A -> B",
         "[input] [repo] C [P] @ [GA] [A:N] A -> D",
         "[input] [PResolve:O] C [P] [A:N] @ D -> D1",
-        "[output] [Pronoun:Resolve] C [P] [AdjPro] @ B -> B1",
-        "[output] [PResolve:O] C @ A -> B1 D1"
+        "[input] [Pronoun:Resolve] C [P] [AdjPro] @ B -> B1",
+        "[input] [Object-Level:Counter:Add:Done] D1 @Caller C [P] [A:N]",
+        "[output] [PResolve:O] C @ A -> B1 D1",
+        "[output] [repo] [SSET] [GA] [O:Type] B D1 -> AdjPro",
+        "[output] [repo] [SSET] [GA] [A:A] B D1 -> B",
+        "[output] [repo] [SSET] [GA] [A:N] B D1 -> D1"
       ]
     }
   ]

@@ -9,7 +9,8 @@
         "[input] [PResolve:O] A @Caller C",
         "[input] [repo] C [P] @ [GA] [O:Type] A -> Pronoun",
         "[input] [Pronoun:Resolve] C [Pronoun] @ A -> A1",
-        "[output] [PResolve:O] C @ A -> A1"
+        "[output] [PResolve:O] C @ A -> A1",
+        "[output] [TODO:Add] [GA:O] A1 @Caller [PRP]"
       ]
     }
   ]

@@ -16,7 +16,9 @@
         "[input] [PResolve:O] : A @Caller C",
         "[input] [repo] C [P] @ [GA] [Cited:Type] : A -> SVP",
         "[input] [PResolve:S+VP] [cited_said_SVP] @ A -> A1",
-        "[output] [PResolve:O] C @ : A -> : A1"
+        "[output] [PResolve:O] C @ : A -> : A",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : A1 -> SVP",
+        "[output] [repo] [SSET] [GA] [O:Type] : A1 -> cited_said"
       ]
     },
     {
@@ -28,7 +30,10 @@
         "[input] [PResolve:O] : A @Caller C",
         "[input] [repo] C [P] @ [GA] [Cited:Type] : A -> VP",
         "[input] [PResolve:VP] [cited_said_VP] @ A -> A1",
-        "[output] [PResolve:O] C @ : A -> : A1"
+        "[input] [Object-Level:Counter:Add:Done] A1 @Caller [cited_said_VP]",
+        "[output] [PResolve:O] C @ : A -> : A",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : A1 -> VP",
+        "[output] [repo] [SSET] [GA] [O:Type] : A1 -> cited_said"
       ]
     },
     {
@@ -40,7 +45,10 @@
         "[input] [PResolve:O] : A @Caller C",
         "[input] [repo] C [P] @ [GA] [Cited:Type] : A -> O",
         "[input] [PResolve:O] [cited_said_O] @ A -> A1",
-        "[output] [PResolve:O] C @ : A -> : A1"
+        "[input] [Object-Level:Counter:Add:Done] A1 @Caller [cited_said_O]",
+        "[output] [PResolve:O] C @ : A -> : A",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : A1 -> O",
+        "[output] [repo] [SSET] [GA] [O:Type] : A1 -> cited_said"
       ]
     }
   ]

@@ -2,20 +2,20 @@
   "data": [
     {
       "commands": [
-        "[Raw] user_1 say : to increase the index of something by one",
-        "[Raw] user_1 say : check the index of something",
-        "[Raw] user_1 say : if the index of something is three",
+        "[Raw] user_1 say : to increase the index of apple by one",
+        "[Raw] user_1 say : check the index of apple",
+        "[Raw] user_1 say : if the index of apple is three",
         "[Raw] user_1 say : calculate three plus one",
         "[Raw] user_1 say : if three plus one equal four",
-        "[Raw] user_1 say : then the index of something is four"
+        "[Raw] user_1 say : then the index of apple is four"
       ],
       "A": [
-        "[Raw] user_1 say : to increase the index of something by one",
-        "[Raw] user_1 say : check the index of something",
-        "[Raw] user_1 say : if the index of something is three",
+        "[Raw] user_1 say : to increase the index of apple by one",
+        "[Raw] user_1 say : check the index of apple",
+        "[Raw] user_1 say : if the index of apple is three",
         "[Raw] user_1 say : calculate three plus one",
         "[Raw] user_1 say : if three plus one equal four",
-        "[Raw] user_1 say : then the index of something is four",
+        "[Raw] user_1 say : then the index of apple is four",
         "[VarietyLearning] @Caller Test",
         "[VariableTemplateGen] @Caller Test",
         "[Var:Learning:Reset] @Caller C"

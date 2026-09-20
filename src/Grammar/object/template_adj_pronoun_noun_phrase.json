@@ -12,7 +12,10 @@
         "[output] [Grammar:Verify:Object] C @ $ap B -> yes",
         "[output] [Grammar:Object:Type] C @ $ap B -> AdjProNounPhrase",
         "[output] [Grammar:Object:AdjProNounPhrase:AdjPro] C @ $ap B -> $ap",
-        "[output] [Grammar:Object:AdjProNounPhrase:NounPhrase] C @ $ap B -> B"
+        "[output] [Grammar:Object:AdjProNounPhrase:NounPhrase] C @ $ap B -> B",
+        "[output] [repo] [SSET] [GA] [O:Type] $ap B -> AdjPro",
+        "[output] [repo] [SSET] [GA] [A:A] $ap B -> $ap",
+        "[output] [repo] [SSET] [GA] [A:N] $ap B -> B"
       ]
     },
     {

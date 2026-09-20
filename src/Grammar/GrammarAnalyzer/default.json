@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:VP_Default] A @Caller C",
+        "[output] [repo] [SSET] [GA] [Match:Default] A -> yes",
+        "[output] [Grammar:Verify:V] A @Caller C [GA:VP_Default]",
+        "[output] [Grammar:Verify:V+O] A @Caller C [GA:VP_Default]",
+        "[output] [Grammar:Verify:V+IO+DO] A @Caller C [GA:VP_Default]",
+        "[output] [Grammar:Verify:V+O+OC] A @Caller C [GA:VP_Default]",
+        "[output] [Grammar:Verify:V+P] A @Caller C [GA:VP_Default]",
+        "[output] [Grammar:Verify:V+TODO] A @Caller C [GA:VP_Default]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:V] C [GA:VP_Default] @ A -> yes",
+        "[output] [GA:VP_Default] C @ A -> yes",
+
+        "[input] [Grammar:Verify:V+O] C [GA:VP_Default] @ A -> yes",
+        "[output] [GA:VP_Default] C @ A -> yes",
+
+        "[input] [Grammar:Verify:V+IO+DO] C [GA:VP_Default] @ A -> yes",
+        "[output] [GA:VP_Default] C @ A -> yes",
+
+        "[input] [Grammar:Verify:V+O+OC] C [GA:VP_Default] @ A -> yes",
+        "[output] [GA:VP_Default] C @ A -> yes",
+
+        "[input] [Grammar:Verify:V+P] C [GA:VP_Default] @ A -> yes",
+        "[output] [GA:VP_Default] C @ A -> yes",
+
+        "[input] [Grammar:Verify:V+TODO] C [GA:VP_Default] @ A -> yes",
+        "[output] [GA:VP_Default] C @ A -> yes",
+
+        "[input] [Grammar:Verify:VP_Can] C [GA:VP_Default] @ A -> yes",
+        "[output] [GA:VP_Default] C @ A -> yes"
+      ]
+    }
+  ]
+}

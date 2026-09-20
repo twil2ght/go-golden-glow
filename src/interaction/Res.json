@@ -12,10 +12,18 @@
       "commands": [
         "[input] [Raw] C say : A",
         "[input] [Legal] C say : A",
-        "[input] [TeachMode] [VPRES] @ C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [VPRES] @ A -> B",
-        "[input] [repo] [Res] C say : A @ [Cond:Count] -> G",
-        "[output] [Cond&Res:Add] [Executor] Susie [Execute] B # [Res:VP] @Caller [VPRES]",
+        "[input] [TeachMode] [SaidBy] C [VPRES] @ C -> yes",
+        "[output] [GA:VP] A @Caller [SaidBy] C [VPRES]",
+
+        "[input] [GA:VP] [SaidBy] C [VPRES] @ A -> yes",
+        "[output] [TODO:Add] [PResolve:VP] A @Caller [SaidBy] C [VPRES]",
+
+        "[input] [PResolve:VP] [SaidBy] C [VPRES] @ A -> A1",
+        "[output] [repo] [GET] [CR] VarLearn @Caller [Res:Done] A1",
+
+        "[input] [PResolve:VP] [SaidBy] C [VPRES] @ A -> A1",
+        "[input] [repo] [Res:Done] A1 @ [CR] VarLearn ->",
+        "[output] [Cond&Res:Add] [Executor] Susie [Execute] A1 # [Res:VP] @Caller [SaidBy] C [VPRES]",
         "[output] [Res:Done] A @Caller Hi"
       ]
     },
@@ -23,43 +31,15 @@
       "commands": [
         "[input] [Raw] C say : A",
         "[input] [Legal] C say : A",
-        "[output] [repo] [GET] [Cond:Count] @Caller [Res] C say : A"
-      ]
-    },
-    {
-      "commands": [
-        "[input] [Raw] C say : A",
-        "[input] [Legal] C say : A",
-
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
-        "[output] [TeachMode:Check] C @Caller [VPRES]"
+        "[output] [TeachMode:Check] C @Caller [SaidBy] C [VPRES]"
       ]
     },
     {
       "commands": [
         "[input] [Raw] C say : then A",
         "[input] [Legal] C say : then A",
-        "[input] [TeachMode] [VPRES] @ C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [VPRES] @ A -> B",
-        "[input] [repo] [Res] C say : then A @ [Cond:Count] -> G",
-        "[output] [Cond&Res:Add] [Executor] Susie [Execute] B # [Res:VP] @Caller [VPRES]",
-        "[output] [Res:Done] A @Caller Hi"
-      ]
-    },
-    {
-      "commands": [
-        "[input] [Raw] C say : then A",
-        "[input] [Legal] C say : then A",
-        "[output] [repo] [GET] [Cond:Count] @Caller [Res] C say : then A"
-      ]
-    },
-    {
-      "commands": [
-        "[input] [Raw] C say : then A",
-        "[input] [Legal] C say : then A",
-
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [VPRES]",
-        "[output] [TeachMode:Check] C @Caller [VPRES]"
+        "[input] [TeachMode] [SaidBy] C [VPRES] @ C -> yes",
+        "[output] [GA:VP] A @Caller [SaidBy] C [VPRES]"
       ]
     },
     {

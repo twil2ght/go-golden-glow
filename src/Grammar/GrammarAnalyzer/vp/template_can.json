@@ -1,0 +1,61 @@
+{
+  "name": "VP_Can",
+  "is_template": true,
+  "args": [
+    "$Can"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:VP_Can] C @ $Can B -> yes",
+        "[output] [repo] [SSET] [GA] [VP_Can:Can] $Can B -> $Can",
+        "[output] [repo] [SSET] [GA] [VP_Can:VP] $Can B -> B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_Can] $Can B @Caller C",
+        "[output] [repo] [SSET] [Match:Can] $Can B -> yes",
+        "[output] [GA:VP_By] B @Caller C $Can [GA:VP_Can]",
+        "[output] [TODO:Add] [repo] [GET] [GA] [Match:By] B @Caller C $Can [GA:VP_Can]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C $Can [GA:VP_Can] @ [GA] [Match:By] B ->",
+        "[output] [GA:VP_By] C $Can [GA:VP_Can] @ B ->"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_By] C $Can [GA:VP_Can] @ B -> yes",
+        "[output] [GA:VP_Can] C @ $Can B -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_By] C $Can [GA:VP_Can] @ B ->",
+        "[output] [GA:VP_Default] B @Caller C $Can [GA:VP_Can]",
+        "[output] [TODO:Add] [repo] [GET] [GA] [Match:Default] B @Caller C $Can [GA:VP_Can]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C $Can [GA:VP_Can] @ [GA] [Match:Default] B ->",
+        "[output] [GA:VP_Default] C $Can [GA:VP_Can] @ B ->"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_Default] C $Can [GA:VP_Can] @ B -> yes",
+        "[output] [GA:VP_Can] C @ $Can B -> yes"
+      ]
+    },
+    {
+      "commands":[
+        "[input] [GA:VP_Default] C $Can [GA:VP_Can] @ B ->",
+        "[output] [GA:VP_Can] C @ $Can B ->"
+      ]
+    }
+  ]
+}

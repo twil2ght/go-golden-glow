@@ -15,6 +15,7 @@
         "[Learn:Verb] say @Caller test",
         "[Learn:Verb] equal @Caller test",
         "[Learn:Verb] ensure @Caller test",
+        "[Learn:Verb] confirm @Caller test",
 
         "[Learn:Noun] noun @Caller test",
         "[Learn:Noun] verb @Caller test",
@@ -30,6 +31,7 @@
         "[Learn:Noun] three @Caller test",
         "[Learn:Noun] four @Caller test",
         "[Learn:Noun] placeholder @Caller test",
+        "[Learn:Noun] consequence @Caller test",
 
         "[Learn:CanDo] do @Caller test",
         "[Learn:CanDo] can @Caller test",
@@ -86,6 +88,8 @@
         "[template:Run] VP+Prep @Args by @Caller test",
         "[Learn:Preposition] of @Caller test",
         "[Learn:Preposition] plus @Caller test",
+        "[Learn:Preposition] as @Caller test",
+        "[template:Run] VP+Prep @Args as @Caller test",
 
         "[repo] [SSET] [TeachMode] user_1 -> yes",
 

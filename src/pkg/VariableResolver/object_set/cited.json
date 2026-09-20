@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VResolve:O] : A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] : A -> cited_said",
+        "[output] [repo] [GET] [GA] [Cited:Type] : A @Caller C [VR]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] : A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Cited:Type] : A -> SVP",
+        "[output] [VResolve:S+VP] A @Caller [cited_said_SVP]",
+
+        "[input] [VResolve:O] : A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Cited:Type] : A -> SVP",
+        "[input] [VResolve:S+VP] [cited_said_SVP] @ A -> A1",
+        "[output] [VResolve:O] C @ : A -> : A1",
+        "[output] [repo] [SSET] [GSave] [Cited:Type] : A1 -> SVP",
+        "[output] [repo] [SSET] [GSave] [O:Type] : A1 -> cited_said"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] : A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Cited:Type] : A -> VP",
+        "[output] [VResolve:VP] A @Caller [cited_said_VP]",
+
+        "[input] [VResolve:O] : A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Cited:Type] : A -> VP",
+        "[input] [VResolve:VP] [cited_said_VP] @ A -> A1",
+        "[output] [VResolve:O] C @ : A -> : A1",
+        "[output] [repo] [SSET] [GSave] [Cited:Type] : A1 -> VP",
+        "[output] [repo] [SSET] [GSave] [O:Type] : A1 -> cited_said"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] : A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Cited:Type] : A -> O",
+        "[output] [VResolve:O] A @Caller [cited_said_O]",
+
+        "[input] [VResolve:O] : A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Cited:Type] : A -> O",
+        "[input] [VResolve:O] [cited_said_O] @ A -> A1",
+        "[output] [VResolve:O] C @ : A -> : A1",
+        "[output] [repo] [SSET] [GSave] [Cited:Type] : A1 -> O",
+        "[output] [repo] [SSET] [GSave] [O:Type] : A1 -> cited_said"
+      ]
+    }
+  ]
+}

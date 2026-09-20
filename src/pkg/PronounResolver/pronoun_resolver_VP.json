@@ -42,14 +42,18 @@
         "[input] [repo] C [P] @ [GA] [VP] A -> B",
         "[input] [repo] C [P] @ [GA] [Prep] A -> E",
         "[input] [PResolve:VP] C [VP_By] @ B -> B1",
+        "[input] [Object-Level:Counter:Add:Done] B1 @Caller C [VP_By]",
         "[input] [PResolve:O] C [VP_By] @ D -> D1",
-        "[output] [PResolve:VP] C @ A -> B1 E D1"
+        "[output] [PResolve:VP] C @ A -> B1 E D1",
+        "[output] [repo] [SSET] [GA] [VP] B1 E D1 -> B1",
+        "[output] [repo] [SSET] [GA] [By] B1 E D1 -> D1",
+        "[output] [repo] [SSET] [GA] [Prep] B1 E D1 -> E"
       ]
     },
     {
       "commands": [
         "[input] [PResolve:VP] C @ A -> A1",
-        "[output] [VP-Level:Counter:Add] A1 @Caller C"
+        "[output] [Object-Level:Counter:Add] A1 @Caller C"
       ]
     }
   ]

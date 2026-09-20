@@ -35,25 +35,35 @@
         "[input] [Object-Level:Counter:Add] A @Caller C",
         "[input] [repo] C [Add] @ [Object-Level:Counter:CountOf] A -> B",
         "[input] [compute] C [Add] @ B + 1 -> F",
-        "[output] [repo] [SSET] [Object-Level:Counter:CountOf] A -> F"
+        "[output] [repo] [SSET] [Object-Level:Counter:CountOf] A -> F",
+        "[output] [Object-Level:Counter:Add:Done] A @Caller C"
       ]
     },
     {
       "description": "Add",
       "commands": [
+        "[input] [Object-Level:Counter:Add] A @Caller C",
         "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] ->",
         "[output] [repo] [SSET] [Object-Level:Counter:Count] -> 1",
         "[output] [repo] [SSET] [Object-Level:Counter] [No.] 1 -> A",
+        "[output] [Object-Level:Counter:Add:Done] A @Caller C",
 
+        "[input] [Object-Level:Counter:Add] A @Caller C",
         "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] -> B",
         "[output] [compute] [GET] B + 1 @Caller C [Object-Level:Counter:Add] A",
 
+        "[input] [Object-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] -> B",
         "[input] [compute] C [Object-Level:Counter:Add] A @ B + 1 -> D",
         "[output] [repo] [SSET] [Object-Level:Counter] [No.] D -> A",
         "[output] [repo] [SSET] [Object-Level:Counter:Count] -> D",
 
+        "[input] [Object-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] -> B",
+        "[input] [compute] C [Object-Level:Counter:Add] A @ B + 1 -> D",
         "[input] [repo] [SSET] [Object-Level:Counter] [No.] D -> A",
-        "[output] [Object-Level:Counter:Add:Done] A @Caller A"
+        "[input] [repo] [SSET] [Object-Level:Counter:Count] -> D",
+        "[output] [Object-Level:Counter:Add:Done] A @Caller C"
       ]
     },
     {

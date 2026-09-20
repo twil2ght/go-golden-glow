@@ -1,56 +1,43 @@
 {
   "dependencies": [
-    "../pkg/Pronoun/pronoun_resolver",
-    "../pkg/Pronoun/pronoun_resolver_Conj+S+VP"
+    "../pkg/Pronoun/pronoun_resolver"
   ],
   "data": [
     {
       "commands": [
         "[input] [Legal] C say : if A",
-        "[input] [TeachMode] [if+] @ C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [if+] @ A -> B",
+        "[input] [TeachMode] [SaidBy] C [VPRES] @ C -> yes",
+        "[output] [GA:S+VP] A @Caller [SaidBy] C [if+]",
 
-        "[output] [Cond&Res:Add] B # [Cond:If] @Caller [if+]",
+        "[input] [GA:S+VP] [SaidBy] C [if+] @ A -> yes",
+        "[output] [TODO:Add] [PResolve:S+VP] A @Caller [SaidBy] C [if+]",
+
+        "[input] [PResolve:S+VP] [SaidBy] C [if+] @ A -> A1",
+        "[output] [Cond&Res:Add] A1 # [Cond:If] @Caller [SaidBy] C [if+]",
+        "[output] [If:Done] A @Caller A",
         "[output] [Cond:Count++] @Caller A"
       ]
     },
     {
-      "commands":[
-        "[input] [Legal] C say : if A",
-        "[output] [TeachMode:Check] C @Caller [if+]",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [if+]"
-      ]
-    },
-    {
       "commands": [
         "[input] [Legal] C say : and if A",
-        "[input] [TeachMode] [if+] @ C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [if+] @ A -> B",
-        "[output] [Cond:Count++] @Caller A",
-        "[output] [Cond&Res:Add] B # [Cond:If] @Caller [if+]"
-      ]
-    },
-    {
-      "commands":[
-        "[input] [Legal] C say : and if A",
-        "[output] [TeachMode:Check] C @Caller [if+]",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [if+]"
+        "[input] [TeachMode] [SaidBy] C [VPRES] @ C -> yes",
+        "[output] [GA:S+VP] A @Caller [SaidBy] C [if+]"
       ]
     },
     {
       "commands": [
         "[input] [Legal] C say : or if A",
-        "[input] [TeachMode] [if+] @ C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] [if+] @ A -> B",
+        "[input] [TeachMode] [SaidBy] C [VPRES] @ C -> yes",
+        "[output] [GA:S+VP] A @Caller [SaidBy] C [or+]",
+
+        "[input] [GA:S+VP] [SaidBy] C [or+] @ A -> yes",
+        "[output] [TODO:Add] [PResolve:S+VP] A @Caller [SaidBy] C [or+]",
+
+        "[input] [PResolve:S+VP] [SaidBy] C [or+] @ A -> A1",
         "[output] [Cond:Count++] @Caller A",
-        "[output] [Cond&Res:Add] B # [Cond:OverrideIf] @Caller [if+]"
-      ]
-    },
-    {
-      "commands":[
-        "[input] [Legal] C say : or if A",
-        "[output] [TeachMode:Check] C @Caller [if+]",
-        "[output] [Pronoun:Resolve:Sentence:S+VerbPhrase] A @Caller [if+]"
+        "[output] [If:Done] A @Caller A",
+        "[output] [Cond&Res:Add] A1 # [Cond:OverrideIf] @Caller [SaidBy] C [or+]"
       ]
     }
   ]

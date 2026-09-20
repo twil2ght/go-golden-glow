@@ -1,25 +1,9 @@
 {
   "data": [
     {
-      "description": "speak:parse variables($Susie)",
       "commands": [
-        "[input] [Executor] Susie [Execute] say : A @Caller C",
-        "[output] [repo] [SSET] [Pronoun:Cache] my -> my",
-        "[output] [repo] [SSET] [Pronoun:Cache] mine -> mine",
-        "[output] [repo] [SSET] [Pronoun:Cache] I -> I",
-        "[output] [repo] [SSET] [Pronoun:Cache] me -> me",
-        "[output] [repo] [SSET] [Pronoun:Cache] you -> you",
-        "[output] [repo] [SSET] [Pronoun:Cache] your -> your",
-        "[output] [Var:Resolve:Conj+S+VerbPhrase] A @Caller C [Susie says]",
-        "[output] [Var:Resolve:S+VerbPhrase] A @Caller C [Susie says]",
-        "[output] [Var:Resolve:VerbPhrase] A @Caller C [Susie says]",
-
-        "[input] [Var:Resolve:Conj+S+VerbPhrase] C [Susie says] @ A -> B",
-        "[output] [Speak] B",
-        "[input] [Var:Resolve:S+VerbPhrase] C [Susie says] @ A -> B",
-        "[output] [Speak] B",
-        "[input] [Var:Resolve:VerbPhrase] C [Susie says] @ A -> B",
-        "[output] [Speak] B"
+        "[input] [Resolve:VP] [H] @ say : A -> say : A1",
+        "[output] [Speak] A1"
       ]
     }
   ]

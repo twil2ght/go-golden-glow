@@ -1,9 +1,8 @@
 {
   "data": [
     {
-      "tip": "学到带有变量的后，应该删除原来的无变量版本（移入回收站）",
       "commands": [
-        "[input] [Var:Candidate:Handle:Done] @Caller C [LearnVar]",
+        "[input] [Var:Candidate:Handle:Done] @Caller C",
         "[output] [repo] [GET] [Cond&Res:LastProcessedIndex] @Caller C [LearnVar]",
 
         "[input] [repo] C [LearnVar] @ [Cond&Res:LastProcessedIndex] ->",
@@ -16,27 +15,27 @@
         "[input] [compute] C [LearnVar] [Cond&Res->Continue] @ A + 1 -> B",
         "[output] [Cond&Res:Get] [No.] B @Caller C [LearnVar] [No.] A",
 
-        "[input] [Var:Candidate:Handle:Done] @Caller C [LearnVar]",
+        "[input] [Var:Candidate:Handle:Done] @Caller C",
         "[input] [Cond:Reset:Done] @Caller C [LearnVar]",
         "[output] [Cond&Res:Get] [No.] 1 @Caller C [LearnVar] [No.] 0",
 
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> A",
         "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Cond:If]",
-        "[output] [Var:Resolve:S+VerbPhrase] A @Caller C [LearnVar] [No.] B [Cond:If]",
+        "[output] [VResolve:S+VP] A @Caller C [LearnVar] [No.] B [Cond:If]",
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> A",
-        "[input] [Var:Resolve:S+VerbPhrase] C [LearnVar] [No.] B [Cond:If] @ A -> E",
+        "[input] [VResolve:S+VP] C [LearnVar] [No.] B [Cond:If] @ A -> E",
         "[output] [repo] [SSET] [Cond&Res] [No.] B -> E",
         "[output] [Cond:Add] E @Caller C [LearnVar]",
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> A",
         "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Cond:OverrideIf]",
-        "[output] [Var:Resolve:S+VerbPhrase] A @Caller C [LearnVar] [No.] B [Cond:OverrideIf]",
+        "[output] [VResolve:S+VP] A @Caller C [LearnVar] [No.] B [Cond:OverrideIf]",
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> A",
-        "[input] [Var:Resolve:S+VerbPhrase] C [LearnVar] [No.] B [Cond:OverrideIf] @ A -> E",
+        "[input] [VResolve:S+VP] C [LearnVar] [No.] B [Cond:OverrideIf] @ A -> E",
         "[output] [repo] [SSET] [Cond&Res] [No.] B -> E",
         "[output] [Cond:OverrideLast] E @Caller C [LearnVar]",
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
@@ -44,10 +43,10 @@
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
         "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Cond:Executor]",
-        "[output] [Var:Resolve:VerbPhrase] A @Caller C [LearnVar] [No.] B [Cond:Executor]",
+        "[output] [VResolve:VP] A @Caller C [LearnVar] [No.] B [Cond:Executor]",
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
-        "[input] [Var:Resolve:VerbPhrase] C [LearnVar] [No.] B [Cond:Executor] @ A -> F",
+        "[input] [VResolve:VP] C [LearnVar] [No.] B [Cond:Executor] @ A -> F",
         "[output] [repo] [SSET] [Cond&Res] [No.] B -> step E [of] [Executor] Susie [Execute] F",
         "[output] [Cond:Add] step E [of] [Executor] Susie [Execute] F @Caller C [LearnVar]",
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
@@ -55,10 +54,10 @@
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> [Common] A",
         "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Res:Normal]",
-        "[output] [Var:Resolve:S+VerbPhrase] A @Caller C [LearnVar] [No.] B [Res:Normal]",
+        "[output] [VResolve:S+VP] A @Caller C [LearnVar] [No.] B [Res:Normal]",
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> [Common] A",
-        "[input] [Var:Resolve:S+VerbPhrase] C [LearnVar] [No.] B [Res:Normal] @ A -> E",
+        "[input] [VResolve:S+VP] C [LearnVar] [No.] B [Res:Normal] @ A -> E",
         "[output] [repo] [SSET] [Cond&Res] [No.] B -> [Common] E",
         "[output] [Res] [Common] E",
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
@@ -66,10 +65,10 @@
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> [Executor] Susie [Execute] A",
         "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Res:VP]",
-        "[output] [Var:Resolve:VerbPhrase] A @Caller C [LearnVar] [No.] B [Res:VP]",
+        "[output] [VResolve:VP] A @Caller C [LearnVar] [No.] B [Res:VP]",
 
         "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> [Executor] Susie [Execute] A",
-        "[input] [Var:Resolve:VerbPhrase] C [LearnVar] [No.] B [Res:VP] @ A -> F",
+        "[input] [VResolve:VP] C [LearnVar] [No.] B [Res:VP] @ A -> F",
         "[output] [repo] [SSET] [Cond&Res] [No.] B -> [Executor] Susie [Execute] F",
         "[output] [Res] [Executor] Susie [Execute] F",
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]"

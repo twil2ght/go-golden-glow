@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] that B @Caller C",
+        "[output] [GA:S+VP] B @Caller C [Clause:That]",
+
+        "[input] [GA:S+VP] C [Clause:That] @ B -> yes",
+        "[output] [Grammar:Verify:Object] C @ that B -> yes",
+        "[output] [repo] [SSET] [GA] [O:Type] that B -> Clause_That",
+        "[output] [repo] [SSET] [GA] [That] that B -> B"
+      ]
+    }
+  ]
+}

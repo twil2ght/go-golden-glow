@@ -26,7 +26,11 @@
         "[output] [Grammar:Verify:Object] C @ A $prep B -> yes",
         "[output] [Grammar:Object:PrepFront] C @ A $prep B -> A",
         "[output] [Grammar:Object:Prep] C @ A $prep B -> $prep",
-        "[output] [Grammar:Object:PrepBack] C @ A $prep B -> B"
+        "[output] [Grammar:Object:PrepBack] C @ A $prep B -> B",
+        "[output] [repo] [SSET] [GA] [O:Type] A $prep B -> Of",
+        "[output] [repo] [SSET] [GA] [Of:Pre] A $prep B -> A",
+        "[output] [repo] [SSET] [GA] [Of:Of] A $prep B -> $prep",
+        "[output] [repo] [SSET] [GA] [Of:Post] A $prep B -> B"
       ]
     }
   ]

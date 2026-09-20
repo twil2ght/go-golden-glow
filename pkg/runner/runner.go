@@ -52,7 +52,7 @@ func (r *runner) Run(ctx context.Context) {
 	for i := 0; i < r.workerNum; i++ {
 		go r.worker(i)
 	}
-	go r.watchIdle(ctx, 100*time.Millisecond)
+	go r.watchIdle(ctx, 20*time.Millisecond)
 
 	r.wg.Wait()
 }

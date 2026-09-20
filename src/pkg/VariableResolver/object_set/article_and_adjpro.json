@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> Article",
+        "[output] [repo] [GET] [GA] [A:N] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [A:N] A -> D",
+        "[output] [VResolve:O] D @Caller C [VR] [A:N]",
+        "[output] [repo] [GET] [GA] [A:A] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> Article",
+        "[input] [repo] C [VR] @ [GA] [A:A] A -> B",
+        "[input] [repo] C [VR] @ [GA] [A:N] A -> D",
+        "[input] [VResolve:O] C [VR] [A:N] @ D -> D1",
+        "[output] [VResolve:O] C @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [O:Type] B D1 -> Article",
+        "[output] [repo] [SSET] [GSave] [A:A] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [A:N] B D1 -> D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> AdjPro",
+        "[output] [repo] [GET] [GA] [A:N] A @Caller C [VR]",
+
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> AdjPro",
+        "[input] [repo] C [VR] @ [GA] [A:A] A -> B",
+        "[input] [repo] C [VR] @ [GA] [A:N] A -> D",
+        "[input] [VResolve:O] C [VR] [A:N] @ D -> D1",
+        "[output] [VResolve:O] C @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [O:Type] B D1 -> AdjPro",
+        "[output] [repo] [SSET] [GSave] [A:A] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [A:N] B D1 -> D1"
+      ]
+    }
+  ]
+}

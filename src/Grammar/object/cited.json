@@ -4,14 +4,33 @@
       "commands":[
         "[input] [Grammar:Verify:Object] ` A ` @Caller C",
         "[output] [Grammar:Verify:Object] C @ ` A ` -> yes",
-        "[output] [Grammar:Object:Type] C @ ` A ` -> cited"
+        "[output] [repo] [SSET] [GA] [O:Type] ` A ` -> cited"
       ]
     },
     {
       "commands":[
         "[input] [Grammar:Verify:Object] : A @Caller C",
+        "[output] [TODO:Add] [GA:S+VP] A @Caller C [Cited_SVP]",
+        "[output] [TODO:Add] [GA:VP] A @Caller C [Cited_VP]",
+        "[output] [TODO:Add] [GA:O] A @Caller C [Cited_O]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:S+VP] C [Cited_SVP] @ A -> yes",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : A -> SVP",
+        "[output] [repo] [SSET] [GA] [O:Type] : A -> cited_said",
         "[output] [Grammar:Verify:Object] C @ : A -> yes",
-        "[output] [Grammar:Object:Type] C @ : A -> cited_said"
+
+        "[input] [GA:VP] C [Cited_VP] @ A -> yes",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : A -> VP",
+        "[output] [repo] [SSET] [GA] [O:Type] : A -> cited_said",
+        "[output] [Grammar:Verify:Object] C @ : A -> yes",
+
+        "[input] [GA:O] C [Cited_O] @ A -> yes",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : A -> O",
+        "[output] [repo] [SSET] [GA] [O:Type] : A -> cited_said",
+        "[output] [Grammar:Verify:Object] C @ : A -> yes"
       ]
     }
   ]

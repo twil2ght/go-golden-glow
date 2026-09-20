@@ -11,15 +11,27 @@
     },
     {
       "commands": [
-        "[input] [Legal] A say : B",
-        "[input] [Pronoun:Resolve:Sentence:S+VerbPhrase] C @ B -> B",
-        "[output] [TODO:Add] [Var:Resolve:S+VerbPhrase] A say : B @Caller A say [Legal]",
+        "[input] [PResolve:S+VP] [SaidBy] A [NORES] @ D -> B",
+        "[output] [repo] [SSET] [GA] [S+VP:S] A say : B -> A",
+        "[output] [repo] [SSET] [GA] [S+VP:VP] A say : B -> say : B",
+        "[output] [repo] [SSET] [GA] [V+O:V] say : B -> say",
+        "[output] [repo] [SSET] [GA] [V+O:O] say : B -> : B",
+        "[output] [repo] [SSET] [GA] [Type] say : B -> V+O",
+        "[output] [repo] [SSET] [GA] [O:Type] : B -> cited_said",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : B -> SVP",
+        "[output] [TODO:Add] [VResolve:S+VP] A say : B @Caller A say [Legal]",
 
-        "[input] [Legal] A say : B",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] C @ B -> B",
-        "[output] [TODO:Add] [Var:Resolve:S+VerbPhrase] A say : B @Caller A say [Legal]",
+        "[input] [PResolve:VP] [SaidBy] A [NORES] @ D -> B",
+        "[output] [repo] [SSET] [GA] [S+VP:S] A say : B -> A",
+        "[output] [repo] [SSET] [GA] [S+VP:VP] A say : B -> say : B",
+        "[output] [repo] [SSET] [GA] [V+O:V] say : B -> say",
+        "[output] [repo] [SSET] [GA] [V+O:O] say : B -> : B",
+        "[output] [repo] [SSET] [GA] [Type] say : B -> V+O",
+        "[output] [repo] [SSET] [GA] [O:Type] : B -> cited_said",
+        "[output] [repo] [SSET] [GA] [Cited:Type] : B -> VP",
+        "[output] [TODO:Add] [VResolve:S+VP] A say : B @Caller A say [Legal]",
 
-        "[input] [Var:Resolve:S+VerbPhrase] A say [Legal] @ A say : B -> A say : B1",
+        "[input] [VResolve:S+VP] A say [Legal] @ A say : B -> A say : B1",
         "[output] [TODO:Add] [Resolve:S+VP] [H] @ A say : B -> A say : B1"
       ]
     },
@@ -43,12 +55,13 @@
     },
     {
       "commands": [
-        "[input] [Pack] Susie don't ensure $apple @Caller F",
+        "[input] [Pack] Susie can't confirm $apple as a placeholder @Caller F",
         "[output] [repo] [SSET] [Var:Cache] $apple -> ` F `",
 
-        "[input] [Pack] Susie don't ensure $apple @Caller F",
+        "[input] [Pack] Susie can't confirm $apple as a placeholder @Caller F",
         "[input] [repo] [SSET] [Var:Cache] $apple -> ` F `",
-        "[output] [Resolve:S+VP] Susie don't ensure $apple @Caller [H]"
+        "[output] [Resolve:S+VP] Susie can't confirm $apple as a placeholder @Caller [H]",
+        "[output] [Print] Susie don't ensure ` F ` @Caller HI"
       ]
     }
   ]

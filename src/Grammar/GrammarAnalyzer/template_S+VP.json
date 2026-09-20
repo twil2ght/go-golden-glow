@@ -1,0 +1,65 @@
+{
+  "name": "S+VerbPhrase",
+  "is_template": true,
+  "args": [
+    "$verb"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:S+VP] A $verb B @Caller C",
+        "[output] [GA:O] A @Caller C [S] $verb"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:S+VP] A $verb B @Caller C",
+        "[input] [GA:O] C [S] $verb @ A -> yes",
+        "[output] [GA:VP] $verb B @Caller C [GA:S+VP]",
+        "[output] [repo] [SSET] [GA] [Target] $verb B -> A $verb B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP] C [GA:S+VP] @ $verb B -> yes",
+        "[input] [repo] C [GA:S+VP] @ [GA] [Target] $verb B -> A1",
+        "[output] [GA:S+VP] C @ A1 -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP] C [GA:S+VP] @ $verb B -> yes",
+        "[output] [repo] [GET] [GA] [Target] $verb B @Caller C [GA:S+VP]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP] C [GA:S+VP] @ $verb B -> yes",
+        "[input] [GA:S+VP] C @ A $verb B -> yes",
+        "[output] [repo] [SSET] [GA] [S+VP:S] A $verb B -> A",
+        "[output] [repo] [SSET] [GA] [S+VP:VP] A $verb B -> $verb B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:S+VP] A $verb @Caller C",
+        "[output] [GA:O] A @Caller C [S] $verb"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:S+VP] A $verb @Caller C",
+        "[input] [GA:O] C [S] $verb @ A -> yes",
+        "[output] [GA:S+VP] C @ A $verb -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:S+VP] C @ A $verb -> yes",
+        "[output] [repo] [SSET] [GA] [S+VP:S] A $verb -> A",
+        "[output] [repo] [SSET] [GA] [S+VP:VP] A $verb -> $verb",
+        "[output] [repo] [SSET] [GA] [Type] $verb -> V"
+      ]
+    }
+  ]
+}

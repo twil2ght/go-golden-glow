@@ -36,6 +36,9 @@ func (m *manager) Start(msgQueue Interface, ctx context.Context) {
 						m.onMsg(msg)
 					}
 					fmt.Printf("MsgQueue: from %s -> msg: %s\n", key, msg)
+					if key == "speaker" {
+						return
+					}
 					msgQueue.Add(msg)
 				}
 			}

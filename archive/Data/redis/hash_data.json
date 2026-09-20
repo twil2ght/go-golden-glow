@@ -1,237 +1,1347 @@
 {
-  "[CR:Cond:Count] [No.] 1 [of] [Common] $apple is $a-noun": {
+  "[Brain] No. 1 uncertain placeholder": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 10 uncertain placeholder": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 11 uncertain placeholder": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 2 uncertain placeholder": {
+    "noun": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 3 uncertain placeholder": {
+    "a noun": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 4 uncertain placeholder": {
+    "is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 5 uncertain placeholder": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 6 uncertain placeholder": {
+    "index": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 7 uncertain placeholder": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 8 uncertain placeholder": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] No. 9 uncertain placeholder": {
+    "three": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Common] $apple $is-a-noun": {
+    "user_1 say : $apple $is-a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Common] the $index of $apple is $four": {
+    "$three plus $one equal $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Executor] Susie [Execute] calculate $three plus $one": {
+    "the $index of $apple is $three": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Executor] Susie [Execute] check the $index of $apple": {
+    "step 1 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of $three plus $one equal $four": {
+    "[No.] 1 [of] that [Common] the $index of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of step 1 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "[No.] 1 [of] that [Executor] Susie [Execute] check the $index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of step 2 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "[No.] 1 [of] that [Executor] Susie [Execute] calculate $three plus $one": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of step 3 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "[No.] 1 [of] that [Common] the $index of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of the $index of $apple is $three": {
+    "[No.] 1 [of] that [Common] the $index of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of user_1 say : $apple $is-a-noun": {
+    "[No.] 1 [of] that [Common] $apple $is-a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Common] $apple $is-a-noun": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Common] $apple is $a-noun": {
-    "user_1 say : $apple is $a-noun": "0001-01-01T00:00:00Z"
-  },
-  "[CR:Result:Count] user_1 say : $apple is $a-noun": {
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Common] the $index of $apple is $four": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CR:Result] 1 [at] user_1 say : $apple is $a-noun": {
-    "[No.] 1 [of] [Common] $apple is $a-noun": "0001-01-01T00:00:00Z"
-  },
-  "[Candidate:Undone:Type] is a noun": {
-    "VP": "0001-01-01T00:00:00Z"
-  },
-  "[Candidate:Undone:Type] noun": {
-    "NounPhrase": "0001-01-01T00:00:00Z"
-  },
-  "[CondGroup:Count] [Common] $apple is $a-noun": {
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Executor] Susie [Execute] calculate $three plus $one": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:ElementCount] [No.] 1 [of] [Common] $apple is $a-noun": {
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Executor] Susie [Execute] check the $index of $apple": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup:Index] [Common] $apple is $a-noun [of] user_1 say : $apple is $a-noun": {
+  "[Brain] the amount of the consequences of $three plus $one equal $four": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of step 1 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of step 2 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of step 3 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of the $index of $apple is $three": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of user_1 say : $apple $is-a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of uncertain placeholders": {
+    "11": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] $apple $is-a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] the $index of $apple is $four": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] calculate $three plus $one": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] check the $index of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] $apple $is-a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] the $index of $apple is $four": {
+    "3": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] check the $index of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] $apple $is-a-noun [of] user_1 say : $apple $is-a-noun": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
-  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple is $a-noun": {
-    "user_1 say : $apple is $a-noun": "0001-01-01T00:00:00Z"
+  "[CondGroup:Index] [Common] the $index of $apple is $four [of] $three plus $one equal $four": {
+    "1 | 3": "0001-01-01T00:00:00Z"
   },
-  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $apple is $a-noun": {
+  "[CondGroup:Index] [Common] the $index of $apple is $four [of] step 3 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] the $index of $apple is $four [of] the $index of $apple is $three": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] calculate $three plus $one [of] step 2 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] calculate $three plus $one [of] the $index of $apple is $three": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] check the $index of $apple [of] step 1 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple $is-a-noun": {
+    "user_1 say : $apple $is-a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] the $index of $apple is $four": {
+    "step 3 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
+    "step 2 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] check the $index of $apple": {
+    "step 1 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Common] the $index of $apple is $four": {
+    "the $index of $apple is $three": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
+    "the $index of $apple is $three": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 3 [of] [No.] 1 [of] [Common] the $index of $apple is $four": {
+    "$three plus $one equal $four": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $apple $is-a-noun": {
     "1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:A] a noun": {
+    "a": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:A] a placeholder": {
+    "a": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:A] the index": {
+    "the": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:N] a noun": {
+    "noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:N] a placeholder": {
+    "placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:N] the index": {
+    "index": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [By] confirm $apple as a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [By] increase the index of apple by one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : ` apple ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : ` four ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : ` index ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : ` one ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : ` the index of apple ` isn't a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : ` three ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : ` three plus one ` isn't a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : apple": {
+    "O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : apple is a noun": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : the index of apple is four": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:By] [Preload] Susie can't confirm $apple as a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:By] can't confirm $apple as a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:By] confirm $apple as a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:By] increase the index of apple by one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:By] to increase the index of apple by one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] [Preload] Susie can't confirm $apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] [Resolve:S+VP] ` a noun ` isn't a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] [Resolve:S+VP] ` apple ` is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] [Resolve:S+VP] ` is a noun ` is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] [Resolve:S+VP] ` noun ` isn't a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ` apple ` is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ` four ` is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ` index ` is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ` one ` is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ` the index of apple ` isn't a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ` three ` is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ` three plus one ` isn't a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] calculate three plus one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] can't confirm $apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] check the index of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] confirm $apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] equal four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if I say : apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if the index of apple is three": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if three plus one equal four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] increase the index of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is three": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] isn't a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] say : apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] the index of apple is four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] then apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] then the index of apple is four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] to increase the index of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] $apple": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : ` apple ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : ` four ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : ` index ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : ` one ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : ` the index of apple ` isn't a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : ` three ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : ` three plus one ` isn't a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : apple is a noun": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : the index of apple is four": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] I": {
+    "Pronoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] Susie": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] ` apple `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] ` four `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] ` index `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] ` one `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] ` the index of apple `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] ` three `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] ` three plus one `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] a noun": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] a placeholder": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] apple": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] four": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] index": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] noun": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] one": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] placeholder": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the index": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the index of apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] three": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] three plus one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] user_1": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] the index of apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] three plus one": {
+    "plus": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] the index of apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] three plus one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] the index of apple": {
+    "the index": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] three plus one": {
+    "three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Prep] confirm $apple as a placeholder": {
+    "as": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Prep] increase the index of apple by one": {
+    "by": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] I say : apple is a noun": {
+    "I": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] Susie can't confirm $apple as a placeholder": {
+    "Susie": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] ` apple ` is a placeholder": {
+    "` apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] ` four ` is a placeholder": {
+    "` four `": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] ` index ` is a placeholder": {
+    "` index `": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] ` one ` is a placeholder": {
+    "` one `": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] ` the index of apple ` isn't a placeholder": {
+    "` the index of apple `": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] ` three ` is a placeholder": {
+    "` three `": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] ` three plus one ` isn't a placeholder": {
+    "` three plus one `": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] apple is a noun": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] the index of apple is four": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] the index of apple is three": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] three plus one equal four": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : ` apple ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : ` four ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : ` index ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : ` one ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : ` the index of apple ` isn't a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : ` three ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : ` three plus one ` isn't a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : apple is a noun": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : the index of apple is four": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] I say : apple is a noun": {
+    "say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] Susie can't confirm $apple as a placeholder": {
+    "can't confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] ` apple ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] ` four ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] ` index ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] ` one ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] ` the index of apple ` isn't a placeholder": {
+    "isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] ` three ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] ` three plus one ` isn't a placeholder": {
+    "isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] apple is a noun": {
+    "is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] the index of apple is four": {
+    "is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] the index of apple is three": {
+    "is three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] three plus one equal four": {
+    "equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : ` apple ` is a placeholder": {
+    "say : ` apple ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : ` four ` is a placeholder": {
+    "say : ` four ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : ` index ` is a placeholder": {
+    "say : ` index ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : ` one ` is a placeholder": {
+    "say : ` one ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : ` the index of apple ` isn't a placeholder": {
+    "say : ` the index of apple ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : ` three ` is a placeholder": {
+    "say : ` three ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : ` three plus one ` isn't a placeholder": {
+    "say : ` three plus one ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : apple is a noun": {
+    "say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : the index of apple is four": {
+    "say : the index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [Preload] Susie can't confirm $apple": {
+    "[Preload] Susie can't confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] can't confirm $apple": {
+    "can't confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] can't confirm $apple as a placeholder": {
+    "Susie can't confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] confirm $apple": {
+    "confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] equal four": {
+    "three plus one equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] increase the index of apple": {
+    "increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is a noun": {
+    "apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is a placeholder": {
+    "` four ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is four": {
+    "the index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is three": {
+    "the index of apple is three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] isn't a placeholder": {
+    "` three plus one ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] say : apple is a noun": {
+    "I say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] to increase the index of apple": {
+    "to increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] calculate three plus one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] check the index of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] confirm $apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] equal four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] increase the index of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is three": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] isn't a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : ` apple ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : ` four ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : ` index ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : ` one ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : ` the index of apple ` isn't a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : ` three ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : ` three plus one ` isn't a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : apple is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : the index of apple is four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] calculate three plus one": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] check the index of apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] confirm $apple": {
+    "$apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] equal four": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] increase the index of apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is a noun": {
+    "a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is four": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is three": {
+    "three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] isn't a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : ` apple ` is a placeholder": {
+    ": ` apple ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : ` four ` is a placeholder": {
+    ": ` four ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : ` index ` is a placeholder": {
+    ": ` index ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : ` one ` is a placeholder": {
+    ": ` one ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : ` the index of apple ` isn't a placeholder": {
+    ": ` the index of apple ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : ` three ` is a placeholder": {
+    ": ` three ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : ` three plus one ` isn't a placeholder": {
+    ": ` three plus one ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : apple is a noun": {
+    ": apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : the index of apple is four": {
+    ": the index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] calculate three plus one": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] check the index of apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] confirm $apple": {
+    "confirm": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] equal four": {
+    "equal": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] increase the index of apple": {
+    "increase": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is a noun": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is a placeholder": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is four": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is three": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] isn't a placeholder": {
+    "isn't": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : ` apple ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : ` four ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : ` index ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : ` one ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : ` the index of apple ` isn't a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : ` three ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : ` three plus one ` isn't a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : apple is a noun": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : the index of apple is four": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [VP] confirm $apple as a placeholder": {
+    "confirm $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [VP] increase the index of apple by one": {
+    "increase the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [VP_Can:Can] can't confirm $apple as a placeholder": {
+    "can't": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [VP_Can:VP] can't confirm $apple as a placeholder": {
+    "confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
   },
   "[GSave] [A:A] a noun": {
     "a": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [A:A] a placeholder": {
+    "a": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:A] the $index": {
+    "the": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:A] the index": {
+    "the": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [A:N] a noun": {
     "noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Cited:Type] : $apple is $a-noun": {
+  "[GSave] [A:N] a placeholder": {
+    "placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:N] the $index": {
+    "$index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:N] the index": {
+    "index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [By] confirm $apple as a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [By] increase the $index of $apple by $one": {
+    "$one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : $apple $is-a-noun": {
     "SVP": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Cited:Type] : pear is a noun": {
+  "[GSave] [Cited:Type] : ` apple ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : ` four ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : ` index ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : ` one ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : ` the index of apple ` isn't a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : ` three ` is a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : ` three plus one ` isn't a placeholder": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : apple is a noun": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : the index of apple is four": {
     "SVP": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] $apple": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [O:Type] : $apple is $a-noun": {
+  "[GSave] [O:Type] $three plus $10": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : $apple $is-a-noun": {
     "cited_said": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [O:Type] : pear is a noun": {
+  "[GSave] [O:Type] : ` apple ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : ` four ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : ` index ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : ` one ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : ` the index of apple ` isn't a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : ` three ` is a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : ` three plus one ` isn't a placeholder": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : apple is a noun": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : the index of apple is four": {
     "cited_said": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] Susie": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [O:Type] ` apple `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] ` four `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] ` index `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] ` one `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] ` the index of apple `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] ` three `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] ` three plus one `": {
+    "cited": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [O:Type] a noun": {
     "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] a placeholder": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] apple": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] four": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] index": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] noun": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [O:Type] pear": {
+  "[GSave] [O:Type] placeholder": {
     "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the $index": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the $index of $10": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the index": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the index of $10": {
+    "Of": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] user_1": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] $apple is $a-noun": {
+  "[GSave] [Of:Of] $three plus $10": {
+    "plus": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the $index of $10": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the index of $10": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] $three plus $10": {
+    "$10": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the $index of $10": {
+    "$10": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the index of $10": {
+    "$10": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] $three plus $10": {
+    "$three": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the $index of $10": {
+    "the $index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the index of $10": {
+    "the index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Prep] confirm $apple as a placeholder": {
+    "as": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Prep] increase the $index of $apple by $one": {
+    "by": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] $apple $is-a-noun": {
     "$apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure $apple": {
+  "[GSave] [S+VP:S] $three plus $one equal $four": {
+    "$three plus $one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] Susie can't confirm $apple as a placeholder": {
     "Susie": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` a noun `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` apple ` is a placeholder": {
+    "` apple `": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` apple `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` four ` is a placeholder": {
+    "` four `": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` is a noun `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` index ` is a placeholder": {
+    "` index `": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` noun `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` one ` is a placeholder": {
+    "` one `": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] pear is a noun": {
-    "pear": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] ` the index of apple ` isn't a placeholder": {
+    "` the index of apple `": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] user_1 say : $apple is $a-noun": {
+  "[GSave] [S+VP:S] ` three ` is a placeholder": {
+    "` three `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] ` three plus one ` isn't a placeholder": {
+    "` three plus one `": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] apple is a noun": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the $index of $apple is $four": {
+    "the $index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the $index of $apple is $three": {
+    "the $index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the index of apple is four": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : $apple $is-a-noun": {
     "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] user_1 say : pear is a noun": {
+  "[GSave] [S+VP:S] user_1 say : ` apple ` is a placeholder": {
     "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] $apple is $a-noun": {
-    "is $a-noun": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] user_1 say : ` four ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure $apple": {
-    "don't ensure $apple": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] user_1 say : ` index ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure ` a noun `": {
-    "don't ensure ` a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] user_1 say : ` one ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure ` apple `": {
-    "don't ensure ` apple `": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] user_1 say : ` the index of apple ` isn't a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure ` is a noun `": {
-    "don't ensure ` is a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] user_1 say : ` three ` is a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure ` noun `": {
-    "don't ensure ` noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] user_1 say : ` three plus one ` isn't a placeholder": {
+    "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] pear is a noun": {
+  "[GSave] [S+VP:S] user_1 say : apple is a noun": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : the index of apple is four": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] $apple $is-a-noun": {
+    "$is-a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] $three plus $one equal $four": {
+    "equal $four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] Susie can't confirm $apple as a placeholder": {
+    "can't confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] ` apple ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] ` four ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] ` index ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] ` one ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] ` the index of apple ` isn't a placeholder": {
+    "isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] ` three ` is a placeholder": {
+    "is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] ` three plus one ` isn't a placeholder": {
+    "isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] apple is a noun": {
     "is a noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] user_1 say : $apple is $a-noun": {
-    "say : $apple is $a-noun": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] the $index of $apple is $four": {
+    "is $four": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] user_1 say : pear is a noun": {
-    "say : pear is a noun": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] the $index of $apple is $three": {
+    "is $three": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure $apple": {
+  "[GSave] [S+VP:VP] the index of apple is four": {
+    "is four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : $apple $is-a-noun": {
+    "say : $apple $is-a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : ` apple ` is a placeholder": {
+    "say : ` apple ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : ` four ` is a placeholder": {
+    "say : ` four ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : ` index ` is a placeholder": {
+    "say : ` index ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : ` one ` is a placeholder": {
+    "say : ` one ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : ` the index of apple ` isn't a placeholder": {
+    "say : ` the index of apple ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : ` three ` is a placeholder": {
+    "say : ` three ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : ` three plus one ` isn't a placeholder": {
+    "say : ` three plus one ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : apple is a noun": {
+    "say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : the index of apple is four": {
+    "say : the index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] calculate $three plus $one": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` a noun `": {
+  "[GSave] [Type] check the $index of $apple": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` apple `": {
+  "[GSave] [Type] confirm $apple": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` is a noun `": {
+  "[GSave] [Type] equal $four": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` noun `": {
+  "[GSave] [Type] increase the $index of $apple": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] is $a-noun": {
+  "[GSave] [Type] is $four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is $three": {
     "V+O": "0001-01-01T00:00:00Z"
   },
   "[GSave] [Type] is a noun": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] say : $apple is $a-noun": {
+  "[GSave] [Type] is a placeholder": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] say : pear is a noun": {
+  "[GSave] [Type] is four": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure $apple": {
+  "[GSave] [Type] isn't a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : $apple $is-a-noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : ` apple ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : ` four ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : ` index ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : ` one ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : ` the index of apple ` isn't a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : ` three ` is a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : ` three plus one ` isn't a placeholder": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : apple is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : the index of apple is four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] calculate $three plus $one": {
+    "$three plus $one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] check the $index of $apple": {
+    "the $index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] confirm $apple": {
     "$apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` a noun `": {
-    "` a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] equal $four": {
+    "$four": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` apple `": {
-    "` apple `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] increase the $index of $apple": {
+    "the $index of $apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` is a noun `": {
-    "` is a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] is $four": {
+    "$four": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` noun `": {
-    "` noun `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [V+O:O] is $a-noun": {
-    "$a-noun": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] is $three": {
+    "$three": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:O] is a noun": {
     "a noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] say : $apple is $a-noun": {
-    ": $apple is $a-noun": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] is a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] say : pear is a noun": {
-    ": pear is a noun": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] is four": {
+    "four": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure $apple": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] isn't a placeholder": {
+    "a placeholder": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` a noun `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : $apple $is-a-noun": {
+    ": $apple $is-a-noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` apple `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : ` apple ` is a placeholder": {
+    ": ` apple ` is a placeholder": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` is a noun `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : ` four ` is a placeholder": {
+    ": ` four ` is a placeholder": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` noun `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : ` index ` is a placeholder": {
+    ": ` index ` is a placeholder": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] is $a-noun": {
+  "[GSave] [V+O:O] say : ` one ` is a placeholder": {
+    ": ` one ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : ` the index of apple ` isn't a placeholder": {
+    ": ` the index of apple ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : ` three ` is a placeholder": {
+    ": ` three ` is a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : ` three plus one ` isn't a placeholder": {
+    ": ` three plus one ` isn't a placeholder": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : apple is a noun": {
+    ": apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : the index of apple is four": {
+    ": the index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] calculate $three plus $one": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] check the $index of $apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] confirm $apple": {
+    "confirm": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] equal $four": {
+    "equal": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] increase the $index of $apple": {
+    "increase": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is $four": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is $three": {
     "is": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:V] is a noun": {
     "is": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] say : $apple is $a-noun": {
+  "[GSave] [V+O:V] is a placeholder": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is four": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] isn't a placeholder": {
+    "isn't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] say : $apple $is-a-noun": {
     "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] say : pear is a noun": {
+  "[GSave] [V+O:V] say : ` apple ` is a placeholder": {
     "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure $apple": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : ` four ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` a noun `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : ` index ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` apple `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : ` one ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` is a noun `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : ` the index of apple ` isn't a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` noun `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : ` three ` is a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure $apple": {
-    "ensure $apple": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : ` three plus one ` isn't a placeholder": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` a noun `": {
-    "ensure ` a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : apple is a noun": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` apple `": {
-    "ensure ` apple `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : the index of apple is four": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` is a noun `": {
-    "ensure ` is a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [VP] confirm $apple as a placeholder": {
+    "confirm $apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` noun `": {
-    "ensure ` noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [VP] increase the $index of $apple by $one": {
+    "increase the $index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:Can] can't confirm $apple as a placeholder": {
+    "can't": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP_Can:VP] can't confirm $apple as a placeholder": {
+    "confirm $apple as a placeholder": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] her": {
     "yes": "0001-01-01T00:00:00Z"
@@ -252,9 +1362,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] your": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Adjective] [Resolve:S+VP]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Article] a": {
@@ -302,16 +1409,10 @@
   "[Grammar:Property:Word:Conjunction] then": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] $a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Noun] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] Susie": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] [Resolve:S+VP]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] adjective": {
@@ -326,6 +1427,9 @@
   "[Grammar:Property:Word:Noun] conjunction": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] consequence": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] four": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -336,9 +1440,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] one": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] pear": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] placeholder": {
@@ -354,9 +1455,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] user_1": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] user_1 say : pear": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] verb": {
@@ -383,7 +1481,7 @@
   "[Grammar:Property:Word:ObjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Preposition] [Resolve:S+VP]": {
+  "[Grammar:Property:Word:Preposition] as": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] at": {
@@ -485,16 +1583,13 @@
   "[Grammar:Property:Word:SubjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Unknown] [Resolve:S+VP]": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Verb] [Resolve:S+VP]": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Verb] calculate": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] check": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] confirm": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] ensure": {
@@ -530,32 +1625,11 @@
   "[Grammar:Property:Word:Wh] why": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[NounPhrase-Level:Counter:CountOf] noun": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Match:Can] can't confirm $apple as a placeholder": {
+    "yes": "0001-01-01T00:00:00Z"
   },
-  "[NounPhrase-Level:Counter:Count]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[NounPhrase-Level:Counter] [No.] 1": {
-    "noun": "0001-01-01T00:00:00Z"
-  },
-  "[NounPhrase:Candidate:Undone]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter:CountOf] a noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter:CountOf] pear": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter:Count]": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter] [No.] 1": {
-    "pear": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter] [No.] 2": {
-    "a noun": "0001-01-01T00:00:00Z"
+  "[Object-Level:Counter:CountOf] the index": {
+    "4": "0001-01-01T00:00:00Z"
   },
   "[Object:Candidate:Undone]": {
     "0": "0001-01-01T00:00:00Z"
@@ -584,11 +1658,24 @@
   "[TeachMode] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Then] user_1 say : $apple is $a-noun": {
-    "[CondGroup:Done] [No.] 1 [of] [Common] $apple is $a-noun @@ user_1 say : $apple is $a-noun @Caller NOTHING": "0001-01-01T00:00:00Z"
+  "[Then] $three plus $one equal $four": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] the $index of $apple is $four @@ $three plus $one equal $four @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
-  "[Units] $a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
+  "[Then] step 1 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] check the $index of $apple @@ step 1 [of] [Executor] Susie [Execute] increase the $index of $apple by $one @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 2 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one @@ step 2 [of] [Executor] Susie [Execute] increase the $index of $apple by $one @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] step 3 [of] [Executor] Susie [Execute] increase the $index of $apple by $one": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] the $index of $apple is $four @@ step 3 [of] [Executor] Susie [Execute] increase the $index of $apple by $one @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] the $index of $apple is $three": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] the $index of $apple is $four @@ the $index of $apple is $three @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one @@ the $index of $apple is $three @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] user_1 say : $apple $is-a-noun": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] $apple $is-a-noun @@ user_1 say : $apple $is-a-noun @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
   "[Units] $apple": {
     "yes": "0001-01-01T00:00:00Z"
@@ -603,6 +1690,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] [Common]": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] [Preload]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] [Resolve:S+VP]": {
@@ -635,6 +1725,9 @@
   "[Units] aren't": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] as": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] at": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -653,7 +1746,13 @@
   "[Units] check": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] confirm": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] conjunction": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] consequence": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] do": {
@@ -737,9 +1836,6 @@
   "[Units] our": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] pear": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] placeholder": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -788,9 +1884,6 @@
   "[Units] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] user_1 say : pear": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] verb": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -818,37 +1911,28 @@
   "[Units] your": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[VP-Level:Counter:CountOf] is a noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[VP-Level:Counter:Count]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[VP-Level:Counter] [No.] 1": {
-    "is a noun": "0001-01-01T00:00:00Z"
-  },
-  "[VP:Candidate:Undone]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Var:Cache] $a-noun": {
-    "a noun": "0001-01-01T00:00:00Z"
-  },
   "[Var:Cache] $apple": {
-    "pear": "0001-01-01T00:00:00Z"
+    "` three plus one `": "0001-01-01T00:00:00Z"
   },
-  "[Variety] $a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
+  "[Var:Cache] $is-a-noun": {
+    "isn't a placeholder": "0001-01-01T00:00:00Z"
   },
   "[Variety] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Word:Counter:CountOf] pear": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Variety] $four": {
+    "yes": "0001-01-01T00:00:00Z"
   },
-  "[Word:Counter:Count]": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Variety] $index": {
+    "yes": "0001-01-01T00:00:00Z"
   },
-  "[Word:Counter] [No.] 1": {
-    "pear": "0001-01-01T00:00:00Z"
+  "[Variety] $is-a-noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $three": {
+    "yes": "0001-01-01T00:00:00Z"
   }
 }

@@ -9,19 +9,23 @@
     {
       "commands": [
         "[input] [Legal] C say : to A",
-        "[input] [TeachMode] [say] @ C -> yes",
-        "[input] [Pronoun:Resolve:Sentence:VerbPhrase] [say] @ A -> B",
+        "[input] [TeachMode] [SaidBy] C [VPRES] @ C -> yes",
         "[input] [Executor:Steps:Count] [say] @ Susie [Execute] A -> 0",
+        "[output] [GA:VP] A @Caller [SaidBy] C [To]",
+
+        "[input] [GA:VP] [SaidBy] C [To] @ A -> yes",
+        "[output] [TODO:Add] [PResolve:VP] A @Caller [SaidBy] C [To]",
+
+        "[input] [PResolve:VP] [SaidBy] C [To] @ A -> A1",
         "[output] [Cond:Count++] @Caller A",
-        "[output] [Cond&Res:Add] step 1 [of] [Executor] Susie [Execute] B # [Cond:Executor] @Caller [say]"
+        "[output] [If:Done] A @Caller A",
+        "[output] [Cond&Res:Add] step 1 [of] [Executor] Susie [Execute] A1 # [Cond:Executor] @Caller [SaidBy] C [To]"
       ]
     },
     {
       "commands": [
         "[input] [Legal] C say : to A",
-        "[output] [TeachMode:Check] C @Caller [say]",
-        "[output] [Executor:Get:Steps:Count] Susie [Execute] A @Caller [say]",
-        "[output] [Pronoun:Resolve:Sentence:VerbPhrase] A @Caller [say]"
+        "[output] [Executor:Get:Steps:Count] Susie [Execute] A @Caller [say]"
       ]
     },
     {
