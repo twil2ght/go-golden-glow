@@ -7,9 +7,6 @@
       ],
       "commands": [
         "[input] [Res:Done] A @Caller C",
-        "[output] [repo] [GET] [Cond:Count] @Caller [Res:Done] A",
-
-        "[input] [repo] [Res:Done] A @ [Cond:Count] -> B",
         "[output] [repo] [SSET] [Ticker] VarLearn -> yes",
         "[output] [ticker] end_learning -> 30 @Caller Hi",
         "[output] [Print] [Res:Done] A @Caller C",
@@ -34,6 +31,15 @@
       "commands": [
         "[input] [Legal] user_1 say : [Resolve:S+VP] A",
         "[output] [Resolve:S+VP] [H] @ A -> A",
+
+        "[input] [Legal] user_1 say : # A",
+        "[output] [Resolve:S+VP] [H] @ ` A ` is a placeholder -> ` A ` is a placeholder",
+
+        "[input] [Legal] user_1 say : ! A",
+        "[output] [Resolve:S+VP] [H] @ ` A ` isn't a placeholder -> ` A ` isn't a placeholder",
+
+        "[input] [Legal] user_1 say : [Resolve:VP] A",
+        "[output] [Resolve:VP] [H] @ A -> A",
 
         "[input] [Legal] user_1 say : [Preload] A",
         "[output] [GA:S+VP] A @Caller test",

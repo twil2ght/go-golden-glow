@@ -15,6 +15,7 @@
         "[input] [repo] C [P] @ [GA] [Of:Pre] A -> B",
         "[input] [repo] C [P] @ [GA] [Of:Post] A -> D",
         "[input] [PResolve:O] C [P] [Pre] @ B -> B1",
+        "[input] [Object-Level:Counter:Add:Done] B1 @Caller C [P] [Pre]",
         "[output] [PResolve:O] D @Caller C [P] [Post]",
 
         "[input] [PResolve:O] A @Caller C",

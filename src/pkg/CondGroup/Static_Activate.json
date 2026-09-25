@@ -6,7 +6,8 @@
         "[input] [CondGroup:MarkDone:NewCount] C @ [No.] B [of] D @@ A -> F",
         "[input] [compute] C [Activate] D @ F = 0 -> yes",
         "[output] [CondGroup:Reset] [No.] B [of] D @Caller C",
-        "[output] D @Caller C"
+        "[output] [Print] Activate: D @Caller HI",
+        "[output] [TODO:Add] D @Caller C"
       ]
     },
     {

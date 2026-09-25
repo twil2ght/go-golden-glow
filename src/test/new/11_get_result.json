@@ -4,18 +4,103 @@
       "commands": [
         "[Raw] user_1 say : if I ask you to check something",
         "[Raw] user_1 say : and if something is apple",
-        "[Raw] user_1 say : say : it is apple",
+        "[Raw] user_1 say : say : the index of the previous element that you ask me is apple",
         "[VarietyLearning] @Caller Test",
         "[VariableTemplateGen] @Caller Test",
         "[Var:Learning:Reset] @Caller C"
       ],
       "A": [
-        "[Raw] user_1 say : if I ask you to check something",
-        "[Raw] user_1 say : and if something is apple",
-        "[Raw] user_1 say : say : it is apple",
-        "[VarietyLearning] @Caller Test",
-        "[VariableTemplateGen] @Caller Test",
-        "[Var:Learning:Reset] @Caller C"
+      ],
+      "B": [
+        "to ask me if the elements are placeholders by order",
+        "check the previous element that you ask me",
+        "if the previous element that you ask me don't exist",
+        "ask me if the No. 1 element is a placeholder",
+        "or if the previous element that you ask me exist",
+        "check if the previous element that you ask me is the last one",
+        "if the previous element that you ask me is the last one",
+        "then you have ask me if the elements are placeholders by order",
+        "or if the previous element that you ask me is not the last one",
+        "increase the index of the previous element that you ask me by 1",
+        "if the increased index of the previous element that you ask me is 3",
+        "ask me if the No. 3 element is a placeholder",
+        "if I have answer if one element is a placeholder",
+        "ask me if the elements are placeholders by order",
+
+        "to ask me if the No. 1 element is a placeholder",
+        "check the No. 1 element",
+        "if the No. 1 element is apple",
+        "say : is apple a placeholder",
+        "and the index of the previous element that you ask me is 1",
+
+        "to check if the previous element is the last one",
+        "check the index of the previous element",
+        "if it is 2",
+        "check the amount of the element",
+        "if it is 3",
+        "check if 2 equals 3",
+        "if 2 equals 3",
+        "then the previous element is the last one",
+        "or if 2 don't equal to 3",
+        "then the previous element isn't the last one",
+
+        "if I have answer if the No. 1 element is a placeholder",
+        "then I have answer if one element is a placeholder"
+      ],
+      "B_simplified": [
+        "to ask me if the elements are placeholders by order",
+        "check the previous element that you ask me",
+        "if it don't exist",
+        "ask me if the No. 1 element is a placeholder",
+        "or if it exist",
+        "check if it is the last one",
+        "if it is the last one",
+        "then you have ask me if the elements are placeholders by order",
+        "or if it isn't the last one",
+        "increase the index of it by 1",
+        "if the increased index of it is 3",
+        "ask me if the No. 3 element is a placeholder",
+
+        "if I have answer if one element is a placeholder",
+        "ask me if the elements are placeholders by order"
+      ],
+      "B_S": [
+        "to ask me if the elements are placeholders by order",
+        "ask me if the No. 1 element is a placeholder",
+
+        "if I have answer if one element is a placeholder",
+        "ask me if the next element is a placeholder",
+
+        "if I have answer if the last element is a placeholder",
+        "check the amount of elements",
+        "if it is 2",
+        "check the amount of finished elements",
+        "if it is 2",
+        "then you have ask me if the elements are placeholders by order",
+
+
+        "if I have answer if the No. 1 element is a placeholder",
+        "then I have answer if one element is a placeholder",
+        "then increase the amount of finished elements by one",
+
+        "to ask me if the No. 1 element is a placeholder",
+        "check the No. 1 element",
+        "if the No. 1 element is apple",
+        "say : is apple a placeholder",
+
+        "if you have ask me if the No. 1 element is a placeholder",
+        "then the index of the previous element that you ask me is 1",
+
+        "to ask me if the next element is a placeholder",
+        "increase the index of the previous element that you ask me by 1",
+        "if the increased index of the previous element that you ask me is 3",
+        "ask me if the No. 3 element is a placeholder"
+      ],
+      "Group": [
+        "to ask me if the No. 1 element is a placeholder",
+        "check the No. 1 element",
+        "if the No. 1 element is apple",
+        "say : is apple a placeholder"
       ]
     }
   ]

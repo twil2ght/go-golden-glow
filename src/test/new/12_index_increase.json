@@ -7,18 +7,25 @@
         "[Raw] user_1 say : if the index of apple is three",
         "[Raw] user_1 say : calculate three plus one",
         "[Raw] user_1 say : if three plus one equal four",
-        "[Raw] user_1 say : then the index of apple is four"
+        "[Raw] user_1 say : then the increased index of apple is four"
       ],
       "A": [
-        "[Raw] user_1 say : to increase the index of apple by one",
-        "[Raw] user_1 say : check the index of apple",
-        "[Raw] user_1 say : if the index of apple is three",
-        "[Raw] user_1 say : calculate three plus one",
-        "[Raw] user_1 say : if three plus one equal four",
-        "[Raw] user_1 say : then the index of apple is four",
-        "[VarietyLearning] @Caller Test",
-        "[VariableTemplateGen] @Caller Test",
-        "[Var:Learning:Reset] @Caller C"
+        "to calculate apple",
+        "check the result of apple",
+        "if the result of apple is four",
+        "then apple equal four"
+      ],
+      "B": [
+        "to ask me if some words are placeholders",
+        "ask me if the first element that you can't confirm is a placeholder",
+
+        "if I have answered if a specific element that you can't confirm is a placeholder",
+        "ask me if the next element that you can't confirm is a placeholder",
+
+        "to ask me if the next element that you can't confirm is a placeholder",
+        "increase the index of last element that you can't confirm by one",
+        "if the increased index of last element that you can't confirm is two",
+        "ask me if the No. two element that you can't confirm is a placeholder"
       ]
     }
   ]

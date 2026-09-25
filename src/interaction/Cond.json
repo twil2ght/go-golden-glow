@@ -19,7 +19,7 @@
         "[input] [PResolve:VP] [SaidBy] C [To] @ A -> A1",
         "[output] [Cond:Count++] @Caller A",
         "[output] [If:Done] A @Caller A",
-        "[output] [Cond&Res:Add] step 1 [of] [Executor] Susie [Execute] A1 # [Cond:Executor] @Caller [SaidBy] C [To]"
+        "[output] [Cond&Res:Add] [Executor] Susie [Execute] A1 # [Cond:Executor] @Caller [SaidBy] C [To]"
       ]
     },
     {

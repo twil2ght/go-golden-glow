@@ -4,30 +4,33 @@
       "tip": "get",
       "commands": [
         "[input] [Resolve:VP] [H] @ A -> check A1",
-        "[output] [repo] [GET] A1 @Caller [EXE:Check]",
+        "[output] [repo] [GET] [Brain] A1 @Caller [EXE:Check]",
 
-        "[input] [repo] [EXE:Check] @ A1 -> B",
-        "[output] [Resolve:S+VP] [H] @ $apple is $a-noun -> A1 is B",
+        "[input] [repo] [EXE:Check] @ [Brain] A1 -> B",
+        "[output] [repo] [SSET] [Var:Cache] $apple -> A1",
+        "[output] [repo] [SSET] [Var:Cache] $a-noun -> B",
+        "[output] [TODO:Add] [Resolve:S+VP] $apple is $a-noun @Caller [H]",
 
         "[input] [repo] [EXE:Check] @ A1 ->",
-        "[output] [Resolve:S+VP] [H] @ Susie don't know $apple -> Susie don't know A1"
+        "[output] [SSET] [Var:Cache] $apple -> A1",
+        "[output] [TODO:Add] [Resolve:S+VP] Susie don't brain-find $apple @Caller [H]"
       ]
     },
     {
       "tip": "set",
       "commands": [
         "[input] [Resolve:S+VP] [H] @ A -> B is B1",
-        "[output] [repo] [GET] [GSave] [S+VP:S] A @Caller [EXE:Cache]",
-        "[output] [repo] [GET] [GSave] [S+VP:VP] A @Caller [EXE:Cache]",
+        "[output] [repo] [GET] [GSave] [S+VP:S] B is B1 @Caller [EXE:Cache]",
+        "[output] [repo] [GET] [GSave] [S+VP:VP] B is B1 @Caller [EXE:Cache]",
 
         "[input] [Resolve:S+VP] [H] @ A -> B is B1",
-        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:S] A -> B",
-        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:VP] A -> is B1",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:S] B is B1 -> B",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:VP] B is B1 -> is B1",
         "[output] [repo] [GET] [GSave] [Type] is B1 @Caller [EXE:Cache]",
 
         "[input] [Resolve:S+VP] [H] @ A -> B is B1",
-        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:S] A -> B",
-        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:VP] A -> is B1",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:S] B is B1 -> B",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:VP] B is B1 -> is B1",
         "[input] [repo] [EXE:Cache] @ [GSave] [Type] is B1 -> V+O",
         "[output] [repo] [GET] [Brain] B @Caller [EXE:Cache]",
 
@@ -37,24 +40,26 @@
 
         "[input] [Resolve:S+VP] [H] @ A -> B is B1",
         "[input] [repo] [EXE:Cache] @ [Brain] B -> F",
-        "[output] [Resolve:S+VP] [H] @ Susie find $apple is $a-noun -> Susie find B is F"
+        "[output] [SSET] [Var:Cache] $apple -> A1",
+        "[output] [SSET] [Var:Cache] $a-noun -> B",
+        "[output] [Resolve:S+VP] Susie brain-find $apple is $a-noun @Caller [H]"
       ]
     },
     {
       "tip": "remove",
       "commands": [
         "[input] [Resolve:S+VP] [H] @ A -> B isn't B1",
-        "[output] [repo] [GET] [GSave] [S+VP:S] A @Caller [EXE:Remove]",
-        "[output] [repo] [GET] [GSave] [S+VP:VP] A @Caller [EXE:Remove]",
+        "[output] [repo] [GET] [GSave] [S+VP:S] B isn't B1 @Caller [EXE:Remove]",
+        "[output] [repo] [GET] [GSave] [S+VP:VP] B isn't B1 @Caller [EXE:Remove]",
 
         "[input] [Resolve:S+VP] [H] @ A -> B isn't B1",
-        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:S] A -> E",
-        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:VP] A -> D",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:S] B isn't B1 -> E",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:VP] B isn't B1 -> D",
         "[output] [repo] [GET] [GSave] [Type] D @Caller [EXE:Remove]",
 
         "[input] [Resolve:S+VP] [H] @ A -> B isn't B1",
-        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:VP] A -> D",
-        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:S] A -> E",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:VP] B isn't B1 -> D",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:S] B isn't B1 -> E",
         "[input] [repo] [EXE:Remove] @ [GSave] [Type] D -> V+O",
         "[output] [repo] [GET] [Brain] B @Caller [EXE:Remove]",
 

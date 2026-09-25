@@ -34,6 +34,8 @@
         "do the No. 1 thing",
         "if you finish one thing",
         "do the next thing",
+        "if you finish the last thing",
+        "then you have do every thing by order",
 
         "if you do the No. 1 thing",
         "then you finish one thing",
@@ -44,15 +46,24 @@
         "do the No. 2 thing",
 
         "to tell the No. 1 thing",
+        "check if you can do the No. 1 thing",
+        "if you can do the No. 1 thing",
         "check the No. 1 thing",
         "if the No. 1 thing is apple",
         "say : the No. 1 thing is apple",
-        
+
         "if you say : the No. 1 thing is apple",
         "then you have tell the No. 1 thing",
 
         "if you have tell the No. 1 thing",
-        "then the index of last thing is 1"
+        "then the index of last thing is 1",
+
+        "to check if you can do the No. 1 thing",
+        "check if you mean to do every thing",
+        "if you mean to do every thing",
+        "then you can do the No. 1 thing"
+      ],
+      "B1": [
       ],
       "C": [
         "what if someone ask your name",

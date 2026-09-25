@@ -15,13 +15,41 @@
       "commands": [
         "[input] [Grammar:Verify:Object] A $prep B @Caller C",
         "[input] [Grammar:Verify:Object] C [PrepFront] $prep @ A -> yes",
-        "[output] [Grammar:Verify:Object] B @Caller C [PrepBack] $prep"
+        "[output] [TODO:Add] [repo] [GET] [GA] [O:Type] A @Caller C [PrepFront] $prep [GA:O]",
+        "[output] [repo] [SSET] [GA] [Target] C # A -> A $prep B"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:Verify:Object] A $prep B @Caller C",
-        "[input] [Grammar:Verify:Object] C [PrepFront] $prep @ A -> yes",
+        "[input] [repo] C [PrepFront] $prep [GA:O] @ [GA] [O:Type] A -> G",
+        "[output] [compute] [CHECK] G != Of @Caller C [PrepFront] $prep A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [PrepFront] $prep [GA:O] @ [GA] [O:Type] A -> G",
+        "[input] [compute] C [PrepFront] $prep A @ G != Of -> yes",
+        "[output] [repo] [GET] [GA] [Target] C # A @Caller C [PrepBack] $prep"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [PrepFront] $prep [GA:O] @ [GA] [O:Type] A -> G",
+        "[input] [compute] C [PrepFront] $prep A @ G != Of -> yes",
+        "[input] [repo] C [PrepBack] $prep @ [GA] [Target] C # A -> A $prep B",
+        "[output] [TODO:Add] [Grammar:Verify:Object] B @Caller C [PrepBack] $prep",
+        "[output] [repo] [SSET] [GA] [Target] C # B -> A $prep B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Grammar:Verify:Object] C [PrepBack] $prep @ B -> yes",
+        "[output] [repo] [GET] [GA] [Target] C # B @Caller C [PrepBack] $prep"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [PrepBack] $prep @ [GA] [Target] C # B -> A $prep B",
         "[input] [Grammar:Verify:Object] C [PrepBack] $prep @ B -> yes",
         "[output] [Grammar:Verify:Object] C @ A $prep B -> yes",
         "[output] [Grammar:Object:PrepFront] C @ A $prep B -> A",

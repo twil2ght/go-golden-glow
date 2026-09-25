@@ -4,12 +4,12 @@
       "commands": [
         "[input] [Resolve:O] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [O:Type] A -> Article",
-        "[output] [repo] [Get] [GSave] [A:N] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [A:N] A @Caller C [R]",
 
         "[input] [Resolve:O] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [A:N] A -> D",
         "[output] [Resolve:O] D @Caller C [R] [A:N]",
-        "[output] [repo] [Get] [GSave] [A:A] A @Caller C [R]",
+        "[output] [repo] [GET] [GSave] [A:A] A @Caller C [R]",
 
         "[input] [Resolve:O] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [A:A] A -> B",
@@ -22,7 +22,7 @@
       "commands": [
         "[input] [Resolve:O] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [O:Type] A -> AdjPro",
-        "[output] [repo] [Get] [GSave] [A:N] A @Caller C [R]"
+        "[output] [repo] [GET] [GSave] [A:N] A @Caller C [R]"
       ]
     }
   ]

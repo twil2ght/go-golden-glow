@@ -8,6 +8,8 @@
         "[Learn:Conjunction] or @Caller test",
         "[Learn:Conjunction] then @Caller test",
 
+        "[Learn:Adjective] increased @Caller test",
+
         "[Learn:Verb] increase @Caller test",
         "[Learn:Verb] check @Caller test",
         "[Learn:Verb] calculate @Caller test",
@@ -16,6 +18,7 @@
         "[Learn:Verb] equal @Caller test",
         "[Learn:Verb] ensure @Caller test",
         "[Learn:Verb] confirm @Caller test",
+        "[Learn:Verb] brain-find @Caller test",
 
         "[Learn:Noun] noun @Caller test",
         "[Learn:Noun] verb @Caller test",
@@ -28,8 +31,15 @@
         "[Learn:Noun] apple @Caller test",
         "[Learn:Noun] something @Caller test",
         "[Learn:Noun] one @Caller test",
+        "[Learn:Noun] two @Caller test",
         "[Learn:Noun] three @Caller test",
         "[Learn:Noun] four @Caller test",
+        "[Learn:Noun] five @Caller test",
+        "[Learn:Noun] six @Caller test",
+        "[Learn:Noun] seven @Caller test",
+        "[Learn:Noun] eight @Caller test",
+        "[Learn:Noun] nine @Caller test",
+        "[Learn:Noun] ten @Caller test",
         "[Learn:Noun] placeholder @Caller test",
         "[Learn:Noun] consequence @Caller test",
 
@@ -95,7 +105,9 @@
 
         "[repo] [SSET] [Units] : -> yes",
         "[repo] [SSET] [Units] [Common] -> yes",
-        "[repo] [SSET] [Units] ` -> yes"
+        "[repo] [SSET] [Units] ` -> yes",
+        "[repo] [SSET] [Units] ! -> yes",
+        "[repo] [SSET] [Units] # -> yes"
       ]
     }
   ]

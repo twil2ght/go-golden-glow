@@ -10,6 +10,10 @@
       "a":[
         "[Preload] Susie can't confirm $apple as a placeholder",
 
+        "Susie brain-find $apple is $a-noun",
+        "$apple is $a-noun",
+        "Susie don't brain-find $apple",
+
         "[Raw] user_1 say : if you can't confirm apple as a placeholder",
         "[Raw] user_1 say : say : I can't confirm apple as a placeholder",
         "[VarietyLearning] @Caller Test",

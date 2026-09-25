@@ -11,6 +11,15 @@
     },
     {
       "commands": [
+        "[input] [Executor] Susie [Execute] A @Caller C",
+        "[output] [repo] [GET] [Then] [Executor] Susie [Execute] A @Caller C",
+
+        "[input] [repo] C @ [Then] [Executor] Susie [Execute] A -> B",
+        "[output] B"
+      ]
+    },
+    {
+      "commands": [
         "[input] [PResolve:S+VP] [SaidBy] A [NORES] @ D -> B",
         "[output] [repo] [SSET] [GA] [S+VP:S] A say : B -> A",
         "[output] [repo] [SSET] [GA] [S+VP:VP] A say : B -> say : B",
@@ -21,7 +30,7 @@
         "[output] [repo] [SSET] [GA] [Cited:Type] : B -> SVP",
         "[output] [TODO:Add] [VResolve:S+VP] A say : B @Caller A say [Legal]",
 
-        "[input] [PResolve:VP] [SaidBy] A [NORES] @ D -> B",
+        "[input] [PResolve:VP] [SaidBy] A [VPRES] @ D -> B",
         "[output] [repo] [SSET] [GA] [S+VP:S] A say : B -> A",
         "[output] [repo] [SSET] [GA] [S+VP:VP] A say : B -> say : B",
         "[output] [repo] [SSET] [GA] [V+O:V] say : B -> say",

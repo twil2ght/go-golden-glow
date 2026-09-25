@@ -8,13 +8,20 @@
     {
       "commands": [
         "[input] [GA:S+VP] A $verb B @Caller C",
-        "[output] [GA:O] A @Caller C [S] $verb"
+        "[output] [repo] [SSET] [GA] [Target] A -> A $verb B",
+        "[output] [TODO:Add] [GA:O] A @Caller C [S] $verb"
       ]
     },
     {
       "commands": [
-        "[input] [GA:S+VP] A $verb B @Caller C",
         "[input] [GA:O] C [S] $verb @ A -> yes",
+        "[output] [repo] [GET] [GA] [Target] A @Caller C [S]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:O] C [S] $verb @ A -> yes",
+        "[input] [repo] C [S] @ [GA] [Target] A -> A $verb B",
         "[output] [GA:VP] $verb B @Caller C [GA:S+VP]",
         "[output] [repo] [SSET] [GA] [Target] $verb B -> A $verb B"
       ]

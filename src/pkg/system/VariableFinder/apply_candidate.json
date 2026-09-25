@@ -41,14 +41,14 @@
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
 
 
-        "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
+        "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> [Executor] Susie [Execute] A",
         "[input] [Cond&Res:Type] C [LearnVar] [No.] D @ [No.] B -> [Cond:Executor]",
         "[output] [VResolve:VP] A @Caller C [LearnVar] [No.] B [Cond:Executor]",
 
-        "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
+        "[input] [Cond&Res] C [LearnVar] [No.] D @ [No.] B -> [Executor] Susie [Execute] A",
         "[input] [VResolve:VP] C [LearnVar] [No.] B [Cond:Executor] @ A -> F",
-        "[output] [repo] [SSET] [Cond&Res] [No.] B -> step E [of] [Executor] Susie [Execute] F",
-        "[output] [Cond:Add] step E [of] [Executor] Susie [Execute] F @Caller C [LearnVar]",
+        "[output] [repo] [SSET] [Cond&Res] [No.] B -> [Executor] Susie [Execute] F",
+        "[output] [Cond:Add] [Executor] Susie [Execute] F @Caller C [LearnVar]",
         "[output] [Var:Cond&Res:Done] [No.] B @Caller C [LearnVar]",
 
 

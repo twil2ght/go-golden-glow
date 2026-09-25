@@ -13,11 +13,18 @@
 
         "[input] [PResolve:S+VP] [SaidBy] C [NORES] @ A -> A1",
         "[output] [repo] [GET] [CR] VarLearn @Caller [Res:Done] A1",
+        "[output] [repo] [GET] [Cond:Count] @Caller [Res:Done] A1",
 
         "[input] [PResolve:S+VP] [SaidBy] C [NORES] @ A -> A1",
         "[input] [repo] [Res:Done] A1 @ [CR] VarLearn ->",
+        "[input] [repo] [Res:Done] A @ [Cond:Count] -> B",
         "[output] [Cond&Res:Add] [Common] A1 # [Res:Normal] @Caller [SaidBy] C [NORES]",
-        "[output] [Res:Done] A @Caller Hi"
+        "[output] [Res:Done] A @Caller Hi",
+
+        "[input] [PResolve:S+VP] [SaidBy] C [NORES] @ A -> A1",
+        "[input] [repo] [Res:Done] A1 @ [Cond:Count] ->",
+        "[output] [Print] [OBJReset] A1 @Caller HI",
+        "[output] [TODO:Add] [Object-Level:Counter:Reset] @Caller Hi"
       ]
     },
     {

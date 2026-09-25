@@ -65,6 +65,7 @@
         "[output] [repo] [DEL] [Candidate:Undone:Type] F",
 
         "[input] [repo] [SSET] [Object:Candidate:Undone] -> 0",
+        "[output] [UPA:Reset] @Caller [object:candidate]",
         "[output] [TODO:Add] [BetterObject:Candidate:Find:Done] @Caller [BetterLearnObject]"
       ]
     },
@@ -92,6 +93,21 @@
         "[input] [++] A [UPA] @ B -> D",
         "[output] [repo] [SSET] [Brain] the amount of uncertain placeholders -> D",
         "[output] [repo] [SSET] [Brain] No. D uncertain placeholder -> A"
+      ]
+    },
+    {
+      "description": "reset",
+      "commands": [
+        "[input] [UPA:Reset] @Caller C",
+        "[output] [repo] [DEL] [Brain] the amount of uncertain placeholders",
+        "[output] [repo] [GET] [Brain] No. 1 uncertain placeholder @Caller C [UPA][Reset] [No.] 0",
+
+        "[input] [repo] C [UPA][Reset] [No.] D @ [Brain] No. B uncertain placeholder -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [UPA][Reset] [No.] B",
+        "[output] [repo] [DEL] [Brain] No. B uncertain placeholder",
+
+        "[input] [compute] C [UPA][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [Brain] No. F uncertain placeholder @Caller C [UPA][Reset] [No.] B"
       ]
     }
   ]

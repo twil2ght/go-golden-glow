@@ -18,3 +18,6 @@
 18. that clause的Resolver配置
 19. when you have more than one words that you don't ensure,say them out one by one
 20. executor的steps设计不合理完全可以移除然后使用正常的if-then
+21. if I say : do something;then you try to do something(用于before doing sth加行动前检测)
+22. learning中的VP会触发$increase-apple
+23. 只让第一个Cond使用template，其他的Cond用template也没用还是需要第一个Cond触发才有用
