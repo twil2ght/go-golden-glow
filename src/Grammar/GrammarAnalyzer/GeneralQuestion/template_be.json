@@ -1,0 +1,23 @@
+{
+  "name": "BeQuestion",
+  "is_template": true,
+  "args": [
+    "$be"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:BeQ] $be B @Caller C",
+        "[output] [GA:BeQMain] B @Caller C [BeQ] $be"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:BeQMain] C [BeQ] $be @ B -> yes",
+        "[output] [GA:BeQ] C @ $be B -> yes",
+        "[output] [repo] [SSET] [GA] [BeQ:Be] $be B -> $be",
+        "[output] [repo] [SSET] [GA] [BeQ:Main] $be B -> B"
+      ]
+    }
+  ]
+}

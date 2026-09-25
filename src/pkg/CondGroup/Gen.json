@@ -2,17 +2,6 @@
   "dependencies": [
     "utils"
   ],
-  "description": "Maker",
-  "API": [
-    "[Res] D"
-  ],
-  "callback": [
-    "[Res:Done] D",
-    "[Cond:Used] [No.] F1 -> A",
-    "[repo] [SET] [CondGroup:Index] [of] D for A -> B | F",
-    "[repo] [SET] [CondGroup] [No.] F [of] [No.] B [of] D -> A",
-    "[repo] [SET] [Then] A -> [CondGroup:Done] [No.] B [of] D @Caller A"
-  ],
   "data": [
     {
       "description": "init",
@@ -29,10 +18,9 @@
       "commands": [
         "[input] [repo] D [CondGroup:Gen] [No.] F @ [No.] F1 [Cond] -> A",
         "[input] [CondGroup:Count] [Res] @ D -> B",
-        "[output] [Cond:Used] [No.] F1 -> A",
         "[output] [CondGroup:ElementCount++] [No.] B [of] D @Caller [No.] F1 [Cond]",
         "[output] [repo] [SET] [Then] A -> [CondGroup:Done] [No.] B [of] D @@ A @Caller NOTHING",
-        "[output] [CR:Cache] A -> [No.] B [of] D",
+        "[output] [CR:Cache] A -> [No.] B [of] that D",
 
         "[input] [repo] D [CondGroup:Gen] [No.] F @ [No.] F1 [Cond] -> A",
         "[input] [CondGroup:ElementCount] [No.] F1 [Cond] @ [No.] B [of] D -> B1",

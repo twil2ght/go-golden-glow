@@ -1,0 +1,25 @@
+{
+  "dependencies": [
+    "object_set/clause",
+    "object_set/article_and_adjpro",
+    "object_set/pronoun",
+    "object_set/noun",
+    "object_set/cited"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[output] [Var:Resolve] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [Var:Resolve] C [VR] @ A -> B",
+        "[output] [VResolve:O] C @ A -> B",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [Var:Resolve] C [VR] @ A ->",
+        "[output] [repo] [GET] [GA] [O:Type] A @Caller C [VR]"
+      ]
+    }
+  ]
+}

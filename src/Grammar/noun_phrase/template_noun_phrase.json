@@ -11,7 +11,11 @@
         "[input] [Grammar:Verify:AdjectivePhrase] C [NounPhrase] $noun @ B -> yes",
         "[output] [Grammar:Verify:NounPhrase] C @ B $noun -> yes",
         "[output] [Grammar:NounPhrase:Noun] C @ B $noun -> $noun",
-        "[output] [Grammar:NounPhrase:AdjectivePhrase] C @ B $noun -> B"
+        "[output] [Grammar:NounPhrase:AdjectivePhrase] C @ B $noun -> B",
+        "[output] [repo] [SSET] [GA] [O:Type] B $noun -> AdjNoun",
+        "[output] [repo] [SSET] [GA] [Adj:A] B $noun -> B",
+        "[output] [repo] [SSET] [GA] [Adj:N] B $noun -> $noun",
+        "[output] [repo] [SSET] [GA] [O:Type] $noun -> PlainNoun"
       ]
     },
     {

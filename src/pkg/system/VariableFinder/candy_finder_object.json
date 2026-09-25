@@ -2,36 +2,7 @@
   "data": [
     {
       "commands": [
-        "[input] [VP:Candidate:Find:Done] @Caller C",
-        "[output] [Object-Level:Counter:Get] [No.] 1 @Caller C [LearnObject] [No.] 0",
-
-        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 -> F",
-        "[input] [Object-Level:Counter:Get:Amount] C [LearnObject] [No.] B @ [No.] B1 -> F1",
-        "[output] [compute] [CHECK] F1 > 1 @Caller C [LearnObject] [No.] B1",
-        "[output] [compute] [CHECK] F1 < 2 @Caller C [LearnObject] [No.] B1",
-
-        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 -> F",
-        "[input] [Object-Level:Counter:Get:Amount] C [LearnObject] [No.] B @ [No.] B1 -> F1",
-        "[input] [compute] C [LearnObject] [No.] B1 @ F1 > 1 -> yes",
-        "[output] [compute] [GET] B1 + 1 @Caller C [LearnObject] [No.] B1",
-        "[output] [Var:Candidate:Add] F @Caller C [LearnObject]",
-        "[output] [repo] [SSET] [Var:Candidate:Type] F -> Object",
-
-        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 -> F",
-        "[input] [Object-Level:Counter:Get:Amount] C [LearnObject] [No.] B @ [No.] B1 -> F1",
-        "[input] [compute] C [LearnObject] [No.] B1 @ F1 < 2 -> yes",
-        "[output] [compute] [GET] B1 + 1 @Caller C [LearnObject] [No.] B1",
-
-        "[input] [compute] C [LearnObject] [No.] B1 @ B1 + 1 -> F",
-        "[output] [Object-Level:Counter:Get] [No.] F @Caller C [LearnObject] [No.] B1",
-
-        "[input] [Object-Level:Counter:Get] C [LearnObject] [No.] B @ [No.] B1 ->",
-        "[output] [Object:Candidate:Find:Done] @Caller C [LearnObject]"
-      ]
-    },
-    {
-      "commands": [
-        "[input] [BetterVP:Candidate:Find:Done] @Caller C",
+        "[input] [BetterVarietyLearning] @Caller C",
         "[output] [Object-Level:Counter:Get] [No.] 1 @Caller C [BetterLearnObject] [No.] 0",
 
         "[input] [Object-Level:Counter:Get] C [BetterLearnObject] [No.] B @ [No.] B1 -> F",
@@ -43,7 +14,8 @@
         "[input] [Object-Level:Counter:Get:Amount] C [BetterLearnObject] [No.] B @ [No.] B1 -> F1",
         "[input] [repo] C [BetterLearnObject] [No.] B1 @ [Var:Candidate:Type] F ->",
         "[input] [compute] C [BetterLearnObject] [No.] B1 @ F1 > 1 -> yes",
-        "[output] [TODO:Add] [Pack] Susie don't ensure $apple @Caller F",
+        "[output] [UPA] F @Caller F",
+        "[output] [Print] UPA: F @Caller Hi",
         "[output] [safe++] [Object:Candidate:Undone] @Caller B1",
         "[output] [repo] [SSET] [Candidate:Undone:Type] F -> Object",
 
@@ -61,7 +33,11 @@
         "[output] [TODO:Add] [BetterObject:Candidate:Find:Done] @Caller [BetterLearnObject]",
 
         "[input] [repo] C [BetterLearnObject] @ [Object:Candidate:Undone] -> B",
-        "[output] [Print] Object-Candidate: B @Caller Hi"
+        "[output] [repo] [GET] [Brain] No. 1 uncertain placeholder @Caller Hi",
+        "[output] [Print] Object-Candidate: B @Caller Hi",
+
+        "[input] [repo] Hi] @ [Brain] No. 1 uncertain placeholder -> F",
+        "[output] [TODO:Add] [Pack] Susie can't confirm $apple as a placeholder @Caller F"
       ]
     },
     {
@@ -89,7 +65,49 @@
         "[output] [repo] [DEL] [Candidate:Undone:Type] F",
 
         "[input] [repo] [SSET] [Object:Candidate:Undone] -> 0",
+        "[output] [UPA:Reset] @Caller [object:candidate]",
         "[output] [TODO:Add] [BetterObject:Candidate:Find:Done] @Caller [BetterLearnObject]"
+      ]
+    },
+    {
+      "commands":[
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` is a placeholder",
+        "[output] [repo] [GET] [Candidate:Undone:Type] F @Caller F [--]",
+
+        "[input] [Resolve:S+VP] [H] @ A -> ` F ` isn't a placeholder",
+        "[output] [repo] [GET] [Candidate:Undone:Type] F @Caller F [--]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [UPA] A @Caller C",
+        "[output] [repo] [GET] [Brain] the amount of uncertain placeholders @Caller A [UPA]",
+
+        "[input] [repo] A [UPA] @ [Brain] the amount of uncertain placeholders ->",
+        "[output] [repo] [SSET] [Brain] the amount of uncertain placeholders -> 1",
+        "[output] [repo] [SSET] [Brain] No. 1 uncertain placeholder -> A",
+
+        "[input] [repo] A [UPA] @ [Brain] the amount of uncertain placeholders -> B",
+        "[output] [++] B @Caller A [UPA]",
+
+        "[input] [++] A [UPA] @ B -> D",
+        "[output] [repo] [SSET] [Brain] the amount of uncertain placeholders -> D",
+        "[output] [repo] [SSET] [Brain] No. D uncertain placeholder -> A"
+      ]
+    },
+    {
+      "description": "reset",
+      "commands": [
+        "[input] [UPA:Reset] @Caller C",
+        "[output] [repo] [DEL] [Brain] the amount of uncertain placeholders",
+        "[output] [repo] [GET] [Brain] No. 1 uncertain placeholder @Caller C [UPA][Reset] [No.] 0",
+
+        "[input] [repo] C [UPA][Reset] [No.] D @ [Brain] No. B uncertain placeholder -> A",
+        "[output] [compute] [GET] B + 1 @Caller C [UPA][Reset] [No.] B",
+        "[output] [repo] [DEL] [Brain] No. B uncertain placeholder",
+
+        "[input] [compute] C [UPA][Reset] [No.] B @ B + 1 -> F",
+        "[output] [repo] [GET] [Brain] No. F uncertain placeholder @Caller C [UPA][Reset] [No.] B"
       ]
     }
   ]

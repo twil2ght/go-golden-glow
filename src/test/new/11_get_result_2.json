@@ -16,35 +16,59 @@
         "[Var:Learning:Reset] @Caller C"
       ],
       "B": [
-        "if I ask you to check the result of something",
-        "check the number of the results of it",
-        "if it is 8",
-        "say : there are 8 results",
-        "then tell all the results one by one",
-
         "to tell all the things one by one",
         "tell the No. 1 thing",
-        "if you tell a thing",
-        "tell the next thing",
+        "if you have tell the No. 1 thing",
+        "tell the next thing after No. 1",
 
-        "to tell the next thing",
-        "increase the index of the last thing that you tell by 1",
-        "if the increased index is 3",
+        "to tell the next thing after No. 2",
+        "calculate 2 plus 1",
+        "if 2 plus 1 is 3",
         "tell the No. 3 thing",
 
-        "if you do tell the No. 1 thing",
-        "then the index of the last thing that you do tell is 1",
+        "to do something by order",
+        "first,do the No. 1 thing",
+        "once you finished one thing,do the next thing",
 
-        "to increase the index of something by 1",
-        "if the index of something is 3",
-        "calculate 3 plus 1",
-        "if 3 plus 1 equals to 4",
-        "then the increased index of something is 4"
+        "to do every thing by order",
+        "do the No. 1 thing",
+        "if you finish one thing",
+        "do the next thing",
+        "if you finish the last thing",
+        "then you have do every thing by order",
+
+        "if you do the No. 1 thing",
+        "then you finish one thing",
+
+        "to do the next thing",
+        "increase the index of last thing by one",
+        "if the increased index is 2",
+        "do the No. 2 thing",
+
+        "to tell the No. 1 thing",
+        "check if you can do the No. 1 thing",
+        "if you can do the No. 1 thing",
+        "check the No. 1 thing",
+        "if the No. 1 thing is apple",
+        "say : the No. 1 thing is apple",
+
+        "if you say : the No. 1 thing is apple",
+        "then you have tell the No. 1 thing",
+
+        "if you have tell the No. 1 thing",
+        "then the index of last thing is 1",
+
+        "to check if you can do the No. 1 thing",
+        "check if you mean to do every thing",
+        "if you mean to do every thing",
+        "then you can do the No. 1 thing"
+      ],
+      "B1": [
       ],
       "C": [
-        "can you increase that number by 1?",
-        "Susie just increased that number in her brain",
-        "what?You should wipe out the old number and write the new one"
+        "what if someone ask your name",
+        "tell them my name",
+        "forget it"
       ]
     }
   ]

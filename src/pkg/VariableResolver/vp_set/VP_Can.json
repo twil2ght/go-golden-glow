@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [VP_Can:Can] A -> B",
+        "[output] [repo] [GET] [GA] [VP_Can:VP] A @Caller C [VR]",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [VP_Can:VP] A -> D",
+        "[output] [VResolve:VP] D @Caller C [VR] [VP_Can]",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [VP_Can:Can] A -> B",
+        "[input] [repo] C [VR] @ [GA] [VP_Can:VP] A -> D",
+        "[input] [VResolve:VP] C [VR] [VP_Can] @ D -> D1",
+        "[output] [VResolve:VP] C @ A -> B D1",
+        "[output] [repo] [SSET] [GSave] [VP_Can:Can] B D1 -> B",
+        "[output] [repo] [SSET] [GSave] [VP_Can:VP] B D1 -> D1"
+      ]
+    }
+  ]
+}

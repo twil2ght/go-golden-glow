@@ -20,7 +20,7 @@ import (
 
 var (
 	cacheLogPath = filepath.Join(utils.RootDir, "dialogue_history.log")
-	workNum      = 5
+	workNum      = 1
 )
 
 func main() {
@@ -43,9 +43,12 @@ func main() {
 			sender, msg = varSet["$1"].Value(), varSet["$3"].Value()
 		} else if ok, varSet := template.MatchTemplate(rawMsg, "$1 say : $2"); ok {
 			// "Susie says : hello"
-			sender, msg = varSet["$1"].Value(), fmt.Sprintf("[Raw] %s", msg)
+			sender = varSet["$1"].Value()
+			if sender != config.GG {
+				msg = fmt.Sprintf("[Raw] %s", msg)
+			}
 		}
-		if sender == "Background" {
+		if sender != config.GG && sender != config.User {
 			return
 		}
 		chatUI.Display(tui.Message{Sender: sender, Text: msg, Time: time.Now()})

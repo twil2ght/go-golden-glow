@@ -44,6 +44,13 @@
     {
       "commands": [
         "[input] [Resolve:O] A @Caller C",
+        "[input] [repo] C [R] @ [GSave] [O:Type] A -> Pronoun",
+        "[output] [Resolve:O] C @ A -> A"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [Resolve:O] A @Caller C",
         "[input] [repo] C [R] @ [GSave] [O:Type] A -> AdjNoun",
         "[output] [repo] [GET] [GSave] [Adj:N] A @Caller C [R]",
 

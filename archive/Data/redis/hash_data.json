@@ -1,237 +1,1854 @@
 {
-  "[CR:Cond:Count] [No.] 1 [of] [Common] $apple is $a-noun": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Brain] one plus one": {
+    "one": "0001-01-01T00:00:00Z"
   },
-  "[CR:Cond] 1 [at] [No.] 1 [of] [Common] $apple is $a-noun": {
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Common] $apple equal $four": {
+    "the result of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Common] $apple is $a-noun": {
     "user_1 say : $apple is $a-noun": "0001-01-01T00:00:00Z"
   },
-  "[CR:Result:Count] user_1 say : $apple is $a-noun": {
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Common] the increased index of $apple is $four": {
+    "$three plus $one equal $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Executor] Susie [Execute] $increase-apple": {
+    "user_1 say : $increase-apple": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Executor] Susie [Execute] calculate $three plus $one": {
+    "the index of $apple is $three": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Executor] Susie [Execute] check the index of $apple": {
+    "[Executor] Susie [Execute] increase the index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 condition of [No.] 1 [of] that [Executor] Susie [Execute] check the result of $apple": {
+    "[Executor] Susie [Execute] calculate $apple": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of $three plus $one equal $four": {
+    "[No.] 1 [of] that [Common] the increased index of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of [Executor] Susie [Execute] calculate $apple": {
+    "[No.] 1 [of] that [Common] $apple equal $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of [Executor] Susie [Execute] increase the index of $apple by $one": {
+    "[No.] 1 [of] that [Common] the increased index of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of the index of $apple is $three": {
+    "[No.] 1 [of] that [Common] the increased index of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of the result of $apple is $four": {
+    "[No.] 1 [of] that [Common] $apple equal $four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of user_1 say : $apple is $a-noun": {
+    "[No.] 1 [of] that [Common] $apple is $a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the No. 1 consequence of user_1 say : $increase-apple": {
+    "[No.] 1 [of] that [Executor] Susie [Execute] $increase-apple": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Common] $apple equal $four": {
     "1": "0001-01-01T00:00:00Z"
   },
-  "[CR:Result] 1 [at] user_1 say : $apple is $a-noun": {
-    "[No.] 1 [of] [Common] $apple is $a-noun": "0001-01-01T00:00:00Z"
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Common] $apple is $a-noun": {
+    "1": "0001-01-01T00:00:00Z"
   },
-  "[Candidate:Undone:Type] is a noun": {
-    "VP": "0001-01-01T00:00:00Z"
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Common] the increased index of $apple is $four": {
+    "1": "0001-01-01T00:00:00Z"
   },
-  "[Candidate:Undone:Type] noun": {
-    "NounPhrase": "0001-01-01T00:00:00Z"
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Executor] Susie [Execute] $increase-apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Executor] Susie [Execute] calculate $three plus $one": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Executor] Susie [Execute] check the index of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the conditions of [No.] 1 [of] that [Executor] Susie [Execute] check the result of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of $three plus $one equal $four": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of [Executor] Susie [Execute] calculate $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of [Executor] Susie [Execute] increase the index of $apple by $one": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of the index of $apple is $three": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of the result of $apple is $four": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of user_1 say : $apple is $a-noun": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the amount of the consequences of user_1 say : $increase-apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the increased index of apple": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the increased index of one plus one": {
+    "two": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the index of apple": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[Brain] the result of one plus one": {
+    "two": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Common] $apple equal $four": {
+    "1": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:Count] [Common] $apple is $a-noun": {
     "1": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup:Count] [Common] the increased index of $apple is $four": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] $increase-apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] calculate $three plus $one": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] check the index of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Count] [Executor] Susie [Execute] check the result of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:DoneState] [of] the result of $apple is $four [for] [No.] 1 [of] [Common] $apple equal $four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] $apple equal $four": {
+    "2": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup:ElementCount] [No.] 1 [of] [Common] $apple is $a-noun": {
     "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Common] the increased index of $apple is $four": {
+    "3": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] $increase-apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] check the index of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:ElementCount] [No.] 1 [of] [Executor] Susie [Execute] check the result of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] $apple equal $four [of] [Executor] Susie [Execute] calculate $apple": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] $apple equal $four [of] the result of $apple is $four": {
+    "1 | 2": "0001-01-01T00:00:00Z"
   },
   "[CondGroup:Index] [Common] $apple is $a-noun [of] user_1 say : $apple is $a-noun": {
     "1 | 1": "0001-01-01T00:00:00Z"
   },
+  "[CondGroup:Index] [Common] the increased index of $apple is $four [of] $three plus $one equal $four": {
+    "1 | 3": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] the increased index of $apple is $four [of] [Executor] Susie [Execute] increase the index of $apple by $one": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Common] the increased index of $apple is $four [of] the index of $apple is $three": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] $increase-apple [of] user_1 say : $increase-apple": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] calculate $three plus $one [of] [Executor] Susie [Execute] increase the index of $apple by $one": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] calculate $three plus $one [of] the index of $apple is $three": {
+    "1 | 2": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] check the index of $apple [of] [Executor] Susie [Execute] increase the index of $apple by $one": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup:Index] [Executor] Susie [Execute] check the result of $apple [of] [Executor] Susie [Execute] calculate $apple": {
+    "1 | 1": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple equal $four": {
+    "[Executor] Susie [Execute] calculate $apple": "0001-01-01T00:00:00Z"
+  },
   "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] $apple is $a-noun": {
     "user_1 say : $apple is $a-noun": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Common] the increased index of $apple is $four": {
+    "[Executor] Susie [Execute] increase the index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] $increase-apple": {
+    "user_1 say : $increase-apple": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
+    "[Executor] Susie [Execute] increase the index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] check the index of $apple": {
+    "[Executor] Susie [Execute] increase the index of $apple by $one": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 1 [of] [No.] 1 [of] [Executor] Susie [Execute] check the result of $apple": {
+    "[Executor] Susie [Execute] calculate $apple": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Common] $apple equal $four": {
+    "the result of $apple is $four": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Common] the increased index of $apple is $four": {
+    "the index of $apple is $three": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 2 [of] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one": {
+    "the index of $apple is $three": "0001-01-01T00:00:00Z"
+  },
+  "[CondGroup] [No.] 3 [of] [No.] 1 [of] [Common] the increased index of $apple is $four": {
+    "$three plus $one equal $four": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $apple equal $four": {
+    "1": "0001-01-01T00:00:00Z"
   },
   "[Count] [of] [No.] 1 [CondGroup] [of] [Common] $apple is $a-noun": {
     "1": "0001-01-01T00:00:00Z"
   },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Common] the increased index of $apple is $four": {
+    "3": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] $increase-apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] calculate $three plus $one": {
+    "2": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] check the index of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[Count] [of] [No.] 1 [CondGroup] [of] [Executor] Susie [Execute] check the result of $apple": {
+    "1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:A] a noun": {
+    "a": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:A] the increased index": {
+    "the": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:A] the index": {
+    "the": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:A] the result": {
+    "the": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:N] a noun": {
+    "noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:N] the increased index": {
+    "increased index": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:N] the index": {
+    "index": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [A:N] the result": {
+    "result": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Adj:A] increased index": {
+    "increased": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Adj:N] increased index": {
+    "index": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [By] increase the index of apple by one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : apple": {
+    "O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : apple equal four": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : apple is a noun": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : calculate three plus one": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : check the index of apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : check the result of apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : increase apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : increase the index of apple by one": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : the increased index of apple is four": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : the index of apple is one": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Cited:Type] : the result of one plus one is two": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:By] increase the index of apple by one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:By] to increase the index of apple by one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! index": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! result": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! the index": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! the index of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! the result": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! the result of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] ! three plus one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] # a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] # apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] # four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] # increase apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] # one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] # three": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] apple equal four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] calculate apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] calculate three plus one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] check the index of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] check the result of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] equal four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if I say : apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if I say : increase apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if the index of apple is three": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if the result of apple is four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] if three plus one equal four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] increase apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] increase the index of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is three": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] is two": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] say : apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] say : increase apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] the increased index of apple is four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] the index of apple is one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] the result of one plus one is two": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] then apple equal four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] then apple is a noun": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] then increase apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] then the increased index of apple is four": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] to calculate apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Match:Default] to increase the index of apple": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : apple equal four": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : apple is a noun": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : calculate three plus one": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : check the index of apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : check the result of apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : increase apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : increase the index of apple by one": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : the increased index of apple is four": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : the index of apple is one": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] : the result of one plus one is two": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] I": {
+    "Pronoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] a noun": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] apple": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] four": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] increased index": {
+    "AdjNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] index": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] noun": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] one": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] one plus one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] result": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the increased index": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the increased index of apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the index": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the index of apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the result": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the result of apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the result of one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] the result of one plus one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] three": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] three plus one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] two": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [O:Type] user_1": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] one plus one": {
+    "plus": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] the increased index of apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] the index of apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] the result of apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] the result of one": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] the result of one plus one": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Of] three plus one": {
+    "plus": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] one plus one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] the increased index of apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] the index of apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] the result of apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] the result of one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] the result of one plus one": {
+    "one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Post] three plus one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] one plus one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] the increased index of apple": {
+    "the increased index": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] the index of apple": {
+    "the index": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] the result of apple": {
+    "the result": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] the result of one": {
+    "the result": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] the result of one plus one": {
+    "the result": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Of:Pre] three plus one": {
+    "three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Prep] increase the index of apple by one": {
+    "by": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] I say : apple is a noun": {
+    "I": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] I say : increase apple": {
+    "I": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] apple equal four": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] apple is a noun": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] the increased index of apple is four": {
+    "the increased index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] the index of apple is one": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] the index of apple is three": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] the result of apple is four": {
+    "the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] the result of one plus one is two": {
+    "the result of one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] three plus one equal four": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : apple equal four": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : apple is a noun": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : calculate three plus one": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : check the index of apple": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : check the result of apple": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : increase apple": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : increase the index of apple by one": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : the increased index of apple is four": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : the index of apple is one": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:S] user_1 say : the result of one plus one is two": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] I say : apple is a noun": {
+    "say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] I say : increase apple": {
+    "say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] apple equal four": {
+    "equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] apple is a noun": {
+    "is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] the increased index of apple is four": {
+    "is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] the index of apple is one": {
+    "is one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] the index of apple is three": {
+    "is three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] the result of apple is four": {
+    "is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] the result of one plus one is two": {
+    "is two": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] three plus one equal four": {
+    "equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : apple equal four": {
+    "say : apple equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : apple is a noun": {
+    "say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : calculate three plus one": {
+    "say : calculate three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : check the index of apple": {
+    "say : check the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : check the result of apple": {
+    "say : check the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : increase apple": {
+    "say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : increase the index of apple by one": {
+    "say : increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : the increased index of apple is four": {
+    "say : the increased index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : the index of apple is one": {
+    "say : the index of apple is one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [S+VP:VP] user_1 say : the result of one plus one is two": {
+    "say : the result of one plus one is two": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] !": {
+    "! is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] ! the": {
+    "! the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] #": {
+    "# increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] I": {
+    "I say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] I say :": {
+    "I say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] I say : apple": {
+    "I say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is # apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is # one plus one": {
+    "the result of one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is # the increased index": {
+    "the increased index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is # the index": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is # the result": {
+    "the result of one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is [PrepBack] of # one": {
+    "one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is [PrepFront] plus # one": {
+    "the result of one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [NORES] [S] is [PrepFront] plus # the result": {
+    "the result of one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [To] [GA:VP] [GA:VP_By] one by [GA:VP_Default] [V+O] increase # apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [To] [GA:VP] [GA:VP_By] one by [GA:VP_Default] [V+O] increase # the index": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [VPRES] [GA:VP] [GA:VP_By] one by [GA:VP_Default] [V+O] increase # apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [VPRES] [GA:VP] [GA:VP_By] one by [GA:VP_Default] [V+O] increase # the index": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [VPRES] [GA:VP] [GA:VP_Default] [V+O] calculate # one": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [VPRES] [GA:VP] [GA:VP_Default] [V+O] calculate # three": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [VPRES] [GA:VP] [GA:VP_Default] [V+O] check # apple": {
+    "the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [VPRES] [GA:VP] [GA:VP_Default] [V+O] check # the index": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [VPRES] [GA:VP] [GA:VP_Default] [V+O] check # the result": {
+    "the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [if+] [S] equal # one": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [if+] [S] equal # three": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [if+] [S] is # apple": {
+    "the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [if+] [S] is # the index": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] [SaidBy] user_1 [if+] [S] is # the result": {
+    "the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] apple": {
+    "apple equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] check the": {
+    "check the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] equal four": {
+    "apple equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] if I": {
+    "if I say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] if I say :": {
+    "if I say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] if I say : apple": {
+    "if I say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] if the": {
+    "if the result of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] if the index of apple": {
+    "if the index of apple is three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] if the result of apple": {
+    "if the result of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] if three plus one": {
+    "if three plus one equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] increase the index of apple": {
+    "increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is a noun": {
+    "apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is four": {
+    "the result of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is one": {
+    "the index of apple is one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is three": {
+    "the index of apple is three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] is two": {
+    "the result of one plus one is two": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] say : apple is a noun": {
+    "I say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] say : increase apple": {
+    "I say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] the": {
+    "the result of one plus one is two": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] the increased index of apple": {
+    "the increased index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] the index of apple": {
+    "the index of apple is one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] the result of apple": {
+    "the result of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] the result of one plus one": {
+    "the result of one plus one is two": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] then": {
+    "then increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] then apple": {
+    "then apple equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] then the increased index of apple": {
+    "then the increased index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] three plus one": {
+    "three plus one equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] to": {
+    "to calculate apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Target] to increase the index of apple": {
+    "to increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] calculate apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] calculate three plus one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] check the index of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] check the result of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] equal four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] increase apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] increase the index of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is three": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] is two": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : apple equal four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : apple is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : calculate three plus one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : check the index of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : check the result of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : increase apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : increase the index of apple by one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : the increased index of apple is four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : the index of apple is one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [Type] say : the result of one plus one is two": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] calculate apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] calculate three plus one": {
+    "three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] check the index of apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] check the result of apple": {
+    "the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] equal four": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] increase apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] increase the index of apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is a noun": {
+    "a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is four": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is three": {
+    "three": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] is two": {
+    "two": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : apple equal four": {
+    ": apple equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : apple is a noun": {
+    ": apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : calculate three plus one": {
+    ": calculate three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : check the index of apple": {
+    ": check the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : check the result of apple": {
+    ": check the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : increase apple": {
+    ": increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : increase the index of apple by one": {
+    ": increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : the increased index of apple is four": {
+    ": the increased index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : the index of apple is one": {
+    ": the index of apple is one": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:O] say : the result of one plus one is two": {
+    ": the result of one plus one is two": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] calculate apple": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] calculate three plus one": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] check the index of apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] check the result of apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] equal four": {
+    "equal": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] increase apple": {
+    "increase": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] increase the index of apple": {
+    "increase": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is a noun": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is four": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is one": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is three": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] is two": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : apple equal four": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : apple is a noun": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : calculate three plus one": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : check the index of apple": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : check the result of apple": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : increase apple": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : increase the index of apple by one": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : the increased index of apple is four": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : the index of apple is one": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [V+O:V] say : the result of one plus one is two": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GA] [VP] increase the index of apple by one": {
+    "increase the index of apple": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [A:A] a noun": {
     "a": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:A] the increased index": {
+    "the": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:A] the index": {
+    "the": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:A] the result": {
+    "the": "0001-01-01T00:00:00Z"
   },
   "[GSave] [A:N] a noun": {
     "noun": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [A:N] the increased index": {
+    "increased index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:N] the index": {
+    "index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [A:N] the result": {
+    "result": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Adj:A] increased index": {
+    "increased": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Adj:N] increased index": {
+    "index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [By] increase the index of $apple by $one": {
+    "$one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [By] increase the index of apple by one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [Cited:Type] : $apple is $a-noun": {
     "SVP": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Cited:Type] : pear is a noun": {
+  "[GSave] [Cited:Type] : $increase-apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : apple equal four": {
     "SVP": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [O:Type] $apple": {
-    "PlainNoun": "0001-01-01T00:00:00Z"
+  "[GSave] [Cited:Type] : apple is a noun": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : calculate three plus one": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : check the index of apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : check the result of apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : increase apple": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : increase the index of apple by one": {
+    "VP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : the increased index of apple is four": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : the index of apple is one": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Cited:Type] : the result of one plus one is two": {
+    "SVP": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] $three plus $one": {
+    "Of": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] : $apple is $a-noun": {
     "cited_said": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [O:Type] : pear is a noun": {
+  "[GSave] [O:Type] : $increase-apple": {
     "cited_said": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [O:Type] Susie": {
-    "PlainNoun": "0001-01-01T00:00:00Z"
+  "[GSave] [O:Type] : apple equal four": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : apple is a noun": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : calculate three plus one": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : check the index of apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : check the result of apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : increase apple": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : increase the index of apple by one": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : the increased index of apple is four": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : the index of apple is one": {
+    "cited_said": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] : the result of one plus one is two": {
+    "cited_said": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] a noun": {
     "Article": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [O:Type] apple": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] four": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] increased index": {
+    "AdjNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] index": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [O:Type] noun": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [O:Type] pear": {
+  "[GSave] [O:Type] one": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] one plus one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] result": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the increased index": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the increased index of $apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the increased index of apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the index": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the index of $apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the index of apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the result": {
+    "Article": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the result of $apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the result of apple": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] the result of one plus one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] three": {
+    "PlainNoun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] three plus one": {
+    "Of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [O:Type] two": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
   "[GSave] [O:Type] user_1": {
     "PlainNoun": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [Of:Of] $three plus $one": {
+    "plus": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] one plus one": {
+    "plus": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the increased index of $apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the increased index of apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the index of $apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the index of apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the result of $apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the result of apple": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] the result of one plus one": {
+    "of": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Of] three plus one": {
+    "plus": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] $three plus $one": {
+    "$one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] one plus one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the increased index of $apple": {
+    "$apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the increased index of apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the index of $apple": {
+    "$apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the index of apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the result of $apple": {
+    "$apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the result of apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] the result of one plus one": {
+    "one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Post] three plus one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] $three plus $one": {
+    "$three": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] one plus one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the increased index of $apple": {
+    "the increased index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the increased index of apple": {
+    "the increased index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the index of $apple": {
+    "the index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the index of apple": {
+    "the index": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the result of $apple": {
+    "the result": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the result of apple": {
+    "the result": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] the result of one plus one": {
+    "the result": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Of:Pre] three plus one": {
+    "three": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Prep] increase the index of $apple by $one": {
+    "by": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Prep] increase the index of apple by one": {
+    "by": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] $apple equal $four": {
+    "$apple": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [S+VP:S] $apple is $a-noun": {
     "$apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure $apple": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] $three plus $one equal $four": {
+    "$three plus $one": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` a noun `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] apple equal four": {
+    "apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` apple `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] apple is a noun": {
+    "apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` is a noun `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] one plus one equal two": {
+    "one plus one": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] Susie don't ensure ` noun `": {
-    "Susie": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] one plus one is one": {
+    "one plus one": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] pear is a noun": {
-    "pear": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:S] the increased index of $apple is $four": {
+    "the increased index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the increased index of apple is four": {
+    "the increased index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the increased index of one plus one is two": {
+    "the increased index of one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the index of $apple is $three": {
+    "the index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the index of apple is one": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the result of $apple is $four": {
+    "the result of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the result of one plus one equal two": {
+    "the result of one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] the result of one plus one is two": {
+    "the result of one plus one": "0001-01-01T00:00:00Z"
   },
   "[GSave] [S+VP:S] user_1 say : $apple is $a-noun": {
     "user_1": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:S] user_1 say : pear is a noun": {
+  "[GSave] [S+VP:S] user_1 say : $increase-apple": {
     "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : apple equal four": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : apple is a noun": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : calculate three plus one": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : check the index of apple": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : check the result of apple": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : increase apple": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : increase the index of apple by one": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : the increased index of apple is four": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : the index of apple is one": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:S] user_1 say : the result of one plus one is two": {
+    "user_1": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] $apple equal $four": {
+    "equal $four": "0001-01-01T00:00:00Z"
   },
   "[GSave] [S+VP:VP] $apple is $a-noun": {
     "is $a-noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure $apple": {
-    "don't ensure $apple": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] $three plus $one equal $four": {
+    "equal $four": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure ` a noun `": {
-    "don't ensure ` a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] apple equal four": {
+    "equal four": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] Susie don't ensure ` apple `": {
-    "don't ensure ` apple `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] Susie don't ensure ` is a noun `": {
-    "don't ensure ` is a noun `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] Susie don't ensure ` noun `": {
-    "don't ensure ` noun `": "0001-01-01T00:00:00Z"
-  },
-  "[GSave] [S+VP:VP] pear is a noun": {
+  "[GSave] [S+VP:VP] apple is a noun": {
     "is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] one plus one equal two": {
+    "equal two": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] one plus one is one": {
+    "is one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the increased index of $apple is $four": {
+    "is $four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the increased index of apple is four": {
+    "is four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the increased index of one plus one is two": {
+    "is two": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the index of $apple is $three": {
+    "is $three": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the index of apple is one": {
+    "is one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the result of $apple is $four": {
+    "is $four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the result of one plus one equal two": {
+    "equal two": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] the result of one plus one is two": {
+    "is two": "0001-01-01T00:00:00Z"
   },
   "[GSave] [S+VP:VP] user_1 say : $apple is $a-noun": {
     "say : $apple is $a-noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [S+VP:VP] user_1 say : pear is a noun": {
-    "say : pear is a noun": "0001-01-01T00:00:00Z"
+  "[GSave] [S+VP:VP] user_1 say : $increase-apple": {
+    "say : $increase-apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure $apple": {
+  "[GSave] [S+VP:VP] user_1 say : apple equal four": {
+    "say : apple equal four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : apple is a noun": {
+    "say : apple is a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : calculate three plus one": {
+    "say : calculate three plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : check the index of apple": {
+    "say : check the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : check the result of apple": {
+    "say : check the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : increase apple": {
+    "say : increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : increase the index of apple by one": {
+    "say : increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : the increased index of apple is four": {
+    "say : the increased index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : the index of apple is one": {
+    "say : the index of apple is one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [S+VP:VP] user_1 say : the result of one plus one is two": {
+    "say : the result of one plus one is two": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] calculate $apple": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` a noun `": {
+  "[GSave] [Type] calculate $three plus $one": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` apple `": {
+  "[GSave] [Type] calculate one plus one": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` is a noun `": {
+  "[GSave] [Type] calculate three plus one": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] ensure ` noun `": {
+  "[GSave] [Type] check the index of $apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] check the index of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] check the result of $apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] check the result of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] check the result of one plus one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] equal $four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] equal four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] equal two": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] increase apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] increase the index of $apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] increase the index of apple": {
     "V+O": "0001-01-01T00:00:00Z"
   },
   "[GSave] [Type] is $a-noun": {
     "V+O": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [Type] is $four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is $three": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [Type] is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] is two": {
     "V+O": "0001-01-01T00:00:00Z"
   },
   "[GSave] [Type] say : $apple is $a-noun": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [Type] say : pear is a noun": {
+  "[GSave] [Type] say : $increase-apple": {
     "V+O": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure $apple": {
+  "[GSave] [Type] say : apple equal four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : apple is a noun": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : calculate three plus one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : check the index of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : check the result of apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : increase apple": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : increase the index of apple by one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : the increased index of apple is four": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : the index of apple is one": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [Type] say : the result of one plus one is two": {
+    "V+O": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] calculate $apple": {
     "$apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` a noun `": {
-    "` a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] calculate $three plus $one": {
+    "$three plus $one": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` apple `": {
-    "` apple `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] calculate one plus one": {
+    "one plus one": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` is a noun `": {
-    "` is a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] calculate three plus one": {
+    "three plus one": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] ensure ` noun `": {
-    "` noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] check the index of $apple": {
+    "the index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] check the index of apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] check the result of $apple": {
+    "the result of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] check the result of apple": {
+    "the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] check the result of one plus one": {
+    "the result of one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] equal $four": {
+    "$four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] equal four": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] equal two": {
+    "two": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] increase apple": {
+    "apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] increase the index of $apple": {
+    "the index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] increase the index of apple": {
+    "the index of apple": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:O] is $a-noun": {
     "$a-noun": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [V+O:O] is $four": {
+    "$four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] is $three": {
+    "$three": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [V+O:O] is a noun": {
     "a noun": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] is four": {
+    "four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] is one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] is two": {
+    "two": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:O] say : $apple is $a-noun": {
     ": $apple is $a-noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:O] say : pear is a noun": {
-    ": pear is a noun": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : $increase-apple": {
+    ": $increase-apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure $apple": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : apple equal four": {
+    ": apple equal four": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` a noun `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : apple is a noun": {
+    ": apple is a noun": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` apple `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : calculate three plus one": {
+    ": calculate three plus one": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` is a noun `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : check the index of apple": {
+    ": check the index of apple": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] ensure ` noun `": {
-    "ensure": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:O] say : check the result of apple": {
+    ": check the result of apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : increase apple": {
+    ": increase apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : increase the index of apple by one": {
+    ": increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : the increased index of apple is four": {
+    ": the increased index of apple is four": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : the index of apple is one": {
+    ": the index of apple is one": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:O] say : the result of one plus one is two": {
+    ": the result of one plus one is two": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] calculate $apple": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] calculate $three plus $one": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] calculate one plus one": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] calculate three plus one": {
+    "calculate": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] check the index of $apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] check the index of apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] check the result of $apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] check the result of apple": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] check the result of one plus one": {
+    "check": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] equal $four": {
+    "equal": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] equal four": {
+    "equal": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] equal two": {
+    "equal": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] increase apple": {
+    "increase": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] increase the index of $apple": {
+    "increase": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] increase the index of apple": {
+    "increase": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:V] is $a-noun": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is $four": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is $three": {
     "is": "0001-01-01T00:00:00Z"
   },
   "[GSave] [V+O:V] is a noun": {
     "is": "0001-01-01T00:00:00Z"
   },
+  "[GSave] [V+O:V] is four": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is one": {
+    "is": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [V+O:V] is two": {
+    "is": "0001-01-01T00:00:00Z"
+  },
   "[GSave] [V+O:V] say : $apple is $a-noun": {
     "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [V+O:V] say : pear is a noun": {
+  "[GSave] [V+O:V] say : $increase-apple": {
     "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure $apple": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : apple equal four": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` a noun `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : apple is a noun": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` apple `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : calculate three plus one": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` is a noun `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : check the index of apple": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:Can] don't ensure ` noun `": {
-    "don't": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : check the result of apple": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure $apple": {
-    "ensure $apple": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : increase apple": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` a noun `": {
-    "ensure ` a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : increase the index of apple by one": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` apple `": {
-    "ensure ` apple `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : the increased index of apple is four": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` is a noun `": {
-    "ensure ` is a noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : the index of apple is one": {
+    "say": "0001-01-01T00:00:00Z"
   },
-  "[GSave] [VP_Can:VP] don't ensure ` noun `": {
-    "ensure ` noun `": "0001-01-01T00:00:00Z"
+  "[GSave] [V+O:V] say : the result of one plus one is two": {
+    "say": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP] increase the index of $apple by $one": {
+    "increase the index of $apple": "0001-01-01T00:00:00Z"
+  },
+  "[GSave] [VP] increase the index of apple by one": {
+    "increase the index of apple": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:AdjectivePronoun] her": {
     "yes": "0001-01-01T00:00:00Z"
@@ -254,7 +1871,10 @@
   "[Grammar:Property:Word:AdjectivePronoun] your": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Adjective] [Resolve:S+VP]": {
+  "[Grammar:Property:Word:Adjective] increased": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Adjective] result": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Article] a": {
@@ -302,16 +1922,10 @@
   "[Grammar:Property:Word:Conjunction] then": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] $a-noun": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Noun] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] Susie": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Grammar:Property:Word:Noun] [Resolve:S+VP]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] adjective": {
@@ -326,10 +1940,22 @@
   "[Grammar:Property:Word:Noun] conjunction": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] consequence": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] eight": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] five": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] four": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] index": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] nine": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] noun": {
@@ -338,25 +1964,34 @@
   "[Grammar:Property:Word:Noun] one": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] pear": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Grammar:Property:Word:Noun] placeholder": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] preposition": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Grammar:Property:Word:Noun] result": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] seven": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] six": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Grammar:Property:Word:Noun] something": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Noun] ten": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] three": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] user_1": {
+  "[Grammar:Property:Word:Noun] two": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Noun] user_1 say : pear": {
+  "[Grammar:Property:Word:Noun] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Noun] verb": {
@@ -383,7 +2018,7 @@
   "[Grammar:Property:Word:ObjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Preposition] [Resolve:S+VP]": {
+  "[Grammar:Property:Word:Preposition] as": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] at": {
@@ -402,6 +2037,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] plus": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Preposition] result": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Preposition] to": {
@@ -485,16 +2123,19 @@
   "[Grammar:Property:Word:SubjectPronoun] you": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Unknown] [Resolve:S+VP]": {
+  "[Grammar:Property:Word:Unknown] result": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Grammar:Property:Word:Verb] [Resolve:S+VP]": {
+  "[Grammar:Property:Word:Verb] brain-find": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] calculate": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] check": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] confirm": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] ensure": {
@@ -507,6 +2148,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] know": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Grammar:Property:Word:Verb] result": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Grammar:Property:Word:Verb] say": {
@@ -529,33 +2173,6 @@
   },
   "[Grammar:Property:Word:Wh] why": {
     "yes": "0001-01-01T00:00:00Z"
-  },
-  "[NounPhrase-Level:Counter:CountOf] noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[NounPhrase-Level:Counter:Count]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[NounPhrase-Level:Counter] [No.] 1": {
-    "noun": "0001-01-01T00:00:00Z"
-  },
-  "[NounPhrase:Candidate:Undone]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter:CountOf] a noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter:CountOf] pear": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter:Count]": {
-    "2": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter] [No.] 1": {
-    "pear": "0001-01-01T00:00:00Z"
-  },
-  "[Object-Level:Counter] [No.] 2": {
-    "a noun": "0001-01-01T00:00:00Z"
   },
   "[Object:Candidate:Undone]": {
     "0": "0001-01-01T00:00:00Z"
@@ -584,10 +2201,35 @@
   "[TeachMode] user_1": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Then] $three plus $one equal $four": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] the increased index of $apple is $four @@ $three plus $one equal $four @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] [Executor] Susie [Execute] calculate $apple": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] $apple equal $four @@ [Executor] Susie [Execute] calculate $apple @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] check the result of $apple @@ [Executor] Susie [Execute] calculate $apple @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] [Executor] Susie [Execute] increase the index of $apple by $one": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] the increased index of $apple is $four @@ [Executor] Susie [Execute] increase the index of $apple by $one @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one @@ [Executor] Susie [Execute] increase the index of $apple by $one @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] check the index of $apple @@ [Executor] Susie [Execute] increase the index of $apple by $one @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] the index of $apple is $three": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] the increased index of $apple is $four @@ the index of $apple is $three @Caller NOTHING": "0001-01-01T00:00:00Z",
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] calculate $three plus $one @@ the index of $apple is $three @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Then] the result of $apple is $four": {
+    "[CondGroup:Done] [No.] 1 [of] [Common] $apple equal $four @@ the result of $apple is $four @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
   "[Then] user_1 say : $apple is $a-noun": {
     "[CondGroup:Done] [No.] 1 [of] [Common] $apple is $a-noun @@ user_1 say : $apple is $a-noun @Caller NOTHING": "0001-01-01T00:00:00Z"
   },
-  "[Units] $a-noun": {
+  "[Then] user_1 say : $increase-apple": {
+    "[CondGroup:Done] [No.] 1 [of] [Executor] Susie [Execute] $increase-apple @@ user_1 say : $increase-apple @Caller NOTHING": "0001-01-01T00:00:00Z"
+  },
+  "[Units] !": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] #": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] $apple": {
@@ -603,6 +2245,9 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] [Common]": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] [Preload]": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] [Resolve:S+VP]": {
@@ -635,7 +2280,13 @@
   "[Units] aren't": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] as": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] at": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] brain-find": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] by": {
@@ -653,7 +2304,13 @@
   "[Units] check": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] confirm": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] conjunction": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] consequence": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] do": {
@@ -662,10 +2319,16 @@
   "[Units] don't": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] eight": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] ensure": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] equal": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] five": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] four": {
@@ -695,6 +2358,9 @@
   "[Units] increase": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] increased": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] index": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -719,6 +2385,9 @@
   "[Units] my": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] nine": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] noun": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -737,9 +2406,6 @@
   "[Units] our": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Units] pear": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
   "[Units] placeholder": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -749,13 +2415,25 @@
   "[Units] preposition": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] result": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] say": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] seven": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] she": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] six": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] something": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Units] ten": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] the": {
@@ -779,6 +2457,9 @@
   "[Units] to": {
     "yes": "0001-01-01T00:00:00Z"
   },
+  "[Units] two": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
   "[Units] under": {
     "yes": "0001-01-01T00:00:00Z"
   },
@@ -786,9 +2467,6 @@
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] user_1": {
-    "yes": "0001-01-01T00:00:00Z"
-  },
-  "[Units] user_1 say : pear": {
     "yes": "0001-01-01T00:00:00Z"
   },
   "[Units] verb": {
@@ -818,23 +2496,23 @@
   "[Units] your": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[VP-Level:Counter:CountOf] is a noun": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[VP-Level:Counter:Count]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
-  "[VP-Level:Counter] [No.] 1": {
-    "is a noun": "0001-01-01T00:00:00Z"
-  },
-  "[VP:Candidate:Undone]": {
-    "1": "0001-01-01T00:00:00Z"
-  },
   "[Var:Cache] $a-noun": {
-    "a noun": "0001-01-01T00:00:00Z"
+    "two": "0001-01-01T00:00:00Z"
   },
   "[Var:Cache] $apple": {
-    "pear": "0001-01-01T00:00:00Z"
+    "one plus one": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $four": {
+    "two": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $increase-apple": {
+    "increase the index of apple by one": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $one": {
+    "one": "0001-01-01T00:00:00Z"
+  },
+  "[Var:Cache] $three": {
+    "one": "0001-01-01T00:00:00Z"
   },
   "[Variety] $a-noun": {
     "yes": "0001-01-01T00:00:00Z"
@@ -842,13 +2520,16 @@
   "[Variety] $apple": {
     "yes": "0001-01-01T00:00:00Z"
   },
-  "[Word:Counter:CountOf] pear": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Variety] $four": {
+    "yes": "0001-01-01T00:00:00Z"
   },
-  "[Word:Counter:Count]": {
-    "1": "0001-01-01T00:00:00Z"
+  "[Variety] $increase-apple": {
+    "yes": "0001-01-01T00:00:00Z"
   },
-  "[Word:Counter] [No.] 1": {
-    "pear": "0001-01-01T00:00:00Z"
+  "[Variety] $one": {
+    "yes": "0001-01-01T00:00:00Z"
+  },
+  "[Variety] $three": {
+    "yes": "0001-01-01T00:00:00Z"
   }
 }

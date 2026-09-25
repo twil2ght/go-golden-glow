@@ -3,6 +3,7 @@
     {
       "commands": [
         "[input] [VariableTemplateGen] @Caller C",
+        "[output] [repo] [DEL] [CR] VarLearn",
         "[output] [Cond&Res:Get] [No.] 1 @Caller C [CC] [No.] 0",
 
         "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> A",
@@ -23,7 +24,7 @@
     },
     {
       "commands": [
-        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> step E [of] [Executor] Susie [Execute] A",
+        "[input] [Cond&Res] C [CC] [No.] D @ [No.] B -> [Executor] Susie [Execute] A",
         "[input] [Cond&Res:Type] C [CC] [No.] D @ [No.] B -> [Cond:Executor]",
         "[output] [template:Run] TemplateResolver:VP @Args A @Caller HI",
 

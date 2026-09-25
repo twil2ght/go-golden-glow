@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [O:Type] A -> cited",
+        "[output] [PResolve:O] C @ A -> A",
+        "[output] [repo] [SSET] [GA] [O:Type] A -> cited"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [O:Type] A -> PlainNoun",
+        "[output] [PResolve:O] C @ A -> A",
+        "[output] [repo] [SSET] [GA] [O:Type] A -> PlainNoun"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [O:Type] A -> AdjNoun",
+        "[output] [repo] [GET] [GA] [Adj:N] A @Caller C [P]",
+
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [Adj:N] A -> B",
+        "[output] [PResolve:O] B @Caller C [P] [Adj:N]",
+        "[output] [repo] [GET] [GA] [Adj:A] A @Caller C [P]",
+
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [Adj:N] A -> B",
+        "[input] [repo] C [P] @ [GA] [Adj:A] A -> D",
+        "[input] [PResolve:O] C [P] [Adj:N] @ B -> B1",
+        "[input] [Object-Level:Counter:Add:Done] B1 @Caller C [P] [Adj:N]",
+        "[output] [PResolve:O] C @ A -> D B1",
+        "[output] [repo] [SSET] [GA] [O:Type] D B1 -> AdjNoun",
+        "[output] [repo] [SSET] [GA] [Adj:A] D B1 -> D",
+        "[output] [repo] [SSET] [GA] [Adj:N] D B1 -> B1"
+      ]
+    }
+  ]
+}

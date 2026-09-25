@@ -22,54 +22,85 @@
       "description": "Add",
       "commands": [
         "[input] [Object-Level:Counter:Add] A @Caller C",
-        "[output] [repo] [GET] [Object-Level:Counter:CountOf] A @Caller C [Add]",
+        "[output] [repo] [GET] [Object-Level:Counter:CountOf] A @Caller C [Add] A",
 
-        "[input] [repo] C [Add] @ [Object-Level:Counter:CountOf] A ->",
+        "[input] [repo] C [Add] A @ [Object-Level:Counter:CountOf] A ->",
         "[output] [repo] [SSET] [Object-Level:Counter:CountOf] A -> 1",
         "[output] [repo] [GET] [Object-Level:Counter:Count] @Caller C [Object-Level:Counter:Add] A",
 
         "[input] [Object-Level:Counter:Add] A @Caller C",
-        "[input] [repo] C [Add] @ [Object-Level:Counter:CountOf] A -> B",
-        "[output] [compute] [GET] B + 1 @Caller C [Add]",
+        "[input] [repo] C [Add] A @ [Object-Level:Counter:CountOf] A -> B",
+        "[output] [repo] [GET] [Object-Level:Counter:I] A @Caller C [ExistCheck]",
+        "[output] [compute] [GET] B + 1 @Caller C [Add] A",
 
         "[input] [Object-Level:Counter:Add] A @Caller C",
-        "[input] [repo] C [Add] @ [Object-Level:Counter:CountOf] A -> B",
-        "[input] [compute] C [Add] @ B + 1 -> F",
-        "[output] [repo] [SSET] [Object-Level:Counter:CountOf] A -> F"
+        "[input] [repo] C [ExistCheck] @ [Object-Level:Counter:I] A -> G",
+        "[input] [repo] C [Add] A @ [Object-Level:Counter:CountOf] A -> B",
+        "[input] [compute] C [Add] A @ B + 1 -> F",
+        "[output] [repo] [SSET] [Object-Level:Counter:CountOf] A -> F",
+        "[output] [Object-Level:Counter:Add:Done] A @Caller C",
+
+        "[input] [Object-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [ExistCheck] @ [Object-Level:Counter:I] A ->",
+        "[output] [Print] Exist Verification Failed : ` A ` has not been saved @Caller hi"
       ]
     },
     {
       "description": "Add",
       "commands": [
+        "[input] [Object-Level:Counter:Add] A @Caller C",
         "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] ->",
         "[output] [repo] [SSET] [Object-Level:Counter:Count] -> 1",
         "[output] [repo] [SSET] [Object-Level:Counter] [No.] 1 -> A",
+        "[output] [repo] [SSET] [Object-Level:Counter:I] A -> 1",
+        "[output] [Object-Level:Counter:Add:Done] A @Caller C",
 
+        "[input] [Object-Level:Counter:Add] A @Caller C",
         "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] -> B",
+        "[output] [repo] [GET] [Object-Level:Counter] [No.] B @Caller C [ConstantCheck] A",
         "[output] [compute] [GET] B + 1 @Caller C [Object-Level:Counter:Add] A",
 
+        "[input] [Object-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [ConstantCheck] A @ [Object-Level:Counter] [No.] B -> G",
+        "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] -> B",
         "[input] [compute] C [Object-Level:Counter:Add] A @ B + 1 -> D",
         "[output] [repo] [SSET] [Object-Level:Counter] [No.] D -> A",
+        "[output] [repo] [SSET] [Object-Level:Counter:I] A -> D",
         "[output] [repo] [SSET] [Object-Level:Counter:Count] -> D",
 
+        "[input] [Object-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [ConstantCheck] @ [Object-Level:Counter] [No.] B ->",
+        "[output] [Print] Constant Verification failed: No. B not exist @Caller hi",
+
+        "[input] [Object-Level:Counter:Add] A @Caller C",
+        "[input] [repo] C [Object-Level:Counter:Add] A @ [Object-Level:Counter:Count] -> B",
+        "[input] [compute] C [Object-Level:Counter:Add] A @ B + 1 -> D",
         "[input] [repo] [SSET] [Object-Level:Counter] [No.] D -> A",
-        "[output] [Object-Level:Counter:Add:Done] A @Caller A"
+        "[input] [repo] [SSET] [Object-Level:Counter:Count] -> D",
+        "[output] [Object-Level:Counter:Add:Done] A @Caller C",
+
+        "[input] [Object-Level:Counter:Add] A @Caller C",
+        "[output] [Print] [OBjAdd] A @Caller HI"
       ]
     },
     {
       "description": "reset",
       "commands": [
         "[input] [Object-Level:Counter:Reset] @Caller C",
-        "[output] [repo] [DEL] [Object-Level:Counter:Count]",
+        "[output] [Print] Start to Reset Object Counter @Caller Hi",
         "[output] [repo] [GET] [Object-Level:Counter] [No.] 1 @Caller C [Object-Level:Counter][Reset] [No.] 0",
 
         "[input] [repo] C [Object-Level:Counter][Reset] [No.] D @ [Object-Level:Counter] [No.] B -> A",
         "[output] [compute] [GET] B + 1 @Caller C [Object-Level:Counter][Reset] [No.] B",
         "[output] [repo] [DEL] [Object-Level:Counter] [No.] B",
         "[output] [repo] [DEL] [Object-Level:Counter:CountOf] A",
+        "[output] [repo] [DEL] [Object-Level:Counter:I] A",
 
         "[input] [compute] C [Object-Level:Counter][Reset] [No.] B @ B + 1 -> F",
-        "[output] [repo] [GET] [Object-Level:Counter] [No.] F @Caller C [Object-Level:Counter][Reset] [No.] B"
+        "[output] [repo] [GET] [Object-Level:Counter] [No.] F @Caller C [Object-Level:Counter][Reset] [No.] B",
+
+        "[input] [repo] C [Object-Level:Counter][Reset] [No.] D @ [Object-Level:Counter] [No.] B ->",
+        "[output] [repo] [DEL] [Object-Level:Counter:Count]"
       ]
     }
   ]

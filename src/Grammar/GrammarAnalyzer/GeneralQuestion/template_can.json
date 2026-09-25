@@ -1,0 +1,23 @@
+{
+  "name": "CanQuestion",
+  "is_template": true,
+  "args": [
+    "$can"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:CanQ] $can B @Caller C",
+        "[output] [GA:VP] B @Caller C [CanQ] $can"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP] C [CanQ] $can @ B -> yes",
+        "[output] [GA:CanQ] C @ $can B -> yes",
+        "[output] [repo] [SSET] [GA] [CanQ:Can] $can B -> $can",
+        "[output] [repo] [SSET] [GA] [CanQ:Main] $can B -> B"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:VP] A @Caller C",
+        "[output] [GA:VP_Can] A @Caller C [GA:VP]",
+        "[output] [TODO:Add] [repo] [GET] [GA] [Match:Can] A @Caller C [GA:VP]",
+
+        "[input] [repo] C [GA:VP] @ [GA] [Match:Can] A ->",
+        "[output] [GA:VP_Can] C [GA:VP] @ A ->",
+
+        "[input] [GA:VP_Can] C [GA:VP] @ A -> yes",
+        "[output] [GA:VP] C @ A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_Can] C [GA:VP] @ A ->",
+        "[output] [GA:VP_By] A @Caller C [GA:VP]",
+        "[output] [TODO:Add] [repo] [GET] [GA] [Match:By] A @Caller C [GA:VP]",
+
+        "[input] [repo] C [GA:VP] @ [GA] [Match:By] A ->",
+        "[output] [GA:VP_By] C [GA:VP] @ A ->",
+
+        "[input] [GA:VP_By] C [GA:VP] @ A -> yes",
+        "[output] [GA:VP] C @ A -> yes"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:VP_By] C [GA:VP] @ A ->",
+        "[output] [GA:VP_Default] A @Caller C [GA:VP]",
+        "[output] [TODO:Add] [repo] [GET] [GA] [Match:Default] A @Caller C [GA:VP]",
+
+        "[input] [repo] C [GA:VP] @ [GA] [Match:Default] A ->",
+        "[output] [GA:VP_Default] C [GA:VP] @ A ->",
+
+        "[input] [GA:VP_Default] C [GA:VP] @ A -> yes",
+        "[output] [GA:VP] C @ A -> yes",
+
+        "[input] [GA:VP_Default] C [GA:VP] @ A ->",
+        "[output] [GA:VP] C @ A ->"
+      ]
+    }
+  ]
+}

@@ -7,7 +7,9 @@
 
         "[input] [repo] C [Verify:NounPhrase] @ [Grammar:Property:Word:Noun] B -> yes",
         "[output] [Grammar:Verify:NounPhrase] C @ B -> yes",
-        "[output] [Grammar:NounPhrase:PlainNoun] C @ B -> B"
+        "[output] [Grammar:NounPhrase:PlainNoun] C @ B -> B",
+        "[output] [repo] [SSET] [GA] [O:Type] B -> PlainNoun"
+
       ]
     }
   ]

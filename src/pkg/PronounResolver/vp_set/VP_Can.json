@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [VP_Can:Can] A -> B",
+        "[output] [repo] [GET] [GA] [VP_Can:VP] A @Caller C [P]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [VP_Can:VP] A -> D",
+        "[output] [PResolve:VP] D @Caller C [P] [VP_Can]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [VP_Can:Can] A -> B",
+        "[input] [repo] C [P] @ [GA] [VP_Can:VP] A -> D",
+        "[input] [PResolve:VP] C [P] [VP_Can] @ D -> D1",
+        "[input] [Object-Level:Counter:Add:Done] D1 @Caller G",
+        "[output] [PResolve:VP] C @ A -> B D1",
+        "[output] [repo] [SSET] [GA] [VP_Can:Can] B D1 -> B",
+        "[output] [repo] [SSET] [GA] [VP_Can:VP] B D1 -> D1"
+      ]
+    }
+  ]
+}

@@ -9,6 +9,14 @@
         "[Var:Learning:Reset] @Caller Test"
       ],
       "a": [
+        "用于传递真的数字而不是$one",
+        "if I say : increase apple",
+        "then increase apple",
+
+        "the result of one plus one is two",
+        "the index of apple is one",
+        "increase the index of apple by one",
+
         "[Raw] user_1 say : if I say : apple is a noun",
         "[Raw] user_1 say : then apple is a noun",
         "[VarietyLearning] @Caller Test",

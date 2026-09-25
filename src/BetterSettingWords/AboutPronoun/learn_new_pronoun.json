@@ -15,6 +15,7 @@
         "[input] [Learn:SubPro] A @Caller C",
         "[output] [repo] [SSET] [Grammar:Property:Word:Pronoun] A -> yes",
         "[output] [repo] [SSET] [Grammar:Property:Word:SubjectPronoun] A -> yes",
+        "[output] [template:Run] BeQMain_V2 @Args A @Caller C",
         "[output] [repo] [SSET] [Units] A -> yes"
       ]
     },

@@ -1,58 +1,71 @@
 {
   "data": [
     {
+      "tip": "get",
       "commands": [
-        "[input] [Executor] Susie [Execute] check what A is @Caller C",
-        "[output] [Var:Resolve:Object] A @Caller C [Low-Level-api]",
+        "[input] [Resolve:VP] [H] @ A -> check A1",
+        "[output] [repo] [GET] [Brain] A1 @Caller [EXE:Check]",
 
-        "[input] [Executor] Susie [Execute] check what A is @Caller C",
-        "[input] [Var:Resolve:Object] C [Low-Level-api] @ A -> D",
-        "[output] [repo] [GET] D @Caller C"
+        "[input] [repo] [EXE:Check] @ [Brain] A1 -> B",
+        "[output] [repo] [SSET] [Var:Cache] $apple -> A1",
+        "[output] [repo] [SSET] [Var:Cache] $a-noun -> B",
+        "[output] [TODO:Add] [Resolve:S+VP] $apple is $a-noun @Caller [H]",
+
+        "[input] [repo] [EXE:Check] @ A1 ->",
+        "[output] [SSET] [Var:Cache] $apple -> A1",
+        "[output] [TODO:Add] [Resolve:S+VP] Susie don't brain-find $apple @Caller [H]"
       ]
     },
     {
+      "tip": "set",
       "commands": [
-        "[input] [Executor] Susie [Execute] check what A is @Caller C",
-        "[input] [Var:Resolve:Object] C [Low-Level-api] @ A -> D",
-        "[input] [repo] C @ D -> B",
-        "[output] [TODO:Add] [Execute:Done] C @ [Executor] Susie [Execute] check A -> yes",
-        "[output] [Common] D is B @Caller C check",
+        "[input] [Resolve:S+VP] [H] @ A -> B is B1",
+        "[output] [repo] [GET] [GSave] [S+VP:S] B is B1 @Caller [EXE:Cache]",
+        "[output] [repo] [GET] [GSave] [S+VP:VP] B is B1 @Caller [EXE:Cache]",
 
-        "[input] [Executor] Susie [Execute] check what A is @Caller C",
-        "[input] [Var:Resolve:Object] C [Low-Level-api] @ A -> D ",
-        "[input] [repo] C @ B ->",
-        "[output] [TODO:Add] [Execute:Done] C @ [Executor] Susie [Execute] check A -> yes",
-        "[output] [Common] Susie don't know what B is @Caller C check",
-        "[output] [Common] Susie don't know @Caller C check",
-        "[output] [repo] [SSET] the thing that Susie don't know -> what B is"
+        "[input] [Resolve:S+VP] [H] @ A -> B is B1",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:S] B is B1 -> B",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:VP] B is B1 -> is B1",
+        "[output] [repo] [GET] [GSave] [Type] is B1 @Caller [EXE:Cache]",
+
+        "[input] [Resolve:S+VP] [H] @ A -> B is B1",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:S] B is B1 -> B",
+        "[input] [repo] [EXE:Cache] @ [GSave] [S+VP:VP] B is B1 -> is B1",
+        "[input] [repo] [EXE:Cache] @ [GSave] [Type] is B1 -> V+O",
+        "[output] [repo] [GET] [Brain] B @Caller [EXE:Cache]",
+
+        "[input] [Resolve:S+VP] [H] @ A -> B is B1",
+        "[input] [repo] [EXE:Cache] @ [Brain] B ->",
+        "[output] [repo] [SSET] [Brain] B -> B1",
+
+        "[input] [Resolve:S+VP] [H] @ A -> B is B1",
+        "[input] [repo] [EXE:Cache] @ [Brain] B -> F",
+        "[output] [SSET] [Var:Cache] $apple -> A1",
+        "[output] [SSET] [Var:Cache] $a-noun -> B",
+        "[output] [Resolve:S+VP] Susie brain-find $apple is $a-noun @Caller [H]"
       ]
     },
     {
-      "description": "check if Susie have $fork",
+      "tip": "remove",
       "commands": [
-        "[input] [Executor] Susie [Execute] check if Susie have a A @Caller C",
-        "[output] [Pronoun:Resolve:Sentence:Object] a A @Caller C",
+        "[input] [Resolve:S+VP] [H] @ A -> B isn't B1",
+        "[output] [repo] [GET] [GSave] [S+VP:S] B isn't B1 @Caller [EXE:Remove]",
+        "[output] [repo] [GET] [GSave] [S+VP:VP] B isn't B1 @Caller [EXE:Remove]",
 
-        "[input] [Pronoun:Resolve:Sentence:Object] C @ a A -> a A1",
-        "[input] [Executor] Susie [Execute] check if Susie have a A @Caller C",
-        "[output] [Susie_Owns:GET] A1 @Caller C",
+        "[input] [Resolve:S+VP] [H] @ A -> B isn't B1",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:S] B isn't B1 -> E",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:VP] B isn't B1 -> D",
+        "[output] [repo] [GET] [GSave] [Type] D @Caller [EXE:Remove]",
 
-        "[input] [Executor] Susie [Execute] check if Susie have a A @Caller C",
-        "[input] [Pronoun:Resolve:Sentence:Object] C @ a A -> a A1",
-        "[input] [Susie_Owns:GET] C @ A1 -> yes",
-        "[output] [Common] Susie have a A @Caller C",
-        "[output] [TODO:Add] [Execute:Done] C @ [Executor] Susie [Execute] check if Susie have a A -> yes",
+        "[input] [Resolve:S+VP] [H] @ A -> B isn't B1",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:VP] B isn't B1 -> D",
+        "[input] [repo] [EXE:Remove] @ [GSave] [S+VP:S] B isn't B1 -> E",
+        "[input] [repo] [EXE:Remove] @ [GSave] [Type] D -> V+O",
+        "[output] [repo] [GET] [Brain] B @Caller [EXE:Remove]",
 
-
-        "if not successful,then use callback(other specialized ways)",
-        "but the signal launcher should know the existence of all callbacks",
-        "系统默认的方法和特化的方法是同步进行的，系统默认的执行完，要等所有特化方法都执行完，再最终放出结果",
-
-        "[input] [Executor] Susie [Execute] check if Susie have a A @Caller C",
-        "[input] [Pronoun:Resolve:Sentence:Object] C @ a A -> a A1",
-        "[input] [Susie_Owns:GET] C @ A1 ->",
-        "[output] [Common] Susie don't have a A @Caller C",
-        "[output] [Signal] [Susie_Owns:GET] A [FAILED] @Caller C"
+        "[input] [Resolve:S+VP] [H] @ A -> B isn't B1",
+        "[input] [repo] [EXE:Remove] @ [Brain] B -> B1",
+        "[output] [repo] [DEL] [Brain] B"
       ]
     }
   ]

@@ -1,0 +1,80 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> Of",
+        "[output] [repo] [GET] [GA] [Of:Pre] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Of:Pre] A -> B",
+        "[output] [VResolve:O] B @Caller C [VR] [Pre]",
+        "[output] [repo] [GET] [GA] [Of:Post] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Of:Pre] A -> B",
+        "[input] [repo] C [VR] @ [GA] [Of:Post] A -> D",
+        "[input] [VResolve:O] C [VR] [Pre] @ B -> B1",
+        "[output] [VResolve:O] D @Caller C [VR] [Post]",
+        "[output] [repo] [GET] [GA] [Of:Of] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Of:Pre] A -> B",
+        "[input] [repo] C [VR] @ [GA] [Of:Post] A -> D",
+        "[input] [repo] C [VR] @ [GA] [Of:Of] A -> E",
+        "[input] [VResolve:O] C [VR] [Pre] @ B -> B1",
+        "[input] [VResolve:O] C [VR] [Post] @ D -> D1",
+        "[output] [VResolve:O] C @ A -> B1 E D1",
+        "[output] [repo] [SSET] [GSave] [O:Type] B1 E D1 -> Of",
+        "[output] [repo] [SSET] [GSave] [Of:Pre] B1 E D1 -> B1",
+        "[output] [repo] [SSET] [GSave] [Of:Of] B1 E D1 -> E",
+        "[output] [repo] [SSET] [GSave] [Of:Post] B1 E D1 -> D1"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> cited",
+        "[output] [VResolve:O] C @ A -> A",
+        "[output] [repo] [SSET] [GSave] [O:Type] A -> cited"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> Pronoun",
+        "[output] [VResolve:O] C @ A -> A",
+        "[output] [repo] [SSET] [GSave] [O:Type] A -> Pronoun"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> PlainNoun",
+        "[output] [VResolve:O] C @ A -> A",
+        "[output] [repo] [SSET] [GSave] [O:Type] A -> PlainNoun"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [O:Type] A -> AdjNoun",
+        "[output] [repo] [GET] [GA] [Adj:N] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Adj:N] A -> B",
+        "[output] [VResolve:O] B @Caller C [VR] [Adj:N]",
+        "[output] [repo] [GET] [GA] [Adj:A] A @Caller C [VR]",
+
+        "[input] [VResolve:O] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [Adj:N] A -> B",
+        "[input] [repo] C [VR] @ [GA] [Adj:A] A -> D",
+        "[input] [VResolve:O] C [VR] [Adj:N] @ B -> B1",
+        "[output] [VResolve:O] C @ A -> D B1",
+        "[output] [repo] [SSET] [GSave] [O:Type] D B1 -> AdjNoun",
+        "[output] [repo] [SSET] [GSave] [Adj:A] D B1 -> D",
+        "[output] [repo] [SSET] [GSave] [Adj:N] D B1 -> B1"
+      ]
+    }
+  ]
+}

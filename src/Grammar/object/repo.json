@@ -9,7 +9,8 @@
         "[input] [repo] C [Verify:Object] @ [Grammar:Property:Word:Pronoun] B -> yes",
         "[output] [Grammar:Verify:Object] C @ B -> yes",
         "[output] [Grammar:Object:Type] C @ B -> Pronoun",
-        "[output] [Grammar:Object:Pronoun] C @ B -> B"
+        "[output] [Grammar:Object:Pronoun] C @ B -> B",
+        "[output] [repo] [SSET] [GA] [O:Type] B -> Pronoun"
       ]
     }
   ]

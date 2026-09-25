@@ -1,0 +1,60 @@
+{
+  "dependencies": [
+    "pronoun_resolver_object",
+    "vp_set/V+IO+DO",
+    "vp_set/V+O+OC",
+    "vp_set/V+O",
+    "vp_set/V+P",
+    "vp_set/V",
+    "vp_set/VP_Can"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:VP] A @Caller C",
+        "[output] [repo] [GET] [GA] [VP_Can:Can] A @Caller C [P]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [VP_Can:Can] A ->",
+        "[output] [repo] [GET] [GA] [By] A @Caller C [P]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [By] A ->",
+        "[output] [repo] [GET] [GA] [Type] A @Caller C [P]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [By] A -> D",
+        "[output] [PResolve:O] D @Caller C [VP_By]",
+        "[output] [repo] [GET] [GA] [VP] A @Caller C [P]",
+        "[output] [repo] [GET] [GA] [Prep] A @Caller C [P]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [By] A -> D",
+        "[input] [repo] C [P] @ [GA] [VP] A -> B",
+        "[input] [PResolve:O] C [VP_By] @ D -> D1",
+        "[output] [PResolve:VP] B @Caller C [VP_By]",
+
+        "[input] [PResolve:VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [By] A -> D",
+        "[input] [repo] C [P] @ [GA] [VP] A -> B",
+        "[input] [repo] C [P] @ [GA] [Prep] A -> E",
+        "[input] [PResolve:VP] C [VP_By] @ B -> B1",
+        "[input] [Object-Level:Counter:Add:Done] B1 @Caller C [VP_By]",
+        "[input] [PResolve:O] C [VP_By] @ D -> D1",
+        "[output] [PResolve:VP] C @ A -> B1 E D1",
+        "[output] [repo] [SSET] [GA] [VP] B1 E D1 -> B1",
+        "[output] [repo] [SSET] [GA] [By] B1 E D1 -> D1",
+        "[output] [repo] [SSET] [GA] [Prep] B1 E D1 -> E"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [PResolve:VP] C @ A -> A1",
+        "[output] [Object-Level:Counter:Add] A1 @Caller C"
+      ]
+    }
+  ]
+}

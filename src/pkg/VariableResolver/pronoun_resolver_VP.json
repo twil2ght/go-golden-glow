@@ -1,0 +1,61 @@
+{
+  "dependencies": [
+    "pronoun_resolver_object",
+    "vp_set/V+IO+DO",
+    "vp_set/V+O+OC",
+    "vp_set/V+O",
+    "vp_set/V+P",
+    "vp_set/V",
+    "vp_set/VP_Can"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [VResolve:VP] A @Caller C",
+        "[output] [Var:Resolve] A @Caller C [VR]",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [Var:Resolve] C [VR] @ A -> A1",
+        "[output] [VResolve:VP] C @ A -> A1",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [Var:Resolve] C [VR] @ A ->",
+        "[output] [repo] [GET] [GA] [VP_Can:Can] A @Caller C [VR]",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [VP_Can:Can] A ->",
+        "[output] [repo] [GET] [GA] [By] A @Caller C [VR]",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [By] A ->",
+        "[output] [repo] [GET] [GA] [Type] A @Caller C [VR]"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [By] A -> D",
+        "[output] [VResolve:O] D @Caller C [VP_By]",
+        "[output] [repo] [GET] [GA] [VP] A @Caller C [VR]",
+        "[output] [repo] [GET] [GA] [Prep] A @Caller C [VR]",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [By] A -> D",
+        "[input] [repo] C [VR] @ [GA] [VP] A -> B",
+        "[input] [VResolve:O] C [VP_By] @ D -> D1",
+        "[output] [VResolve:VP] B @Caller C [VP_By]",
+
+        "[input] [VResolve:VP] A @Caller C",
+        "[input] [repo] C [VR] @ [GA] [By] A -> D",
+        "[input] [repo] C [VR] @ [GA] [VP] A -> B",
+        "[input] [repo] C [VR] @ [GA] [Prep] A -> E",
+        "[input] [VResolve:VP] C [VP_By] @ B -> B1",
+        "[input] [VResolve:O] C [VP_By] @ D -> D1",
+        "[output] [VResolve:VP] C @ A -> B1 E D1",
+        "[output] [repo] [SSET] [GSave] [VP] B1 E D1 -> B1",
+        "[output] [repo] [SSET] [GSave] [By] B1 E D1 -> D1",
+        "[output] [repo] [SSET] [GSave] [Prep] B1 E D1 -> E"
+      ]
+    }
+  ]
+}

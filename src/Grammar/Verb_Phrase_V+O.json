@@ -8,16 +8,16 @@
     {
       "commands": [
         "[input] [Grammar:Verify:V+O] $verb B @Caller C",
-        "[input] [Grammar:Verify:Object] C [Verb] $verb @ B -> yes",
-        "[output] [Grammar:Verify:V+O] C @ $verb B -> yes",
-        "[output] [Grammar:V+O:Verb] C @ $verb B -> $verb",
-        "[output] [Grammar:V+O:Object] C @ $verb B -> B"
+        "[output] [Grammar:Verify:Object] B @Caller C [V+O] $verb"
       ]
     },
     {
       "commands": [
-        "[input] [Grammar:Verify:V+O] $verb B @Caller C",
-        "[output] [Grammar:Verify:Object] B @Caller C [Verb] $verb"
+        "[input] [Grammar:Verify:Object] C [V+O] $verb @ B -> yes",
+        "[output] [Grammar:Verify:V+O] C @ $verb B -> yes",
+        "[output] [repo] [SSET] [GA] [Type] $verb B -> V+O",
+        "[output] [repo] [SSET] [GA] [V+O:V] $verb B -> $verb",
+        "[output] [repo] [SSET] [GA] [V+O:O] $verb B -> B"
       ]
     }
   ]

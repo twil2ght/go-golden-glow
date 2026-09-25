@@ -1,19 +1,55 @@
 {
   "data": [
     {
+      "tip": [
+        "[CR] VarLearn 防止询问placeholder期间再触发ticker",
+        "[Ticker] VarLearn 让If也能重置计时"
+      ],
       "commands": [
         "[input] [Res:Done] A @Caller C",
+        "[output] [repo] [SSET] [Ticker] VarLearn -> yes",
         "[output] [ticker] end_learning -> 30 @Caller Hi",
         "[output] [Print] [Res:Done] A @Caller C",
 
         "[input] [ticker:timeout] end_learning",
+        "[output] [repo] [DEL] [Ticker] VarLearn",
+        "[output] [repo] [SSET] [CR] VarLearn -> yes",
         "[output] [TODO:Add] [Common] Susie's learning time is over @Caller Hi"
       ]
     },
     {
       "commands": [
+        "[input] [If:Done] A @Caller C",
+        "[output] [repo] [GET] [Ticker] VarLearn @Caller [If:Done] A",
+
+        "[input] [repo] [If:Done] A @ [Ticker] VarLearn -> yes",
+        "[output] [ticker] end_learning -> 30 @Caller Hi",
+        "[output] [Print] [If:Done] A @Caller A"
+      ]
+    },
+    {
+      "commands": [
         "[input] [Legal] user_1 say : [Resolve:S+VP] A",
-        "[output] [Resolve:S+VP] [H] @ A -> A"
+        "[output] [Resolve:S+VP] [H] @ A -> A",
+
+        "[input] [Legal] user_1 say : # A",
+        "[output] [Resolve:S+VP] [H] @ ` A ` is a placeholder -> ` A ` is a placeholder",
+
+        "[input] [Legal] user_1 say : ! A",
+        "[output] [Resolve:S+VP] [H] @ ` A ` isn't a placeholder -> ` A ` isn't a placeholder",
+
+        "[input] [Legal] user_1 say : [Resolve:VP] A",
+        "[output] [Resolve:VP] [H] @ A -> A",
+
+        "[input] [Legal] user_1 say : [Preload] A",
+        "[output] [GA:S+VP] A @Caller test",
+
+        "[input] [GA:S+VP] test @ A -> yes",
+        "[output] [TODO:Add] [PResolve:S+VP] A @Caller test",
+
+        "[input] [PResolve:S+VP] test @ A -> A1",
+        "[output] [TODO:Add] [Object-Level:Counter:Reset] @Caller test",
+        "[output] [VResolve:S+VP] A1 @Caller test"
       ]
     }
   ]

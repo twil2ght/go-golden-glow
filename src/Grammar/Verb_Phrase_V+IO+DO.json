@@ -18,7 +18,11 @@
         "[input] [Grammar:IO+DO:IndirectObject] C $verb @ B -> F",
         "[input] [Grammar:IO+DO:DirectObject] C $verb @ B -> F1",
         "[output] [Grammar:V+IO+DO:Object] C @ $verb B -> F",
-        "[output] [Grammar:V+IO+DO:DirectObject] C @ $verb B -> F1"
+        "[output] [Grammar:V+IO+DO:DirectObject] C @ $verb B -> F1",
+        "[output] [repo] [SSET] [GA] [Type] $verb B -> V+IO+DO",
+        "[output] [repo] [SSET] [GA] [V+IO+DO:V] $verb B -> $verb",
+        "[output] [repo] [SSET] [GA] [V+IO+DO:IO] $verb B -> F",
+        "[output] [repo] [SSET] [GA] [V+IO+DO:DO] $verb B -> F1"
       ]
     },
     {

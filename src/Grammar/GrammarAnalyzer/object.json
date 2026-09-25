@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:O] A @Caller C",
+        "[output] [Grammar:Verify:Object] A @Caller C",
+
+        "[input] [Grammar:Verify:Object] C @ A -> yes",
+        "[output] [GA:O] C @ A -> yes"
+      ]
+    }
+  ]
+}

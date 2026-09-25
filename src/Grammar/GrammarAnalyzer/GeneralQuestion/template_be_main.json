@@ -1,0 +1,42 @@
+{
+  "name": "BeQMain",
+  "is_template": true,
+  "args": [
+    "$obj"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:BeQMain] A $obj B @Caller C",
+        "[output] [TODO:Add] [GA:P] B @Caller C [BeQMain] A $obj",
+        "[output] [repo] [SSET] [GA] [Target] B -> A $obj B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:P] C [BeQMain] A $obj @ B -> yes",
+        "[output] [repo] [GET] [GA] [Target] B @Caller C [BeQMain] A $obj"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [BeQMain] A $obj @ [GA] [Target] B -> A $obj B",
+        "[output] [TODO:Add] [GA:O] A $obj @Caller C [BeQMainPost] B",
+        "[output] [repo] [SSET] [GA] [Target] A $obj -> A $obj B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:O] C [BeQMainPost] B @ A $obj -> yes",
+        "[output] [repo] [GET] [GA] [Target] A $obj @Caller C [BeQMainPost] B"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [repo] C [BeQMainPost] B @ [GA] [Target] A $obj -> A $obj B",
+        "[output] [repo] [SSET] [GA] [BeQMain:Pre] A $obj B -> A $obj",
+        "[output] [repo] [SSET] [GA] [BeQMain:Post] A $obj B -> B"
+      ]
+    }
+  ]
+}

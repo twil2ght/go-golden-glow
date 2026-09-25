@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [O:Type] A -> Of",
+        "[output] [repo] [GET] [GA] [Of:Pre] A @Caller C [P]",
+
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [Of:Pre] A -> B",
+        "[output] [PResolve:O] B @Caller C [P] [Pre]",
+        "[output] [repo] [GET] [GA] [Of:Post] A @Caller C [P]",
+
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [Of:Pre] A -> B",
+        "[input] [repo] C [P] @ [GA] [Of:Post] A -> D",
+        "[input] [PResolve:O] C [P] [Pre] @ B -> B1",
+        "[input] [Object-Level:Counter:Add:Done] B1 @Caller C [P] [Pre]",
+        "[output] [PResolve:O] D @Caller C [P] [Post]",
+
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [Of:Pre] A -> B",
+        "[input] [repo] C [P] @ [GA] [Of:Post] A -> D",
+        "[input] [PResolve:O] C [P] [Pre] @ B -> B1",
+        "[input] [PResolve:O] C [P] [Post] @ D -> D1",
+        "[output] [repo] [GET] [GA] [Of:Of] A @Caller C [P]",
+
+        "[input] [PResolve:O] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [Of:Pre] A -> B",
+        "[input] [repo] C [P] @ [GA] [Of:Post] A -> D",
+        "[input] [repo] C [P] @ [GA] [Of:Of] A -> E",
+        "[input] [PResolve:O] C [P] [Pre] @ B -> B1",
+        "[input] [PResolve:O] C [P] [Post] @ D -> D1",
+        "[input] [Object-Level:Counter:Add:Done] D1 @Caller C [P] [Post]",
+        "[output] [PResolve:O] C @ A -> B1 E D1",
+        "[output] [repo] [SSET] [GA] [O:Type] B1 E D1 Of",
+        "[output] [repo] [SSET] [GA] [Of:Pre] B1 E D1 -> B1",
+        "[output] [repo] [SSET] [GA] [Of:Of] B1 E D1 -> E",
+        "[output] [repo] [SSET] [GA] [Of:Post] B1 E D1 -> D1"
+      ]
+    }
+  ]
+}

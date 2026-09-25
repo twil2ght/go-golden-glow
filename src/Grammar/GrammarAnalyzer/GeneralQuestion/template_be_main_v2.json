@@ -1,0 +1,22 @@
+{
+  "name": "BeQMain_V2",
+  "is_template": true,
+  "args": [
+    "$obj"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [GA:BeQMain] $obj B @Caller C",
+        "[output] [GA:P] B @Caller C [BeQMain] $obj"
+      ]
+    },
+    {
+      "commands": [
+        "[input] [GA:P] C [BeQMain] $obj @ B -> yes",
+        "[output] [repo] [SSET] [GA] [BeQMain:Pre] $obj B -> $obj",
+        "[output] [repo] [SSET] [GA] [BeQMain:Post] $obj B -> B"
+      ]
+    }
+  ]
+}

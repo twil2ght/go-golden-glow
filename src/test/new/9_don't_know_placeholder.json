@@ -4,11 +4,18 @@
       "commands": [
         "[Learn:Noun] $apple @Caller test",
         "[repo] [SSET] [Variety] $apple -> yes",
-        "[Var:Resolve:S+VerbPhrase] Susie don't ensure $apple @Caller test"
+        "[repo] [SSET] [Units] [Preload] -> yes",
+        "[repo] [SSET] [Units] [Resolve:S+VP] -> yes"
       ],
       "a":[
-        "[Raw] user_1 say : if you don't ensure apple",
-        "[Raw] user_1 say : say : I don't ensure apple",
+        "[Preload] Susie can't confirm $apple as a placeholder",
+
+        "Susie brain-find $apple is $a-noun",
+        "$apple is $a-noun",
+        "Susie don't brain-find $apple",
+
+        "[Raw] user_1 say : if you can't confirm apple as a placeholder",
+        "[Raw] user_1 say : say : I can't confirm apple as a placeholder",
         "[VarietyLearning] @Caller Test",
         "[VariableTemplateGen] @Caller Test",
         "[Var:Learning:Reset] @Caller Test"

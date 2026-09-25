@@ -1,0 +1,34 @@
+{
+  "dependencies": [
+    "pronoun_resolver_VP"
+  ],
+  "data": [
+    {
+      "commands": [
+        "[input] [PResolve:S+VP] A @Caller C",
+        "[output] [repo] [GET] [GA] [S+VP:S] A @Caller C [P]",
+
+        "[input] [PResolve:S+VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [S+VP:S] A -> B",
+        "[output] [PResolve:O] B @Caller C [P] [S+VP] A",
+        "[output] [repo] [GET] [GA] [S+VP:VP] A @Caller C [P]",
+
+        "[input] [PResolve:S+VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [S+VP:S] A -> B",
+        "[input] [repo] C [P] @ [GA] [S+VP:VP] A -> D",
+        "[input] [PResolve:O] C [P] [S+VP] A @ B -> B1",
+        "[output] [PResolve:VP] D @Caller C [P] [S+VP] A",
+
+        "[input] [PResolve:S+VP] A @Caller C",
+        "[input] [repo] C [P] @ [GA] [S+VP:S] A -> B",
+        "[input] [repo] C [P] @ [GA] [S+VP:VP] A -> D",
+        "[input] [PResolve:O] C [P] [S+VP] A @ B -> B1",
+        "[input] [PResolve:VP] C [P] [S+VP] A @ D -> D1",
+        "[input] [Object-Level:Counter:Add:Done] D1 @Caller C [P] [S+VP] A",
+        "[output] [PResolve:S+VP] C @ A -> B1 D1",
+        "[output] [repo] [SSET] [GA] [S+VP:S] B1 D1 -> B1",
+        "[output] [repo] [SSET] [GA] [S+VP:VP] B1 D1 -> D1"
+      ]
+    }
+  ]
+}
